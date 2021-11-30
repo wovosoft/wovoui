@@ -35,37 +35,57 @@ export default {
     },
     setup(props) {
         const shown = ref(false);
-        const classes = computed(() => {
-            let dir = "top";
-
-            if (['auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end'].includes(props.placement)) {
-                dir = "top";
-            } else if (['bottom', 'bottom-start', 'bottom-end'].includes(props.placement)) {
-                dir = "bottom";
-            } else if (['right', 'right-start', 'right-end'].includes(props.placement)) {
-                dir = "end";
-            } else if (['left', 'left-start', 'left-end'].includes(props.placement)) {
-                dir = "start";
+        const bsDir = (placement) => {
+            if (['auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end'].includes(placement)) {
+                return "top";
+            } else if (['bottom', 'bottom-start', 'bottom-end'].includes(placement)) {
+                return "bottom";
+            } else if (['right', 'right-start', 'right-end'].includes(placement)) {
+                return "end";
+            } else if (['left', 'left-start', 'left-end'].includes(placement)) {
+                return "start";
             }
+            return "top";
+        }
+        const dir = ref("top");
+        dir.value = bsDir(props.placement);
+        const classes = computed(() => {
             return [
                 "popover",
                 "fade",
                 {
                     show: shown.value,
-                    ["bs-popover-" + dir]: !!dir
+                    ["bs-popover-" + dir.value]: !!dir.value
                 }
             ]
         });
         const events = computed(() => {
             return typeof props.triggers === "string" ? [props.triggers] : props.triggers;
         });
+        const topLogger = {
+            name: 'topLogger',
+            enabled: true,
+            phase: 'main',
+            fn({state}) {
+                // console.log(state.placement)
+                dir.value = bsDir(state.placement)
+                // if (state.placement === 'top') {
+                //     console.log('Popper is on the top');
+                // }
+            },
+        };
         const popperOptions = computed(() => ({
             placement: ['auto', 'auto-start', 'auto-end'].includes(props.placement) ? 'top' : props.placement,
             modifiers: [
+                topLogger,
                 {
                     name: 'offset',
+                    enabled: true,
                     options: {
-                        offset: [0, 10],
+                        offset: (d) => {
+                            // console.log(d)
+                            return [0, 10]
+                        },
                     },
                 },
             ],
@@ -88,10 +108,12 @@ export default {
             this.$nextTick(() => {
                 if (value) {
                     this.initPopper();
+                    let the = this;
+                    setTimeout(() => document.addEventListener("click", the.clickOutside), 0);
                 } else {
                     this.destroyPopper();
                 }
-            })
+            });
         }
     },
     mounted() {
@@ -114,6 +136,14 @@ export default {
                 this.$refs.popover,
                 this.popperOptions
             );
+        },
+        clickOutside(e) {
+            let isTarget = document.getElementById(this.target).isSameNode(e.target);
+            let isFromPopover = this.$refs.popover && (this.$refs.popover.isSameNode(e.target) || this.$refs.popover.contains(e.target));
+            if (this.shown && !isTarget && !isFromPopover) {
+                this.shown = false;
+                document.removeEventListener("click", this.clickOutside);
+            }
         }
     }
 }

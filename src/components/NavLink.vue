@@ -1,7 +1,7 @@
 <template>
-    <a :class="classes" v-bind="linkAttributes">
+    <component :is="tag" :class="classes" v-bind="linkAttributes">
         <slot></slot>
-    </a>
+    </component>
 </template>
 
 <script>
@@ -15,7 +15,8 @@ export default {
         active: makeBoolean(false),
         disabled: makeBoolean(false),
         href: makeString("#"),
-        target: makeString("_self")
+        target: makeString("_self"),
+        tag: makeString("a")
     },
     setup(props) {
         const classes = computed(() => {
@@ -29,9 +30,9 @@ export default {
         });
         const linkAttributes = computed(() => {
             return {
-                href: !props.disabled ? props.href : null,
+                href: props.tag === "a" ? props.href : null,
                 ariaCurrent: props.ariaCurrent,
-                target: props.target
+                target: props.target === "a" ? props.target : null
             }
         })
         return {

@@ -16,6 +16,7 @@ import DemoNavs from "./demos/DemoNavs.vue";
 import DemoNavbar from "./demos/DemoNavbar.vue";
 import DemoOffCanvas from "./demos/DemoOffCanvas.vue";
 import DemoPopover from "./demos/DemoPopover.vue";
+import DemoTabs from "./demos/DemoTabs.vue";
 </script>
 
 <template>
@@ -79,6 +80,7 @@ import DemoPopover from "./demos/DemoPopover.vue";
     <DemoNavbar/>
     <DemoOffCanvas/>
     <DemoPopover/>
+    <DemoTabs/>
 </template>
 
 <style>

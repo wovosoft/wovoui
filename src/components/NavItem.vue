@@ -1,6 +1,7 @@
 <template>
     <component :is="tag" :class="classes" v-bind="attributes">
         <NavLink
+            :tag="linkTag"
             :href="href"
             :active="active"
             :disabled="disabled"
@@ -20,6 +21,7 @@ export default {
     components: {NavLink},
     props: {
         tag: makeString("li"),
+        linkTag: makeString("a"),
         ariaCurrent: makeString(null),
         href: makeString("#"),
         active: makeBoolean(false),
