@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {isBoolean, make, makeString} from "../shared/properties.js";
+import {make, makeString} from "../shared/properties.js";
 import {reactive} from "vue";
 
 export default {

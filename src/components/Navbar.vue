@@ -35,7 +35,7 @@ export default {
         toggleable: make([Boolean, String], false),
         sticky: makeBoolean(false),
         print: makeBoolean(false),
-        fixed: makeString(false)
+        fixed: make([Boolean, String], false)
     },
     setup(props) {
         const classes = computed(() => {

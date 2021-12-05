@@ -1,20 +1,51 @@
 {
-  "name": "wovoui",
-  "version": "0.0.0",
+  "name": "@wovoui/wovoui",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.1.3",
     "vue": "^3.2.16",
+    "vue-prism-editor": "^2.0.0-alpha.2",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.4.7",
+    "@storybook/addon-essentials": "^6.4.7",
+    "@storybook/addon-links": "^6.4.7",
+    "@storybook/vue3": "^6.4.7",
     "@vitejs/plugin-vue": "^1.9.3",
     "@vitejs/plugin-vue-jsx": "^1.3.0",
-    "vite": "^2.6.4"
-  }
+    "babel-loader": "^8.2.3",
+    "vite": "^2.6.4",
+    "vue-loader": "^16.8.3"
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wovosoft/wovoui.git"
+  },
+  "keywords": [
+    "Bootstrap",
+    "5",
+    "Vue",
+    "3",
+    "Design",
+    "Libray"
+  ],
+  "author": "Narayan Adhikary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wovosoft/wovoui/issues"
+  },
+  "homepage": "https://github.com/wovosoft/wovoui#readme"
 }

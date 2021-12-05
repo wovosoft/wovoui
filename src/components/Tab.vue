@@ -1,68 +1,50 @@
 <template>
-    <teleport :to="'#'+tabMenuId" v-if="isMounted">
-        <NavItem link-tag="button"
-                 role="presentation"
-                 @click="updateState"
-                 :active="active">
-            {{ title }}{{active}}
-        </NavItem>
-    </teleport>
     <div :class="classes">
         <slot></slot>
     </div>
 </template>
-
 <script>
-import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {ref} from "vue";
-import NavItem from "./NavItem.vue";
+import {makeBoolean, makeString} from "../shared/properties.js";
+import {computed, ref, watch} from "vue";
 
 export default {
-    name: "Tab",
-    components: {NavItem},
-    inject: ["tabMenuId", "updateTabIndex"],
+    emits: ['update:active'],
     props: {
         active: makeBoolean(false),
-        buttonId: makeString(),
-        disabled: makeBoolean(false),
-        id: makeString(),
-        lazy: makeBoolean(false),
-        noBody: makeBoolean(false),
-        tag: makeString("div"),
-        title: makeString(),
-        titleItemClass: make([Array, String, Object], null),
-        titleLinkClass: make([Array, String, Object], null),
-        modelValue: makeBoolean(false)  //active or inactive state
+        title: makeString()
     },
+    inject: ['registerTab', 'unregisterTab'],
     setup(props, context) {
-        const shown = ref(props.active);
+        const visible = ref(props.active);
+        watch(() => props.active, (value) => visible.value = value);
         return {
-            shown,
-            isMounted: ref(false),
+            classes: computed(() => ["tab-pane", "fade"]),
+            updateVisible: (value) => visible.value = value,
+            visible
         }
     },
     mounted() {
-        this.isMounted = true;
+        this.registerTab(this);
+        this.applyVisibility(this.visible);
     },
-    computed: {
-        classes() {
-            return [
-                "tab-pane",
-                "fade",
-                {
-                    active: this.shown,
-                    show: this.shown
-                }
-            ]
+    unmounted() {
+        this.unregisterTab(this);
+    },
+    watch: {
+        visible(value) {
+            this.$emit('update:active', value);
+            this.applyVisibility(value);
         }
     },
     methods: {
-        updateState(e) {
-            let menuItems = this.$parent.$el.querySelectorAll(".nav-tabs>.nav-item");
-            let target = e.target.parentNode;
-            let index = [...menuItems].indexOf(target);
-            this.shown = true;
-            this.updateTabIndex(index)
+        applyVisibility(value) {
+            if (value) {
+                this.$el.classList.add("active");
+                setTimeout(() => this.$el.classList.add("show"), 150)
+            } else {
+                this.$el.classList.remove("show");
+                setTimeout(() => this.$el.classList.remove("active"), 0)
+            }
         }
     }
 }

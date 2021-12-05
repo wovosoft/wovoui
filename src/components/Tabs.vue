@@ -1,66 +1,84 @@
 <template>
-    <div :class="classes" :id="id">
-        <div class="tabs-header" v-if="$slots.header">
-            <slot name="header"></slot>
+    <div :class="classes">
+        <div class="tab-content" v-if="end">
+            <slot></slot>
         </div>
-        <Nav tabs :id="tabMenuId" role="tablist"></Nav>
-        <div :class="contentClasses" :id="contentId">
+        <div :class="{'card-header':card}">
+            <Nav :tabs="true"
+                 :pills="pills"
+                 :fill="fill"
+                 :justified="justified"
+                 :align="align"
+                 :vertical="vertical"
+                 :class="{'card-header-pills':pills}">
+                <NavItem
+                    role="presentation"
+                    v-for="(tab,tab_index) in tabsMap"
+                    :key="tab_index"
+                    tag="li"
+                    :active="tab_index===modelValue"
+                    @click="$emit('update:modelValue', tab_index)"
+                    link-tag="button">
+                    {{ tab.title }}
+                </NavItem>
+            </Nav>
+        </div>
+        <div class="tab-content" v-if="!end">
             <slot></slot>
         </div>
     </div>
 </template>
-
 <script>
-import {make, makeBoolean, makeNumber, makeString} from "../shared/properties.js";
-import {computed} from "vue";
+import {makeBoolean, makeNumber, makeString} from "../shared/properties.js";
+import {ref, watch, provide, computed} from "vue";
 import Nav from "./Nav.vue";
+import NavItem from "./NavItem.vue";
 
 export default {
-    name: "Tabs",
-    components: {Nav},
+    emits: ['update:modelValue'],
+    components: {NavItem, Nav},
     props: {
+        modelValue: makeNumber(0),
         card: makeBoolean(false),
-        align: makeString(),
-        contentClass: make([Array, String], null),
-        end: makeBoolean(false),
-        fill: makeBoolean(false),
-        id: makeString(),
-        contentId: makeString(),
-        lazy: makeBoolean(false),
-        navClass: make([Array, String], null),
-        navWrapperClass: make([Array, String], null),
-        noFade: makeBoolean(false),
-        noNavStyle: makeBoolean(false),
         pills: makeBoolean(false),
-        small: makeBoolean(false),
-        modelValue: makeNumber(0),  //index of active tab
+        fill: makeBoolean(false),
+        justified: makeBoolean(false),
+        align: makeString(),
+        end: makeBoolean(false),
         vertical: makeBoolean(false)
     },
-    setup(props) {
-        const classes = computed(() => {
-            return []
-        });
-        const contentClasses = computed(() => {
-            return [
-                "tab-content"
-            ]
-        });
-        const tabMenuId = computed(() => {
-            return props.id + "_tab_menu_id_" + Math.round(Date.now() * Math.random());
-        })
-        return {
-            classes,
-            contentClasses,
-            tabMenuId
-        }
-    },
-    provide() {
-        return {
-            tabMenuId: this.tabMenuId,
-            updateTabIndex: (index) => {
-                console.log(index)
-                this.$emit("update:modelValue", index);
+    setup(props, context) {
+        const tabsMap = ref([]);
+        provide('registerTab', (tab) => {
+            let index = tabsMap.value.indexOf(tab);
+            if (index < 0) {
+                tabsMap.value.push(tab);
+            } else {
+                tabsMap.value[index] = tab;
             }
+        });
+        provide('unregisterTab', (tab) => {
+            let index = tabsMap.value.indexOf(tab);
+            if (index > -1) {
+                tabsMap.value.splice(index, 1);
+            }
+        });
+
+        watch(() => props.modelValue, (value) => {
+            tabsMap.value.filter((tab) => tab.visible).forEach(tab => tab.visible = false);
+            tabsMap.value[value].updateVisible(true)
+            // tabsMap.value.forEach((tab, index) => tab.updateVisible(value === index));
+        });
+
+        return {
+            tabsMap,
+            classes: computed(() => {
+                return {
+                    card: props.card,
+                    'd-flex': props.vertical,
+                    'align-items-start': props.vertical
+                }
+            })
         }
     }
 }
