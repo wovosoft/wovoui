@@ -2,6 +2,7 @@ import {createApp} from 'vue'
 import {createRouter, createWebHashHistory} from "vue-router";
 import App from './App.vue'
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const routes = [
     {
@@ -36,10 +37,11 @@ app.use(router)
 
 import "highlight.js/styles/github.css"
 import hljs from 'highlight.js/lib/core';
-// import javascript from 'highlight.js/lib/languages/javascript';
+import javascript from 'highlight.js/lib/languages/javascript';
 import xml from 'highlight.js/lib/languages/xml';
 import hljsVuePlugin from "@highlightjs/vue-plugin";
-// hljs.registerLanguage('javascript', javascript);
+
+hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('xml', xml);
 app.use(hljsVuePlugin)
 

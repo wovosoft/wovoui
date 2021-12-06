@@ -16,8 +16,8 @@
                     v-for="(tab,tab_index) in tabsMap"
                     :key="tab_index"
                     tag="li"
-                    :active="tab_index===modelValue"
-                    @click="$emit('update:modelValue', tab_index)"
+                    :active="tab_index===active"
+                    @click="active=tab_index"
                     link-tag="button">
                     {{ tab.title }}
                 </NavItem>
@@ -49,6 +49,7 @@ export default {
     },
     setup(props, context) {
         const tabsMap = ref([]);
+
         provide('registerTab', (tab) => {
             let index = tabsMap.value.indexOf(tab);
             if (index < 0) {
@@ -63,8 +64,11 @@ export default {
                 tabsMap.value.splice(index, 1);
             }
         });
+        const active = ref(props.modelValue);
 
-        watch(() => props.modelValue, (value) => {
+        watch(() => props.modelValue, value => active.value = value);
+        watch(active, value => {
+            context.emit('update:modelValue', value);
             tabsMap.value.filter((tab) => tab.visible).forEach(tab => tab.visible = false);
             tabsMap.value[value].updateVisible(true)
             // tabsMap.value.forEach((tab, index) => tab.updateVisible(value === index));
@@ -78,7 +82,8 @@ export default {
                     'd-flex': props.vertical,
                     'align-items-start': props.vertical
                 }
-            })
+            }),
+            active
         }
     }
 }

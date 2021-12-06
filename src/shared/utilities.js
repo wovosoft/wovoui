@@ -1,3 +1,5 @@
+import {startCase, toLower} from "lodash";
+
 export const useBg = () => {
     return {
         prop: {
@@ -78,3 +80,6 @@ export const toggleCollapse = (container, shown, dim = "height", /*shouldRenderH
         setTimeout(() => container.style[dim] = "0px", 0);
     }
 }
+export const isObject = (obj) => typeof obj === "object" && !Array.isArray(obj);
+export const isArray = (arr) => Array.isArray(arr);
+export const title = (str) => startCase(toLower(str));
