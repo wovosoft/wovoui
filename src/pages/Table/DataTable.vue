@@ -181,8 +181,32 @@
         </Tab>
     </Tabs>
     <h2>Sorting By Column</h2>
-    <TheDatatable :items="items2" :fields="fieldsSortable">
-
+    <Input v-model="filter" type="search"/>
+    {{ selectedRows }}
+    <br/>
+    <ButtonGroup size="sm">
+        <Button @click="$refs.thedata?.selectAllRows()">Select All</Button>
+        <Button @click="$refs.thedata?.unselectAllRows()">Unselect All</Button>
+    </ButtonGroup>
+    <TheDatatable
+        ref="thedata"
+        v-model:filter="filter"
+        v-model:selected-rows="selectedRows"
+        :items="items2"
+        :fields="fieldsSortable">
+        <template #head(select)="{selectAllRows,unselectAllRows,selectedAllRows}">
+            <div style="padding-left: 7px;">
+                <Checkbox
+                    :checked="selectedAllRows"
+                    style="min-height: auto;"
+                    @checked="selectAllRows"
+                    @unchecked="unselectAllRows"
+                />
+            </div>
+        </template>
+        <template #cell(select)="row">
+            <Checkbox :value="row.item" v-model="selectedRows"/>
+        </template>
     </TheDatatable>
 </template>
 
@@ -194,10 +218,18 @@ import Row from "../../components/Row.vue";
 import Col from "../../components/Col.vue";
 import Tabs from "../../components/Tabs.vue";
 import Tab from "../../components/Tab.vue";
+import Input from "../../components/Input.vue";
+import Checkbox from "../../components/Checkbox.vue";
+import Button from "../../components/Button.vue";
+import ButtonGroup from "../../components/ButtonGroup.vue";
 
 export default {
     name: "DataTable",
     components: {
+        ButtonGroup,
+        Button,
+        Checkbox,
+        Input,
         Tab,
         Tabs,
         Col,
@@ -226,6 +258,7 @@ export default {
             {key: 'age', formatter: v => v.age},
         ]);
         const fieldsSortable = reactive([
+            {key: 'select', label: 'select', sortable: false},
             {key: 'id', label: 'ID', sortable: true},
             {key: 'name', sortable: true},
             {key: 'age', sortable: true, formatter: v => v.age},
@@ -250,7 +283,9 @@ export default {
             items1,
             items2,
             fieldsObject,
-            fieldsSortable
+            fieldsSortable,
+            filter: ref(null),
+            selectedRows: ref([])
         }
     }
 }

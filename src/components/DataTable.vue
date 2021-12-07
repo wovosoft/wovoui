@@ -3,14 +3,18 @@
         <THead>
         <Th v-for="(th,th_index) in fields"
             @click="applySorting(th)"
-            :style="{'cursor':th.sortable===true?'pointer':'default'}"
+            :style="{'cursor':th.sortable===true?'pointer':null}"
             :key="th_index">
             <slot :name="'head('+th.key+')'"
                   :column="th.key"
                   :field="th"
                   :index="th_index"
                   :label="getLabel(th)"
-                  :selectedAllRows="false">
+                  :sortBy="sorting.sortBy"
+                  :sort="sorting.sort"
+                  :unselectAllRows="unselectAllRows"
+                  :selectAllRows="selectAllRows"
+                  :selectedAllRows="selectedAllRows">
                 {{ getLabel(th) }}
             </slot>
             <template v-if="typeof th==='object'&& th.sortable===true">
@@ -27,6 +31,10 @@
                       :field="th"
                       :rowSelected="false"
                       :detailsShowing="false"
+                      :sortBy="sorting.sortBy"
+                      :sort="sorting.sort"
+                      :selectRow="selectRow"
+                      :selectedRows="selectedRows"
                       :value="getValue(row,th,th_index)">
                     {{ getValue(row, th, th_index) }}
                 </slot>
@@ -38,7 +46,7 @@
 
 <script>
 import {computed, defineComponent, reactive, ref} from "vue";
-import {make} from "../shared/properties.js";
+import {make, makeString} from "../shared/properties.js";
 import Table from "./Table.vue";
 import tableProps from "../shared/tableProps.js";
 import THead from "./THead.vue";
@@ -53,13 +61,16 @@ import Icon from "./Icon.vue";
 
 export default defineComponent({
     name: "DataTable",
+    emits: ['update:selectedRows'],
     components: {Icon, Tr, TBody, Th, Td, THead, Table},
     props: {
         ...tableProps,
+        selectedRows: make(Array, []),
+        filter: makeString(null),
         fields: make(Array, []),
-        items: make(Array, [])
+        items: make([Array, Promise, Function], [])
     },
-    setup(props) {
+    setup(props, context) {
         props = reactive(props);
 
         const sorting = ref({
@@ -75,7 +86,6 @@ export default defineComponent({
                     sorting.value.sortBy = th.key;
                     sorting.value.sort = sorting.value.sort === 'asc' ? 'desc' : 'asc';
                 }
-                console.log(sorting.value)
             }
         };
         const classes = computed(() => {
@@ -94,6 +104,18 @@ export default defineComponent({
             }
             return th;
         };
+        const filterableColumns = computed(() => {
+            let cols = [];
+            props.fields.forEach(i => {
+                if (typeof i === "string") {
+                    cols.push(i);
+                } else if (isObject(i) && i.sortable !== false) {
+                    cols.push(getKey(i))
+                }
+            });
+            return cols;
+        });
+
         const getValue = (row, th, th_index) => {
             let key = getKey(th);
             if (isObject(th)) {
@@ -112,10 +134,25 @@ export default defineComponent({
             }
             return th;
         };
+
         const itemsSorted = computed(() => {
             if (sorting.value.sortBy) {
                 return orderBy(props.items, sorting.value.sortBy, sorting.value.sort);
             }
+            if (Array.isArray(props.items)) {
+                if (filterableColumns.value.length && props.filter) {
+                    return props.items.filter(row => {
+                        if (Array.isArray(row)) {
+
+                        } else if (isObject(row)) {
+                            return filterableColumns.value.reduce((cond, col) => cond || row[col].toString().search(props.filter) > -1, false)
+                        }
+                        return true;
+                    });
+                }
+                return props.items;
+            }
+            //do something else for Promises and Functions
             return props.items;
         });
 
@@ -123,6 +160,15 @@ export default defineComponent({
             sorting.value.sortBy = null;
             sorting.value.sort = null;
         }
+
+        const selectRow = (row) => {
+            // if (!selectedRows.value.includes(row)) {
+            //     selectedRows.value.push(row);
+            // }
+        };
+        const unselectAllRows = () => context.emit('update:selectedRows', []);
+        const selectAllRows = () => context.emit('update:selectedRows', itemsSorted.value);
+        const selectedAllRows = computed(() => itemsSorted.value.length === props.selectedRows.length);
         return {
             classes,
             otherProps,
@@ -132,7 +178,12 @@ export default defineComponent({
             sorting,
             applySorting,
             itemsSorted,
-            clearSorting
+            clearSorting,
+            filterableColumns,
+            selectRow,
+            selectAllRows,
+            unselectAllRows,
+            selectedAllRows
         }
     }
 })

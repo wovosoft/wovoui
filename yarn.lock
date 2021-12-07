@@ -3770,6 +3770,11 @@
   "resolved" "https://registry.npmjs.org/collapse-white-space/-/collapse-white-space-1.0.6.tgz"
   "version" "1.0.6"
 
+"collect.js@^4.29.3":
+  "integrity" "sha512-/6idZ7r3B25Q4cForbiHJ7+aqupcgMEtrKRn9D3viCbLw+YuNFjd23HwDH89Y2cU4jlhkwksD80nZFKtNE25Gw=="
+  "resolved" "https://registry.npmjs.org/collect.js/-/collect.js-4.29.3.tgz"
+  "version" "4.29.3"
+
 "collection-visit@^1.0.0":
   "integrity" "sha1-S8A3PBZLwykbTTaMgpzxqApZ3KA="
   "resolved" "https://registry.npmjs.org/collection-visit/-/collection-visit-1.0.0.tgz"
