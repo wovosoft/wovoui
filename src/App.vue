@@ -7,11 +7,11 @@
             <Col style="max-width: 300px;padding-top: 5px;">
                 <ListGroup>
                     <ListGroupItem
+                        exact-active-class="active"
                         v-for="(r,rk) in $router.getRoutes()"
+                        :to="{name:r.name}"
                         :key="rk">
-                        <router-link :to="{name:r.name}">
-                            {{ r.name }}
-                        </router-link>
+                        {{ r.name }}
                     </ListGroupItem>
                 </ListGroup>
             </Col>
@@ -43,4 +43,8 @@ body {
     margin: 0 !important;
     padding: 0 !important;
 }
+
+/*.list-group-item a {*/
+/*    text-decoration: none;*/
+/*}*/
 </style>

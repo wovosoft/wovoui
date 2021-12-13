@@ -11,9 +11,24 @@ const routes = [
         component: () => import("./pages/Index.vue")
     },
     {
+        name: 'Badges',
+        path: '/badges',
+        component: () => import("./pages/Badges/Index.vue")
+    },
+    {
+        name: 'Breadcrumbs',
+        path: '/breadcrumbs',
+        component: () => import("./pages/Breadcrumbs/Index.vue")
+    },
+    {
         name: 'Buttons',
         path: '/buttons',
         component: () => import("./pages/Buttons/Buttons.vue")
+    },
+    {
+        name: 'Button Groups',
+        path: '/button-groups',
+        component: () => import("./pages/Buttons/Groups.vue")
     },
     {
         name: 'Table',
@@ -39,11 +54,12 @@ import "highlight.js/styles/github.css"
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import xml from 'highlight.js/lib/languages/xml';
-import hljsVuePlugin from "@highlightjs/vue-plugin";
+import hljsVuePlugin from "@highlightjs/vue-plugin/src/vue";
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('xml', xml);
 app.use(hljsVuePlugin)
+
 
 //
 // import { PrismEditor } from 'vue-prism-editor';

@@ -1,5 +1,21 @@
 <template>
-    <div :class="classes">
+    <template v-if="button">
+        <input class="btn-check"
+               @change="valueChanged"
+               :required="required"
+               :readonly="readonly"
+               :disabled="disabled"
+               :name="name"
+               type="checkbox"
+               v-model="model"
+               :value="value"
+               v-bind="inputAttrs"
+               :id="identifier"/>
+        <label v-if="$slots.default" :class="btnClass" :for="identifier">
+            <slot></slot>
+        </label>
+    </template>
+    <div :class="classes" v-else>
         <input class="form-check-input"
                @change="valueChanged"
                :required="required"
@@ -41,7 +57,13 @@ export default {
             default: false
         },
         switch: makeBoolean(false),
-        checked: makeBoolean(false)
+
+        //applies when it is button
+        button: makeBoolean(false),
+        variant: makeString('primary'),
+        outline: makeBoolean(true),
+
+        checked: makeBoolean(false),
     },
     setup(props, context) {
         const identifier = ref(null);
@@ -73,19 +95,36 @@ export default {
 
         watch(() => props.modelValue, value => model.value = value);
         watch(model, value => context.emit('update:modelValue', value));
-        watch(() => props.checked, value => {
-            if (value) {
-                context.emit('update:modelValue', props.value);
-            } else {
-                context.emit('update:modelValue', props.uncheckedValue);
+
+
+        const btnClass = computed(() => [
+            "btn",
+            {
+                ["btn-" + (props.outline ? 'outline-' : '') + props.variant]: props.variant
             }
-        });
+        ]);
         return {
             identifier,
             model,
             classes,
+            btnClass,
             inputAttrs,
             valueChanged
+        }
+    },
+    watch: {
+        checked(value) {
+            if (value) {
+                this.$emit('update:modelValue', this.value);
+                if (!this.$el.querySelector("input").checked) {
+                    this.$el.querySelector("input").checked = true;
+                }
+            } else {
+                this.$emit('update:modelValue', this.uncheckedValue);
+                if (this.$el.querySelector("input").checked) {
+                    this.$el.querySelector("input").checked = false;
+                }
+            }
         }
     }
 }
