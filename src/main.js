@@ -4,43 +4,8 @@ import App from './App.vue'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-const routes = [
-    {
-        name: 'Index',
-        path: '/',
-        component: () => import("./pages/Index.vue")
-    },
-    {
-        name: 'Badges',
-        path: '/badges',
-        component: () => import("./pages/Badges/Index.vue")
-    },
-    {
-        name: 'Breadcrumbs',
-        path: '/breadcrumbs',
-        component: () => import("./pages/Breadcrumbs/Index.vue")
-    },
-    {
-        name: 'Buttons',
-        path: '/buttons',
-        component: () => import("./pages/Buttons/Buttons.vue")
-    },
-    {
-        name: 'Button Groups',
-        path: '/button-groups',
-        component: () => import("./pages/Buttons/Groups.vue")
-    },
-    {
-        name: 'Table',
-        path: '/table',
-        component: () => import("./pages/Table/Table.vue")
-    },
-    {
-        name: 'Datatable',
-        path: '/datatable',
-        component: () => import("./pages/Table/DataTable.vue")
-    },
-]
+import routes from "./routes.js";
+
 const router = createRouter({
     history: createWebHashHistory(),
     routes
