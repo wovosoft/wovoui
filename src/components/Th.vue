@@ -1,5 +1,5 @@
 <template>
-    <th :class="classes">
+    <th :class="classes" scope="col">
         <slot></slot>
     </th>
 </template>

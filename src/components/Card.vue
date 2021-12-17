@@ -94,6 +94,7 @@ export default {
         tag: makeString("div"),
 
         textVariant: makeString(),
+        borderVariant: makeString(),
         title: makeString(),
         titleTag: makeString("h4"),
     },
@@ -104,10 +105,11 @@ export default {
                 "flex-row": props.imgLeft || props.imgStart,
                 "flex-row-reverse": props.imgRight || props.imgEnd,
                 ["bg-" + props.bgVariant]: props.bgVariant,
-                ["text-" + props.textVariant]: props.textVariant
+                ["text-" + props.textVariant]: props.textVariant,
+                ["border-" + props.borderVariant]: props.borderVariant
             }
         ]);
-        let cardImageBindings = reactive({
+        let cardImageBindings = computed(() => ({
             alt: props.imgAlt,
             bottom: props.imgBottom,
             end: props.imgEnd,
@@ -121,8 +123,8 @@ export default {
             class: {
                 "card-img": props.overlay
             }
-        });
-        let cardBodyBindings = reactive({
+        }));
+        let cardBodyBindings = computed(() => ({
             tag: props.bodyTag,
             variant: props.bodyBgVariant,
             borderVariant: props.bodyBorderVariant,
@@ -134,7 +136,7 @@ export default {
             subTitle: props.subTitle,
             subTitleTag: props.subTitleTag,
             subTitleTextVariant: props.subTitleTextVariant
-        })
+        }));
         return {
             classes,
             cardImageBindings,
@@ -146,7 +148,7 @@ export default {
 <style>
 @media (min-width: 576px) {
     .card-deck {
-        display:flex;
+        display: flex;
         flex-flow: row wrap;
     }
 
@@ -156,11 +158,36 @@ export default {
         margin-bottom: 0;
         margin-left: 15px
     }
-    .card-deck .card:first-child{
+
+    .card-deck .card:first-child {
         margin-left: 0;
     }
-    .card-deck .card:last-child{
+
+    .card-deck .card:last-child {
         margin-right: 0;
     }
 }
+.card-columns .card {
+    margin-bottom: .75rem
+}
+
+@media (min-width: 576px) {
+    .card-columns {
+        -webkit-column-count:3;
+        -moz-column-count: 3;
+        column-count: 3;
+        -webkit-column-gap: 1.25rem;
+        -moz-column-gap: 1.25rem;
+        grid-column-gap: 1.25rem;
+        column-gap: 1.25rem;
+        orphans: 1;
+        widows: 1
+    }
+
+    .card-columns .card {
+        display: inline-block;
+        width: 100%
+    }
+}
+
 </style>

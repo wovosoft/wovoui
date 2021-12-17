@@ -35,6 +35,21 @@ export default [
         component: () => import("./pages/Cards/Index.vue")
     },
     {
+        name: 'Collapse',
+        path: '/collapse',
+        component: () => import("./pages/Collapse/Index.vue")
+    },
+    {
+        name: 'Dropdown',
+        path: '/dropdown',
+        component: () => import("./pages/Dropdown/Index.vue")
+    },
+    {
+        name: 'Input',
+        path: '/form-input',
+        component: () => import("./pages/Form/FormInput.vue")
+    },
+    {
         name: 'Table',
         path: '/table',
         component: () => import("./pages/Table/Table.vue")

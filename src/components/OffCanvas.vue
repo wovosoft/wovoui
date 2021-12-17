@@ -8,6 +8,8 @@
             :tabindex="tabIndex"
             :aria-labelledby="id">
             <OffCanvasHeader
+                :style="headerStyle"
+                :class="headerClass"
                 v-model="shown"
                 v-if="$slots.header||header"
                 :title="title">
@@ -28,7 +30,7 @@
 </template>
 
 <script>
-import {makeBoolean, makeNumber, makeString} from "../shared/properties.js";
+import {make, makeBoolean, makeNumber, makeString} from "../shared/properties.js";
 import {ref} from "vue";
 import ButtonClose from "./ButtonClose.vue";
 import OffCanvasHeader from "./OffCanvasHeader.vue";
@@ -44,9 +46,11 @@ export default {
         modelValue: makeBoolean(false),
         placement: makeString("start"),
         header: makeString(),
+        headerClass: make([Array, Object, String], null),
+        headerStyle: make([Object, String], null),
         title: makeString(),
         tag: makeString("div"),
-        backdrop: makeBoolean(true)
+        backdrop: makeBoolean(true),
     },
     setup(props) {
         const shown = ref(false);

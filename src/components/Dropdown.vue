@@ -1,6 +1,16 @@
 <template>
     <component :is="tag" :class="classes">
         <Button
+            v-if="split"
+            :disabled="disabled"
+            :variant="splitVariant"
+            :block="block"
+            :size="size">
+            <slot name="button-content">
+                {{ text }}
+            </slot>
+        </Button>
+        <Button
             ref="toggle"
             :tag="toggleTag"
             :block="block"
@@ -8,10 +18,13 @@
             :variant="variant"
             :size="size"
             class="dropdown-toggle"
-            :class="{'show':shouldOpen}"
+            :class="{'show':shouldOpen,'dropdown-toggle-split':split}"
             @click="shouldOpen=!shouldOpen"
             :aria-expanded="toggleAriaExpanded">
-            {{ text }}
+            <slot name="button-content">
+                <span class="visually-hidden" v-if="split">Toggle Dropdown</span>
+                <template v-else>{{ text }}</template>
+            </slot>
         </Button>
         <DropdownMenu
             ref="menu"
@@ -23,33 +36,32 @@
         </DropdownMenu>
     </component>
 </template>
-<script setup>
-import Button from "./Button.vue";
-import DropdownMenu from "./DropdownMenu.vue";
-import dropdownProps from "../shared/dropdownProps.js";
 
-const props = defineProps(dropdownProps);
-
-</script>
 <script>
 import {createPopper} from '@popperjs/core';
+import dropdownProps from "../shared/dropdownProps.js";
+import Button from "./Button.vue";
+import DropdownMenu from "./DropdownMenu.vue";
+import {computed} from "vue";
 
 export default {
     name: "Dropdown",
-    computed: {
-        classes() {
-            return [
-                "dropdown",
+    components: {Button, DropdownMenu},
+    props: dropdownProps,
+    setup(props) {
+        return {
+            classes: computed(() => [
+
                 {
-                    "dropend": this.dir === "right",
-                    "dropstart": this.dir === "left",
-                    "dropup": this.dir === "top"
+                    "btn-group": !props.block,
+                    "dropdown": props.block,
+                    "dropend": props.dir === "right",
+                    "dropstart": props.dir === "left",
+                    "dropup": props.dir === "top",
                 }
-            ]
-        },
-        popperOptions() {
-            return {
-                placement: this.align ? [this.dir, this.align].join("-") : "bottom-start",
+            ]),
+            popperOptions: computed(() => ({
+                placement: props.align ? [props.dir, props.align].join("-") : "bottom-start",
                 modifiers: [
                     {
                         name: 'offset',
@@ -58,9 +70,10 @@ export default {
                         },
                     },
                 ],
-            };
+            }))
         }
     },
+
     data() {
         return {
             shouldOpen: false,

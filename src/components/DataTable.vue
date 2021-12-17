@@ -88,11 +88,7 @@ export default defineComponent({
                 }
             }
         };
-        const classes = computed(() => {
-            return [
-                "table"
-            ];
-        });
+        const classes = computed(() => []);
         const {items, fields, ...otherProps} = props;
         const getLabel = (th) => {
             if (isObject(th)) {
@@ -101,6 +97,8 @@ export default defineComponent({
                 } else if (th.hasOwnProperty('key')) {
                     return title(th.key);
                 }
+            }else if (typeof th==="string"){
+                return title(th);
             }
             return th;
         };
@@ -123,6 +121,8 @@ export default defineComponent({
                     return th.formatter(row, key);
                 }
                 return row[key];
+            } else if (typeof th === "string") {
+                return row[key];
             }
             return row[th_index];
         };
@@ -143,7 +143,7 @@ export default defineComponent({
                 if (filterableColumns.value.length && props.filter) {
                     return props.items.filter(row => {
                         if (Array.isArray(row)) {
-
+                            console.log(row)
                         } else if (isObject(row)) {
                             return filterableColumns.value.reduce((cond, col) => cond || row[col].toString().search(props.filter) > -1, false)
                         }

@@ -2,7 +2,9 @@
     <component :is="tag" :class="classes" v-bind="attributes">
         <NavLink
             :tag="linkTag"
+            :target="target"
             :href="href"
+            :to="to"
             :active="active"
             :disabled="disabled"
             :aria-current="ariaCurrent">
@@ -12,7 +14,7 @@
 </template>
 
 <script>
-import {makeBoolean, makeString} from "../shared/properties.js";
+import {make, makeBoolean, makeString} from "../shared/properties.js";
 import {computed} from "vue";
 import NavLink from "./NavLink.vue";
 
@@ -24,6 +26,8 @@ export default {
         linkTag: makeString("a"),
         ariaCurrent: makeString(null),
         href: makeString("#"),
+        to: make(Object, null),
+        target: makeString("_self"),
         active: makeBoolean(false),
         disabled: makeBoolean(false),
     },

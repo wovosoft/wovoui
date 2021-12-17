@@ -66,7 +66,7 @@ export default defineComponent({
     render() {
         return h('pre', {}, [
             h('code', {
-                class: this.className,
+                class: ["border", "mt-3", this.className],
                 innerHTML: this.highlightedCode,
             }),
         ])

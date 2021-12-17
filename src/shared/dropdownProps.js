@@ -7,6 +7,7 @@ export default {
     size: makeString(),
     text: makeString(),
     variant: makeString("secondary"),
+    splitVariant: makeString("secondary"),
     block: makeBoolean(false),
     disabled: makeBoolean(false),
     /**
@@ -15,5 +16,7 @@ export default {
     dir: makeString("bottom"),
     align: makeString("start"),
     menuDark: makeBoolean(false),
-    menuClass: make([String, Array], [])
+    menuClass: make([String, Array], []),
+
+    split: makeBoolean(false)
 }

@@ -6,9 +6,9 @@
 
 <script>
 import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed, defineComponent} from "vue";
+import {computed} from "vue";
 
-export default defineComponent({
+export default {
     name: "THead",
     props: {
         variant: makeString(null),
@@ -29,5 +29,5 @@ export default defineComponent({
             classes
         }
     }
-})
+}
 </script>
