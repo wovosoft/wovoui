@@ -50,6 +50,16 @@ export default [
         component: () => import("./pages/Form/FormInput.vue")
     },
     {
+        name: 'Rating',
+        path: '/form-rating',
+        component: () => import("./pages/Form/FormRating.vue")
+    },
+    {
+        name: 'Radio',
+        path: '/form-radio',
+        component: () => import("./pages/Form/FormRadio.vue")
+    },
+    {
         name: 'Table',
         path: '/table',
         component: () => import("./pages/Table/Table.vue")

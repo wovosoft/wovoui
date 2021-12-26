@@ -1,5 +1,7 @@
 <template>
-    <i class="bi" :class="{['bi-'+theIcon]:theIcon}"></i>
+    <i class="bi"
+       :class="{['bi-'+theIcon]:theIcon,['text-'+variant]:variant}"
+    />
 </template>
 
 <script>
@@ -9,7 +11,8 @@ import {computed} from "vue";
 export default {
     name: "Icon",
     props: {
-        icon: makeString(null)
+        icon: makeString(null),
+        variant: makeString(null)
     },
     setup(props, {slots}) {
         return {
