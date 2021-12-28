@@ -58,7 +58,7 @@
         </div>
         <div v-if="!noBackdrop && shouldShowBackdrop"
              ref="backdrop"
-             @click="toggleState(false)"
+             @click="hide"
              class="modal-backdrop fade"
         />
     </teleport>

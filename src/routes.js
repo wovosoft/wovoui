@@ -50,14 +50,44 @@ export default [
         component: () => import("./pages/Form/FormInput.vue")
     },
     {
+        name: 'Radio',
+        path: '/form-radio',
+        component: () => import("./pages/Form/FormRadio.vue")
+    },
+    {
         name: 'Rating',
         path: '/form-rating',
         component: () => import("./pages/Form/FormRating.vue")
     },
     {
-        name: 'Radio',
-        path: '/form-radio',
-        component: () => import("./pages/Form/FormRadio.vue")
+        name: 'Select',
+        path: '/form-select',
+        component: () => import("./pages/Form/FormSelect.vue")
+    },
+    {
+        name: 'Spin Button',
+        path: '/form-spin-button',
+        component: () => import("./pages/Form/FormSpinButton.vue")
+    },
+    {
+        name: 'Textarea',
+        path: '/form-textarea',
+        component: () => import("./pages/Form/FormTextarea.vue")
+    },
+    {
+        name: 'Input Group',
+        path: '/input-group',
+        component: () => import("./pages/Form/FormInputGroup.vue")
+    },
+    {
+        name: 'List Group',
+        path: '/list-group',
+        component: () => import("./pages/ListGroups/ListGroups.vue")
+    },
+    {
+        name: 'Modals',
+        path: '/modals',
+        component: () => import("./pages/Modals/Modals.vue")
     },
     {
         name: 'Table',

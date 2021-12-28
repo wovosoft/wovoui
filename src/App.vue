@@ -42,8 +42,10 @@
         </ListGroup>
     </OffCanvas>
     <Container :fluid="true" :style="{height:height}">
-        <Row :style="{height:height}">
-            <Col style="max-width: 300px;padding-top: 5px;" class="d-sm-block d-none">
+        <Row>
+            <Col style="max-width: 300px;padding-top: 5px;"
+                 :style="{height:height,overflowY:'auto',paddingTop:'5px'}"
+                 class="d-sm-block d-none">
                 <ListGroup>
                     <ListGroupItem
                         exact-active-class="active"

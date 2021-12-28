@@ -51,7 +51,6 @@ export default {
     setup(props) {
         return {
             classes: computed(() => [
-
                 {
                     "btn-group": !props.block,
                     "dropdown": props.block,
