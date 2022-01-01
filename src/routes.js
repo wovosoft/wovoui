@@ -5,6 +5,11 @@ export default [
         component: () => import("./pages/Index.vue")
     },
     {
+        name: 'Alerts',
+        path: '/alerts',
+        component: () => import("./pages/Alerts/AlertIndex.vue")
+    },
+    {
         name: 'Badges',
         path: '/badges',
         component: () => import("./pages/Badges/Index.vue")
