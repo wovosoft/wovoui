@@ -78,7 +78,7 @@ import TFoot from "./components/TFoot.vue";
 import THead from "./components/THead.vue";
 import Tr from "./components/Tr.vue";
 
-export default {
+export {
     Accordion,
     AccordionBody,
     AccordionHeader,
