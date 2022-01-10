@@ -29,7 +29,7 @@ var __objRest = (source2, exclude) => {
     }
   return target;
 };
-import { openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, ref, reactive, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, createElementVNode, defineComponent, watch, computed as computed$1, createCommentVNode, mergeProps, Fragment, renderList, normalizeProps, createSlots, withDirectives, vModelCheckbox, withModifiers, guardReactiveProps, normalizeStyle, h, nextTick, Teleport, vModelSelect, provide } from "vue";
+import { openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, ref, reactive, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, createElementVNode, defineComponent, watch, computed, createCommentVNode, mergeProps, Fragment, renderList, normalizeProps, createSlots, withDirectives, vModelCheckbox, withModifiers, guardReactiveProps, normalizeStyle, h, nextTick, Teleport, vModelSelect, provide } from "vue";
 const makeString = (initial = null) => ({
   type: String,
   default: initial
@@ -47,9 +47,9 @@ const make = (type, initial) => ({
   default: () => initial
 });
 const isBoolean = (val) => typeof val === "boolean";
-var _export_sfc = (sfc, props2) => {
+var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props2) {
+  for (const [key, val] of props) {
     target[key] = val;
   }
   return target;
@@ -92,8 +92,8 @@ const _sfc_main$1d = {
     index: makeNumber(null)
   },
   inject: ["alwaysOpen"],
-  setup(props2, {}) {
-    const visible = ref(props2.modelValue);
+  setup(props, {}) {
+    const visible = ref(props.modelValue);
     return {
       bodyClass: reactive({ show: false, collapsing: false, collapse: true }),
       visible
@@ -215,7 +215,7 @@ const _sfc_main$19 = {
     show: makeBoolean(null),
     countdown: makeNumber(null)
   },
-  setup(props2, context) {
+  setup(props, context) {
     const visible = ref(false);
     const dismissHandler = ref(null);
     const countdownHandler = ref(null);
@@ -225,10 +225,10 @@ const _sfc_main$19 = {
       if (!value) {
         context.emit("dismissed", true);
       }
-      if (value && props2.countdown !== null) {
-        dismissHandler.value = setTimeout(() => visible.value = false, props2.countdown * 1e3);
-        context.emit("countdown", props2.countdown);
-        timoutNow.value = props2.countdown - 1;
+      if (value && props.countdown !== null) {
+        dismissHandler.value = setTimeout(() => visible.value = false, props.countdown * 1e3);
+        context.emit("countdown", props.countdown);
+        timoutNow.value = props.countdown - 1;
         countdownHandler.value = setInterval(() => {
           context.emit("countdown", timoutNow.value--);
         }, 1e3);
@@ -237,19 +237,19 @@ const _sfc_main$19 = {
         clearInterval(countdownHandler.value);
       }
     });
-    watch(() => props2.modelValue, (value) => visible.value = value);
-    watch(() => props2.show, (value) => visible.value = value);
-    if (props2.show !== null) {
-      visible.value = props2.show;
+    watch(() => props.modelValue, (value) => visible.value = value);
+    watch(() => props.show, (value) => visible.value = value);
+    if (props.show !== null) {
+      visible.value = props.show;
     } else {
-      visible.value = props2.modelValue;
+      visible.value = props.modelValue;
     }
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         "alert",
         {
-          ["alert-" + props2.variant]: !!props2.variant,
-          "alert-dismissible": props2.dismissible
+          ["alert-" + props.variant]: !!props.variant,
+          "alert-dismissible": props.dismissible
         }
       ]),
       visible
@@ -280,9 +280,9 @@ const _sfc_main$18 = {
   props: {
     tag: makeString("h4")
   },
-  setup(props2, context) {
+  setup(props, context) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         "alert-heading"
       ])
     };
@@ -322,20 +322,20 @@ const _sfc_main$16 = {
     pill: makeBoolean(false),
     href: makeString(null)
   },
-  setup(props2, context) {
-    const attributes2 = reactive({});
-    if (props2.href) {
-      attributes2.href = props2.href;
-      attributes2.target = "_self";
+  setup(props, context) {
+    const attributes = reactive({});
+    if (props.href) {
+      attributes.href = props.href;
+      attributes.target = "_self";
     }
     return {
-      attributes: attributes2,
-      classes: computed$1(() => [
+      attributes,
+      classes: computed(() => [
         "badge",
         {
-          ["bg-" + props2.variant]: !!props2.variant,
-          "rounded-pill": props2.pill,
-          "text-decoration-none": props2.href
+          ["bg-" + props.variant]: !!props.variant,
+          "rounded-pill": props.pill,
+          "text-decoration-none": props.href
         }
       ])
     };
@@ -366,24 +366,24 @@ const _sfc_main$15 = {
     to: make([Object, String], null),
     href: makeString()
   },
-  setup(props2, context) {
-    const classes = computed$1(() => {
+  setup(props, context) {
+    const classes = computed(() => {
       return [
         "breadcrumb-item",
         {
-          "active": props2.active
+          "active": props.active
         }
       ];
     });
-    const attributes2 = computed$1(() => {
+    const attributes = computed(() => {
       return {
-        ariaCurrent: props2.ariaCurrent
+        ariaCurrent: props.ariaCurrent
       };
     });
     return {
       classes,
-      attributes: attributes2,
-      isRouterInstalled: computed$1(() => !!context.$router)
+      attributes,
+      isRouterInstalled: computed(() => !!context.$router)
     };
   }
 };
@@ -416,9 +416,9 @@ const _sfc_main$14 = defineComponent({
     items: make(Array, []),
     divider: makeString("null")
   },
-  setup(props2) {
+  setup(props) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         "breadcrumb"
       ])
     };
@@ -467,25 +467,25 @@ const _sfc_main$13 = {
     badge: make([String, Number], null),
     badgeVariant: makeString("primary")
   },
-  setup(props2, context) {
-    let attributes2 = {
-      disabled: props2.disabled
+  setup(props, context) {
+    let attributes = {
+      disabled: props.disabled
     };
-    if (props2.pressed) {
-      attributes2["aria-pressed"] = true;
-      attributes2["autocomplete"] = "off";
+    if (props.pressed) {
+      attributes["aria-pressed"] = true;
+      attributes["autocomplete"] = "off";
     }
     return {
-      attributes: attributes2,
-      classes: computed$1(() => [
+      attributes,
+      classes: computed(() => [
         "btn",
         {
-          ["btn-" + (props2.outline ? "outline-" : "") + props2.variant]: !!props2.variant,
-          ["btn-" + props2.size]: !!props2.size,
-          "btn-block": props2.block,
-          "rounded-pill": props2.pill,
-          "rounded-0": props2.squared,
-          active: props2.pressed
+          ["btn-" + (props.outline ? "outline-" : "") + props.variant]: !!props.variant,
+          ["btn-" + props.size]: !!props.size,
+          "btn-block": props.block,
+          "rounded-pill": props.pill,
+          "rounded-0": props.squared,
+          active: props.pressed
         }
       ])
     };
@@ -520,13 +520,13 @@ const _sfc_main$12 = {
     vertical: makeBoolean(false),
     role: makeString("group")
   },
-  setup(props2, context) {
+  setup(props, context) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         {
-          "btn-group": !props2.vertical,
-          "btn-group-vertical": props2.vertical,
-          ["btn-group-" + props2.size]: props2.size
+          "btn-group": !props.vertical,
+          "btn-group-vertical": props.vertical,
+          ["btn-group-" + props.size]: props.size
         }
       ])
     };
@@ -550,12 +550,12 @@ const _sfc_main$11 = {
     role: makeString("toolbar"),
     justified: makeBoolean(false)
   },
-  setup(props2) {
+  setup(props) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         "btn-toolbar",
         {
-          "justify-content-between": props2.justified
+          "justify-content-between": props.justified
         }
       ])
     };
@@ -582,14 +582,14 @@ const _sfc_main$10 = {
     tag: makeString("div"),
     textVariant: makeString()
   },
-  setup(props2, context) {
+  setup(props, context) {
     let classes = ref([]);
     classes.value = [
       "card-header",
       {
-        ["bg-" + props2.variant]: !!props2.variant,
-        ["text-" + props2.textVariant]: !!props2.textVariant,
-        ["border-" + props2.borderVariant]: !!props2.borderVariant
+        ["bg-" + props.variant]: !!props.variant,
+        ["text-" + props.textVariant]: !!props.textVariant,
+        ["border-" + props.borderVariant]: !!props.borderVariant
       }
     ];
     return {
@@ -614,7 +614,7 @@ const _sfc_main$$ = {
     title: makeString(),
     tag: makeString("h4")
   },
-  setup(props2) {
+  setup(props) {
     let classes = ref([]);
     classes.value = [
       "card-title"
@@ -642,12 +642,12 @@ const _sfc_main$_ = {
     tag: makeString("h6"),
     textVariant: makeString("muted")
   },
-  setup(props2) {
+  setup(props) {
     let classes = ref([]);
     classes.value = [
       "card-subtitle",
       {
-        ["text-" + props2.textVariant]: !!props2.textVariant
+        ["text-" + props.textVariant]: !!props.textVariant
       }
     ];
     return {
@@ -682,15 +682,15 @@ const _sfc_main$Z = {
     title: makeString(),
     titleTag: makeString("h4")
   },
-  setup(props2, context) {
+  setup(props, context) {
     let classes = ref([]);
     classes.value = [
       {
-        "card-body": !props2.overlay,
-        "card-img-overlay": props2.overlay,
-        ["bg-" + props2.variant]: !!props2.variant,
-        ["text-" + props2.textVariant]: !!props2.textVariant,
-        ["border-" + props2.borderVariant]: !!props2.borderVariant
+        "card-body": !props.overlay,
+        "card-img-overlay": props.overlay,
+        ["bg-" + props.variant]: !!props.variant,
+        ["text-" + props.textVariant]: !!props.textVariant,
+        ["border-" + props.borderVariant]: !!props.borderVariant
       }
     ];
     return {
@@ -743,14 +743,14 @@ const _sfc_main$Y = {
     tag: makeString("div"),
     textVariant: makeString()
   },
-  setup(props2, context) {
+  setup(props, context) {
     let classes = ref([]);
     classes.value = [
       "card-footer",
       {
-        ["bg-" + props2.variant]: !!props2.variant,
-        ["text-" + props2.textVariant]: !!props2.textVariant,
-        ["border-" + props2.borderVariant]: !!props2.borderVariant
+        ["bg-" + props.variant]: !!props.variant,
+        ["text-" + props.textVariant]: !!props.textVariant,
+        ["border-" + props.borderVariant]: !!props.borderVariant
       }
     ];
     return {
@@ -784,30 +784,31 @@ const _sfc_main$X = {
     height: make([Number, String], null),
     width: make([Number, String], null)
   },
-  setup(props2, context) {
+  setup(props, context) {
+    const attributes = ref([]);
+    if (props.width) {
+      attributes.value.width = props.width;
+    }
     return {
+      attributes,
       classes: computed(() => [
         {
-          "card-img": props2.overlay,
-          "card-img-top": props2.top,
-          "card-img-bottom": props2.bottom,
-          "card-img-left": props2.left || props2.start,
-          "card-img-right": props2.right || props2.end
+          "card-img": props.overlay,
+          "card-img-top": props.top,
+          "card-img-bottom": props.bottom,
+          "card-img-left": props.left || props.start,
+          "card-img-right": props.right || props.end
         }
       ])
     };
   }
 };
-const attributes = ref([]);
-if (props.width) {
-  attributes.value.width = props.width;
-}
 const _hoisted_1$l = ["src", "alt"];
 function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("img", mergeProps({
     src: $props.src,
     class: $setup.classes
-  }, _ctx.attributes, { alt: $props.alt }), null, 16, _hoisted_1$l);
+  }, $setup.attributes, { alt: $props.alt }), null, 16, _hoisted_1$l);
 }
 var CardImg = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["render", _sfc_render$X]]);
 var Card_vue_vue_type_style_index_0_lang = "";
@@ -855,44 +856,44 @@ const _sfc_main$W = {
     title: makeString(),
     titleTag: makeString("h4")
   },
-  setup(props2) {
-    const classes = computed$1(() => [
+  setup(props) {
+    const classes = computed(() => [
       "card",
       {
-        "flex-row": props2.imgLeft || props2.imgStart,
-        "flex-row-reverse": props2.imgRight || props2.imgEnd,
-        ["bg-" + props2.bgVariant]: props2.bgVariant,
-        ["text-" + props2.textVariant]: props2.textVariant,
-        ["border-" + props2.borderVariant]: props2.borderVariant
+        "flex-row": props.imgLeft || props.imgStart,
+        "flex-row-reverse": props.imgRight || props.imgEnd,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        ["text-" + props.textVariant]: props.textVariant,
+        ["border-" + props.borderVariant]: props.borderVariant
       }
     ]);
-    const cardImageBindings = computed$1(() => ({
-      alt: props2.imgAlt,
-      bottom: props2.imgBottom,
-      end: props2.imgEnd,
-      left: props2.imgLeft,
-      right: props2.imgRight,
-      start: props2.imgStart,
-      top: props2.imgTop,
-      src: props2.imgSrc,
-      width: props2.imgWidth,
-      height: props2.imgHeight,
+    const cardImageBindings = computed(() => ({
+      alt: props.imgAlt,
+      bottom: props.imgBottom,
+      end: props.imgEnd,
+      left: props.imgLeft,
+      right: props.imgRight,
+      start: props.imgStart,
+      top: props.imgTop,
+      src: props.imgSrc,
+      width: props.imgWidth,
+      height: props.imgHeight,
       class: {
-        "card-img": props2.overlay
+        "card-img": props.overlay
       }
     }));
-    const cardBodyBindings = computed$1(() => ({
-      tag: props2.bodyTag,
-      variant: props2.bodyBgVariant,
-      borderVariant: props2.bodyBorderVariant,
-      textVariant: props2.bodyTextVariant,
-      overlay: props2.overlay,
-      title: props2.title,
-      titleTag: props2.titleTag,
-      class: props2.bodyClass,
-      subTitle: props2.subTitle,
-      subTitleTag: props2.subTitleTag,
-      subTitleTextVariant: props2.subTitleTextVariant
+    const cardBodyBindings = computed(() => ({
+      tag: props.bodyTag,
+      variant: props.bodyBgVariant,
+      borderVariant: props.bodyBorderVariant,
+      textVariant: props.bodyTextVariant,
+      overlay: props.overlay,
+      title: props.title,
+      titleTag: props.titleTag,
+      class: props.bodyClass,
+      subTitle: props.subTitle,
+      subTitleTag: props.subTitleTag,
+      subTitleTextVariant: props.subTitleTextVariant
     }));
     return {
       classes,
@@ -967,13 +968,13 @@ const _sfc_main$V = {
     deck: makeBoolean(false),
     columns: makeBoolean(false)
   },
-  setup(props2) {
+  setup(props) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         {
-          "card-group": !props2.deck && !props2.columns,
-          "card-deck": props2.deck,
-          "card-columns": props2.columns
+          "card-group": !props.deck && !props.columns,
+          "card-deck": props.deck,
+          "card-columns": props.columns
         }
       ])
     };
@@ -1011,9 +1012,9 @@ const _sfc_main$T = {
   props: {
     tag: makeString("p")
   },
-  setup(props2, context) {
+  setup(props, context) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         "card-text"
       ])
     };
@@ -1055,37 +1056,37 @@ const _sfc_main$S = {
     outline: makeBoolean(true),
     checked: makeBoolean(false)
   },
-  setup(props2, context) {
+  setup(props, context) {
     const identifier = ref(null);
-    if (props2.id) {
-      identifier.value = props2.id;
+    if (props.id) {
+      identifier.value = props.id;
     } else {
       identifier.value = "checkbox_id" + Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
     }
-    const model = ref(props2.modelValue);
-    const classes = computed$1(() => [
+    const model = ref(props.modelValue);
+    const classes = computed(() => [
       "form-check",
       {
-        "form-switch": props2.switch,
-        "form-check-inline": props2.inline
+        "form-switch": props.switch,
+        "form-check-inline": props.inline
       }
     ]);
     const inputAttrs = ref({
-      role: props2.switch ? "switch" : null
+      role: props.switch ? "switch" : null
     });
     const valueChanged = (e) => {
       if (e.target.checked) {
-        context.emit("checked", { originalEvent: e, data: props2.value, checked: true });
+        context.emit("checked", { originalEvent: e, data: props.value, checked: true });
       } else {
-        context.emit("unchecked", { originalEvent: e, data: props2.uncheckedValue, checked: false });
+        context.emit("unchecked", { originalEvent: e, data: props.uncheckedValue, checked: false });
       }
     };
-    watch(() => props2.modelValue, (value) => model.value = value);
+    watch(() => props.modelValue, (value) => model.value = value);
     watch(model, (value) => context.emit("update:modelValue", value));
-    const btnClass = computed$1(() => [
+    const btnClass = computed(() => [
       "btn",
       {
-        ["btn-" + (props2.outline ? "outline-" : "") + props2.variant]: props2.variant
+        ["btn-" + (props.outline ? "outline-" : "") + props.variant]: props.variant
       }
     ]);
     return {
@@ -1180,8 +1181,8 @@ const _sfc_main$R = {
     inline: makeBoolean(false),
     switch: makeBoolean(false)
   },
-  setup(props2, context) {
-    const model = ref(props2.modelValue);
+  setup(props, context) {
+    const model = ref(props.modelValue);
     return {
       model
     };
@@ -1235,9 +1236,9 @@ const _sfc_main$Q = {
     gx: make([Number, String], null),
     gy: make([Number, String], null)
   },
-  setup(props2) {
+  setup(props) {
     let isDefault = true;
-    for (let x of [props2.sm, props2.md, props2.lg, props2.xl, props2.col]) {
+    for (let x of [props.sm, props.md, props.lg, props.xl, props.col]) {
       if (x) {
         isDefault = false;
       }
@@ -1245,23 +1246,23 @@ const _sfc_main$Q = {
     }
     const classes = reactive({
       "col": isDefault,
-      ["col-" + props2.col]: props2.col,
-      ["col-sm-" + props2.sm]: props2.sm && !isBoolean(props2.sm),
-      ["col-md-" + props2.md]: props2.md && !isBoolean(props2.md),
-      ["col-lg-" + props2.lg]: props2.lg && !isBoolean(props2.lg),
-      ["col-xl-" + props2.xl]: props2.xl && !isBoolean(props2.xl),
-      "col-sm": props2.sm && isBoolean(props2.sm),
-      "col-md": props2.md && isBoolean(props2.md),
-      "col-lg": props2.lg && isBoolean(props2.lg),
-      "col-xl": props2.xl && isBoolean(props2.xl),
-      ["align-self-" + props2.alignSelf]: props2.alignSelf,
-      ["order-" + props2.order]: props2.order,
-      ["offset-sm-" + props2.offsetSm]: props2.offsetSm,
-      ["offset-md-" + props2.offsetMd]: props2.offsetMd,
-      ["offset-lg-" + props2.offsetLg]: props2.offsetLg,
-      ["offset-xl-" + props2.offsetXl]: props2.offsetXl,
-      ["gx-" + props2.gx]: props2.gx,
-      ["gy-" + props2.gy]: props2.gy
+      ["col-" + props.col]: props.col,
+      ["col-sm-" + props.sm]: props.sm && !isBoolean(props.sm),
+      ["col-md-" + props.md]: props.md && !isBoolean(props.md),
+      ["col-lg-" + props.lg]: props.lg && !isBoolean(props.lg),
+      ["col-xl-" + props.xl]: props.xl && !isBoolean(props.xl),
+      "col-sm": props.sm && isBoolean(props.sm),
+      "col-md": props.md && isBoolean(props.md),
+      "col-lg": props.lg && isBoolean(props.lg),
+      "col-xl": props.xl && isBoolean(props.xl),
+      ["align-self-" + props.alignSelf]: props.alignSelf,
+      ["order-" + props.order]: props.order,
+      ["offset-sm-" + props.offsetSm]: props.offsetSm,
+      ["offset-md-" + props.offsetMd]: props.offsetMd,
+      ["offset-lg-" + props.offsetLg]: props.offsetLg,
+      ["offset-xl-" + props.offsetXl]: props.offsetXl,
+      ["gx-" + props.gx]: props.gx,
+      ["gy-" + props.gy]: props.gy
     });
     return {
       classes
@@ -1830,8 +1831,8 @@ var lodash = { exports: {} };
       }
       return result;
     }
-    function baseToPairs(object, props2) {
-      return arrayMap2(props2, function(key) {
+    function baseToPairs(object, props) {
+      return arrayMap2(props, function(key) {
         return [key, object[key]];
       });
     }
@@ -1843,8 +1844,8 @@ var lodash = { exports: {} };
         return func(value);
       };
     }
-    function baseValues2(object, props2) {
-      return arrayMap2(props2, function(key) {
+    function baseValues2(object, props) {
+      return arrayMap2(props, function(key) {
         return object[key];
       });
     }
@@ -2425,9 +2426,9 @@ var lodash = { exports: {} };
           });
         }
         var keysFunc = isFull ? isFlat ? getAllKeysIn : getAllKeys : isFlat ? keysIn2 : keys2;
-        var props2 = isArr ? undefined$1 : keysFunc(value);
-        arrayEach(props2 || value, function(subValue, key2) {
-          if (props2) {
+        var props = isArr ? undefined$1 : keysFunc(value);
+        arrayEach(props || value, function(subValue, key2) {
+          if (props) {
             key2 = subValue;
             subValue = value[key2];
           }
@@ -2436,19 +2437,19 @@ var lodash = { exports: {} };
         return result2;
       }
       function baseConforms(source2) {
-        var props2 = keys2(source2);
+        var props = keys2(source2);
         return function(object) {
-          return baseConformsTo(object, source2, props2);
+          return baseConformsTo(object, source2, props);
         };
       }
-      function baseConformsTo(object, source2, props2) {
-        var length = props2.length;
+      function baseConformsTo(object, source2, props) {
+        var length = props.length;
         if (object == null) {
           return !length;
         }
         object = Object2(object);
         while (length--) {
-          var key = props2[length], predicate = source2[key], value = object[key];
+          var key = props[length], predicate = source2[key], value = object[key];
           if (value === undefined$1 && !(key in object) || !predicate(value)) {
             return false;
           }
@@ -2568,8 +2569,8 @@ var lodash = { exports: {} };
       function baseForOwnRight(object, iteratee2) {
         return object && baseForRight(object, iteratee2, keys2);
       }
-      function baseFunctions(object, props2) {
-        return arrayFilter(props2, function(key) {
+      function baseFunctions(object, props) {
+        return arrayFilter(props, function(key) {
           return isFunction2(object[key]);
         });
       }
@@ -3213,11 +3214,11 @@ var lodash = { exports: {} };
         }
         return baseUniq(baseFlatten(result2, 1), iteratee2, comparator);
       }
-      function baseZipObject(props2, values2, assignFunc) {
-        var index = -1, length = props2.length, valsLength = values2.length, result2 = {};
+      function baseZipObject(props, values2, assignFunc) {
+        var index = -1, length = props.length, valsLength = values2.length, result2 = {};
         while (++index < length) {
           var value = index < valsLength ? values2[index] : undefined$1;
-          assignFunc(result2, props2[index], value);
+          assignFunc(result2, props[index], value);
         }
         return result2;
       }
@@ -3337,12 +3338,12 @@ var lodash = { exports: {} };
         }
         return array;
       }
-      function copyObject2(source2, props2, object, customizer) {
+      function copyObject2(source2, props, object, customizer) {
         var isNew = !object;
         object || (object = {});
-        var index = -1, length = props2.length;
+        var index = -1, length = props.length;
         while (++index < length) {
-          var key = props2[index];
+          var key = props[index];
           var newValue = customizer ? customizer(object[key], source2[key], key, object, source2) : undefined$1;
           if (newValue === undefined$1) {
             newValue = source2[key];
@@ -3404,9 +3405,9 @@ var lodash = { exports: {} };
       }
       function createBaseFor(fromRight) {
         return function(object, iteratee2, keysFunc) {
-          var index = -1, iterable = Object2(object), props2 = keysFunc(object), length = props2.length;
+          var index = -1, iterable = Object2(object), props = keysFunc(object), length = props.length;
           while (length--) {
-            var key = props2[fromRight ? length : ++index];
+            var key = props[fromRight ? length : ++index];
             if (iteratee2(iterable[key], key, iterable) === false) {
               break;
             }
@@ -4733,11 +4734,11 @@ var lodash = { exports: {} };
         return baseXor(arrayFilter(arrays, isArrayLikeObject), undefined$1, comparator);
       });
       var zip = baseRest2(unzip);
-      function zipObject(props2, values2) {
-        return baseZipObject(props2 || [], values2 || [], assignValue2);
+      function zipObject(props, values2) {
+        return baseZipObject(props || [], values2 || [], assignValue2);
       }
-      function zipObjectDeep(props2, values2) {
-        return baseZipObject(props2 || [], values2 || [], baseSet);
+      function zipObjectDeep(props, values2) {
+        return baseZipObject(props || [], values2 || [], baseSet);
       }
       var zipWith = baseRest2(function(arrays) {
         var length = arrays.length, iteratee2 = length > 1 ? arrays[length - 1] : undefined$1;
@@ -5497,11 +5498,11 @@ var lodash = { exports: {} };
         }
         while (++index < length) {
           var source2 = sources[index];
-          var props2 = keysIn2(source2);
+          var props = keysIn2(source2);
           var propsIndex = -1;
-          var propsLength = props2.length;
+          var propsLength = props.length;
           while (++propsIndex < propsLength) {
-            var key = props2[propsIndex];
+            var key = props[propsIndex];
             var value = object[key];
             if (value === undefined$1 || eq2(value, objectProto2[key]) && !hasOwnProperty2.call(object, key)) {
               object[key] = source2[key];
@@ -5624,11 +5625,11 @@ var lodash = { exports: {} };
         if (object == null) {
           return {};
         }
-        var props2 = arrayMap2(getAllKeysIn(object), function(prop) {
+        var props = arrayMap2(getAllKeysIn(object), function(prop) {
           return [prop];
         });
         predicate = getIteratee(predicate);
-        return basePickBy(object, props2, function(value, path) {
+        return basePickBy(object, props, function(value, path) {
           return predicate(value, path[0]);
         });
       }
@@ -6076,8 +6077,8 @@ var lodash = { exports: {} };
         };
       });
       function mixin(object, source2, options) {
-        var props2 = keys2(source2), methodNames = baseFunctions(source2, props2);
-        if (options == null && !(isObject2(source2) && (methodNames.length || !props2.length))) {
+        var props = keys2(source2), methodNames = baseFunctions(source2, props);
+        if (options == null && !(isObject2(source2) && (methodNames.length || !props.length))) {
           options = source2;
           source2 = object;
           object = this;
@@ -6740,18 +6741,18 @@ const _sfc_main$P = {
       this.toggleCollapse(this.$refs.collapse, value, "height");
     }
   },
-  setup(props2, context) {
+  setup(props, context) {
     const shouldRender = ref(true);
-    const shown = ref(props2.modelValue);
-    if (props2.visible) {
+    const shown = ref(props.modelValue);
+    if (props.visible) {
       context.emit("update:modelValue", true);
     }
-    const classes = computed$1(() => {
+    const classes = computed(() => {
       return [
         "collapse",
-        props2.class,
+        props.class,
         {
-          "navbar-collapse": props2.isNav
+          "navbar-collapse": props.isNav
         }
       ];
     });
@@ -6818,10 +6819,10 @@ const _sfc_main$O = {
     tag: makeString("div"),
     fluid: makeBoolean(false)
   },
-  setup(props2) {
+  setup(props) {
     const classes = reactive({
-      "container": !props2.fluid,
-      "container-fluid": props2.fluid
+      "container": !props.fluid,
+      "container-fluid": props.fluid
     });
     return {
       classes
@@ -6856,29 +6857,29 @@ var tableProps = {
 const _sfc_main$N = defineComponent({
   name: "Table",
   props: tableProps,
-  setup(props2) {
-    props2 = reactive(props2);
-    const classes = computed$1(() => {
+  setup(props) {
+    props = reactive(props);
+    const classes = computed(() => {
       return [
         "table",
         {
-          ["table-" + props2.variant]: props2.variant,
-          "table-striped": props2.striped,
-          "table-hover": props2.hover,
-          "table-active": props2.active,
-          "table-bordered": props2.bordered,
-          ["border-" + props2.borderVariant]: !!props2.borderVariant,
-          "table-borderless": props2.borderless,
-          "table-sm": props2.small,
-          ["align-" + props2.align]: !!props2.align,
-          "caption-top": props2.captionTop
+          ["table-" + props.variant]: props.variant,
+          "table-striped": props.striped,
+          "table-hover": props.hover,
+          "table-active": props.active,
+          "table-bordered": props.bordered,
+          ["border-" + props.borderVariant]: !!props.borderVariant,
+          "table-borderless": props.borderless,
+          "table-sm": props.small,
+          ["align-" + props.align]: !!props.align,
+          "caption-top": props.captionTop
         }
       ];
     });
-    const wrapperClass = computed$1(() => {
+    const wrapperClass = computed(() => {
       return {
-        "table-responsive": typeof props2.responsive === "boolean" && props2.responsive,
-        ["table-responsive-" + props2.responsive]: typeof props2.responsive === "string" && props2.responsive
+        "table-responsive": typeof props.responsive === "boolean" && props.responsive,
+        ["table-responsive-" + props.responsive]: typeof props.responsive === "string" && props.responsive
       };
     });
     return {
@@ -6924,13 +6925,13 @@ const _sfc_main$M = {
     active: makeBoolean(false),
     align: makeString(null)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         {
-          ["table-" + props2.variant]: props2.variant,
-          "table-active": props2.active,
-          ["align-" + props2.align]: !!props2.align
+          ["table-" + props.variant]: props.variant,
+          "table-active": props.active,
+          ["align-" + props.align]: !!props.align
         }
       ];
     });
@@ -6954,13 +6955,13 @@ const _sfc_main$L = {
     active: makeBoolean(false),
     align: makeString(null)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         {
-          ["table-" + props2.variant]: props2.variant,
-          "table-active": props2.active,
-          ["align-" + props2.align]: !!props2.align
+          ["table-" + props.variant]: props.variant,
+          "table-active": props.active,
+          ["align-" + props.align]: !!props.align
         }
       ];
     });
@@ -6985,13 +6986,13 @@ const _sfc_main$K = {
     active: makeBoolean(false),
     align: makeString(null)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         {
-          ["table-" + props2.variant]: props2.variant,
-          "table-active": props2.active,
-          ["align-" + props2.align]: !!props2.align
+          ["table-" + props.variant]: props.variant,
+          "table-active": props.active,
+          ["align-" + props.align]: !!props.align
         }
       ];
     });
@@ -7015,13 +7016,13 @@ const _sfc_main$J = {
     active: makeBoolean(false),
     align: makeString(null)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         {
-          ["table-" + props2.variant]: props2.variant,
-          "table-active": props2.active,
-          ["align-" + props2.align]: !!props2.align
+          ["table-" + props.variant]: props.variant,
+          "table-active": props.active,
+          ["align-" + props.align]: !!props.align
         }
       ];
     });
@@ -7045,13 +7046,13 @@ const _sfc_main$I = {
     active: makeBoolean(false),
     align: makeString(null)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         {
-          ["table-" + props2.variant]: props2.variant,
-          "table-active": props2.active,
-          ["align-" + props2.align]: !!props2.align
+          ["table-" + props.variant]: props.variant,
+          "table-active": props.active,
+          ["align-" + props.align]: !!props.align
         }
       ];
     });
@@ -7943,12 +7944,12 @@ function assignValue$1(object, key, value) {
 }
 var _assignValue = assignValue$1;
 var assignValue = _assignValue, baseAssignValue = _baseAssignValue;
-function copyObject$1(source2, props2, object, customizer) {
+function copyObject$1(source2, props, object, customizer) {
   var isNew = !object;
   object || (object = {});
-  var index = -1, length = props2.length;
+  var index = -1, length = props.length;
   while (++index < length) {
-    var key = props2[index];
+    var key = props[index];
     var newValue = customizer ? customizer(object[key], source2[key], key, object, source2) : void 0;
     if (newValue === void 0) {
       newValue = source2[key];
@@ -8216,8 +8217,8 @@ var attempt$1 = baseRest(function(func, args) {
 });
 var attempt_1 = attempt$1;
 var arrayMap = _arrayMap;
-function baseValues$1(object, props2) {
-  return arrayMap(props2, function(key) {
+function baseValues$1(object, props) {
+  return arrayMap(props, function(key) {
     return object[key];
   });
 }
@@ -8548,9 +8549,9 @@ const _sfc_main$H = {
     icon: makeString(null),
     variant: makeString(null)
   },
-  setup(props2, { slots }) {
+  setup(props, { slots }) {
     return {
-      theIcon: computed$1(() => props2.icon || slots.default.toString().trim())
+      theIcon: computed(() => props.icon || slots.default.toString().trim())
     };
   }
 };
@@ -8570,8 +8571,8 @@ const _sfc_main$G = defineComponent({
     fields: make(Array, []),
     items: make([Array, Promise, Function], [])
   }),
-  setup(props2, context) {
-    props2 = reactive(props2);
+  setup(props, context) {
+    props = reactive(props);
     const sorting = ref({
       sortBy: null,
       sort: null
@@ -8586,8 +8587,8 @@ const _sfc_main$G = defineComponent({
         }
       }
     };
-    const classes = computed$1(() => []);
-    const _a = props2, { items, fields } = _a, otherProps = __objRest(_a, ["items", "fields"]);
+    const classes = computed(() => []);
+    const _a = props, { items, fields } = _a, otherProps = __objRest(_a, ["items", "fields"]);
     const getLabel = (th) => {
       if (isObject$7(th)) {
         if (th.hasOwnProperty("label")) {
@@ -8600,9 +8601,9 @@ const _sfc_main$G = defineComponent({
       }
       return th;
     };
-    const filterableColumns = computed$1(() => {
+    const filterableColumns = computed(() => {
       let cols = [];
-      props2.fields.forEach((i) => {
+      props.fields.forEach((i) => {
         if (typeof i === "string") {
           cols.push(i);
         } else if (isObject$7(i) && i.sortable !== false) {
@@ -8631,24 +8632,24 @@ const _sfc_main$G = defineComponent({
       }
       return th;
     };
-    const itemsSorted = computed$1(() => {
+    const itemsSorted = computed(() => {
       if (sorting.value.sortBy) {
-        return lodash.exports.orderBy(props2.items, sorting.value.sortBy, sorting.value.sort);
+        return lodash.exports.orderBy(props.items, sorting.value.sortBy, sorting.value.sort);
       }
-      if (Array.isArray(props2.items)) {
-        if (filterableColumns.value.length && props2.filter) {
-          return props2.items.filter((row) => {
+      if (Array.isArray(props.items)) {
+        if (filterableColumns.value.length && props.filter) {
+          return props.items.filter((row) => {
             if (Array.isArray(row)) {
               console.log(row);
             } else if (isObject$7(row)) {
-              return filterableColumns.value.reduce((cond, col) => cond || row[col].toString().search(props2.filter) > -1, false);
+              return filterableColumns.value.reduce((cond, col) => cond || row[col].toString().search(props.filter) > -1, false);
             }
             return true;
           });
         }
-        return props2.items;
+        return props.items;
       }
-      return props2.items;
+      return props.items;
     });
     const clearSorting = () => {
       sorting.value.sortBy = null;
@@ -8658,7 +8659,7 @@ const _sfc_main$G = defineComponent({
     };
     const unselectAllRows = () => context.emit("update:selectedRows", []);
     const selectAllRows = () => context.emit("update:selectedRows", itemsSorted.value);
-    const selectedAllRows = computed$1(() => itemsSorted.value.length === props2.selectedRows.length);
+    const selectedAllRows = computed(() => itemsSorted.value.length === props.selectedRows.length);
     return {
       classes,
       otherProps,
@@ -8818,14 +8819,14 @@ function applyStyles(_ref) {
   var state = _ref.state;
   Object.keys(state.elements).forEach(function(name) {
     var style = state.styles[name] || {};
-    var attributes2 = state.attributes[name] || {};
+    var attributes = state.attributes[name] || {};
     var element = state.elements[name];
     if (!isHTMLElement(element) || !getNodeName(element)) {
       return;
     }
     Object.assign(element.style, style);
-    Object.keys(attributes2).forEach(function(name2) {
-      var value = attributes2[name2];
+    Object.keys(attributes).forEach(function(name2) {
+      var value = attributes[name2];
       if (value === false) {
         element.removeAttribute(name2);
       } else {
@@ -8856,7 +8857,7 @@ function effect$2(_ref2) {
   return function() {
     Object.keys(state.elements).forEach(function(name) {
       var element = state.elements[name];
-      var attributes2 = state.attributes[name] || {};
+      var attributes = state.attributes[name] || {};
       var styleProperties = Object.keys(state.styles.hasOwnProperty(name) ? state.styles[name] : initialStyles[name]);
       var style = styleProperties.reduce(function(style2, property) {
         style2[property] = "";
@@ -8866,7 +8867,7 @@ function effect$2(_ref2) {
         return;
       }
       Object.assign(element.style, style);
-      Object.keys(attributes2).forEach(function(attribute) {
+      Object.keys(attributes).forEach(function(attribute) {
         element.removeAttribute(attribute);
       });
     });
@@ -10058,19 +10059,19 @@ const _sfc_main$E = {
   name: "Dropdown",
   components: { Button, DropdownMenu },
   props: dropdownProps,
-  setup(props2) {
+  setup(props) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         {
-          "btn-group": !props2.block,
-          "dropdown": props2.block,
-          "dropend": props2.dir === "right",
-          "dropstart": props2.dir === "left",
-          "dropup": props2.dir === "top"
+          "btn-group": !props.block,
+          "dropdown": props.block,
+          "dropend": props.dir === "right",
+          "dropstart": props.dir === "left",
+          "dropup": props.dir === "top"
         }
       ]),
-      popperOptions: computed$1(() => ({
-        placement: props2.align ? [props2.dir, props2.align].join("-") : "bottom-start",
+      popperOptions: computed(() => ({
+        placement: props.align ? [props.dir, props.align].join("-") : "bottom-start",
         modifiers: [
           {
             name: "offset",
@@ -10246,14 +10247,14 @@ const _sfc_main$A = {
     lg: makeNumber(null),
     xl: makeNumber(null)
   },
-  setup(props2) {
+  setup(props) {
     const classes = reactive({
-      "form-label": !props2.horizontal,
-      "col-form-label": props2.horizontal,
-      ["col-sm-" + props2.sm]: props2.horizontal && props2.sm,
-      ["col-md-" + props2.md]: props2.horizontal && props2.md,
-      ["col-lg-" + props2.lg]: props2.horizontal && props2.lg,
-      ["col-xl-" + props2.xl]: props2.horizontal && props2.xl
+      "form-label": !props.horizontal,
+      "col-form-label": props.horizontal,
+      ["col-sm-" + props.sm]: props.horizontal && props.sm,
+      ["col-md-" + props.md]: props.horizontal && props.md,
+      ["col-lg-" + props.lg]: props.horizontal && props.lg,
+      ["col-xl-" + props.xl]: props.horizontal && props.xl
     });
     return {
       classes
@@ -10285,21 +10286,21 @@ const _sfc_main$z = {
     contentLg: makeNumber(null),
     contentXl: makeNumber(null)
   },
-  setup(props2) {
+  setup(props) {
     const classes = reactive([
       "form-group",
       {
-        "row": props2.horizontal,
-        "form-floating": props2.floating
+        "row": props.horizontal,
+        "form-floating": props.floating
       }
     ]);
     const contentClasses = ref({});
-    if (props2.horizontal) {
+    if (props.horizontal) {
       contentClasses.value = {
-        ["col-sm-" + props2.contentSm]: !!props2.contentSm,
-        ["col-md-" + props2.contentMd]: !!props2.contentMd,
-        ["col-lg-" + props2.contentLg]: !!props2.contentLg,
-        ["col-xl-" + props2.contentXl]: !!props2.contentXl
+        ["col-sm-" + props.contentSm]: !!props.contentSm,
+        ["col-md-" + props.contentMd]: !!props.contentMd,
+        ["col-lg-" + props.contentLg]: !!props.contentLg,
+        ["col-xl-" + props.contentXl]: !!props.contentXl
       };
     }
     return {
@@ -10367,14 +10368,14 @@ const _sfc_main$x = {
     xl: make([Number, String], null),
     start: make([Number, String], null)
   },
-  setup(props2) {
+  setup(props) {
     const classes = reactive({
-      ["g-start-" + props2.start]: props2.start,
-      ["g-col-" + props2.col]: props2.col,
-      ["g-col-sm-" + props2.sm]: props2.sm,
-      ["g-col-md-" + props2.md]: props2.md,
-      ["g-col-lg-" + props2.lg]: props2.lg,
-      ["g-col-xl-" + props2.xl]: props2.xl
+      ["g-start-" + props.start]: props.start,
+      ["g-col-" + props.col]: props.col,
+      ["g-col-sm-" + props.sm]: props.sm,
+      ["g-col-md-" + props.md]: props.md,
+      ["g-col-lg-" + props.lg]: props.lg,
+      ["g-col-xl-" + props.xl]: props.xl
     });
     return {
       classes
@@ -11803,34 +11804,34 @@ var Highlight = defineComponent({
       default: true
     }
   },
-  setup(props2) {
-    const language = ref(props2.language);
-    watch(() => props2.language, (newLanguage) => {
+  setup(props) {
+    const language = ref(props.language);
+    watch(() => props.language, (newLanguage) => {
       language.value = newLanguage;
     });
-    const autodetect = computed$1(() => props2.autodetect || !language.value);
-    const cannotDetectLanguage = computed$1(() => !autodetect.value && !core.getLanguage(language.value));
-    const className = computed$1(() => {
+    const autodetect = computed(() => props.autodetect || !language.value);
+    const cannotDetectLanguage = computed(() => !autodetect.value && !core.getLanguage(language.value));
+    const className = computed(() => {
       if (cannotDetectLanguage.value) {
         return "";
       } else {
         return `hljs ${language.value}`;
       }
     });
-    const highlightedCode = computed$1(() => {
+    const highlightedCode = computed(() => {
       var _a;
       if (cannotDetectLanguage.value) {
         console.warn(`The language "${language.value}" you specified could not be found.`);
-        return escapeHtml(props2.code);
+        return escapeHtml(props.code);
       }
       if (autodetect.value) {
-        const result = core.highlightAuto(props2.code);
+        const result = core.highlightAuto(props.code);
         language.value = (_a = result.language) != null ? _a : "";
         return result.value;
       } else {
-        const result = core.highlight(props2.code, {
+        const result = core.highlight(props.code, {
           language: language.value,
-          ignoreIllegals: props2.ignoreIllegals
+          ignoreIllegals: props.ignoreIllegals
         });
         return result.value;
       }
@@ -11874,13 +11875,13 @@ const _sfc_main$v = {
     append: makeString(null),
     noWrap: makeBoolean(false)
   },
-  setup(props2) {
+  setup(props) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         "input-group",
         {
-          ["input-group-" + props2.size]: !!props2.size,
-          "flex-nowrap": props2.noWrap
+          ["input-group-" + props.size]: !!props.size,
+          "flex-nowrap": props.noWrap
         }
       ])
     };
@@ -11943,14 +11944,14 @@ const _sfc_main$t = {
       default: false
     }
   },
-  setup(props2) {
+  setup(props) {
     let classes = ref([]);
     classes.value = [
       "list-group",
       {
-        "list-group-flush": props2.flush,
-        "list-group-numbered": props2.numbered,
-        ["list-group-horizontal" + (typeof props2.horizontal === "string" ? "-" + props2.horizontal : "")]: props2.horizontal
+        "list-group-flush": props.flush,
+        "list-group-numbered": props.numbered,
+        ["list-group-horizontal" + (typeof props.horizontal === "string" ? "-" + props.horizontal : "")]: props.horizontal
       }
     ];
     return {
@@ -11980,38 +11981,38 @@ const _sfc_main$s = {
     button: makeBoolean(false),
     variant: makeString(null)
   },
-  setup(props2, context) {
-    const attributes2 = ref({});
-    if (props2.active) {
-      attributes2.value["aria-current"] = props2.active;
+  setup(props, context) {
+    const attributes = ref({});
+    if (props.active) {
+      attributes.value["aria-current"] = props.active;
     }
-    if (props2.disabled) {
-      attributes2.value["aria-disabled"] = props2.disabled;
+    if (props.disabled) {
+      attributes.value["aria-disabled"] = props.disabled;
     }
-    const theTag = ref(props2.tag);
-    if (props2.href) {
+    const theTag = ref(props.tag);
+    if (props.href) {
       theTag.value = "a";
-      attributes2.value.href = props2.href;
+      attributes.value.href = props.href;
     }
-    if (props2.to) {
+    if (props.to) {
       theTag.value = "a";
-      attributes2.value.to = props2.to;
+      attributes.value.to = props.to;
     }
-    if (props2.button) {
+    if (props.button) {
       theTag.value = "button";
     }
-    const classes = computed$1(() => [
+    const classes = computed(() => [
       "list-group-item",
       {
-        "active": props2.active,
-        "disabled": props2.disabled,
-        "list-group-item-action": props2.button || theTag.value === "a",
-        ["list-group-item-" + props2.variant]: !!props2.variant
+        "active": props.active,
+        "disabled": props.disabled,
+        "list-group-item-action": props.button || theTag.value === "a",
+        ["list-group-item-" + props.variant]: !!props.variant
       }
     ]);
     return {
       classes,
-      attributes: attributes2,
+      attributes,
       theTag
     };
   }
@@ -12121,29 +12122,29 @@ const _sfc_main$n = {
     size: makeString(),
     fullscreen: make([Boolean, String], false)
   },
-  setup(props2, context) {
+  setup(props, context) {
     const shouldShowBackdrop = ref(false);
-    const shown = ref(props2.modelValue);
-    const classes = computed$1(() => {
+    const shown = ref(props.modelValue);
+    const classes = computed(() => {
       return [
         "modal",
         {
-          "fade": props2.animation === "fade" || !props2.animation,
-          "modal-dialog-scrollable": props2.scrollable,
-          "modal-dialog-centered": props2.centered
+          "fade": props.animation === "fade" || !props.animation,
+          "modal-dialog-scrollable": props.scrollable,
+          "modal-dialog-centered": props.centered
         }
       ];
     });
-    const dialogClass = computed$1(() => {
+    const dialogClass = computed(() => {
       return [
         "modal-dialog",
         {
-          ["modal-" + props2.size]: !!props2.size,
-          ["modal-fullscreen" + (typeof props2.fullscreen === "string" ? "-" + props2.fullscreen : "")]: !!props2.fullscreen
+          ["modal-" + props.size]: !!props.size,
+          ["modal-fullscreen" + (typeof props.fullscreen === "string" ? "-" + props.fullscreen : "")]: !!props.fullscreen
         }
       ];
     });
-    watch(() => props2.modelValue, (value) => shown.value = value);
+    watch(() => props.modelValue, (value) => shown.value = value);
     watch(shown, (value) => context.emit("update:modelValue", value));
     const toggleState = (value = null) => {
       if (typeof value === "boolean") {
@@ -12358,20 +12359,20 @@ var navProps = {
 const _sfc_main$m = {
   name: "Nav",
   props: navProps,
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         "nav",
         {
-          "small": props2.small,
-          "nav-tabs": props2.tabs,
-          "nav-pills": props2.pills,
-          "nav-fill": props2.fill,
-          "nav-justified": props2.justified,
-          "flex-column": props2.vertical,
-          "justify-content-center": props2.align === "center",
-          "justify-content-end": props2.align === "right" || props2.align === "end",
-          "justify-content-start": props2.align === "left" || props2.align === "start"
+          "small": props.small,
+          "nav-tabs": props.tabs,
+          "nav-pills": props.pills,
+          "nav-fill": props.fill,
+          "nav-justified": props.justified,
+          "flex-column": props.vertical,
+          "justify-content-center": props.align === "center",
+          "justify-content-end": props.align === "right" || props.align === "end",
+          "justify-content-start": props.align === "left" || props.align === "start"
         }
       ];
     });
@@ -12397,20 +12398,20 @@ const _sfc_main$l = {
     tag: makeString("a"),
     href: makeString("#")
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         "navbar-brand"
       ];
     });
-    const attributes2 = computed$1(() => {
+    const attributes = computed(() => {
       return {
-        "href": props2.tag === "a" ? props2.href : null
+        "href": props.tag === "a" ? props.href : null
       };
     });
     return {
       classes,
-      attributes: attributes2
+      attributes
     };
   }
 };
@@ -12469,18 +12470,18 @@ const _sfc_main$j = {
     print: makeBoolean(false),
     fixed: make([Boolean, String], false)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         "navbar",
         {
-          ["navbar-" + props2.type]: !!props2.type,
-          ["bg-" + props2.variant]: !!props2.variant,
-          "navbar-expand": props2.toggleable === false,
-          ["navbar-expand-" + props2.toggleable]: typeof props2.toggleable === "string",
-          ["navbar-fixed-" + props2.fixed]: typeof props2.fixed === "string",
-          "sticky-top": props2.sticky,
-          "d-print": props2.print
+          ["navbar-" + props.type]: !!props.type,
+          ["bg-" + props.variant]: !!props.variant,
+          "navbar-expand": props.toggleable === false,
+          ["navbar-expand-" + props.toggleable]: typeof props.toggleable === "string",
+          ["navbar-fixed-" + props.fixed]: typeof props.fixed === "string",
+          "sticky-top": props.sticky,
+          "d-print": props.print
         }
       ];
     });
@@ -12549,21 +12550,21 @@ const _sfc_main$h = {
     tag: makeString("a"),
     to: make(Object, null)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         "nav-link",
         {
-          active: props2.active,
-          disabled: props2.disabled
+          active: props.active,
+          disabled: props.disabled
         }
       ];
     });
-    const linkAttributes = computed$1(() => {
+    const linkAttributes = computed(() => {
       return {
-        href: props2.tag === "a" ? props2.href : null,
-        ariaCurrent: props2.ariaCurrent,
-        target: props2.target === "a" || props2.href ? props2.target : null
+        href: props.tag === "a" ? props.href : null,
+        ariaCurrent: props.ariaCurrent,
+        target: props.target === "a" || props.href ? props.target : null
       };
     });
     return {
@@ -12607,18 +12608,18 @@ const _sfc_main$g = {
     active: makeBoolean(false),
     disabled: makeBoolean(false)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         "nav-item"
       ];
     });
-    const attributes2 = computed$1(() => {
+    const attributes = computed(() => {
       return {};
     });
     return {
       classes,
-      attributes: attributes2
+      attributes
     };
   }
 };
@@ -12690,8 +12691,8 @@ const _sfc_main$d = {
     title: makeString(),
     showClose: makeBoolean(true)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         "offcanvas-header"
       ];
@@ -12757,7 +12758,7 @@ const _sfc_main$b = {
     tag: makeString("div"),
     backdrop: makeBoolean(true)
   },
-  setup(props2) {
+  setup(props) {
     const shown = ref(false);
     const showBackdrop = ref(false);
     return {
@@ -12895,7 +12896,7 @@ const _sfc_main$a = {
     placement: makeString("top"),
     triggers: make(String, "click")
   },
-  setup(props2) {
+  setup(props) {
     const shown = ref(false);
     const bsDir = (placement) => {
       if (["auto", "auto-start", "auto-end", "top", "top-start", "top-end"].includes(placement)) {
@@ -12910,8 +12911,8 @@ const _sfc_main$a = {
       return "top";
     };
     const dir = ref("top");
-    dir.value = bsDir(props2.placement);
-    const classes = computed$1(() => {
+    dir.value = bsDir(props.placement);
+    const classes = computed(() => {
       return [
         "popover",
         "fade",
@@ -12921,8 +12922,8 @@ const _sfc_main$a = {
         }
       ];
     });
-    const events = computed$1(() => {
-      return typeof props2.triggers === "string" ? [props2.triggers] : props2.triggers;
+    const events = computed(() => {
+      return typeof props.triggers === "string" ? [props.triggers] : props.triggers;
     });
     const topLogger = {
       name: "topLogger",
@@ -12932,8 +12933,8 @@ const _sfc_main$a = {
         dir.value = bsDir(state.placement);
       }
     };
-    const popperOptions = computed$1(() => ({
-      placement: ["auto", "auto-start", "auto-end"].includes(props2.placement) ? "top" : props2.placement,
+    const popperOptions = computed(() => ({
+      placement: ["auto", "auto-start", "auto-end"].includes(props.placement) ? "top" : props.placement,
       modifiers: [
         topLogger,
         {
@@ -13040,14 +13041,14 @@ const _sfc_main$9 = {
       default: null
     }
   },
-  setup(props2, context) {
+  setup(props, context) {
     const identifier = ref(null);
-    if (props2.id) {
-      identifier.value = props2.id;
+    if (props.id) {
+      identifier.value = props.id;
     } else {
       identifier.value = "radio_id" + Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
     }
-    const isChecked = computed$1(() => props2.modelValue === props2.value);
+    const isChecked = computed(() => props.modelValue === props.value);
     return {
       identifier,
       isChecked
@@ -13085,9 +13086,9 @@ const _sfc_main$8 = {
     step: makeNumber(1),
     modelValue: makeNumber(0)
   },
-  setup(props2) {
+  setup(props) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         "form-range"
       ])
     };
@@ -13116,13 +13117,13 @@ const _sfc_main$7 = {
     modelValue: makeNumber(1),
     variant: makeString(null)
   },
-  setup(props2, context) {
-    const value = ref(props2.modelValue);
+  setup(props, context) {
+    const value = ref(props.modelValue);
     watch(value, (v) => context.emit("update:modelValue", v));
-    watch(() => props2.modelValue, (v) => value.value = v);
-    const items = computed$1(() => {
+    watch(() => props.modelValue, (v) => value.value = v);
+    const items = computed(() => {
       let its = [];
-      for (let i = props2.min; i <= props2.max; i++) {
+      for (let i = props.min; i <= props.max; i++) {
         its.push(i);
       }
       return its;
@@ -13164,22 +13165,22 @@ const _sfc_main$6 = {
     gLg: make([Number, String], null),
     gXl: make([Number, String], null)
   },
-  setup(props2) {
+  setup(props) {
     const classes = reactive([
       "row",
       {
-        ["row-cols-" + props2.cols]: props2.cols,
-        ["row-cols-sm-" + props2.sm]: props2.sm,
-        ["row-cols-md-" + props2.md]: props2.md,
-        ["row-cols-lg-" + props2.lg]: props2.lg,
-        ["row-cols-xl-" + props2.xl]: props2.xl,
-        ["align-items-" + props2.alignItems]: props2.alignItems,
-        ["justify-content-" + props2.justifyContent]: props2.justifyContent,
-        ["g-" + props2.g]: props2.g,
-        ["g-sm-" + props2.gSm]: props2.gSm,
-        ["g-md-" + props2.gMd]: props2.gMd,
-        ["g-lg-" + props2.gLg]: props2.gLg,
-        ["g-xl-" + props2.gXl]: props2.gXl
+        ["row-cols-" + props.cols]: props.cols,
+        ["row-cols-sm-" + props.sm]: props.sm,
+        ["row-cols-md-" + props.md]: props.md,
+        ["row-cols-lg-" + props.lg]: props.lg,
+        ["row-cols-xl-" + props.xl]: props.xl,
+        ["align-items-" + props.alignItems]: props.alignItems,
+        ["justify-content-" + props.justifyContent]: props.justifyContent,
+        ["g-" + props.g]: props.g,
+        ["g-sm-" + props.gSm]: props.gSm,
+        ["g-md-" + props.gMd]: props.gMd,
+        ["g-lg-" + props.gLg]: props.gLg,
+        ["g-xl-" + props.gXl]: props.gXl
       }
     ]);
     return {
@@ -13211,29 +13212,29 @@ const _sfc_main$5 = {
       default: null
     }
   },
-  setup(props2, context) {
+  setup(props, context) {
     const model = ref(null);
     watch(model, (val) => context.emit("update:modelValue", val));
-    watch(() => props2.modelValue, (value) => model.value = value);
+    watch(() => props.modelValue, (value) => model.value = value);
     const getEntity = (o, k) => {
-      if (typeof props2[k] === "string" || props2[k] === null) {
+      if (typeof props[k] === "string" || props[k] === null) {
         if (!isObject$7(o)) {
           return o;
         }
-        return o[props2[k] === null ? "text" : props2[k]];
-      } else if (typeof props2[k] === "function") {
-        return props2[k](o);
+        return o[props[k] === null ? "text" : props[k]];
+      } else if (typeof props[k] === "function") {
+        return props[k](o);
       }
       return o;
     };
     return {
       getEntity,
-      isDisabledOption: (o) => o.hasOwnProperty(props2.disabledField) ? o[props2.disabledField] : false,
+      isDisabledOption: (o) => o.hasOwnProperty(props.disabledField) ? o[props.disabledField] : false,
       model,
-      classes: computed$1(() => [
+      classes: computed(() => [
         "form-select",
         {
-          ["form-select-" + props2.size]: !!props2.size
+          ["form-select-" + props.size]: !!props.size
         }
       ])
     };
@@ -13300,17 +13301,17 @@ const _sfc_main$4 = {
       default: (v) => v
     }
   },
-  setup(props2, context) {
-    const model = ref(props2.modelValue);
+  setup(props, context) {
+    const model = ref(props.modelValue);
     watch(model, (v) => context.emit("update:modelValue", v));
-    watch(() => props2.modelValue, (v) => model.value = v);
+    watch(() => props.modelValue, (v) => model.value = v);
     return {
       model,
       updateValue: (type) => {
-        if (type === "increment" && model.value + props2.step <= props2.max) {
-          model.value += props2.step;
-        } else if (type === "decrement" && model.value - props2.step >= props2.min) {
-          model.value -= props2.step;
+        if (type === "increment" && model.value + props.step <= props.max) {
+          model.value += props.step;
+        } else if (type === "decrement" && model.value - props.step >= props.min) {
+          model.value -= props.step;
         }
       }
     };
@@ -13369,11 +13370,11 @@ const _sfc_main$3 = {
     title: makeString()
   },
   inject: ["registerTab", "unregisterTab"],
-  setup(props2, context) {
-    const visible = ref(props2.active);
-    watch(() => props2.active, (value) => visible.value = value);
+  setup(props, context) {
+    const visible = ref(props.active);
+    watch(() => props.active, (value) => visible.value = value);
     return {
-      classes: computed$1(() => ["tab-pane", "fade"]),
+      classes: computed(() => ["tab-pane", "fade"]),
       updateVisible: (value) => visible.value = value,
       visible
     };
@@ -13424,7 +13425,7 @@ const _sfc_main$2 = {
     end: makeBoolean(false),
     vertical: makeBoolean(false)
   },
-  setup(props2, context) {
+  setup(props, context) {
     const tabsMap = ref([]);
     provide("registerTab", (tab) => {
       let index = tabsMap.value.indexOf(tab);
@@ -13440,8 +13441,8 @@ const _sfc_main$2 = {
         tabsMap.value.splice(index, 1);
       }
     });
-    const active = ref(props2.modelValue);
-    watch(() => props2.modelValue, (value) => active.value = value);
+    const active = ref(props.modelValue);
+    watch(() => props.modelValue, (value) => active.value = value);
     watch(active, (value) => {
       context.emit("update:modelValue", value);
       tabsMap.value.filter((tab) => tab.visible).forEach((tab) => tab.visible = false);
@@ -13449,11 +13450,11 @@ const _sfc_main$2 = {
     });
     return {
       tabsMap,
-      classes: computed$1(() => {
+      classes: computed(() => {
         return {
-          card: props2.card,
-          "d-flex": props2.vertical,
-          "align-items-start": props2.vertical
+          card: props.card,
+          "d-flex": props.vertical,
+          "align-items-start": props.vertical
         };
       }),
       active
@@ -13521,12 +13522,12 @@ const _sfc_main$1 = {
     size: makeString(),
     modelValue: makeString()
   },
-  setup(props2) {
+  setup(props) {
     return {
-      classes: computed$1(() => [
+      classes: computed(() => [
         "form-control",
         {
-          ["form-control-" + props2.size]: !!props2.size
+          ["form-control-" + props.size]: !!props.size
         }
       ])
     };
@@ -13548,13 +13549,13 @@ const _sfc_main = defineComponent({
     active: makeBoolean(false),
     align: makeString(null)
   },
-  setup(props2) {
-    const classes = computed$1(() => {
+  setup(props) {
+    const classes = computed(() => {
       return [
         {
-          ["table-" + props2.variant]: props2.variant,
-          "table-active": props2.active,
-          ["align-" + props2.align]: !!props2.align
+          ["table-" + props.variant]: props.variant,
+          "table-active": props.active,
+          ["align-" + props.align]: !!props.align
         }
       ];
     });

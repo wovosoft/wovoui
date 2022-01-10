@@ -26,7 +26,8 @@
   },
   "description": "Bootstrap 5 and Vue 3 Utility Components",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
