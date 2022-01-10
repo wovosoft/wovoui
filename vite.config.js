@@ -1,26 +1,34 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueJsx from "@vue/babel-plugin-jsx"
 
 const path = require("path");
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
-        vue(),
-        vueJsx({})
+        vue()
     ],
-    resolve: {
-        alias: {
-            Components: path.resolve(__dirname, 'src/components/'),
-        },
-    },
     server: {
         watch: {
             usePolling: true
         }
     },
-    esbuild: {
-        jsxFactory: 'h',
-        jsxFragment: 'Fragment'
+    build: {
+        lib: {
+            entry: path.resolve(__dirname, 'src/index.js'),
+            name: 'wovoui',
+            fileName: (format) => `index.${format}.js`
+        },
+        rollupOptions: {
+            // make sure to externalize deps that shouldn't be bundled
+            // into your library
+            external: ['vue'],
+            output: {
+                // Provide global variables to use in the UMD build
+                // for externalized deps
+                globals: {
+                    vue: 'Vue'
+                }
+            }
+        }
     }
 })

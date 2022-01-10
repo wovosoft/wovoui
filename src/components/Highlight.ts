@@ -1,4 +1,5 @@
 import {ref, h, computed, defineComponent, Plugin, watch} from 'vue'
+// @ts-ignore
 import hljs from 'highlight.js/lib/core'
 import {escapeHtml} from '@highlightjs/vue-plugin/src/lib/utils'
 
