@@ -25,7 +25,8 @@
     "vue-loader": "^16.8.3"
   },
   "description": "Bootstrap 5 and Vue 3 Utility Components",
-  "main": "src/main.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wovosoft/wovoui.git"
