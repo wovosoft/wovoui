@@ -785,12 +785,7 @@ const _sfc_main$X = {
     width: make([Number, String], null)
   },
   setup(props, context) {
-    const attributes = ref([]);
-    if (props.width) {
-      attributes.value.width = props.width;
-    }
     return {
-      attributes,
       classes: computed(() => [
         {
           "card-img": props.overlay,
@@ -805,10 +800,11 @@ const _sfc_main$X = {
 };
 const _hoisted_1$l = ["src", "alt"];
 function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("img", mergeProps({
+  return openBlock(), createElementBlock("img", {
     src: $props.src,
-    class: $setup.classes
-  }, $setup.attributes, { alt: $props.alt }), null, 16, _hoisted_1$l);
+    class: normalizeClass($setup.classes),
+    alt: $props.alt
+  }, null, 10, _hoisted_1$l);
 }
 var CardImg = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["render", _sfc_render$X]]);
 var Card_vue_vue_type_style_index_0_lang = "";
