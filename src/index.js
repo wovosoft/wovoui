@@ -39,6 +39,7 @@ import Grid from "./components/Grid.vue";
 import GridCol from "./components/GridCol.vue";
 import Highlight from "./components/Highlight.ts";
 import Icon from "./components/Icon.vue";
+import Input from "./components/Input.vue";
 import InputGroup from "./components/InputGroup.vue";
 import InputGroupText from "./components/InputGroupText.vue";
 import Link from "./components/Link.vue";
@@ -72,11 +73,13 @@ import Tab from "./components/Tab.vue";
 import Table from "./components/Table.vue";
 import Tabs from "./components/Tabs.vue";
 import TBody from "./components/TBody.vue";
+import Th from "./components/Th.vue";
 import Td from "./components/Td.vue";
 import Textarea from "./components/Textarea.vue";
 import TFoot from "./components/TFoot.vue";
 import THead from "./components/THead.vue";
 import Tr from "./components/Tr.vue";
+import Datatable from "./components/DataTable.vue";
 
 export {
     Accordion, AccordionBody, AccordionHeader, AccordionItem,
@@ -94,6 +97,6 @@ export {
     NavItem, NavItemDropdown, NavLink, OffCanvas,
     OffCanvasBody, OffCanvasHeader, OffCanvasTitle,
     Popover, Radio, Range, Rating, Row, Select,
-    SpinButton, Tab, Table, Tabs, TBody, Td,
-    Textarea, TFoot, THead, Tr
+    SpinButton, Tab, Table, Tabs, TBody, Td, Th,
+    Textarea, TFoot, THead, Tr, Input, Datatable
 }
