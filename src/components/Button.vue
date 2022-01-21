@@ -30,7 +30,8 @@ export default {
         disabled: makeBoolean(false),
         pressed: makeBoolean(false),
         badge: make([String, Number], null),
-        badgeVariant: makeString('primary')
+        badgeVariant: makeString('primary'),
+        active: makeBoolean(false)
     },
     setup(props, context) {
         let attributes = {
@@ -50,7 +51,7 @@ export default {
                     'btn-block': props.block,
                     'rounded-pill': props.pill,
                     'rounded-0': props.squared,
-                    active: props.pressed
+                    active: props.pressed || props.active
                 }
             ])
         }
@@ -58,7 +59,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .btn-block {
     width: 100%;
 }

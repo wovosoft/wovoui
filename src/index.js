@@ -28,6 +28,7 @@ import Col from "./components/Col.vue";
 import Collapse from "./components/Collapse.vue";
 import Container from "./components/Container.vue";
 import DataTable from "./components/DataTable.vue";
+import Datepicker from "./components/Datepicker.vue";
 import Dropdown from "./components/Dropdown.vue";
 import DropdownButton from "./components/DropdownButton.vue";
 import DropdownDivider from "./components/DropdownDivider.vue";
@@ -80,6 +81,7 @@ import TFoot from "./components/TFoot.vue";
 import THead from "./components/THead.vue";
 import Tr from "./components/Tr.vue";
 import Datatable from "./components/DataTable.vue";
+import Calendar from "./components/Calendar.vue";
 
 export {
     Accordion, AccordionBody, AccordionHeader, AccordionItem,
@@ -98,5 +100,7 @@ export {
     OffCanvasBody, OffCanvasHeader, OffCanvasTitle,
     Popover, Radio, Range, Rating, Row, Select,
     SpinButton, Tab, Table, Tabs, TBody, Td, Th,
-    Textarea, TFoot, THead, Tr, Input, Datatable
+    Textarea, TFoot, THead, Tr, Input, Datatable,
+
+    Datepicker, Calendar
 }

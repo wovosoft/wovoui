@@ -11,6 +11,7 @@
         "@vue/babel-plugin-jsx": "^1.1.1",
         "bootstrap": "^5.1.3",
         "bootstrap-icons": "^1.7.2",
+        "dayjs": "^1.10.7",
         "highlight.js": "^11.4.0",
         "lodash": "^4.17.21",
         "vue": "^3.2.16",
