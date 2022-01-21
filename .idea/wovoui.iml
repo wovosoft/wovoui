@@ -5,5 +5,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="wovouidocs" />
+    <orderEntry type="module" module-name="wovouivuepress" />
   </component>
 </module>
