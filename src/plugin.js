@@ -1,4 +1,4 @@
-import components from "./index.js";
+import * as components from "./index.js";
 
 export default {
     install: (app, options) => {
