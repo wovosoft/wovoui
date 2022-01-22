@@ -98,12 +98,11 @@ dayjs.extend(localData);
 import Row from "./Row.vue";
 import Col from "./Col.vue";
 import Button from "./Button.vue";
-import ChevronLeft from "./icons/ChevronLeft.vue";
-import ChevronRight from "./icons/ChevronRight.vue";
-import CircleFill from "./icons/CircleFill.vue";
-import ChevronDoubleRight from "./icons/ChevronDoubleRight.vue";
-import ChevronDoubleLeft from "./icons/ChevronDoubleLeft.vue";
-import {makeBoolean, makeNumber, makeString} from "../shared/properties.js";
+
+
+import {ChevronLeft, ChevronRight, CircleFill, ChevronDoubleRight, ChevronDoubleLeft} from "@wovosoft/wovoui-icons";
+
+import {makeBoolean, makeString} from "../shared/properties.js";
 import InputGroup from "./InputGroup.vue";
 
 export default {
