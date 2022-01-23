@@ -6,7 +6,7 @@
 
 <script>
 import {isBoolean, make, makeString} from "../shared/properties.js";
-import {computed} from "vue";
+import {computed, ref} from "vue";
 
 export default {
     name: "Col",
@@ -28,17 +28,9 @@ export default {
         gy: make([Number, String], null),
     },
     setup(props) {
-        // let isDefault = true;
-        // for (let x of [props.sm, props.md, props.lg, props.xl, props.col]) {
-        //     if (x) {
-        //         isDefault = false;
-        //     }
-        //     break;
-        // }
-
         return {
             classes: computed(() => ({
-                "col": props.sm || props.md || props.lg || props.xl || props.col,
+                "col": !(props.sm || props.md || props.lg || props.xl || props.col),
                 ["col-" + props.col]: props.col,
                 ["col-sm-" + props.sm]: props.sm && !isBoolean(props.sm),
                 ["col-md-" + props.md]: props.md && !isBoolean(props.md),

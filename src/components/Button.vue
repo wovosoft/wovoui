@@ -31,7 +31,8 @@ export default {
         pressed: makeBoolean(false),
         badge: make([String, Number], null),
         badgeVariant: makeString('primary'),
-        active: makeBoolean(false)
+        active: makeBoolean(false),
+        activeClass: makeString('active')
     },
     setup(props, context) {
         let attributes = {
@@ -51,7 +52,7 @@ export default {
                     'btn-block': props.block,
                     'rounded-pill': props.pill,
                     'rounded-0': props.squared,
-                    active: props.pressed || props.active
+                    [props.activeClass]: props.pressed || props.active
                 }
             ])
         }

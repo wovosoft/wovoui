@@ -73,6 +73,8 @@
                 <td class="text-center border" v-for="d in days">
                     <Button size="sm"
                             :tabindex="week_index+8"
+                            :class="{'btn-dark text-white':isToday(d)}"
+                            :active-class="activeClass"
                             :active="isSameDay(theDate.format('YYYY-MM')+'-'+d)"
                             class="border-0 rounded-circle"
                             outline @click="selectDate(d)">
@@ -84,43 +86,51 @@
                 </template>
             </tr>
         </table>
-
     </div>
 </template>
 
 <script>
 import {computed, ref, watch} from "vue";
 import dayjs from "dayjs";
+import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
 
 dayjs.extend(localData);
+dayjs.extend(isToday);
 
-import Row from "./Row.vue";
-import Col from "./Col.vue";
-import Button from "./Button.vue";
+import {make, makeBoolean, makeString} from "../shared/properties.js";
+import {
+    Row,
+    Col,
+    Button,
+    InputGroup
+} from "./../index.js";
 
-
-import {ChevronLeft, ChevronRight, CircleFill, ChevronDoubleRight, ChevronDoubleLeft} from "@wovosoft/wovoui-icons";
-
-import {makeBoolean, makeString} from "../shared/properties.js";
-import InputGroup from "./InputGroup.vue";
+import {
+    ChevronLeft,
+    ChevronRight,
+    CircleFill,
+    ChevronDoubleRight,
+    ChevronDoubleLeft
+} from "@wovosoft/wovoui-icons";
 
 export default {
     name: "Calendar",
     components: {
         InputGroup,
-        ChevronDoubleLeft, ChevronDoubleRight, CircleFill, ChevronRight, ChevronLeft, Button, Col, Row
+        ChevronDoubleLeft,
+        ChevronDoubleRight,
+        CircleFill,
+        ChevronRight,
+        ChevronLeft,
+        Button,
+        Col,
+        Row
     },
     props: {
-        modelValue: {
-            type: [String, Object],
-            default: null
-        },
+        modelValue: make([String, Object], null),
         //output format: https://day.js.org/docs/en/display/format#docsNav
-        format: {
-            type: String,
-            default: () => "YYYY-MM-DD"
-        },
+        format: makeString("YYYY-MM-DD"),
         //https://day.js.org/docs/en/plugin/locale-data#docsNav
         /**
          * Week Days can be 'min','short','regular'(full name)
@@ -128,7 +138,8 @@ export default {
         weekdayType: makeString('short'),
         monthSelectorEnabled: makeBoolean(true),
         //https://day.js.org/docs/en/get-set/day
-        // startOfWeek: makeNumber(1)
+        // startOfWeek: makeNumber(1),
+        activeClass: makeString("active")
     },
     setup(props, context) {
         const theDate = ref(props.modelValue ? dayjs(props.modelValue) : dayjs());
@@ -155,25 +166,29 @@ export default {
                     weekday = (weekday + 1) % 7;
                 }
                 return weeks.filter((w) => !!w.length).map((w) => w);
-            })
+            });
         return {
             theDate,
+            theWeeks,
             setMonth(e) {
                 const date = dayjs(e.target.value);
                 theDate.value = dayjs(theDate.value)
                     .set('year', date.year())
                     .set('month', date.month())
             },
-            theWeeks,
             showMonthSelector: ref(false),
             add: (type, value = 1) => theDate.value = dayjs(theDate.value).add(value, type),
             subtract: (type, value = 1) => theDate.value = dayjs(theDate.value).subtract(value, type),
-            setToday: () => theDate.value = dayjs(),
+            setToday: () => {
+                theDate.value = dayjs();
+                context.emit('update:modelValue', theDate.value.format(props.format));
+            },
             selectDate(day) {
                 theDate.value = dayjs(theDate.value).set('date', Number(day));
                 //only when clicked, emit modelValue
                 context.emit('update:modelValue', theDate.value.format(props.format));
             },
+            isToday: (day) => dayjs(theDate.value.format('YYYY-MM') + '-' + day).isToday(),
             isSameDay(day) {
                 if (!props.modelValue) {
                     return false;

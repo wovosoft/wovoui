@@ -466,7 +466,8 @@ const _sfc_main$16 = {
     pressed: makeBoolean(false),
     badge: make([String, Number], null),
     badgeVariant: makeString("primary"),
-    active: makeBoolean(false)
+    active: makeBoolean(false),
+    activeClass: makeString("active")
   },
   setup(props, context) {
     let attributes = {
@@ -486,7 +487,7 @@ const _sfc_main$16 = {
           "btn-block": props.block,
           "rounded-pill": props.pill,
           "rounded-0": props.squared,
-          active: props.pressed || props.active
+          [props.activeClass]: props.pressed || props.active
         }
       ])
     };
@@ -1236,7 +1237,7 @@ const _sfc_main$T = {
   setup(props) {
     return {
       classes: computed(() => ({
-        "col": props.sm || props.md || props.lg || props.xl || props.col,
+        "col": !(props.sm || props.md || props.lg || props.xl || props.col),
         ["col-" + props.col]: props.col,
         ["col-sm-" + props.sm]: props.sm && !isBoolean(props.sm),
         ["col-md-" + props.md]: props.md && !isBoolean(props.md),
@@ -13823,6 +13824,20 @@ var dayjs_min = { exports: {} };
   });
 })(dayjs_min);
 var dayjs = dayjs_min.exports;
+var isToday$1 = { exports: {} };
+(function(module, exports) {
+  !function(e, o) {
+    module.exports = o();
+  }(commonjsGlobal, function() {
+    return function(e, o, t) {
+      o.prototype.isToday = function() {
+        var e2 = "YYYY-MM-DD", o2 = t();
+        return this.format(e2) === o2.format(e2);
+      };
+    };
+  });
+})(isToday$1);
+var isToday = isToday$1.exports;
 var localeData = { exports: {} };
 (function(module, exports) {
   !function(n, e) {
@@ -14225,6 +14240,7 @@ function _sfc_render$hq(_ctx, _cache, $props, $setup, $data, $options) {
 }
 var CircleFill = /* @__PURE__ */ _export_sfc(_sfc_main$hq, [["render", _sfc_render$hq]]);
 dayjs.extend(localData);
+dayjs.extend(isToday);
 const _sfc_main = {
   name: "Calendar",
   components: {
@@ -14239,16 +14255,11 @@ const _sfc_main = {
     Row
   },
   props: {
-    modelValue: {
-      type: [String, Object],
-      default: null
-    },
-    format: {
-      type: String,
-      default: () => "YYYY-MM-DD"
-    },
+    modelValue: make([String, Object], null),
+    format: makeString("YYYY-MM-DD"),
     weekdayType: makeString("short"),
-    monthSelectorEnabled: makeBoolean(true)
+    monthSelectorEnabled: makeBoolean(true),
+    activeClass: makeString("active")
   },
   setup(props, context) {
     const theDate = ref(props.modelValue ? dayjs(props.modelValue) : dayjs());
@@ -14267,19 +14278,23 @@ const _sfc_main = {
     });
     return {
       theDate,
+      theWeeks,
       setMonth(e) {
         const date = dayjs(e.target.value);
         theDate.value = dayjs(theDate.value).set("year", date.year()).set("month", date.month());
       },
-      theWeeks,
       showMonthSelector: ref(false),
       add: (type, value = 1) => theDate.value = dayjs(theDate.value).add(value, type),
       subtract: (type, value = 1) => theDate.value = dayjs(theDate.value).subtract(value, type),
-      setToday: () => theDate.value = dayjs(),
+      setToday: () => {
+        theDate.value = dayjs();
+        context.emit("update:modelValue", theDate.value.format(props.format));
+      },
       selectDate(day) {
         theDate.value = dayjs(theDate.value).set("date", Number(day));
         context.emit("update:modelValue", theDate.value.format(props.format));
       },
+      isToday: (day) => dayjs(theDate.value.format("YYYY-MM") + "-" + day).isToday(),
       isSameDay(day) {
         if (!props.modelValue) {
           return false;
@@ -14434,8 +14449,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               createVNode(_component_Button, {
                 size: "sm",
                 tabindex: week_index + 8,
+                class: normalizeClass([{ "btn-dark text-white": $setup.isToday(d) }, "border-0 rounded-circle"]),
+                "active-class": $props.activeClass,
                 active: $setup.isSameDay($setup.theDate.format("YYYY-MM") + "-" + d),
-                class: "border-0 rounded-circle",
                 outline: "",
                 onClick: ($event) => $setup.selectDate(d)
               }, {
@@ -14443,7 +14459,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                   createTextVNode(toDisplayString(d), 1)
                 ]),
                 _: 2
-              }, 1032, ["tabindex", "active", "onClick"])
+              }, 1032, ["tabindex", "class", "active-class", "active", "onClick"])
             ]);
           }), 256)),
           week_index === $setup.theWeeks.length - 1 ? (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList(7 - days.length, (pd) => {
