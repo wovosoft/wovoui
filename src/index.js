@@ -82,6 +82,12 @@ import THead from "./components/THead.vue";
 import Tr from "./components/Tr.vue";
 import Datatable from "./components/DataTable.vue";
 import Calendar from "./components/Calendar.vue";
+import Carousel from "./components/Carousel.vue";
+import CarouselCaption from "./components/CarouselCaption.vue";
+import CarouselControl from "./components/CarouselControl.vue";
+import CarouselIndicators from "./components/CarouselIndicators.vue";
+import CarouselInner from "./components/CarouselInner.vue";
+import CarouselItem from "./components/CarouselItem.vue";
 
 export {
     Accordion, AccordionBody, AccordionHeader, AccordionItem,
@@ -101,5 +107,7 @@ export {
     Popover, Radio, Range, Rating, Row, Select,
     SpinButton, Tab, Table, Tabs, TBody, Td, Th,
     Textarea, TFoot, THead, Tr, Input, Datatable,
-    Datepicker, Calendar
+    Datepicker, Calendar, Carousel, CarouselCaption,
+    CarouselControl, CarouselIndicators, CarouselInner,
+    CarouselItem
 }
