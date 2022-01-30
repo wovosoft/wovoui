@@ -1,14 +1,4 @@
 <template>
-    <Button
-        v-if="$slots.toggleText || toggleText"
-        ref="toggle"
-        :variant="toggleVariant"
-        :aria-expanded="shown"
-        @click="updateState(!shown)">
-        <slot name="toggleText">
-            {{ toggleText }}
-        </slot>
-    </Button>
     <div :class="classes" ref="collapse"
          :id="id"
          @transitionend.self="collapseTransitionEnd($event,shown,'height')">
@@ -18,19 +8,11 @@
 
 <script>
 import {make, makeBoolean, makeString} from "../shared/properties.js";
-import Button from "./Button.vue";
 import {computed, ref} from "vue";
 import {toggleCollapse, collapseTransitionEnd} from "../shared/utilities.js";
-
 export default {
     name: "Collapse",
-    components: {Button},
     props: {
-        toggleText: {
-            default: null
-        },
-        toggleClass: make([Array, String], null),
-        toggleVariant: makeString("secondary"),
         modelValue: makeBoolean(false),
         visible: makeBoolean(false),
         class: make([Array, String], null),

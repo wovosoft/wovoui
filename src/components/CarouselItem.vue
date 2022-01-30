@@ -10,10 +10,11 @@ import {makeBoolean, makeString} from "../shared/properties";
 
 export default {
     name: "CarouselItem",
+    emits: ['slidingStart', 'slidingEnd'],
     props: {
         tag: makeString("div"),
         active: makeBoolean(false),
-        activeClass: makeString("active")
+        activeClass: makeString("active"),
     },
     setup(props, context) {
         const visible = ref(props.active);
@@ -36,6 +37,7 @@ export default {
     },
     methods: {
         transitionEnd() {
+            this.$emit('slidingEnd', this);
             this.$el.classList.remove("carousel-item-start", "carousel-item-end");
             this.$el.classList.remove("carousel-item-next", "carousel-item-prev");
             if (this.visible) {
@@ -47,6 +49,7 @@ export default {
     },
     watch: {
         visible(value) {
+            this.$emit('slidingStart', this);
             if (value) {
                 this.$el.classList.add("carousel-item-" + (this.direction === 'start' ? 'next' : 'prev'));
             }
