@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <Icon
-            :icon="value>=i?'star-fill':'star'"
+    <div class="form-rating">
+        <component
+            :is="value>=i?'StarFill':'Star'"
             v-for="i in items"
             @click="value=i"
             :variant="variant"
@@ -14,11 +14,11 @@
 
 import {computed, ref, watch} from "vue";
 import {makeNumber, makeString} from "../shared/properties.js";
-import Icon from "./Icon.vue";
+import {StarFill, Star} from "@wovosoft/wovoui-icons";
 
 export default {
     name: "Rating",
-    components: {Icon},
+    components: {StarFill, Star},
     props: {
         min: makeNumber(1),
         max: makeNumber(5),

@@ -88,6 +88,7 @@ import CarouselControl from "./components/CarouselControl.vue";
 import CarouselIndicators from "./components/CarouselIndicators.vue";
 import CarouselInner from "./components/CarouselInner.vue";
 import CarouselItem from "./components/CarouselItem.vue";
+import Tags from "./components/Tags.vue";
 
 export {
     Accordion, AccordionBody, AccordionHeader, AccordionItem,
@@ -105,7 +106,7 @@ export {
     NavItem, NavItemDropdown, NavLink, OffCanvas,
     OffCanvasBody, OffCanvasHeader, OffCanvasTitle,
     Popover, Radio, Range, Rating, Row, Select,
-    SpinButton, Tab, Table, Tabs, TBody, Td, Th,
+    SpinButton, Tab, Table, Tabs, TBody, Td, Th, Tags,
     Textarea, TFoot, THead, Tr, Input, Datatable,
     Datepicker, Calendar, Carousel, CarouselCaption,
     CarouselControl, CarouselIndicators, CarouselInner,
