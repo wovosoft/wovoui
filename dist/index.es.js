@@ -15023,68 +15023,112 @@ var CarouselItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["render", _sfc_r
 var Tags_vue_vue_type_style_index_0_lang = "";
 const _sfc_main = {
   name: "Tags",
-  components: { X },
+  components: { Button, Badge, X },
   props: {
-    tag: makeString("div"),
+    tag: makeString("ul"),
     role: makeString("group"),
     tabindex: make([Number, String], -1),
     placeholder: makeString("Add Tag"),
-    modelValue: make(Array, [])
+    modelValue: make(Array, []),
+    removeOnDelete: makeBoolean(false),
+    separator: make(Array, [",", ";", " "]),
+    tagPills: makeBoolean(false),
+    tagVariant: makeString("secondary"),
+    addButtonSize: makeString("sm"),
+    addButtonText: makeString("Add")
   },
   setup(props, context) {
     const model = ref(props.modelValue || []);
     watch(model, (v) => context.emit("update:modelValue", v));
     watch(() => props.modelValue, (v) => model.value = v);
     const inputText = ref(null);
-    const addTag = () => {
-      if (inputText) {
+    const addTag = (e) => {
+      if ((e.keyCode === 13 || e.which === 13 || e.type === "click") && inputText.value) {
         model.value.push(inputText.value);
         inputText.value = null;
+      } else if (props.separator && props.separator.includes(e.key) && inputText.value) {
+        model.value.push(inputText.value);
+        setTimeout(() => inputText.value = null, 0);
+      }
+    };
+    const backspacePressed = (e) => {
+      if (props.removeOnDelete && e.target.selectionStart === 0 && model.value.length) {
+        model.value.pop();
       }
     };
     return {
       model,
       inputText,
       addTag,
+      backspacePressed,
       classes: computed(() => [
-        "wui-tags"
+        "wui-tags",
+        "d-flex",
+        "flex-wrap",
+        "ps-1",
+        "pe-1",
+        "pb-1",
+        "pt-0"
       ])
     };
   }
 };
-const _hoisted_1 = { class: "wui-tags-items" };
+const _hoisted_1 = { class: "d-inline-flex flex-grow-1" };
 const _hoisted_2 = ["placeholder"];
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_X = resolveComponent("X");
+  const _component_Badge = resolveComponent("Badge");
+  const _component_Button = resolveComponent("Button");
   return openBlock(), createBlock(resolveDynamicComponent($props.tag), {
     role: $props.role,
     tabindex: $props.tabindex,
     class: normalizeClass($setup.classes)
   }, {
     default: withCtx(() => [
-      createElementVNode("ul", _hoisted_1, [
-        (openBlock(true), createElementBlock(Fragment, null, renderList($setup.model, (tag, tag_key) => {
-          return openBlock(), createElementBlock("li", {
-            key: tag_key,
-            class: "bg-secondary"
-          }, [
+      (openBlock(true), createElementBlock(Fragment, null, renderList($setup.model, (tag, tag_key) => {
+        return openBlock(), createBlock(_component_Badge, {
+          tag: "li",
+          pill: $props.tagPills,
+          variant: $props.tagVariant,
+          key: tag_key,
+          class: "me-1 mt-1 d-inline-flex align-items-center"
+        }, {
+          default: withCtx(() => [
             createTextVNode(toDisplayString(tag) + " ", 1),
-            createVNode(_component_X)
-          ]);
-        }), 128))
-      ]),
-      withDirectives(createElementVNode("input", {
-        class: "wui-tags-input",
-        placeholder: $props.placeholder,
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.inputText = $event),
-        onKeypress: _cache[1] || (_cache[1] = withKeys((...args) => $setup.addTag && $setup.addTag(...args), ["enter"]))
-      }, null, 40, _hoisted_2), [
-        [
-          vModelText,
-          $setup.inputText,
-          void 0,
-          { trim: true }
-        ]
+            createVNode(_component_X, {
+              class: "hover:bg-bright",
+              onClick: ($event) => $setup.model.splice(tag_key, 1)
+            }, null, 8, ["onClick"])
+          ]),
+          _: 2
+        }, 1032, ["pill", "variant"]);
+      }), 128)),
+      createElementVNode("li", _hoisted_1, [
+        withDirectives(createElementVNode("input", {
+          class: "wui-tags-input w-100",
+          placeholder: $props.placeholder,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.inputText = $event),
+          onKeyup: _cache[1] || (_cache[1] = withKeys((...args) => $setup.backspacePressed && $setup.backspacePressed(...args), ["delete"])),
+          onKeypress: _cache[2] || (_cache[2] = (...args) => $setup.addTag && $setup.addTag(...args))
+        }, null, 40, _hoisted_2), [
+          [
+            vModelText,
+            $setup.inputText,
+            void 0,
+            { trim: true }
+          ]
+        ]),
+        $setup.inputText ? (openBlock(), createBlock(_component_Button, {
+          key: 0,
+          onClick: $setup.addTag,
+          size: $props.addButtonSize,
+          class: "mt-1"
+        }, {
+          default: withCtx(() => [
+            createTextVNode(toDisplayString($props.addButtonText), 1)
+          ]),
+          _: 1
+        }, 8, ["onClick", "size"])) : createCommentVNode("", true)
       ])
     ]),
     _: 1
