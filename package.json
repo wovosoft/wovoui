@@ -1,6 +1,6 @@
 {
     "name": "@wovosoft/wovoui",
-    "version": "0.2.0-alpha",
+    "version": "0.2.0-beta",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
