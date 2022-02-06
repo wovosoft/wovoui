@@ -10,20 +10,27 @@
         </Badge>
     </component>
 </template>
-<script>
+<script lang="ts">
 import {make, makeBoolean, makeString} from "../shared/properties.js";
 import Badge from "./Badge.vue";
-import {computed} from "vue";
+import {computed, defineComponent, PropType} from "vue";
+import {ButtonSizes, TrueFalse} from "../types"
+import ColorVariants from "../props/colorVariants";
 
-export default {
+export default defineComponent({
     components: {Badge},
     props: {
         tag: makeString("button"),
         href: makeString(null),
-        variant: makeString("secondary"),
-        size: makeString(null),
+        variant: ColorVariants("secondary"),
+        size: {
+            type: String as PropType<ButtonSizes>,
+            default: () => null
+        },
         type: makeString("button"),
-        outline: makeBoolean(false),
+        outline: {
+            type: Boolean as PropType<TrueFalse>
+        },
         block: makeBoolean(false),
         pill: makeBoolean(false),
         squared: makeBoolean(false),
@@ -49,7 +56,7 @@ export default {
                 {
                     ["btn-" + (props.outline ? 'outline-' : '') + props.variant]: !!props.variant,
                     ["btn-" + props.size]: !!props.size,
-                    'btn-block': props.block,
+                    'w-100': props.block,
                     'rounded-pill': props.pill,
                     'rounded-0': props.squared,
                     [props.activeClass]: props.pressed || props.active
@@ -57,11 +64,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>
-
-<style lang="scss">
-.btn-block {
-    width: 100%;
-}
-</style>

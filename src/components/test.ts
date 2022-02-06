@@ -1,15 +1,7 @@
-<template>
-    <component :is="tag" :class="classes">
-        <slot></slot>
-    </component>
-</template>
-
-<script lang="ts">
+import {computed, defineComponent, h} from "vue";
 import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed, defineComponent, ref} from "vue";
 
 export default defineComponent({
-    name: "ListGroup",
     props: {
         tag: makeString("ul"),
         flush: makeBoolean(false),
@@ -19,7 +11,7 @@ export default defineComponent({
             default: false
         },
     },
-    setup(props) {
+    setup(props, context) {
         return {
             classes: computed(() => [
                 "list-group",
@@ -29,7 +21,13 @@ export default defineComponent({
                     ["list-group-horizontal" + (typeof props.horizontal === "string" ? "-" + props.horizontal : "")]: props.horizontal,
                 }
             ])
-        };
+        }
+    },
+    render() {
+        return h(
+            this.tag,
+            {class: this.classes},
+            this.$slots
+        )
     }
 })
-</script>

@@ -5,21 +5,42 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
-import AccordionItem from "./AccordionItem.vue";
-import {makeBoolean, makeNumber} from "../shared/properties";
+import {defineComponent, PropType, reactive, ref} from "vue";
+import {makeNumber} from "../shared/properties";
 
 export default defineComponent({
     name: "Accordion",
-    components: {AccordionItem},
+    emits: ['update:modelValue'],
     props: {
         modelValue: makeNumber(null),
-        flush: makeBoolean(false),
-        alwaysOpen: makeBoolean(false)
+        flush: {type: Boolean as PropType<Boolean>, default: false},
+        alwaysOpen: {type: Boolean as PropType<Boolean>, default: false}
     },
     provide() {
         return {
-            alwaysOpen: this.alwaysOpen
+            registerItem: (item) => this.items.push(item),
+            setActiveItem: item => {
+                this.activeItem = item;
+                this.$emit('update:modelValue', this.items.indexOf(item));
+                if (!this.alwaysOpen) {
+                    this.items.filter(i => i !== item).forEach(i => i.value = false);
+                }
+            }
+        }
+    },
+    setup(props, context) {
+        const activeItem = ref(null);
+        const items = reactive([]);
+
+        context.expose({
+            toggleAll: () => items.forEach(i => i.value = !i.value),
+            openAll: () => items.forEach(i => i.value = true),
+            collapseAll: () => items.forEach(i => i.value = false)
+        });
+
+        return {
+            items,
+            activeItem
         }
     }
 })

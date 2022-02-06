@@ -1,18 +1,13 @@
-<template>
-    <component :is="href?'a':tag" v-bind="attributes" :class="classes">
-        <slot></slot>
-    </component>
-</template>
-
-<script lang="ts">
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed, reactive, defineComponent} from "vue";
+import {makeString} from "../shared/properties.js";
+import {computed, h, reactive, defineComponent} from "vue";
+import ColorVariants from "../props/ColorVariants";
+import BoolPill from "../props/BoolPill";
 
 export default defineComponent({
     props: {
         tag: makeString('span'),
-        variant: makeString("secondary"),
-        pill: makeBoolean(false),
+        variant: ColorVariants("secondary"),
+        pill: BoolPill(false),
         href: makeString(null)
     },
     setup(props, context) {
@@ -35,6 +30,12 @@ export default defineComponent({
                 }
             ])
         }
+    },
+    render() {
+        return h(
+            this.href ? 'a' : this.tag,
+            {class: this.classes, ...this.attributes},
+            this.$slots.default
+        );
     }
-})
-</script>
+});

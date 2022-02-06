@@ -44,17 +44,16 @@ export default {
         if (props.button) {
             theTag.value = "button";
         }
-        const classes = computed(() => [
-            "list-group-item",
-            {
-                "active": props.active,
-                "disabled": props.disabled,
-                "list-group-item-action": props.button || theTag.value === 'a',
-                ["list-group-item-" + props.variant]: !!props.variant
-            }
-        ]);
         return {
-            classes,
+            classes: computed(() => [
+                "list-group-item",
+                {
+                    "active": props.active,
+                    "disabled": props.disabled,
+                    "list-group-item-action": props.button || theTag.value === 'a',
+                    ["list-group-item-" + props.variant]: !!props.variant
+                }
+            ]),
             attributes,
             theTag
         }

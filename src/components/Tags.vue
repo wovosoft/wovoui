@@ -17,7 +17,7 @@
                 @keyup.delete="backspacePressed"
                 @keypress="addTag"
             />
-            <Button @click="addTag" :size="addButtonSize" class="mt-1" v-if="inputText">
+            <Button @click="addTag" :size="addButtonSize" class="mt-1 py-0" v-if="inputText">
                 {{ addButtonText }}
             </Button>
         </li>
@@ -41,11 +41,12 @@ export default {
         placeholder: makeString('Add Tag'),
         modelValue: make(Array, []),
         removeOnDelete: makeBoolean(false),
-        separator: make(Array, [',', ';', ' ']),
+        separator: make(Array, null),
         tagPills: makeBoolean(false),
         tagVariant: makeString("secondary"),
         addButtonSize: makeString("sm"),
-        addButtonText: makeString("Add")
+        addButtonText: makeString("Add"),
+        noAddOnEnter: makeBoolean(false)
     },
     setup(props, context) {
         const model = ref(props.modelValue || []);

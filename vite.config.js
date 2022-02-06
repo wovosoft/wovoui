@@ -13,7 +13,7 @@ export default defineConfig({
         }
     },
     build: {
-        cssCodeSplit:false,
+        // cssCodeSplit:false,
         lib: {
             entry: path.resolve(__dirname, 'src/index.js'),
             name: 'wovoui',

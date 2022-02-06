@@ -1,17 +1,13 @@
 <template>
-  <div class="accordion-collapse collapse" :class="{'collapsing':modelValue}">
     <div class="accordion-body">
-      <slot></slot>
+        <slot></slot>
     </div>
-  </div>
 </template>
 
-<script>
-export default {
-  name: "AccordionBody"
-}
+<script lang="ts">
+import {defineComponent} from "vue";
+
+export default defineComponent({
+    name: "AccordionBody"
+})
 </script>
-
-<style scoped>
-
-</style>

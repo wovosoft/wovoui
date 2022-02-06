@@ -1,63 +1,47 @@
 <template>
-  <div class="accordion-item">
-    <AccordionHeader v-model="visible" @update:modelValue="clicked">
-      {{ header }}
-    </AccordionHeader>
-    <div class="accordion-collapse" :class="bodyClass">
-      <div class="accordion-body">
-        <slot></slot>
-      </div>
+    <div class="accordion-item">
+        <AccordionHeader v-model="visible">
+            <slot name="header">
+                {{ header }}
+            </slot>
+        </AccordionHeader>
+
+        <Collapse class="accordion-collapse" v-model="visible">
+            <AccordionBody>
+                <slot></slot>
+            </AccordionBody>
+        </Collapse>
     </div>
-  </div>
 </template>
 
-<script>
-import {makeBoolean, makeNumber, makeString} from "../shared/properties.js";
+<script lang="ts">
+import {defineComponent, inject, ref, watch} from "vue";
+import {makeBoolean, makeString} from "../shared/properties.js";
 import AccordionHeader from "./AccordionHeader.vue";
-import {reactive, ref} from "vue";
+import AccordionBody from "./AccordionBody.vue";
+import Collapse from "./Collapse.vue";
 
-export default {
-  name: "AccordionItem",
-  emits: ['update:modelValue', 'update:index'],
-  components: {AccordionHeader},
-  props: {
-    header: makeString(),
-    modelValue: makeBoolean(false),
-    index: makeNumber(null)
-  },
-  inject: ['alwaysOpen'],
-  setup(props, {}) {
-    const visible = ref(props.modelValue);
-    return {
-      bodyClass: reactive({show: false, collapsing: false, collapse: true}),
-      visible
-    }
-  },
-  watch: {
-    visible(val) {
-      this.bodyClass.show = val;
+export default defineComponent({
+    name: "AccordionItem",
+    emits: ['update:modelValue'],
+    components: {AccordionHeader, AccordionBody, Collapse},
+    props: {
+        header: makeString(null),
+        modelValue: makeBoolean(false)
     },
-    index(val) {
-      this.visible = this.index === this.myIndex;
-    }
-  },
-  mounted() {
-    this.visible = this.index === this.myIndex;
-  },
-  computed: {
-    myIndex() {
-      let accordions = this.$el.parentNode.children
-      for (let x = 0; x < accordions.length; x++) {
-        if (accordions[x].isSameNode(this.$el)) {
-          return x;
+    setup(props, {}) {
+        const visible = ref(props.modelValue);
+        inject('registerItem')(visible);
+        const setActiveItem = inject("setActiveItem");
+
+        watch(visible, value => {
+            if (value) {
+                setActiveItem(visible);
+            }
+        });
+        return {
+            visible
         }
-      }
     }
-  },
-  methods: {
-    clicked() {
-      this.$emit("update:index", this.myIndex);
-    }
-  }
-}
+})
 </script>
