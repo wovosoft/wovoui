@@ -5,15 +5,20 @@
 </template>
 
 <script lang="ts">
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed, reactive, defineComponent} from "vue";
+import {makeString} from "../shared/properties.js";
+import {computed, h, reactive, defineComponent, PropType} from "vue";
+import ColorVariants from "../props/ColorVariants";
+import BoolPill from "../props/BoolPill";
+
+type PositionType = 'top-right' | 'top-left' | 'bottom-left' | 'bottom-right';
 
 export default defineComponent({
     props: {
         tag: makeString('span'),
-        variant: makeString("secondary"),
-        pill: makeBoolean(false),
-        href: makeString(null)
+        variant: ColorVariants("secondary"),
+        pill: BoolPill(false),
+        href: makeString(null),
+        position: {type: String as PropType<PositionType>}
     },
     setup(props, context) {
         const attributes = reactive({
@@ -31,10 +36,15 @@ export default defineComponent({
                 {
                     ["bg-" + props.variant]: !!props.variant,
                     "rounded-pill": props.pill,
-                    "text-decoration-none": props.href
+                    "text-decoration-none": props.href,
+                    "position-absolute translate-middle": props.position,
+                    "start-100 top-0": props.position === "top-right",
+                    "start-0 top-0": props.position === "top-left",
+                    "start-0 top-100": props.position === "bottom-left",
+                    "start-100 top-100": props.position === "bottom-right",
                 }
             ])
         }
     }
-})
+});
 </script>

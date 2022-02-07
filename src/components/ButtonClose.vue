@@ -1,15 +1,17 @@
 <template>
-  <button type="button"
-          aria-label="Close"
-          :class="{'btn-close-white':white}"
-          class="btn-close"></button>
+    <button type="button"
+            :aria-label="ariaLabel"
+            :class="{'btn-close-white':white}"
+            class="btn-close"></button>
 </template>
-<script>
-import {makeBoolean} from "../shared/properties.js";
+<script lang="ts">
+import {PropType} from "vue";
+import {makeString} from "../shared/properties.js";
 
 export default {
-  props: {
-    white: makeBoolean(false)
-  }
+    props: {
+        white: {type: Boolean as PropType<true | false>, default: () => false},
+        ariaLabel: makeString("Close")
+    }
 }
 </script>

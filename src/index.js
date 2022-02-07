@@ -5,7 +5,7 @@ export {default as AccordionItem} from "./components/AccordionItem.vue";
 export {default as Alert} from "./components/Alert.vue";
 export {default as AlertHeading} from "./components/AlertHeading.vue";
 export {default as AlertLink} from "./components/AlertLink.vue";
-export {default as Badge} from "./components/Badge.ts";
+export {default as Badge} from "./components/Badge.vue";
 export {default as BreadcrumbItem} from "./components/BreadcrumbItem.vue";
 export {default as Breadcrumb} from "./components/Breadcrumb.vue";
 export {default as Button} from "./components/Button.vue";
