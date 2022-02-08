@@ -99,9 +99,9 @@ var Accordion = /* @__PURE__ */ _export_sfc$1(_sfc_main$1n, [["render", _sfc_ren
 const _sfc_main$1m = defineComponent({
   name: "AccordionBody"
 });
-const _hoisted_1$w = { class: "accordion-body" };
+const _hoisted_1$v = { class: "accordion-body" };
 function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$w, [
+  return openBlock(), createElementBlock("div", _hoisted_1$v, [
     renderSlot(_ctx.$slots, "default")
   ]);
 }
@@ -5632,7 +5632,7 @@ const _sfc_main$1k = {
     document.removeEventListener("toggleCollapse", this.listener);
   }
 };
-const _hoisted_1$v = ["id"];
+const _hoisted_1$u = ["id"];
 function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass($setup.classes),
@@ -5641,7 +5641,7 @@ function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
     onTransitionend: _cache[0] || (_cache[0] = withModifiers(($event) => $setup.collapseTransitionEnd($event, $setup.shown, "height"), ["self"]))
   }, [
     renderSlot(_ctx.$slots, "default")
-  ], 42, _hoisted_1$v);
+  ], 42, _hoisted_1$u);
 }
 var Collapse = /* @__PURE__ */ _export_sfc$1(_sfc_main$1k, [["render", _sfc_render$1k]]);
 const _sfc_main$1j = defineComponent({
@@ -5666,12 +5666,12 @@ const _sfc_main$1j = defineComponent({
     };
   }
 });
-const _hoisted_1$u = { class: "accordion-item" };
+const _hoisted_1$t = { class: "accordion-item" };
 function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_AccordionHeader = resolveComponent("AccordionHeader");
   const _component_AccordionBody = resolveComponent("AccordionBody");
   const _component_Collapse = resolveComponent("Collapse");
-  return openBlock(), createElementBlock("div", _hoisted_1$u, [
+  return openBlock(), createElementBlock("div", _hoisted_1$t, [
     createVNode(_component_AccordionHeader, {
       modelValue: _ctx.visible,
       "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.visible = $event)
@@ -5707,13 +5707,13 @@ const _sfc_main$1i = {
     ariaLabel: makeString("Close")
   }
 };
-const _hoisted_1$t = ["aria-label"];
+const _hoisted_1$s = ["aria-label"];
 function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("button", {
     type: "button",
     "aria-label": $props.ariaLabel,
     class: normalizeClass([{ "btn-close-white": $props.white }, "btn-close"])
-  }, null, 10, _hoisted_1$t);
+  }, null, 10, _hoisted_1$s);
 }
 var ButtonClose = /* @__PURE__ */ _export_sfc$1(_sfc_main$1i, [["render", _sfc_render$1i]]);
 const _sfc_main$1h = defineComponent({
@@ -5842,17 +5842,17 @@ const _sfc_main$1f = {
     href: makeString("#")
   }
 };
-const _hoisted_1$s = ["href"];
+const _hoisted_1$r = ["href"];
 function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("a", {
     href: $props.href,
     class: "alert-link"
   }, [
     renderSlot(_ctx.$slots, "default")
-  ], 8, _hoisted_1$s);
+  ], 8, _hoisted_1$r);
 }
 var AlertLink = /* @__PURE__ */ _export_sfc$1(_sfc_main$1f, [["render", _sfc_render$1f]]);
-var ColorVariants$1 = (initial = "secondary") => ({
+var ColorVariants = (initial = "secondary") => ({
   type: String,
   default: typeof initial === "function" ? initial : () => initial
 });
@@ -5863,7 +5863,7 @@ var BoolPill = (initial = false) => ({
 const _sfc_main$1e = defineComponent({
   props: {
     tag: makeString("span"),
-    variant: ColorVariants$1("secondary"),
+    variant: ColorVariants("secondary"),
     pill: BoolPill(false),
     href: makeString(null),
     position: { type: String }
@@ -5904,62 +5904,62 @@ function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
   }, 16, ["class"]);
 }
 var Badge = /* @__PURE__ */ _export_sfc$1(_sfc_main$1e, [["render", _sfc_render$1e]]);
-const _sfc_main$1d = {
+const _sfc_main$1d = defineComponent({
   name: "BreadcrumbItem",
   props: {
     tag: makeString("li"),
-    active: makeBoolean(false),
+    active: { type: Boolean, default: () => false },
     activeClass: makeString("active"),
-    append: makeBoolean(false),
+    append: { type: Boolean, default: () => false },
     ariaCurrent: makeString("location"),
-    disabled: makeBoolean(false),
-    exact: makeBoolean(false),
+    disabled: { type: Boolean, default: () => false },
+    exact: { type: Boolean, default: () => false },
     rel: makeString(null),
-    replace: makeBoolean(false),
+    replace: { type: Boolean, default: () => false },
     target: makeString("_self"),
     to: make([Object, String], null),
-    href: makeString()
+    href: makeString(null)
   },
   setup(props, context) {
-    const classes = computed(() => {
-      return [
-        "breadcrumb-item",
-        {
-          "active": props.active
-        }
-      ];
-    });
     const attributes = computed(() => {
       return {
         ariaCurrent: props.ariaCurrent
       };
     });
     return {
-      classes,
       attributes,
+      classes: computed(() => [
+        "breadcrumb-item",
+        {
+          "active": props.active
+        }
+      ]),
       isRouterInstalled: computed(() => !!context.$router)
     };
   }
-};
-const _hoisted_1$r = ["href"];
+});
+const _hoisted_1$q = ["href"];
 function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
-  return openBlock(), createElementBlock("li", mergeProps({ class: $setup.classes }, $setup.attributes), [
-    $props.href ? (openBlock(), createElementBlock("a", {
-      key: 0,
-      href: $props.href
-    }, [
-      renderSlot(_ctx.$slots, "default")
-    ], 8, _hoisted_1$r)) : $setup.isRouterInstalled && $props.to ? (openBlock(), createBlock(_component_router_link, {
-      key: 1,
-      to: $props.to
-    }, {
-      default: withCtx(() => [
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
+    default: withCtx(() => [
+      _ctx.href ? (openBlock(), createElementBlock("a", {
+        key: 0,
+        href: _ctx.href
+      }, [
         renderSlot(_ctx.$slots, "default")
-      ]),
-      _: 3
-    }, 8, ["to"])) : renderSlot(_ctx.$slots, "default", { key: 2 })
-  ], 16);
+      ], 8, _hoisted_1$q)) : _ctx.isRouterInstalled && _ctx.to ? (openBlock(), createBlock(_component_router_link, {
+        key: 1,
+        to: _ctx.to
+      }, {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "default")
+        ]),
+        _: 3
+      }, 8, ["to"])) : renderSlot(_ctx.$slots, "default", { key: 2 })
+    ]),
+    _: 3
+  }, 16, ["class"]);
 }
 var BreadcrumbItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$1d, [["render", _sfc_render$1d]]);
 const _sfc_main$1c = defineComponent({
@@ -5968,7 +5968,7 @@ const _sfc_main$1c = defineComponent({
   props: {
     tag: makeString("ol"),
     items: make(Array, []),
-    divider: makeString("null")
+    divider: makeString(null)
   },
   setup(props) {
     return {
@@ -6003,32 +6003,24 @@ function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["class"]);
 }
 var Breadcrumb = /* @__PURE__ */ _export_sfc$1(_sfc_main$1c, [["render", _sfc_render$1c]]);
-var ColorVariants = (initial = "secondary") => ({
-  type: String,
-  default: typeof initial === "function" ? initial : () => initial
-});
 const _sfc_main$1b = defineComponent({
   components: { Badge },
   props: {
     tag: makeString("button"),
     href: makeString(null),
-    variant: ColorVariants("secondary"),
-    size: {
-      type: String,
-      default: () => null
-    },
+    variant: { type: String, default: () => "secondary" },
+    size: { type: String, default: () => null },
     type: makeString("button"),
-    outline: {
-      type: Boolean
-    },
-    block: makeBoolean(false),
-    pill: makeBoolean(false),
-    squared: makeBoolean(false),
-    disabled: makeBoolean(false),
-    pressed: makeBoolean(false),
+    outline: { type: Boolean, default: false },
+    block: { type: Boolean, default: false },
+    pill: { type: Boolean, default: false },
+    squared: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
+    pressed: { type: Boolean, default: false },
     badge: make([String, Number], null),
-    badgeVariant: makeString("primary"),
-    active: makeBoolean(false),
+    badePosition: { type: String, default: () => null },
+    badgeVariant: { type: String, default: () => "secondary" },
+    active: { type: Boolean, default: false },
     activeClass: makeString("active")
   },
   setup(props, context) {
@@ -6065,23 +6057,25 @@ function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
       renderSlot(_ctx.$slots, "default"),
       _ctx.badge ? (openBlock(), createBlock(_component_Badge, {
         key: 0,
-        variant: _ctx.badgeVariant
+        variant: _ctx.badgeVariant,
+        position: _ctx.badePosition
       }, {
         default: withCtx(() => [
           createTextVNode(toDisplayString(_ctx.badge), 1)
         ]),
         _: 1
-      }, 8, ["variant"])) : createCommentVNode("", true)
+      }, 8, ["variant", "position"])) : createCommentVNode("", true)
     ]),
     _: 3
   }, 16, ["type", "class"]);
 }
 var Button = /* @__PURE__ */ _export_sfc$1(_sfc_main$1b, [["render", _sfc_render$1b]]);
-const _sfc_main$1a = {
+const _sfc_main$1a = defineComponent({
   props: {
+    tag: makeString("div"),
     ariaLabel: makeString("Button Group"),
-    size: makeString(null),
-    vertical: makeBoolean(false),
+    size: { type: String, default: () => null },
+    vertical: { type: Boolean },
     role: makeString("group")
   },
   setup(props, context) {
@@ -6095,24 +6089,26 @@ const _sfc_main$1a = {
       ])
     };
   }
-};
-const _hoisted_1$q = ["role", "aria-label"];
+});
 function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", {
-    class: normalizeClass($setup.classes),
-    role: $props.role,
-    "aria-label": $props.ariaLabel
-  }, [
-    renderSlot(_ctx.$slots, "default")
-  ], 10, _hoisted_1$q);
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
+    class: normalizeClass(_ctx.classes),
+    role: _ctx.role,
+    "aria-label": _ctx.ariaLabel
+  }, {
+    default: withCtx(() => [
+      renderSlot(_ctx.$slots, "default")
+    ]),
+    _: 3
+  }, 8, ["class", "role", "aria-label"]);
 }
 var ButtonGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$1a, [["render", _sfc_render$1a]]);
-const _sfc_main$19 = {
+const _sfc_main$19 = defineComponent({
   name: "ButtonToolbar",
   props: {
     tag: makeString("div"),
     role: makeString("toolbar"),
-    justified: makeBoolean(false)
+    justified: { type: Boolean, default: () => false }
   },
   setup(props) {
     return {
@@ -6124,11 +6120,11 @@ const _sfc_main$19 = {
       ])
     };
   }
-};
+});
 function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent($props.tag), {
-    class: normalizeClass($setup.classes),
-    role: $props.role
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
+    class: normalizeClass(_ctx.classes),
+    role: _ctx.role
   }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
@@ -15174,4 +15170,15 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["role", "tabindex", "class"]);
 }
 var Tags = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["render", _sfc_render]]);
-export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Checkbox, CheckboxGroup, Col, Collapse, Container, DataTable, DataTable as Datatable, Datepicker, Dropdown, DropdownButton, DropdownDivider, DropdownItem, DropdownMenu, FormGroup, FormLabel, Grid, GridCol, Highlight, Icon, Input, InputGroup, InputGroupText, Link, ListGroup, ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, Popover, Radio, Range, Rating, Row, Select, SpinButton, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Tr };
+var Fake = defineComponent({
+  name: "Fake",
+  components: {
+    Button
+  },
+  setup(props, context) {
+    return () => createVNode(Button, null, {
+      default: () => [createTextVNode("Hello")]
+    });
+  }
+});
+export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Checkbox, CheckboxGroup, Col, Collapse, Container, DataTable, DataTable as Datatable, Datepicker, Dropdown, DropdownButton, DropdownDivider, DropdownItem, DropdownMenu, Fake, FormGroup, FormLabel, Grid, GridCol, Highlight, Icon, Input, InputGroup, InputGroupText, Link, ListGroup, ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, Popover, Radio, Range, Rating, Row, Select, SpinButton, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Tr };

@@ -89,3 +89,4 @@ export {default as CarouselIndicators} from "./components/CarouselIndicators.vue
 export {default as CarouselInner} from "./components/CarouselInner.vue";
 export {default as CarouselItem} from "./components/CarouselItem.vue";
 export {default as Tags} from "./components/Tags.vue";
+export {default as Fake} from "./components/Fake.tsx";

@@ -6,11 +6,11 @@
 
 <script lang="ts">
 import {makeString} from "../shared/properties.js";
-import {computed, h, reactive, defineComponent, PropType} from "vue";
+import {computed, reactive, defineComponent, PropType} from "vue";
 import ColorVariants from "../props/ColorVariants";
 import BoolPill from "../props/BoolPill";
+import {badgePositions} from "../types/badgePositions";
 
-type PositionType = 'top-right' | 'top-left' | 'bottom-left' | 'bottom-right';
 
 export default defineComponent({
     props: {
@@ -18,7 +18,7 @@ export default defineComponent({
         variant: ColorVariants("secondary"),
         pill: BoolPill(false),
         href: makeString(null),
-        position: {type: String as PropType<PositionType>}
+        position: {type: String as PropType<badgePositions>}
     },
     setup(props, context) {
         const attributes = reactive({

@@ -4,16 +4,16 @@
     </component>
 </template>
 
-<script>
-import {computed} from "vue";
-import {makeBoolean, makeString} from "../shared/properties.js";
+<script lang="ts">
+import {computed, defineComponent, PropType} from "vue";
+import {makeString} from "../shared/properties.js";
 
-export default {
+export default defineComponent({
     name: "ButtonToolbar",
     props: {
         tag: makeString("div"),
         role: makeString("toolbar"),
-        justified: makeBoolean(false)
+        justified: {type: Boolean as PropType<true | false>, default: () => false}
     },
     setup(props) {
         return {
@@ -25,5 +25,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>

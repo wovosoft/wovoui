@@ -1,5 +1,5 @@
 <template>
-    <li :class="classes" v-bind="attributes">
+    <component :is="tag" :class="classes" v-bind="attributes">
         <template v-if="href">
             <a :href="href">
                 <slot></slot>
@@ -13,48 +13,45 @@
         <template v-else>
             <slot></slot>
         </template>
-    </li>
+    </component>
 </template>
 
-<script>
-import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed} from "vue";
+<script lang="ts">
+import {make, makeString} from "../shared/properties.js";
+import {computed, defineComponent, PropType} from "vue";
 
-export default {
+export default defineComponent({
     name: "BreadcrumbItem",
     props: {
         tag: makeString("li"),
-        active: makeBoolean(false),
+        active: {type: Boolean as PropType<true | false>, default: () => false},
         activeClass: makeString("active"),
-        append: makeBoolean(false),
+        append: {type: Boolean as PropType<true | false>, default: () => false},
         ariaCurrent: makeString("location"),
-        disabled: makeBoolean(false),
-        exact: makeBoolean(false),
+        disabled: {type: Boolean as PropType<true | false>, default: () => false},
+        exact: {type: Boolean as PropType<true | false>, default: () => false},
         rel: makeString(null),
-        replace: makeBoolean(false),
+        replace: {type: Boolean as PropType<true | false>, default: () => false},
         target: makeString("_self"),
         to: make([Object, String], null),
-        href: makeString()
+        href: makeString(null)
     },
     setup(props, context) {
-        const classes = computed(() => {
-            return [
-                "breadcrumb-item",
-                {
-                    "active": props.active
-                }
-            ];
-        });
         const attributes = computed(() => {
             return {
                 ariaCurrent: props.ariaCurrent
             }
         });
         return {
-            classes,
             attributes,
+            classes: computed(() => [
+                "breadcrumb-item",
+                {
+                    "active": props.active
+                }
+            ]),
             isRouterInstalled: computed(() => !!context.$router)
         }
     }
-}
+})
 </script>

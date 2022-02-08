@@ -24,7 +24,7 @@ export default defineComponent({
     props: {
         tag: makeString("ol"),
         items: make(Array, []),
-        divider: makeString("null")
+        divider: makeString(null)
     },
     setup(props) {
         return {

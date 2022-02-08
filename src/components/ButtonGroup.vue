@@ -1,18 +1,20 @@
 <template>
-    <div :class="classes" :role="role" :aria-label="ariaLabel">
+    <component :is="tag" :class="classes" :role="role" :aria-label="ariaLabel">
         <slot></slot>
-    </div>
+    </component>
 </template>
 
-<script>
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed} from "vue";
+<script lang="ts">
+import {makeString} from "../shared/properties.js";
+import {computed, defineComponent, PropType} from "vue";
+import {buttonSizes} from "../types/buttonSizes";
 
-export default {
+export default defineComponent({
     props: {
+        tag: makeString("div"),
         ariaLabel: makeString("Button Group"),
-        size: makeString(null),
-        vertical: makeBoolean(false),
+        size: {type: String as PropType<buttonSizes>, default: () => null},
+        vertical: {type: Boolean as PropType<true | false>},
         role: makeString("group")
     },
     setup(props, context) {
@@ -26,5 +28,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>
