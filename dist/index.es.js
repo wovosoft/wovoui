@@ -14846,21 +14846,22 @@ function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["class"]);
 }
 var CarouselIndicators = /* @__PURE__ */ _export_sfc$1(_sfc_main$5, [["render", _sfc_render$5]]);
-const _sfc_main$4 = {
+const _sfc_main$4 = defineComponent({
   name: "Carousel",
   components: { ChevronLeft, ChevronRight, CarouselInner, CarouselIndicators },
   props: {
     tag: makeString("div"),
-    slide: makeBoolean(true),
-    controlsEnabled: makeBoolean(true),
-    indicatorsEnabled: makeBoolean(false)
+    slide: { type: Boolean, default: true },
+    controlsEnabled: { type: Boolean, default: true },
+    indicatorsEnabled: { type: Boolean, default: true },
+    fade: { type: Boolean, default: false }
   },
   setup(props, context) {
     const slides = ref([]);
     provide("registerItem", (item) => slides.value.push(item));
     const direction = ref("start");
     provide("direction", direction);
-    const changeSlide = (slideVisibility, next_slide_index, current_index) => {
+    const changeSlide = (slideVisibility, next_slide_index, current_index = null) => {
       slides.value.filter((i) => i.value).forEach((i) => i.value = false);
       if (typeof slideVisibility === "number") {
         slides.value[slideVisibility].value = true;
@@ -14874,10 +14875,10 @@ const _sfc_main$4 = {
     const changeSlideByIndex = (type) => {
       const index = currentIndex();
       if (type === "next") {
-        changeSlide(index + 1 === slides.value.length ? 0 : index + 1);
+        changeSlide(index + 1 === slides.value.length ? 0 : index + 1, null);
         direction.value = "start";
       } else if (type === "prev") {
-        changeSlide(index - 1 < 0 ? slides.value.length - 1 : index - 1);
+        changeSlide(index - 1 < 0 ? slides.value.length - 1 : index - 1, null);
         direction.value = "end";
       }
     };
@@ -14890,12 +14891,13 @@ const _sfc_main$4 = {
       classes: computed(() => [
         "carousel",
         {
-          slide: props.slide
+          slide: props.slide,
+          "carousel-fade": props.fade
         }
       ])
     };
   }
-};
+});
 const _hoisted_1$1 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Previous", -1);
 const _hoisted_2$1 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Next", -1);
 const _hoisted_3 = ["onClick", "aria-current"];
@@ -14904,8 +14906,8 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ChevronLeft = resolveComponent("ChevronLeft");
   const _component_ChevronRight = resolveComponent("ChevronRight");
   const _component_CarouselIndicators = resolveComponent("CarouselIndicators");
-  return openBlock(), createBlock(resolveDynamicComponent($props.tag), {
-    class: normalizeClass($setup.classes)
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
+    class: normalizeClass(_ctx.classes)
   }, {
     default: withCtx(() => [
       createVNode(_component_CarouselInner, null, {
@@ -14914,11 +14916,11 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
         ]),
         _: 3
       }),
-      $props.controlsEnabled ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+      _ctx.controlsEnabled ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
         createElementVNode("button", {
           class: "carousel-control-prev",
           type: "button",
-          onClick: _cache[0] || (_cache[0] = ($event) => $setup.changeSlideByIndex("prev")),
+          onClick: _cache[0] || (_cache[0] = ($event) => _ctx.changeSlideByIndex("prev")),
           "data-bs-target": "",
           "data-bs-slide": "prev"
         }, [
@@ -14931,7 +14933,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
         createElementVNode("button", {
           class: "carousel-control-next",
           type: "button",
-          onClick: _cache[1] || (_cache[1] = ($event) => $setup.changeSlideByIndex("next")),
+          onClick: _cache[1] || (_cache[1] = ($event) => _ctx.changeSlideByIndex("next")),
           "data-bs-target": "",
           "data-bs-slide": "next"
         }, [
@@ -14942,14 +14944,14 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
           _hoisted_2$1
         ])
       ], 64)) : createCommentVNode("", true),
-      $props.indicatorsEnabled ? (openBlock(), createBlock(_component_CarouselIndicators, { key: 1 }, {
+      _ctx.indicatorsEnabled ? (openBlock(), createBlock(_component_CarouselIndicators, { key: 1 }, {
         default: withCtx(() => [
-          (openBlock(true), createElementBlock(Fragment, null, renderList($setup.slides, (indicator, indicator_index) => {
+          (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.slides, (indicator, indicator_index) => {
             return openBlock(), createElementBlock("button", {
               key: indicator_index,
               "data-bs-target": "",
               type: "button",
-              onClick: ($event) => $setup.changeSlide(indicator, indicator_index, $setup.currentIndex),
+              onClick: ($event) => _ctx.changeSlide(indicator, indicator_index, _ctx.currentIndex),
               class: normalizeClass({ active: indicator.value }),
               "aria-current": indicator.value,
               "aria-label": "Slide 1"
@@ -14996,7 +14998,7 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
 var CarouselControl = /* @__PURE__ */ _export_sfc$1(_sfc_main$2, [["render", _sfc_render$2]]);
 const _sfc_main$1 = {
   name: "CarouselItem",
-  emits: ["slidingStart", "slidingEnd"],
+  emits: ["slidingStart", "slidingEnd", "update:active"],
   props: {
     tag: makeString("div"),
     active: makeBoolean(false),

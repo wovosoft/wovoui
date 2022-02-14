@@ -10,7 +10,7 @@ import {makeBoolean, makeString} from "../shared/properties";
 
 export default {
     name: "CarouselItem",
-    emits: ['slidingStart', 'slidingEnd'],
+    emits: ['slidingStart', 'slidingEnd','update:active'],
     props: {
         tag: makeString("div"),
         active: makeBoolean(false),

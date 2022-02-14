@@ -36,21 +36,22 @@
     </component>
 </template>
 
-<script>
-import {makeBoolean, makeString} from "../shared/properties";
-import {computed, provide, ref} from "vue";
+<script lang="ts">
+import {makeString} from "../shared/properties";
+import {computed, defineComponent, PropType, provide, ref} from "vue";
 import CarouselInner from "./CarouselInner.vue";
 import CarouselIndicators from "./CarouselIndicators.vue";
 import {ChevronLeft, ChevronRight} from "@wovosoft/wovoui-icons";
 
-export default {
+export default defineComponent({
     name: "Carousel",
     components: {ChevronLeft, ChevronRight, CarouselInner, CarouselIndicators},
     props: {
         tag: makeString("div"),
-        slide: makeBoolean(true),
-        controlsEnabled: makeBoolean(true),
-        indicatorsEnabled: makeBoolean(false),
+        slide: {type: Boolean as PropType<true | false>, default: true},
+        controlsEnabled: {type: Boolean as PropType<true | false>, default: true},
+        indicatorsEnabled: {type: Boolean as PropType<true | false>, default: true},
+        fade: {type: Boolean as PropType<true | false>, default: false},
         // modelValue: makeNumber(null)
     },
 
@@ -61,7 +62,7 @@ export default {
         const direction = ref('start');
         provide('direction', direction);
 
-        const changeSlide = (slideVisibility, next_slide_index, current_index) => {
+        const changeSlide = (slideVisibility, next_slide_index, current_index = null) => {
             slides.value.filter(i => i.value).forEach(i => i.value = false);
 
             //when index is provided
@@ -82,10 +83,10 @@ export default {
         const changeSlideByIndex = (type) => {
             const index = currentIndex();
             if (type === 'next') {
-                changeSlide((index + 1) === slides.value.length ? 0 : (index + 1));
+                changeSlide((index + 1) === slides.value.length ? 0 : (index + 1), null);
                 direction.value = "start";
             } else if (type === 'prev') {
-                changeSlide((index - 1) < 0 ? (slides.value.length - 1) : (index - 1));
+                changeSlide((index - 1) < 0 ? (slides.value.length - 1) : (index - 1), null);
                 direction.value = "end";
             }
             // context.emit('update:modelValue',currentIndex())
@@ -106,10 +107,11 @@ export default {
             classes: computed(() => [
                 "carousel",
                 {
-                    slide: props.slide
+                    slide: props.slide,
+                    "carousel-fade": props.fade
                 }
             ])
         }
     }
-}
+})
 </script>
