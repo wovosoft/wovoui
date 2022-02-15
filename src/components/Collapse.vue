@@ -1,23 +1,26 @@
 <template>
-    <div :class="classes" ref="collapse"
-         :id="id"
-         @transitionend.self="collapseTransitionEnd($event,shown,'height')">
+    <component :is="tag" :class="classes" ref="collapse"
+               :id="id"
+               @transitionend.self="collapseTransitionEnd($event,shown,'height')">
         <slot></slot>
-    </div>
+    </component>
 </template>
 
-<script>
-import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed, ref} from "vue";
+<script lang="ts">
+import {make, makeString} from "../shared/properties.js";
+import {computed, ref, defineComponent, PropType} from "vue";
 import {toggleCollapse, collapseTransitionEnd} from "../shared/utilities.js";
-export default {
+
+export default defineComponent({
     name: "Collapse",
     props: {
-        modelValue: makeBoolean(false),
-        visible: makeBoolean(false),
+        tag: makeString("div"),
+        modelValue: {type: Boolean as PropType<true | false>, default: false},
+        visible: {type: Boolean as PropType<true | false>, default: false},
         class: make([Array, String], null),
         id: makeString(),
-        isNav: makeBoolean(false)
+        isNav: {type: Boolean as PropType<true | false>, default: false},
+        horizontal: {type: Boolean as PropType<true | false>, default: false}
         // lazy: makeBoolean(false)
     },
     watch: {
@@ -27,7 +30,7 @@ export default {
         //model value might not be defined, so watching separate one
         shown(value) {
             this.$refs.collapse.classList.remove("collapse", "show");
-            this.toggleCollapse(this.$refs.collapse, value, 'height',/*this.shouldRenderHandler*/);
+            this.toggleCollapse(this.$refs.collapse, value, this.horizontal ? 'width' : 'height',/*this.shouldRenderHandler*/);
         }
     },
     setup(props, context) {
@@ -39,22 +42,19 @@ export default {
         // const shouldRenderHandler = (value) => {
         //     shouldRender.value = value;
         // }
-        const classes = computed(() => {
-            return [
-                "collapse",
-                props.class,
-                {
-                    "navbar-collapse": props.isNav
-                }
-            ]
-        });
         return {
-            classes,
             shown,
             shouldRender,
             // shouldRenderHandler,
             toggleCollapse,
             collapseTransitionEnd,
+            classes: computed(() => [
+                "collapse",
+                {
+                    "navbar-collapse": props.isNav,
+                    "collapse-horizontal": props.horizontal,
+                }
+            ]),
             updateState: (value) => {
                 shown.value = value;
                 context.emit('update:modelValue', value);
@@ -77,5 +77,5 @@ export default {
     unmounted() {
         document.removeEventListener("toggleCollapse", this.listener);
     }
-}
+})
 </script>

@@ -52,6 +52,9 @@ export default defineComponent({
         controlsEnabled: {type: Boolean as PropType<true | false>, default: true},
         indicatorsEnabled: {type: Boolean as PropType<true | false>, default: true},
         fade: {type: Boolean as PropType<true | false>, default: false},
+        dark: {type: Boolean as PropType<true | false>, default: false},
+        intervals: {type: Number as PropType<number>, default: 0},  //in seconds
+        direction: {type: String as PropType<'next' | 'prev'>, default: 'next'},    //default auto direction
         // modelValue: makeNumber(null)
     },
 
@@ -62,8 +65,16 @@ export default defineComponent({
         const direction = ref('start');
         provide('direction', direction);
 
+        let interval = null;
+
+        // function which finally changes slide
         const changeSlide = (slideVisibility, next_slide_index, current_index = null) => {
             slides.value.filter(i => i.value).forEach(i => i.value = false);
+
+            if (interval) {
+                clearInterval(interval);
+                interval = null;
+            }
 
             //when index is provided
             if (typeof slideVisibility === "number") {
@@ -74,8 +85,18 @@ export default defineComponent({
                 direction.value = next_slide_index >= current_index ? 'start' : 'end';
                 slideVisibility.value = true;
             }
+
+            //get next slide and toggle it's visibility
+            if (!interval && props.intervals > 0) {
+                interval = setInterval(() => changeSlideByIndex(props.direction), props.intervals * 1000);
+            }
             // context.emit('update:modelValue',currentIndex())
         };
+
+        //initialize auto sliding
+        // if (props.intervals) {
+        //     timeout = setTimeout(() => changeSlideByIndex(props.direction), props.intervals * 1000);
+        // }
 
         const currentSlide = () => slides.value.find(i => i.value);
         const currentIndex = () => slides.value.indexOf(currentSlide());
@@ -108,7 +129,8 @@ export default defineComponent({
                 "carousel",
                 {
                     slide: props.slide,
-                    "carousel-fade": props.fade
+                    "carousel-fade": props.fade,
+                    "carousel-dark": props.dark,
                 }
             ])
         }

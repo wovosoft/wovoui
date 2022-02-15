@@ -99,9 +99,9 @@ var Accordion = /* @__PURE__ */ _export_sfc$1(_sfc_main$1n, [["render", _sfc_ren
 const _sfc_main$1m = defineComponent({
   name: "AccordionBody"
 });
-const _hoisted_1$v = { class: "accordion-body" };
+const _hoisted_1$u = { class: "accordion-body" };
 function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$v, [
+  return openBlock(), createElementBlock("div", _hoisted_1$u, [
     renderSlot(_ctx.$slots, "default")
   ]);
 }
@@ -5571,14 +5571,16 @@ const toggleCollapse = (container, shown, dim = "height") => {
 };
 const isObject$7 = (obj) => typeof obj === "object" && !Array.isArray(obj);
 const title = (str) => lodash.exports.startCase(lodash.exports.toLower(str));
-const _sfc_main$1k = {
+const _sfc_main$1k = defineComponent({
   name: "Collapse",
   props: {
-    modelValue: makeBoolean(false),
-    visible: makeBoolean(false),
+    tag: makeString("div"),
+    modelValue: { type: Boolean, default: false },
+    visible: { type: Boolean, default: false },
     class: make([Array, String], null),
     id: makeString(),
-    isNav: makeBoolean(false)
+    isNav: { type: Boolean, default: false },
+    horizontal: { type: Boolean, default: false }
   },
   watch: {
     modelValue(value) {
@@ -5586,7 +5588,7 @@ const _sfc_main$1k = {
     },
     shown(value) {
       this.$refs.collapse.classList.remove("collapse", "show");
-      this.toggleCollapse(this.$refs.collapse, value, "height");
+      this.toggleCollapse(this.$refs.collapse, value, this.horizontal ? "width" : "height");
     }
   },
   setup(props, context) {
@@ -5595,21 +5597,18 @@ const _sfc_main$1k = {
     if (props.visible) {
       context.emit("update:modelValue", true);
     }
-    const classes = computed(() => {
-      return [
-        "collapse",
-        props.class,
-        {
-          "navbar-collapse": props.isNav
-        }
-      ];
-    });
     return {
-      classes,
       shown,
       shouldRender,
       toggleCollapse,
       collapseTransitionEnd,
+      classes: computed(() => [
+        "collapse",
+        {
+          "navbar-collapse": props.isNav,
+          "collapse-horizontal": props.horizontal
+        }
+      ]),
       updateState: (value) => {
         shown.value = value;
         context.emit("update:modelValue", value);
@@ -5631,17 +5630,19 @@ const _sfc_main$1k = {
   unmounted() {
     document.removeEventListener("toggleCollapse", this.listener);
   }
-};
-const _hoisted_1$u = ["id"];
+});
 function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", {
-    class: normalizeClass($setup.classes),
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
+    class: normalizeClass(_ctx.classes),
     ref: "collapse",
-    id: $props.id,
-    onTransitionend: _cache[0] || (_cache[0] = withModifiers(($event) => $setup.collapseTransitionEnd($event, $setup.shown, "height"), ["self"]))
-  }, [
-    renderSlot(_ctx.$slots, "default")
-  ], 42, _hoisted_1$u);
+    id: _ctx.id,
+    onTransitionend: _cache[0] || (_cache[0] = withModifiers(($event) => _ctx.collapseTransitionEnd($event, _ctx.shown, "height"), ["self"]))
+  }, {
+    default: withCtx(() => [
+      renderSlot(_ctx.$slots, "default")
+    ]),
+    _: 3
+  }, 8, ["class", "id"]);
 }
 var Collapse = /* @__PURE__ */ _export_sfc$1(_sfc_main$1k, [["render", _sfc_render$1k]]);
 const _sfc_main$1j = defineComponent({
@@ -5704,13 +5705,15 @@ var AccordionItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$1j, [["render", _sfc
 const _sfc_main$1i = {
   props: {
     white: { type: Boolean, default: () => false },
-    ariaLabel: makeString("Close")
+    ariaLabel: makeString("Close"),
+    disabled: { type: Boolean, default: false }
   }
 };
-const _hoisted_1$s = ["aria-label"];
+const _hoisted_1$s = ["disabled", "aria-label"];
 function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("button", {
     type: "button",
+    disabled: $props.disabled,
     "aria-label": $props.ariaLabel,
     class: normalizeClass([{ "btn-close-white": $props.white }, "btn-close"])
   }, null, 10, _hoisted_1$s);
@@ -10049,15 +10052,15 @@ var dropdownProps = {
   toggleTag: makeString("button"),
   size: makeString(),
   text: makeString(),
-  variant: makeString("secondary"),
-  splitVariant: makeString("secondary"),
-  block: makeBoolean(false),
-  disabled: makeBoolean(false),
+  variant: { type: String, default: "secondary" },
+  splitVariant: { type: String, default: "secondary" },
+  block: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false },
   dir: makeString("bottom"),
   align: makeString("start"),
-  menuDark: makeBoolean(false),
+  menuDark: { type: Boolean, default: false },
   menuClass: make([String, Array], []),
-  split: makeBoolean(false)
+  split: { type: Boolean, default: false }
 };
 const _sfc_main$N = {
   name: "DropdownMenu",
@@ -10089,7 +10092,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["class"]);
 }
 var DropdownMenu = /* @__PURE__ */ _export_sfc$1(_sfc_main$N, [["render", _sfc_render$N]]);
-const _sfc_main$M = {
+const _sfc_main$M = defineComponent({
   name: "Dropdown",
   components: { Button, DropdownMenu },
   props: dropdownProps,
@@ -10145,7 +10148,7 @@ const _sfc_main$M = {
       }
     }
   }
-};
+});
 const _hoisted_1$k = {
   key: 0,
   class: "visually-hidden"
@@ -10154,7 +10157,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Button = resolveComponent("Button");
   const _component_DropdownMenu = resolveComponent("DropdownMenu");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
-    class: normalizeClass($setup.classes)
+    class: normalizeClass(_ctx.classes)
   }, {
     default: withCtx(() => [
       _ctx.split ? (openBlock(), createBlock(_component_Button, {
@@ -10178,9 +10181,9 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
         disabled: _ctx.disabled,
         variant: _ctx.variant,
         size: _ctx.size,
-        class: normalizeClass(["dropdown-toggle", { "show": $data.shouldOpen, "dropdown-toggle-split": _ctx.split }]),
-        onClick: _cache[0] || (_cache[0] = ($event) => $data.shouldOpen = !$data.shouldOpen),
-        "aria-expanded": $data.toggleAriaExpanded
+        class: normalizeClass(["dropdown-toggle", { "show": _ctx.shouldOpen, "dropdown-toggle-split": _ctx.split }]),
+        onClick: _cache[0] || (_cache[0] = ($event) => _ctx.shouldOpen = !_ctx.shouldOpen),
+        "aria-expanded": _ctx.toggleAriaExpanded
       }, {
         default: withCtx(() => [
           renderSlot(_ctx.$slots, "button-content", {}, () => [
@@ -10193,7 +10196,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
       }, 8, ["tag", "block", "disabled", "variant", "size", "class", "aria-expanded"]),
       createVNode(_component_DropdownMenu, {
         ref: "menu",
-        show: $data.shouldOpen,
+        show: _ctx.shouldOpen,
         tag: _ctx.menuTag,
         class: normalizeClass(_ctx.menuClass),
         dark: _ctx.menuDark
@@ -12037,15 +12040,15 @@ var ListGroup = defineComponent({
     return h(this.tag, { class: this.classes }, this.$slots);
   }
 });
-const _sfc_main$A = {
+const _sfc_main$A = defineComponent({
   name: "ListGroupItem",
   props: {
     tag: makeString("li"),
-    active: makeBoolean(false),
-    disabled: makeBoolean(false),
+    active: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     href: makeString(null),
     to: { default: () => null },
-    button: makeBoolean(false),
+    button: { type: Boolean, default: false },
     variant: makeString(null)
   },
   setup(props, context) {
@@ -12082,22 +12085,22 @@ const _sfc_main$A = {
       theTag
     };
   }
-};
+});
 function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
-  return $props.to ? (openBlock(), createBlock(_component_router_link, mergeProps({
+  return _ctx.to ? (openBlock(), createBlock(_component_router_link, mergeProps({
     key: 0,
-    to: $props.to,
-    class: $setup.classes
-  }, $setup.attributes), {
+    to: _ctx.to,
+    class: _ctx.classes
+  }, _ctx.attributes), {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
     ]),
     _: 3
-  }, 16, ["to", "class"])) : (openBlock(), createBlock(resolveDynamicComponent($setup.theTag), mergeProps({
+  }, 16, ["to", "class"])) : (openBlock(), createBlock(resolveDynamicComponent(_ctx.theTag), mergeProps({
     key: 1,
-    class: $setup.classes
-  }, $setup.attributes), {
+    class: _ctx.classes
+  }, _ctx.attributes), {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
     ]),
@@ -12155,38 +12158,38 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var ModalFooter = /* @__PURE__ */ _export_sfc$1(_sfc_main$w, [["render", _sfc_render$w]]);
-const _sfc_main$v = {
+const _sfc_main$v = defineComponent({
   name: "Modal",
   components: { Button, ModalFooter, ModalTitle, ModalHeader, ModalBody, ButtonClose },
   emits: ["update:modelValue", "close", "ok", "showing", "hiding", "shown", "hidden", "stateChanged"],
   props: {
     animation: makeString("fade"),
-    modelValue: makeBoolean(false),
-    noClose: makeBoolean(false),
-    noBody: makeBoolean(false),
+    modelValue: { type: Boolean, default: false },
+    noClose: { type: Boolean, default: false },
+    noBody: { type: Boolean, default: false },
     title: makeString(),
     titleTag: makeString("h5"),
     titleClass: make([Array, String, Object], null),
     titleAttrs: make(Object, null),
-    noHeader: makeBoolean(false),
+    noHeader: { type: Boolean, default: false },
     header: makeString(),
     headerTag: makeString("div"),
     headerClass: make([Array, String, Object], null),
     headerAttrs: make(Object, null),
-    noFooter: makeBoolean(false),
+    noFooter: { type: Boolean, default: false },
     okTitle: makeString("Ok"),
     closeTitle: makeString("Close"),
     okButtonOptions: make(Object, null),
     closeButtonOptions: make(Object, null),
-    noOkButton: makeBoolean(false),
-    noCloseButton: makeBoolean(false),
-    static: makeBoolean(false),
-    noBackdrop: makeBoolean(false),
+    noOkButton: { type: Boolean, default: false },
+    noCloseButton: { type: Boolean, default: false },
+    static: { type: Boolean, default: false },
+    noBackdrop: { type: Boolean, default: false },
     buttonSize: makeString(),
-    scrollable: makeBoolean(false),
-    centered: makeBoolean(false),
+    scrollable: { type: Boolean, default: false },
+    centered: { type: Boolean, default: false },
     size: makeString(),
-    fullscreen: make([Boolean, String], false)
+    fullscreen: { type: [Boolean, String], default: false }
   },
   setup(props, context) {
     const shouldShowBackdrop = ref(false);
@@ -12195,9 +12198,7 @@ const _sfc_main$v = {
       return [
         "modal",
         {
-          "fade": props.animation === "fade" || !props.animation,
-          "modal-dialog-scrollable": props.scrollable,
-          "modal-dialog-centered": props.centered
+          "fade": props.animation === "fade" || !props.animation
         }
       ];
     });
@@ -12206,7 +12207,9 @@ const _sfc_main$v = {
         "modal-dialog",
         {
           ["modal-" + props.size]: !!props.size,
-          ["modal-fullscreen" + (typeof props.fullscreen === "string" ? "-" + props.fullscreen : "")]: !!props.fullscreen
+          ["modal-fullscreen" + (typeof props.fullscreen === "string" ? "-" + props.fullscreen : "")]: !!props.fullscreen,
+          "modal-dialog-scrollable": props.scrollable,
+          "modal-dialog-centered": props.centered
         }
       ];
     });
@@ -12312,7 +12315,7 @@ const _sfc_main$v = {
       }
     }
   }
-};
+});
 const _hoisted_1$c = ["aria-hidden", "role"];
 const _hoisted_2$9 = { class: "modal-content" };
 function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
@@ -12325,74 +12328,74 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(Teleport, { to: "body" }, [
     createElementVNode("div", {
       ref: "modal",
-      onClick: _cache[0] || (_cache[0] = withModifiers((...args) => $options.clickedOutside && $options.clickedOutside(...args), ["self"])),
-      class: normalizeClass($setup.classes),
+      onClick: _cache[0] || (_cache[0] = withModifiers((...args) => _ctx.clickedOutside && _ctx.clickedOutside(...args), ["self"])),
+      class: normalizeClass(_ctx.classes),
       tabindex: "-1",
-      "aria-hidden": $setup.shown,
-      role: $setup.shown ? "dialog" : null
+      "aria-hidden": _ctx.shown,
+      role: _ctx.shown ? "dialog" : null
     }, [
       createElementVNode("div", {
-        class: normalizeClass($setup.dialogClass)
+        class: normalizeClass(_ctx.dialogClass)
       }, [
         createElementVNode("div", _hoisted_2$9, [
-          !$props.noHeader && (_ctx.$slots.header || $props.header || $props.title) ? (openBlock(), createBlock(_component_ModalHeader, mergeProps({
+          !_ctx.noHeader && (_ctx.$slots.header || _ctx.header || _ctx.title) ? (openBlock(), createBlock(_component_ModalHeader, mergeProps({
             key: 0,
-            tag: $props.headerTag,
-            class: $props.headerClass
-          }, $props.headerAttrs), {
+            tag: _ctx.headerTag,
+            class: _ctx.headerClass
+          }, _ctx.headerAttrs), {
             default: withCtx(() => [
-              _ctx.$slots.header || $props.title ? renderSlot(_ctx.$slots, "header", { key: 0 }, () => [
-                _ctx.$slots.title || $props.title ? (openBlock(), createBlock(_component_ModalTitle, mergeProps({
+              _ctx.$slots.header || _ctx.title ? renderSlot(_ctx.$slots, "header", { key: 0 }, () => [
+                _ctx.$slots.title || _ctx.title ? (openBlock(), createBlock(_component_ModalTitle, mergeProps({
                   key: 0,
-                  tag: $props.titleTag
-                }, $props.titleAttrs, { class: $props.titleClass }), {
+                  tag: _ctx.titleTag
+                }, _ctx.titleAttrs, { class: _ctx.titleClass }), {
                   default: withCtx(() => [
                     renderSlot(_ctx.$slots, "title", {}, () => [
-                      createTextVNode(toDisplayString($props.title), 1)
+                      createTextVNode(toDisplayString(_ctx.title), 1)
                     ])
                   ]),
                   _: 3
                 }, 16, ["tag", "class"])) : createCommentVNode("", true)
               ]) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-                createTextVNode(toDisplayString($props.header), 1)
+                createTextVNode(toDisplayString(_ctx.header), 1)
               ], 64)),
-              !$props.noClose ? (openBlock(), createBlock(_component_ButtonClose, {
+              !_ctx.noClose ? (openBlock(), createBlock(_component_ButtonClose, {
                 key: 2,
-                onClick: $setup.close
+                onClick: _ctx.close
               }, null, 8, ["onClick"])) : createCommentVNode("", true)
             ]),
             _: 3
           }, 16, ["tag", "class"])) : createCommentVNode("", true),
-          !$props.noBody ? (openBlock(), createBlock(_component_ModalBody, { key: 1 }, {
+          !_ctx.noBody ? (openBlock(), createBlock(_component_ModalBody, { key: 1 }, {
             default: withCtx(() => [
               renderSlot(_ctx.$slots, "default")
             ]),
             _: 3
           })) : renderSlot(_ctx.$slots, "default", { key: 2 }),
-          !$props.noFooter ? (openBlock(), createBlock(_component_ModalFooter, { key: 3 }, {
+          !_ctx.noFooter ? (openBlock(), createBlock(_component_ModalFooter, { key: 3 }, {
             default: withCtx(() => [
               renderSlot(_ctx.$slots, "footer", {}, () => [
-                !$props.noCloseButton ? (openBlock(), createBlock(_component_Button, mergeProps({
+                !_ctx.noCloseButton ? (openBlock(), createBlock(_component_Button, mergeProps({
                   key: 0,
                   variant: "secondary"
-                }, $props.closeButtonOptions, {
-                  size: $props.buttonSize,
-                  onClick: $setup.close
+                }, _ctx.closeButtonOptions, {
+                  size: _ctx.buttonSize,
+                  onClick: _ctx.close
                 }), {
                   default: withCtx(() => [
-                    createTextVNode(toDisplayString($props.closeTitle), 1)
+                    createTextVNode(toDisplayString(_ctx.closeTitle), 1)
                   ]),
                   _: 1
                 }, 16, ["size", "onClick"])) : createCommentVNode("", true),
-                !$props.noOkButton ? (openBlock(), createBlock(_component_Button, mergeProps({
+                !_ctx.noOkButton ? (openBlock(), createBlock(_component_Button, mergeProps({
                   key: 1,
                   variant: "primary"
-                }, $props.okButtonOptions, {
-                  size: $props.buttonSize,
-                  onClick: $setup.ok
+                }, _ctx.okButtonOptions, {
+                  size: _ctx.buttonSize,
+                  onClick: _ctx.ok
                 }), {
                   default: withCtx(() => [
-                    createTextVNode(toDisplayString($props.okTitle), 1)
+                    createTextVNode(toDisplayString(_ctx.okTitle), 1)
                   ]),
                   _: 1
                 }, 16, ["size", "onClick"])) : createCommentVNode("", true)
@@ -12403,10 +12406,10 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         ])
       ], 2)
     ], 10, _hoisted_1$c),
-    !$props.noBackdrop && $setup.shouldShowBackdrop ? (openBlock(), createElementBlock("div", {
+    !_ctx.noBackdrop && _ctx.shouldShowBackdrop ? (openBlock(), createElementBlock("div", {
       key: 0,
       ref: "backdrop",
-      onClick: _cache[1] || (_cache[1] = (...args) => $setup.hide && $setup.hide(...args)),
+      onClick: _cache[1] || (_cache[1] = (...args) => _ctx.hide && _ctx.hide(...args)),
       class: "modal-backdrop fade"
     }, null, 512)) : createCommentVNode("", true)
   ]);
@@ -14854,20 +14857,31 @@ const _sfc_main$4 = defineComponent({
     slide: { type: Boolean, default: true },
     controlsEnabled: { type: Boolean, default: true },
     indicatorsEnabled: { type: Boolean, default: true },
-    fade: { type: Boolean, default: false }
+    fade: { type: Boolean, default: false },
+    dark: { type: Boolean, default: false },
+    intervals: { type: Number, default: 0 },
+    direction: { type: String, default: "next" }
   },
   setup(props, context) {
     const slides = ref([]);
     provide("registerItem", (item) => slides.value.push(item));
     const direction = ref("start");
     provide("direction", direction);
+    let interval = null;
     const changeSlide = (slideVisibility, next_slide_index, current_index = null) => {
       slides.value.filter((i) => i.value).forEach((i) => i.value = false);
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
       if (typeof slideVisibility === "number") {
         slides.value[slideVisibility].value = true;
       } else {
         direction.value = next_slide_index >= current_index ? "start" : "end";
         slideVisibility.value = true;
+      }
+      if (!interval && props.intervals > 0) {
+        interval = setInterval(() => changeSlideByIndex(props.direction), props.intervals * 1e3);
       }
     };
     const currentSlide = () => slides.value.find((i) => i.value);
@@ -14892,7 +14906,8 @@ const _sfc_main$4 = defineComponent({
         "carousel",
         {
           slide: props.slide,
-          "carousel-fade": props.fade
+          "carousel-fade": props.fade,
+          "carousel-dark": props.dark
         }
       ])
     };

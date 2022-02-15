@@ -37,14 +37,14 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {createPopper} from '@popperjs/core';
-import dropdownProps from "../shared/dropdownProps.js";
+import dropdownProps from "../shared/dropdownProps.ts";
 import Button from "./Button.vue";
 import DropdownMenu from "./DropdownMenu.vue";
-import {computed} from "vue";
+import {computed, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "Dropdown",
     components: {Button, DropdownMenu},
     props: dropdownProps,
@@ -106,5 +106,5 @@ export default {
             }
         }
     }
-}
+})
 </script>

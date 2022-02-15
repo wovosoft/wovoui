@@ -64,55 +64,56 @@
     </teleport>
 </template>
 
-<script>
-import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed, ref, watch, nextTick} from "vue";
+<script lang="ts">
+import {make, makeString} from "../shared/properties.js";
+import {computed, ref, watch, nextTick, defineComponent, PropType} from "vue";
 import ButtonClose from "./ButtonClose.vue";
 import ModalBody from "./ModalBody.vue";
 import ModalHeader from "./ModalHeader.vue";
 import ModalTitle from "./ModalTitle.vue";
 import ModalFooter from "./ModalFooter.vue";
 import Button from "./Button.vue";
+import {modalFullScreen} from "../types/modalFullScreen";
 
-export default {
+export default defineComponent({
     name: "Modal",
     components: {Button, ModalFooter, ModalTitle, ModalHeader, ModalBody, ButtonClose},
     emits: ["update:modelValue", "close", "ok", "showing", "hiding", "shown", "hidden", "stateChanged"],
     props: {
         animation: makeString("fade"),
-        modelValue: makeBoolean(false),
-        noClose: makeBoolean(false),
-        noBody: makeBoolean(false),
+        modelValue: {type: Boolean as PropType<true | false>, default: false},
+        noClose: {type: Boolean as PropType<true | false>, default: false},
+        noBody: {type: Boolean as PropType<true | false>, default: false},
 
         title: makeString(),
         titleTag: makeString("h5"),
         titleClass: make([Array, String, Object], null),
         titleAttrs: make(Object, null),
 
-        noHeader: makeBoolean(false),
+        noHeader: {type: Boolean as PropType<true | false>, default: false},
         header: makeString(),
         headerTag: makeString("div"),
         headerClass: make([Array, String, Object], null),
         headerAttrs: make(Object, null),
 
-        noFooter: makeBoolean(false),
+        noFooter: {type: Boolean as PropType<true | false>, default: false},
 
         //buttons
         okTitle: makeString('Ok'),
         closeTitle: makeString("Close"),
         okButtonOptions: make(Object, null),
         closeButtonOptions: make(Object, null),
-        noOkButton: makeBoolean(false),
-        noCloseButton: makeBoolean(false),
+        noOkButton: {type: Boolean as PropType<true | false>, default: false},
+        noCloseButton: {type: Boolean as PropType<true | false>, default: false},
 
-        static: makeBoolean(false),
-        noBackdrop: makeBoolean(false),
+        static: {type: Boolean as PropType<true | false>, default: false},
+        noBackdrop: {type: Boolean as PropType<true | false>, default: false},
         buttonSize: makeString(),
 
-        scrollable: makeBoolean(false),
-        centered: makeBoolean(false),
+        scrollable: {type: Boolean as PropType<true | false>, default: false},
+        centered: {type: Boolean as PropType<true | false>, default: false},
         size: makeString(),
-        fullscreen: make([Boolean, String], false)
+        fullscreen: {type: [Boolean, String] as PropType<modalFullScreen>, default: false}
     },
     setup(props, context) {
         const shouldShowBackdrop = ref(false);
@@ -122,8 +123,6 @@ export default {
                 "modal",
                 {
                     "fade": props.animation === "fade" || !props.animation,
-                    "modal-dialog-scrollable": props.scrollable,
-                    "modal-dialog-centered": props.centered
                 }
             ]
         });
@@ -133,7 +132,9 @@ export default {
                 "modal-dialog",
                 {
                     ["modal-" + props.size]: !!props.size,
-                    ["modal-fullscreen" + (typeof props.fullscreen === 'string' ? ("-" + props.fullscreen) : "")]: !!props.fullscreen
+                    ["modal-fullscreen" + (typeof props.fullscreen === 'string' ? ("-" + props.fullscreen) : "")]: !!props.fullscreen,
+                    "modal-dialog-scrollable": props.scrollable,
+                    "modal-dialog-centered": props.centered
                 }
             ];
         });
@@ -268,5 +269,5 @@ export default {
             }
         }
     }
-}
+})
 </script>

@@ -1,26 +1,33 @@
 <template>
-    <component :is="tag" :class="classes">
+    <component :is="theTag" :class="classes">
         <slot></slot>
     </component>
 </template>
 
 <script lang="ts">
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed, defineComponent, ref} from "vue";
+import {makeString} from "../shared/properties.js";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "ListGroup",
     props: {
         tag: makeString("ul"),
-        flush: makeBoolean(false),
-        numbered: makeBoolean(false),
+        flush: {type: Boolean as PropType<true | false>, default: false},
+        numbered: {type: Boolean as PropType<true | false>, default: false},
         horizontal: {
-            type: [Boolean, String],
+            type: [Boolean, String] as PropType<true | false | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'>,
             default: false
         },
     },
     setup(props) {
+        const theTag = computed(() => {
+            if (props.numbered) {
+                return "ol";
+            }
+            return props.tag;
+        });
         return {
+            theTag,
             classes: computed(() => [
                 "list-group",
                 {

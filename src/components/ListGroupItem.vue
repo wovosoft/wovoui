@@ -7,19 +7,19 @@
     </component>
 </template>
 
-<script>
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed, ref} from "vue";
+<script lang="ts">
+import {makeString} from "../shared/properties.js";
+import {computed, defineComponent, PropType, ref} from "vue";
 
-export default {
+export default defineComponent({
     name: "ListGroupItem",
     props: {
         tag: makeString("li"),
-        active: makeBoolean(false),
-        disabled: makeBoolean(false),
+        active: {type: Boolean as PropType<true | false>, default: false},
+        disabled: {type: Boolean as PropType<true | false>, default: false},
         href: makeString(null),
         to: {default: () => null},
-        button: makeBoolean(false),
+        button: {type: Boolean as PropType<true | false>, default: false},
         variant: makeString(null)
     },
     setup(props, context) {
@@ -58,5 +58,5 @@ export default {
             theTag
         }
     }
-}
+})
 </script>
