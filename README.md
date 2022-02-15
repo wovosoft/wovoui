@@ -6,7 +6,7 @@ of Bootstrap is done by [Vuejs](https://v3.vuejs.org/). Some extra components ar
 to the library too.
 
 
-Read the full [Documentation here](http://wovoui.netlify.app). 
+Read the full [Documentation here](http://wovoui.wovosoft.com). 
 We are still working on the project. Very soon it will be ready for production.
 
 Developed By [Narayan Adhikary](https://github.com/wovosoft) at [WovoSoft](https://wovosoft.com)
