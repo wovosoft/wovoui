@@ -10,7 +10,15 @@
                 {{ text }}
             </slot>
         </Button>
+        <NavLink v-if="isNav"
+                 ref="toggle"
+                 class="dropdown-toggle"
+                 role="button"
+                 @click="shouldOpen=!shouldOpen">
+            {{text}}
+        </NavLink>
         <Button
+            v-else
             ref="toggle"
             :tag="toggleTag"
             :block="block"
@@ -43,17 +51,19 @@ import dropdownProps from "../shared/dropdownProps.ts";
 import Button from "./Button.vue";
 import DropdownMenu from "./DropdownMenu.vue";
 import {computed, defineComponent} from "vue";
+import NavItem from "./NavItem.vue";
+import NavLink from "./NavLink.vue";
 
 export default defineComponent({
     name: "Dropdown",
-    components: {Button, DropdownMenu},
+    components: {NavLink, NavItem, Button, DropdownMenu},
     props: dropdownProps,
     setup(props) {
         return {
             classes: computed(() => [
                 {
-                    "btn-group": !props.block,
-                    "dropdown": props.block,
+                    "btn-group": !props.block && !props.isNav,
+                    "dropdown": props.block || props.isNav,
                     "dropend": props.dir === "right",
                     "dropstart": props.dir === "left",
                     "dropup": props.dir === "top",

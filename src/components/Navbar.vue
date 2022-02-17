@@ -1,60 +1,59 @@
 <template>
-    <component :is="tag" :class="classes">
+    <nav :class="classes">
         <Container :fluid="fluid">
-            <template v-if="$slots.brand || brand">
+            <template v-if="brand || $slots.brand">
                 <NavbarBrand :href="brandUrl">
                     <slot name="brand">
                         {{ brand }}
                     </slot>
                 </NavbarBrand>
             </template>
-            <NavbarToggler v-if="toggler" :target="toggler"/>
-            <slot></slot>
+            <NavbarToggler
+                v-if="toggleEnabled"
+                v-model="collapsed"
+            />
+            <slot :collapsed="collapsed" :toggleNavbar="toggleNavbar"></slot>
         </Container>
-    </component>
+    </nav>
 </template>
-
-<script>
-import {make, makeBoolean, makeString} from "../shared/properties.js";
+<script lang="ts">
+import {computed, defineComponent, PropType, ref} from "vue";
 import Container from "./Container.vue";
-import {computed} from "vue";
 import NavbarBrand from "./NavbarBrand.vue";
 import NavbarToggler from "./NavbarToggler.vue";
+import {ColorVariants} from "../types";
 
-export default {
-    name: "Navbar",
-    components: {NavbarBrand, Container, NavbarToggler},
+export default defineComponent({
+    components: {NavbarToggler, NavbarBrand, Container},
     props: {
-        brand: makeString(),
-        brandUrl: makeString("#"),
-        toggler: makeString(),
-        tag: makeString("nav"),
-        type: makeString("light"),
-        variant: makeString("light"),
-        fluid: makeBoolean(true),
-        toggleable: make([Boolean, String], false),
-        sticky: makeBoolean(false),
-        print: makeBoolean(false),
-        fixed: make([Boolean, String], false)
+        brand: {type: String as PropType<string>, default: null},
+        brandUrl: {type: String as PropType<string>, default: '#'},
+        fluid: {type: Boolean as PropType<true | false>, default: false},
+        toggleEnabled: {type: Boolean as PropType<true | false>, default: true},
+        variant: {type: String as PropType<'dark' | 'light'>, default: 'light'},
+        bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
+        fixed: {type: String as PropType<'top' | 'bottom'>, default: null},
+        sticky: {type: String as PropType<'top' | 'bottom'>, default: null},
+        expandsOn: {type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | 'xxl'>, default: 'lg'}
     },
-    setup(props) {
-        const classes = computed(() => {
-            return [
+    setup(props, context) {
+        const collapsed = ref(false);
+        return {
+            collapsed,
+            toggleNavbar() {
+                collapsed.value = !collapsed.value;
+            },
+            classes: computed(() => [
                 "navbar",
                 {
-                    ["navbar-" + props.type]: !!props.type,
-                    ["bg-" + props.variant]: !!props.variant,
-                    "navbar-expand": props.toggleable === false,
-                    ["navbar-expand-" + props.toggleable]: typeof props.toggleable === "string",
-                    ["navbar-fixed-" + props.fixed]: typeof props.fixed === "string",
-                    "sticky-top": props.sticky,
-                    "d-print": props.print
+                    ["navbar-" + props.variant]: props.variant,
+                    ["bg-" + props.bgVariant]: props.bgVariant,
+                    ["fixed-" + props.fixed]: !!props.fixed,
+                    ["sticky-" + props.sticky]: !!props.sticky,
+                    ["navbar-expand-" + props.expandsOn]: props.expandsOn
                 }
-            ]
-        });
-        return {
-            classes
+            ])
         }
     }
-}
+})
 </script>

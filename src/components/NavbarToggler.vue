@@ -4,24 +4,21 @@
     </button>
 </template>
 
-<script>
-import {makeString} from "../shared/properties.js";
+<script lang="ts">
+import {defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "NavbarToggler",
+    emits: ['update:modelValue'],
     props: {
-        target: makeString()
+        modelValue: {type: Boolean, default: false}
     },
-    methods: {
-        toggleNavbar() {
-            if (this.target) {
-                let event = new CustomEvent("toggleCollapse", {
-                    detail: this.target,
-                    bubbles:false
-                });
-                document.dispatchEvent(event);
+    setup(props, context) {
+        return {
+            toggleNavbar() {
+                context.emit('update:modelValue', !props.modelValue);
             }
         }
-    },
-}
+    }
+})
 </script>

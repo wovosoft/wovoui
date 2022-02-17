@@ -14,8 +14,9 @@ export default {
     setup(props) {
         const classes = computed(() => {
             return [
-                "nav",
                 {
+                    "nav": !props.navs,
+                    "navbar-nav": props.navs,
                     "small": props.small,
                     "nav-tabs": props.tabs,
                     "nav-pills": props.pills,

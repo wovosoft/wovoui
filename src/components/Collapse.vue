@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import {make, makeString} from "../shared/properties.js";
-import {computed, ref, defineComponent, PropType} from "vue";
+import {computed, ref, defineComponent, PropType, watch} from "vue";
 import {toggleCollapse, collapseTransitionEnd} from "../shared/utilities.js";
 
 export default defineComponent({
@@ -39,6 +39,7 @@ export default defineComponent({
         if (props.visible) {
             context.emit('update:modelValue', true);
         }
+        watch(()=>props.visible,value => shown.value=value);
         // const shouldRenderHandler = (value) => {
         //     shouldRender.value = value;
         // }

@@ -9,4 +9,5 @@ export default {
     justified: makeBoolean(false),
     small: makeBoolean(false),
     tabs: makeBoolean(false),
+    navs: makeBoolean(false)
 }

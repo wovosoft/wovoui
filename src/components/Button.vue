@@ -1,7 +1,7 @@
 <template>
     <component
         :is="href?'a':tag"
-        :type="tag==='button'?tag:null"
+        :type="theType"
         :class="classes"
         v-bind="attributes">
         <slot></slot>
@@ -49,6 +49,15 @@ export default defineComponent({
         }
         return {
             attributes,
+            theType: computed(() => {
+                if (props.type) {
+                    return props.type;
+                }
+                if (props.tag === "button" && !props.type) {
+                    return "button";
+                }
+                return null;
+            }),
             classes: computed(() => [
                 "btn",
                 {

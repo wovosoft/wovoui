@@ -20,5 +20,6 @@ export default {
     menuDark: {type: Boolean as PropType<true | false>, default: false},
     menuClass: make([String, Array], []),
 
-    split: {type: Boolean as PropType<true | false>, default: false}
+    split: {type: Boolean as PropType<true | false>, default: false},
+    isNav: {type: Boolean as PropType<true | false>, default: false},
 }
