@@ -12848,48 +12848,61 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var OffCanvasBody = /* @__PURE__ */ _export_sfc$1(_sfc_main$k, [["render", _sfc_render$k]]);
-const _sfc_main$j = {
+const _sfc_main$j = defineComponent({
   name: "OffCanvas",
   components: { OffCanvasBody, OffCanvasHeader, ButtonClose },
   emits: ["update:modelValue", "beforeShow", "beforeHide", "shown", "hidden"],
   props: {
     tabIndex: makeNumber(-1),
     id: makeString(),
+    ariaLabelledby: makeString(),
     modelValue: makeBoolean(false),
-    placement: makeString("start"),
+    placement: { type: String, default: "start" },
     header: makeString(),
     headerClass: make([Array, Object, String], null),
     headerStyle: make([Object, String], null),
     title: makeString(),
     tag: makeString("div"),
-    backdrop: makeBoolean(true)
+    backdrop: makeBoolean(true),
+    enableBodyScroll: { type: Boolean, default: true },
+    bgVariant: { type: String, default: "light" },
+    textVariant: { type: String, default: "dark" }
   },
   setup(props) {
     const shown = ref(false);
     const showBackdrop = ref(false);
+    watch(shown, (value) => {
+      if (value && !props.enableBodyScroll) {
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight = "17px";
+      } else {
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+      }
+    });
     return {
       shown,
-      showBackdrop
-    };
-  },
-  computed: {
-    classes() {
-      let placement = null;
-      if (this.placement === "left" || this.placement === "start") {
-        placement = "start";
-      } else if (this.placement === "right" || this.placement === "end") {
-        placement = "end";
-      } else {
-        placement = this.placement;
-      }
-      return [
-        "offcanvas",
-        {
-          "show": this.shown,
-          ["offcanvas-" + placement]: !!placement
+      showBackdrop,
+      classes: computed(() => {
+        let placement = null;
+        if (props.placement === "left" || props.placement === "start") {
+          placement = "start";
+        } else if (props.placement === "right" || props.placement === "end") {
+          placement = "end";
+        } else {
+          placement = props.placement;
         }
-      ];
-    }
+        return [
+          "offcanvas",
+          {
+            "show": shown.value,
+            ["offcanvas-" + placement]: !!placement,
+            ["bg-" + props.bgVariant]: props.bgVariant,
+            ["text-" + props.textVariant]: props.textVariant
+          }
+        ];
+      })
+    };
   },
   watch: {
     modelValue(value) {
@@ -12944,30 +12957,30 @@ const _sfc_main$j = {
   beforeUnmount() {
     window.removeEventListener("toggleOffCanvas", this.globalEventListener);
   }
-};
+});
 function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_OffCanvasHeader = resolveComponent("OffCanvasHeader");
   const _component_OffCanvasBody = resolveComponent("OffCanvasBody");
   return openBlock(), createBlock(Teleport, { to: "body" }, [
-    (openBlock(), createBlock(resolveDynamicComponent($props.tag), {
+    (openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
       ref: "theCanvas",
-      onTransitionend: withModifiers($options.transitionEnded, ["self"]),
-      class: normalizeClass($options.classes),
-      tabindex: $props.tabIndex,
-      "aria-labelledby": $props.id
+      onTransitionend: withModifiers(_ctx.transitionEnded, ["self"]),
+      class: normalizeClass(_ctx.classes),
+      tabindex: _ctx.tabIndex,
+      "aria-labelledby": _ctx.ariaLabelledby
     }, {
       default: withCtx(() => [
-        _ctx.$slots.header || $props.header ? (openBlock(), createBlock(_component_OffCanvasHeader, {
+        _ctx.$slots.header || _ctx.header ? (openBlock(), createBlock(_component_OffCanvasHeader, {
           key: 0,
-          style: normalizeStyle($props.headerStyle),
-          class: normalizeClass($props.headerClass),
-          modelValue: $setup.shown,
-          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.shown = $event),
-          title: $props.title
+          style: normalizeStyle(_ctx.headerStyle),
+          class: normalizeClass(_ctx.headerClass),
+          modelValue: _ctx.shown,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.shown = $event),
+          title: _ctx.title
         }, {
           default: withCtx(() => [
             renderSlot(_ctx.$slots, "header", {}, () => [
-              createTextVNode(toDisplayString($props.header), 1)
+              createTextVNode(toDisplayString(_ctx.header), 1)
             ])
           ]),
           _: 3
@@ -12981,9 +12994,9 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
       ]),
       _: 3
     }, 8, ["onTransitionend", "class", "tabindex", "aria-labelledby"])),
-    $setup.showBackdrop && $props.backdrop ? (openBlock(), createElementBlock("div", {
+    _ctx.showBackdrop && _ctx.backdrop ? (openBlock(), createElementBlock("div", {
       key: 0,
-      onClick: _cache[1] || (_cache[1] = ($event) => $setup.shown = false),
+      onClick: _cache[1] || (_cache[1] = ($event) => _ctx.shown = false),
       ref: "backdrop",
       class: "offcanvas-backdrop fade"
     }, null, 512)) : createCommentVNode("", true)

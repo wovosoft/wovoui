@@ -6,7 +6,7 @@
             @transitionend.self="transitionEnded"
             :class="classes"
             :tabindex="tabIndex"
-            :aria-labelledby="id">
+            :aria-labelledby="ariaLabelledby">
             <OffCanvasHeader
                 :style="headerStyle"
                 :class="headerClass"
@@ -29,55 +29,70 @@
     </teleport>
 </template>
 
-<script>
+<script lang="ts">
 import {make, makeBoolean, makeNumber, makeString} from "../shared/properties.js";
-import {ref} from "vue";
+import {computed, defineComponent, PropType, ref, watch} from "vue";
 import ButtonClose from "./ButtonClose.vue";
 import OffCanvasHeader from "./OffCanvasHeader.vue";
 import OffCanvasBody from "./OffCanvasBody.vue";
+import {ColorVariants} from "../types";
 
-export default {
+export default defineComponent({
     name: "OffCanvas",
     components: {OffCanvasBody, OffCanvasHeader, ButtonClose},
     emits: ["update:modelValue", "beforeShow", "beforeHide", "shown", "hidden"],
     props: {
         tabIndex: makeNumber(-1),
         id: makeString(),
+        ariaLabelledby: makeString(),
         modelValue: makeBoolean(false),
-        placement: makeString("start"),
+        placement: {type: String as PropType<'start' | 'left' | 'end' | 'right' | 'top' | 'bottom'>, default: 'start'},
         header: makeString(),
         headerClass: make([Array, Object, String], null),
         headerStyle: make([Object, String], null),
         title: makeString(),
         tag: makeString("div"),
         backdrop: makeBoolean(true),
+        enableBodyScroll: {type: Boolean as PropType<true | false>, default: true},
+        bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
+        textVariant: {type: String as PropType<ColorVariants>, default: 'dark'},
     },
     setup(props) {
         const shown = ref(false);
         const showBackdrop = ref(false);
+        watch(shown, value => {
+            if (value && !props.enableBodyScroll) {
+                document.body.style.overflow = "hidden";
+                document.body.style.paddingRight = "17px";
+            } else {
+                document.body.style.overflow = "";
+                document.body.style.paddingRight = "";
+            }
+        });
+
         return {
             shown,
-            showBackdrop
-        }
-    },
-    computed: {
-        classes() {
-            let placement = null;
-            if (this.placement === "left" || this.placement === "start") {
-                placement = "start";
-            } else if (this.placement === "right" || this.placement === "end") {
-                placement = "end"
-            } else {
-                placement = this.placement;
-            }
-            return [
-                "offcanvas",
-                {
-                    "show": this.shown,
-                    ["offcanvas-" + placement]: !!placement
-
+            showBackdrop,
+            classes: computed(() => {
+                let placement = null;
+                if (props.placement === "left" || props.placement === "start") {
+                    placement = "start";
+                } else if (props.placement === "right" || props.placement === "end") {
+                    placement = "end"
+                } else {
+                    placement = props.placement;
                 }
-            ]
+
+                return [
+                    "offcanvas",
+                    {
+                        "show": shown.value,
+                        ["offcanvas-" + placement]: !!placement,
+                        ["bg-" + props.bgVariant]: props.bgVariant,
+                        ["text-" + props.textVariant]: props.textVariant,
+                    }
+                ]
+            })
         }
     },
     watch: {
@@ -135,5 +150,5 @@ export default {
     beforeUnmount() {
         window.removeEventListener("toggleOffCanvas", this.globalEventListener);
     }
-}
+})
 </script>
