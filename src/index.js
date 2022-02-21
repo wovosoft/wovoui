@@ -90,3 +90,6 @@ export {default as CarouselInner} from "./components/CarouselInner.vue";
 export {default as CarouselItem} from "./components/CarouselItem.vue";
 export {default as Tags} from "./components/Tags.vue";
 export {default as Fake} from "./components/Fake.tsx";
+export {default as Pagination} from "./components/Pagination.vue";
+export {default as PageItem} from "./components/PageItem.vue";
+export {default as PageLink} from "./components/PageLink.vue";
