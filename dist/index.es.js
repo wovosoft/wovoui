@@ -13781,6 +13781,64 @@ function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_3$3h, 10, _hoisted_1$3h);
 }
 var Star = /* @__PURE__ */ _export_sfc(_sfc_main$3h, [["render", _sfc_render$3h]]);
+const _sfc_main$1$ = {
+  name: "ThreeDots",
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    }
+  },
+  setup(props) {
+    return {
+      sizeWidth: computed(() => props.width * props.size),
+      sizeHeight: computed(() => props.height * props.size),
+      classes: computed(() => [
+        "bi bi-three-dots",
+        {
+          ["text-" + props.variant]: props.variant,
+          ["bg-" + props.bgVariant]: props.bgVariant
+        }
+      ])
+    };
+  }
+};
+const _hoisted_1$1$ = ["width", "height", "fill"];
+const _hoisted_2$1$ = /* @__PURE__ */ createElementVNode("path", { d: "M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" }, null, -1);
+const _hoisted_3$1$ = [
+  _hoisted_2$1$
+];
+function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: $setup.sizeWidth,
+    height: $setup.sizeHeight,
+    fill: $props.fill,
+    class: normalizeClass($setup.classes),
+    viewBox: "0 0 16 16"
+  }, _hoisted_3$1$, 10, _hoisted_1$1$);
+}
+var ThreeDots = /* @__PURE__ */ _export_sfc(_sfc_main$1$, [["render", _sfc_render$1$]]);
 const _sfc_main$5$1 = {
   name: "X",
   props: {
@@ -15249,48 +15307,6 @@ var Fake = defineComponent({
   }
 });
 const _sfc_main$2 = defineComponent({
-  name: "Pagination",
-  props: {
-    tag: { type: String, default: "ul" },
-    modelValue: { type: Number, default: 1 },
-    totalRows: { type: Number, default: 0 },
-    perPage: { type: Number, default: 15 },
-    currentPage: { type: Number, default: 1 },
-    size: { type: String, default: null },
-    align: { type: String, default: null },
-    firstColCount: { type: Number, default: 3 },
-    centerColCount: { type: Number, default: 3 },
-    lastColCount: { type: Number, default: 3 }
-  },
-  setup(props, context) {
-    return {
-      classes: computed(() => [
-        "pagination",
-        {
-          ["pagination-" + props.size]: props.size,
-          ["justify-content-" + (props.align === "end" || props.align === "right" ? "end" : props.align)]: props.align
-        }
-      ]),
-      count: computed(() => {
-        if (Number(props.perPage)) {
-          return Math.ceil(Number(props.totalRows) / Number(props.perPage));
-        }
-      })
-    };
-  }
-});
-function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
-    class: normalizeClass(_ctx.classes)
-  }, {
-    default: withCtx(() => [
-      _ctx.$slots.default ? renderSlot(_ctx.$slots, "default", { key: 0 }) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [], 64))
-    ]),
-    _: 3
-  }, 8, ["class"]);
-}
-var Pagination = /* @__PURE__ */ _export_sfc$1(_sfc_main$2, [["render", _sfc_render$2]]);
-const _sfc_main$1 = defineComponent({
   name: "PageLink",
   props: {
     tag: { type: String, default: "a" },
@@ -15318,7 +15334,7 @@ const _sfc_main$1 = defineComponent({
     };
   }
 });
-function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     href: _ctx.href,
@@ -15330,8 +15346,8 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "href", "aria-label"]);
 }
-var PageLink = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["render", _sfc_render$1]]);
-const _sfc_main = defineComponent({
+var PageLink = /* @__PURE__ */ _export_sfc$1(_sfc_main$2, [["render", _sfc_render$2]]);
+const _sfc_main$1 = defineComponent({
   name: "PageItem",
   props: {
     tag: { type: String, default: "li" },
@@ -15356,7 +15372,7 @@ const _sfc_main = defineComponent({
     };
   }
 });
-function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PageLink = resolveComponent("PageLink");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
@@ -15378,5 +15394,155 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var PageItem = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["render", _sfc_render]]);
+var PageItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["render", _sfc_render$1]]);
+const _sfc_main = defineComponent({
+  name: "Pagination",
+  components: { PageItem, ThreeDots },
+  props: {
+    tag: { type: String, default: "ul" },
+    modelValue: { type: Number, default: 1 },
+    totalRows: { type: Number, default: 0 },
+    perPage: { type: Number, default: 15 },
+    currentPage: { type: Number, default: 1 },
+    size: { type: String, default: null },
+    align: { type: String, default: null },
+    firstColPageCount: { type: Number, default: 3 },
+    centerColPageCount: { type: Number, default: 3 },
+    lastColPageCount: { type: Number, default: 3 }
+  },
+  setup(props, context) {
+    const pageCount = computed(() => {
+      if (Number(props.perPage)) {
+        return Math.ceil(Number(props.totalRows) / Number(props.perPage));
+      }
+      return 0;
+    });
+    const firstBlock = computed(() => {
+      if (pageCount.value < props.firstColPageCount) {
+        return [...Array(pageCount.value).keys()].map((i) => i + 1);
+      }
+      if (props.currentPage > props.firstColPageCount) {
+        return [...Array(props.firstColPageCount).keys()].map((i) => i + 1);
+      }
+      if (props.currentPage <= props.firstColPageCount) {
+        return [...Array(pageCount.value - lastBlock.value.length).keys()].map((i) => i + 1);
+      }
+      return [];
+    });
+    const centerBlock = computed(() => {
+      let items = [];
+      Math.round(props.centerColPageCount / 2);
+      if (props.currentPage > props.firstColPageCount && props.currentPage < pageCount.value - props.lastColPageCount) {
+        for (let x = 0; x < props.centerColPageCount; x++) {
+          items.push(x - 1);
+        }
+      }
+      return items.map((i) => i + props.currentPage);
+    });
+    const lastBlock = computed(() => {
+      if (pageCount.value >= props.firstColPageCount + props.centerColPageCount) {
+        let items = [];
+        for (let x = pageCount.value - props.lastColPageCount; x <= pageCount.value; x++) {
+          items.push(x);
+        }
+        return items;
+      }
+      return [];
+    });
+    return {
+      firstBlock,
+      centerBlock,
+      lastBlock,
+      classes: computed(() => [
+        "pagination",
+        {
+          ["pagination-" + props.size]: props.size,
+          ["justify-content-" + (props.align === "end" || props.align === "right" ? "end" : props.align)]: props.align
+        }
+      ]),
+      pageCount
+    };
+  }
+});
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_PageItem = resolveComponent("PageItem");
+  const _component_ThreeDots = resolveComponent("ThreeDots");
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
+    class: normalizeClass(_ctx.classes)
+  }, {
+    default: withCtx(() => [
+      _ctx.$slots.default ? renderSlot(_ctx.$slots, "default", { key: 0 }) : _ctx.pageCount <= _ctx.firstColPageCount + _ctx.centerColPageCount + _ctx.lastColPageCount ? (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList(_ctx.pageCount, (page) => {
+        return openBlock(), createBlock(_component_PageItem, {
+          active: _ctx.currentPage === page
+        }, {
+          default: withCtx(() => [
+            createTextVNode(toDisplayString(page), 1)
+          ]),
+          _: 2
+        }, 1032, ["active"]);
+      }), 256)) : _ctx.pageCount > 0 ? (openBlock(), createElementBlock(Fragment, { key: 2 }, [
+        _ctx.firstBlock.length > 0 ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+          (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.firstBlock, (page) => {
+            return openBlock(), createElementBlock(Fragment, null, [
+              page <= _ctx.pageCount ? (openBlock(), createBlock(_component_PageItem, {
+                key: 0,
+                active: _ctx.currentPage === page
+              }, {
+                default: withCtx(() => [
+                  createTextVNode(toDisplayString(page), 1)
+                ]),
+                _: 2
+              }, 1032, ["active"])) : createCommentVNode("", true)
+            ], 64);
+          }), 256)),
+          _ctx.centerBlock.length > 0 ? (openBlock(), createBlock(_component_PageItem, {
+            key: 0,
+            disabled: ""
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_ThreeDots)
+            ]),
+            _: 1
+          })) : createCommentVNode("", true)
+        ], 64)) : createCommentVNode("", true),
+        _ctx.pageCount > _ctx.firstColPageCount ? (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList(_ctx.centerBlock, (page) => {
+          return openBlock(), createElementBlock(Fragment, null, [
+            page <= _ctx.pageCount && !_ctx.lastBlock.includes(page) && !_ctx.firstBlock.includes(page) ? (openBlock(), createBlock(_component_PageItem, {
+              key: 0,
+              active: _ctx.currentPage === page
+            }, {
+              default: withCtx(() => [
+                createTextVNode(toDisplayString(page), 1)
+              ]),
+              _: 2
+            }, 1032, ["active"])) : createCommentVNode("", true)
+          ], 64);
+        }), 256)) : createCommentVNode("", true),
+        _ctx.pageCount > _ctx.firstColPageCount && _ctx.lastBlock.length > 0 ? (openBlock(), createElementBlock(Fragment, { key: 2 }, [
+          createVNode(_component_PageItem, { disabled: "" }, {
+            default: withCtx(() => [
+              createVNode(_component_ThreeDots)
+            ]),
+            _: 1
+          }),
+          (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.lastBlock, (page) => {
+            return openBlock(), createElementBlock(Fragment, null, [
+              page <= _ctx.pageCount ? (openBlock(), createBlock(_component_PageItem, {
+                key: 0,
+                active: _ctx.currentPage === page
+              }, {
+                default: withCtx(() => [
+                  createTextVNode(toDisplayString(page), 1)
+                ]),
+                _: 2
+              }, 1032, ["active"])) : createCommentVNode("", true)
+            ], 64);
+          }), 256))
+        ], 64)) : createCommentVNode("", true)
+      ], 64)) : createCommentVNode("", true)
+    ]),
+    _: 3
+  }, 8, ["class"]);
+}
+var Pagination = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["render", _sfc_render]]);
 export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Checkbox, CheckboxGroup, Col, Collapse, Container, DataTable, DataTable as Datatable, Datepicker, Dropdown, DropdownButton, DropdownDivider, DropdownItem, DropdownMenu, Fake, FormGroup, FormLabel, Grid, GridCol, Highlight, Icon, Input, InputGroup, InputGroupText, Link, ListGroup, ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, Popover, Radio, Range, Rating, Row, Select, SpinButton, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Tr };
