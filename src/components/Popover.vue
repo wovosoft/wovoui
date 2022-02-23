@@ -16,7 +16,7 @@
 
 <script>
 import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed, ref} from "vue";
+import {computed, ref, watch} from "vue";
 import {createPopper} from "@popperjs/core";
 
 export default {
@@ -35,6 +35,7 @@ export default {
     },
     setup(props) {
         const shown = ref(false);
+        watch(() => props.modelValue, value => shown.value = value);
         const bsDir = (placement) => {
             if (['auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end'].includes(placement)) {
                 return "top";
@@ -100,9 +101,6 @@ export default {
         }
     },
     watch: {
-        modelValue(value) {
-            this.shown = value;
-        },
         shown(value) {
             this.$emit('update:modelValue', value);
             this.$nextTick(() => {

@@ -2,14 +2,18 @@
     <component :is="tag" :class="classes">
         <slot v-if="$slots.default"></slot>
         <template v-else-if="pageCount<=(firstColPageCount + centerColPageCount + lastColPageCount)">
-            <PageItem v-for="page in pageCount" :active="currentPage===page">
+            <PageItem v-for="page in pageCount"
+                      @click="state=page"
+                      :active="state===page">
                 {{ page }}
             </PageItem>
         </template>
         <template v-else-if="pageCount>0">
             <template v-if="firstBlock.length>0">
                 <template v-for="page in firstBlock">
-                    <PageItem v-if="page<=pageCount" :active="currentPage===page">
+                    <PageItem v-if="page<=pageCount"
+                              @click="state=page"
+                              :active="state===page">
                         {{ page }}
                     </PageItem>
                 </template>
@@ -20,7 +24,8 @@
             <template v-if="pageCount > firstColPageCount">
                 <template v-for="page in centerBlock">
                     <PageItem v-if="page<=pageCount && !lastBlock.includes(page) && !firstBlock.includes(page)"
-                              :active="currentPage===page">
+                              @click="state=page"
+                              :active="state===page">
                         {{ page }}
                     </PageItem>
                 </template>
@@ -30,7 +35,9 @@
                     <ThreeDots/>
                 </PageItem>
                 <template v-for="page in lastBlock">
-                    <PageItem v-if="page<=pageCount" :active="currentPage===page">
+                    <PageItem v-if="page<=pageCount"
+                              @click="state=page"
+                              :active="state===page">
                         {{ page }}
                     </PageItem>
                 </template>
@@ -40,16 +47,17 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, ref} from "vue";
+import {computed, defineComponent, PropType, ref, watch} from "vue";
 import PageItem from "./PageItem.vue";
 import {ThreeDots} from "@wovosoft/wovoui-icons";
 
 export default defineComponent({
     name: "Pagination",
     components: {PageItem, ThreeDots},
+    emits: ["update:modelValue", "update:currentPage"],
     props: {
         tag: {type: String as PropType<'ul' | 'div' | string>, default: 'ul'},
-        modelValue: {type: Number, default: 1},
+        modelValue: {type: Number as PropType<number>, default: 1},
 
         totalRows: {type: Number as PropType<number>, default: 0},
         perPage: {type: Number as PropType<number>, default: 15},
@@ -63,6 +71,16 @@ export default defineComponent({
         lastColPageCount: {type: Number as PropType<number>, default: 3},
     },
     setup(props, context) {
+        //internal state, needed when props.currentPage not defined in calling component.
+        const state = ref(props.currentPage);
+        watch(state, page => {
+            context.emit('update:modelValue', page);
+            context.emit('update:currentPage', page);
+        });
+
+        watch(() => props.currentPage, page => state.value = page);
+        watch(() => props.modelValue, page => state.value = page);
+
         const pageCount = computed(() => {
             if (Number(props.perPage)) {
                 return Math.ceil(Number(props.totalRows) / Number(props.perPage))
@@ -74,23 +92,30 @@ export default defineComponent({
             if (pageCount.value < props.firstColPageCount) {
                 return [...Array(pageCount.value).keys()].map(i => i + 1)
             }
-            if (props.currentPage > props.firstColPageCount) {
+            if (state.value > props.firstColPageCount) {
                 return [...Array(props.firstColPageCount).keys()].map(i => i + 1);
             }
-            if (props.currentPage<=props.firstColPageCount){
-                return [...Array(pageCount.value-lastBlock.value.length).keys()].map(i => i + 1);
+            if (state.value <= props.firstColPageCount) {
+                let count = pageCount.value - lastBlock.value.length;
+                if (count > props.firstColPageCount) {
+                    count = props.firstColPageCount;
+                }
+                return [...Array(count).keys()].map(i => i + 1);
             }
             return [];
         });
         const centerBlock = computed(() => {
             let items = [];
-            let half = Math.round(props.centerColPageCount / 2);
-            if (props.currentPage > props.firstColPageCount && props.currentPage < (pageCount.value - props.lastColPageCount)) {
+            // let half = Math.round(props.centerColPageCount / 2);
+            if (state.value > props.firstColPageCount && state.value < (pageCount.value - props.lastColPageCount)) {
                 for (let x = 0; x < props.centerColPageCount; x++) {
+                    if (props.centerColPageCount % 2 === 0) {
+
+                    }
                     items.push(x - 1);
                 }
             }
-            return items.map(i => i + props.currentPage);
+            return items.map(i => i + state.value);
         });
 
         const lastBlock = computed(() => {
@@ -103,7 +128,7 @@ export default defineComponent({
             }
             return [];
         });
-
+        const setPage = (page) => state.value = page;
         return {
             firstBlock,
             centerBlock,
@@ -114,7 +139,9 @@ export default defineComponent({
                     ["justify-content-" + ((props.align === 'end' || props.align === 'right') ? 'end' : props.align)]: props.align
                 }
             ]),
-            pageCount
+            pageCount,
+            state,
+            setPage
         }
     }
 })
