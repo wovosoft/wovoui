@@ -97,4 +97,5 @@ export {default as Progress} from "./components/Progress.vue";
 export {default as ProgressBar} from "./components/ProgressBar.vue";
 export {default as Spinner} from "./components/Spinner.vue";
 export {default as Toast} from "./components/Toast.vue";
+export {default as ToastBody} from "./components/ToastBody.vue";
 export {default as ToastContainer} from "./components/ToastContainer.vue";
