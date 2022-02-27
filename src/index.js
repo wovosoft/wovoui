@@ -99,3 +99,7 @@ export {default as Spinner} from "./components/Spinner.vue";
 export {default as Toast} from "./components/Toast.vue";
 export {default as ToastBody} from "./components/ToastBody.vue";
 export {default as ToastContainer} from "./components/ToastContainer.vue";
+export {default as Tooltip} from "./components/Tooltip.vue";
+export {default as Aspect} from "./components/Aspect.vue";
+export {default as Stack} from "./components/Stack.vue";
+export {default as Vr} from "./components/Vr.vue";
