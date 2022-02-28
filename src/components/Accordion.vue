@@ -1,20 +1,20 @@
 <template>
-    <div class="accordion" :class="{'accordion-flush':flush}">
+    <component :is="tag" class="accordion" :class="{'accordion-flush':flush}">
         <slot></slot>
-    </div>
+    </component>
 </template>
 
 <script lang="ts">
 import {defineComponent, PropType, reactive, ref} from "vue";
-import {makeNumber} from "../shared/properties";
 
 export default defineComponent({
-    name: "Accordion",
-    emits: ['update:modelValue'],
+    name: "Accordion" as string,
+    emits: ['update:modelValue'] as Array<string>,
     props: {
-        modelValue: makeNumber(null),
-        flush: {type: Boolean as PropType<Boolean>, default: false},
-        alwaysOpen: {type: Boolean as PropType<Boolean>, default: false}
+        tag: {type: String, default: "div"},
+        modelValue: {type: Number, default: null},
+        flush: {type: Boolean as PropType<true | false>, default: false},
+        alwaysOpen: {type: Boolean as PropType<true | false>, default: false}
     },
     provide() {
         return {
@@ -28,11 +28,11 @@ export default defineComponent({
             }
         }
     },
-    setup(props, context) {
+    setup(props, {expose}) {
         const activeItem = ref(null);
         const items = reactive([]);
 
-        context.expose({
+        expose({
             toggleAll: () => items.forEach(i => i.value = !i.value),
             openAll: () => items.forEach(i => i.value = true),
             collapseAll: () => items.forEach(i => i.value = false)

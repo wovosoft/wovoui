@@ -29,7 +29,70 @@ var __objRest = (source2, exclude) => {
     }
   return target;
 };
-import { defineComponent, ref, reactive, openBlock, createElementBlock, normalizeClass, renderSlot, createBlock, resolveDynamicComponent, withCtx, watch, computed, withModifiers, inject, resolveComponent, createVNode, createTextVNode, toDisplayString, createCommentVNode, mergeProps, Fragment, renderList, normalizeProps, createSlots, withDirectives, createElementVNode, vModelCheckbox, guardReactiveProps, normalizeStyle, h, nextTick, Teleport, vModelSelect, withKeys, provide, vModelText } from "vue";
+import { defineComponent, ref, reactive, openBlock, createBlock, resolveDynamicComponent, normalizeClass, withCtx, renderSlot, createElementBlock, watch, computed, withModifiers, inject, resolveComponent, createVNode, createTextVNode, toDisplayString, createCommentVNode, mergeProps, Fragment, renderList, normalizeProps, createSlots, withDirectives, createElementVNode, vModelCheckbox, guardReactiveProps, normalizeStyle, h, nextTick, Teleport, vModelSelect, withKeys, provide, vModelText } from "vue";
+var _export_sfc$1 = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+const _sfc_main$1A = defineComponent({
+  name: "Accordion",
+  emits: ["update:modelValue"],
+  props: {
+    tag: { type: String, default: "div" },
+    modelValue: { type: Number, default: null },
+    flush: { type: Boolean, default: false },
+    alwaysOpen: { type: Boolean, default: false }
+  },
+  provide() {
+    return {
+      registerItem: (item) => this.items.push(item),
+      setActiveItem: (item) => {
+        this.activeItem = item;
+        this.$emit("update:modelValue", this.items.indexOf(item));
+        if (!this.alwaysOpen) {
+          this.items.filter((i) => i !== item).forEach((i) => i.value = false);
+        }
+      }
+    };
+  },
+  setup(props, { expose }) {
+    const activeItem = ref(null);
+    const items = reactive([]);
+    expose({
+      toggleAll: () => items.forEach((i) => i.value = !i.value),
+      openAll: () => items.forEach((i) => i.value = true),
+      collapseAll: () => items.forEach((i) => i.value = false)
+    });
+    return {
+      items,
+      activeItem
+    };
+  }
+});
+function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
+    class: normalizeClass(["accordion", { "accordion-flush": _ctx.flush }])
+  }, {
+    default: withCtx(() => [
+      renderSlot(_ctx.$slots, "default")
+    ]),
+    _: 3
+  }, 8, ["class"]);
+}
+var Accordion = /* @__PURE__ */ _export_sfc$1(_sfc_main$1A, [["render", _sfc_render$1A]]);
+const _sfc_main$1z = defineComponent({
+  name: "AccordionBody"
+});
+const _hoisted_1$y = { class: "accordion-body" };
+function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", _hoisted_1$y, [
+    renderSlot(_ctx.$slots, "default")
+  ]);
+}
+var AccordionBody = /* @__PURE__ */ _export_sfc$1(_sfc_main$1z, [["render", _sfc_render$1z]]);
 const makeString = (initial = null) => ({
   type: String,
   default: initial
@@ -47,65 +110,6 @@ const make = (type, initial) => ({
   default: () => initial
 });
 const isBoolean = (val) => typeof val === "boolean";
-var _export_sfc$1 = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
-    target[key] = val;
-  }
-  return target;
-};
-const _sfc_main$1A = defineComponent({
-  name: "Accordion",
-  emits: ["update:modelValue"],
-  props: {
-    modelValue: makeNumber(null),
-    flush: { type: Boolean, default: false },
-    alwaysOpen: { type: Boolean, default: false }
-  },
-  provide() {
-    return {
-      registerItem: (item) => this.items.push(item),
-      setActiveItem: (item) => {
-        this.activeItem = item;
-        this.$emit("update:modelValue", this.items.indexOf(item));
-        if (!this.alwaysOpen) {
-          this.items.filter((i) => i !== item).forEach((i) => i.value = false);
-        }
-      }
-    };
-  },
-  setup(props, context) {
-    const activeItem = ref(null);
-    const items = reactive([]);
-    context.expose({
-      toggleAll: () => items.forEach((i) => i.value = !i.value),
-      openAll: () => items.forEach((i) => i.value = true),
-      collapseAll: () => items.forEach((i) => i.value = false)
-    });
-    return {
-      items,
-      activeItem
-    };
-  }
-});
-function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", {
-    class: normalizeClass(["accordion", { "accordion-flush": _ctx.flush }])
-  }, [
-    renderSlot(_ctx.$slots, "default")
-  ], 2);
-}
-var Accordion = /* @__PURE__ */ _export_sfc$1(_sfc_main$1A, [["render", _sfc_render$1A]]);
-const _sfc_main$1z = defineComponent({
-  name: "AccordionBody"
-});
-const _hoisted_1$y = { class: "accordion-body" };
-function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$y, [
-    renderSlot(_ctx.$slots, "default")
-  ]);
-}
-var AccordionBody = /* @__PURE__ */ _export_sfc$1(_sfc_main$1z, [["render", _sfc_render$1z]]);
 const _sfc_main$1y = defineComponent({
   name: "AccordionHeader",
   emits: ["update:modelValue"],
