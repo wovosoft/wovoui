@@ -1,13 +1,16 @@
 <template>
-    <div class="accordion-body">
+    <component :is="tag" class="accordion-body">
         <slot></slot>
-    </div>
+    </component>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
-    name: "AccordionBody"
+    name: "AccordionBody",
+    props: {
+        tag: {type: String as PropType<string>, default: "div"}
+    }
 })
 </script>

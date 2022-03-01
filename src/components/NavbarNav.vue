@@ -5,12 +5,12 @@
     </Nav>
 </template>
 
-<script>
+<script lang="ts">
 import Nav from "./Nav.vue";
 import navProps from "../shared/navProps.js";
-import {computed} from "vue";
+import {computed, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "NavbarNav",
     components: {Nav},
     props: {
@@ -27,5 +27,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>

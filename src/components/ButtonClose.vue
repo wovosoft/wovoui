@@ -6,14 +6,14 @@
             class="btn-close"></button>
 </template>
 <script lang="ts">
-import {PropType} from "vue";
+import {defineComponent, PropType} from "vue";
 import {makeString} from "../shared/properties.js";
 
-export default {
+export default defineComponent({
     props: {
         white: {type: Boolean as PropType<true | false>, default: () => false},
         ariaLabel: makeString("Close"),
         disabled: {type: Boolean as PropType<true | false>, default: false}
     }
-}
+})
 </script>

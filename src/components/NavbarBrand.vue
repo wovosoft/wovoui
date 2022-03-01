@@ -4,11 +4,11 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {makeString} from "../shared/properties.js";
-import {computed} from "vue";
+import {computed, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "NavbarBrand",
     props: {
         tag: makeString("a"),
@@ -30,5 +30,5 @@ export default {
             attributes
         }
     }
-}
+})
 </script>

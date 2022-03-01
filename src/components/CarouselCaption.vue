@@ -4,11 +4,11 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {makeString} from "../shared/properties";
-import {computed} from "vue";
+import {computed, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "CarouselCaption",
     props: {
         tag: makeString("div")
@@ -20,5 +20,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>

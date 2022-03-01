@@ -35,7 +35,7 @@ export declare type ButtonEmits = {}
 declare class Button extends ClassComponent<ButtonProps, ButtonSlots, ButtonEmits> {
 }
 
-declare module '@vue/runtime-core' {
+declare module '@wovosoft/wovoui' {
     interface GlobalComponents {
         Button: GlobalComponentConstructor<Button>
     }

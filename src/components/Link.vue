@@ -4,14 +4,15 @@
     </a>
 </template>
 
-<script>
+<script lang="ts">
 import {makeString} from "../shared/properties.js";
+import {defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "Link",
     props: {
         href: makeString('#'),
         target: makeString("_self")
     }
-}
+})
 </script>

@@ -4,11 +4,11 @@
     />
 </template>
 
-<script>
+<script lang="ts">
 import {makeString} from "../shared/properties.js";
-import {computed} from "vue";
+import {computed, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "Icon",
     props: {
         icon: makeString(null),
@@ -19,5 +19,5 @@ export default {
             theIcon: computed(() => (props.icon || slots.default.toString().trim()))
         }
     }
-}
+})
 </script>

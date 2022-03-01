@@ -2,11 +2,11 @@
     <img :src="src" :class="classes" :alt="alt"/>
 </template>
 
-<script>
+<script lang="ts">
 import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed} from "vue";
+import {computed, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "CardImg",
     props: {
         src: makeString(),
@@ -34,5 +34,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>

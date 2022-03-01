@@ -10,13 +10,13 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 
-import {computed, ref, watch} from "vue";
+import {computed, ref, watch,defineComponent} from "vue";
 import {makeNumber, makeString} from "../shared/properties.js";
 import {StarFill, Star} from "@wovosoft/wovoui-icons";
 
-export default {
+export default defineComponent({
     name: "Rating",
     components: {StarFill, Star},
     props: {
@@ -41,7 +41,7 @@ export default {
             value
         }
     }
-}
+})
 </script>
 <style>
 .wu-rating:hover {

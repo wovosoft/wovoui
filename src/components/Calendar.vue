@@ -89,8 +89,8 @@
     </div>
 </template>
 
-<script>
-import {computed, ref, watch} from "vue";
+<script lang="ts">
+import {computed, defineComponent, ref, watch} from "vue";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
@@ -99,12 +99,10 @@ dayjs.extend(localData);
 dayjs.extend(isToday);
 
 import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {
-    Row,
-    Col,
-    Button,
-    InputGroup
-} from "./../index.js";
+import Row from "./Row.vue";
+import Col from "./Col.vue";
+import Button from "./Button.vue";
+import InputGroup from "./InputGroup.vue";
 
 import {
     ChevronLeft,
@@ -114,7 +112,7 @@ import {
     ChevronDoubleLeft
 } from "@wovosoft/wovoui-icons";
 
-export default {
+export default defineComponent({
     name: "Calendar",
     components: {
         InputGroup,
@@ -203,5 +201,5 @@ export default {
             })
         }
     }
-}
+})
 </script>

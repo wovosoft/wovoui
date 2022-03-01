@@ -2,10 +2,10 @@
 
 </template>
 
-<script>
-import {ref} from "vue";
+<script lang="ts">
+import {ref, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "Datepicker",
     props: {
         modelValue: {
@@ -19,5 +19,5 @@ export default {
             model
         }
     }
-}
+})
 </script>

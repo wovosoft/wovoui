@@ -4,13 +4,14 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
+import {defineComponent} from "vue";
 import {makeString} from "../shared/properties.js";
 
-export default {
+export default defineComponent({
     name: "ModalTitle",
     props: {
         tag: makeString("h5")
     }
-}
+})
 </script>

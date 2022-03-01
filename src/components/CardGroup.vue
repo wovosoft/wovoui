@@ -4,11 +4,11 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed} from "vue";
+import {computed, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "CardGroup",
     props: {
         tag: makeString("div"),
@@ -26,5 +26,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>

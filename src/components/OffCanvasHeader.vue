@@ -13,13 +13,13 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import ButtonClose from "./ButtonClose.vue";
 import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed} from "vue";
+import {computed,defineComponent} from "vue";
 import OffCanvasTitle from "./OffCanvasTitle.vue";
 
-export default {
+export default defineComponent({
     name: "OffCanvasHeader",
     emits: ["update:modelValue"],
     components: {
@@ -42,5 +42,5 @@ export default {
             classes
         }
     }
-}
+})
 </script>

@@ -8,11 +8,11 @@
     />
 </template>
 
-<script>
+<script lang="ts">
 import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed, ref} from "vue";
+import {computed, defineComponent, ref} from "vue";
 
-export default {
+export default defineComponent({
     emits: ["update:modelValue"],
     props: {
         type: makeString("text"),
@@ -42,5 +42,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>

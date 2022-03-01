@@ -3,13 +3,14 @@
         <slot></slot>
     </a>
 </template>
-<script>
+<script lang="ts">
 import {makeString} from "../shared/properties.js";
+import {defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "CardLink",
     props: {
         href: makeString("#")
     }
-}
+})
 </script>

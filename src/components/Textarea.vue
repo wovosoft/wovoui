@@ -6,11 +6,11 @@
   />
 </template>
 
-<script>
-import {computed} from "vue";
+<script lang="ts">
+import {computed, defineComponent} from "vue";
 import {makeString} from "../shared/properties.js";
 
-export default {
+export default defineComponent({
     name: "Textarea",
     props: {
         size: makeString(),
@@ -26,5 +26,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>

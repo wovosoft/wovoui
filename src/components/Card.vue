@@ -38,15 +38,15 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {make, makeBoolean, makeString} from "../shared/properties.js";
 import CardHeader from "./CardHeader.vue";
-import {computed} from "vue";
+import {computed, defineComponent} from "vue";
 import CardBody from "./CardBody.vue";
 import CardFooter from "./CardFooter.vue";
 import CardImg from "./CardImg.vue";
 
-export default {
+export default defineComponent({
     name: "Card",
     components: {CardImg, CardFooter, CardBody, CardHeader},
     props: {
@@ -141,7 +141,7 @@ export default {
             cardBodyBindings
         }
     }
-}
+})
 </script>
 <style>
 @media (min-width: 576px) {

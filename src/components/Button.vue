@@ -11,7 +11,12 @@
     </component>
 </template>
 <script lang="ts">
-import {make, makeString} from "../shared/properties.js";
+interface Attributes {
+    disabled: Boolean,
+    ariaPressed: Boolean,
+    autocomplete: string | null
+}
+
 import Badge from "./Badge.vue";
 import {computed, defineComponent, PropType} from "vue";
 import {ColorVariants, TrueFalse} from "../types"
@@ -22,30 +27,33 @@ import {buttonSizes} from "../types/buttonSizes";
 export default defineComponent({
     components: {Badge},
     props: {
-        tag: makeString("button"),
-        href: makeString(null),
+        tag: {type: String as PropType<string>, default: "button"},
+        href: {type: String as PropType<string>, default: null},
         variant: {type: String as PropType<ColorVariants>, default: () => 'secondary'},
         size: {type: String as PropType<buttonSizes>, default: () => null},
-        type: makeString("button"),
+        type: {type: String as PropType<string>, default: "button"},
         outline: {type: Boolean as PropType<TrueFalse>, default: false},
         block: {type: Boolean as PropType<TrueFalse>, default: false},
         pill: {type: Boolean as PropType<TrueFalse>, default: false},
         squared: {type: Boolean as PropType<TrueFalse>, default: false},
         disabled: {type: Boolean as PropType<TrueFalse>, default: false},
         pressed: {type: Boolean as PropType<TrueFalse>, default: false},
-        badge: make([String, Number], null),
+        badge: {type: [String, Number] as PropType<string | number>, default: null},
         badePosition: {type: String as PropType<badgePositions>, default: () => null},
         badgeVariant: {type: String as PropType<ColorVariants>, default: () => 'secondary'},
         active: {type: Boolean as PropType<TrueFalse>, default: false},
-        activeClass: makeString('active')
+        activeClass: {type: String as PropType<string>, default: "active"}
     },
     setup(props, context) {
         let attributes = {
             disabled: props.disabled,
-        };
+            ariaPressed: false,
+            autocomplete: null
+        } as Attributes;
+
         if (props.pressed) {
-            attributes["aria-pressed"] = true;
-            attributes["autocomplete"] = "off";
+            attributes.ariaPressed = true;
+            attributes.autocomplete = "off";
         }
         return {
             attributes,

@@ -5,9 +5,10 @@
 </template>
 
 <script>
+import {defineComponent} from "vue";
 import {makeBoolean, makeString} from "../shared/properties.js";
 
-export default {
+export default defineComponent({
     name: "DropdownMenu",
     props: {
         tag: makeString("ul"),
@@ -25,5 +26,5 @@ export default {
             ]
         }
     }
-}
+})
 </script>

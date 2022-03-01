@@ -10,11 +10,11 @@
     />
 </template>
 
-<script>
-import {computed} from "vue";
+<script lang="ts">
+import {computed,defineComponent} from "vue";
 import {makeNumber} from "../shared/properties.js";
 
-export default {
+export default defineComponent({
     name: "Range",
     props: {
         min: makeNumber(null),
@@ -29,5 +29,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>

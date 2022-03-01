@@ -33,11 +33,11 @@
     </div>
 </template>
 
-<script>
-import {computed, ref, watch} from "vue";
+<script lang="ts">
+import {computed, defineComponent, ref, watch} from "vue";
 import {makeBoolean, makeString} from "../shared/properties.js";
 
-export default {
+export default defineComponent({
     name: "Checkbox",
     emits: ['update:modelValue', 'checked', 'unchecked'],
     props: {
@@ -127,5 +127,5 @@ export default {
             }
         }
     }
-}
+})
 </script>

@@ -23,14 +23,14 @@
     </select>
 </template>
 
-<script>
-import {make, makeString} from "../shared/properties.js";
-import {computed, ref, watch} from "vue";
+<script lang="ts">
+import {make, makeBoolean, makeString} from "../shared/properties.js";
+import {computed, ref, watch, defineComponent} from "vue";
 import {isObject} from "../shared/utilities.js";
 
-export default {
+export default defineComponent({
     props: {
-        multiple: false,
+        multiple: makeBoolean(false),
         size: makeString(),
         options: make(Array, []),
         valueField: make([Function, String], null),
@@ -70,5 +70,5 @@ export default {
             ])
         }
     }
-}
+})
 </script>

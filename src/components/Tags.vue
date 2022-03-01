@@ -24,14 +24,14 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {make, makeBoolean, makeString} from "../shared/properties";
-import {computed, ref, watch} from "vue";
+import {computed, ref, watch,defineComponent} from "vue";
 import {X} from "@wovosoft/wovoui-icons";
 import Badge from "./Badge.vue";
 import Button from "./Button.vue";
 
-export default {
+export default defineComponent({
     name: "Tags",
     components: {Button, Badge, X},
     props: {
@@ -86,7 +86,7 @@ export default {
             ])
         }
     }
-}
+})
 </script>
 <style lang="scss">
 .wui-tags {

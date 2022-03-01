@@ -28,13 +28,13 @@
         </div>
     </div>
 </template>
-<script>
+<script lang="ts">
 import {makeBoolean, makeNumber, makeString} from "../shared/properties.js";
-import {ref, watch, provide, computed} from "vue";
+import {ref, watch, provide, computed,defineComponent} from "vue";
 import Nav from "./Nav.vue";
 import NavItem from "./NavItem.vue";
 
-export default {
+export default defineComponent({
     emits: ['update:modelValue'],
     components: {NavItem, Nav},
     props: {
@@ -86,5 +86,5 @@ export default {
             active
         }
     }
-}
+})
 </script>

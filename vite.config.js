@@ -10,7 +10,14 @@ export default defineConfig({
         jsxFragment: 'Fragment'
     },
     plugins: [
-        vue(),
+        vue({
+            "compilerOptions": {
+                "types": [
+                    "vite/client"
+                ],
+                "emitDeclarationOnly": false
+            }
+        }),
         vueJsx({
             // options are passed on to @vue/babel-plugin-jsx
         })

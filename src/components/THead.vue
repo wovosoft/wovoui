@@ -4,11 +4,11 @@
     </thead>
 </template>
 
-<script>
+<script lang="ts">
 import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed} from "vue";
+import {computed, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "THead",
     props: {
         variant: makeString(null),
@@ -29,5 +29,5 @@ export default {
             classes
         }
     }
-}
+})
 </script>

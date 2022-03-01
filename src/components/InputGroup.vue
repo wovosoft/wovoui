@@ -14,12 +14,12 @@
     </component>
 </template>
 
-<script>
-import {computed} from "vue";
+<script lang="ts">
+import {computed, defineComponent} from "vue";
 import {makeBoolean, makeString} from "../shared/properties.js";
 import InputGroupText from "./InputGroupText.vue";
 
-export default {
+export default defineComponent({
     components: {InputGroupText},
     props: {
         tag: makeString("div"),
@@ -39,7 +39,7 @@ export default {
             ])
         }
     }
-}
+})
 </script>
 <style>
 .input-group .form-range.form-control {

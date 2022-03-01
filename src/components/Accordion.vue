@@ -11,8 +11,8 @@ export default defineComponent({
     name: "Accordion" as string,
     emits: ['update:modelValue'] as Array<string>,
     props: {
-        tag: {type: String, default: "div"},
-        modelValue: {type: Number, default: null},
+        tag: {type: String as PropType<string>, default: "div"},
+        modelValue: {type: Number as PropType<number>, default: null},
         flush: {type: Boolean as PropType<true | false>, default: false},
         alwaysOpen: {type: Boolean as PropType<true | false>, default: false}
     },

@@ -4,11 +4,11 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {isBoolean, make, makeString} from "../shared/properties.js";
-import {computed, ref} from "vue";
+import {computed, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "Col",
     props: {
         tag: makeString("div"),
@@ -51,5 +51,5 @@ export default {
             }))
         }
     }
-}
+})
 </script>

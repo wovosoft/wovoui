@@ -32,15 +32,15 @@
     </InputGroup>
 </template>
 
-<script>
+<script lang="ts">
 import InputGroup from "./InputGroup.vue";
 import Button from "./Button.vue";
 import {makeNumber, makeString} from "../shared/properties.js";
-import {computed, ref, watch} from "vue";
+import {computed, ref, watch, defineComponent} from "vue";
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
 import {makeBoolean} from "../shared/properties";
 
-export default {
+export default defineComponent({
     name: "SpinButton",
     components: {Dash, Plus, Button, InputGroup},
     props: {
@@ -79,14 +79,15 @@ export default {
             ])
         }
     }
-}
+})
 </script>
 <style>
 .spin-button:focus {
     box-shadow: 0 0 6px #007bff;
     border-radius: 4px;
 }
-.spin-button.inline{
+
+.spin-button.inline {
 
 }
 </style>

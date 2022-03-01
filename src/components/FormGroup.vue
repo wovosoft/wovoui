@@ -20,12 +20,12 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {makeBoolean, makeNumber, makeString} from "../shared/properties.js";
 import FormLabel from "./FormLabel.vue";
-import {computed, ref} from "vue";
+import {computed, defineComponent, ref} from "vue";
 
-export default {
+export default defineComponent({
     name: "FormGroup",
     components: {FormLabel},
     props: {
@@ -66,6 +66,6 @@ export default {
             contentClasses
         }
     }
-}
+})
 </script>
 

@@ -21,7 +21,7 @@
     </template>
 </template>
 
-<script>
+<script lang="ts">
 import {computed, defineComponent, reactive} from "vue";
 import props from "../shared/tableProps.js";
 

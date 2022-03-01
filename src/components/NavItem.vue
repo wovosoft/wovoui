@@ -13,12 +13,12 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed} from "vue";
+import {computed,defineComponent} from "vue";
 import NavLink from "./NavLink.vue";
 
-export default {
+export default defineComponent({
     name: "NavItem",
     components: {NavLink},
     props: {
@@ -45,5 +45,5 @@ export default {
             attributes
         }
     }
-}
+})
 </script>

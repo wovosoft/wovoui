@@ -15,11 +15,11 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import {makeString} from "../shared/properties.js";
-import {computed, ref} from "vue";
+import {computed, ref,defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "Radio",
     props: {
         name: makeString(null),
@@ -44,5 +44,5 @@ export default {
             isChecked
         }
     }
-}
+})
 </script>

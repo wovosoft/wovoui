@@ -3,11 +3,11 @@
         <slot></slot>
     </div>
 </template>
-<script>
+<script lang="ts">
 import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed, ref, watch} from "vue";
+import {computed, ref, watch,defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     emits: ['update:active'],
     props: {
         active: makeBoolean(false),
@@ -47,5 +47,5 @@ export default {
             }
         }
     }
-}
+})
 </script>

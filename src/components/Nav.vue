@@ -4,11 +4,11 @@
     </component>
 </template>
 
-<script>
-import {computed} from "vue";
+<script lang="ts">
+import {computed, defineComponent} from "vue";
 import navProps from "../shared/navProps.js";
 
-export default {
+export default defineComponent({
     name: "Nav",
     props: navProps,
     setup(props) {
@@ -34,5 +34,5 @@ export default {
             classes
         }
     }
-}
+})
 </script>

@@ -4,11 +4,11 @@
     </component>
 </template>
 
-<script>
+<script lang="ts">
 import {make, makeString} from "../shared/properties.js";
-import {reactive} from "vue";
+import {reactive, defineComponent} from "vue";
 
-export default {
+export default defineComponent({
     name: "Row",
     props: {
         tag: makeString("div"),
@@ -48,5 +48,5 @@ export default {
             classes
         }
     }
-}
+})
 </script>

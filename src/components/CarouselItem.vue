@@ -4,13 +4,13 @@
     </component>
 </template>
 
-<script>
-import {computed, inject, ref, watch} from "vue";
+<script lang="ts">
+import {computed, defineComponent, inject, ref, watch} from "vue";
 import {makeBoolean, makeString} from "../shared/properties";
 
-export default {
+export default defineComponent({
     name: "CarouselItem",
-    emits: ['slidingStart', 'slidingEnd','update:active'],
+    emits: ['slidingStart', 'slidingEnd', 'update:active'],
     props: {
         tag: makeString("div"),
         active: makeBoolean(false),
@@ -56,5 +56,5 @@ export default {
             setTimeout(() => this.$el.classList.add("carousel-item-" + this.direction), 0);
         }
     }
-}
+})
 </script>

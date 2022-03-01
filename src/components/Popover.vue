@@ -14,12 +14,12 @@
     </teleport>
 </template>
 
-<script>
+<script lang="ts">
 import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed, ref, watch} from "vue";
+import {computed, ref, watch, defineComponent} from "vue";
 import {createPopper} from "@popperjs/core";
 
-export default {
+export default defineComponent({
     name: "Popover",
     props: {
         //specific id
@@ -144,5 +144,5 @@ export default {
             }
         }
     }
-}
+})
 </script>
