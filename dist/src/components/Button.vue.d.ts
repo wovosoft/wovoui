@@ -1,10 +1,10 @@
+import type { ColorVariants } from "../types/colorVariants";
 interface Attributes {
     disabled: Boolean;
     ariaPressed: Boolean;
     autocomplete: string | null;
 }
 import { PropType } from "vue";
-import { ColorVariants, TrueFalse } from "../types";
 import { badgePositions } from "../types/badgePositions";
 import { buttonSizes } from "../types/buttonSizes";
 declare const _default: import("vue").DefineComponent<{
@@ -29,27 +29,27 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     outline: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     block: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     pill: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     squared: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     disabled: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     pressed: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     badge: {
@@ -65,7 +65,7 @@ declare const _default: import("vue").DefineComponent<{
         default: () => string;
     };
     active: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     activeClass: {
@@ -76,10 +76,10 @@ declare const _default: import("vue").DefineComponent<{
     attributes: Attributes;
     theType: import("vue").ComputedRef<string>;
     classes: import("vue").ComputedRef<(string | {
-        [x: string]: TrueFalse;
-        'w-100': TrueFalse;
-        'rounded-pill': TrueFalse;
-        'rounded-0': TrueFalse;
+        [x: string]: boolean;
+        'w-100': boolean;
+        'rounded-pill': boolean;
+        'rounded-0': boolean;
     })[]>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
@@ -103,27 +103,27 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     outline: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     block: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     pill: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     squared: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     disabled: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     pressed: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     badge: {
@@ -139,7 +139,7 @@ declare const _default: import("vue").DefineComponent<{
         default: () => string;
     };
     active: {
-        type: PropType<TrueFalse>;
+        type: PropType<boolean>;
         default: boolean;
     };
     activeClass: {
@@ -150,17 +150,17 @@ declare const _default: import("vue").DefineComponent<{
     size: buttonSizes;
     tag: string;
     type: string;
-    disabled: TrueFalse;
+    disabled: boolean;
     variant: ColorVariants;
     href: string;
-    pill: TrueFalse;
+    pill: boolean;
     badge: string | number;
-    active: TrueFalse;
+    active: boolean;
     activeClass: string;
-    outline: TrueFalse;
-    block: TrueFalse;
-    squared: TrueFalse;
-    pressed: TrueFalse;
+    outline: boolean;
+    block: boolean;
+    squared: boolean;
+    pressed: boolean;
     badePosition: badgePositions;
     badgeVariant: ColorVariants;
 }>;

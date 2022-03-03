@@ -11,6 +11,8 @@
     </component>
 </template>
 <script lang="ts">
+import type {ColorVariants} from "../types/colorVariants";
+
 interface Attributes {
     disabled: Boolean,
     ariaPressed: Boolean,
@@ -19,7 +21,6 @@ interface Attributes {
 
 import Badge from "./Badge.vue";
 import {computed, defineComponent, PropType} from "vue";
-import {ColorVariants, TrueFalse} from "../types"
 
 import {badgePositions} from "../types/badgePositions";
 import {buttonSizes} from "../types/buttonSizes";
@@ -32,16 +33,16 @@ export default defineComponent({
         variant: {type: String as PropType<ColorVariants>, default: () => 'secondary'},
         size: {type: String as PropType<buttonSizes>, default: () => null},
         type: {type: String as PropType<string>, default: "button"},
-        outline: {type: Boolean as PropType<TrueFalse>, default: false},
-        block: {type: Boolean as PropType<TrueFalse>, default: false},
-        pill: {type: Boolean as PropType<TrueFalse>, default: false},
-        squared: {type: Boolean as PropType<TrueFalse>, default: false},
-        disabled: {type: Boolean as PropType<TrueFalse>, default: false},
-        pressed: {type: Boolean as PropType<TrueFalse>, default: false},
+        outline: {type: Boolean as PropType<boolean>, default: false},
+        block: {type: Boolean as PropType<boolean>, default: false},
+        pill: {type: Boolean as PropType<boolean>, default: false},
+        squared: {type: Boolean as PropType<boolean>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
+        pressed: {type: Boolean as PropType<boolean>, default: false},
         badge: {type: [String, Number] as PropType<string | number>, default: null},
         badePosition: {type: String as PropType<badgePositions>, default: () => null},
         badgeVariant: {type: String as PropType<ColorVariants>, default: () => 'secondary'},
-        active: {type: Boolean as PropType<TrueFalse>, default: false},
+        active: {type: Boolean as PropType<boolean>, default: false},
         activeClass: {type: String as PropType<string>, default: "active"}
     },
     setup(props, context) {
@@ -66,7 +67,7 @@ export default defineComponent({
                 }
                 return null;
             }),
-            classes: computed(() => [
+            classes: computed(() => ([
                 "btn",
                 {
                     ["btn-" + (props.outline ? 'outline-' : '') + props.variant]: !!props.variant,
@@ -76,7 +77,7 @@ export default defineComponent({
                     'rounded-0': props.squared,
                     [props.activeClass]: props.pressed || props.active
                 }
-            ])
+            ]))
         }
     }
 })
