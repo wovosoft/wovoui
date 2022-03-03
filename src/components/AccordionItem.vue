@@ -15,19 +15,19 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, inject, ref, watch} from "vue";
-import {makeBoolean, makeString} from "../shared/properties.js";
+import {defineComponent, inject, PropType, ref, watch} from "vue";
 import AccordionHeader from "./AccordionHeader.vue";
 import AccordionBody from "./AccordionBody.vue";
 import Collapse from "./Collapse.vue";
+import {Binary} from "../types/Binary";
 
 export default defineComponent({
     name: "AccordionItem",
     emits: ['update:modelValue'],
     components: {AccordionHeader, AccordionBody, Collapse},
     props: {
-        header: makeString(null),
-        modelValue: makeBoolean(false)
+        header: {type: String as PropType<string>, default: null},
+        modelValue: {type: Boolean as PropType<Binary>, default: false}
     },
     setup(props, {}) {
         const visible = ref(props.modelValue);

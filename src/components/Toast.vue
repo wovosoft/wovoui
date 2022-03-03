@@ -28,10 +28,10 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, h, PropType, ref, watch} from "vue";
+import {computed, defineComponent, PropType, ref, watch} from "vue";
 import ButtonClose from "./ButtonClose.vue";
 import ToastBody from "./ToastBody.vue";
-import {ColorVariants} from "../types/colorVariants";
+import type {ColorVariants} from "../types/colorVariants";
 
 
 export default defineComponent({
@@ -39,15 +39,15 @@ export default defineComponent({
     components: {ToastBody, ButtonClose},
     emits: ['update:show', 'update:modelValue'],
     props: {
-        show: {type: Boolean as PropType<true | false>, default: false},
-        fade: {type: Boolean as PropType<true | false>, default: true},
-        modelValue: {type: Boolean as PropType<true | false>, default: null},
-        header: {type: String, default: null},
-        noBody: {type: Boolean as PropType<true | false>, default: false},
-        noCloseButton: {type: Boolean as PropType<true | false>, default: false},
+        show: {type: Boolean as PropType<boolean>, default: false},
+        fade: {type: Boolean as PropType<boolean>, default: true},
+        modelValue: {type: Boolean as PropType<boolean>, default: null},
+        header: {type: String as PropType<string>, default: null},
+        noBody: {type: Boolean as PropType<boolean>, default: false},
+        noCloseButton: {type: Boolean as PropType<boolean>, default: false},
         bodyClass: {type: [Array, String, Object] as PropType<string | object>, default: null},
         variant: {type: String as PropType<ColorVariants>, default: null},
-        container: {type: String, default: null}
+        container: {type: String as PropType<string>, default: null}
     },
     setup(props, {emit, expose}) {
         const visible = ref(false);

@@ -5,13 +5,12 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent} from "vue";
-import {makeString} from "../shared/properties.js";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "CardText",
     props: {
-        tag: makeString("p")
+        tag: {type: String as PropType<string>, default: "p"}
     },
     setup(props, context) {
         return {

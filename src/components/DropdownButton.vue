@@ -10,14 +10,13 @@
 </template>
 
 <script lang="ts">
-import {makeBoolean} from "../shared/properties.js";
-import {defineComponent} from "vue";
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "DropdownButton",
     props: {
-        active: makeBoolean(false),
-        disabled: makeBoolean(false)
+        active: {type: Boolean as PropType<boolean>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
     }
 })
 </script>

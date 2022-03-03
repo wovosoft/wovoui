@@ -39,62 +39,62 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeString} from "../shared/properties.js";
 import CardHeader from "./CardHeader.vue";
-import {computed, defineComponent} from "vue";
+import {computed, defineComponent, PropType} from "vue";
 import CardBody from "./CardBody.vue";
 import CardFooter from "./CardFooter.vue";
 import CardImg from "./CardImg.vue";
+import {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "Card",
     components: {CardImg, CardFooter, CardBody, CardHeader},
     props: {
-        align: makeString(null),
-        bgVariant: makeString(null),
+        align: {type: String as PropType<string>, default: null},
+        bgVariant: {type: String as PropType<ColorVariants>, default: null},
 
-        bodyBgVariant: makeString(null),
-        bodyBorderVariant: makeString(null),
-        bodyClass: make([String, Array], null),
-        bodyTag: makeString("div"),
-        bodyTextVariant: makeString(null),
+        bodyBgVariant: {type: String as PropType<ColorVariants>, default: null},
+        bodyBorderVariant: {type: String as PropType<ColorVariants>, default: null},
+        bodyClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
+        bodyTag: {type: String as PropType<string>, default: "div"},
+        bodyTextVariant: {type: String as PropType<ColorVariants>, default: null},
 
-        footer: makeString(null),
-        footerBgVariant: makeString(null),
-        footerTag: makeString("div"),
-        footerTextVariant: makeString(null),
-        footerClass: make([String, Array], null),
-        footerBorderVariant: makeString(null),
+        footer: {type: String as PropType<string>, default: null},
+        footerBgVariant: {type: String as PropType<ColorVariants>, default: null},
+        footerTag: {type: String as PropType<string>, default: "div"},
+        footerTextVariant: {type: String as PropType<ColorVariants>, default: null},
+        footerClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
+        footerBorderVariant: {type: String as PropType<string>, default: null},
 
-        header: makeString(null),
-        headerBgVariant: makeString(null),
-        headerBorderVariant: makeString(null),
-        headerClass: makeString(null),
-        headerTag: makeString("div"),
-        headerTextVariant: makeString(null),
+        header: {type: String as PropType<string>, default: null},
+        headerBgVariant: {type: String as PropType<ColorVariants>, default: null},
+        headerBorderVariant: {type: String as PropType<ColorVariants>, default: null},
+        headerClass: {type: [Array, String, Object] as PropType<Array<any> | string | object>, default: null},
+        headerTag: {type: String as PropType<string>, default: "div"},
+        headerTextVariant: {type: String as PropType<ColorVariants>, default: null},
 
-        imgAlt: makeString(null),
-        imgBottom: makeBoolean(false),
-        imgEnd: makeBoolean(false),
-        imgLeft: makeBoolean(false),
-        imgRight: makeBoolean(false),
-        imgStart: makeBoolean(false),
-        imgTop: makeBoolean(false),
-        imgSrc: makeString(null),
-        imgWidth: makeString(null),
-        imgHeight: makeString(null),
-        noBody: makeBoolean(false),
+        imgAlt: {type: String as PropType<string>, default: null},
+        imgBottom: {type: Boolean as PropType<boolean>, default: false},
+        imgEnd: {type: Boolean as PropType<boolean>, default: false},
+        imgLeft: {type: Boolean as PropType<boolean>, default: false},
+        imgRight: {type: Boolean as PropType<boolean>, default: false},
+        imgStart: {type: Boolean as PropType<boolean>, default: false},
+        imgTop: {type: Boolean as PropType<boolean>, default: false},
+        imgSrc: {type: String as PropType<string>, default: null},
+        imgWidth: {type: String as PropType<string>, default: null},
+        imgHeight: {type: String as PropType<string>, default: null},
+        noBody: {type: Boolean as PropType<boolean>, default: false},
 
-        overlay: makeBoolean(false),
-        subTitle: makeString(null),
-        subTitleTag: makeString("h6"),
-        subTitleTextVariant: makeString("muted"),
-        tag: makeString("div"),
+        overlay: {type: Boolean as PropType<boolean>, default: false},
+        subTitle: {type: String as PropType<string>, default: null},
+        subTitleTag: {type: String as PropType<string>, default: "h6"},
+        subTitleTextVariant: {type: String as PropType<string>, default: "muted"},
+        tag: {type: String as PropType<string>, default: "div"},
 
-        textVariant: makeString(),
-        borderVariant: makeString(),
-        title: makeString(),
-        titleTag: makeString("h4"),
+        textVariant: {type: String as PropType<ColorVariants>, default: null},
+        borderVariant: {type: String as PropType<ColorVariants>, default: null},
+        title: {type: String as PropType<string>, default: null},
+        titleTag: {type: String as PropType<string>, default: "h4"},
     },
     setup(props) {
         const classes = computed(() => [

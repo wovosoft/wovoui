@@ -1,0 +1,1 @@
+export type modalFullScreen = true | false | 'sm-down' | 'md-down' | 'lg-down' | 'xl-down' | 'xxl-down'

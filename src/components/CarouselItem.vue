@@ -5,16 +5,15 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, inject, ref, watch} from "vue";
-import {makeBoolean, makeString} from "../shared/properties";
+import {computed, defineComponent, inject, PropType, ref, watch} from "vue";
 
 export default defineComponent({
     name: "CarouselItem",
     emits: ['slidingStart', 'slidingEnd', 'update:active'],
     props: {
-        tag: makeString("div"),
-        active: makeBoolean(false),
-        activeClass: makeString("active"),
+        tag: {type: String as PropType<string>, default: "div"},
+        active: {type: Boolean as PropType<boolean>, default: false},
+        activeClass: {type: String as PropType<string>, default: "active"},
     },
     setup(props, context) {
         const visible = ref(props.active);

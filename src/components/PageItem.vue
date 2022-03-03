@@ -13,24 +13,24 @@ import PageLink from "./PageLink.vue";
 export default defineComponent({
     name: "PageItem",
     props: {
-        tag: {type: String, default: "li"},
-        linkTag: {type: String, default: "a"},
-        href: {type: String, default: "#"},
-        prev: {type: Boolean as PropType<true | false>, default: false},
-        next: {type: Boolean as PropType<true | false>, default: false},
-        ariaLabel: {type: String, default: null},
-        active: {type: Boolean as PropType<true | false>, default: false},
-        disabled: {type: Boolean as PropType<true | false>, default: false},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
+        linkTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
+        href: {type: String as PropType<string>, default: "#"},
+        prev: {type: Boolean as PropType<boolean>, default: false},
+        next: {type: Boolean as PropType<boolean>, default: false},
+        ariaLabel: {type: String as PropType<string>, default: null},
+        active: {type: Boolean as PropType<boolean>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
     },
     components: {PageLink},
     setup(props, context) {
         return {
-            classes: computed(() => [
+            classes: computed(() => ([
                 "page-item", {
                     "active": props.active,
                     "disabled": props.disabled,
                 }
-            ])
+            ]))
         }
     }
 })

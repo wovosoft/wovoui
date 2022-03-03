@@ -15,18 +15,17 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent} from "vue";
-import {makeBoolean, makeString} from "../shared/properties.js";
+import {computed, defineComponent, PropType} from "vue";
 import InputGroupText from "./InputGroupText.vue";
 
 export default defineComponent({
     components: {InputGroupText},
     props: {
-        tag: makeString("div"),
-        size: makeString(),
-        prepend: makeString(null),
-        append: makeString(null),
-        noWrap: makeBoolean(false)
+        tag: {type: String as PropType<string>, default: "div"},
+        size: {type: String as PropType<string>, default: null},
+        prepend: {type: String as PropType<string>, default: null},
+        append: {type: String as PropType<string>, default: null},
+        noWrap: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props) {
         return {

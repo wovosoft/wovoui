@@ -1,0 +1,1 @@
+export type buttonSizes = 'sm' | 'lg'

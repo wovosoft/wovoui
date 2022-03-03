@@ -9,17 +9,16 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed, defineComponent, ref} from "vue";
+import {computed, defineComponent, PropType, ref} from "vue";
 
 export default defineComponent({
     emits: ["update:modelValue"],
     props: {
-        type: makeString("text"),
-        size: makeString(),
-        plain: makeBoolean(false),
-        state: makeBoolean(null),
-        modelValue: make([Number, String], null)
+        type: {type: String as PropType<string>, default: "text"},
+        size: {type: String as PropType<string>, default: null},
+        plain: {type: Boolean as PropType<boolean>, default: false},
+        state: {type: Boolean as PropType<boolean>, default: null},
+        modelValue: {type: [Number, String] as PropType<number | string>, default: null}
     },
     setup(props, context) {
         const attributes = ref({});

@@ -12,18 +12,17 @@
 
 <script lang="ts">
 
-import {computed, ref, watch,defineComponent} from "vue";
-import {makeNumber, makeString} from "../shared/properties.js";
+import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {StarFill, Star} from "@wovosoft/wovoui-icons";
 
 export default defineComponent({
     name: "Rating",
     components: {StarFill, Star},
     props: {
-        min: makeNumber(1),
-        max: makeNumber(5),
-        modelValue: makeNumber(1),
-        variant: makeString(null)
+        min: {type: Number as PropType<number>, default: 1},
+        max: {type: Number as PropType<number>, default: 5},
+        modelValue: {type: Number as PropType<number>, default: 1},
+        variant: {type: String as PropType<string>, default: null}
     },
     setup(props, context) {
         const value = ref(props.modelValue);

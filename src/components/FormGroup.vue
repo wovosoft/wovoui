@@ -21,49 +21,46 @@
 </template>
 
 <script lang="ts">
-import {makeBoolean, makeNumber, makeString} from "../shared/properties.js";
 import FormLabel from "./FormLabel.vue";
-import {computed, defineComponent, ref} from "vue";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "FormGroup",
     components: {FormLabel},
     props: {
-        tag: makeString("div"),
-        floating: makeBoolean(false),
-        label: makeString(),
-        labelFor: makeString(),
-        horizontal: makeBoolean(false),
-        labelSm: makeNumber(null),
-        labelMd: makeNumber(null),
-        labelLg: makeNumber(null),
-        labelXl: makeNumber(null),
-        contentSm: makeNumber(null),
-        contentMd: makeNumber(null),
-        contentLg: makeNumber(null),
-        contentXl: makeNumber(null),
-        noMarginBottom: makeBoolean(false)
+        tag: {type: String as PropType<string>, default: "div"},
+        floating: {type: Boolean as PropType<boolean>, default: false},
+        label: {type: String as PropType<string>, default: null},
+        labelFor: {type: String as PropType<string>, default: null},
+        horizontal: {type: Boolean as PropType<boolean>, default: false},
+        labelSm: {type: Number as PropType<number>, default: null},
+        labelMd: {type: Number as PropType<number>, default: null},
+        labelLg: {type: Number as PropType<number>, default: null},
+        labelXl: {type: Number as PropType<number>, default: null},
+        contentSm: {type: Number as PropType<number>, default: null},
+        contentMd: {type: Number as PropType<number>, default: null},
+        contentLg: {type: Number as PropType<number>, default: null},
+        contentXl: {type: Number as PropType<number>, default: null},
+        noMarginBottom: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props) {
-        const contentClasses = ref({});
-        if (props.horizontal) {
-            contentClasses.value = {
-                ["col-sm-" + props.contentSm]: !!props.contentSm,
-                ["col-md-" + props.contentMd]: !!props.contentMd,
-                ["col-lg-" + props.contentLg]: !!props.contentLg,
-                ["col-xl-" + props.contentXl]: !!props.contentXl,
-            };
-        }
         return {
-            classes: computed(() => [
+            classes: computed(() => ([
                 "form-group", //does nothing, added so that can be queried by css/js
                 {
                     "mb-3": !props.noMarginBottom,
                     "row": props.horizontal,
                     "form-floating": props.floating
                 }
-            ]),
-            contentClasses
+            ])),
+            contentClasses: computed(() => {
+                return props.horizontal ? ({
+                    ["col-sm-" + props.contentSm]: !!props.contentSm,
+                    ["col-md-" + props.contentMd]: !!props.contentMd,
+                    ["col-lg-" + props.contentLg]: !!props.contentLg,
+                    ["col-xl-" + props.contentXl]: !!props.contentXl,
+                }) : null;
+            })
         }
     }
 })

@@ -4,26 +4,25 @@
     </component>
 </template>
 
-<script>
-import {defineComponent} from "vue";
-import {makeBoolean, makeString} from "../shared/properties.js";
+<script lang="ts">
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "DropdownMenu",
     props: {
-        tag: makeString("ul"),
-        dark: makeBoolean(false),
-        show: makeBoolean(false)
+        tag: {type: String as PropType<string>, default: "ul"},
+        dark: {type: Boolean as PropType<boolean>, default: false},
+        show: {type: Boolean as PropType<boolean>, default: false}
     },
-    computed: {
-        classes() {
-            return [
+    setup(props) {
+        return {
+            classes: computed(() => ([
                 "dropdown-menu",
                 {
-                    'dropdown-menu-dark': this.dark,
-                    'show': this.show,
+                    'dropdown-menu-dark': props.dark,
+                    'show': props.show,
                 }
-            ]
+            ]))
         }
     }
 })

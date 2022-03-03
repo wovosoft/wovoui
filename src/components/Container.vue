@@ -5,22 +5,20 @@
 </template>
 
 <script lang="ts">
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {reactive, defineComponent} from "vue";
+import {defineComponent, PropType, computed} from "vue";
 
 export default defineComponent({
     name: "Container",
     props: {
-        tag: makeString("div"),
-        fluid: makeBoolean(false)
+        tag: {type: String as PropType<string>, default: "div"},
+        fluid: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props) {
-        const classes = reactive({
-            "container": !props.fluid,
-            "container-fluid": props.fluid,
-        });
         return {
-            classes
+            classes: computed(() => ({
+                "container": !props.fluid,
+                "container-fluid": props.fluid,
+            }))
         }
     }
 })

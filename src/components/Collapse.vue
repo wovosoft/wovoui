@@ -7,20 +7,19 @@
 </template>
 
 <script lang="ts">
-import {make, makeString} from "../shared/properties.js";
 import {computed, ref, defineComponent, PropType, watch} from "vue";
 import {toggleCollapse, collapseTransitionEnd} from "../shared/utilities.js";
 
 export default defineComponent({
     name: "Collapse",
     props: {
-        tag: makeString("div"),
-        modelValue: {type: Boolean as PropType<true | false>, default: false},
-        visible: {type: Boolean as PropType<true | false>, default: false},
-        class: make([Array, String], null),
-        id: makeString(),
-        isNav: {type: Boolean as PropType<true | false>, default: false},
-        horizontal: {type: Boolean as PropType<true | false>, default: false}
+        tag: {type: String as PropType<string>, default: "div"},
+        modelValue: {type: Boolean as PropType<boolean>, default: false},
+        visible: {type: Boolean as PropType<boolean>, default: false},
+        class: {type: [Array, String, Object] as PropType<any>, default: null},
+        id: {type: String as PropType<string>, default: null},
+        isNav: {type: Boolean as PropType<boolean>, default: false},
+        horizontal: {type: Boolean as PropType<boolean>, default: false}
         // lazy: makeBoolean(false)
     },
     watch: {
@@ -39,7 +38,7 @@ export default defineComponent({
         if (props.visible) {
             context.emit('update:modelValue', true);
         }
-        watch(()=>props.visible,value => shown.value=value);
+        watch(() => props.visible, value => shown.value = value);
         // const shouldRenderHandler = (value) => {
         //     shouldRender.value = value;
         // }

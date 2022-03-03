@@ -18,18 +18,19 @@
 </template>
 <script lang="ts">
 import {computed, defineComponent, PropType, ref} from "vue";
+
 import Container from "./Container.vue";
 import NavbarBrand from "./NavbarBrand.vue";
 import NavbarToggler from "./NavbarToggler.vue";
-import {ColorVariants} from "../types";
+import type {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     components: {NavbarToggler, NavbarBrand, Container},
     props: {
         brand: {type: String as PropType<string>, default: null},
-        brandUrl: {type: String as PropType<string>, default: '#'},
-        fluid: {type: Boolean as PropType<true | false>, default: false},
-        toggleEnabled: {type: Boolean as PropType<true | false>, default: true},
+        brandUrl: {type: String as PropType<string | object>, default: '#'},
+        fluid: {type: Boolean as PropType<boolean>, default: false},
+        toggleEnabled: {type: Boolean as PropType<boolean>, default: true},
         variant: {type: String as PropType<'dark' | 'light'>, default: 'light'},
         bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
         fixed: {type: String as PropType<'top' | 'bottom'>, default: null},

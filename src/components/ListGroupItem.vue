@@ -8,19 +8,19 @@
 </template>
 
 <script lang="ts">
-import {makeString} from "../shared/properties.js";
 import {computed, defineComponent, PropType, ref} from "vue";
+import {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "ListGroupItem",
     props: {
-        tag: makeString("li"),
-        active: {type: Boolean as PropType<true | false>, default: false},
-        disabled: {type: Boolean as PropType<true | false>, default: false},
-        href: makeString(null),
+        tag: {type: String as PropType<string>, default: "li"},
+        active: {type: Boolean as PropType<boolean>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
+        href: {type: String as PropType<string>, default: null},
         to: {default: () => null},
-        button: {type: Boolean as PropType<true | false>, default: false},
-        variant: makeString(null)
+        button: {type: Boolean as PropType<boolean>, default: false},
+        variant: {type: String as PropType<ColorVariants>, default: null}
     },
     setup(props, context) {
         const attributes = ref({});

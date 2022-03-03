@@ -11,7 +11,7 @@ import {aspectRatios} from "../types/aspectRatios";
 export default defineComponent({
     name: "Aspect",
     props: {
-        tag: {type: String, default: "div"},
+        tag: {type: String as PropType<string>, default: "div"},
         ratio: {type: [String, Number] as PropType<aspectRatios>, default: "16x9"}
     },
     setup(props) {

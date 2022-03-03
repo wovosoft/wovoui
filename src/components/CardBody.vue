@@ -18,26 +18,26 @@
 </template>
 
 <script lang="ts">
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {defineComponent, ref} from "vue";
+import {defineComponent, PropType, ref} from "vue";
 import CardTitle from "./CardTitle.vue";
 import CardSubTitle from "./CardSubTitle.vue";
+import {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "CardBody",
     components: {CardSubTitle, CardTitle},
     props: {
-        content: makeString(),
-        variant: makeString(),
-        borderVariant: makeString(),
-        tag: makeString("div"),
-        textVariant: makeString(),
-        overlay: makeBoolean(false),
-        subTitle: makeString(),
-        subTitleTag: makeString("h6"),
-        subTitleTextVariant: makeString("muted"),
-        title: makeString(),
-        titleTag: makeString("h4")
+        content: {type: String as PropType<string>, default: null},
+        variant: {type: String as PropType<ColorVariants>, default: null},
+        borderVariant: {type: String as PropType<ColorVariants>, default: null},
+        tag: {type: String as PropType<string>, default: "div"},
+        textVariant: {type: String as PropType<ColorVariants>, default: null},
+        overlay: {type: Boolean as PropType<boolean>, default: false},
+        subTitle: {type: String as PropType<string>, default: null},
+        subTitleTag: {type: String as PropType<string>, default: "h6"},
+        subTitleTextVariant: {type: String as PropType<string>, default: "muted"},
+        title: {type: String as PropType<string>, default: null},
+        titleTag: {type: String as PropType<string>, default: "h4"}
     },
     setup(props, context) {
         let classes = ref([]);

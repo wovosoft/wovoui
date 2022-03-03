@@ -12,17 +12,16 @@
     </li>
 </template>
 
-<script>
-import {defineComponent} from "vue";
-import {makeBoolean, makeString} from "../shared/properties.js";
+<script lang="ts">
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "DropdownItem",
     props: {
-        href: makeString("#"),
-        active: makeBoolean(false),
-        disabled: makeBoolean(false),
-        isText: makeBoolean(false)
+        href: {type: String as PropType<string>, default: "#"},
+        active: {type: Boolean as PropType<boolean>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
+        isText: {type: Boolean as PropType<boolean>, default: false}
     }
 })
 </script>

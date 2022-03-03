@@ -3,14 +3,13 @@
         <slot></slot>
     </component>
 </template>
-<script>
-import {defineComponent} from "vue";
-import {makeString} from "../shared/properties.js";
+<script lang="ts">
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "Grid",
     props: {
-        tag: makeString("div"),
+        tag: {type: String as PropType<string>, default: "div"},
     }
 })
 </script>

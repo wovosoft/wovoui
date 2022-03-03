@@ -30,7 +30,6 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeNumber, makeString} from "../shared/properties.js";
 import {computed, defineComponent, PropType, ref, watch} from "vue";
 import ButtonClose from "./ButtonClose.vue";
 import OffCanvasHeader from "./OffCanvasHeader.vue";
@@ -42,18 +41,18 @@ export default defineComponent({
     components: {OffCanvasBody, OffCanvasHeader, ButtonClose},
     emits: ["update:modelValue", "beforeShow", "beforeHide", "shown", "hidden"],
     props: {
-        tabIndex: makeNumber(-1),
-        id: makeString(),
-        ariaLabelledby: makeString(),
-        modelValue: makeBoolean(false),
+        tabIndex: {type: Number as PropType<number>, default: -1},
+        id: {type: String as PropType<string>, default: null},
+        ariaLabelledby: {type: String as PropType<string>, default: null},
+        modelValue: {type: Boolean as PropType<boolean>, default: false},
         placement: {type: String as PropType<'start' | 'left' | 'end' | 'right' | 'top' | 'bottom'>, default: 'start'},
-        header: makeString(),
-        headerClass: make([Array, Object, String], null),
-        headerStyle: make([Object, String], null),
-        title: makeString(),
-        tag: makeString("div"),
-        backdrop: makeBoolean(true),
-        enableBodyScroll: {type: Boolean as PropType<true | false>, default: true},
+        header: {type: String as PropType<string>, default: null},
+        headerClass: {type: [Array, Object, String] as PropType<any>, default: null},
+        headerStyle: {type: [Object, String] as PropType<object | string>, default: null},
+        title: {type: String as PropType<string>, default: null},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+        backdrop: {type: Boolean as PropType<boolean>, default: true},
+        enableBodyScroll: {type: Boolean as PropType<boolean>, default: true},
         bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
         textVariant: {type: String as PropType<ColorVariants>, default: 'dark'},
     },
@@ -69,7 +68,7 @@ export default defineComponent({
                 document.body.style.paddingRight = "";
             }
         });
-
+        watch(() => props.modelValue, value => shown.value = value);
         return {
             shown,
             showBackdrop,
@@ -96,9 +95,6 @@ export default defineComponent({
         }
     },
     watch: {
-        modelValue(value) {
-            this.shown = value;
-        },
         shown(value) {
             this.$emit('update:modelValue', value);
             if (value) {

@@ -16,20 +16,15 @@
 </template>
 
 <script lang="ts">
-import {makeString} from "../shared/properties.js";
-import {computed, ref,defineComponent} from "vue";
+import {computed, ref, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "Radio",
     props: {
-        name: makeString(null),
-        id: makeString(null),
-        modelValue: {
-            default: null
-        },
-        value: {
-            default: null
-        }
+        name: {type: String as PropType<string>, default: null},
+        id: {type: String as PropType<string>, default: null},
+        modelValue: {default: null},
+        value: {default: null}
     },
     setup(props, context) {
         const identifier = ref(null);

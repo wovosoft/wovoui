@@ -10,13 +10,13 @@ import {computed, defineComponent, PropType} from "vue";
 export default defineComponent({
     name: "PageLink",
     props: {
-        tag: {type: String, default: "a"},
-        href: {type: String, default: "#"},
-        prev: {type: Boolean as PropType<true | false>, default: false},
-        next: {type: Boolean as PropType<true | false>, default: false},
-        prevText: {type: String, default: '&laquo;'},
-        nextText: {type: String, default: '&laquo;'},
-        ariaLabel: {type: String, default: null}
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
+        href: {type: String as PropType<string>, default: "#"},
+        prev: {type: Boolean as PropType<boolean>, default: false},
+        next: {type: Boolean as PropType<boolean>, default: false},
+        prevText: {type: String as PropType<string>, default: '&laquo;'},
+        nextText: {type: String as PropType<string>, default: '&laquo;'},
+        ariaLabel: {type: String as PropType<string>, default: null}
     },
     setup(props, context) {
         return {

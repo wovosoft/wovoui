@@ -65,7 +65,6 @@
 </template>
 
 <script lang="ts">
-import {make, makeString} from "../shared/properties.js";
 import {computed, ref, watch, nextTick, defineComponent, PropType} from "vue";
 import ButtonClose from "./ButtonClose.vue";
 import ModalBody from "./ModalBody.vue";
@@ -73,46 +72,47 @@ import ModalHeader from "./ModalHeader.vue";
 import ModalTitle from "./ModalTitle.vue";
 import ModalFooter from "./ModalFooter.vue";
 import Button from "./Button.vue";
-import {modalFullScreen} from "../types/modalFullScreen";
+import type {modalFullScreen} from "../types/modalFullScreen";
+import type {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
     name: "Modal",
     components: {Button, ModalFooter, ModalTitle, ModalHeader, ModalBody, ButtonClose},
     emits: ["update:modelValue", "close", "ok", "showing", "hiding", "shown", "hidden", "stateChanged"],
     props: {
-        animation: makeString("fade"),
-        modelValue: {type: Boolean as PropType<true | false>, default: false},
-        noClose: {type: Boolean as PropType<true | false>, default: false},
-        noBody: {type: Boolean as PropType<true | false>, default: false},
+        animation: {type: String as PropType<string>, default: "fade"},
+        modelValue: {type: Boolean as PropType<boolean>, default: false},
+        noClose: {type: Boolean as PropType<boolean>, default: false},
+        noBody: {type: Boolean as PropType<boolean>, default: false},
 
-        title: makeString(),
-        titleTag: makeString("h5"),
-        titleClass: make([Array, String, Object], null),
-        titleAttrs: make(Object, null),
+        title: {type: String as PropType<string>, default: null},
+        titleTag: {type: String as PropType<string>, default: "h5"},
+        titleClass: {type: [Array, String, Object] as PropType<string | object | any[]>, default: null},
+        titleAttrs: {type: Object as PropType<object>, default: null},
 
-        noHeader: {type: Boolean as PropType<true | false>, default: false},
-        header: makeString(),
-        headerTag: makeString("div"),
-        headerClass: make([Array, String, Object], null),
-        headerAttrs: make(Object, null),
+        noHeader: {type: Boolean as PropType<boolean>, default: false},
+        header: {type: String as PropType<string>, default: null},
+        headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+        headerClass: {type: [Array, String, Object] as PropType<any>, default: null},
+        headerAttrs: {type: Object as PropType<object>, default: null},
 
-        noFooter: {type: Boolean as PropType<true | false>, default: false},
+        noFooter: {type: Boolean as PropType<boolean>, default: false},
 
         //buttons
-        okTitle: makeString('Ok'),
-        closeTitle: makeString("Close"),
-        okButtonOptions: make(Object, null),
-        closeButtonOptions: make(Object, null),
-        noOkButton: {type: Boolean as PropType<true | false>, default: false},
-        noCloseButton: {type: Boolean as PropType<true | false>, default: false},
+        okTitle: {type: String as PropType<string>, default: "Ok"},
+        closeTitle: {type: String as PropType<string>, default: "Close"},
+        okButtonOptions: {type: Object as PropType<object>, default: null},
+        closeButtonOptions: {type: Object as PropType<object>, default: null},
+        noOkButton: {type: Boolean as PropType<boolean>, default: false},
+        noCloseButton: {type: Boolean as PropType<boolean>, default: false},
 
-        static: {type: Boolean as PropType<true | false>, default: false},
-        noBackdrop: {type: Boolean as PropType<true | false>, default: false},
-        buttonSize: makeString(),
+        static: {type: Boolean as PropType<boolean>, default: false},
+        noBackdrop: {type: Boolean as PropType<boolean>, default: false},
+        buttonSize: {type: String as PropType<buttonSizes>, default: null},
 
-        scrollable: {type: Boolean as PropType<true | false>, default: false},
-        centered: {type: Boolean as PropType<true | false>, default: false},
-        size: makeString(),
+        scrollable: {type: Boolean as PropType<boolean>, default: false},
+        centered: {type: Boolean as PropType<boolean>, default: false},
+        size: {type: String as PropType<buttonSizes>, default: null},
         fullscreen: {type: [Boolean, String] as PropType<modalFullScreen>, default: false}
     },
     setup(props, context) {

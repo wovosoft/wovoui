@@ -5,15 +5,14 @@
 </template>
 
 <script lang="ts">
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed, defineComponent} from "vue";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "CardGroup",
     props: {
-        tag: makeString("div"),
-        deck: makeBoolean(false),
-        columns: makeBoolean(false),
+        tag: {type: String as PropType<string>, default: "div"},
+        deck: {type: Boolean as PropType<boolean>, default: false},
+        columns: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props) {
         return {

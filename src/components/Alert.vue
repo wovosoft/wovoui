@@ -11,24 +11,24 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType, ref, watch} from "vue";
-import {makeNumber, makeString} from "../shared/properties.js";
 import ButtonClose from "./ButtonClose.vue";
-import ColorVariants from "../types/colorVariants";
-import Binary from "../props/Binary";
+import {ColorVariants} from "../types/colorVariants";
+import {Binary} from "../types/Binary";
+
 
 export default defineComponent({
     emits: ["update:modelValue", "update:show", "dismissed", "countdown"],
     components: {ButtonClose},
     props: {
-        tag: {type: String, default: () => "div"},
-        dismissLabel: makeString("Alert"),
-        variant: {type: String as PropType<ColorVariants>, default: () => "primary"},
-        dismissible: {type: Boolean as PropType<Binary>, default: () => false},
-        fade: {type: Boolean as PropType<Binary>, default: () => false},
-        modelValue: {type: Boolean as PropType<Binary>, default: () => null},
-        show: {type: Boolean as PropType<Binary>, default: () => false},
-        countdown: makeNumber(null),
-        countdownStep: {type: Number, default: () => 1} //in seconds
+        tag: {type: String as PropType<string>, default: "div"},
+        dismissLabel: {type: String as PropType<string>, default: "Alert"},
+        variant: {type: String as PropType<ColorVariants>, default: "primary"},
+        dismissible: {type: Boolean as PropType<Binary>, default: false},
+        fade: {type: Boolean as PropType<Binary>, default: false},
+        modelValue: {type: Boolean as PropType<Binary>, default: null},
+        show: {type: Boolean as PropType<Binary>, default: false},
+        countdown: {type: Number as PropType<null>, default: null},
+        countdownStep: {type: Number as PropType<number>, default: 1} //in seconds
     },
     setup(props, context) {
         //internal state

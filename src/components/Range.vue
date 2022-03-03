@@ -11,16 +11,15 @@
 </template>
 
 <script lang="ts">
-import {computed,defineComponent} from "vue";
-import {makeNumber} from "../shared/properties.js";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "Range",
     props: {
-        min: makeNumber(null),
-        max: makeNumber(null),
-        step: makeNumber(1),
-        modelValue: makeNumber(0)
+        min: {type: Number as PropType<number>, default: null},
+        max: {type: Number as PropType<number>, default: null},
+        step: {type: Number as PropType<number>, default: 1},
+        modelValue: {type: Number as PropType<number>, default: 0}
     },
     setup(props) {
         return {

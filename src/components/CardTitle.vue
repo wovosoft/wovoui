@@ -5,22 +5,19 @@
 </template>
 
 <script lang="ts">
-import {makeString} from "../shared/properties.js";
-import {ref, defineComponent} from "vue";
+import {defineComponent, PropType, computed} from "vue";
 
 export default defineComponent({
     name: "CardTitle",
     props: {
-        title: makeString(),
-        tag: makeString("h4")
+        title: {type: String as PropType<string>, default: null},
+        tag: {type: String as PropType<string>, default: "h4"}
     },
     setup(props) {
-        let classes = ref([]);
-        classes.value = [
-            "card-title"
-        ];
         return {
-            classes
+            classes: computed(() => ([
+                "card-title"
+            ]))
         }
     }
 })

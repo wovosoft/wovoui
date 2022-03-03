@@ -3,23 +3,22 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed, defineComponent} from "vue";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "CardImg",
     props: {
-        src: makeString(),
-        alt: makeString(),
-        overlay: makeBoolean(false),
-        bottom: makeBoolean(false),
-        end: makeBoolean(false),
-        left: makeBoolean(false),
-        right: makeBoolean(false),
-        start: makeBoolean(false),
-        top: makeBoolean(false),
-        height: make([Number, String], null),
-        width: make([Number, String], null),
+        src: {type: String as PropType<string>, default: null},
+        alt: {type: String as PropType<string>, default: null},
+        overlay: {type: Boolean as PropType<boolean>, default: false},
+        bottom: {type: Boolean as PropType<boolean>, default: false},
+        end: {type: Boolean as PropType<boolean>, default: false},
+        left: {type: Boolean as PropType<boolean>, default: false},
+        right: {type: Boolean as PropType<boolean>, default: false},
+        start: {type: Boolean as PropType<boolean>, default: false},
+        top: {type: Boolean as PropType<boolean>, default: false},
+        height: {type: [Number, String] as PropType<number | string>, default: null},
+        width: {type: [Number, String] as PropType<number | string>, default: null},
     },
     setup(props, context) {
         return {

@@ -5,13 +5,12 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent} from "vue";
-import {makeString} from "../shared/properties";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "CarouselIndicators",
     props: {
-        tag: makeString("div")
+        tag: {type: String as PropType<string>, default: "div"}
     },
     setup(props, context) {
         return {

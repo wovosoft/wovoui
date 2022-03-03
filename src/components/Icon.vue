@@ -5,14 +5,13 @@
 </template>
 
 <script lang="ts">
-import {makeString} from "../shared/properties.js";
-import {computed, defineComponent} from "vue";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "Icon",
     props: {
-        icon: makeString(null),
-        variant: makeString(null)
+        icon: {type: String as PropType<string>, default: null},
+        variant: {type: String as PropType<string>, default: null}
     },
     setup(props, {slots}) {
         return {

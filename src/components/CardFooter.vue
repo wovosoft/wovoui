@@ -5,17 +5,17 @@
 </template>
 
 <script lang="ts">
-import {makeString} from "../shared/properties.js";
-import {defineComponent, ref} from "vue";
+import {defineComponent, PropType, ref} from "vue";
+import {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "CardFooter",
     props: {
-        content: makeString(),
-        variant: makeString(),
-        borderVariant: makeString(),
-        tag: makeString("div"),
-        textVariant: makeString()
+        content: {type: String as PropType<string>, default: null},
+        variant: {type: String as PropType<ColorVariants>, default: null},
+        borderVariant: {type: String as PropType<ColorVariants>, default: null},
+        tag: {type: String as PropType<string>, default: "div"},
+        textVariant: {type: String as PropType<ColorVariants>, default: null}
     },
     setup(props, context) {
         let classes = ref([]);

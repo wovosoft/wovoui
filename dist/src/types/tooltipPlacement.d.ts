@@ -1,0 +1,1 @@
+export type tooltipPlacement = 'top' | 'right' | 'bottom' | 'left' | 'start' | 'end'

@@ -22,16 +22,15 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, reactive} from "vue";
-import props from "../shared/tableProps.js";
+import {computed, defineComponent} from "vue";
+import props from "../shared/tableProps";
 
 export default defineComponent({
     name: "Table",
     props,
     setup(props) {
-        props = reactive(props);
-        const classes = computed(() => {
-            return [
+        return {
+            classes: computed(() => ([
                 "table",
                 {
                     ["table-" + props.variant]: props.variant,
@@ -42,20 +41,14 @@ export default defineComponent({
                     ["border-" + props.borderVariant]: !!props.borderVariant,
                     "table-borderless": props.borderless,
                     "table-sm": props.small,
-                    ["align-" + props.align]: !!props.align,
+                    ["align-" + props.valign]: !!props.valign,
                     "caption-top": props.captionTop
                 }
-            ];
-        });
-        const wrapperClass = computed(() => {
-            return {
+            ])),
+            wrapperClass: computed(() => ({
                 "table-responsive": (typeof props.responsive === "boolean" && props.responsive),
                 ["table-responsive-" + props.responsive]: (typeof props.responsive === "string" && props.responsive)
-            };
-        });
-        return {
-            classes,
-            wrapperClass
+            }))
         }
     }
 })

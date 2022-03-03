@@ -18,21 +18,21 @@
 <script lang="ts">
 import {computed, defineComponent, PropType} from "vue";
 import ProgressBar from "./ProgressBar.vue";
-import {ColorVariants} from "../types/colorVariants";
+import type {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "Progress",
     components: {ProgressBar},
     props: {
-        tag: {type: String, default: 'div'},
-        barTag: {type: String, default: 'div'},
-        value: {type: Number, default: 0},
-        min: {type: Number, default: 0},
-        max: {type: Number, default: 100},
-        showValue: {type: Boolean as PropType<true | false>, default: true},
-        striped: {type: Boolean as PropType<true | false>, default: false},
-        animated: {type: Boolean as PropType<true | false>, default: false},
-        height: {type: String, default: null},
+        tag: {type: String as PropType<string>, default: 'div'},
+        barTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
+        value: {type: Number as PropType<number>, default: 0},
+        min: {type: Number as PropType<number>, default: 0},
+        max: {type: Number as PropType<number>, default: 100},
+        showValue: {type: Boolean as PropType<boolean>, default: true},
+        striped: {type: Boolean as PropType<boolean>, default: false},
+        animated: {type: Boolean as PropType<boolean>, default: false},
+        height: {type: String as PropType<string>, default: null},
         variant: {type: String as PropType<ColorVariants>}
     },
     setup(props, context) {

@@ -47,12 +47,12 @@ export default defineComponent({
     name: "Carousel",
     components: {ChevronLeft, ChevronRight, CarouselInner, CarouselIndicators},
     props: {
-        tag: makeString("div"),
-        slide: {type: Boolean as PropType<true | false>, default: true},
-        controlsEnabled: {type: Boolean as PropType<true | false>, default: true},
-        indicatorsEnabled: {type: Boolean as PropType<true | false>, default: true},
-        fade: {type: Boolean as PropType<true | false>, default: false},
-        dark: {type: Boolean as PropType<true | false>, default: false},
+        tag: {type: String as PropType<string>, default: "div"},
+        slide: {type: Boolean as PropType<boolean>, default: true},
+        controlsEnabled: {type: Boolean as PropType<boolean>, default: true},
+        indicatorsEnabled: {type: Boolean as PropType<boolean>, default: true},
+        fade: {type: Boolean as PropType<boolean>, default: false},
+        dark: {type: Boolean as PropType<boolean>, default: false},
         intervals: {type: Number as PropType<number>, default: 0},  //in seconds
         direction: {type: String as PropType<'next' | 'prev'>, default: 'next'},    //default auto direction
         // modelValue: makeNumber(null)

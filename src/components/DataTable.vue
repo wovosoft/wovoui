@@ -44,11 +44,10 @@
     </Table>
 </template>
 
-<script>
-import {computed, defineComponent, reactive, ref} from "vue";
-import {make, makeString} from "../shared/properties.js";
+<script lang="ts">
+import {computed, defineComponent, PropType, reactive, ref} from "vue";
 import Table from "./Table.vue";
-import tableProps from "../shared/tableProps.js";
+import tableProps from "../shared/tableProps";
 import THead from "./THead.vue";
 import Th from "./Th.vue";
 import TBody from "./TBody.vue";
@@ -65,10 +64,10 @@ export default defineComponent({
     components: {Icon, Tr, TBody, Th, Td, THead, Table},
     props: {
         ...tableProps,
-        selectedRows: make(Array, []),
-        filter: makeString(null),
-        fields: make(Array, []),
-        items: make([Array, Promise, Function], [])
+        selectedRows: {type: Array as PropType<any[]>, default: () => ([])},
+        filter: {type: String as PropType<string>, default: null},
+        fields: {type: Array as PropType<any[]>, default: () => ([])},
+        items: {type: [Array, Function] as PropType<any[]>, default: () => ([])}
     },
     setup(props, context) {
         props = reactive(props);
@@ -97,7 +96,7 @@ export default defineComponent({
                 } else if (th.hasOwnProperty('key')) {
                     return title(th.key);
                 }
-            }else if (typeof th==="string"){
+            } else if (typeof th === "string") {
                 return title(th);
             }
             return th;

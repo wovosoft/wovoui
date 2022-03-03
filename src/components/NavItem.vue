@@ -14,22 +14,21 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed,defineComponent} from "vue";
+import {computed, defineComponent, PropType} from "vue";
 import NavLink from "./NavLink.vue";
 
 export default defineComponent({
     name: "NavItem",
     components: {NavLink},
     props: {
-        tag: makeString("li"),
-        linkTag: makeString("a"),
-        ariaCurrent: makeString(null),
-        href: makeString("#"),
-        to: make(Object, null),
-        target: makeString("_self"),
-        active: makeBoolean(false),
-        disabled: makeBoolean(false),
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
+        linkTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
+        ariaCurrent: {type: String as PropType<string>, default: null},
+        href: {type: String as PropType<string>, default: "#"},
+        to: {type: Object as PropType<object>, default: null},
+        target: {type: String as PropType<string>, default: "_self"},
+        active: {type: Boolean as PropType<boolean>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
     },
     setup(props) {
         const classes = computed(() => {

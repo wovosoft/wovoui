@@ -4,14 +4,13 @@
     </div>
 </template>
 <script lang="ts">
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed, ref, watch,defineComponent} from "vue";
+import {computed, ref, watch, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     emits: ['update:active'],
     props: {
-        active: makeBoolean(false),
-        title: makeString()
+        active: {type: Boolean as PropType<boolean>, default: false},
+        title: {type: String as PropType<string>, default: null}
     },
     inject: ['registerTab', 'unregisterTab'],
     setup(props, context) {

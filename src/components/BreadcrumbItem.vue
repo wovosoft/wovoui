@@ -17,24 +17,24 @@
 </template>
 
 <script lang="ts">
-import {make, makeString} from "../shared/properties.js";
 import {computed, defineComponent, PropType} from "vue";
+import {Binary} from "../types/Binary";
 
 export default defineComponent({
     name: "BreadcrumbItem",
     props: {
-        tag: makeString("li"),
-        active: {type: Boolean as PropType<true | false>, default: () => false},
-        activeClass: makeString("active"),
-        append: {type: Boolean as PropType<true | false>, default: () => false},
-        ariaCurrent: makeString("location"),
-        disabled: {type: Boolean as PropType<true | false>, default: () => false},
-        exact: {type: Boolean as PropType<true | false>, default: () => false},
-        rel: makeString(null),
-        replace: {type: Boolean as PropType<true | false>, default: () => false},
-        target: makeString("_self"),
-        to: make([Object, String], null),
-        href: makeString(null)
+        tag: {type: String as PropType<string>, default: "li"},
+        active: {type: Boolean as PropType<Binary>, default: false},
+        activeClass: {type: String as PropType<string>, default: "active"},
+        append: {type: Boolean as PropType<Binary>, default: false},
+        ariaCurrent: {type: String as PropType<string>, default: "location"},
+        disabled: {type: Boolean as PropType<Binary>, default: false},
+        exact: {type: Boolean as PropType<Binary>, default: false},
+        rel: {type: String as PropType<string>, default: null},
+        replace: {type: Boolean as PropType<Binary>, default: false},
+        target: {type: String as PropType<string>, default: "_self"},
+        to: {type: [Object, String] as PropType<object | string>, default: null},
+        href: {type: String as PropType<string>, default: null}
     },
     setup(props, context) {
         const attributes = computed(() => {

@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import {createPopper} from '@popperjs/core';
-import dropdownProps from "../shared/dropdownProps.ts";
+import dropdownProps from "../shared/dropdownProps";
 import Button from "./Button.vue";
 import DropdownMenu from "./DropdownMenu.vue";
 import {computed, defineComponent} from "vue";

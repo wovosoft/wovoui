@@ -36,26 +36,25 @@
 import InputGroup from "./InputGroup.vue";
 import Button from "./Button.vue";
 import {makeNumber, makeString} from "../shared/properties.js";
-import {computed, ref, watch, defineComponent} from "vue";
+import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
 import {makeBoolean} from "../shared/properties";
+import type {ColorVariants} from "../types/colorVariants";
+import type {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
     name: "SpinButton",
     components: {Dash, Plus, Button, InputGroup},
     props: {
-        modelValue: makeNumber(0),
-        step: makeNumber(1),
-        min: makeNumber(0),
-        max: makeNumber(100),
-        buttonVariant: makeString("secondary"),
-        size: makeString(null),
-        formatter: {
-            type: Function,
-            default: v => v
-        },
-        inline: makeBoolean(false),
-        vertical: makeBoolean(false),
+        modelValue: {type: Number as PropType<number>, default: 0},
+        step: {type: Number as PropType<number>, default: 1},
+        min: {type: Number as PropType<number>, default: 0},
+        max: {type: Number as PropType<number>, default: 100},
+        buttonVariant: {type: String as PropType<ColorVariants>, default: "secondary"},
+        size: {type: String as PropType<buttonSizes>, default: null},
+        formatter: {type: Function as PropType<Function>, default: v => v},
+        inline: {type: Boolean as PropType<boolean>, default: false},
+        vertical: {type: Boolean as PropType<boolean>, default: false},
     },
     setup(props, context) {
         const model = ref(props.modelValue);

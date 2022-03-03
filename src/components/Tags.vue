@@ -25,28 +25,29 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeString} from "../shared/properties";
-import {computed, ref, watch,defineComponent} from "vue";
+import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {X} from "@wovosoft/wovoui-icons";
 import Badge from "./Badge.vue";
 import Button from "./Button.vue";
+import type {ColorVariants} from "../types/colorVariants";
+import type {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
     name: "Tags",
     components: {Button, Badge, X},
     props: {
-        tag: makeString("ul"),
-        role: makeString("group"),
-        tabindex: make([Number, String], -1),
-        placeholder: makeString('Add Tag'),
-        modelValue: make(Array, []),
-        removeOnDelete: makeBoolean(false),
-        separator: make(Array, null),
-        tagPills: makeBoolean(false),
-        tagVariant: makeString("secondary"),
-        addButtonSize: makeString("sm"),
-        addButtonText: makeString("Add"),
-        noAddOnEnter: makeBoolean(false)
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ul"},
+        role: {type: String as PropType<string>, default: "group"},
+        tabindex: {type: [Number, String] as PropType<number | string>, default: -1},
+        placeholder: {type: String as PropType<string>, default: 'Add Tag'},
+        modelValue: {type: Array as PropType<any[]>, default: () => ([])},
+        removeOnDelete: {type: Boolean as PropType<boolean>, default: false},
+        separator: {type: Array as PropType<any[]>, default: () => ([])},
+        tagPills: {type: Boolean as PropType<boolean>, default: false},
+        tagVariant: {type: String as PropType<ColorVariants>, default: "secondary"},
+        addButtonSize: {type: String as PropType<buttonSizes>, default: "sm"},
+        addButtonText: {type: String as PropType<string>, default: "Add"},
+        noAddOnEnter: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props, context) {
         const model = ref(props.modelValue || []);

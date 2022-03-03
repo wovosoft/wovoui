@@ -5,13 +5,12 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
-import {makeString} from "../shared/properties.js";
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "OffCanvasTitle",
     props: {
-        tag: makeString("h5")
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h5"}
     }
 })
 </script>

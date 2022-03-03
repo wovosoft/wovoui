@@ -10,29 +10,22 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed, defineComponent} from "vue";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "NavLink",
     props: {
-        ariaCurrent: makeString(null),
-        active: makeBoolean(false),
-        disabled: makeBoolean(false),
-        href: makeString(null),
-        target: makeString("_self"),
-        tag: makeString("a"),
-        to: make(Object, null)
+        ariaCurrent: {type: String as PropType<string>, default: null},
+        active: {type: Boolean as PropType<boolean>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
+        href: {type: String as PropType<string>, default: null},
+        target: {type: String as PropType<string>, default: "_self"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
+        to: {type: Object as PropType<object>, default: null}
     },
     setup(props) {
         const classes = computed(() => {
-            return [
-                "nav-link",
-                {
-                    active: props.active,
-                    disabled: props.disabled,
-                }
-            ];
+            return ;
         });
         const linkAttributes = computed(() => {
             return {

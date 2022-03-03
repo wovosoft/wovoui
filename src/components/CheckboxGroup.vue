@@ -13,23 +13,20 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeString} from "../shared/properties.js";
 import Checkbox from "./Checkbox.vue";
-import {ref, defineComponent} from "vue";
+import {ref, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "CheckboxGroup",
     components: {Checkbox},
     emits: ["update:modelValue"],
     props: {
-        modelValue: {
-            default: null
-        },
-        options: make(Array, []),
-        textField: makeString(),
-        valueField: makeString(),
-        inline: makeBoolean(false),
-        switch: makeBoolean(false),
+        modelValue: {default: null},
+        options: {type: Array as PropType<any>, default: () => ([])},
+        textField: {type: String as PropType<string>, default: null},
+        valueField: {type: String as PropType<string>, default: null},
+        inline: {type: Boolean as PropType<boolean>, default: false},
+        switch: {type: Boolean as PropType<boolean>, default: false},
     },
     setup(props, context) {
         const model = ref(props.modelValue);

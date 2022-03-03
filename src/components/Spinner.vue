@@ -6,13 +6,14 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType} from "vue";
-import {ColorVariants} from "../types/colorVariants";
+import type {ColorVariants} from "../types/colorVariants";
+import type {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
     name: "Spinner",
     props: {
-        grow: {type: Boolean as PropType<true | false>, default: false},
-        size: {type: String as PropType<null | 'sm' | 'lg'>, default: null},
+        grow: {type: Boolean as PropType<boolean>, default: false},
+        size: {type: String as PropType<buttonSizes>, default: null},
         variant: {type: String as PropType<ColorVariants>, default: null}
     },
     setup(props, context) {

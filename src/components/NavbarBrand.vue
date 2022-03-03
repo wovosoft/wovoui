@@ -5,28 +5,22 @@
 </template>
 
 <script lang="ts">
-import {makeString} from "../shared/properties.js";
-import {computed, defineComponent} from "vue";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "NavbarBrand",
     props: {
-        tag: makeString("a"),
-        href: makeString("#"),
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
+        href: {type: String as PropType<string>, default: "#"},
     },
     setup(props) {
-        const classes = computed(() => {
-            return [
-                "navbar-brand"
-            ]
-        });
         const attributes = computed(() => {
             return {
                 "href": props.tag === 'a' ? props.href : null
             }
         });
         return {
-            classes,
+            classes: computed(() => (["navbar-brand"])),
             attributes
         }
     }

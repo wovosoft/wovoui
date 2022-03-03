@@ -5,13 +5,12 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
-import {makeString} from "../shared/properties.js";
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "InputGroupText",
     props: {
-        tag: makeString("span")
+        tag: {type: String as PropType<string>, default: "span"}
     }
 })
 </script>

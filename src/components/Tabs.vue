@@ -29,8 +29,7 @@
     </div>
 </template>
 <script lang="ts">
-import {makeBoolean, makeNumber, makeString} from "../shared/properties.js";
-import {ref, watch, provide, computed,defineComponent} from "vue";
+import {ref, watch, provide, computed, defineComponent, PropType} from "vue";
 import Nav from "./Nav.vue";
 import NavItem from "./NavItem.vue";
 
@@ -38,14 +37,14 @@ export default defineComponent({
     emits: ['update:modelValue'],
     components: {NavItem, Nav},
     props: {
-        modelValue: makeNumber(0),
-        card: makeBoolean(false),
-        pills: makeBoolean(false),
-        fill: makeBoolean(false),
-        justified: makeBoolean(false),
-        align: makeString(),
-        end: makeBoolean(false),
-        vertical: makeBoolean(false)
+        modelValue: {type: Number as PropType<number>, default: 0},
+        card: {type: Boolean as PropType<boolean>, default: false},
+        pills: {type: Boolean as PropType<boolean>, default: false},
+        fill: {type: Boolean as PropType<boolean>, default: false},
+        justified: {type: Boolean as PropType<boolean>, default: false},
+        align: {type: String as PropType<'center' | 'end'>, default: null},
+        end: {type: Boolean as PropType<boolean>, default: false},
+        vertical: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props, context) {
         const tabsMap = ref([]);

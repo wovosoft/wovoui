@@ -11,11 +11,11 @@ import {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
     props: {
-        tag: makeString("div"),
-        ariaLabel: makeString("Button Group"),
+        tag: {type: String as PropType<string>, default: "div"},
+        ariaLabel: {type: String as PropType<string>, default: "Button Group"},
         size: {type: String as PropType<buttonSizes>, default: () => null},
         vertical: {type: Boolean as PropType<true | false>},
-        role: makeString("group")
+        role: {type: String as PropType<string>, default: "group"}
     },
     setup(props, context) {
         return {

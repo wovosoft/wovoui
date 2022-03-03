@@ -5,13 +5,12 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent} from "vue";
-import {makeString} from "../shared/properties.js";
+import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "AlertHeading",
     props: {
-        tag: makeString("h4")
+        tag: {type: String as PropType<string>, default: "h4"}
     },
     setup(props, context) {
         return {

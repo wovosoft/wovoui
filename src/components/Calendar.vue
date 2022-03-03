@@ -90,7 +90,7 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, ref, watch} from "vue";
+import {computed, defineComponent, PropType, ref, watch} from "vue";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
@@ -111,6 +111,7 @@ import {
     ChevronDoubleRight,
     ChevronDoubleLeft
 } from "@wovosoft/wovoui-icons";
+import {Binary} from "../types/Binary";
 
 export default defineComponent({
     name: "Calendar",
@@ -126,18 +127,18 @@ export default defineComponent({
         Row
     },
     props: {
-        modelValue: make([String, Object], null),
+        modelValue: {type: [String, Object] as PropType<string | object>, default: null},
         //output format: https://day.js.org/docs/en/display/format#docsNav
-        format: makeString("YYYY-MM-DD"),
+        format: {type: String as PropType<string>, default: "YYYY-MM-DD"},
         //https://day.js.org/docs/en/plugin/locale-data#docsNav
         /**
          * Week Days can be 'min','short','regular'(full name)
          */
-        weekdayType: makeString('short'),
-        monthSelectorEnabled: makeBoolean(true),
+        weekdayType: {type: String as PropType<string>, default: "short"},
+        monthSelectorEnabled: {type: Boolean as PropType<Binary>, default: true},
         //https://day.js.org/docs/en/get-set/day
         // startOfWeek: makeNumber(1),
-        activeClass: makeString("active")
+        activeClass: {type: String as PropType<string>, default: "active"}
     },
     setup(props, context) {
         const theDate = ref(props.modelValue ? dayjs(props.modelValue) : dayjs());

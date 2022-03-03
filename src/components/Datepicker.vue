@@ -3,13 +3,13 @@
 </template>
 
 <script lang="ts">
-import {ref, defineComponent} from "vue";
+import {ref, defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "Datepicker",
     props: {
         modelValue: {
-            type: String,
+            type: String as PropType<string>,
             default: null
         }
     },

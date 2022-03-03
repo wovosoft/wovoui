@@ -5,13 +5,13 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "NavbarToggler",
     emits: ['update:modelValue'],
     props: {
-        modelValue: {type: Boolean, default: false}
+        modelValue: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props, context) {
         return {

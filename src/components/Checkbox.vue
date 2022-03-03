@@ -34,36 +34,31 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, ref, watch} from "vue";
+import {computed, defineComponent, PropType, ref, watch} from "vue";
 import {makeBoolean, makeString} from "../shared/properties.js";
+import {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "Checkbox",
     emits: ['update:modelValue', 'checked', 'unchecked'],
     props: {
-        name: makeString(null),
-        id: makeString(null),
-        required: makeBoolean(false),
-        readonly: makeBoolean(false),
-        disabled: makeBoolean(false),
-        inline: makeBoolean(false),
-        modelValue: {
-            default: null
-        },
-        value: {
-            default: true
-        },
-        uncheckedValue: {
-            default: false
-        },
-        switch: makeBoolean(false),
+        name: {type: String as PropType<string>, default: null},
+        id: {type: String as PropType<string>, default: null},
+        required: {type: Boolean as PropType<boolean>, default: false},
+        readonly: {type: Boolean as PropType<boolean>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
+        inline: {type: Boolean as PropType<boolean>, default: false},
+        modelValue: {default: null},
+        value: {default: true},
+        uncheckedValue: {default: false},
+        switch: {type: Boolean as PropType<boolean>, default: false},
 
         //applies when it is button
-        button: makeBoolean(false),
-        variant: makeString('primary'),
-        outline: makeBoolean(true),
+        button: {type: Boolean as PropType<boolean>, default: false},
+        variant: {type: String as PropType<ColorVariants>, default: "primary"},
+        outline: {type: Boolean as PropType<boolean>, default: true},
 
-        checked: makeBoolean(false),
+        checked: {type: Boolean as PropType<boolean>, default: false},
     },
     setup(props, context) {
         const identifier = ref(null);

@@ -7,18 +7,17 @@
 <script lang="ts">
 import {makeString} from "../shared/properties.js";
 import {computed, reactive, defineComponent, PropType} from "vue";
-import ColorVariants from "../props/ColorVariants";
-import BoolPill from "../props/BoolPill";
 import {badgePositions} from "../types/badgePositions";
-
+import {ColorVariants} from "../types/colorVariants";
+import {Binary} from "../types/Binary";
 
 export default defineComponent({
     props: {
-        tag: makeString('span'),
-        variant: ColorVariants("secondary"),
-        pill: BoolPill(false),
+        tag: {type: String as PropType<string>, default: "span"},
+        variant: {type: String as PropType<ColorVariants>, default: "secondary"},
+        pill: {type: Boolean as PropType<Binary>, default: false},
         href: makeString(null),
-        position: {type: String as PropType<badgePositions>}
+        position: {type: String as PropType<badgePositions>, default: null}
     },
     setup(props, context) {
         const attributes = reactive({

@@ -4,13 +4,12 @@
     </a>
 </template>
 <script lang="ts">
-import {makeString} from "../shared/properties.js";
-import {defineComponent} from "vue";
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "CardLink",
     props: {
-        href: makeString("#")
+        href: {type: String as PropType<string>, default: "#"},
     }
 })
 </script>

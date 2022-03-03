@@ -5,26 +5,24 @@
 </template>
 
 <script lang="ts">
-import {makeString} from "../shared/properties.js";
-import {ref, defineComponent} from "vue";
+import {defineComponent, PropType, computed} from "vue";
+import {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "CardSubTitle",
     props: {
-        title: makeString(),
-        tag: makeString("h6"),
-        textVariant: makeString("muted")
+        title: {type: String as PropType<string>, default: null},
+        tag: {type: String as PropType<string>, default: "h6"},
+        textVariant: {type: String as PropType<ColorVariants>, default: "muted"}
     },
     setup(props) {
-        let classes = ref([]);
-        classes.value = [
-            "card-subtitle",
-            {
-                ["text-" + props.textVariant]: !!props.textVariant
-            }
-        ];
         return {
-            classes
+            classes: computed(() => ([
+                "card-subtitle",
+                {
+                    ["text-" + props.textVariant]: !!props.textVariant
+                }
+            ]))
         }
     }
 })

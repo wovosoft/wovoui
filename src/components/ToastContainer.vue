@@ -16,13 +16,13 @@ import {toastPlacements} from "../types/toastPlacements";
 export default defineComponent({
     name: "ToastContainer",
     props: {
-        tag: {type: String as PropType<string>, default: "div"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         placement: {type: String as PropType<toastPlacements>, default: null},
-        container: {type: String, default: null}
+        container: {type: String as PropType<string>, default: null}
     },
     setup(props, context) {
         return {
-            classes: computed(() => [
+            classes: computed(() => ([
                 "toast-container", {
                     "top-0 start-0": props.placement === 'top-left',
                     "top-0 start-50 translate-middle-x": props.placement === 'top-center',
@@ -34,7 +34,7 @@ export default defineComponent({
                     "bottom-0 start-50 translate-middle-x": props.placement === 'bottom-center',
                     "bottom-0 end-0": props.placement === 'bottom-right',
                 }
-            ])
+            ]))
         }
     }
 })

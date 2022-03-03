@@ -7,13 +7,13 @@
 </template>
 <script lang="ts">
 import {defineComponent, PropType} from "vue";
-import {makeString} from "../shared/properties.js";
+import {Binary} from "../types/Binary";
 
 export default defineComponent({
     props: {
-        white: {type: Boolean as PropType<true | false>, default: () => false},
-        ariaLabel: makeString("Close"),
-        disabled: {type: Boolean as PropType<true | false>, default: false}
+        white: {type: Boolean as PropType<Binary>, default: () => false},
+        ariaLabel: {type: String as PropType<string>, default: "Close"},
+        disabled: {type: Boolean as PropType<Binary>, default: false}
     }
 })
 </script>

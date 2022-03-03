@@ -6,17 +6,16 @@
 
 <script lang="ts">
 import Dropdown from "./Dropdown.vue";
-import dropdownProps from "../shared/dropdownProps.ts";
-import {makeString} from "../shared/properties.js";
-import {defineComponent} from "vue";
+import dropdownProps from "../shared/dropdownProps";
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "NavItemDropdown",
     components: {Dropdown},
     props: {
         ...dropdownProps,
-        isNav:{type:Boolean,default:true},
-        tag: makeString("li")
+        isNav: {type: Boolean as PropType<boolean>, default: true},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"}
     }
 })
 </script>

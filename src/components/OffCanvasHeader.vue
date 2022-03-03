@@ -15,8 +15,7 @@
 
 <script lang="ts">
 import ButtonClose from "./ButtonClose.vue";
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {computed,defineComponent} from "vue";
+import {computed, defineComponent, PropType} from "vue";
 import OffCanvasTitle from "./OffCanvasTitle.vue";
 
 export default defineComponent({
@@ -27,19 +26,14 @@ export default defineComponent({
         ButtonClose
     },
     props: {
-        modelValue: makeBoolean(false),
-        tag: makeString("div"),
-        title: makeString(),
-        showClose: makeBoolean(true)
+        modelValue: {type: Boolean as PropType<boolean>, default: false},
+        tag: {type: String as PropType<string>, default: "div"},
+        title: {type: String as PropType<string>, default: null},
+        showClose: {type: Boolean as PropType<boolean>, default: true}
     },
     setup(props) {
-        const classes = computed(() => {
-            return [
-                "offcanvas-header"
-            ]
-        });
         return {
-            classes
+            classes: computed(() => (["offcanvas-header"]))
         }
     }
 })

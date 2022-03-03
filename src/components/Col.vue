@@ -5,27 +5,36 @@
 </template>
 
 <script lang="ts">
-import {isBoolean, make, makeString} from "../shared/properties.js";
-import {computed, defineComponent} from "vue";
+import {isBoolean} from "../shared/properties.js";
+import {computed, defineComponent, PropType} from "vue";
+import type {
+    colAlignments,
+    colOrders,
+    ColSizes,
+    justifyContentAlignments,
+    responsiveNumbers
+} from "../types/responsiveLayoutSizes.js";
+
 
 export default defineComponent({
     name: "Col",
     props: {
-        tag: makeString("div"),
-        col: make([Number, String], null),
-        sm: make([Number, Boolean, String], null),
-        md: make([Number, Boolean, String], null),
-        lg: make([Number, Boolean, String], null),
-        xl: make([Number, Boolean, String], null),
-        alignSelf: makeString(),
-        order: make([Number, String], null),
-        offsetSm: make([Number, String], null),
-        offsetMd: make([Number, String], null),
-        offsetLg: make([Number, String], null),
-        offsetXl: make([Number, String], null),
+        tag: {type: String as PropType<string>, default: "div"},
+        col: {type: [String, Number] as PropType<string | number>, default: null},
+        sm: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
+        md: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
+        lg: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
+        xl: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
+        alignSelf: {type: String as PropType<colAlignments>, default: null},
+        justifyContent: {type: String as PropType<justifyContentAlignments>, default: null},
+        order: {type: [Number, String] as PropType<colOrders>, default: null},
+        offsetSm: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
+        offsetMd: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
+        offsetLg: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
+        offsetXl: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
         //gutters
-        gx: make([Number, String], null),
-        gy: make([Number, String], null),
+        gx: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
+        gy: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
     },
     setup(props) {
         return {
@@ -41,6 +50,7 @@ export default defineComponent({
                 "col-lg": props.lg && isBoolean(props.lg),
                 "col-xl": props.xl && isBoolean(props.xl),
                 ["align-self-" + props.alignSelf]: props.alignSelf,
+                ["justify-content-" + props.justifyContent]: props.justifyContent,
                 ["order-" + props.order]: props.order,
                 ["offset-sm-" + props.offsetSm]: props.offsetSm,
                 ["offset-md-" + props.offsetMd]: props.offsetMd,

@@ -12,17 +12,17 @@
 <script lang="ts">
 import {computed, defineComponent, PropType, ref} from "vue";
 import {createPopper} from '@popperjs/core';
-import {tooltipPlacement} from "../types/tooltipPlacement";
+import type {tooltipPlacement} from "../types/tooltipPlacement";
 
 let popper = null;
 export default defineComponent({
     name: "Tooltip",
     props: {
-        target: {type: String, default: null, required: true},  //should be id
-        content: {type: String, default: null},
+        target: {type: String as PropType<string>, default: null, required: true},  //should be id
+        content: {type: String as PropType<string>, default: null},
         placement: {type: String as PropType<tooltipPlacement>, default: 'top'},
-        opensOn: {type: String, default: 'focusin'},
-        ClosesOn: {type: String as PropType<GlobalEventHandlersEventMap>, default: 'focusout'},
+        opensOn: {type: String as PropType<keyof GlobalEventHandlersEventMap>, default: 'focusin'},
+        ClosesOn: {type: String as PropType<keyof GlobalEventHandlersEventMap>, default: 'focusout'},
     },
     setup(props, context) {
         const shouldShow = ref(false);

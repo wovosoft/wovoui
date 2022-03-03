@@ -24,22 +24,20 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeString} from "../shared/properties.js";
-import {computed, ref, watch, defineComponent} from "vue";
+import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {isObject} from "../shared/utilities.js";
+import type {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
     props: {
-        multiple: makeBoolean(false),
-        size: makeString(),
-        options: make(Array, []),
-        valueField: make([Function, String], null),
-        textField: make([Function, String], null),
-        disabledField: makeString('disabled'),
-        labelField: makeString("label"),
-        modelValue: {
-            default: null
-        }
+        multiple: {type: Boolean as PropType<boolean>, default: true},
+        size: {type: String as PropType<buttonSizes>, default: null},
+        options: {type: Array as PropType<any[]>, default: () => ([])},
+        valueField: {type: [Function, String] as PropType<Function | string>, default: null},
+        textField: {type: [Function, String] as PropType<Function | string>, default: null},
+        disabledField: {type: String as PropType<string>, default: "disabled"},
+        labelField: {type: String as PropType<string>, default: "label"},
+        modelValue: {default: null}
     },
     setup(props, context) {
         const model = ref(null);
