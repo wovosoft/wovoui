@@ -37,17 +37,16 @@
 </template>
 
 <script lang="ts">
-import {makeString} from "../shared/properties";
 import {computed, defineComponent, PropType, provide, ref} from "vue";
-import CarouselInner from "./CarouselInner.vue";
-import CarouselIndicators from "./CarouselIndicators.vue";
+import CarouselInner from "./CarouselInner";
+import CarouselIndicators from "./CarouselIndicators";
 import {ChevronLeft, ChevronRight} from "@wovosoft/wovoui-icons";
 
 export default defineComponent({
     name: "Carousel",
     components: {ChevronLeft, ChevronRight, CarouselInner, CarouselIndicators},
     props: {
-        tag: {type: String as PropType<string>, default: "div"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         slide: {type: Boolean as PropType<boolean>, default: true},
         controlsEnabled: {type: Boolean as PropType<boolean>, default: true},
         indicatorsEnabled: {type: Boolean as PropType<boolean>, default: true},

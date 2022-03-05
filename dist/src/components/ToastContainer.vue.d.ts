@@ -40,8 +40,8 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     tag: keyof HTMLElementTagNameMap;
-    container: string;
     placement: toastPlacements;
+    container: string;
 }>;
 export default _default;
 //# sourceMappingURL=ToastContainer.vue.d.ts.map

@@ -26,8 +26,8 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     "onUpdate:active"?: (...args: any[]) => any;
 }, {
-    active: boolean;
     title: string;
+    active: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=Tab.vue.d.ts.map

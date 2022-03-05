@@ -124,13 +124,13 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     size: import("../types/buttonSizes").buttonSizes;
     split: boolean;
+    dir: import("../types/dropdownDirections").dropdownDirections;
     tag: keyof HTMLElementTagNameMap;
     toggleTag: keyof HTMLElementTagNameMap;
     isNav: boolean;
     disabled: boolean;
     variant: import("../types/colorVariants").ColorVariants;
     block: boolean;
-    dir: import("../types/dropdownDirections").dropdownDirections;
     align: import("../types/dropdownAlignments").dropdownAlignments;
     menuTag: keyof HTMLElementTagNameMap;
     text: string;

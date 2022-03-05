@@ -134,11 +134,11 @@ declare const _default: import("vue").DefineComponent<{
     onBeforeShow?: (...args: any[]) => any;
     onBeforeHide?: (...args: any[]) => any;
 }, {
+    header: string;
+    title: string;
     tag: keyof HTMLElementTagNameMap;
     modelValue: boolean;
     id: string;
-    header: string;
-    title: string;
     textVariant: ColorVariants;
     bgVariant: ColorVariants;
     headerClass: any;

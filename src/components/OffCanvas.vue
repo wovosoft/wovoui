@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType, ref, watch} from "vue";
-import ButtonClose from "./ButtonClose.vue";
+import ButtonClose from "./ButtonClose";
 import OffCanvasHeader from "./OffCanvasHeader.vue";
 import OffCanvasBody from "./OffCanvasBody.vue";
 import {ColorVariants} from "../types";

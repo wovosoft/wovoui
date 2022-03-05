@@ -3,4 +3,5 @@ export declare type ColSizes = responsiveNumbers | null | true | false | 'auto';
 export declare type colAlignments = 'start' | 'center' | 'end';
 export declare type justifyContentAlignments = colAlignments | 'around' | 'between' | 'evenly';
 export declare type colOrders = responsiveNumbers | 'first' | 'last';
+export declare type responsiveSizes = "sm" | "md" | "lg" | "xl" | "xxl";
 //# sourceMappingURL=responsiveLayoutSizes.d.ts.map

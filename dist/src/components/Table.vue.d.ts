@@ -113,9 +113,9 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     small: boolean;
+    caption: string;
     variant: import("../types/colorVariants").ColorVariants;
     active: boolean;
-    caption: string;
     borderVariant: string;
     responsive: string | boolean;
     striped: boolean;

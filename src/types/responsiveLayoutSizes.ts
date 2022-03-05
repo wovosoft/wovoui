@@ -3,3 +3,4 @@ export type ColSizes = responsiveNumbers | null | true | false | 'auto';
 export type colAlignments = 'start' | 'center' | 'end';
 export type justifyContentAlignments = colAlignments | 'around' | 'between' | 'evenly';
 export type colOrders = responsiveNumbers | 'first' | 'last';
+export type responsiveSizes = "sm" | "md" | "lg" | "xl" | "xxl";

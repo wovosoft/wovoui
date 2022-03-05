@@ -39,11 +39,11 @@
 </template>
 
 <script lang="ts">
-import CardHeader from "./CardHeader.vue";
+import CardHeader from "./CardHeader";
 import {computed, defineComponent, PropType} from "vue";
 import CardBody from "./CardBody.vue";
-import CardFooter from "./CardFooter.vue";
-import CardImg from "./CardImg.vue";
+import CardFooter from "./CardFooter";
+import CardImg from "./CardImg";
 import {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({

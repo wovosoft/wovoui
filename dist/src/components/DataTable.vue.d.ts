@@ -69,9 +69,9 @@ declare const _default: import("vue").DefineComponent<{
     otherProps: {
         filter: string;
         small: boolean;
+        caption: string;
         variant: import("../types/colorVariants").ColorVariants;
         active: boolean;
-        caption: string;
         borderVariant: string;
         responsive: string | boolean;
         striped: boolean;
@@ -168,10 +168,10 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     filter: string;
     small: boolean;
-    items: any[];
+    caption: string;
     variant: import("../types/colorVariants").ColorVariants;
     active: boolean;
-    caption: string;
+    items: any[];
     borderVariant: string;
     responsive: string | boolean;
     striped: boolean;

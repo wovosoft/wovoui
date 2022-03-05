@@ -30,7 +30,7 @@
 </template>
 <script lang="ts">
 import {ref, watch, provide, computed, defineComponent, PropType} from "vue";
-import Nav from "./Nav.vue";
+import Nav from "./Nav";
 import NavItem from "./NavItem.vue";
 
 export default defineComponent({

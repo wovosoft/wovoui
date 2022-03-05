@@ -23,8 +23,8 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
 }, {
-    modelValue: Binary;
     header: string;
+    modelValue: Binary;
 }>;
 export default _default;
 //# sourceMappingURL=AccordionItem.vue.d.ts.map

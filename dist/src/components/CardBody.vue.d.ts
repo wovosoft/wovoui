@@ -1,5 +1,5 @@
 import { PropType } from "vue";
-import { ColorVariants } from "../types/colorVariants";
+import type { ColorVariants } from "../types/colorVariants";
 declare const _default: import("vue").DefineComponent<{
     content: {
         type: PropType<string>;
@@ -93,9 +93,9 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
+    title: string;
     tag: string;
     variant: ColorVariants;
-    title: string;
     overlay: boolean;
     content: string;
     borderVariant: ColorVariants;

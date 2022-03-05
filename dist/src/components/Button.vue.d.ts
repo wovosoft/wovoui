@@ -5,11 +5,11 @@ interface Attributes {
     autocomplete: string | null;
 }
 import { PropType } from "vue";
-import { badgePositions } from "../types/badgePositions";
-import { buttonSizes } from "../types/buttonSizes";
+import type { badgePositions } from "../types/badgePositions";
+import type { buttonSizes } from "../types/buttonSizes";
 declare const _default: import("vue").DefineComponent<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     href: {
@@ -83,7 +83,7 @@ declare const _default: import("vue").DefineComponent<{
     })[]>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     href: {
@@ -148,7 +148,7 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     size: buttonSizes;
-    tag: string;
+    tag: keyof HTMLElementTagNameMap;
     type: string;
     disabled: boolean;
     variant: ColorVariants;

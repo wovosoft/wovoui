@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import Nav from "./Nav.vue";
+import Nav from "./Nav";
 import navProps from "../shared/navProps";
 import {computed, defineComponent, PropType} from "vue";
 

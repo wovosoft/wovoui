@@ -1,11 +1,11 @@
 import { PropType } from "vue";
 declare const _default: import("vue").DefineComponent<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     toggleTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     modelValue: {
@@ -14,11 +14,11 @@ declare const _default: import("vue").DefineComponent<{
     };
 }, unknown, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     toggleTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     modelValue: {
@@ -28,9 +28,9 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
 }, {
-    tag: string;
+    tag: keyof HTMLElementTagNameMap;
     modelValue: boolean;
-    toggleTag: string;
+    toggleTag: keyof HTMLElementTagNameMap;
 }>;
 export default _default;
 //# sourceMappingURL=AccordionHeader.vue.d.ts.map

@@ -72,8 +72,8 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     tag: string;
     modelValue: boolean;
-    visible: boolean;
     class: any;
+    visible: boolean;
     id: string;
     isNav: boolean;
     horizontal: boolean;

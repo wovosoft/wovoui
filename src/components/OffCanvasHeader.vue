@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import ButtonClose from "./ButtonClose.vue";
+import ButtonClose from "./ButtonClose";
 import {computed, defineComponent, PropType} from "vue";
 import OffCanvasTitle from "./OffCanvasTitle.vue";
 

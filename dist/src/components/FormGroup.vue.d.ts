@@ -123,9 +123,9 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
+    label: string;
     tag: string;
     horizontal: boolean;
-    label: string;
     floating: boolean;
     labelFor: string;
     labelSm: number;

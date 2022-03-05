@@ -22,8 +22,8 @@ export default defineComponent({
     name: "Breadcrumb",
     components: {BreadcrumbItem},
     props: {
-        tag: {type: String as PropType<string>, default: "ol"},
-        items: {type: Array as PropType<Array<any>>, default: () => []},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ol"},
+        items: {type: Array as PropType<any[]>, default: () => []},
         divider: {type: String as PropType<string>, default: null}
     },
     setup(props) {

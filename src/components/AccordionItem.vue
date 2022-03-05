@@ -17,7 +17,7 @@
 <script lang="ts">
 import {defineComponent, inject, PropType, ref, watch} from "vue";
 import AccordionHeader from "./AccordionHeader.vue";
-import AccordionBody from "./AccordionBody.vue";
+import AccordionBody from "./AccordionBody";
 import Collapse from "./Collapse.vue";
 import {Binary} from "../types/Binary";
 

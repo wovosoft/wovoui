@@ -71,8 +71,8 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
-    modelValue: boolean;
     header: string;
+    modelValue: boolean;
     placement: string;
     triggers: keyof HTMLElementEventMap;
 }>;

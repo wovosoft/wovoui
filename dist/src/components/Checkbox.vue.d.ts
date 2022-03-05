@@ -128,10 +128,10 @@ declare const _default: import("vue").DefineComponent<{
     onUnchecked?: (...args: any[]) => any;
 }, {
     value: boolean;
+    button: boolean;
     name: string;
     modelValue: any;
     required: boolean;
-    button: boolean;
     id: string;
     disabled: boolean;
     variant: ColorVariants;

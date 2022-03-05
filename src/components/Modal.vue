@@ -66,11 +66,11 @@
 
 <script lang="ts">
 import {computed, ref, watch, nextTick, defineComponent, PropType} from "vue";
-import ButtonClose from "./ButtonClose.vue";
-import ModalBody from "./ModalBody.vue";
-import ModalHeader from "./ModalHeader.vue";
-import ModalTitle from "./ModalTitle.vue";
-import ModalFooter from "./ModalFooter.vue";
+import ButtonClose from "./ButtonClose";
+import ModalBody from "./ModalBody";
+import ModalHeader from "./ModalHeader";
+import ModalTitle from "./ModalTitle";
+import ModalFooter from "./ModalFooter";
 import Button from "./Button.vue";
 import type {modalFullScreen} from "../types/modalFullScreen";
 import type {buttonSizes} from "../types/buttonSizes";

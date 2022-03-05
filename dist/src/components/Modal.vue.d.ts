@@ -249,9 +249,9 @@ declare const _default: import("vue").DefineComponent<{
     onStateChanged?: (...args: any[]) => any;
 }, {
     size: buttonSizes;
-    modelValue: boolean;
     header: string;
     title: string;
+    modelValue: boolean;
     titleTag: string;
     headerClass: any;
     headerTag: keyof HTMLElementTagNameMap;

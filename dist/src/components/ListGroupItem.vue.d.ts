@@ -66,8 +66,8 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    tag: string;
     button: boolean;
+    tag: string;
     disabled: boolean;
     variant: ColorVariants;
     href: string;

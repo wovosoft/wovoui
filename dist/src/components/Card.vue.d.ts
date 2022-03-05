@@ -349,10 +349,10 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
-    tag: string;
-    header: string;
     footer: string;
+    header: string;
     title: string;
+    tag: string;
     overlay: boolean;
     borderVariant: ColorVariants;
     textVariant: ColorVariants;

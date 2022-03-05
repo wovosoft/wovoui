@@ -30,7 +30,7 @@ import type {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
     props: {
-        multiple: {type: Boolean as PropType<boolean>, default: true},
+        multiple: {type: Boolean as PropType<boolean>, default: false},
         size: {type: String as PropType<buttonSizes>, default: null},
         options: {type: Array as PropType<any[]>, default: () => ([])},
         valueField: {type: [Function, String] as PropType<Function | string>, default: null},

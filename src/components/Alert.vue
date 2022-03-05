@@ -11,10 +11,8 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType, ref, watch} from "vue";
-import ButtonClose from "./ButtonClose.vue";
-import {ColorVariants} from "../types/colorVariants";
-import {Binary} from "../types/Binary";
-
+import ButtonClose from "./ButtonClose";
+import type {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     emits: ["update:modelValue", "update:show", "dismissed", "countdown"],
@@ -23,10 +21,10 @@ export default defineComponent({
         tag: {type: String as PropType<string>, default: "div"},
         dismissLabel: {type: String as PropType<string>, default: "Alert"},
         variant: {type: String as PropType<ColorVariants>, default: "primary"},
-        dismissible: {type: Boolean as PropType<Binary>, default: false},
-        fade: {type: Boolean as PropType<Binary>, default: false},
-        modelValue: {type: Boolean as PropType<Binary>, default: null},
-        show: {type: Boolean as PropType<Binary>, default: false},
+        dismissible: {type: Boolean as PropType<boolean>, default: false},
+        fade: {type: Boolean as PropType<boolean>, default: false},
+        modelValue: {type: Boolean as PropType<boolean>, default: null},
+        show: {type: Boolean as PropType<boolean>, default: false},
         countdown: {type: Number as PropType<null>, default: null},
         countdownStep: {type: Number as PropType<number>, default: 1} //in seconds
     },

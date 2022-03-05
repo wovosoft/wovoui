@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType, ref, watch} from "vue";
-import ButtonClose from "./ButtonClose.vue";
+import ButtonClose from "./ButtonClose";
 import ToastBody from "./ToastBody.vue";
 import type {ColorVariants} from "../types/colorVariants";
 

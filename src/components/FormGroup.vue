@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import FormLabel from "./FormLabel.vue";
+import FormLabel from "./FormLabel";
 import {computed, defineComponent, PropType} from "vue";
 
 export default defineComponent({

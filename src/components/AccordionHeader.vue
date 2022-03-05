@@ -19,9 +19,9 @@ export default defineComponent({
     name: "AccordionHeader",
     emits: ['update:modelValue'],
     props: {
-        tag: {type: String as PropType<string>, default: "h2"},
-        toggleTag: {type: String as PropType<string>, default: "button"},
-        modelValue: {type: Boolean as PropType<true | false>, default: false}
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h2"},
+        toggleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "button"},
+        modelValue: {type: Boolean as PropType<boolean>, default: false}
     }
 })
 </script>

@@ -854,14 +854,6 @@
       "xxl"
     ]
   },
-  "modal-title/tag": {
-    "description": "",
-    "type": "makeString(\"h5\")"
-  },
-  "modal-header/tag": {
-    "description": "",
-    "type": "makeString(\"div\")"
-  },
   "modal/animation": {
     "description": "",
     "type": "string"
@@ -998,30 +990,6 @@
     "description": "",
     "type": "ColorVariants"
   },
-  "list-group/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "list-group/flush": {
-    "description": "",
-    "type": "boolean"
-  },
-  "list-group/numbered": {
-    "description": "",
-    "type": "boolean"
-  },
-  "list-group/horizontal": {
-    "description": "",
-    "type": "boolean | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'"
-  },
-  "link/href": {
-    "description": "",
-    "type": "string"
-  },
-  "link/target": {
-    "description": "",
-    "type": "string"
-  },
   "input-group-text/tag": {
     "description": "",
     "type": "string"
@@ -1073,58 +1041,6 @@
   "icon/variant": {
     "description": "",
     "type": "string"
-  },
-  "grid-col/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "grid-col/col": {
-    "description": "",
-    "type": "string | number"
-  },
-  "grid-col/sm": {
-    "description": "",
-    "type": "string | number"
-  },
-  "grid-col/md": {
-    "description": "",
-    "type": "string | number"
-  },
-  "grid-col/lg": {
-    "description": "",
-    "type": "string | number"
-  },
-  "grid-col/xl": {
-    "description": "",
-    "type": "string | number"
-  },
-  "grid-col/start": {
-    "description": "",
-    "type": "string | number"
-  },
-  "grid/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "form-label/horizontal": {
-    "description": "",
-    "type": "boolean"
-  },
-  "form-label/sm": {
-    "description": "",
-    "type": "number"
-  },
-  "form-label/md": {
-    "description": "",
-    "type": "number"
-  },
-  "form-label/lg": {
-    "description": "",
-    "type": "number"
-  },
-  "form-label/xl": {
-    "description": "",
-    "type": "number"
   },
   "form-group/tag": {
     "description": "",
@@ -1258,14 +1174,6 @@
     "description": "",
     "type": "any[]"
   },
-  "container/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "container/fluid": {
-    "description": "",
-    "type": "boolean"
-  },
   "collapse/tag": {
     "description": "",
     "type": "string"
@@ -1293,66 +1201,6 @@
   "collapse/horizontal": {
     "description": "",
     "type": "boolean"
-  },
-  "col/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "col/col": {
-    "description": "",
-    "type": "string | number"
-  },
-  "col/sm": {
-    "description": "",
-    "type": "string | ColSizes"
-  },
-  "col/md": {
-    "description": "",
-    "type": "string | ColSizes"
-  },
-  "col/lg": {
-    "description": "",
-    "type": "string | ColSizes"
-  },
-  "col/xl": {
-    "description": "",
-    "type": "string | ColSizes"
-  },
-  "col/align-self": {
-    "description": "",
-    "type": "colAlignments"
-  },
-  "col/justify-content": {
-    "description": "",
-    "type": "justifyContentAlignments"
-  },
-  "col/order": {
-    "description": "",
-    "type": "colOrders"
-  },
-  "col/offset-sm": {
-    "description": "",
-    "type": "0 | responsiveNumbers"
-  },
-  "col/offset-md": {
-    "description": "",
-    "type": "0 | responsiveNumbers"
-  },
-  "col/offset-lg": {
-    "description": "",
-    "type": "0 | responsiveNumbers"
-  },
-  "col/offset-xl": {
-    "description": "",
-    "type": "0 | responsiveNumbers"
-  },
-  "col/gx": {
-    "description": "",
-    "type": "0 | responsiveNumbers"
-  },
-  "col/gy": {
-    "description": "",
-    "type": "0 | responsiveNumbers"
   },
   "checkbox-group/model-value": {
     "description": "",
@@ -1446,21 +1294,13 @@
     "description": "",
     "type": "string"
   },
-  "carousel-inner/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "carousel-indicators/tag": {
-    "description": "",
-    "type": "string"
-  },
   "carousel-caption/tag": {
     "description": "",
     "type": "string"
   },
   "carousel/tag": {
     "description": "",
-    "type": "string"
+    "type": "keyof HTMLElementTagNameMap"
   },
   "carousel/slide": {
     "description": "",
@@ -1493,130 +1333,6 @@
       "next",
       "prev"
     ]
-  },
-  "card-title/title": {
-    "description": "",
-    "type": "string"
-  },
-  "card-title/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "card-text/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "card-sub-title/title": {
-    "description": "",
-    "type": "string"
-  },
-  "card-sub-title/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "card-sub-title/text-variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "card-link/href": {
-    "description": "",
-    "type": "string"
-  },
-  "card-img/src": {
-    "description": "",
-    "type": "string"
-  },
-  "card-img/alt": {
-    "description": "",
-    "type": "string"
-  },
-  "card-img/overlay": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-img/bottom": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-img/end": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-img/left": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-img/right": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-img/start": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-img/top": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-img/height": {
-    "description": "",
-    "type": "number | string"
-  },
-  "card-img/width": {
-    "description": "",
-    "type": "number | string"
-  },
-  "card-header/content": {
-    "description": "",
-    "type": "string"
-  },
-  "card-header/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "card-header/border-variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "card-header/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "card-header/text-variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "card-group/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "card-group/deck": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-group/columns": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-footer/content": {
-    "description": "",
-    "type": "string"
-  },
-  "card-footer/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "card-footer/border-variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "card-footer/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "card-footer/text-variant": {
-    "description": "",
-    "type": "ColorVariants"
   },
   "card-body/content": {
     "description": "",
@@ -1838,57 +1554,9 @@
     "description": "",
     "type": "string"
   },
-  "button-toolbar/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "button-toolbar/role": {
-    "description": "",
-    "type": "string"
-  },
-  "button-toolbar/justified": {
-    "description": "",
-    "type": "Binary"
-  },
-  "button-group/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "button-group/aria-label": {
-    "description": "",
-    "type": "string"
-  },
-  "button-group/size": {
-    "description": "",
-    "type": "buttonSizes"
-  },
-  "button-group/vertical": {
-    "description": "",
-    "type": "string",
-    "options": [
-      "true",
-      "false"
-    ]
-  },
-  "button-group/role": {
-    "description": "",
-    "type": "string"
-  },
-  "button-close/white": {
-    "description": "",
-    "type": "Binary"
-  },
-  "button-close/aria-label": {
-    "description": "",
-    "type": "string"
-  },
-  "button-close/disabled": {
-    "description": "",
-    "type": "Binary"
-  },
   "button/tag": {
     "description": "",
-    "type": "string"
+    "type": "keyof HTMLElementTagNameMap"
   },
   "button/href": {
     "description": "",
@@ -2000,49 +1668,13 @@
   },
   "breadcrumb/tag": {
     "description": "",
-    "type": "string"
+    "type": "keyof HTMLElementTagNameMap"
   },
   "breadcrumb/items": {
     "description": "",
-    "type": "Array<any>"
+    "type": "any[]"
   },
   "breadcrumb/divider": {
-    "description": "",
-    "type": "string"
-  },
-  "badge/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "badge/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "badge/pill": {
-    "description": "",
-    "type": "Binary"
-  },
-  "badge/href": {
-    "description": "",
-    "type": "makeString(null)"
-  },
-  "badge/position": {
-    "description": "",
-    "type": "badgePositions"
-  },
-  "aspect/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "aspect/ratio": {
-    "description": "",
-    "type": "aspectRatios"
-  },
-  "alert-link/href": {
-    "description": "",
-    "type": "string"
-  },
-  "alert-heading/tag": {
     "description": "",
     "type": "string"
   },
@@ -2060,19 +1692,19 @@
   },
   "alert/dismissible": {
     "description": "",
-    "type": "Binary"
+    "type": "boolean"
   },
   "alert/fade": {
     "description": "",
-    "type": "Binary"
+    "type": "boolean"
   },
   "alert/model-value": {
     "description": "",
-    "type": "Binary"
+    "type": "boolean"
   },
   "alert/show": {
     "description": "",
-    "type": "Binary"
+    "type": "boolean"
   },
   "alert/countdown": {
     "description": "",
@@ -2092,46 +1724,14 @@
   },
   "accordion-header/tag": {
     "description": "",
-    "type": "string"
+    "type": "keyof HTMLElementTagNameMap"
   },
   "accordion-header/toggle-tag": {
     "description": "",
-    "type": "string"
+    "type": "keyof HTMLElementTagNameMap"
   },
   "accordion-header/model-value": {
     "description": "",
-    "type": "string",
-    "options": [
-      "true",
-      "false"
-    ]
-  },
-  "accordion-body/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "accordion/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "accordion/model-value": {
-    "description": "",
-    "type": "number"
-  },
-  "accordion/flush": {
-    "description": "",
-    "type": "string",
-    "options": [
-      "true",
-      "false"
-    ]
-  },
-  "accordion/always-open": {
-    "description": "",
-    "type": "string",
-    "options": [
-      "true",
-      "false"
-    ]
+    "type": "boolean"
   }
 }

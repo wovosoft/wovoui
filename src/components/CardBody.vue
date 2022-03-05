@@ -19,9 +19,10 @@
 
 <script lang="ts">
 import {defineComponent, PropType, ref} from "vue";
-import CardTitle from "./CardTitle.vue";
-import CardSubTitle from "./CardSubTitle.vue";
-import {ColorVariants} from "../types/colorVariants";
+import CardTitle from "./CardTitle";
+import CardSubTitle from "./CardSubTitle";
+
+import type {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "CardBody",

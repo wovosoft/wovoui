@@ -27,7 +27,7 @@
 <script lang="ts">
 import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {X} from "@wovosoft/wovoui-icons";
-import Badge from "./Badge.vue";
+import Badge from "./Badge";
 import Button from "./Button.vue";
 import type {ColorVariants} from "../types/colorVariants";
 import type {buttonSizes} from "../types/buttonSizes";

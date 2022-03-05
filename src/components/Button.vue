@@ -19,16 +19,16 @@ interface Attributes {
     autocomplete: string | null
 }
 
-import Badge from "./Badge.vue";
+import Badge from "./Badge";
 import {computed, defineComponent, PropType} from "vue";
 
-import {badgePositions} from "../types/badgePositions";
-import {buttonSizes} from "../types/buttonSizes";
+import type {badgePositions} from "../types/badgePositions";
+import type {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
     components: {Badge},
     props: {
-        tag: {type: String as PropType<string>, default: "button"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "button"},
         href: {type: String as PropType<string>, default: null},
         variant: {type: String as PropType<ColorVariants>, default: () => 'secondary'},
         size: {type: String as PropType<buttonSizes>, default: () => null},

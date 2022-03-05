@@ -1,6 +1,5 @@
 import { PropType } from "vue";
-import { ColorVariants } from "../types/colorVariants";
-import { Binary } from "../types/Binary";
+import type { ColorVariants } from "../types/colorVariants";
 declare const _default: import("vue").DefineComponent<{
     tag: {
         type: PropType<string>;
@@ -15,19 +14,19 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     dismissible: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     fade: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     modelValue: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: any;
     };
     show: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     countdown: {
@@ -41,8 +40,8 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     timeoutNow: import("vue").Ref<number>;
     classes: import("vue").ComputedRef<(string | {
-        [x: string]: Binary;
-        "alert-dismissible": Binary;
+        [x: string]: boolean;
+        "alert-dismissible": boolean;
     })[]>;
     visible: import("vue").Ref<boolean>;
     show: () => boolean;
@@ -62,19 +61,19 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     dismissible: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     fade: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     modelValue: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: any;
     };
     show: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     countdown: {
@@ -92,13 +91,13 @@ declare const _default: import("vue").DefineComponent<{
     onCountdown?: (...args: any[]) => any;
 }, {
     tag: string;
-    modelValue: Binary;
+    modelValue: boolean;
     countdown: null;
     dismissLabel: string;
     variant: ColorVariants;
-    dismissible: Binary;
-    fade: Binary;
-    show: Binary;
+    dismissible: boolean;
+    fade: boolean;
+    show: boolean;
     countdownStep: number;
 }>;
 export default _default;

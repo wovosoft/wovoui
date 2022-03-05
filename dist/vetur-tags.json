@@ -1,19 +1,4 @@
 {
-  "accordion": {
-    "attributes": [
-      "tag",
-      "model-value",
-      "flush",
-      "always-open"
-    ],
-    "description": ""
-  },
-  "accordion-body": {
-    "attributes": [
-      "tag"
-    ],
-    "description": ""
-  },
   "accordion-header": {
     "attributes": [
       "tag",
@@ -40,35 +25,6 @@
       "show",
       "countdown",
       "countdown-step"
-    ],
-    "description": ""
-  },
-  "alert-heading": {
-    "attributes": [
-      "tag"
-    ],
-    "description": ""
-  },
-  "alert-link": {
-    "attributes": [
-      "href"
-    ],
-    "description": ""
-  },
-  "aspect": {
-    "attributes": [
-      "tag",
-      "ratio"
-    ],
-    "description": ""
-  },
-  "badge": {
-    "attributes": [
-      "tag",
-      "variant",
-      "pill",
-      "href",
-      "position"
     ],
     "description": ""
   },
@@ -115,32 +71,6 @@
       "badge-variant",
       "active",
       "active-class"
-    ],
-    "description": ""
-  },
-  "button-close": {
-    "attributes": [
-      "white",
-      "aria-label",
-      "disabled"
-    ],
-    "description": ""
-  },
-  "button-group": {
-    "attributes": [
-      "tag",
-      "aria-label",
-      "size",
-      "vertical",
-      "role"
-    ],
-    "description": ""
-  },
-  "button-toolbar": {
-    "attributes": [
-      "tag",
-      "role",
-      "justified"
     ],
     "description": ""
   },
@@ -214,77 +144,6 @@
     ],
     "description": ""
   },
-  "card-footer": {
-    "attributes": [
-      "content",
-      "variant",
-      "border-variant",
-      "tag",
-      "text-variant"
-    ],
-    "description": ""
-  },
-  "card-group": {
-    "attributes": [
-      "tag",
-      "deck",
-      "columns"
-    ],
-    "description": ""
-  },
-  "card-header": {
-    "attributes": [
-      "content",
-      "variant",
-      "border-variant",
-      "tag",
-      "text-variant"
-    ],
-    "description": ""
-  },
-  "card-img": {
-    "attributes": [
-      "src",
-      "alt",
-      "overlay",
-      "bottom",
-      "end",
-      "left",
-      "right",
-      "start",
-      "top",
-      "height",
-      "width"
-    ],
-    "description": ""
-  },
-  "card-link": {
-    "attributes": [
-      "href"
-    ],
-    "description": ""
-  },
-  "card-sub-title": {
-    "attributes": [
-      "title",
-      "tag",
-      "text-variant"
-    ],
-    "description": ""
-  },
-  "card-text": {
-    "attributes": [
-      "tag"
-    ],
-    "description": ""
-  },
-  "card-title": {
-    "attributes": [
-      "title",
-      "tag"
-    ],
-    "description": ""
-  },
   "carousel": {
     "attributes": [
       "tag",
@@ -305,18 +164,6 @@
     "description": ""
   },
   "carousel-control": {
-    "description": ""
-  },
-  "carousel-indicators": {
-    "attributes": [
-      "tag"
-    ],
-    "description": ""
-  },
-  "carousel-inner": {
-    "attributes": [
-      "tag"
-    ],
     "description": ""
   },
   "carousel-item": {
@@ -357,26 +204,6 @@
     ],
     "description": ""
   },
-  "col": {
-    "attributes": [
-      "tag",
-      "col",
-      "sm",
-      "md",
-      "lg",
-      "xl",
-      "align-self",
-      "justify-content",
-      "order",
-      "offset-sm",
-      "offset-md",
-      "offset-lg",
-      "offset-xl",
-      "gx",
-      "gy"
-    ],
-    "description": ""
-  },
   "collapse": {
     "attributes": [
       "tag",
@@ -386,13 +213,6 @@
       "id",
       "is-nav",
       "horizontal"
-    ],
-    "description": ""
-  },
-  "container": {
-    "attributes": [
-      "tag",
-      "fluid"
     ],
     "description": ""
   },
@@ -475,34 +295,6 @@
     ],
     "description": ""
   },
-  "form-label": {
-    "attributes": [
-      "horizontal",
-      "sm",
-      "md",
-      "lg",
-      "xl"
-    ],
-    "description": ""
-  },
-  "grid": {
-    "attributes": [
-      "tag"
-    ],
-    "description": ""
-  },
-  "grid-col": {
-    "attributes": [
-      "tag",
-      "col",
-      "sm",
-      "md",
-      "lg",
-      "xl",
-      "start"
-    ],
-    "description": ""
-  },
   "icon": {
     "attributes": [
       "icon",
@@ -533,22 +325,6 @@
   "input-group-text": {
     "attributes": [
       "tag"
-    ],
-    "description": ""
-  },
-  "link": {
-    "attributes": [
-      "href",
-      "target"
-    ],
-    "description": ""
-  },
-  "list-group": {
-    "attributes": [
-      "tag",
-      "flush",
-      "numbered",
-      "horizontal"
     ],
     "description": ""
   },
@@ -594,27 +370,6 @@
       "size",
       "fullscreen"
     ],
-    "description": ""
-  },
-  "modal-body": {
-    "description": ""
-  },
-  "modal-footer": {
-    "description": ""
-  },
-  "modal-header": {
-    "attributes": [
-      "tag"
-    ],
-    "description": ""
-  },
-  "modal-title": {
-    "attributes": [
-      "tag"
-    ],
-    "description": ""
-  },
-  "nav": {
     "description": ""
   },
   "navbar": {

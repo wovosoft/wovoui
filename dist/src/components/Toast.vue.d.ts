@@ -85,15 +85,15 @@ declare const _default: import("vue").DefineComponent<{
     "onUpdate:modelValue"?: (...args: any[]) => any;
     "onUpdate:show"?: (...args: any[]) => any;
 }, {
-    modelValue: boolean;
     header: string;
+    modelValue: boolean;
     variant: ColorVariants;
     fade: boolean;
     show: boolean;
     bodyClass: string | object;
     noBody: boolean;
-    container: string;
     noCloseButton: boolean;
+    container: string;
 }>;
 export default _default;
 //# sourceMappingURL=Toast.vue.d.ts.map

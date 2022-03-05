@@ -19,7 +19,7 @@
 <script lang="ts">
 import {computed, defineComponent, PropType, ref} from "vue";
 
-import Container from "./Container.vue";
+import Container from "./Container";
 import NavbarBrand from "./NavbarBrand.vue";
 import NavbarToggler from "./NavbarToggler.vue";
 import type {ColorVariants} from "../types/colorVariants";
