@@ -1,1 +1,1 @@
-{"version":3,"file":"tableProps.d.ts","sourceRoot":"","sources":["tableProps.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,QAAQ,EAAC,MAAM,KAAK,CAAC;AAC7B,OAAO,KAAK,EAAC,aAAa,EAAC,MAAM,wBAAwB,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAE1D,wBAaC"}
+{"version":3,"file":"tableProps.d.ts","sourceRoot":"","sources":["tableProps.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,QAAQ,EAAC,MAAM,KAAK,CAAC;AAC7B,OAAO,KAAK,EAAC,aAAa,EAAC,MAAM,wBAAwB,CAAC;AAC1D,OAAO,EAAC,eAAe,EAAC,MAAM,gCAAgC,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAE/D,wBAaC"}

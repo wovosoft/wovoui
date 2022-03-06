@@ -1,8 +1,9 @@
 import { PropType } from "vue";
 import type { ColorVariants } from "../types/colorVariants";
+import { responsiveSizes } from "../types/responsiveLayoutSizes";
 declare const _default: {
     responsive: {
-        type: PropType<string | boolean>;
+        type: PropType<boolean | responsiveSizes>;
         default: boolean;
     };
     variant: {
@@ -26,7 +27,7 @@ declare const _default: {
         default: boolean;
     };
     borderVariant: {
-        type: PropType<string>;
+        type: PropType<ColorVariants>;
         default: any;
     };
     borderless: {

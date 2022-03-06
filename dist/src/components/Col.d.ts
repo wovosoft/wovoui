@@ -6,7 +6,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     col: {
-        type: PropType<string | responsiveNumbers>;
+        type: PropType<string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
         default: any;
     };
     sm: {
@@ -69,7 +69,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     col: {
-        type: PropType<string | responsiveNumbers>;
+        type: PropType<string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12>;
         default: any;
     };
     sm: {
@@ -125,7 +125,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    col: string | responsiveNumbers;
+    col: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
     tag: string;
     sm: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
     lg: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;

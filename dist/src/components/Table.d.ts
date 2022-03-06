@@ -1,6 +1,6 @@
 declare const _default: import("vue").DefineComponent<{
     responsive: {
-        type: import("vue").PropType<string | boolean>;
+        type: import("vue").PropType<boolean | import("../types/responsiveLayoutSizes").responsiveSizes>;
         default: boolean;
     };
     variant: {
@@ -24,7 +24,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     borderVariant: {
-        type: import("vue").PropType<string>;
+        type: import("vue").PropType<import("../types/colorVariants").ColorVariants>;
         default: any;
     };
     borderless: {
@@ -47,24 +47,11 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
-}, {
-    classes: import("vue").ComputedRef<(string | {
-        [x: string]: boolean | import("../types/colorVariants").ColorVariants;
-        "table-striped": boolean;
-        "table-hover": boolean;
-        "table-active": boolean;
-        "table-bordered": boolean;
-        "table-borderless": boolean;
-        "table-sm": boolean;
-        "caption-top": boolean;
-    })[]>;
-    wrapperClass: import("vue").ComputedRef<{
-        [x: string]: string | boolean;
-        "table-responsive": boolean;
-    }>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
+    [key: string]: any;
+}>, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     responsive: {
-        type: import("vue").PropType<string | boolean>;
+        type: import("vue").PropType<boolean | import("../types/responsiveLayoutSizes").responsiveSizes>;
         default: boolean;
     };
     variant: {
@@ -88,7 +75,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     borderVariant: {
-        type: import("vue").PropType<string>;
+        type: import("vue").PropType<import("../types/colorVariants").ColorVariants>;
         default: any;
     };
     borderless: {
@@ -116,8 +103,8 @@ declare const _default: import("vue").DefineComponent<{
     caption: string;
     variant: import("../types/colorVariants").ColorVariants;
     active: boolean;
-    borderVariant: string;
-    responsive: string | boolean;
+    borderVariant: import("../types/colorVariants").ColorVariants;
+    responsive: boolean | import("../types/responsiveLayoutSizes").responsiveSizes;
     striped: boolean;
     hover: boolean;
     bordered: boolean;
@@ -126,4 +113,4 @@ declare const _default: import("vue").DefineComponent<{
     captionTop: boolean;
 }>;
 export default _default;
-//# sourceMappingURL=Table.vue.d.ts.map
+//# sourceMappingURL=Table.d.ts.map

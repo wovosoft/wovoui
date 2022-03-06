@@ -1,28 +1,29 @@
 import { PropType } from "vue";
-import type { colAlignments, ColSizes, justifyContentAlignments, responsiveNumbers } from "../types/responsiveLayoutSizes";
+import type { colAlignments, ColSizes, justifyContentAlignments } from "../types/responsiveLayoutSizes";
+import { responsiveNumbers } from "../types/responsiveLayoutSizes";
 declare const _default: import("vue").DefineComponent<{
     tag: {
         type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     cols: {
-        type: PropType<responsiveNumbers>;
+        type: PropType<ColSizes>;
         default: any;
     };
     sm: {
-        type: PropType<number | boolean>;
+        type: PropType<ColSizes>;
         default: any;
     };
     md: {
-        type: PropType<number | boolean>;
+        type: PropType<ColSizes>;
         default: any;
     };
     lg: {
-        type: PropType<number | boolean>;
+        type: PropType<ColSizes>;
         default: any;
     };
     xl: {
-        type: PropType<number | boolean>;
+        type: PropType<ColSizes>;
         default: any;
     };
     alignItems: {
@@ -53,33 +54,39 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<ColSizes>;
         default: any;
     };
-}, {
-    classes: import("vue").ComputedRef<(string | {
-        [x: string]: number | boolean | "auto" | "start" | "center" | "end" | "around" | "between" | "evenly";
-    })[]>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    gx: {
+        type: PropType<0 | responsiveNumbers>;
+        default: any;
+    };
+    gy: {
+        type: PropType<0 | responsiveNumbers>;
+        default: any;
+    };
+}, () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
+    [key: string]: any;
+}>, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
         type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     cols: {
-        type: PropType<responsiveNumbers>;
+        type: PropType<ColSizes>;
         default: any;
     };
     sm: {
-        type: PropType<number | boolean>;
+        type: PropType<ColSizes>;
         default: any;
     };
     md: {
-        type: PropType<number | boolean>;
+        type: PropType<ColSizes>;
         default: any;
     };
     lg: {
-        type: PropType<number | boolean>;
+        type: PropType<ColSizes>;
         default: any;
     };
     xl: {
-        type: PropType<number | boolean>;
+        type: PropType<ColSizes>;
         default: any;
     };
     alignItems: {
@@ -110,15 +117,25 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<ColSizes>;
         default: any;
     };
+    gx: {
+        type: PropType<0 | responsiveNumbers>;
+        default: any;
+    };
+    gy: {
+        type: PropType<0 | responsiveNumbers>;
+        default: any;
+    };
 }>>, {
     g: ColSizes;
     tag: keyof HTMLElementTagNameMap;
-    sm: number | boolean;
-    lg: number | boolean;
-    md: number | boolean;
-    xl: number | boolean;
+    sm: ColSizes;
+    lg: ColSizes;
+    md: ColSizes;
+    xl: ColSizes;
     justifyContent: justifyContentAlignments;
-    cols: responsiveNumbers;
+    gx: 0 | responsiveNumbers;
+    gy: 0 | responsiveNumbers;
+    cols: ColSizes;
     alignItems: colAlignments;
     gSm: ColSizes;
     gMd: ColSizes;
@@ -126,4 +143,4 @@ declare const _default: import("vue").DefineComponent<{
     gXl: ColSizes;
 }>;
 export default _default;
-//# sourceMappingURL=Row.vue.d.ts.map
+//# sourceMappingURL=Row.d.ts.map

@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType, reactive, ref} from "vue";
-import Table from "./Table.vue";
+import Table from "./Table";
 import tableProps from "../shared/tableProps";
 import THead from "./THead.vue";
 import Th from "./Th.vue";

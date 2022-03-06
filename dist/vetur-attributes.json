@@ -331,58 +331,6 @@
     "description": "",
     "type": "object"
   },
-  "row/tag": {
-    "description": "",
-    "type": "keyof HTMLElementTagNameMap"
-  },
-  "row/cols": {
-    "description": "",
-    "type": "responsiveNumbers"
-  },
-  "row/sm": {
-    "description": "",
-    "type": "number | boolean"
-  },
-  "row/md": {
-    "description": "",
-    "type": "number | boolean"
-  },
-  "row/lg": {
-    "description": "",
-    "type": "number | boolean"
-  },
-  "row/xl": {
-    "description": "",
-    "type": "number | boolean"
-  },
-  "row/align-items": {
-    "description": "",
-    "type": "colAlignments"
-  },
-  "row/justify-content": {
-    "description": "",
-    "type": "justifyContentAlignments"
-  },
-  "row/g": {
-    "description": "",
-    "type": "ColSizes"
-  },
-  "row/g-sm": {
-    "description": "",
-    "type": "ColSizes"
-  },
-  "row/g-md": {
-    "description": "",
-    "type": "ColSizes"
-  },
-  "row/g-lg": {
-    "description": "",
-    "type": "ColSizes"
-  },
-  "row/g-xl": {
-    "description": "",
-    "type": "ColSizes"
-  },
   "rating/min": {
     "description": "",
     "type": "number"

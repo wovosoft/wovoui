@@ -13,13 +13,16 @@ export default defineComponent({
     name: "Col",
     props: {
         tag: {type: String as PropType<string>, default: "div"},
-        col: {type: [String, Number] as PropType<string | responsiveNumbers>, default: null},
+        col: {type: [String, Number] as PropType<string | ColSizes>, default: null},
         sm: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
         md: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
         lg: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
         xl: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
         alignSelf: {type: String as PropType<colAlignments>, default: null},
-        justifyContent: {type: String as PropType<justifyContentAlignments>, default: null},
+        justifyContent: {
+            type: String as PropType<justifyContentAlignments>,
+            default: null
+        },
         order: {type: [Number, String] as PropType<colOrders>, default: null},
         offsetSm: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
         offsetMd: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},

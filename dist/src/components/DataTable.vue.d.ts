@@ -17,7 +17,7 @@ declare const _default: import("vue").DefineComponent<{
         default: () => any[];
     };
     responsive: {
-        type: PropType<string | boolean>;
+        type: PropType<boolean | import("../types/responsiveLayoutSizes").responsiveSizes>;
         default: boolean;
     };
     variant: {
@@ -41,7 +41,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     borderVariant: {
-        type: PropType<string>;
+        type: PropType<import("../types/colorVariants").ColorVariants>;
         default: any;
     };
     borderless: {
@@ -72,8 +72,8 @@ declare const _default: import("vue").DefineComponent<{
         caption: string;
         variant: import("../types/colorVariants").ColorVariants;
         active: boolean;
-        borderVariant: string;
-        responsive: string | boolean;
+        borderVariant: import("../types/colorVariants").ColorVariants;
+        responsive: boolean | import("../types/responsiveLayoutSizes").responsiveSizes;
         striped: boolean;
         hover: boolean;
         bordered: boolean;
@@ -116,7 +116,7 @@ declare const _default: import("vue").DefineComponent<{
         default: () => any[];
     };
     responsive: {
-        type: PropType<string | boolean>;
+        type: PropType<boolean | import("../types/responsiveLayoutSizes").responsiveSizes>;
         default: boolean;
     };
     variant: {
@@ -140,7 +140,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     borderVariant: {
-        type: PropType<string>;
+        type: PropType<import("../types/colorVariants").ColorVariants>;
         default: any;
     };
     borderless: {
@@ -172,8 +172,8 @@ declare const _default: import("vue").DefineComponent<{
     variant: import("../types/colorVariants").ColorVariants;
     active: boolean;
     items: any[];
-    borderVariant: string;
-    responsive: string | boolean;
+    borderVariant: import("../types/colorVariants").ColorVariants;
+    responsive: boolean | import("../types/responsiveLayoutSizes").responsiveSizes;
     striped: boolean;
     hover: boolean;
     bordered: boolean;

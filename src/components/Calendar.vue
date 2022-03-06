@@ -98,7 +98,7 @@ import localData from "dayjs/plugin/localeData";
 dayjs.extend(localData);
 dayjs.extend(isToday);
 
-import Row from "./Row.vue";
+import Row from "./Row";
 import Col from "./Col";
 import Button from "./Button.vue";
 import InputGroup from "./InputGroup.vue";

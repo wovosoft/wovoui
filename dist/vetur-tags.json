@@ -583,24 +583,6 @@
     ],
     "description": ""
   },
-  "row": {
-    "attributes": [
-      "tag",
-      "cols",
-      "sm",
-      "md",
-      "lg",
-      "xl",
-      "align-items",
-      "justify-content",
-      "g",
-      "g-sm",
-      "g-md",
-      "g-lg",
-      "g-xl"
-    ],
-    "description": ""
-  },
   "select": {
     "attributes": [
       "multiple",
@@ -649,9 +631,6 @@
       "active",
       "title"
     ],
-    "description": ""
-  },
-  "table": {
     "description": ""
   },
   "tabs": {
