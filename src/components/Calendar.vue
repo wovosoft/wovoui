@@ -100,7 +100,7 @@ dayjs.extend(isToday);
 
 import Row from "./Row";
 import Col from "./Col";
-import Button from "./Button.vue";
+import Button from "./Button";
 import InputGroup from "./InputGroup.vue";
 
 import {

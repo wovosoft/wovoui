@@ -10,6 +10,6 @@ export default defineComponent({
         return () => h("a", {
             href: props.href,
             target: props.target
-        }, slots.default())
+        }, slots.default ? slots.default() : null)
     }
 })

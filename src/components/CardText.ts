@@ -8,6 +8,6 @@ export default defineComponent({
     setup(props, {slots}) {
         return () => h(props.tag, {
             class: ["card-text"]
-        }, slots.default())
+        }, slots.default ? slots.default() : null)
     }
 })

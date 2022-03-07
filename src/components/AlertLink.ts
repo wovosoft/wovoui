@@ -10,7 +10,7 @@ export default defineComponent({
         return () => h(
             "a",
             {class: classes.value, href: props.href},
-            [slots.default()]
+            slots.default ? slots.default() : null
         )
     }
 });

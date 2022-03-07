@@ -35,7 +35,7 @@ export default defineComponent({
             const table = () => h(
                 "table",
                 {class: classes},
-                [caption(), slots.default()]
+                [caption(), slots.default ? slots.default() : null]
             )
 
             return props.responsive ? h("div", {class: wrapperClasses}, [table()]) : table();

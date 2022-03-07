@@ -23,7 +23,7 @@ export default defineComponent({
                 role: props.role,
                 ariaLabel: props.ariaLabel
             },
-            [slots.default()]
+            slots.default ? slots.default() : null
         )
     }
 });

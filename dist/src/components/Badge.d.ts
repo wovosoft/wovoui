@@ -22,6 +22,10 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<badgePositions>;
         default: any;
     };
+    content: {
+        type: PropType<string | number>;
+        default: any;
+    };
 }, () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
     [key: string]: any;
 }>, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -45,12 +49,17 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<badgePositions>;
         default: any;
     };
+    content: {
+        type: PropType<string | number>;
+        default: any;
+    };
 }>>, {
     tag: keyof HTMLElementTagNameMap;
     variant: ColorVariants;
     href: string;
     pill: boolean;
     position: badgePositions;
+    content: string | number;
 }>;
 export default _default;
 //# sourceMappingURL=Badge.d.ts.map

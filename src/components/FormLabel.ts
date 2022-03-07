@@ -20,6 +20,6 @@ export default defineComponent({
                 ["col-lg-" + props.lg]: props.horizontal && props.lg,
                 ["col-xl-" + props.xl]: props.horizontal && props.xl,
             }
-        }, slots.default())
+        }, slots.default ? slots.default() : null)
     }
 })

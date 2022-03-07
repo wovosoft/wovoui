@@ -48,11 +48,11 @@
 import {computed, defineComponent, PropType, reactive, ref} from "vue";
 import Table from "./Table";
 import tableProps from "../shared/tableProps";
-import THead from "./THead.vue";
-import Th from "./Th.vue";
-import TBody from "./TBody.vue";
-import Tr from "./Tr.vue";
-import Td from "./Td.vue";
+import THead from "./THead";
+import Th from "./Th";
+import TBody from "./TBody";
+import Tr from "./Tr";
+import Td from "./Td";
 import {isObject, title} from "../shared/utilities.js";
 import {lowerCase} from "lodash/string.js";
 import {orderBy} from "lodash";

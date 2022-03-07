@@ -41,7 +41,7 @@
 <script lang="ts">
 import CardHeader from "./CardHeader";
 import {computed, defineComponent, PropType} from "vue";
-import CardBody from "./CardBody.vue";
+import CardBody from "./CardBody";
 import CardFooter from "./CardFooter";
 import CardImg from "./CardImg";
 import {ColorVariants} from "../types/colorVariants";

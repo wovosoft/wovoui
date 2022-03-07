@@ -71,7 +71,7 @@ import ModalBody from "./ModalBody";
 import ModalHeader from "./ModalHeader";
 import ModalTitle from "./ModalTitle";
 import ModalFooter from "./ModalFooter";
-import Button from "./Button.vue";
+import Button from "./Button";
 import type {modalFullScreen} from "../types/modalFullScreen";
 import type {buttonSizes} from "../types/buttonSizes";
 

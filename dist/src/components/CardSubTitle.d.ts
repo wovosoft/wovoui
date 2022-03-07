@@ -1,5 +1,6 @@
 import { PropType } from "vue";
-import { ColorVariants } from "../types/colorVariants";
+import type { ColorVariants } from "../types/colorVariants";
+import type { textVariants } from "../types/textVariants";
 declare const _default: import("vue").DefineComponent<{
     title: {
         type: PropType<string>;
@@ -10,7 +11,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     textVariant: {
-        type: PropType<ColorVariants>;
+        type: PropType<ColorVariants | textVariants>;
         default: string;
     };
 }, () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
@@ -25,13 +26,13 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     textVariant: {
-        type: PropType<ColorVariants>;
+        type: PropType<ColorVariants | textVariants>;
         default: string;
     };
 }>>, {
     title: string;
     tag: string;
-    textVariant: ColorVariants;
+    textVariant: ColorVariants | textVariants;
 }>;
 export default _default;
 //# sourceMappingURL=CardSubTitle.d.ts.map

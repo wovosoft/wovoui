@@ -1,1 +1,1 @@
-{"version":3,"file":"CardSubTitle.d.ts","sourceRoot":"","sources":["CardSubTitle.ts"],"names":[],"mappings":"AAAA,OAAO,EAAkB,QAAQ,EAAI,MAAM,KAAK,CAAC;AACjD,OAAO,EAAC,aAAa,EAAC,MAAM,wBAAwB,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAErD,wBAiBE"}
+{"version":3,"file":"CardSubTitle.d.ts","sourceRoot":"","sources":["CardSubTitle.ts"],"names":[],"mappings":"AAAA,OAAO,EAAkB,QAAQ,EAAI,MAAM,KAAK,CAAC;AACjD,OAAO,KAAK,EAAC,aAAa,EAAC,MAAM,wBAAwB,CAAC;AAC1D,OAAO,KAAK,EAAC,YAAY,EAAC,MAAM,uBAAuB,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAExD,wBAiBE"}

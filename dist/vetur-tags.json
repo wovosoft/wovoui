@@ -53,27 +53,6 @@
     ],
     "description": ""
   },
-  "button": {
-    "attributes": [
-      "tag",
-      "href",
-      "variant",
-      "size",
-      "type",
-      "outline",
-      "block",
-      "pill",
-      "squared",
-      "disabled",
-      "pressed",
-      "badge",
-      "bade-position",
-      "badge-variant",
-      "active",
-      "active-class"
-    ],
-    "description": ""
-  },
   "calendar": {
     "attributes": [
       "model-value",
@@ -128,22 +107,6 @@
     ],
     "description": ""
   },
-  "card-body": {
-    "attributes": [
-      "content",
-      "variant",
-      "border-variant",
-      "tag",
-      "text-variant",
-      "overlay",
-      "sub-title",
-      "sub-title-tag",
-      "sub-title-text-variant",
-      "title",
-      "title-tag"
-    ],
-    "description": ""
-  },
   "carousel": {
     "attributes": [
       "tag",
@@ -154,12 +117,6 @@
       "dark",
       "intervals",
       "direction"
-    ],
-    "description": ""
-  },
-  "carousel-caption": {
-    "attributes": [
-      "tag"
     ],
     "description": ""
   },
@@ -273,6 +230,15 @@
       "tag",
       "dark",
       "show"
+    ],
+    "description": ""
+  },
+  "figure": {
+    "attributes": [
+      "caption",
+      "img-url",
+      "img-fluid",
+      "img-alt"
     ],
     "description": ""
   },
@@ -528,21 +494,6 @@
     ],
     "description": ""
   },
-  "progress": {
-    "attributes": [
-      "tag",
-      "bar-tag",
-      "value",
-      "min",
-      "max",
-      "show-value",
-      "striped",
-      "animated",
-      "height",
-      "variant"
-    ],
-    "description": ""
-  },
   "progress-bar": {
     "attributes": [
       "tag",
@@ -618,14 +569,6 @@
     ],
     "description": ""
   },
-  "stack": {
-    "attributes": [
-      "tag",
-      "vertical",
-      "gap"
-    ],
-    "description": ""
-  },
   "tab": {
     "attributes": [
       "active",
@@ -663,53 +606,6 @@
     ],
     "description": ""
   },
-  "t-body": {
-    "attributes": [
-      "variant",
-      "active",
-      "align"
-    ],
-    "description": ""
-  },
-  "td": {
-    "attributes": [
-      "variant",
-      "active",
-      "align"
-    ],
-    "description": ""
-  },
-  "textarea": {
-    "attributes": [
-      "size",
-      "model-value"
-    ],
-    "description": ""
-  },
-  "t-foot": {
-    "attributes": [
-      "variant",
-      "active",
-      "align"
-    ],
-    "description": ""
-  },
-  "th": {
-    "attributes": [
-      "variant",
-      "active",
-      "align"
-    ],
-    "description": ""
-  },
-  "t-head": {
-    "attributes": [
-      "variant",
-      "active",
-      "align"
-    ],
-    "description": ""
-  },
   "toast": {
     "attributes": [
       "show",
@@ -722,9 +618,6 @@
       "variant",
       "container"
     ],
-    "description": ""
-  },
-  "toast-body": {
     "description": ""
   },
   "toast-container": {
@@ -743,17 +636,6 @@
       "opens-on",
       "closes-on"
     ],
-    "description": ""
-  },
-  "tr": {
-    "attributes": [
-      "variant",
-      "active",
-      "align"
-    ],
-    "description": ""
-  },
-  "vr": {
     "description": ""
   }
 }

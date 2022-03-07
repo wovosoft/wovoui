@@ -22,6 +22,6 @@ export default defineComponent({
                     ["list-group-horizontal" + (typeof props.horizontal === "string" ? "-" + props.horizontal : "")]: props.horizontal,
                 }
             ]
-        }, slots.default())
+        }, slots.default ? slots.default() : null)
     }
 })

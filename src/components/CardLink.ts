@@ -9,6 +9,6 @@ export default defineComponent({
         return () => h("a", {
             href: props.href,
             class: ["card-link"]
-        }, slots.default())
+        }, slots.default ? slots.default() : null)
     }
 })

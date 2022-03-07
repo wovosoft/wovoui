@@ -31,7 +31,7 @@ export default defineComponent({
         return () => h(
             props.tag,
             {class: classes.value},
-            [slots.default()]
+            slots.default ? slots.default() : null
         )
     }
 })

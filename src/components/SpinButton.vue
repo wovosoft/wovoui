@@ -34,11 +34,9 @@
 
 <script lang="ts">
 import InputGroup from "./InputGroup.vue";
-import Button from "./Button.vue";
-import {makeNumber, makeString} from "../shared/properties.js";
+import Button from "./Button";
 import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
-import {makeBoolean} from "../shared/properties";
 import type {ColorVariants} from "../types/colorVariants";
 import type {buttonSizes} from "../types/buttonSizes";
 

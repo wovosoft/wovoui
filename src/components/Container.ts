@@ -15,6 +15,6 @@ export default defineComponent({
                 "container-fluid": props.fluid && !props.size,
                 ["container-" + props.size]: props.size && !props.fluid
             }
-        }, slots.default())
+        }, slots.default ? slots.default() : null)
     }
 });

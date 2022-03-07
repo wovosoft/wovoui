@@ -45,6 +45,6 @@ export default defineComponent({
                 ["gx-" + props.gx]: props.gx,
                 ["gy-" + props.gy]: props.gy,
             }]
-        }, slots.default())
+        }, slots.default ? slots.default() : null)
     }
 })

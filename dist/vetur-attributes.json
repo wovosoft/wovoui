@@ -1,16 +1,4 @@
 {
-  "tr/variant": {
-    "description": "",
-    "type": "makeString(null)"
-  },
-  "tr/active": {
-    "description": "",
-    "type": "makeBoolean(false)"
-  },
-  "tr/align": {
-    "description": "",
-    "type": "makeString(null)"
-  },
   "tooltip/target": {
     "description": "",
     "type": "string"
@@ -76,74 +64,6 @@
     "type": "ColorVariants"
   },
   "toast/container": {
-    "description": "",
-    "type": "string"
-  },
-  "t-head/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "t-head/active": {
-    "description": "",
-    "type": "makeBoolean(false)"
-  },
-  "t-head/align": {
-    "description": "",
-    "type": "makeString(null)"
-  },
-  "th/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "th/active": {
-    "description": "",
-    "type": "boolean"
-  },
-  "th/align": {
-    "description": "",
-    "type": "string"
-  },
-  "t-foot/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "t-foot/active": {
-    "description": "",
-    "type": "boolean"
-  },
-  "t-foot/align": {
-    "description": "",
-    "type": "string"
-  },
-  "textarea/size": {
-    "description": "",
-    "type": "buttonSizes"
-  },
-  "textarea/model-value": {
-    "description": "",
-    "type": "string"
-  },
-  "td/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "td/active": {
-    "description": "",
-    "type": "boolean"
-  },
-  "td/align": {
-    "description": "",
-    "type": "string"
-  },
-  "t-body/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "t-body/active": {
-    "description": "",
-    "type": "boolean"
-  },
-  "t-body/align": {
     "description": "",
     "type": "string"
   },
@@ -238,18 +158,6 @@
   "tab/title": {
     "description": "",
     "type": "string"
-  },
-  "stack/tag": {
-    "description": "",
-    "type": "keyof HTMLElementTagNameMap"
-  },
-  "stack/vertical": {
-    "description": "",
-    "type": "boolean"
-  },
-  "stack/gap": {
-    "description": "",
-    "type": "number | string"
   },
   "spinner/grow": {
     "description": "",
@@ -408,46 +316,6 @@
     "type": "boolean"
   },
   "progress-bar/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "progress/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "progress/bar-tag": {
-    "description": "",
-    "type": "keyof HTMLElementTagNameMap"
-  },
-  "progress/value": {
-    "description": "",
-    "type": "number"
-  },
-  "progress/min": {
-    "description": "",
-    "type": "number"
-  },
-  "progress/max": {
-    "description": "",
-    "type": "number"
-  },
-  "progress/show-value": {
-    "description": "",
-    "type": "boolean"
-  },
-  "progress/striped": {
-    "description": "",
-    "type": "boolean"
-  },
-  "progress/animated": {
-    "description": "",
-    "type": "boolean"
-  },
-  "progress/height": {
-    "description": "",
-    "type": "string"
-  },
-  "progress/variant": {
     "description": "",
     "type": "ColorVariants"
   },
@@ -1046,6 +914,22 @@
     "description": "",
     "type": "boolean"
   },
+  "figure/caption": {
+    "description": "",
+    "type": "string"
+  },
+  "figure/img-url": {
+    "description": "",
+    "type": "string"
+  },
+  "figure/img-fluid": {
+    "description": "",
+    "type": "boolean"
+  },
+  "figure/img-alt": {
+    "description": "",
+    "type": "string"
+  },
   "dropdown-menu/tag": {
     "description": "",
     "type": "string"
@@ -1242,10 +1126,6 @@
     "description": "",
     "type": "string"
   },
-  "carousel-caption/tag": {
-    "description": "",
-    "type": "string"
-  },
   "carousel/tag": {
     "description": "",
     "type": "keyof HTMLElementTagNameMap"
@@ -1281,50 +1161,6 @@
       "next",
       "prev"
     ]
-  },
-  "card-body/content": {
-    "description": "",
-    "type": "string"
-  },
-  "card-body/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "card-body/border-variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "card-body/tag": {
-    "description": "",
-    "type": "string"
-  },
-  "card-body/text-variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "card-body/overlay": {
-    "description": "",
-    "type": "boolean"
-  },
-  "card-body/sub-title": {
-    "description": "",
-    "type": "string"
-  },
-  "card-body/sub-title-tag": {
-    "description": "",
-    "type": "string"
-  },
-  "card-body/sub-title-text-variant": {
-    "description": "",
-    "type": "string"
-  },
-  "card-body/title": {
-    "description": "",
-    "type": "string"
-  },
-  "card-body/title-tag": {
-    "description": "",
-    "type": "string"
   },
   "card/align": {
     "description": "",
@@ -1499,70 +1335,6 @@
     "type": "Binary"
   },
   "calendar/active-class": {
-    "description": "",
-    "type": "string"
-  },
-  "button/tag": {
-    "description": "",
-    "type": "keyof HTMLElementTagNameMap"
-  },
-  "button/href": {
-    "description": "",
-    "type": "string"
-  },
-  "button/variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "button/size": {
-    "description": "",
-    "type": "buttonSizes"
-  },
-  "button/type": {
-    "description": "",
-    "type": "string"
-  },
-  "button/outline": {
-    "description": "",
-    "type": "boolean"
-  },
-  "button/block": {
-    "description": "",
-    "type": "boolean"
-  },
-  "button/pill": {
-    "description": "",
-    "type": "boolean"
-  },
-  "button/squared": {
-    "description": "",
-    "type": "boolean"
-  },
-  "button/disabled": {
-    "description": "",
-    "type": "boolean"
-  },
-  "button/pressed": {
-    "description": "",
-    "type": "boolean"
-  },
-  "button/badge": {
-    "description": "",
-    "type": "string | number"
-  },
-  "button/bade-position": {
-    "description": "",
-    "type": "badgePositions"
-  },
-  "button/badge-variant": {
-    "description": "",
-    "type": "ColorVariants"
-  },
-  "button/active": {
-    "description": "",
-    "type": "boolean"
-  },
-  "button/active-class": {
     "description": "",
     "type": "string"
   },
