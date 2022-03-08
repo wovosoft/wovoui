@@ -353,6 +353,7 @@ declare const _default: import("vue").DefineComponent<{
     header: string;
     title: string;
     tag: string;
+    bodyClass: string | any[];
     overlay: boolean;
     borderVariant: ColorVariants;
     textVariant: ColorVariants;
@@ -364,7 +365,6 @@ declare const _default: import("vue").DefineComponent<{
     bgVariant: ColorVariants;
     bodyBgVariant: ColorVariants;
     bodyBorderVariant: ColorVariants;
-    bodyClass: string | any[];
     bodyTag: string;
     bodyTextVariant: ColorVariants;
     footerBgVariant: ColorVariants;

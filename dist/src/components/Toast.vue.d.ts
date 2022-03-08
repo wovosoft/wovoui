@@ -87,10 +87,10 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     header: string;
     modelValue: boolean;
+    bodyClass: string | object;
     variant: ColorVariants;
     fade: boolean;
     show: boolean;
-    bodyClass: string | object;
     noBody: boolean;
     noCloseButton: boolean;
     container: string;

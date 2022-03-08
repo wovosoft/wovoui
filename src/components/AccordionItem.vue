@@ -7,7 +7,7 @@
         </AccordionHeader>
 
         <Collapse class="accordion-collapse" v-model="visible">
-            <AccordionBody>
+            <AccordionBody :class="bodyClass">
                 <slot></slot>
             </AccordionBody>
         </Collapse>
@@ -27,7 +27,8 @@ export default defineComponent({
     components: {AccordionHeader, AccordionBody, Collapse},
     props: {
         header: {type: String as PropType<string>, default: null},
-        modelValue: {type: Boolean as PropType<Binary>, default: false}
+        modelValue: {type: Boolean as PropType<Binary>, default: false},
+        bodyClass: {type: [Array, Object, String] as PropType<any>, default: null}
     },
     setup(props, {}) {
         const visible = ref(props.modelValue);

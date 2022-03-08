@@ -10,7 +10,8 @@
   "accordion-item": {
     "attributes": [
       "header",
-      "model-value"
+      "model-value",
+      "body-class"
     ],
     "description": ""
   },
@@ -306,6 +307,13 @@
     ],
     "description": ""
   },
+  "menu": {
+    "attributes": [
+      "items",
+      "child"
+    ],
+    "description": ""
+  },
   "modal": {
     "attributes": [
       "animation",
@@ -352,23 +360,10 @@
     ],
     "description": ""
   },
-  "navbar-brand": {
-    "attributes": [
-      "tag",
-      "href"
-    ],
-    "description": ""
-  },
   "navbar-nav": {
     "attributes": [
       "scroll-height",
       "scrollable-l"
-    ],
-    "description": ""
-  },
-  "navbar-toggler": {
-    "attributes": [
-      "model-value"
     ],
     "description": ""
   },

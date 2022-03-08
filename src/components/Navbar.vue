@@ -20,8 +20,8 @@
 import {computed, defineComponent, PropType, ref} from "vue";
 
 import Container from "./Container";
-import NavbarBrand from "./NavbarBrand.vue";
-import NavbarToggler from "./NavbarToggler.vue";
+import NavbarBrand from "./NavbarBrand";
+import NavbarToggler from "./NavbarToggler";
 import type {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({

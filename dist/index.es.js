@@ -48,7 +48,7 @@ var _export_sfc$1 = (sfc, props) => {
   return target;
 };
 
-const _sfc_main$T = defineComponent({
+const _sfc_main$S = defineComponent({
   name: "AccordionHeader",
   emits: ["update:modelValue"],
   props: {
@@ -57,7 +57,7 @@ const _sfc_main$T = defineComponent({
     modelValue: { type: Boolean, default: false }
   }
 });
-function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "accordion-header" }, {
     default: withCtx(() => [
       (openBlock(), createBlock(resolveDynamicComponent(_ctx.toggleTag), {
@@ -75,7 +75,7 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var AccordionHeader = /* @__PURE__ */ _export_sfc$1(_sfc_main$T, [["render", _sfc_render$T]]);
+var AccordionHeader = /* @__PURE__ */ _export_sfc$1(_sfc_main$S, [["render", _sfc_render$S]]);
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -17309,7 +17309,7 @@ const toggleCollapse = (container, shown, dim = "height", /*shouldRenderHandler*
 const isObject$7 = (obj) => typeof obj === "object" && !Array.isArray(obj);
 const title = (str) => lodash.exports.startCase(lodash.exports.toLower(str));
 
-const _sfc_main$S = defineComponent({
+const _sfc_main$R = defineComponent({
   name: "Collapse",
   props: {
     tag: { type: String, default: "div" },
@@ -17370,7 +17370,7 @@ const _sfc_main$S = defineComponent({
     document.removeEventListener("toggleCollapse", this.listener);
   }
 });
-function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     ref: "collapse",
@@ -17383,15 +17383,16 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "id"]);
 }
-var Collapse = /* @__PURE__ */ _export_sfc$1(_sfc_main$S, [["render", _sfc_render$S]]);
+var Collapse = /* @__PURE__ */ _export_sfc$1(_sfc_main$R, [["render", _sfc_render$R]]);
 
-const _sfc_main$R = defineComponent({
+const _sfc_main$Q = defineComponent({
   name: "AccordionItem",
   emits: ["update:modelValue"],
   components: { AccordionHeader, AccordionBody, Collapse },
   props: {
     header: { type: String, default: null },
-    modelValue: { type: Boolean, default: false }
+    modelValue: { type: Boolean, default: false },
+    bodyClass: { type: [Array, Object, String], default: null }
   },
   setup(props, {}) {
     const visible = ref(props.modelValue);
@@ -17408,7 +17409,7 @@ const _sfc_main$R = defineComponent({
   }
 });
 const _hoisted_1$o = { class: "accordion-item" };
-function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_AccordionHeader = resolveComponent("AccordionHeader");
   const _component_AccordionBody = resolveComponent("AccordionBody");
   const _component_Collapse = resolveComponent("Collapse");
@@ -17430,18 +17431,20 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
       "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => _ctx.visible = $event)
     }, {
       default: withCtx(() => [
-        createVNode(_component_AccordionBody, null, {
+        createVNode(_component_AccordionBody, {
+          class: normalizeClass(_ctx.bodyClass)
+        }, {
           default: withCtx(() => [
             renderSlot(_ctx.$slots, "default")
           ]),
           _: 3
-        })
+        }, 8, ["class"])
       ]),
       _: 3
     }, 8, ["modelValue"])
   ]);
 }
-var AccordionItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$R, [["render", _sfc_render$R]]);
+var AccordionItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$Q, [["render", _sfc_render$Q]]);
 
 var ButtonClose = defineComponent({
   props: {
@@ -17459,7 +17462,7 @@ var ButtonClose = defineComponent({
   }
 });
 
-const _sfc_main$Q = defineComponent({
+const _sfc_main$P = defineComponent({
   emits: ["update:modelValue", "update:show", "dismissed", "countdown"],
   components: { ButtonClose },
   props: {
@@ -17530,7 +17533,7 @@ const _sfc_main$Q = defineComponent({
     };
   }
 });
-function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ButtonClose = resolveComponent("ButtonClose");
   return _ctx.visible ? (openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     key: 0,
@@ -17554,7 +17557,7 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"])) : createCommentVNode("", true);
 }
-var Alert = /* @__PURE__ */ _export_sfc$1(_sfc_main$Q, [["render", _sfc_render$Q]]);
+var Alert = /* @__PURE__ */ _export_sfc$1(_sfc_main$P, [["render", _sfc_render$P]]);
 
 var AlertHeading = defineComponent({
   name: "AlertHeading",
@@ -17617,7 +17620,7 @@ var Badge = defineComponent({
   }
 });
 
-const _sfc_main$P = defineComponent({
+const _sfc_main$O = defineComponent({
   name: "BreadcrumbItem",
   props: {
     tag: { type: String, default: "li" },
@@ -17652,7 +17655,7 @@ const _sfc_main$P = defineComponent({
   }
 });
 const _hoisted_1$n = ["href"];
-function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
     default: withCtx(() => [
@@ -17674,9 +17677,9 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]);
 }
-var BreadcrumbItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$P, [["render", _sfc_render$P]]);
+var BreadcrumbItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$O, [["render", _sfc_render$O]]);
 
-const _sfc_main$O = defineComponent({
+const _sfc_main$N = defineComponent({
   name: "Breadcrumb",
   components: { BreadcrumbItem },
   props: {
@@ -17692,7 +17695,7 @@ const _sfc_main$O = defineComponent({
     };
   }
 });
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_BreadcrumbItem = resolveComponent("BreadcrumbItem");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
@@ -17716,7 +17719,7 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Breadcrumb = /* @__PURE__ */ _export_sfc$1(_sfc_main$O, [["render", _sfc_render$O]]);
+var Breadcrumb = /* @__PURE__ */ _export_sfc$1(_sfc_main$N, [["render", _sfc_render$N]]);
 
 var Button = defineComponent({
   props: {
@@ -17976,7 +17979,7 @@ var CardImg = defineComponent({
 
 var Card_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$N = defineComponent({
+const _sfc_main$M = defineComponent({
   name: "Card",
   components: { CardImg, CardFooter, CardBody, CardHeader },
   props: {
@@ -18066,7 +18069,7 @@ const _sfc_main$N = defineComponent({
     };
   }
 });
-function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CardHeader = resolveComponent("CardHeader");
   const _component_CardImg = resolveComponent("CardImg");
   const _component_CardBody = resolveComponent("CardBody");
@@ -18124,7 +18127,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Card = /* @__PURE__ */ _export_sfc$1(_sfc_main$N, [["render", _sfc_render$N]]);
+var Card = /* @__PURE__ */ _export_sfc$1(_sfc_main$M, [["render", _sfc_render$M]]);
 
 var CardGroup = defineComponent({
   name: "CardGroup",
@@ -18171,7 +18174,7 @@ var CardText = defineComponent({
   }
 });
 
-const _sfc_main$M = defineComponent({
+const _sfc_main$L = defineComponent({
   name: "Checkbox",
   emits: ["update:modelValue", "checked", "unchecked"],
   props: {
@@ -18249,10 +18252,10 @@ const _sfc_main$M = defineComponent({
   }
 });
 const _hoisted_1$m = ["required", "readonly", "disabled", "name", "value", "id"];
-const _hoisted_2$f = ["for"];
-const _hoisted_3$9 = ["required", "readonly", "disabled", "name", "value", "id"];
+const _hoisted_2$e = ["for"];
+const _hoisted_3$8 = ["required", "readonly", "disabled", "name", "value", "id"];
 const _hoisted_4$3 = ["for"];
-function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.button ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
     withDirectives(createElementVNode("input", mergeProps({
       class: "btn-check",
@@ -18273,7 +18276,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
       for: _ctx.identifier
     }, [
       renderSlot(_ctx.$slots, "default")
-    ], 10, _hoisted_2$f)) : createCommentVNode("", true)
+    ], 10, _hoisted_2$e)) : createCommentVNode("", true)
   ], 64)) : (openBlock(), createElementBlock("div", {
     key: 1,
     class: normalizeClass(_ctx.classes)
@@ -18288,7 +18291,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
       type: "checkbox",
       "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => _ctx.model = $event),
       value: _ctx.value
-    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_3$9), [
+    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_3$8), [
       [vModelCheckbox, _ctx.model]
     ]),
     _ctx.$slots.default ? (openBlock(), createElementBlock("label", {
@@ -18300,9 +18303,9 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     ], 8, _hoisted_4$3)) : createCommentVNode("", true)
   ], 2));
 }
-var Checkbox = /* @__PURE__ */ _export_sfc$1(_sfc_main$M, [["render", _sfc_render$M]]);
+var Checkbox = /* @__PURE__ */ _export_sfc$1(_sfc_main$L, [["render", _sfc_render$L]]);
 
-const _sfc_main$L = defineComponent({
+const _sfc_main$K = defineComponent({
   name: "CheckboxGroup",
   components: { Checkbox },
   emits: ["update:modelValue"],
@@ -18330,7 +18333,7 @@ const _sfc_main$L = defineComponent({
   }
 });
 const _hoisted_1$l = { role: "group" };
-function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Checkbox = resolveComponent("Checkbox");
   return openBlock(), createElementBlock("div", _hoisted_1$l, [
     (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.options, (option, option_key) => {
@@ -18350,7 +18353,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var CheckboxGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$L, [["render", _sfc_render$L]]);
+var CheckboxGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$K, [["render", _sfc_render$K]]);
 
 const isBoolean = (val) => typeof val === "boolean";
 
@@ -22922,7 +22925,7 @@ var string = {
   'words': words_1
 };
 
-const _sfc_main$K = defineComponent({
+const _sfc_main$J = defineComponent({
   name: "Icon",
   props: {
     icon: { type: String, default: null },
@@ -22934,14 +22937,14 @@ const _sfc_main$K = defineComponent({
     };
   }
 });
-function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("i", {
     class: normalizeClass(["bi", { ["bi-" + _ctx.theIcon]: _ctx.theIcon, ["text-" + _ctx.variant]: _ctx.variant }])
   }, null, 2);
 }
-var Icon = /* @__PURE__ */ _export_sfc$1(_sfc_main$K, [["render", _sfc_render$K]]);
+var Icon = /* @__PURE__ */ _export_sfc$1(_sfc_main$J, [["render", _sfc_render$J]]);
 
-const _sfc_main$J = defineComponent({
+const _sfc_main$I = defineComponent({
   name: "DataTable",
   emits: ["update:selectedRows"],
   components: { Icon, Tr, TBody, Th, Td, THead, Table },
@@ -23059,7 +23062,7 @@ const _sfc_main$J = defineComponent({
     };
   }
 });
-function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Icon = resolveComponent("Icon");
   const _component_Th = resolveComponent("Th");
   const _component_THead = resolveComponent("THead");
@@ -23139,9 +23142,9 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-var DataTable = /* @__PURE__ */ _export_sfc$1(_sfc_main$J, [["render", _sfc_render$J]]);
+var DataTable = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I]]);
 
-const _sfc_main$I = defineComponent({
+const _sfc_main$H = defineComponent({
   name: "Datepicker",
   props: {
     modelValue: {
@@ -23156,10 +23159,10 @@ const _sfc_main$I = defineComponent({
     };
   }
 });
-function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   return null;
 }
-var Datepicker = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I]]);
+var Datepicker = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["render", _sfc_render$H]]);
 
 var top = 'top';
 var bottom = 'bottom';
@@ -24917,7 +24920,7 @@ var dropdownProps = {
   isNav: { type: Boolean, default: false }
 };
 
-const _sfc_main$H = defineComponent({
+const _sfc_main$G = defineComponent({
   name: "DropdownMenu",
   props: {
     tag: { type: String, default: "ul" },
@@ -24936,7 +24939,7 @@ const _sfc_main$H = defineComponent({
     };
   }
 });
-function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
   }, {
@@ -24946,9 +24949,9 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var DropdownMenu = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["render", _sfc_render$H]]);
+var DropdownMenu = /* @__PURE__ */ _export_sfc$1(_sfc_main$G, [["render", _sfc_render$G]]);
 
-const _sfc_main$G = defineComponent({
+const _sfc_main$F = defineComponent({
   name: "NavLink",
   props: {
     ariaCurrent: { type: String, default: null },
@@ -24976,7 +24979,7 @@ const _sfc_main$G = defineComponent({
     };
   }
 });
-function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return _ctx.to ? (openBlock(), createBlock(_component_router_link, mergeProps({
     key: 0,
@@ -24997,9 +25000,9 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]));
 }
-var NavLink = /* @__PURE__ */ _export_sfc$1(_sfc_main$G, [["render", _sfc_render$G]]);
+var NavLink = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F]]);
 
-const _sfc_main$F = defineComponent({
+const _sfc_main$E = defineComponent({
   name: "NavItem",
   components: { NavLink },
   props: {
@@ -25027,7 +25030,7 @@ const _sfc_main$F = defineComponent({
     };
   }
 });
-function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_NavLink = resolveComponent("NavLink");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
     default: withCtx(() => [
@@ -25049,9 +25052,9 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]);
 }
-var NavItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F]]);
+var NavItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E]]);
 
-const _sfc_main$E = defineComponent({
+const _sfc_main$D = defineComponent({
   name: "Dropdown",
   components: { NavLink, NavItem, Button, DropdownMenu },
   props: dropdownProps,
@@ -25112,7 +25115,7 @@ const _hoisted_1$k = {
   key: 0,
   class: "visually-hidden"
 };
-function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Button = resolveComponent("Button");
   const _component_NavLink = resolveComponent("NavLink");
   const _component_DropdownMenu = resolveComponent("DropdownMenu");
@@ -25182,9 +25185,9 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Dropdown = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E]]);
+var Dropdown = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["render", _sfc_render$D]]);
 
-const _sfc_main$D = defineComponent({
+const _sfc_main$C = defineComponent({
   name: "DropdownButton",
   props: {
     active: { type: Boolean, default: false },
@@ -25192,7 +25195,7 @@ const _sfc_main$D = defineComponent({
   }
 });
 const _hoisted_1$j = { role: "menuitem" };
-function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$j, [
     createElementVNode("button", {
       class: normalizeClass(["dropdown-item", { "active": _ctx.active, "disabled": _ctx.disabled }]),
@@ -25202,26 +25205,26 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)
   ]);
 }
-var DropdownButton = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["render", _sfc_render$D]]);
+var DropdownButton = /* @__PURE__ */ _export_sfc$1(_sfc_main$C, [["render", _sfc_render$C]]);
 
-const _sfc_main$C = defineComponent({
+const _sfc_main$B = defineComponent({
   name: "DropdownDivider"
 });
 const _hoisted_1$i = { role: "presentation" };
-const _hoisted_2$e = /* @__PURE__ */ createElementVNode("hr", {
+const _hoisted_2$d = /* @__PURE__ */ createElementVNode("hr", {
   role: "separator",
   "aria-orientation": "horizontal",
   class: "dropdown-divider"
 }, null, -1);
-const _hoisted_3$8 = [
-  _hoisted_2$e
+const _hoisted_3$7 = [
+  _hoisted_2$d
 ];
-function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("li", _hoisted_1$i, _hoisted_3$8);
+function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("li", _hoisted_1$i, _hoisted_3$7);
 }
-var DropdownDivider = /* @__PURE__ */ _export_sfc$1(_sfc_main$C, [["render", _sfc_render$C]]);
+var DropdownDivider = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["render", _sfc_render$B]]);
 
-const _sfc_main$B = defineComponent({
+const _sfc_main$A = defineComponent({
   name: "DropdownItem",
   props: {
     href: { type: String, default: "#" },
@@ -25231,14 +25234,14 @@ const _sfc_main$B = defineComponent({
   }
 });
 const _hoisted_1$h = { role: "presentation" };
-const _hoisted_2$d = {
+const _hoisted_2$c = {
   key: 0,
   class: "dropdown-item-text"
 };
-const _hoisted_3$7 = ["href"];
-function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_3$6 = ["href"];
+function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$h, [
-    _ctx.isText ? (openBlock(), createElementBlock("p", _hoisted_2$d, [
+    _ctx.isText ? (openBlock(), createElementBlock("p", _hoisted_2$c, [
       renderSlot(_ctx.$slots, "default")
     ])) : (openBlock(), createElementBlock("a", {
       key: 1,
@@ -25246,10 +25249,10 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
       href: _ctx.href
     }, [
       renderSlot(_ctx.$slots, "default")
-    ], 10, _hoisted_3$7))
+    ], 10, _hoisted_3$6))
   ]);
 }
-var DropdownItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["render", _sfc_render$B]]);
+var DropdownItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A]]);
 
 var FormLabel = defineComponent({
   name: "FormLabel",
@@ -25274,7 +25277,7 @@ var FormLabel = defineComponent({
   }
 });
 
-const _sfc_main$A = defineComponent({
+const _sfc_main$z = defineComponent({
   name: "FormGroup",
   components: { FormLabel },
   props: {
@@ -25314,7 +25317,7 @@ const _sfc_main$A = defineComponent({
     };
   }
 });
-function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_FormLabel = resolveComponent("FormLabel");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
@@ -25349,9 +25352,9 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var FormGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A]]);
+var FormGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["render", _sfc_render$z]]);
 
-const _sfc_main$z = defineComponent({
+const _sfc_main$y = defineComponent({
   name: "Figure",
   props: {
     caption: { type: String, default: null },
@@ -25361,11 +25364,11 @@ const _sfc_main$z = defineComponent({
   }
 });
 const _hoisted_1$g = ["src", "alt"];
-const _hoisted_2$c = {
+const _hoisted_2$b = {
   key: 1,
   class: "figure-caption"
 };
-function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent("figure"), { class: "figure" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default"),
@@ -25375,7 +25378,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
         src: _ctx.imgUrl,
         alt: _ctx.imgAlt
       }, null, 10, _hoisted_1$g)) : createCommentVNode("", true),
-      _ctx.caption || _ctx.$slots.caption ? (openBlock(), createElementBlock("div", _hoisted_2$c, [
+      _ctx.caption || _ctx.$slots.caption ? (openBlock(), createElementBlock("div", _hoisted_2$b, [
         renderSlot(_ctx.$slots, "caption", {}, () => [
           createTextVNode(toDisplayString(_ctx.caption), 1)
         ])
@@ -25384,7 +25387,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var Figure = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["render", _sfc_render$z]]);
+var Figure = /* @__PURE__ */ _export_sfc$1(_sfc_main$y, [["render", _sfc_render$y]]);
 
 var Grid = defineComponent({
   name: "Grid",
@@ -25423,7 +25426,7 @@ var GridCol = defineComponent({
   }
 });
 
-const _sfc_main$y = defineComponent({
+const _sfc_main$x = defineComponent({
   emits: ["update:modelValue"],
   props: {
     type: { type: String, default: "text" },
@@ -25455,7 +25458,7 @@ const _sfc_main$y = defineComponent({
   }
 });
 const _hoisted_1$f = ["type", "value"];
-function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("input", mergeProps({
     type: _ctx.type,
     value: _ctx.modelValue,
@@ -25463,15 +25466,15 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     class: _ctx.classes
   }, _ctx.attributes), null, 16, _hoisted_1$f);
 }
-var Input = /* @__PURE__ */ _export_sfc$1(_sfc_main$y, [["render", _sfc_render$y]]);
+var Input = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["render", _sfc_render$x]]);
 
-const _sfc_main$x = defineComponent({
+const _sfc_main$w = defineComponent({
   name: "InputGroupText",
   props: {
     tag: { type: String, default: "span" }
   }
 });
-function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "input-group-text" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
@@ -25479,11 +25482,11 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var InputGroupText = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["render", _sfc_render$x]]);
+var InputGroupText = /* @__PURE__ */ _export_sfc$1(_sfc_main$w, [["render", _sfc_render$w]]);
 
 var InputGroup_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$w = defineComponent({
+const _sfc_main$v = defineComponent({
   components: { InputGroupText },
   props: {
     tag: { type: String, default: "div" },
@@ -25504,7 +25507,7 @@ const _sfc_main$w = defineComponent({
     };
   }
 });
-function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_InputGroupText = resolveComponent("InputGroupText");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
@@ -25532,7 +25535,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var InputGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$w, [["render", _sfc_render$w]]);
+var InputGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$v, [["render", _sfc_render$v]]);
 
 var Link = defineComponent({
   name: "Link",
@@ -25573,7 +25576,7 @@ var ListGroup = defineComponent({
   }
 });
 
-const _sfc_main$v = defineComponent({
+const _sfc_main$u = defineComponent({
   name: "ListGroupItem",
   props: {
     tag: { type: String, default: "li" },
@@ -25619,7 +25622,7 @@ const _sfc_main$v = defineComponent({
     };
   }
 });
-function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return _ctx.to ? (openBlock(), createBlock(_component_router_link, mergeProps({
     key: 0,
@@ -25640,7 +25643,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]));
 }
-var ListGroupItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$v, [["render", _sfc_render$v]]);
+var ListGroupItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$u, [["render", _sfc_render$u]]);
 
 var ModalBody = defineComponent({
   name: "ModalBody",
@@ -25679,7 +25682,7 @@ var ModalFooter = defineComponent({
   }
 });
 
-const _sfc_main$u = defineComponent({
+const _sfc_main$t = defineComponent({
   name: "Modal",
   components: { Button, ModalFooter, ModalTitle, ModalHeader, ModalBody, ButtonClose },
   emits: ["update:modelValue", "close", "ok", "showing", "hiding", "shown", "hidden", "stateChanged"],
@@ -25838,8 +25841,8 @@ const _sfc_main$u = defineComponent({
   }
 });
 const _hoisted_1$e = ["aria-hidden", "role"];
-const _hoisted_2$b = { class: "modal-content" };
-function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_2$a = { class: "modal-content" };
+function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ModalTitle = resolveComponent("ModalTitle");
   const _component_ButtonClose = resolveComponent("ButtonClose");
   const _component_ModalHeader = resolveComponent("ModalHeader");
@@ -25858,7 +25861,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", {
         class: normalizeClass(_ctx.dialogClass)
       }, [
-        createElementVNode("div", _hoisted_2$b, [
+        createElementVNode("div", _hoisted_2$a, [
           !_ctx.noHeader && (_ctx.$slots.header || _ctx.header || _ctx.title) ? (openBlock(), createBlock(_component_ModalHeader, mergeProps({
             key: 0,
             tag: _ctx.headerTag,
@@ -25935,664 +25938,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 512)) : createCommentVNode("", true)
   ]);
 }
-var Modal = /* @__PURE__ */ _export_sfc$1(_sfc_main$u, [["render", _sfc_render$u]]);
-
-var navProps = {
-  tag: { type: String, default: "ul" },
-  align: { type: String, default: null },
-  vertical: { type: Boolean, default: false },
-  pills: { type: Boolean, default: false },
-  fill: { type: Boolean, default: false },
-  justified: { type: Boolean, default: false },
-  small: { type: Boolean, default: false },
-  tabs: { type: Boolean, default: false },
-  navs: { type: Boolean, default: false }
-};
-
-var Nav = defineComponent({
-  name: "Nav",
-  props: navProps,
-  setup(props, { slots }) {
-    return () => h(props.tag, {
-      class: {
-        "nav": !props.navs,
-        "navbar-nav": props.navs,
-        "small": props.small,
-        "nav-tabs": props.tabs,
-        "nav-pills": props.pills,
-        "nav-fill": props.fill,
-        "nav-justified": props.justified,
-        "flex-column": props.vertical,
-        "justify-content-center": props.align === "center",
-        "justify-content-end": props.align === "right" || props.align === "end",
-        "justify-content-start": props.align === "left" || props.align === "start"
-      }
-    }, slots.default ? slots.default() : null);
-  }
-});
-
-const _sfc_main$t = defineComponent({
-  name: "NavbarBrand",
-  props: {
-    tag: { type: String, default: "a" },
-    href: { type: String, default: "#" }
-  },
-  setup(props) {
-    const attributes = computed(() => {
-      return {
-        "href": props.tag === "a" ? props.href : null
-      };
-    });
-    return {
-      classes: computed(() => ["navbar-brand"]),
-      attributes
-    };
-  }
-});
-function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  }, 16, ["class"]);
-}
-var NavbarBrand = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t]]);
-
-const _sfc_main$s = defineComponent({
-  name: "NavbarToggler",
-  emits: ["update:modelValue"],
-  props: {
-    modelValue: { type: Boolean, default: false }
-  },
-  setup(props, context) {
-    return {
-      toggleNavbar() {
-        context.emit("update:modelValue", !props.modelValue);
-      }
-    };
-  }
-});
-const _hoisted_1$d = /* @__PURE__ */ createElementVNode("span", { class: "navbar-toggler-icon" }, null, -1);
-const _hoisted_2$a = [
-  _hoisted_1$d
-];
-function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("button", {
-    class: "navbar-toggler",
-    onClick: _cache[0] || (_cache[0] = (...args) => _ctx.toggleNavbar && _ctx.toggleNavbar(...args)),
-    type: "button",
-    "aria-expanded": "false"
-  }, _hoisted_2$a);
-}
-var NavbarToggler = /* @__PURE__ */ _export_sfc$1(_sfc_main$s, [["render", _sfc_render$s]]);
-
-const _sfc_main$r = defineComponent({
-  components: { NavbarToggler, NavbarBrand, Container },
-  props: {
-    brand: { type: String, default: null },
-    brandUrl: { type: String, default: "#" },
-    fluid: { type: Boolean, default: false },
-    toggleEnabled: { type: Boolean, default: true },
-    variant: { type: String, default: "light" },
-    bgVariant: { type: String, default: "light" },
-    fixed: { type: String, default: null },
-    sticky: { type: String, default: null },
-    expandsOn: { type: String, default: "lg" }
-  },
-  setup(props, context) {
-    const collapsed = ref(false);
-    return {
-      collapsed,
-      toggleNavbar() {
-        collapsed.value = !collapsed.value;
-      },
-      classes: computed(() => [
-        "navbar",
-        {
-          ["navbar-" + props.variant]: props.variant,
-          ["bg-" + props.bgVariant]: props.bgVariant,
-          ["fixed-" + props.fixed]: !!props.fixed,
-          ["sticky-" + props.sticky]: !!props.sticky,
-          ["navbar-expand-" + props.expandsOn]: props.expandsOn
-        }
-      ])
-    };
-  }
-});
-function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_NavbarBrand = resolveComponent("NavbarBrand");
-  const _component_NavbarToggler = resolveComponent("NavbarToggler");
-  const _component_Container = resolveComponent("Container");
-  return openBlock(), createElementBlock("nav", {
-    class: normalizeClass(_ctx.classes)
-  }, [
-    createVNode(_component_Container, { fluid: _ctx.fluid }, {
-      default: withCtx(() => [
-        _ctx.brand || _ctx.$slots.brand ? (openBlock(), createBlock(_component_NavbarBrand, {
-          key: 0,
-          href: _ctx.brandUrl
-        }, {
-          default: withCtx(() => [
-            renderSlot(_ctx.$slots, "brand", {}, () => [
-              createTextVNode(toDisplayString(_ctx.brand), 1)
-            ])
-          ]),
-          _: 3
-        }, 8, ["href"])) : createCommentVNode("", true),
-        _ctx.toggleEnabled ? (openBlock(), createBlock(_component_NavbarToggler, {
-          key: 1,
-          modelValue: _ctx.collapsed,
-          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.collapsed = $event)
-        }, null, 8, ["modelValue"])) : createCommentVNode("", true),
-        renderSlot(_ctx.$slots, "default", {
-          collapsed: _ctx.collapsed,
-          toggleNavbar: _ctx.toggleNavbar
-        })
-      ]),
-      _: 3
-    }, 8, ["fluid"])
-  ], 2);
-}
-var Navbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$r, [["render", _sfc_render$r]]);
-
-const _sfc_main$q = defineComponent({
-  name: "NavbarNav",
-  components: { Nav },
-  props: {
-    ...navProps,
-    scrollHeight: { type: [String, Number], default: null },
-    scrollableL: { type: Boolean, default: false }
-  },
-  setup(props, context) {
-    return {
-      classes: computed(() => [
-        {
-          "navbar-nav-scroll": props.scrollHeight || props.scrollableL
-        }
-      ])
-    };
-  }
-});
-function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_Nav = resolveComponent("Nav");
-  return openBlock(), createBlock(_component_Nav, mergeProps(_ctx.$props, {
-    navs: "",
-    style: { "--bs-scroll-height": typeof _ctx.scrollHeight === "number" ? _ctx.scrollHeight + "px" : _ctx.scrollHeight }
-  }), {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  }, 16, ["style"]);
-}
-var NavbarNav = /* @__PURE__ */ _export_sfc$1(_sfc_main$q, [["render", _sfc_render$q]]);
-
-const _sfc_main$p = defineComponent({
-  name: "NavItemDropdown",
-  components: { Dropdown },
-  props: {
-    ...dropdownProps,
-    isNav: { type: Boolean, default: true },
-    tag: { type: String, default: "li" }
-  }
-});
-function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_Dropdown = resolveComponent("Dropdown");
-  return openBlock(), createBlock(_component_Dropdown, mergeProps(_ctx.$props, { class: "nav-item" }), {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  }, 16);
-}
-var NavItemDropdown = /* @__PURE__ */ _export_sfc$1(_sfc_main$p, [["render", _sfc_render$p]]);
-
-const _sfc_main$o = defineComponent({
-  name: "OffCanvasTitle",
-  props: {
-    tag: { type: String, default: "h5" }
-  }
-});
-function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-title" }, {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  });
-}
-var OffCanvasTitle = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o]]);
-
-const _sfc_main$n = defineComponent({
-  name: "OffCanvasHeader",
-  emits: ["update:modelValue"],
-  components: {
-    OffCanvasTitle,
-    ButtonClose
-  },
-  props: {
-    modelValue: { type: Boolean, default: false },
-    tag: { type: String, default: "div" },
-    title: { type: String, default: null },
-    showClose: { type: Boolean, default: true }
-  },
-  setup(props) {
-    return {
-      classes: computed(() => ["offcanvas-header"])
-    };
-  }
-});
-function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_OffCanvasTitle = resolveComponent("OffCanvasTitle");
-  const _component_ButtonClose = resolveComponent("ButtonClose");
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
-    class: normalizeClass(_ctx.classes)
-  }, {
-    default: withCtx(() => [
-      _ctx.$slots.title || _ctx.title ? (openBlock(), createBlock(_component_OffCanvasTitle, { key: 0 }, {
-        default: withCtx(() => [
-          renderSlot(_ctx.$slots, "title", {}, () => [
-            createTextVNode(toDisplayString(_ctx.title), 1)
-          ])
-        ]),
-        _: 3
-      })) : createCommentVNode("", true),
-      renderSlot(_ctx.$slots, "default"),
-      _ctx.showClose ? (openBlock(), createBlock(_component_ButtonClose, {
-        key: 1,
-        onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", false))
-      })) : createCommentVNode("", true)
-    ]),
-    _: 3
-  }, 8, ["class"]);
-}
-var OffCanvasHeader = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n]]);
-
-const _sfc_main$m = defineComponent({
-  name: "OffCanvasBody",
-  props: {
-    tag: { type: String, default: "div" }
-  }
-});
-function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-body" }, {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  });
-}
-var OffCanvasBody = /* @__PURE__ */ _export_sfc$1(_sfc_main$m, [["render", _sfc_render$m]]);
-
-const _sfc_main$l = defineComponent({
-  name: "OffCanvas",
-  components: { OffCanvasBody, OffCanvasHeader, ButtonClose },
-  emits: ["update:modelValue", "beforeShow", "beforeHide", "shown", "hidden"],
-  props: {
-    tabIndex: { type: Number, default: -1 },
-    id: { type: String, default: null },
-    ariaLabelledby: { type: String, default: null },
-    modelValue: { type: Boolean, default: false },
-    placement: { type: String, default: "start" },
-    header: { type: String, default: null },
-    headerClass: { type: [Array, Object, String], default: null },
-    headerStyle: { type: [Object, String], default: null },
-    title: { type: String, default: null },
-    tag: { type: String, default: "div" },
-    backdrop: { type: Boolean, default: true },
-    enableBodyScroll: { type: Boolean, default: true },
-    bgVariant: { type: String, default: "light" },
-    textVariant: { type: String, default: "dark" }
-  },
-  setup(props) {
-    const shown = ref(false);
-    const showBackdrop = ref(false);
-    watch(shown, (value) => {
-      if (value && !props.enableBodyScroll) {
-        document.body.style.overflow = "hidden";
-        document.body.style.paddingRight = "17px";
-      } else {
-        document.body.style.overflow = "";
-        document.body.style.paddingRight = "";
-      }
-    });
-    watch(() => props.modelValue, (value) => shown.value = value);
-    return {
-      shown,
-      showBackdrop,
-      classes: computed(() => {
-        let placement = null;
-        if (props.placement === "left" || props.placement === "start") {
-          placement = "start";
-        } else if (props.placement === "right" || props.placement === "end") {
-          placement = "end";
-        } else {
-          placement = props.placement;
-        }
-        return [
-          "offcanvas",
-          {
-            "show": shown.value,
-            ["offcanvas-" + placement]: !!placement,
-            ["bg-" + props.bgVariant]: props.bgVariant,
-            ["text-" + props.textVariant]: props.textVariant
-          }
-        ];
-      })
-    };
-  },
-  watch: {
-    shown(value) {
-      this.$emit("update:modelValue", value);
-      if (value) {
-        this.showBackdrop = true;
-        this.$nextTick(function() {
-          this.$emit("beforeShow", value);
-          this.$refs.backdrop?.classList.add("show");
-          this.$refs.theCanvas.style.visibility = "visible";
-        });
-      } else {
-        this.$refs.backdrop?.classList.remove("show");
-        this.$emit("beforeHide", value);
-      }
-    }
-  },
-  methods: {
-    transitionEnded() {
-      if (!this.shown) {
-        this.$refs.theCanvas.style.visibility = "hidden";
-        this.showBackdrop = false;
-        this.$emit("hidden", this.shown);
-      } else {
-        this.$emit("shown", this.shown);
-      }
-    },
-    globalEventListener(e) {
-      if (e.detail === this.id && this.id) {
-        this.shown = !this.shown;
-      }
-    },
-    show() {
-      this.shown = true;
-    },
-    hide() {
-      this.shown = false;
-    },
-    toggle() {
-      this.shown = !this.shown;
-    }
-  },
-  mounted() {
-    this.transitionEnded();
-    window.addEventListener("toggleOffCanvas", this.globalEventListener);
-  },
-  beforeUnmount() {
-    window.removeEventListener("toggleOffCanvas", this.globalEventListener);
-  }
-});
-function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_OffCanvasHeader = resolveComponent("OffCanvasHeader");
-  const _component_OffCanvasBody = resolveComponent("OffCanvasBody");
-  return openBlock(), createBlock(Teleport, { to: "body" }, [
-    (openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
-      ref: "theCanvas",
-      onTransitionend: withModifiers(_ctx.transitionEnded, ["self"]),
-      class: normalizeClass(_ctx.classes),
-      tabindex: _ctx.tabIndex,
-      "aria-labelledby": _ctx.ariaLabelledby
-    }, {
-      default: withCtx(() => [
-        _ctx.$slots.header || _ctx.header ? (openBlock(), createBlock(_component_OffCanvasHeader, {
-          key: 0,
-          style: normalizeStyle(_ctx.headerStyle),
-          class: normalizeClass(_ctx.headerClass),
-          modelValue: _ctx.shown,
-          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.shown = $event),
-          title: _ctx.title
-        }, {
-          default: withCtx(() => [
-            renderSlot(_ctx.$slots, "header", {}, () => [
-              createTextVNode(toDisplayString(_ctx.header), 1)
-            ])
-          ]),
-          _: 3
-        }, 8, ["style", "class", "modelValue", "title"])) : createCommentVNode("", true),
-        createVNode(_component_OffCanvasBody, null, {
-          default: withCtx(() => [
-            renderSlot(_ctx.$slots, "default")
-          ]),
-          _: 3
-        })
-      ]),
-      _: 3
-    }, 8, ["onTransitionend", "class", "tabindex", "aria-labelledby"])),
-    _ctx.showBackdrop && _ctx.backdrop ? (openBlock(), createElementBlock("div", {
-      key: 0,
-      onClick: _cache[1] || (_cache[1] = ($event) => _ctx.shown = false),
-      ref: "backdrop",
-      class: "offcanvas-backdrop fade"
-    }, null, 512)) : createCommentVNode("", true)
-  ]);
-}
-var OffCanvas = /* @__PURE__ */ _export_sfc$1(_sfc_main$l, [["render", _sfc_render$l]]);
-
-const _sfc_main$k = defineComponent({
-  name: "Popover",
-  props: {
-    target: { type: String, required: true },
-    header: { type: String, default: null },
-    modelValue: { type: Boolean, default: false },
-    placement: { type: String, default: "top" },
-    triggers: { type: String, default: "click" }
-  },
-  setup(props) {
-    const shown = ref(false);
-    watch(() => props.modelValue, (value) => shown.value = value);
-    const bsDir = (placement) => {
-      if (["auto", "auto-start", "auto-end", "top", "top-start", "top-end"].includes(placement)) {
-        return "top";
-      } else if (["bottom", "bottom-start", "bottom-end"].includes(placement)) {
-        return "bottom";
-      } else if (["right", "right-start", "right-end"].includes(placement)) {
-        return "end";
-      } else if (["left", "left-start", "left-end"].includes(placement)) {
-        return "start";
-      }
-      return "top";
-    };
-    const dir = ref("top");
-    dir.value = bsDir(props.placement);
-    const classes = computed(() => {
-      return [
-        "popover",
-        "fade",
-        {
-          show: shown.value,
-          ["bs-popover-" + dir.value]: !!dir.value
-        }
-      ];
-    });
-    const events = computed(() => {
-      return typeof props.triggers === "string" ? [props.triggers] : props.triggers;
-    });
-    const topLogger = {
-      name: "topLogger",
-      enabled: true,
-      phase: "main",
-      fn({ state }) {
-        dir.value = bsDir(state.placement);
-      }
-    };
-    const popperOptions = computed(() => ({
-      placement: ["auto", "auto-start", "auto-end"].includes(props.placement) ? "top" : props.placement,
-      modifiers: [
-        topLogger,
-        {
-          name: "offset",
-          enabled: true,
-          options: {
-            offset: (d) => {
-              return [0, 10];
-            }
-          }
-        }
-      ]
-    }));
-    return {
-      shown,
-      classes,
-      events,
-      popper: ref(null),
-      popperOptions
-    };
-  },
-  watch: {
-    shown(value) {
-      this.$emit("update:modelValue", value);
-      this.$nextTick(() => {
-        if (value) {
-          this.initPopper();
-          let the = this;
-          setTimeout(() => document.addEventListener("click", the.clickOutside), 0);
-        } else {
-          this.destroyPopper();
-        }
-      });
-    }
-  },
-  mounted() {
-    let target = document.getElementById(this.target);
-    let the = this;
-    target.addEventListener(this.triggers, () => the.shown = !the.shown);
-  },
-  beforeUnmount() {
-    this.destroyPopper();
-  },
-  methods: {
-    destroyPopper() {
-      this.popper.destroy();
-    },
-    initPopper() {
-      let target = document.getElementById(this.target);
-      this.popper = createPopper(target, this.$refs.popover, this.popperOptions);
-    },
-    clickOutside(e) {
-      let isTarget = document.getElementById(this.target).isSameNode(e.target);
-      let isFromPopover = this.$refs.popover && (this.$refs.popover.isSameNode(e.target) || this.$refs.popover.contains(e.target));
-      if (this.shown && !isTarget && !isFromPopover) {
-        this.shown = false;
-        document.removeEventListener("click", this.clickOutside);
-      }
-    }
-  }
-});
-const _hoisted_1$c = /* @__PURE__ */ createElementVNode("div", {
-  "data-popper-arrow": "",
-  class: "popover-arrow"
-}, null, -1);
-const _hoisted_2$9 = {
-  key: 0,
-  class: "popover-header"
-};
-const _hoisted_3$6 = { class: "popover-body" };
-function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(Teleport, { to: "body" }, [
-    _ctx.shown ? (openBlock(), createElementBlock("div", {
-      key: 0,
-      ref: "popover",
-      class: normalizeClass(_ctx.classes),
-      role: "tooltip"
-    }, [
-      _hoisted_1$c,
-      _ctx.$slots.header || _ctx.header ? (openBlock(), createElementBlock("div", _hoisted_2$9, [
-        renderSlot(_ctx.$slots, "header", {}, () => [
-          createTextVNode(toDisplayString(_ctx.header), 1)
-        ])
-      ])) : createCommentVNode("", true),
-      createElementVNode("div", _hoisted_3$6, [
-        renderSlot(_ctx.$slots, "default")
-      ])
-    ], 2)) : createCommentVNode("", true)
-  ]);
-}
-var Popover = /* @__PURE__ */ _export_sfc$1(_sfc_main$k, [["render", _sfc_render$k]]);
-
-const _sfc_main$j = defineComponent({
-  name: "Radio",
-  props: {
-    name: { type: String, default: null },
-    id: { type: String, default: null },
-    modelValue: { default: null },
-    value: { default: null }
-  },
-  setup(props, context) {
-    const identifier = ref(null);
-    if (props.id) {
-      identifier.value = props.id;
-    } else {
-      identifier.value = "radio_id" + Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
-    }
-    const isChecked = computed(() => props.modelValue === props.value);
-    return {
-      identifier,
-      isChecked
-    };
-  }
-});
-const _hoisted_1$b = { class: "form-check" };
-const _hoisted_2$8 = ["name", "id", "value", "checked"];
-const _hoisted_3$4 = ["for"];
-function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$b, [
-    createElementVNode("input", {
-      class: "form-check-input",
-      type: "radio",
-      name: _ctx.name,
-      id: _ctx.identifier,
-      value: _ctx.value,
-      checked: _ctx.isChecked,
-      onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", _ctx.value))
-    }, null, 40, _hoisted_2$8),
-    createElementVNode("label", {
-      class: "form-check-label",
-      for: _ctx.identifier
-    }, [
-      renderSlot(_ctx.$slots, "default")
-    ], 8, _hoisted_3$4)
-  ]);
-}
-var Radio = /* @__PURE__ */ _export_sfc$1(_sfc_main$j, [["render", _sfc_render$j]]);
-
-const _sfc_main$i = defineComponent({
-  name: "Range",
-  props: {
-    min: { type: Number, default: null },
-    max: { type: Number, default: null },
-    step: { type: Number, default: 1 },
-    modelValue: { type: Number, default: 0 }
-  },
-  setup(props) {
-    return {
-      classes: computed(() => [
-        "form-range"
-      ])
-    };
-  }
-});
-const _hoisted_1$a = ["value", "min", "max", "step"];
-function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("input", {
-    value: _ctx.modelValue,
-    onInput: _cache[0] || (_cache[0] = (e) => _ctx.$emit("update:modelValue", Number(e.target.value))),
-    min: _ctx.min,
-    max: _ctx.max,
-    step: _ctx.step,
-    type: "range",
-    class: normalizeClass(_ctx.classes)
-  }, null, 42, _hoisted_1$a);
-}
-var Range = /* @__PURE__ */ _export_sfc$1(_sfc_main$i, [["render", _sfc_render$i]]);
+var Modal = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t]]);
 
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
@@ -27251,7 +26597,7 @@ const _sfc_main$5$1 = {
 };
 const _hoisted_1$5$1 = ["width", "height", "fill"];
 const _hoisted_2$5$1 = /* @__PURE__ */ createElementVNode("path", { d: "M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" }, null, -1);
-const _hoisted_3$5 = [
+const _hoisted_3$5$1 = [
   _hoisted_2$5$1
 ];
 function _sfc_render$5$1(_ctx, _cache, $props, $setup, $data, $options) {
@@ -27262,9 +26608,705 @@ function _sfc_render$5$1(_ctx, _cache, $props, $setup, $data, $options) {
     fill: $props.fill,
     class: normalizeClass($setup.classes),
     viewBox: "0 0 16 16"
-  }, _hoisted_3$5, 10, _hoisted_1$5$1);
+  }, _hoisted_3$5$1, 10, _hoisted_1$5$1);
 }
 var X = /* @__PURE__ */ _export_sfc(_sfc_main$5$1, [["render", _sfc_render$5$1]]);
+
+const _sfc_main$s = defineComponent({
+  name: "Menu",
+  components: { AccordionItem, Accordion, ChevronRight },
+  props: {
+    items: { type: Array, default: () => [] },
+    child: { type: Boolean, default: false }
+  },
+  setup(props, { slots }) {
+    return {
+      style: computed(() => {
+        if (props.child) {
+          return {
+            borderLeft: 0,
+            borderRight: 0,
+            borderRadius: 0
+          };
+        }
+        return null;
+      })
+    };
+  }
+});
+const _hoisted_1$d = { class: "accordion-body" };
+function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_Menu = resolveComponent("Menu", true);
+  const _component_AccordionItem = resolveComponent("AccordionItem");
+  const _component_ChevronRight = resolveComponent("ChevronRight");
+  const _component_Accordion = resolveComponent("Accordion");
+  return openBlock(), createBlock(_component_Accordion, null, {
+    default: withCtx(() => [
+      (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.items, (item, item_key) => {
+        return openBlock(), createElementBlock(Fragment, null, [
+          Array.isArray(item.children) && item.children.length > 0 ? (openBlock(), createBlock(_component_AccordionItem, {
+            key: item_key,
+            "body-class": "p-0",
+            style: normalizeStyle(_ctx.style),
+            header: item?.text || item?.title
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_Menu, {
+                child: "",
+                items: item.children
+              }, null, 8, ["items"])
+            ]),
+            _: 2
+          }, 1032, ["style", "header"])) : (openBlock(), createElementBlock("div", {
+            key: 1,
+            class: "accordion-item",
+            style: normalizeStyle(_ctx.style)
+          }, [
+            createElementVNode("div", _hoisted_1$d, [
+              _ctx.child ? (openBlock(), createBlock(_component_ChevronRight, { key: 0 })) : createCommentVNode("", true),
+              createTextVNode(" " + toDisplayString(item?.text || item?.title), 1)
+            ])
+          ], 4))
+        ], 64);
+      }), 256))
+    ]),
+    _: 1
+  });
+}
+var Menu = /* @__PURE__ */ _export_sfc$1(_sfc_main$s, [["render", _sfc_render$s]]);
+
+var navProps = {
+  tag: { type: String, default: "ul" },
+  align: { type: String, default: null },
+  vertical: { type: Boolean, default: false },
+  pills: { type: Boolean, default: false },
+  fill: { type: Boolean, default: false },
+  justified: { type: Boolean, default: false },
+  small: { type: Boolean, default: false },
+  tabs: { type: Boolean, default: false },
+  navs: { type: Boolean, default: false }
+};
+
+var Nav = defineComponent({
+  name: "Nav",
+  props: navProps,
+  setup(props, { slots }) {
+    return () => h(props.tag, {
+      class: {
+        "nav": !props.navs,
+        "navbar-nav": props.navs,
+        "small": props.small,
+        "nav-tabs": props.tabs,
+        "nav-pills": props.pills,
+        "nav-fill": props.fill,
+        "nav-justified": props.justified,
+        "flex-column": props.vertical,
+        "justify-content-center": props.align === "center",
+        "justify-content-end": props.align === "right" || props.align === "end",
+        "justify-content-start": props.align === "left" || props.align === "start"
+      }
+    }, slots.default ? slots.default() : null);
+  }
+});
+
+var NavbarBrand = defineComponent({
+  name: "NavbarBrand",
+  props: {
+    tag: { type: String, default: "a" },
+    href: { type: String, default: "#" }
+  },
+  setup(props, { slots }) {
+    return () => h(props.tag, {
+      class: ["navbar-brand"],
+      "href": props.tag === "a" ? props.href : null
+    }, slots.default?.());
+  }
+});
+
+var NavbarToggler = defineComponent({
+  name: "NavbarToggler",
+  emits: ["update:modelValue"],
+  props: {
+    modelValue: { type: Boolean, default: false }
+  },
+  setup(props, { emit, slots }) {
+    return () => h("button", {
+      class: "navbar-toggler",
+      type: "button",
+      ariaExpanded: props.modelValue,
+      onClick() {
+        emit("update:modelValue", !props.modelValue);
+      }
+    }, h("span", { class: "navbar-toggler-icon" }));
+  }
+});
+
+const _sfc_main$r = defineComponent({
+  components: { NavbarToggler, NavbarBrand, Container },
+  props: {
+    brand: { type: String, default: null },
+    brandUrl: { type: String, default: "#" },
+    fluid: { type: Boolean, default: false },
+    toggleEnabled: { type: Boolean, default: true },
+    variant: { type: String, default: "light" },
+    bgVariant: { type: String, default: "light" },
+    fixed: { type: String, default: null },
+    sticky: { type: String, default: null },
+    expandsOn: { type: String, default: "lg" }
+  },
+  setup(props, context) {
+    const collapsed = ref(false);
+    return {
+      collapsed,
+      toggleNavbar() {
+        collapsed.value = !collapsed.value;
+      },
+      classes: computed(() => [
+        "navbar",
+        {
+          ["navbar-" + props.variant]: props.variant,
+          ["bg-" + props.bgVariant]: props.bgVariant,
+          ["fixed-" + props.fixed]: !!props.fixed,
+          ["sticky-" + props.sticky]: !!props.sticky,
+          ["navbar-expand-" + props.expandsOn]: props.expandsOn
+        }
+      ])
+    };
+  }
+});
+function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_NavbarBrand = resolveComponent("NavbarBrand");
+  const _component_NavbarToggler = resolveComponent("NavbarToggler");
+  const _component_Container = resolveComponent("Container");
+  return openBlock(), createElementBlock("nav", {
+    class: normalizeClass(_ctx.classes)
+  }, [
+    createVNode(_component_Container, { fluid: _ctx.fluid }, {
+      default: withCtx(() => [
+        _ctx.brand || _ctx.$slots.brand ? (openBlock(), createBlock(_component_NavbarBrand, {
+          key: 0,
+          href: _ctx.brandUrl
+        }, {
+          default: withCtx(() => [
+            renderSlot(_ctx.$slots, "brand", {}, () => [
+              createTextVNode(toDisplayString(_ctx.brand), 1)
+            ])
+          ]),
+          _: 3
+        }, 8, ["href"])) : createCommentVNode("", true),
+        _ctx.toggleEnabled ? (openBlock(), createBlock(_component_NavbarToggler, {
+          key: 1,
+          modelValue: _ctx.collapsed,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.collapsed = $event)
+        }, null, 8, ["modelValue"])) : createCommentVNode("", true),
+        renderSlot(_ctx.$slots, "default", {
+          collapsed: _ctx.collapsed,
+          toggleNavbar: _ctx.toggleNavbar
+        })
+      ]),
+      _: 3
+    }, 8, ["fluid"])
+  ], 2);
+}
+var Navbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$r, [["render", _sfc_render$r]]);
+
+const _sfc_main$q = defineComponent({
+  name: "NavbarNav",
+  components: { Nav },
+  props: {
+    ...navProps,
+    scrollHeight: { type: [String, Number], default: null },
+    scrollableL: { type: Boolean, default: false }
+  },
+  setup(props, context) {
+    return {
+      classes: computed(() => [
+        {
+          "navbar-nav-scroll": props.scrollHeight || props.scrollableL
+        }
+      ])
+    };
+  }
+});
+function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_Nav = resolveComponent("Nav");
+  return openBlock(), createBlock(_component_Nav, mergeProps(_ctx.$props, {
+    navs: "",
+    style: { "--bs-scroll-height": typeof _ctx.scrollHeight === "number" ? _ctx.scrollHeight + "px" : _ctx.scrollHeight }
+  }), {
+    default: withCtx(() => [
+      renderSlot(_ctx.$slots, "default")
+    ]),
+    _: 3
+  }, 16, ["style"]);
+}
+var NavbarNav = /* @__PURE__ */ _export_sfc$1(_sfc_main$q, [["render", _sfc_render$q]]);
+
+const _sfc_main$p = defineComponent({
+  name: "NavItemDropdown",
+  components: { Dropdown },
+  props: {
+    ...dropdownProps,
+    isNav: { type: Boolean, default: true },
+    tag: { type: String, default: "li" }
+  }
+});
+function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_Dropdown = resolveComponent("Dropdown");
+  return openBlock(), createBlock(_component_Dropdown, mergeProps(_ctx.$props, { class: "nav-item" }), {
+    default: withCtx(() => [
+      renderSlot(_ctx.$slots, "default")
+    ]),
+    _: 3
+  }, 16);
+}
+var NavItemDropdown = /* @__PURE__ */ _export_sfc$1(_sfc_main$p, [["render", _sfc_render$p]]);
+
+const _sfc_main$o = defineComponent({
+  name: "OffCanvasTitle",
+  props: {
+    tag: { type: String, default: "h5" }
+  }
+});
+function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-title" }, {
+    default: withCtx(() => [
+      renderSlot(_ctx.$slots, "default")
+    ]),
+    _: 3
+  });
+}
+var OffCanvasTitle = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o]]);
+
+const _sfc_main$n = defineComponent({
+  name: "OffCanvasHeader",
+  emits: ["update:modelValue"],
+  components: {
+    OffCanvasTitle,
+    ButtonClose
+  },
+  props: {
+    modelValue: { type: Boolean, default: false },
+    tag: { type: String, default: "div" },
+    title: { type: String, default: null },
+    showClose: { type: Boolean, default: true }
+  },
+  setup(props) {
+    return {
+      classes: computed(() => ["offcanvas-header"])
+    };
+  }
+});
+function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_OffCanvasTitle = resolveComponent("OffCanvasTitle");
+  const _component_ButtonClose = resolveComponent("ButtonClose");
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
+    class: normalizeClass(_ctx.classes)
+  }, {
+    default: withCtx(() => [
+      _ctx.$slots.title || _ctx.title ? (openBlock(), createBlock(_component_OffCanvasTitle, { key: 0 }, {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "title", {}, () => [
+            createTextVNode(toDisplayString(_ctx.title), 1)
+          ])
+        ]),
+        _: 3
+      })) : createCommentVNode("", true),
+      renderSlot(_ctx.$slots, "default"),
+      _ctx.showClose ? (openBlock(), createBlock(_component_ButtonClose, {
+        key: 1,
+        onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", false))
+      })) : createCommentVNode("", true)
+    ]),
+    _: 3
+  }, 8, ["class"]);
+}
+var OffCanvasHeader = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n]]);
+
+const _sfc_main$m = defineComponent({
+  name: "OffCanvasBody",
+  props: {
+    tag: { type: String, default: "div" }
+  }
+});
+function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-body" }, {
+    default: withCtx(() => [
+      renderSlot(_ctx.$slots, "default")
+    ]),
+    _: 3
+  });
+}
+var OffCanvasBody = /* @__PURE__ */ _export_sfc$1(_sfc_main$m, [["render", _sfc_render$m]]);
+
+const _sfc_main$l = defineComponent({
+  name: "OffCanvas",
+  components: { OffCanvasBody, OffCanvasHeader, ButtonClose },
+  emits: ["update:modelValue", "beforeShow", "beforeHide", "shown", "hidden"],
+  props: {
+    tabIndex: { type: Number, default: -1 },
+    id: { type: String, default: null },
+    ariaLabelledby: { type: String, default: null },
+    modelValue: { type: Boolean, default: false },
+    placement: { type: String, default: "start" },
+    header: { type: String, default: null },
+    headerClass: { type: [Array, Object, String], default: null },
+    headerStyle: { type: [Object, String], default: null },
+    title: { type: String, default: null },
+    tag: { type: String, default: "div" },
+    backdrop: { type: Boolean, default: true },
+    enableBodyScroll: { type: Boolean, default: true },
+    bgVariant: { type: String, default: "light" },
+    textVariant: { type: String, default: "dark" }
+  },
+  setup(props) {
+    const shown = ref(false);
+    const showBackdrop = ref(false);
+    watch(shown, (value) => {
+      if (value && !props.enableBodyScroll) {
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight = "17px";
+      } else {
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+      }
+    });
+    watch(() => props.modelValue, (value) => shown.value = value);
+    return {
+      shown,
+      showBackdrop,
+      classes: computed(() => {
+        let placement = null;
+        if (props.placement === "left" || props.placement === "start") {
+          placement = "start";
+        } else if (props.placement === "right" || props.placement === "end") {
+          placement = "end";
+        } else {
+          placement = props.placement;
+        }
+        return [
+          "offcanvas",
+          {
+            "show": shown.value,
+            ["offcanvas-" + placement]: !!placement,
+            ["bg-" + props.bgVariant]: props.bgVariant,
+            ["text-" + props.textVariant]: props.textVariant
+          }
+        ];
+      })
+    };
+  },
+  watch: {
+    shown(value) {
+      this.$emit("update:modelValue", value);
+      if (value) {
+        this.showBackdrop = true;
+        this.$nextTick(function() {
+          this.$emit("beforeShow", value);
+          this.$refs.backdrop?.classList.add("show");
+          this.$refs.theCanvas.style.visibility = "visible";
+        });
+      } else {
+        this.$refs.backdrop?.classList.remove("show");
+        this.$emit("beforeHide", value);
+      }
+    }
+  },
+  methods: {
+    transitionEnded() {
+      if (!this.shown) {
+        this.$refs.theCanvas.style.visibility = "hidden";
+        this.showBackdrop = false;
+        this.$emit("hidden", this.shown);
+      } else {
+        this.$emit("shown", this.shown);
+      }
+    },
+    globalEventListener(e) {
+      if (e.detail === this.id && this.id) {
+        this.shown = !this.shown;
+      }
+    },
+    show() {
+      this.shown = true;
+    },
+    hide() {
+      this.shown = false;
+    },
+    toggle() {
+      this.shown = !this.shown;
+    }
+  },
+  mounted() {
+    this.transitionEnded();
+    window.addEventListener("toggleOffCanvas", this.globalEventListener);
+  },
+  beforeUnmount() {
+    window.removeEventListener("toggleOffCanvas", this.globalEventListener);
+  }
+});
+function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_OffCanvasHeader = resolveComponent("OffCanvasHeader");
+  const _component_OffCanvasBody = resolveComponent("OffCanvasBody");
+  return openBlock(), createBlock(Teleport, { to: "body" }, [
+    (openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
+      ref: "theCanvas",
+      onTransitionend: withModifiers(_ctx.transitionEnded, ["self"]),
+      class: normalizeClass(_ctx.classes),
+      tabindex: _ctx.tabIndex,
+      "aria-labelledby": _ctx.ariaLabelledby
+    }, {
+      default: withCtx(() => [
+        _ctx.$slots.header || _ctx.header ? (openBlock(), createBlock(_component_OffCanvasHeader, {
+          key: 0,
+          style: normalizeStyle(_ctx.headerStyle),
+          class: normalizeClass(_ctx.headerClass),
+          modelValue: _ctx.shown,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.shown = $event),
+          title: _ctx.title
+        }, {
+          default: withCtx(() => [
+            renderSlot(_ctx.$slots, "header", {}, () => [
+              createTextVNode(toDisplayString(_ctx.header), 1)
+            ])
+          ]),
+          _: 3
+        }, 8, ["style", "class", "modelValue", "title"])) : createCommentVNode("", true),
+        createVNode(_component_OffCanvasBody, null, {
+          default: withCtx(() => [
+            renderSlot(_ctx.$slots, "default")
+          ]),
+          _: 3
+        })
+      ]),
+      _: 3
+    }, 8, ["onTransitionend", "class", "tabindex", "aria-labelledby"])),
+    _ctx.showBackdrop && _ctx.backdrop ? (openBlock(), createElementBlock("div", {
+      key: 0,
+      onClick: _cache[1] || (_cache[1] = ($event) => _ctx.shown = false),
+      ref: "backdrop",
+      class: "offcanvas-backdrop fade"
+    }, null, 512)) : createCommentVNode("", true)
+  ]);
+}
+var OffCanvas = /* @__PURE__ */ _export_sfc$1(_sfc_main$l, [["render", _sfc_render$l]]);
+
+const _sfc_main$k = defineComponent({
+  name: "Popover",
+  props: {
+    target: { type: String, required: true },
+    header: { type: String, default: null },
+    modelValue: { type: Boolean, default: false },
+    placement: { type: String, default: "top" },
+    triggers: { type: String, default: "click" }
+  },
+  setup(props) {
+    const shown = ref(false);
+    watch(() => props.modelValue, (value) => shown.value = value);
+    const bsDir = (placement) => {
+      if (["auto", "auto-start", "auto-end", "top", "top-start", "top-end"].includes(placement)) {
+        return "top";
+      } else if (["bottom", "bottom-start", "bottom-end"].includes(placement)) {
+        return "bottom";
+      } else if (["right", "right-start", "right-end"].includes(placement)) {
+        return "end";
+      } else if (["left", "left-start", "left-end"].includes(placement)) {
+        return "start";
+      }
+      return "top";
+    };
+    const dir = ref("top");
+    dir.value = bsDir(props.placement);
+    const classes = computed(() => {
+      return [
+        "popover",
+        "fade",
+        {
+          show: shown.value,
+          ["bs-popover-" + dir.value]: !!dir.value
+        }
+      ];
+    });
+    const events = computed(() => {
+      return typeof props.triggers === "string" ? [props.triggers] : props.triggers;
+    });
+    const topLogger = {
+      name: "topLogger",
+      enabled: true,
+      phase: "main",
+      fn({ state }) {
+        dir.value = bsDir(state.placement);
+      }
+    };
+    const popperOptions = computed(() => ({
+      placement: ["auto", "auto-start", "auto-end"].includes(props.placement) ? "top" : props.placement,
+      modifiers: [
+        topLogger,
+        {
+          name: "offset",
+          enabled: true,
+          options: {
+            offset: (d) => {
+              return [0, 10];
+            }
+          }
+        }
+      ]
+    }));
+    return {
+      shown,
+      classes,
+      events,
+      popper: ref(null),
+      popperOptions
+    };
+  },
+  watch: {
+    shown(value) {
+      this.$emit("update:modelValue", value);
+      this.$nextTick(() => {
+        if (value) {
+          this.initPopper();
+          let the = this;
+          setTimeout(() => document.addEventListener("click", the.clickOutside), 0);
+        } else {
+          this.destroyPopper();
+        }
+      });
+    }
+  },
+  mounted() {
+    let target = document.getElementById(this.target);
+    let the = this;
+    target.addEventListener(this.triggers, () => the.shown = !the.shown);
+  },
+  beforeUnmount() {
+    this.destroyPopper();
+  },
+  methods: {
+    destroyPopper() {
+      this.popper.destroy();
+    },
+    initPopper() {
+      let target = document.getElementById(this.target);
+      this.popper = createPopper(target, this.$refs.popover, this.popperOptions);
+    },
+    clickOutside(e) {
+      let isTarget = document.getElementById(this.target).isSameNode(e.target);
+      let isFromPopover = this.$refs.popover && (this.$refs.popover.isSameNode(e.target) || this.$refs.popover.contains(e.target));
+      if (this.shown && !isTarget && !isFromPopover) {
+        this.shown = false;
+        document.removeEventListener("click", this.clickOutside);
+      }
+    }
+  }
+});
+const _hoisted_1$c = /* @__PURE__ */ createElementVNode("div", {
+  "data-popper-arrow": "",
+  class: "popover-arrow"
+}, null, -1);
+const _hoisted_2$9 = {
+  key: 0,
+  class: "popover-header"
+};
+const _hoisted_3$5 = { class: "popover-body" };
+function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createBlock(Teleport, { to: "body" }, [
+    _ctx.shown ? (openBlock(), createElementBlock("div", {
+      key: 0,
+      ref: "popover",
+      class: normalizeClass(_ctx.classes),
+      role: "tooltip"
+    }, [
+      _hoisted_1$c,
+      _ctx.$slots.header || _ctx.header ? (openBlock(), createElementBlock("div", _hoisted_2$9, [
+        renderSlot(_ctx.$slots, "header", {}, () => [
+          createTextVNode(toDisplayString(_ctx.header), 1)
+        ])
+      ])) : createCommentVNode("", true),
+      createElementVNode("div", _hoisted_3$5, [
+        renderSlot(_ctx.$slots, "default")
+      ])
+    ], 2)) : createCommentVNode("", true)
+  ]);
+}
+var Popover = /* @__PURE__ */ _export_sfc$1(_sfc_main$k, [["render", _sfc_render$k]]);
+
+const _sfc_main$j = defineComponent({
+  name: "Radio",
+  props: {
+    name: { type: String, default: null },
+    id: { type: String, default: null },
+    modelValue: { default: null },
+    value: { default: null }
+  },
+  setup(props, context) {
+    const identifier = ref(null);
+    if (props.id) {
+      identifier.value = props.id;
+    } else {
+      identifier.value = "radio_id" + Math.floor(Math.random() * Math.floor(Math.random() * Date.now()));
+    }
+    const isChecked = computed(() => props.modelValue === props.value);
+    return {
+      identifier,
+      isChecked
+    };
+  }
+});
+const _hoisted_1$b = { class: "form-check" };
+const _hoisted_2$8 = ["name", "id", "value", "checked"];
+const _hoisted_3$4 = ["for"];
+function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", _hoisted_1$b, [
+    createElementVNode("input", {
+      class: "form-check-input",
+      type: "radio",
+      name: _ctx.name,
+      id: _ctx.identifier,
+      value: _ctx.value,
+      checked: _ctx.isChecked,
+      onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", _ctx.value))
+    }, null, 40, _hoisted_2$8),
+    createElementVNode("label", {
+      class: "form-check-label",
+      for: _ctx.identifier
+    }, [
+      renderSlot(_ctx.$slots, "default")
+    ], 8, _hoisted_3$4)
+  ]);
+}
+var Radio = /* @__PURE__ */ _export_sfc$1(_sfc_main$j, [["render", _sfc_render$j]]);
+
+const _sfc_main$i = defineComponent({
+  name: "Range",
+  props: {
+    min: { type: Number, default: null },
+    max: { type: Number, default: null },
+    step: { type: Number, default: 1 },
+    modelValue: { type: Number, default: 0 }
+  },
+  setup(props) {
+    return {
+      classes: computed(() => [
+        "form-range"
+      ])
+    };
+  }
+});
+const _hoisted_1$a = ["value", "min", "max", "step"];
+function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("input", {
+    value: _ctx.modelValue,
+    onInput: _cache[0] || (_cache[0] = (e) => _ctx.$emit("update:modelValue", Number(e.target.value))),
+    min: _ctx.min,
+    max: _ctx.max,
+    step: _ctx.step,
+    type: "range",
+    class: normalizeClass(_ctx.classes)
+  }, null, 42, _hoisted_1$a);
+}
+var Range = /* @__PURE__ */ _export_sfc$1(_sfc_main$i, [["render", _sfc_render$i]]);
 
 var Rating_vue_vue_type_style_index_0_lang = '';
 
@@ -28684,6 +28726,27 @@ var Progress = defineComponent({
   }
 });
 
+var Placeholder = defineComponent({
+  name: "Placeholder",
+  props: {
+    tag: { type: String, default: "div" },
+    glow: { type: Boolean, default: false },
+    wave: { type: Boolean, default: false },
+    size: { type: String, default: null },
+    col: { type: [Number, String], default: null },
+    variant: { type: String, default: null }
+  },
+  setup(props, { slots }) {
+    return () => h(props.tag, {
+      class: ["placeholder", {
+        "placeholder-glow": props.glow,
+        "placeholder-wave": props.wave,
+        ["bg-" + props.variant]: props.variant
+      }]
+    }, slots.default?.());
+  }
+});
+
 const _sfc_main$3 = defineComponent({
   name: "Spinner",
   props: {
@@ -29056,4 +29119,4 @@ var Vr = defineComponent({
   }
 });
 
-export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Checkbox, CheckboxGroup, Col, Collapse, Container, DataTable, DataTable as Datatable, Datepicker, Dropdown, DropdownButton, DropdownDivider, DropdownItem, DropdownMenu, Figure, FormGroup, FormLabel, Grid, GridCol, Icon, Input, InputGroup, InputGroupText, Link, ListGroup, ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, Vr };
+export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Checkbox, CheckboxGroup, Col, Collapse, Container, DataTable, DataTable as Datatable, Datepicker, Dropdown, DropdownButton, DropdownDivider, DropdownItem, DropdownMenu, Figure, FormGroup, FormLabel, Grid, GridCol, Icon, Input, InputGroup, InputGroupText, Link, ListGroup, ListGroupItem, Menu, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, Placeholder, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, Vr };

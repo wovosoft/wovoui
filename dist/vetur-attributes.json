@@ -595,10 +595,6 @@
     "description": "",
     "type": "boolean"
   },
-  "navbar-toggler/model-value": {
-    "description": "",
-    "type": "boolean"
-  },
   "navbar-nav/scroll-height": {
     "description": "",
     "type": "string | number"
@@ -606,14 +602,6 @@
   "navbar-nav/scrollable-l": {
     "description": "",
     "type": "boolean"
-  },
-  "navbar-brand/tag": {
-    "description": "",
-    "type": "keyof HTMLElementTagNameMap"
-  },
-  "navbar-brand/href": {
-    "description": "",
-    "type": "string"
   },
   "navbar/brand": {
     "description": "",
@@ -777,6 +765,14 @@
   "modal/fullscreen": {
     "description": "",
     "type": "modalFullScreen"
+  },
+  "menu/items": {
+    "description": "",
+    "type": "object[] | string[]"
+  },
+  "menu/child": {
+    "description": "",
+    "type": "boolean"
   },
   "list-group-item/tag": {
     "description": "",
@@ -1441,6 +1437,10 @@
   "accordion-item/model-value": {
     "description": "",
     "type": "Binary"
+  },
+  "accordion-item/body-class": {
+    "description": "",
+    "type": "any"
   },
   "accordion-header/tag": {
     "description": "",

@@ -8,12 +8,9 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<string>;
         default: string;
     };
-}, {
-    classes: import("vue").ComputedRef<string[]>;
-    attributes: import("vue").ComputedRef<{
-        href: string;
-    }>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, () => import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
+    [key: string]: any;
+}>, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
         type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
@@ -27,4 +24,4 @@ declare const _default: import("vue").DefineComponent<{
     href: string;
 }>;
 export default _default;
-//# sourceMappingURL=NavbarBrand.vue.d.ts.map
+//# sourceMappingURL=NavbarBrand.d.ts.map
