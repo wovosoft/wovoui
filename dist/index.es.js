@@ -1,14 +1,16 @@
 import { defineComponent, ref, reactive, provide, computed, h, openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, watch, withModifiers, inject, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, createCommentVNode, mergeProps, Fragment, renderList, normalizeProps, createSlots, withDirectives, createElementVNode, vModelCheckbox, guardReactiveProps, normalizeStyle, nextTick, Teleport, vModelSelect, withKeys, vModelText } from 'vue';
 
+var accordionProps = {
+  tag: { type: String, default: "div" },
+  modelValue: { type: Number, default: null },
+  flush: { type: Boolean, default: false },
+  alwaysOpen: { type: Boolean, default: false }
+};
+
 var Accordion = defineComponent({
   name: "Accordion",
   emits: ["update:modelValue"],
-  props: {
-    tag: { type: String, default: "div" },
-    modelValue: { type: Number, default: null },
-    flush: { type: Boolean, default: false },
-    alwaysOpen: { type: Boolean, default: false }
-  },
+  props: accordionProps,
   setup(props, { expose, slots, emit }) {
     const activeItem = ref(null);
     const items = reactive([]);
@@ -18252,7 +18254,7 @@ const _sfc_main$L = defineComponent({
   }
 });
 const _hoisted_1$m = ["required", "readonly", "disabled", "name", "value", "id"];
-const _hoisted_2$e = ["for"];
+const _hoisted_2$f = ["for"];
 const _hoisted_3$8 = ["required", "readonly", "disabled", "name", "value", "id"];
 const _hoisted_4$3 = ["for"];
 function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
@@ -18276,7 +18278,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
       for: _ctx.identifier
     }, [
       renderSlot(_ctx.$slots, "default")
-    ], 10, _hoisted_2$e)) : createCommentVNode("", true)
+    ], 10, _hoisted_2$f)) : createCommentVNode("", true)
   ], 64)) : (openBlock(), createElementBlock("div", {
     key: 1,
     class: normalizeClass(_ctx.classes)
@@ -25211,13 +25213,13 @@ const _sfc_main$B = defineComponent({
   name: "DropdownDivider"
 });
 const _hoisted_1$i = { role: "presentation" };
-const _hoisted_2$d = /* @__PURE__ */ createElementVNode("hr", {
+const _hoisted_2$e = /* @__PURE__ */ createElementVNode("hr", {
   role: "separator",
   "aria-orientation": "horizontal",
   class: "dropdown-divider"
 }, null, -1);
 const _hoisted_3$7 = [
-  _hoisted_2$d
+  _hoisted_2$e
 ];
 function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$i, _hoisted_3$7);
@@ -25234,14 +25236,14 @@ const _sfc_main$A = defineComponent({
   }
 });
 const _hoisted_1$h = { role: "presentation" };
-const _hoisted_2$c = {
+const _hoisted_2$d = {
   key: 0,
   class: "dropdown-item-text"
 };
 const _hoisted_3$6 = ["href"];
 function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$h, [
-    _ctx.isText ? (openBlock(), createElementBlock("p", _hoisted_2$c, [
+    _ctx.isText ? (openBlock(), createElementBlock("p", _hoisted_2$d, [
       renderSlot(_ctx.$slots, "default")
     ])) : (openBlock(), createElementBlock("a", {
       key: 1,
@@ -25364,7 +25366,7 @@ const _sfc_main$y = defineComponent({
   }
 });
 const _hoisted_1$g = ["src", "alt"];
-const _hoisted_2$b = {
+const _hoisted_2$c = {
   key: 1,
   class: "figure-caption"
 };
@@ -25378,7 +25380,7 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
         src: _ctx.imgUrl,
         alt: _ctx.imgAlt
       }, null, 10, _hoisted_1$g)) : createCommentVNode("", true),
-      _ctx.caption || _ctx.$slots.caption ? (openBlock(), createElementBlock("div", _hoisted_2$b, [
+      _ctx.caption || _ctx.$slots.caption ? (openBlock(), createElementBlock("div", _hoisted_2$c, [
         renderSlot(_ctx.$slots, "caption", {}, () => [
           createTextVNode(toDisplayString(_ctx.caption), 1)
         ])
@@ -25841,7 +25843,7 @@ const _sfc_main$t = defineComponent({
   }
 });
 const _hoisted_1$e = ["aria-hidden", "role"];
-const _hoisted_2$a = { class: "modal-content" };
+const _hoisted_2$b = { class: "modal-content" };
 function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ModalTitle = resolveComponent("ModalTitle");
   const _component_ButtonClose = resolveComponent("ButtonClose");
@@ -25861,7 +25863,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", {
         class: normalizeClass(_ctx.dialogClass)
       }, [
-        createElementVNode("div", _hoisted_2$a, [
+        createElementVNode("div", _hoisted_2$b, [
           !_ctx.noHeader && (_ctx.$slots.header || _ctx.header || _ctx.title) ? (openBlock(), createBlock(_component_ModalHeader, mergeProps({
             key: 0,
             tag: _ctx.headerTag,
@@ -26612,12 +26614,16 @@ function _sfc_render$5$1(_ctx, _cache, $props, $setup, $data, $options) {
 }
 var X = /* @__PURE__ */ _export_sfc(_sfc_main$5$1, [["render", _sfc_render$5$1]]);
 
+var Menu_vue_vue_type_style_index_0_scoped_true_lang = '';
+
 const _sfc_main$s = defineComponent({
   name: "Menu",
   components: { AccordionItem, Accordion, ChevronRight },
   props: {
+    ...accordionProps,
     items: { type: Array, default: () => [] },
-    child: { type: Boolean, default: false }
+    child: { type: Boolean, default: false },
+    ps: { type: Number, default: 10 }
   },
   setup(props, { slots }) {
     return {
@@ -26634,13 +26640,17 @@ const _sfc_main$s = defineComponent({
     };
   }
 });
-const _hoisted_1$d = { class: "accordion-body" };
+const _hoisted_1$d = { class: "accordion-header" };
+const _hoisted_2$a = ["href"];
 function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Menu = resolveComponent("Menu", true);
   const _component_AccordionItem = resolveComponent("AccordionItem");
   const _component_ChevronRight = resolveComponent("ChevronRight");
+  const _component_router_link = resolveComponent("router-link");
   const _component_Accordion = resolveComponent("Accordion");
-  return openBlock(), createBlock(_component_Accordion, null, {
+  return openBlock(), createBlock(_component_Accordion, {
+    class: normalizeClass({ child: _ctx.child })
+  }, {
     default: withCtx(() => [
       (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.items, (item, item_key) => {
         return openBlock(), createElementBlock(Fragment, null, [
@@ -26653,6 +26663,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
             default: withCtx(() => [
               createVNode(_component_Menu, {
                 child: "",
+                flush: "",
                 items: item.children
               }, null, 8, ["items"])
             ]),
@@ -26663,17 +26674,33 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
             style: normalizeStyle(_ctx.style)
           }, [
             createElementVNode("div", _hoisted_1$d, [
-              _ctx.child ? (openBlock(), createBlock(_component_ChevronRight, { key: 0 })) : createCommentVNode("", true),
-              createTextVNode(" " + toDisplayString(item?.text || item?.title), 1)
+              typeof item.link === "string" ? (openBlock(), createElementBlock("a", {
+                key: 0,
+                href: item.link,
+                class: "accordion-button collapsed menu-link"
+              }, [
+                _ctx.child ? (openBlock(), createBlock(_component_ChevronRight, { key: 0 })) : createCommentVNode("", true),
+                createTextVNode(" " + toDisplayString(item?.text || item?.title), 1)
+              ], 8, _hoisted_2$a)) : typeof item.link === "object" ? (openBlock(), createBlock(_component_router_link, {
+                key: 1,
+                to: item.link,
+                class: "accordion-button collapsed menu-link"
+              }, {
+                default: withCtx(() => [
+                  _ctx.child ? (openBlock(), createBlock(_component_ChevronRight, { key: 0 })) : createCommentVNode("", true),
+                  createTextVNode(" " + toDisplayString(item?.text || item?.title), 1)
+                ]),
+                _: 2
+              }, 1032, ["to"])) : createCommentVNode("", true)
             ])
           ], 4))
         ], 64);
       }), 256))
     ]),
     _: 1
-  });
+  }, 8, ["class"]);
 }
-var Menu = /* @__PURE__ */ _export_sfc$1(_sfc_main$s, [["render", _sfc_render$s]]);
+var Menu = /* @__PURE__ */ _export_sfc$1(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-48ffddde"]]);
 
 var navProps = {
   tag: { type: String, default: "ul" },

@@ -1,14 +1,10 @@
 import {defineComponent, h, PropType, reactive, ref, provide, computed} from "vue";
+import accordionProps from "../shared/accordionProps";
 
 export default defineComponent({
     name: "Accordion",
     emits: ['update:modelValue'],
-    props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        modelValue: {type: Number as PropType<number>, default: null},
-        flush: {type: Boolean as PropType<boolean>, default: false},
-        alwaysOpen: {type: Boolean as PropType<boolean>, default: false}
-    },
+    props: accordionProps,
     setup(props, {expose, slots, emit}) {
         const activeItem = ref(null);
         const items = reactive([]);

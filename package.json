@@ -12,6 +12,7 @@
     "@wovosoft/wovoui-icons": "^0.0.3",
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.7.2",
+    "chart.js": "^3.7.1",
     "dayjs": "^1.10.7",
     "highlight.js": "^11.4.0",
     "lodash": "^4.17.21",

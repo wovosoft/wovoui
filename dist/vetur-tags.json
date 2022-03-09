@@ -132,6 +132,14 @@
     ],
     "description": ""
   },
+  "chart": {
+    "attributes": [
+      "type",
+      "data",
+      "options"
+    ],
+    "description": ""
+  },
   "checkbox": {
     "attributes": [
       "name",
@@ -310,7 +318,8 @@
   "menu": {
     "attributes": [
       "items",
-      "child"
+      "child",
+      "ps"
     ],
     "description": ""
   },

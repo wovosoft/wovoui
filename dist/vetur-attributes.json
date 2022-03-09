@@ -768,11 +768,15 @@
   },
   "menu/items": {
     "description": "",
-    "type": "object[] | string[]"
+    "type": "itemType[]"
   },
   "menu/child": {
     "description": "",
     "type": "boolean"
+  },
+  "menu/ps": {
+    "description": "",
+    "type": "number"
   },
   "list-group-item/tag": {
     "description": "",
@@ -1109,6 +1113,18 @@
   "checkbox/checked": {
     "description": "",
     "type": "boolean"
+  },
+  "chart/type": {
+    "description": "",
+    "type": "ChartType"
+  },
+  "chart/data": {
+    "description": "",
+    "type": "ChartData<ChartType, DefaultDataPoint<ChartType>, unknown>"
+  },
+  "chart/options": {
+    "description": "",
+    "type": "ChartOptions"
   },
   "carousel-item/tag": {
     "description": "",
