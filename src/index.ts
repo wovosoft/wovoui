@@ -105,3 +105,7 @@ export {default as Tooltip} from "./components/Tooltip.vue";
 export {default as Aspect} from "./components/Aspect";
 export {default as Stack} from "./components/Stack";
 export {default as Vr} from "./components/Vr";
+
+export {default as Layout} from "./components/Layout.vue";
+
+

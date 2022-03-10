@@ -2,7 +2,7 @@ import { PropType } from "vue";
 import type { colAlignments, colOrders, justifyContentAlignments, responsiveNumbers } from "../types/responsiveLayoutSizes";
 declare const _default: import("vue").DefineComponent<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     col: {
@@ -65,7 +65,7 @@ declare const _default: import("vue").DefineComponent<{
     [key: string]: any;
 }>, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     col: {
@@ -126,7 +126,7 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     col: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-    tag: string;
+    tag: keyof HTMLElementTagNameMap;
     sm: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
     lg: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
     md: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;

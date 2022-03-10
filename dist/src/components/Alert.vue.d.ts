@@ -1,8 +1,8 @@
-import { PropType } from "vue";
+import { PropType, Ref } from "vue";
 import type { ColorVariants } from "../types/colorVariants";
 declare const _default: import("vue").DefineComponent<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     dismissLabel: {
@@ -38,18 +38,18 @@ declare const _default: import("vue").DefineComponent<{
         default: number;
     };
 }, {
-    timeoutNow: import("vue").Ref<number>;
+    timeoutNow: Ref<number>;
     classes: import("vue").ComputedRef<(string | {
         [x: string]: boolean;
         "alert-dismissible": boolean;
     })[]>;
-    visible: import("vue").Ref<boolean>;
+    visible: Ref<boolean>;
     show: () => boolean;
     hide: () => boolean;
     toggle: () => boolean;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "update:show" | "dismissed" | "countdown")[], "update:modelValue" | "update:show" | "dismissed" | "countdown", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     dismissLabel: {
@@ -90,7 +90,7 @@ declare const _default: import("vue").DefineComponent<{
     onDismissed?: (...args: any[]) => any;
     onCountdown?: (...args: any[]) => any;
 }, {
-    tag: string;
+    tag: keyof HTMLElementTagNameMap;
     modelValue: boolean;
     countdown: null;
     dismissLabel: string;

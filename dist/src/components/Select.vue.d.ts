@@ -1,4 +1,4 @@
-import { PropType } from "vue";
+import { PropType, Ref } from "vue";
 import type { buttonSizes } from "../types/buttonSizes";
 declare const _default: import("vue").DefineComponent<{
     multiple: {
@@ -35,7 +35,7 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     getEntity: (o: any, k: any) => any;
     isDisabledOption: (o: any) => any;
-    model: any;
+    model: Ref<any>;
     classes: import("vue").ComputedRef<(string | {
         [x: string]: boolean;
     })[]>;

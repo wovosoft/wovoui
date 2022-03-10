@@ -1,4 +1,4 @@
-import { PropType } from "vue";
+import { PropType, Ref } from "vue";
 import type { ColorVariants } from "../types/colorVariants";
 declare const _default: import("vue").DefineComponent<{
     brand: {
@@ -38,7 +38,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }, {
-    collapsed: import("vue").Ref<boolean>;
+    collapsed: Ref<boolean>;
     toggleNavbar(): void;
     classes: import("vue").ComputedRef<(string | {
         [x: string]: boolean | ColorVariants | "sm" | "lg" | "md" | "xl" | "xxl";

@@ -136,7 +136,9 @@
     "attributes": [
       "type",
       "data",
-      "options"
+      "options",
+      "height",
+      "width"
     ],
     "description": ""
   },
@@ -300,6 +302,13 @@
   "input-group-text": {
     "attributes": [
       "tag"
+    ],
+    "description": ""
+  },
+  "layout": {
+    "attributes": [
+      "height",
+      "left-sidebar-width"
     ],
     "description": ""
   },

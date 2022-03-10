@@ -1,5 +1,5 @@
 import { PropType } from "vue";
-import { ColorVariants } from "../types/colorVariants";
+import type { ColorVariants } from "../types/colorVariants";
 declare const _default: import("vue").DefineComponent<{
     name: {
         type: PropType<string>;

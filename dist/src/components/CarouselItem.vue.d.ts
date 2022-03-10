@@ -1,4 +1,4 @@
-import { PropType } from "vue";
+import { PropType, Ref } from "vue";
 declare const _default: import("vue").DefineComponent<{
     tag: {
         type: PropType<string>;
@@ -13,7 +13,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }, {
-    visible: import("vue").Ref<boolean>;
+    visible: Ref<boolean>;
     direction: unknown;
     classes: import("vue").ComputedRef<string[]>;
 }, unknown, {}, {

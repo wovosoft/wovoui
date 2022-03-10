@@ -1,5 +1,5 @@
-import { PropType } from "vue";
-import { ColorVariants } from "../types/colorVariants";
+import { PropType, Ref } from "vue";
+import type { ColorVariants } from "../types/colorVariants";
 declare const _default: import("vue").DefineComponent<{
     tag: {
         type: PropType<string>;
@@ -35,8 +35,8 @@ declare const _default: import("vue").DefineComponent<{
         disabled: boolean;
         "list-group-item-action": boolean;
     })[]>;
-    attributes: import("vue").Ref<{}>;
-    theTag: import("vue").Ref<string>;
+    attributes: Ref<any>;
+    theTag: Ref<string>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
         type: PropType<string>;

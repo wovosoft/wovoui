@@ -1,5 +1,5 @@
 import { PropType } from "vue";
-import { ColorVariants } from "../types/colorVariants";
+import type { ColorVariants } from "../types/colorVariants";
 declare const _default: import("vue").DefineComponent<{
     align: {
         type: PropType<string>;
@@ -38,7 +38,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     footerTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     footerTextVariant: {
@@ -70,7 +70,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     headerTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     headerTextVariant: {
@@ -154,7 +154,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     titleTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
 }, {
@@ -185,7 +185,7 @@ declare const _default: import("vue").DefineComponent<{
         textVariant: ColorVariants;
         overlay: boolean;
         title: string;
-        titleTag: string;
+        titleTag: keyof HTMLElementTagNameMap;
         class: string | any[];
         subTitle: string;
         subTitleTag: string;
@@ -229,7 +229,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     footerTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     footerTextVariant: {
@@ -261,7 +261,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     headerTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     headerTextVariant: {
@@ -345,7 +345,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     titleTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
 }>>, {
@@ -360,7 +360,7 @@ declare const _default: import("vue").DefineComponent<{
     subTitle: string;
     subTitleTag: string;
     subTitleTextVariant: string;
-    titleTag: string;
+    titleTag: keyof HTMLElementTagNameMap;
     align: string;
     bgVariant: ColorVariants;
     bodyBgVariant: ColorVariants;
@@ -368,14 +368,14 @@ declare const _default: import("vue").DefineComponent<{
     bodyTag: string;
     bodyTextVariant: ColorVariants;
     footerBgVariant: ColorVariants;
-    footerTag: string;
+    footerTag: keyof HTMLElementTagNameMap;
     footerTextVariant: ColorVariants;
     footerClass: string | any[];
     footerBorderVariant: string;
     headerBgVariant: ColorVariants;
     headerBorderVariant: ColorVariants;
     headerClass: string | object | any[];
-    headerTag: string;
+    headerTag: keyof HTMLElementTagNameMap;
     headerTextVariant: ColorVariants;
     imgAlt: string;
     imgBottom: boolean;

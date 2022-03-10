@@ -1,4 +1,10 @@
 import { PropType } from "vue";
+import type { classTypes } from "../types/classTypes";
+declare type linkAttributesType = {
+    href?: string;
+    ariaCurrent?: string;
+    target?: string;
+};
 declare const _default: import("vue").DefineComponent<{
     ariaCurrent: {
         type: PropType<string>;
@@ -29,12 +35,8 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }, {
-    classes: import("vue").ComputedRef<void>;
-    linkAttributes: import("vue").ComputedRef<{
-        href: string;
-        ariaCurrent: string;
-        target: string;
-    }>;
+    classes: import("vue").ComputedRef<classTypes>;
+    linkAttributes: import("vue").ComputedRef<linkAttributesType>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     ariaCurrent: {
         type: PropType<string>;

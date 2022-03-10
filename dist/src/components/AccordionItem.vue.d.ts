@@ -1,12 +1,11 @@
-import { PropType } from "vue";
-import { Binary } from "../types/Binary";
+import { PropType, Ref } from "vue";
 declare const _default: import("vue").DefineComponent<{
     header: {
         type: PropType<string>;
         default: any;
     };
     modelValue: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     bodyClass: {
@@ -14,14 +13,14 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }, {
-    visible: import("vue").Ref<Binary>;
+    visible: Ref<boolean>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     header: {
         type: PropType<string>;
         default: any;
     };
     modelValue: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     bodyClass: {
@@ -32,7 +31,7 @@ declare const _default: import("vue").DefineComponent<{
     "onUpdate:modelValue"?: (...args: any[]) => any;
 }, {
     header: string;
-    modelValue: Binary;
+    modelValue: boolean;
     bodyClass: any;
 }>;
 export default _default;

@@ -1,4 +1,5 @@
-import { PropType } from "vue";
+import { PropType, Ref } from "vue";
+declare type directionType = 'left' | 'right' | 'start' | 'end';
 declare const _default: import("vue").DefineComponent<{
     tag: {
         type: PropType<keyof HTMLElementTagNameMap>;
@@ -33,8 +34,8 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }, {
-    slides: import("vue").Ref<any[]>;
-    direction: import("vue").Ref<string>;
+    slides: Ref<Ref<boolean>[]>;
+    direction: Ref<directionType>;
     currentIndex: import("vue").ComputedRef<number>;
     changeSlide: (slideVisibility: any, next_slide_index: any, current_index?: any) => void;
     changeSlideByIndex: (type: any) => void;

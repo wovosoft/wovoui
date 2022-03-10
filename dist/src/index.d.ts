@@ -22,6 +22,7 @@ export { default as CardLink } from "./components/CardLink";
 export { default as CardSubTitle } from "./components/CardSubTitle";
 export { default as CardText } from "./components/CardText";
 export { default as CardTitle } from "./components/CardTitle";
+export { default as Chart } from "./components/Chart.vue";
 export { default as Checkbox } from "./components/Checkbox.vue";
 export { default as CheckboxGroup } from "./components/CheckboxGroup.vue";
 export { default as Col } from "./components/Col";
@@ -104,4 +105,5 @@ export { default as Tooltip } from "./components/Tooltip.vue";
 export { default as Aspect } from "./components/Aspect";
 export { default as Stack } from "./components/Stack";
 export { default as Vr } from "./components/Vr";
+export { default as Layout } from "./components/Layout.vue";
 //# sourceMappingURL=index.d.ts.map

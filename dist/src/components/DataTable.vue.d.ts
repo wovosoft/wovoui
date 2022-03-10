@@ -74,8 +74,8 @@ declare const _default: import("vue").DefineComponent<{
         active: boolean;
         borderVariant: import("../types/colorVariants").ColorVariants;
         responsive: boolean | import("../types/responsiveLayoutSizes").responsiveSizes;
-        striped: boolean;
         hover: boolean;
+        striped: boolean;
         bordered: boolean;
         borderless: boolean;
         valign: "top" | "bottom" | "middle";
@@ -174,8 +174,8 @@ declare const _default: import("vue").DefineComponent<{
     items: any[];
     borderVariant: import("../types/colorVariants").ColorVariants;
     responsive: boolean | import("../types/responsiveLayoutSizes").responsiveSizes;
-    striped: boolean;
     hover: boolean;
+    striped: boolean;
     bordered: boolean;
     borderless: boolean;
     valign: "top" | "bottom" | "middle";

@@ -1,12 +1,11 @@
 import { PropType } from "vue";
-import { Binary } from "../types/Binary";
 declare const _default: import("vue").DefineComponent<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     active: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     activeClass: {
@@ -14,7 +13,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     append: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     ariaCurrent: {
@@ -22,11 +21,11 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     disabled: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     exact: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     rel: {
@@ -34,7 +33,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     replace: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     target: {
@@ -54,16 +53,16 @@ declare const _default: import("vue").DefineComponent<{
         ariaCurrent: string;
     }>;
     classes: import("vue").ComputedRef<(string | {
-        active: Binary;
+        active: boolean;
     })[]>;
     isRouterInstalled: import("vue").ComputedRef<boolean>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     active: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     activeClass: {
@@ -71,7 +70,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     append: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     ariaCurrent: {
@@ -79,11 +78,11 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     disabled: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     exact: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     rel: {
@@ -91,7 +90,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     replace: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     target: {
@@ -107,16 +106,16 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    replace: Binary;
-    tag: string;
-    disabled: Binary;
+    replace: boolean;
+    tag: keyof HTMLElementTagNameMap;
+    disabled: boolean;
     href: string;
     target: string;
-    active: Binary;
+    active: boolean;
     activeClass: string;
-    append: Binary;
+    append: boolean;
     ariaCurrent: string;
-    exact: Binary;
+    exact: boolean;
     rel: string;
     to: string | object;
 }>;

@@ -1,7 +1,7 @@
 import { PropType } from "vue";
 declare const _default: import("vue").DefineComponent<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     modelValue: {
@@ -42,7 +42,7 @@ declare const _default: import("vue").DefineComponent<{
     listener(e: any): void;
 }, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     modelValue: {
@@ -70,7 +70,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
-    tag: string;
+    tag: keyof HTMLElementTagNameMap;
     modelValue: boolean;
     class: any;
     visible: boolean;

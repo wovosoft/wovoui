@@ -1,4 +1,4 @@
-import { PropType } from "vue";
+import { PropType, Ref } from "vue";
 declare const _default: import("vue").DefineComponent<{
     modelValue: {
         default: any;
@@ -24,7 +24,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }, {
-    model: any;
+    model: Ref<any>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     modelValue: {
         default: any;
@@ -53,9 +53,9 @@ declare const _default: import("vue").DefineComponent<{
     "onUpdate:modelValue"?: (...args: any[]) => any;
 }, {
     modelValue: any;
+    options: any;
     inline: boolean;
     switch: boolean;
-    options: any;
     textField: string;
     valueField: string;
 }>;

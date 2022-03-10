@@ -1,4 +1,4 @@
-import { PropType } from "vue";
+import { PropType, Ref } from "vue";
 import type { modalFullScreen } from "../types/modalFullScreen";
 import type { buttonSizes } from "../types/buttonSizes";
 declare const _default: import("vue").DefineComponent<{
@@ -119,17 +119,17 @@ declare const _default: import("vue").DefineComponent<{
         "modal-dialog-scrollable": boolean;
         "modal-dialog-centered": boolean;
     })[]>;
-    shouldShowBackdrop: import("vue").Ref<boolean>;
-    shown: import("vue").Ref<boolean>;
+    shouldShowBackdrop: Ref<boolean>;
+    shown: Ref<boolean>;
     toggle: () => void;
-    toggleState: (value?: any) => void;
+    toggleState: (value?: boolean) => void;
     show: () => void;
     hide: () => void;
     close(): void;
     ok(): void;
 }, unknown, {}, {
     clickedOutside(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "close" | "ok" | "showing" | "hiding" | "shown" | "hidden" | "stateChanged")[], "close" | "update:modelValue" | "shown" | "ok" | "showing" | "hiding" | "hidden" | "stateChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "close" | "ok" | "showing" | "hiding" | "shown" | "hidden" | "stateChanged")[], "close" | "update:modelValue" | "shown" | "hidden" | "ok" | "showing" | "hiding" | "stateChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     animation: {
         type: PropType<string>;
         default: string;
