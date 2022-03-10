@@ -65,7 +65,7 @@
 </template>
 
 <script lang="ts">
-import {computed, ref, watch, nextTick, defineComponent, PropType} from "vue";
+import {computed, ref, watch, nextTick, defineComponent, PropType, Ref} from "vue";
 import ButtonClose from "./ButtonClose";
 import ModalBody from "./ModalBody";
 import ModalHeader from "./ModalHeader";
@@ -115,45 +115,35 @@ export default defineComponent({
         size: {type: String as PropType<buttonSizes>, default: null},
         fullscreen: {type: [Boolean, String] as PropType<modalFullScreen>, default: false}
     },
-    setup(props, context) {
-        const shouldShowBackdrop = ref(false);
-        const shown = ref(props.modelValue);
-        const classes = computed(() => {
-            return [
-                "modal",
-                {
-                    "fade": props.animation === "fade" || !props.animation,
-                }
-            ]
-        });
+    setup(props, {emit}) {
+        const shouldShowBackdrop: Ref<boolean> = ref(false);
+        const shown: Ref<boolean> = ref(props.modelValue);
+        const classes = computed(() => ["modal", {
+            "fade": props.animation === "fade" || !props.animation,
+        }]);
 
-        const dialogClass = computed(() => {
-            return [
-                "modal-dialog",
-                {
-                    ["modal-" + props.size]: !!props.size,
-                    ["modal-fullscreen" + (typeof props.fullscreen === 'string' ? ("-" + props.fullscreen) : "")]: !!props.fullscreen,
-                    "modal-dialog-scrollable": props.scrollable,
-                    "modal-dialog-centered": props.centered
-                }
-            ];
-        });
+        const dialogClass = computed(() => ["modal-dialog", {
+            ["modal-" + props.size]: !!props.size,
+            ["modal-fullscreen" + (typeof props.fullscreen === 'string' ? ("-" + props.fullscreen) : "")]: !!props.fullscreen,
+            "modal-dialog-scrollable": props.scrollable,
+            "modal-dialog-centered": props.centered
+        }]);
         watch(() => props.modelValue, (value) => shown.value = value);
-        watch(shown, value => context.emit('update:modelValue', value));
-        const toggleState = (value = null) => {
+        watch(shown, value => emit('update:modelValue', value));
+        const toggleState = (value?: boolean) => {
             if (typeof value === "boolean") {
                 if (value) {
-                    context.emit("showing", true);
+                    emit("showing", true);
                 } else {
-                    context.emit("hiding", true);
+                    emit("hiding", true);
                 }
                 shown.value = value;
                 if (value) {
-                    context.emit("shown", true);
+                    emit("shown", true);
                 } else {
-                    context.emit("hidden", true);
+                    emit("hidden", true);
                 }
-                context.emit('stateChanged', value);
+                emit('stateChanged', value);
             }
         }
         const show = () => toggleState(true);
@@ -171,13 +161,13 @@ export default defineComponent({
             hide,
             close() {
                 //emits before closing
-                context.emit('close', true);
+                emit('close', true);
                 //then hides modal
                 nextTick(() => toggleState(false));
             },
             ok() {
                 //emits before closing
-                context.emit('ok', true);
+                emit('ok', true);
                 //then hides modal
                 nextTick(() => toggleState(false));
             }

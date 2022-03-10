@@ -31,11 +31,9 @@ export default defineComponent({
         disabled: {type: Boolean as PropType<boolean>, default: false},
     },
     setup(props) {
-        const classes = computed(() => {
-            return [
-                "nav-item"
-            ]
-        });
+        const classes = computed(() => [
+            "nav-item"
+        ]);
         const attributes = computed(() => {
             return {}
         });

@@ -17,7 +17,7 @@
     </nav>
 </template>
 <script lang="ts">
-import {computed, defineComponent, PropType, ref} from "vue";
+import {computed, defineComponent, PropType, Ref, ref} from "vue";
 
 import Container from "./Container";
 import NavbarBrand from "./NavbarBrand";
@@ -38,7 +38,7 @@ export default defineComponent({
         expandsOn: {type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | 'xxl'>, default: 'lg'}
     },
     setup(props, context) {
-        const collapsed = ref(false);
+        const collapsed: Ref<boolean> = ref(false);
         return {
             collapsed,
             toggleNavbar() {

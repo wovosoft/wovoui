@@ -11,7 +11,13 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType} from "vue";
+import type {classTypes} from "../types/classTypes";
 
+type linkAttributesType = {
+    href?: string,
+    ariaCurrent?: string,
+    target?: string
+}
 export default defineComponent({
     name: "NavLink",
     props: {
@@ -24,16 +30,17 @@ export default defineComponent({
         to: {type: Object as PropType<object>, default: null}
     },
     setup(props) {
-        const classes = computed(() => {
-            return ;
+        const classes = computed<classTypes>(() => {
+            return [];
         });
-        const linkAttributes = computed(() => {
+        const linkAttributes = computed<linkAttributesType>(() => {
             return {
                 href: props.tag === "a" ? props.href : null,
                 ariaCurrent: props.ariaCurrent,
                 target: (props.target === "a" || props.href) ? props.target : null
             }
-        })
+        });
+
         return {
             classes,
             linkAttributes

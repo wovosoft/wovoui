@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, ref, watch} from "vue";
+import {computed, defineComponent, PropType, Ref, ref, watch} from "vue";
 import ButtonClose from "./ButtonClose";
 import type {ColorVariants} from "../types/colorVariants";
 
@@ -18,7 +18,7 @@ export default defineComponent({
     emits: ["update:modelValue", "update:show", "dismissed", "countdown"],
     components: {ButtonClose},
     props: {
-        tag: {type: String as PropType<string>, default: "div"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         dismissLabel: {type: String as PropType<string>, default: "Alert"},
         variant: {type: String as PropType<ColorVariants>, default: "primary"},
         dismissible: {type: Boolean as PropType<boolean>, default: false},
@@ -30,7 +30,7 @@ export default defineComponent({
     },
     setup(props, context) {
         //internal state
-        const visible = ref(false);
+        const visible: Ref<boolean> = ref(false);
         const dismissHandler = ref(null);
         const countdownHandler = ref(null);
         const timeoutNow = ref(0);

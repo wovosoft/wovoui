@@ -7,8 +7,9 @@ export default defineComponent({
     },
     setup(props, {slots}) {
         return () => h("a", {
-            href: props.href,
-            class: ["card-link"]
-        }, slots.default ? slots.default() : null)
+                href: props.href,
+                class: ["card-link"]
+            }, slots.default?.()
+        )
     }
 })

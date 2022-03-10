@@ -22,6 +22,7 @@ export {default as CardLink} from "./components/CardLink";
 export {default as CardSubTitle} from "./components/CardSubTitle";
 export {default as CardText} from "./components/CardText"
 export {default as CardTitle} from "./components/CardTitle";
+export {default as Chart} from "./components/Chart.vue";
 export {default as Checkbox} from "./components/Checkbox.vue";
 export {default as CheckboxGroup} from "./components/CheckboxGroup.vue";
 export {default as Col} from "./components/Col";

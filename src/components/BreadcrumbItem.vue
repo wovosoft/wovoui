@@ -18,20 +18,19 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType} from "vue";
-import {Binary} from "../types/Binary";
 
 export default defineComponent({
     name: "BreadcrumbItem",
     props: {
-        tag: {type: String as PropType<string>, default: "li"},
-        active: {type: Boolean as PropType<Binary>, default: false},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
+        active: {type: Boolean as PropType<boolean>, default: false},
         activeClass: {type: String as PropType<string>, default: "active"},
-        append: {type: Boolean as PropType<Binary>, default: false},
+        append: {type: Boolean as PropType<boolean>, default: false},
         ariaCurrent: {type: String as PropType<string>, default: "location"},
-        disabled: {type: Boolean as PropType<Binary>, default: false},
-        exact: {type: Boolean as PropType<Binary>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
+        exact: {type: Boolean as PropType<boolean>, default: false},
         rel: {type: String as PropType<string>, default: null},
-        replace: {type: Boolean as PropType<Binary>, default: false},
+        replace: {type: Boolean as PropType<boolean>, default: false},
         target: {type: String as PropType<string>, default: "_self"},
         to: {type: [Object, String] as PropType<object | string>, default: null},
         href: {type: String as PropType<string>, default: null}

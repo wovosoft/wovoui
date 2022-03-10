@@ -90,8 +90,8 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, ref, watch} from "vue";
-import dayjs from "dayjs";
+import {computed, defineComponent, PropType, Ref, ref, watch} from "vue";
+import dayjs, {Dayjs} from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
 
@@ -140,7 +140,7 @@ export default defineComponent({
         activeClass: {type: String as PropType<string>, default: "active"}
     },
     setup(props, context) {
-        const theDate = ref(props.modelValue ? dayjs(props.modelValue) : dayjs());
+        const theDate:Ref<Dayjs> = ref(props.modelValue ? dayjs(props.modelValue) : dayjs());
         watch(() => props.modelValue, () => theDate.value = dayjs(props.modelValue));
 
         /**

@@ -37,11 +37,12 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, provide, ref} from "vue";
+import {computed, defineComponent, PropType, provide, Ref, ref} from "vue";
 import CarouselInner from "./CarouselInner";
 import CarouselIndicators from "./CarouselIndicators";
 import {ChevronLeft, ChevronRight} from "@wovosoft/wovoui-icons";
 
+type directionType = 'left' | 'right' | 'start' | 'end';
 export default defineComponent({
     name: "Carousel",
     components: {ChevronLeft, ChevronRight, CarouselInner, CarouselIndicators},
@@ -58,10 +59,10 @@ export default defineComponent({
     },
 
     setup(props, context) {
-        const slides = ref([]);
+        const slides: Ref<Ref<boolean>[]> = ref([]);
         provide('registerItem', item => slides.value.push(item));
 
-        const direction = ref('start');
+        const direction: Ref<directionType> = ref('start');
         provide('direction', direction);
 
         let interval = null;

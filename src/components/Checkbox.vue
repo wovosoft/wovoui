@@ -35,8 +35,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType, ref, watch} from "vue";
-import {makeBoolean, makeString} from "../shared/properties.js";
-import {ColorVariants} from "../types/colorVariants";
+import type {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "Checkbox",

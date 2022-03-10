@@ -70,8 +70,6 @@ export default defineComponent({
         items: {type: [Array, Function] as PropType<any[]>, default: () => ([])}
     },
     setup(props, context) {
-        props = reactive(props);
-
         const sorting = ref({
             sortBy: null,
             sort: null

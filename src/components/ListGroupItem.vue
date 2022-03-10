@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, ref} from "vue";
-import {ColorVariants} from "../types/colorVariants";
+import {computed, defineComponent, PropType, Ref, ref} from "vue";
+import type {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "ListGroupItem",
@@ -23,7 +23,7 @@ export default defineComponent({
         variant: {type: String as PropType<ColorVariants>, default: null}
     },
     setup(props, context) {
-        const attributes = ref({});
+        const attributes: Ref<any> = ref({});
         if (props.active) {
             attributes.value['aria-current'] = props.active;
         }

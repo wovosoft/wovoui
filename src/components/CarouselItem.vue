@@ -5,7 +5,9 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, inject, PropType, ref, watch} from "vue";
+import {computed, defineComponent, inject, PropType, Ref, ref, watch} from "vue";
+
+type registerItemType = (visible: Ref<boolean>) => void;
 
 export default defineComponent({
     name: "CarouselItem",
@@ -19,7 +21,8 @@ export default defineComponent({
         const visible = ref(props.active);
         watch(() => props.active, v => visible.value = v);
         watch(visible, (v) => context.emit("update:active", v));
-        inject('registerItem')(visible);
+        const registerItem: registerItemType = inject('registerItem');
+        registerItem(visible);
 
         return {
             visible,

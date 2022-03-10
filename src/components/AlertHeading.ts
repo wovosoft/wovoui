@@ -1,18 +1,11 @@
-import {computed, defineComponent, h, PropType} from "vue";
+import {defineComponent, h, PropType} from "vue";
 
 export default defineComponent({
     name: "AlertHeading",
     props: {
-        tag: {type: String as PropType<string>, default: "h4"}
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"}
     },
     setup(props, {slots}) {
-        const classes = computed(() => [
-            "alert-heading"
-        ])
-        return () => h(
-            props.tag,
-            {class: classes.value},
-            slots.default ? slots.default() : null
-        )
+        return () => h(props.tag, {class: ["alert-heading"]}, slots.default?.())
     }
 })

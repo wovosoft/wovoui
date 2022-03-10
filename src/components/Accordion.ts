@@ -1,4 +1,4 @@
-import {defineComponent, h, PropType, reactive, ref, provide, computed} from "vue";
+import {defineComponent, h, reactive, ref, provide, computed, Ref} from "vue";
 import accordionProps from "../shared/accordionProps";
 
 export default defineComponent({
@@ -6,7 +6,7 @@ export default defineComponent({
     emits: ['update:modelValue'],
     props: accordionProps,
     setup(props, {expose, slots, emit}) {
-        const activeItem = ref(null);
+        const activeItem: Ref<boolean> = ref(null);
         const items = reactive([]);
 
         provide("registerItem", (item) => items.push(item));

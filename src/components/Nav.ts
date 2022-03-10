@@ -19,6 +19,6 @@ export default defineComponent({
                 "justify-content-end": props.align === "right" || props.align === "end",
                 "justify-content-start": props.align === "left" || props.align === "start"
             }
-        }, slots.default ? slots.default() : null)
+        }, slots.default?.())
     }
 })

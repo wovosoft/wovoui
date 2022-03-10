@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import {computed, ref, watch, defineComponent, PropType} from "vue";
+import {computed, ref, watch, defineComponent, PropType, Ref} from "vue";
 import {isObject} from "../shared/utilities.js";
 import type {buttonSizes} from "../types/buttonSizes";
 
@@ -40,9 +40,10 @@ export default defineComponent({
         modelValue: {default: null}
     },
     setup(props, context) {
-        const model = ref(null);
-        watch(model, (val) => context.emit('update:modelValue', val));
+        const model: Ref<any> = ref(null);
         watch(() => props.modelValue, value => model.value = value);
+        watch(model, (val) => context.emit('update:modelValue', val));
+
 
         const getEntity = (o, k) => {
             if (typeof props[k] === "string" || props[k] === null) {

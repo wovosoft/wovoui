@@ -23,7 +23,7 @@ export default defineComponent({
                     }
                 ]
             },
-            slots.default ? slots.default() : null
+            slots.default?.()
         )
     }
 })

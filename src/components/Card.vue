@@ -44,7 +44,7 @@ import {computed, defineComponent, PropType} from "vue";
 import CardBody from "./CardBody";
 import CardFooter from "./CardFooter";
 import CardImg from "./CardImg";
-import {ColorVariants} from "../types/colorVariants";
+import type {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "Card",
@@ -61,7 +61,7 @@ export default defineComponent({
 
         footer: {type: String as PropType<string>, default: null},
         footerBgVariant: {type: String as PropType<ColorVariants>, default: null},
-        footerTag: {type: String as PropType<string>, default: "div"},
+        footerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         footerTextVariant: {type: String as PropType<ColorVariants>, default: null},
         footerClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
         footerBorderVariant: {type: String as PropType<string>, default: null},
@@ -70,7 +70,7 @@ export default defineComponent({
         headerBgVariant: {type: String as PropType<ColorVariants>, default: null},
         headerBorderVariant: {type: String as PropType<ColorVariants>, default: null},
         headerClass: {type: [Array, String, Object] as PropType<Array<any> | string | object>, default: null},
-        headerTag: {type: String as PropType<string>, default: "div"},
+        headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         headerTextVariant: {type: String as PropType<ColorVariants>, default: null},
 
         imgAlt: {type: String as PropType<string>, default: null},
@@ -94,7 +94,7 @@ export default defineComponent({
         textVariant: {type: String as PropType<ColorVariants>, default: null},
         borderVariant: {type: String as PropType<ColorVariants>, default: null},
         title: {type: String as PropType<string>, default: null},
-        titleTag: {type: String as PropType<string>, default: "h4"},
+        titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"},
     },
     setup(props) {
         const classes = computed(() => [

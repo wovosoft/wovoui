@@ -28,7 +28,7 @@ export default defineComponent({
     name: "FormGroup",
     components: {FormLabel},
     props: {
-        tag: {type: String as PropType<string>, default: "div"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         floating: {type: Boolean as PropType<boolean>, default: false},
         label: {type: String as PropType<string>, default: null},
         labelFor: {type: String as PropType<string>, default: null},

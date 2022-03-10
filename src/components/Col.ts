@@ -12,7 +12,7 @@ import type {
 export default defineComponent({
     name: "Col",
     props: {
-        tag: {type: String as PropType<string>, default: "div"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         col: {type: [String, Number] as PropType<string | ColSizes>, default: null},
         sm: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
         md: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
@@ -57,7 +57,7 @@ export default defineComponent({
         return () => h(
             props.tag,
             {class: classes.value},
-            slots.default ? slots.default() : null
+            slots.default?.()
         )
     }
 })

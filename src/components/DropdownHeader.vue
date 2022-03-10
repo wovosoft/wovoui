@@ -13,7 +13,7 @@ export default defineComponent({
     name: "DropdownHeader",
     props: {
         wrapper: {type: String as PropType<string>, default: "li"},
-        tag: {type: String as PropType<string>, default: "h6"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
     }
 })
 </script>

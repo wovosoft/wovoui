@@ -13,7 +13,7 @@ import {toggleCollapse, collapseTransitionEnd} from "../shared/utilities.js";
 export default defineComponent({
     name: "Collapse",
     props: {
-        tag: {type: String as PropType<string>, default: "div"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         modelValue: {type: Boolean as PropType<boolean>, default: false},
         visible: {type: Boolean as PropType<boolean>, default: false},
         class: {type: [Array, String, Object] as PropType<any>, default: null},

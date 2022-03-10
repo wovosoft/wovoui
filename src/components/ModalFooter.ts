@@ -6,6 +6,7 @@ export default defineComponent({
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"}
     },
     setup(props, {slots}) {
-        return () => h(props.tag, {class: "modal-footer"}, slots.default ? slots.default() : null)
+        return () => h(props.tag, {class: "modal-footer"}, slots.default ?.()
+    )
     }
 })

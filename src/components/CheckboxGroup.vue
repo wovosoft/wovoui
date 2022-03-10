@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import Checkbox from "./Checkbox.vue";
-import {ref, defineComponent, PropType} from "vue";
+import {ref, defineComponent, PropType, Ref} from "vue";
 
 export default defineComponent({
     name: "CheckboxGroup",
@@ -29,7 +29,7 @@ export default defineComponent({
         switch: {type: Boolean as PropType<boolean>, default: false},
     },
     setup(props, context) {
-        const model = ref(props.modelValue);
+        const model: Ref<any> = ref(props.modelValue);
         return {
             model
         }

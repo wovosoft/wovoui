@@ -21,7 +21,7 @@ import InputGroupText from "./InputGroupText.vue";
 export default defineComponent({
     components: {InputGroupText},
     props: {
-        tag: {type: String as PropType<string>, default: "div"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         size: {type: String as PropType<string>, default: null},
         prepend: {type: String as PropType<string>, default: null},
         append: {type: String as PropType<string>, default: null},
