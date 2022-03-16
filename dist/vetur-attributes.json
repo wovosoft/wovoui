@@ -459,6 +459,10 @@
     "description": "",
     "type": "boolean"
   },
+  "off-canvas-header/btn-close-white": {
+    "description": "",
+    "type": "boolean"
+  },
   "off-canvas-body/tag": {
     "description": "",
     "type": "keyof HTMLElementTagNameMap"
@@ -526,6 +530,10 @@
   "off-canvas/text-variant": {
     "description": "",
     "type": "ColorVariants"
+  },
+  "off-canvas/btn-close-white": {
+    "description": "",
+    "type": "boolean"
   },
   "nav-link/aria-current": {
     "description": "",
@@ -806,6 +814,10 @@
     "description": "",
     "type": "ColorVariants"
   },
+  "layout/sidebar-header": {
+    "description": "",
+    "type": "string"
+  },
   "layout/height": {
     "description": "",
     "type": "string"
@@ -813,6 +825,10 @@
   "layout/left-sidebar-width": {
     "description": "",
     "type": "string"
+  },
+  "layout/navbar-z-index": {
+    "description": "",
+    "type": "number"
   },
   "input-group-text/tag": {
     "description": "",

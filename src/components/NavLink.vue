@@ -25,25 +25,20 @@ export default defineComponent({
         active: {type: Boolean as PropType<boolean>, default: false},
         disabled: {type: Boolean as PropType<boolean>, default: false},
         href: {type: String as PropType<string>, default: null},
-        target: {type: String as PropType<string>, default: "_self"},
+        target: {type: String as PropType<string>, default: null},
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
         to: {type: Object as PropType<object>, default: null}
     },
     setup(props) {
-        const classes = computed<classTypes>(() => {
-            return [];
-        });
-        const linkAttributes = computed<linkAttributesType>(() => {
-            return {
-                href: props.tag === "a" ? props.href : null,
-                ariaCurrent: props.ariaCurrent,
-                target: (props.target === "a" || props.href) ? props.target : null
-            }
-        });
-
         return {
-            classes,
-            linkAttributes
+            classes: computed<classTypes>(() => ["nav-link"]),
+            linkAttributes: computed<linkAttributesType>(() => {
+                return {
+                    href: props.tag === "a" ? props.href : null,
+                    ariaCurrent: props.ariaCurrent,
+                    target: (props.target === "a" || props.href) ? props.target : null
+                }
+            })
         }
     }
 })

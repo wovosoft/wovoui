@@ -307,8 +307,10 @@
   },
   "layout": {
     "attributes": [
+      "sidebar-header",
       "height",
-      "left-sidebar-width"
+      "left-sidebar-width",
+      "navbar-z-index"
     ],
     "description": ""
   },
@@ -432,7 +434,8 @@
       "backdrop",
       "enable-body-scroll",
       "bg-variant",
-      "text-variant"
+      "text-variant",
+      "btn-close-white"
     ],
     "description": ""
   },
@@ -447,7 +450,8 @@
       "model-value",
       "tag",
       "title",
-      "show-close"
+      "show-close",
+      "btn-close-white"
     ],
     "description": ""
   },

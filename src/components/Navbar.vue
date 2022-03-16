@@ -2,11 +2,11 @@
     <nav :class="classes">
         <Container :fluid="fluid">
             <template v-if="brand || $slots.brand">
-                <NavbarBrand :href="brandUrl">
-                    <slot name="brand">
+                <slot name="brand">
+                    <NavbarBrand :href="brandUrl">
                         {{ brand }}
-                    </slot>
-                </NavbarBrand>
+                    </NavbarBrand>
+                </slot>
             </template>
             <NavbarToggler
                 v-if="toggleEnabled"

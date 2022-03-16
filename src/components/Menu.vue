@@ -1,5 +1,5 @@
 <template>
-    <Accordion :class="{child:child}">
+    <Accordion :class="{child:child}" class="menu">
         <template v-for="(item,item_key) in items">
             <AccordionItem
                 v-if="Array.isArray(item.children) && item.children.length>0"
@@ -68,19 +68,19 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-.menu-link:after {
+.menu .menu-link:after {
     display: none;
 }
 
-a.accordion-button {
+.menu a.accordion-button {
     text-decoration: none;
 }
 
-.accordion-button:not(.collapsed) {
+.menu .accordion-button:not(.collapsed) {
     box-shadow: none !important;
 }
 
-.accordion.child > .accordion-item:last-child {
+.menu .accordion.child > .accordion-item:last-child {
     border-top: 0 !important;
     border-bottom: 0 !important;
 }

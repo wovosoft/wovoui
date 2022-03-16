@@ -22,7 +22,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     target: {
         type: PropType<string>;
-        default: string;
+        default: any;
     };
     active: {
         type: PropType<boolean>;
@@ -58,7 +58,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     target: {
         type: PropType<string>;
-        default: string;
+        default: any;
     };
     active: {
         type: PropType<boolean>;

@@ -12,6 +12,7 @@
                 :class="headerClass"
                 v-model="shown"
                 v-if="$slots.header||header"
+                :btn-close-white="btnCloseWhite"
                 :title="title">
                 <slot name="header">
                     {{ header }}
@@ -55,6 +56,7 @@ export default defineComponent({
         enableBodyScroll: {type: Boolean as PropType<boolean>, default: true},
         bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
         textVariant: {type: String as PropType<ColorVariants>, default: 'dark'},
+        btnCloseWhite: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props) {
         const shown = ref(false);

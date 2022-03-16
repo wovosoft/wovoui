@@ -8,6 +8,7 @@
         <slot></slot>
         <ButtonClose
             v-if="showClose"
+            :white="btnCloseWhite"
             @click="$emit('update:modelValue',false)"
         />
     </component>
@@ -29,7 +30,8 @@ export default defineComponent({
         modelValue: {type: Boolean as PropType<boolean>, default: false},
         tag: {type: String as PropType<string>, default: "div"},
         title: {type: String as PropType<string>, default: null},
-        showClose: {type: Boolean as PropType<boolean>, default: true}
+        showClose: {type: Boolean as PropType<boolean>, default: true},
+        btnCloseWhite: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props) {
         return {

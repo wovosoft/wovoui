@@ -129,7 +129,7 @@ declare const _default: import("vue").DefineComponent<{
     ok(): void;
 }, unknown, {}, {
     clickedOutside(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "close" | "ok" | "showing" | "hiding" | "shown" | "hidden" | "stateChanged")[], "close" | "update:modelValue" | "shown" | "hidden" | "ok" | "showing" | "hiding" | "stateChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "close" | "shown" | "hidden" | "ok" | "showing" | "hiding" | "stateChanged")[], "close" | "update:modelValue" | "shown" | "hidden" | "ok" | "showing" | "hiding" | "stateChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     animation: {
         type: PropType<string>;
         default: string;
@@ -240,12 +240,12 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
+    onShown?: (...args: any[]) => any;
+    onHidden?: (...args: any[]) => any;
     onClose?: (...args: any[]) => any;
     onOk?: (...args: any[]) => any;
     onShowing?: (...args: any[]) => any;
     onHiding?: (...args: any[]) => any;
-    onShown?: (...args: any[]) => any;
-    onHidden?: (...args: any[]) => any;
     onStateChanged?: (...args: any[]) => any;
 }, {
     size: buttonSizes;

@@ -24,7 +24,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     target: {
         type: PropType<string>;
-        default: string;
+        default: any;
     };
     tag: {
         type: PropType<keyof HTMLElementTagNameMap>;
@@ -56,7 +56,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     target: {
         type: PropType<string>;
-        default: string;
+        default: any;
     };
     tag: {
         type: PropType<keyof HTMLElementTagNameMap>;

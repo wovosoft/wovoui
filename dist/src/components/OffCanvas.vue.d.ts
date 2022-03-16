@@ -57,6 +57,10 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<ColorVariants>;
         default: string;
     };
+    btnCloseWhite: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
 }, {
     shown: import("vue").Ref<boolean>;
     showBackdrop: import("vue").Ref<boolean>;
@@ -70,7 +74,7 @@ declare const _default: import("vue").DefineComponent<{
     show(): void;
     hide(): void;
     toggle(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "shown" | "hidden" | "beforeShow" | "beforeHide")[], "update:modelValue" | "shown" | "hidden" | "beforeShow" | "beforeHide", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "beforeShow" | "beforeHide" | "shown" | "hidden")[], "update:modelValue" | "shown" | "hidden" | "beforeShow" | "beforeHide", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tabIndex: {
         type: PropType<number>;
         default: number;
@@ -127,12 +131,16 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<ColorVariants>;
         default: string;
     };
+    btnCloseWhite: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
-    onShown?: (...args: any[]) => any;
-    onHidden?: (...args: any[]) => any;
     onBeforeShow?: (...args: any[]) => any;
     onBeforeHide?: (...args: any[]) => any;
+    onShown?: (...args: any[]) => any;
+    onHidden?: (...args: any[]) => any;
 }, {
     header: string;
     title: string;
@@ -143,6 +151,7 @@ declare const _default: import("vue").DefineComponent<{
     bgVariant: ColorVariants;
     headerClass: any;
     placement: "top" | "start" | "end" | "bottom" | "left" | "right";
+    btnCloseWhite: boolean;
     tabIndex: number;
     ariaLabelledby: string;
     headerStyle: string | object;

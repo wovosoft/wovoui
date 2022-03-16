@@ -26,7 +26,7 @@ export default defineComponent({
         ariaCurrent: {type: String as PropType<string>, default: null},
         href: {type: String as PropType<string>, default: "#"},
         to: {type: Object as PropType<object>, default: null},
-        target: {type: String as PropType<string>, default: "_self"},
+        target: {type: String as PropType<string>, default: null},
         active: {type: Boolean as PropType<boolean>, default: false},
         disabled: {type: Boolean as PropType<boolean>, default: false},
     },

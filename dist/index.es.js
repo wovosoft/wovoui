@@ -38145,24 +38145,20 @@ const _sfc_main$G = defineComponent({
     active: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
     href: { type: String, default: null },
-    target: { type: String, default: "_self" },
+    target: { type: String, default: null },
     tag: { type: String, default: "a" },
     to: { type: Object, default: null }
   },
   setup(props) {
-    const classes = computed(() => {
-      return [];
-    });
-    const linkAttributes = computed(() => {
-      return {
-        href: props.tag === "a" ? props.href : null,
-        ariaCurrent: props.ariaCurrent,
-        target: props.target === "a" || props.href ? props.target : null
-      };
-    });
     return {
-      classes,
-      linkAttributes
+      classes: computed(() => ["nav-link"]),
+      linkAttributes: computed(() => {
+        return {
+          href: props.tag === "a" ? props.href : null,
+          ariaCurrent: props.ariaCurrent,
+          target: props.target === "a" || props.href ? props.target : null
+        };
+      })
     };
   }
 });
@@ -38198,7 +38194,7 @@ const _sfc_main$F = defineComponent({
     ariaCurrent: { type: String, default: null },
     href: { type: String, default: "#" },
     to: { type: Object, default: null },
-    target: { type: String, default: "_self" },
+    target: { type: String, default: null },
     active: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false }
   },
@@ -39822,7 +39818,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   const _component_Accordion = resolveComponent("Accordion");
   return openBlock(), createBlock(_component_Accordion, {
-    class: normalizeClass({ child: _ctx.child })
+    class: normalizeClass([{ child: _ctx.child }, "menu"])
   }, {
     default: withCtx(() => [
       (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.items, (item, item_key) => {
@@ -39873,7 +39869,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["class"]);
 }
-var Menu = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-48ffddde"]]);
+var Menu = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-022fa87b"]]);
 
 var navProps = {
   tag: { type: String, default: "ul" },
@@ -39983,17 +39979,14 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   }, [
     createVNode(_component_Container, { fluid: _ctx.fluid }, {
       default: withCtx(() => [
-        _ctx.brand || _ctx.$slots.brand ? (openBlock(), createBlock(_component_NavbarBrand, {
-          key: 0,
-          href: _ctx.brandUrl
-        }, {
-          default: withCtx(() => [
-            renderSlot(_ctx.$slots, "brand", {}, () => [
+        _ctx.brand || _ctx.$slots.brand ? renderSlot(_ctx.$slots, "brand", { key: 0 }, () => [
+          createVNode(_component_NavbarBrand, { href: _ctx.brandUrl }, {
+            default: withCtx(() => [
               createTextVNode(toDisplayString(_ctx.brand), 1)
-            ])
-          ]),
-          _: 3
-        }, 8, ["href"])) : createCommentVNode("", true),
+            ]),
+            _: 1
+          }, 8, ["href"])
+        ]) : createCommentVNode("", true),
         _ctx.toggleEnabled ? (openBlock(), createBlock(_component_NavbarToggler, {
           key: 1,
           modelValue: _ctx.collapsed,
@@ -40089,7 +40082,8 @@ const _sfc_main$o = defineComponent({
     modelValue: { type: Boolean, default: false },
     tag: { type: String, default: "div" },
     title: { type: String, default: null },
-    showClose: { type: Boolean, default: true }
+    showClose: { type: Boolean, default: true },
+    btnCloseWhite: { type: Boolean, default: false }
   },
   setup(props) {
     return {
@@ -40115,8 +40109,9 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
       renderSlot(_ctx.$slots, "default"),
       _ctx.showClose ? (openBlock(), createBlock(_component_ButtonClose, {
         key: 1,
+        white: _ctx.btnCloseWhite,
         onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", false))
-      })) : createCommentVNode("", true)
+      }, null, 8, ["white"])) : createCommentVNode("", true)
     ]),
     _: 3
   }, 8, ["class"]);
@@ -40157,7 +40152,8 @@ const _sfc_main$m = defineComponent({
     backdrop: { type: Boolean, default: true },
     enableBodyScroll: { type: Boolean, default: true },
     bgVariant: { type: String, default: "light" },
-    textVariant: { type: String, default: "dark" }
+    textVariant: { type: String, default: "dark" },
+    btnCloseWhite: { type: Boolean, default: false }
   },
   setup(props) {
     const shown = ref(false);
@@ -40263,6 +40259,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
           class: normalizeClass(_ctx.headerClass),
           modelValue: _ctx.shown,
           "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.shown = $event),
+          "btn-close-white": _ctx.btnCloseWhite,
           title: _ctx.title
         }, {
           default: withCtx(() => [
@@ -40271,7 +40268,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
             ])
           ]),
           _: 3
-        }, 8, ["style", "class", "modelValue", "title"])) : createCommentVNode("", true),
+        }, 8, ["style", "class", "modelValue", "btn-close-white", "title"])) : createCommentVNode("", true),
         createVNode(_component_OffCanvasBody, null, {
           default: withCtx(() => [
             renderSlot(_ctx.$slots, "default")
@@ -42320,56 +42317,94 @@ var Vr = defineComponent({
   }
 });
 
+var Layout_vue_vue_type_style_index_0_lang = '';
+
 const _sfc_main = defineComponent({
   name: "Layout",
-  components: { Container, Col, Row },
+  components: { Container, Col, Row, OffCanvas },
   props: {
+    sidebarHeader: { type: String, default: null },
     height: { type: String, default: "100vh" },
-    leftSidebarWidth: { type: String, default: "300px" }
+    leftSidebarWidth: { type: String, default: "300px" },
+    navbarZIndex: { type: Number, default: 100 }
+  },
+  setup(props) {
+    const sidebar = ref(false);
+    const toggleSidebar = () => sidebar.value = !sidebar.value;
+    return {
+      sidebar,
+      toggleSidebar
+    };
   }
 });
-const _hoisted_1 = { class: "menu" };
+const _hoisted_1 = { class: "layout" };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_OffCanvas = resolveComponent("OffCanvas");
   const _component_Col = resolveComponent("Col");
   const _component_Row = resolveComponent("Row");
   const _component_Container = resolveComponent("Container");
-  return openBlock(), createBlock(_component_Container, {
-    tag: "section",
-    fluid: "",
-    class: "layout",
-    style: normalizeStyle({ height: _ctx.height })
-  }, {
-    default: withCtx(() => [
-      createElementVNode("header", _hoisted_1, [
-        renderSlot(_ctx.$slots, "header")
+  return openBlock(), createElementBlock("div", _hoisted_1, [
+    createVNode(_component_OffCanvas, {
+      header: _ctx.sidebarHeader,
+      "btn-close-white": "",
+      modelValue: _ctx.sidebar,
+      "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.sidebar = $event),
+      "header-class": ["text-light", "bg-dark"]
+    }, {
+      default: withCtx(() => [
+        renderSlot(_ctx.$slots, "sidebar-left")
       ]),
-      createVNode(_component_Row, { class: "row" }, {
-        default: withCtx(() => [
-          createVNode(_component_Col, {
-            tag: "aside",
-            class: "col",
-            style: normalizeStyle({ maxWidth: _ctx.leftSidebarWidth })
-          }, {
-            default: withCtx(() => [
-              renderSlot(_ctx.$slots, "sidebar-left")
-            ]),
-            _: 3
-          }, 8, ["style"]),
-          createVNode(_component_Col, { tag: "main" }, {
-            default: withCtx(() => [
-              renderSlot(_ctx.$slots, "default")
-            ]),
-            _: 3
-          })
-        ]),
-        _: 3
-      }),
-      createElementVNode("footer", null, [
-        renderSlot(_ctx.$slots, "footer")
-      ])
-    ]),
-    _: 3
-  }, 8, ["style"]);
+      _: 3
+    }, 8, ["header", "modelValue"]),
+    createElementVNode("header", {
+      class: "menu position-fixed top-0 end-0 start-0",
+      style: normalizeStyle({ zIndex: _ctx.navbarZIndex })
+    }, [
+      renderSlot(_ctx.$slots, "header", {
+        sidebar: _ctx.sidebar,
+        toggleSidebar: _ctx.toggleSidebar
+      })
+    ], 4),
+    createVNode(_component_Container, {
+      tag: "section",
+      style: { "margin-top": "58px" },
+      fluid: ""
+    }, {
+      default: withCtx(() => [
+        createVNode(_component_Row, null, {
+          default: withCtx(() => [
+            !_ctx.sidebar ? (openBlock(), createBlock(_component_Col, {
+              key: 0,
+              tag: "aside",
+              md: 3,
+              lg: 2,
+              class: "d-sm-block d-none bg-light start-0 top-0 overflow-auto bottom-0 p-0 position-fixed wui-sidebar",
+              style: normalizeStyle({ maxWidth: _ctx.leftSidebarWidth, zIndex: _ctx.navbarZIndex - 1 })
+            }, {
+              default: withCtx(() => [
+                renderSlot(_ctx.$slots, "sidebar-left")
+              ]),
+              _: 3
+            }, 8, ["style"])) : createCommentVNode("", true),
+            createVNode(_component_Col, {
+              tag: "main",
+              role: "main",
+              md: 9,
+              lg: 10,
+              class: "ms-sm-auto px-md-4"
+            }, {
+              default: withCtx(() => [
+                renderSlot(_ctx.$slots, "default")
+              ]),
+              _: 3
+            })
+          ]),
+          _: 3
+        })
+      ]),
+      _: 3
+    })
+  ]);
 }
 var Layout = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["render", _sfc_render]]);
 
