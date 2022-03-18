@@ -60,6 +60,10 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    disableInnerClicks: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
 }, unknown, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     isNav: {
         type: PropType<boolean>;
@@ -121,9 +125,14 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    disableInnerClicks: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
 }>>, {
     size: import("../types/buttonSizes").buttonSizes;
     split: boolean;
+    text: string;
     dir: import("../types/dropdownDirections").dropdownDirections;
     tag: keyof HTMLElementTagNameMap;
     toggleTag: keyof HTMLElementTagNameMap;
@@ -133,10 +142,10 @@ declare const _default: import("vue").DefineComponent<{
     block: boolean;
     align: import("../types/dropdownAlignments").dropdownAlignments;
     menuTag: keyof HTMLElementTagNameMap;
-    text: string;
     splitVariant: import("../types/colorVariants").ColorVariants;
     menuDark: boolean;
     menuClass: string | object | any[];
+    disableInnerClicks: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=NavItemDropdown.vue.d.ts.map

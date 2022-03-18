@@ -40,9 +40,12 @@ export default defineComponent({
         modelValue: {default: null}
     },
     setup(props, context) {
-        const model: Ref<any> = ref(null);
+        const model = ref<unknown>(null);
         watch(() => props.modelValue, value => model.value = value);
         watch(model, (val) => context.emit('update:modelValue', val));
+        if (props.modelValue !== null) {
+            model.value = props.modelValue;
+        }
 
 
         const getEntity = (o, k) => {

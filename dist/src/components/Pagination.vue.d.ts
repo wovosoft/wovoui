@@ -100,8 +100,8 @@ declare const _default: import("vue").DefineComponent<{
     tag: keyof HTMLElementTagNameMap;
     modelValue: number;
     align: "center" | "end" | "right";
-    totalRows: number;
     perPage: number;
+    totalRows: number;
     currentPage: number;
     firstColPageCount: number;
     centerColPageCount: number;

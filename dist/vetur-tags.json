@@ -184,6 +184,23 @@
     ],
     "description": ""
   },
+  "column": {
+    "attributes": [
+      "tag",
+      "field",
+      "label",
+      "visible",
+      "actions",
+      "actions-size",
+      "view-variant",
+      "edit-variant",
+      "destroy-variant",
+      "actions-alignment",
+      "th-class",
+      "td-class"
+    ],
+    "description": ""
+  },
   "data-table": {
     "attributes": [
       "selected-rows",
@@ -305,6 +322,31 @@
     ],
     "description": ""
   },
+  "laravel-crud-table": {
+    "attributes": [
+      "api-url",
+      "title",
+      "title-tag",
+      "fields",
+      "pager",
+      "search-placeholder",
+      "search-size",
+      "head-variant",
+      "head-class",
+      "view-modal-title",
+      "create-update-modal-title",
+      "view-modal-props",
+      "create-update-modal-props",
+      "date-locale",
+      "date-options",
+      "exclude-from-view",
+      "exclude-from-create-update-form",
+      "create-update-form-fields",
+      "form-submit-url",
+      "handle-form-submit"
+    ],
+    "description": ""
+  },
   "layout": {
     "attributes": [
       "sidebar-header",
@@ -339,6 +381,7 @@
       "animation",
       "model-value",
       "no-close",
+      "close-btn-white",
       "no-body",
       "title",
       "title-tag",

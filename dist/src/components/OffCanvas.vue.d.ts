@@ -74,7 +74,7 @@ declare const _default: import("vue").DefineComponent<{
     show(): void;
     hide(): void;
     toggle(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "beforeShow" | "beforeHide" | "shown" | "hidden")[], "update:modelValue" | "shown" | "hidden" | "beforeShow" | "beforeHide", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "shown" | "hidden" | "beforeShow" | "beforeHide")[], "update:modelValue" | "shown" | "hidden" | "beforeShow" | "beforeHide", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tabIndex: {
         type: PropType<number>;
         default: number;
@@ -137,10 +137,10 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
-    onBeforeShow?: (...args: any[]) => any;
-    onBeforeHide?: (...args: any[]) => any;
     onShown?: (...args: any[]) => any;
     onHidden?: (...args: any[]) => any;
+    onBeforeShow?: (...args: any[]) => any;
+    onBeforeHide?: (...args: any[]) => any;
 }, {
     header: string;
     title: string;

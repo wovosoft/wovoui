@@ -59,6 +59,10 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
+    disableInnerClicks: {
+        type: import("vue").PropType<boolean>;
+        default: boolean;
+    };
 }, {
     classes: import("vue").ComputedRef<{
         "btn-group": boolean;
@@ -143,9 +147,14 @@ declare const _default: import("vue").DefineComponent<{
         type: import("vue").PropType<boolean>;
         default: boolean;
     };
+    disableInnerClicks: {
+        type: import("vue").PropType<boolean>;
+        default: boolean;
+    };
 }>>, {
     size: import("../types/buttonSizes").buttonSizes;
     split: boolean;
+    text: string;
     dir: import("../types/dropdownDirections").dropdownDirections;
     tag: keyof HTMLElementTagNameMap;
     toggleTag: keyof HTMLElementTagNameMap;
@@ -155,10 +164,10 @@ declare const _default: import("vue").DefineComponent<{
     block: boolean;
     align: import("../types/dropdownAlignments").dropdownAlignments;
     menuTag: keyof HTMLElementTagNameMap;
-    text: string;
     splitVariant: import("../types/colorVariants").ColorVariants;
     menuDark: boolean;
     menuClass: string | object | any[];
+    disableInnerClicks: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=Dropdown.vue.d.ts.map

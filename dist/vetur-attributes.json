@@ -678,6 +678,10 @@
     "description": "",
     "type": "boolean"
   },
+  "modal/close-btn-white": {
+    "description": "",
+    "type": "boolean"
+  },
   "modal/no-body": {
     "description": "",
     "type": "boolean"
@@ -688,7 +692,7 @@
   },
   "modal/title-tag": {
     "description": "",
-    "type": "string"
+    "type": "keyof HTMLElementTagNameMap"
   },
   "modal/title-class": {
     "description": "",
@@ -829,6 +833,86 @@
   "layout/navbar-z-index": {
     "description": "",
     "type": "number"
+  },
+  "laravel-crud-table/api-url": {
+    "description": "",
+    "type": "string"
+  },
+  "laravel-crud-table/title": {
+    "description": "",
+    "type": "string"
+  },
+  "laravel-crud-table/title-tag": {
+    "description": "",
+    "type": "keyof HTMLElementTagNameMap"
+  },
+  "laravel-crud-table/fields": {
+    "description": "",
+    "type": "string[] | FieldType[] | null"
+  },
+  "laravel-crud-table/pager": {
+    "description": "",
+    "type": "number[]"
+  },
+  "laravel-crud-table/search-placeholder": {
+    "description": "",
+    "type": "string"
+  },
+  "laravel-crud-table/search-size": {
+    "description": "",
+    "type": "buttonSizes"
+  },
+  "laravel-crud-table/head-variant": {
+    "description": "",
+    "type": "ColorVariants"
+  },
+  "laravel-crud-table/head-class": {
+    "description": "",
+    "type": "classTypes"
+  },
+  "laravel-crud-table/view-modal-title": {
+    "description": "",
+    "type": "string"
+  },
+  "laravel-crud-table/create-update-modal-title": {
+    "description": "",
+    "type": "string"
+  },
+  "laravel-crud-table/view-modal-props": {
+    "description": "All props supported by modal. These object will be directly passed to the modal component.",
+    "type": "object"
+  },
+  "laravel-crud-table/create-update-modal-props": {
+    "description": "",
+    "type": "object"
+  },
+  "laravel-crud-table/date-locale": {
+    "description": "",
+    "type": "string"
+  },
+  "laravel-crud-table/date-options": {
+    "description": "",
+    "type": "object"
+  },
+  "laravel-crud-table/exclude-from-view": {
+    "description": "Skips fields from default view.\nApplicable when default scope is not provided.",
+    "type": "string[]"
+  },
+  "laravel-crud-table/exclude-from-create-update-form": {
+    "description": "",
+    "type": "string[]"
+  },
+  "laravel-crud-table/create-update-form-fields": {
+    "description": "Create-Update Form Fields",
+    "type": "object"
+  },
+  "laravel-crud-table/form-submit-url": {
+    "description": "Data Submission URL",
+    "type": "string"
+  },
+  "laravel-crud-table/handle-form-submit": {
+    "description": "Form Submission Handler Function, when executes the currentItem object will be provided as parameter",
+    "type": "(item: object) => void"
   },
   "input-group-text/tag": {
     "description": "",
@@ -1029,6 +1113,59 @@
   "data-table/items": {
     "description": "",
     "type": "any[]"
+  },
+  "column/tag": {
+    "description": "",
+    "type": "keyof HTMLElementTagNameMap"
+  },
+  "column/field": {
+    "description": "",
+    "type": "string"
+  },
+  "column/label": {
+    "description": "",
+    "type": "string"
+  },
+  "column/visible": {
+    "description": "",
+    "type": "boolean"
+  },
+  "column/actions": {
+    "description": "When true, it shows default CRUD Buttons",
+    "type": "boolean"
+  },
+  "column/actions-size": {
+    "description": "",
+    "type": "buttonSizes"
+  },
+  "column/view-variant": {
+    "description": "",
+    "type": "ColorVariants"
+  },
+  "column/edit-variant": {
+    "description": "",
+    "type": "ColorVariants"
+  },
+  "column/destroy-variant": {
+    "description": "",
+    "type": "ColorVariants"
+  },
+  "column/actions-alignment": {
+    "description": "",
+    "type": "string",
+    "options": [
+      "start",
+      "center",
+      "end"
+    ]
+  },
+  "column/th-class": {
+    "description": "classes prop for th and td.",
+    "type": "classTypes"
+  },
+  "column/td-class": {
+    "description": "",
+    "type": "classTypes"
   },
   "collapse/tag": {
     "description": "",

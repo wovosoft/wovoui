@@ -67,6 +67,10 @@ declare const _default: {
         type: PropType<boolean>;
         default: boolean;
     };
+    disableInnerClicks: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
 };
 export default _default;
 //# sourceMappingURL=dropdownProps.d.ts.map

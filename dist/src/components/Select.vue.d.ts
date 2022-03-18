@@ -35,7 +35,7 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     getEntity: (o: any, k: any) => any;
     isDisabledOption: (o: any) => any;
-    model: Ref<any>;
+    model: Ref<unknown>;
     classes: import("vue").ComputedRef<(string | {
         [x: string]: boolean;
     })[]>;
@@ -73,8 +73,8 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     size: buttonSizes;
-    modelValue: any;
     options: any[];
+    modelValue: any;
     textField: string | Function;
     valueField: string | Function;
     multiple: boolean;

@@ -15,7 +15,7 @@
                  class="dropdown-toggle"
                  role="button"
                  @click="shouldOpen=!shouldOpen">
-            {{text}}
+            {{ text }}
         </NavLink>
         <Button
             v-else
@@ -100,9 +100,14 @@ export default defineComponent({
     },
     methods: {
         clickOutside(e) {
-            if (e.target !== this.$refs.toggle.$el) {
+            if (!this.disableInnerClicks) {
+                this.shouldOpen = this.$refs.toggle.$el.contains(e.target);
+                return;
+            }
+            if (!this.$refs.menu.$el.contains(e.target) && e.target !== this.$refs.toggle.$el) {
                 this.shouldOpen = false;
             }
+            return;
         }
     },
     watch: {

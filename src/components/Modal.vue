@@ -1,7 +1,7 @@
 <template>
     <teleport to="body">
         <div ref="modal"
-             @click.self="clickedOutside"
+             @transitionend="transitionEnded"
              :class="classes"
              tabindex="-1"
              :aria-hidden="shown"
@@ -27,7 +27,7 @@
                         <template v-else>
                             {{ header }}
                         </template>
-                        <ButtonClose v-if="!noClose" @click="close"/>
+                        <ButtonClose :white="closeBtnWhite" v-if="!noClose" @click="close"/>
                     </ModalHeader>
                     <ModalBody v-if="!noBody">
                         <slot></slot>
@@ -58,14 +58,13 @@
         </div>
         <div v-if="!noBackdrop && shouldShowBackdrop"
              ref="backdrop"
-             @click="hide"
              class="modal-backdrop fade"
         />
     </teleport>
 </template>
 
 <script lang="ts">
-import {computed, ref, watch, nextTick, defineComponent, PropType, Ref} from "vue";
+import {computed, ref, watch, nextTick, defineComponent, PropType} from "vue";
 import ButtonClose from "./ButtonClose";
 import ModalBody from "./ModalBody";
 import ModalHeader from "./ModalHeader";
@@ -83,10 +82,11 @@ export default defineComponent({
         animation: {type: String as PropType<string>, default: "fade"},
         modelValue: {type: Boolean as PropType<boolean>, default: false},
         noClose: {type: Boolean as PropType<boolean>, default: false},
+        closeBtnWhite: {type: Boolean as PropType<boolean>, default: false},
         noBody: {type: Boolean as PropType<boolean>, default: false},
 
         title: {type: String as PropType<string>, default: null},
-        titleTag: {type: String as PropType<string>, default: "h5"},
+        titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h5"},
         titleClass: {type: [Array, String, Object] as PropType<string | object | any[]>, default: null},
         titleAttrs: {type: Object as PropType<object>, default: null},
 
@@ -116,8 +116,8 @@ export default defineComponent({
         fullscreen: {type: [Boolean, String] as PropType<modalFullScreen>, default: false}
     },
     setup(props, {emit}) {
-        const shouldShowBackdrop: Ref<boolean> = ref(false);
-        const shown: Ref<boolean> = ref(props.modelValue);
+        const shouldShowBackdrop = ref<boolean>(false);
+        const shown = ref<boolean>(props.modelValue);
         const classes = computed(() => ["modal", {
             "fade": props.animation === "fade" || !props.animation,
         }]);
@@ -165,30 +165,36 @@ export default defineComponent({
                 //then hides modal
                 nextTick(() => toggleState(false));
             },
-            ok() {
+            ok(e) {
                 //emits before closing
-                emit('ok', true);
+                emit('ok', e);
                 //then hides modal
-                nextTick(() => toggleState(false));
+                if (!e.defaultPrevented) {
+                    nextTick(() => toggleState(false));
+                }
             }
         }
     },
     methods: {
-        clickedOutside() {
-            if (this.static && this.shown) {
-                let modal = this.$refs.modal;
-                modal.classList.add("modal-static");
-                modal.style.display = "block";
-                modal.style.overflowY = "hidden";
-                setTimeout(() => {
-                    modal.style.overflowY = "";
-                    modal.classList.remove("modal-static");
-                }, 300);
-            } else if (!this.shown) {
-                this.hide();
+        transitionEnded(e) {
+            if (this.$refs.modal.classList.contains("modal-static")) {
+                this.$refs.modal.classList.remove("modal-static");
+                this.$refs.modal.style.overflowY = "";
             }
+        },
+        clickOutside(e) {
+            if (e.target === this.$refs.modal) {
+                if (this.static) {
+                    this.$refs.modal.classList.add("modal-static");
+                    this.$refs.modal.style.overflowY = "hidden";
+                } else {
+                    this.hide();
+                }
+            }
+
         }
     },
+
     watch: {
         shown(shown) {
             let modal = this.$refs.modal;
@@ -226,7 +232,9 @@ export default defineComponent({
                 setTimeout(() => this.$refs.backdrop.classList.add('show'), 0);
                 modal.style.display = "block"
                 setTimeout(() => modal.classList.add("show"), 150);
+                setTimeout(() => document.addEventListener("click", this.clickOutside), 0)
             } else {
+                document.removeEventListener("click", this.clickOutside);
                 /**
                  * In case there are multiple modals are open,
                  * when

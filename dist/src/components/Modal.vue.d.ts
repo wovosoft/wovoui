@@ -1,4 +1,4 @@
-import { PropType, Ref } from "vue";
+import { PropType } from "vue";
 import type { modalFullScreen } from "../types/modalFullScreen";
 import type { buttonSizes } from "../types/buttonSizes";
 declare const _default: import("vue").DefineComponent<{
@@ -14,6 +14,10 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    closeBtnWhite: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
     noBody: {
         type: PropType<boolean>;
         default: boolean;
@@ -23,7 +27,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     titleTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     titleClass: {
@@ -119,17 +123,18 @@ declare const _default: import("vue").DefineComponent<{
         "modal-dialog-scrollable": boolean;
         "modal-dialog-centered": boolean;
     })[]>;
-    shouldShowBackdrop: Ref<boolean>;
-    shown: Ref<boolean>;
+    shouldShowBackdrop: import("vue").Ref<boolean>;
+    shown: import("vue").Ref<boolean>;
     toggle: () => void;
     toggleState: (value?: boolean) => void;
     show: () => void;
     hide: () => void;
     close(): void;
-    ok(): void;
+    ok(e: any): void;
 }, unknown, {}, {
-    clickedOutside(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "close" | "shown" | "hidden" | "ok" | "showing" | "hiding" | "stateChanged")[], "close" | "update:modelValue" | "shown" | "hidden" | "ok" | "showing" | "hiding" | "stateChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    transitionEnded(e: any): void;
+    clickOutside(e: any): void;
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "close" | "ok" | "showing" | "hiding" | "shown" | "hidden" | "stateChanged")[], "close" | "update:modelValue" | "shown" | "hidden" | "ok" | "showing" | "hiding" | "stateChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     animation: {
         type: PropType<string>;
         default: string;
@@ -142,6 +147,10 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<boolean>;
         default: boolean;
     };
+    closeBtnWhite: {
+        type: PropType<boolean>;
+        default: boolean;
+    };
     noBody: {
         type: PropType<boolean>;
         default: boolean;
@@ -151,7 +160,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     titleTag: {
-        type: PropType<string>;
+        type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
     };
     titleClass: {
@@ -240,24 +249,25 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
-    onShown?: (...args: any[]) => any;
-    onHidden?: (...args: any[]) => any;
     onClose?: (...args: any[]) => any;
     onOk?: (...args: any[]) => any;
     onShowing?: (...args: any[]) => any;
     onHiding?: (...args: any[]) => any;
+    onShown?: (...args: any[]) => any;
+    onHidden?: (...args: any[]) => any;
     onStateChanged?: (...args: any[]) => any;
 }, {
     size: buttonSizes;
     header: string;
     title: string;
     modelValue: boolean;
-    titleTag: string;
+    titleTag: keyof HTMLElementTagNameMap;
     headerClass: any;
     headerTag: keyof HTMLElementTagNameMap;
     noBody: boolean;
     animation: string;
     noClose: boolean;
+    closeBtnWhite: boolean;
     titleClass: string | object | any[];
     titleAttrs: object;
     noHeader: boolean;

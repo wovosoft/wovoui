@@ -50,7 +50,7 @@ var _export_sfc$1 = (sfc, props) => {
   return target;
 };
 
-const _sfc_main$U = defineComponent({
+const _sfc_main$W = defineComponent({
   name: "AccordionHeader",
   emits: ["update:modelValue"],
   props: {
@@ -59,7 +59,7 @@ const _sfc_main$U = defineComponent({
     modelValue: { type: Boolean, default: false }
   }
 });
-function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "accordion-header" }, {
     default: withCtx(() => [
       (openBlock(), createBlock(resolveDynamicComponent(_ctx.toggleTag), {
@@ -77,7 +77,7 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var AccordionHeader = /* @__PURE__ */ _export_sfc$1(_sfc_main$U, [["render", _sfc_render$U]]);
+var AccordionHeader = /* @__PURE__ */ _export_sfc$1(_sfc_main$W, [["render", _sfc_render$W]]);
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -17308,10 +17308,10 @@ const toggleCollapse = (container, shown, dim = "height", /*shouldRenderHandler*
         setTimeout(() => container.style[dim] = "0px", 0);
     }
 };
-const isObject$8 = (obj) => typeof obj === "object" && !Array.isArray(obj);
+const isObject$9 = (obj) => typeof obj === "object" && !Array.isArray(obj);
 const title = (str) => lodash.exports.startCase(lodash.exports.toLower(str));
 
-const _sfc_main$T = defineComponent({
+const _sfc_main$V = defineComponent({
   name: "Collapse",
   props: {
     tag: { type: String, default: "div" },
@@ -17372,7 +17372,7 @@ const _sfc_main$T = defineComponent({
     document.removeEventListener("toggleCollapse", this.listener);
   }
 });
-function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     ref: "collapse",
@@ -17385,9 +17385,9 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "id"]);
 }
-var Collapse = /* @__PURE__ */ _export_sfc$1(_sfc_main$T, [["render", _sfc_render$T]]);
+var Collapse = /* @__PURE__ */ _export_sfc$1(_sfc_main$V, [["render", _sfc_render$V]]);
 
-const _sfc_main$S = defineComponent({
+const _sfc_main$U = defineComponent({
   name: "AccordionItem",
   emits: ["update:modelValue"],
   components: { AccordionHeader, AccordionBody, Collapse },
@@ -17411,12 +17411,12 @@ const _sfc_main$S = defineComponent({
     };
   }
 });
-const _hoisted_1$q = { class: "accordion-item" };
-function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$r = { class: "accordion-item" };
+function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_AccordionHeader = resolveComponent("AccordionHeader");
   const _component_AccordionBody = resolveComponent("AccordionBody");
   const _component_Collapse = resolveComponent("Collapse");
-  return openBlock(), createElementBlock("div", _hoisted_1$q, [
+  return openBlock(), createElementBlock("div", _hoisted_1$r, [
     createVNode(_component_AccordionHeader, {
       modelValue: _ctx.visible,
       "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.visible = $event)
@@ -17447,7 +17447,7 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["modelValue"])
   ]);
 }
-var AccordionItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$S, [["render", _sfc_render$S]]);
+var AccordionItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$U, [["render", _sfc_render$U]]);
 
 var ButtonClose = defineComponent({
   props: {
@@ -17465,7 +17465,7 @@ var ButtonClose = defineComponent({
   }
 });
 
-const _sfc_main$R = defineComponent({
+const _sfc_main$T = defineComponent({
   emits: ["update:modelValue", "update:show", "dismissed", "countdown"],
   components: { ButtonClose },
   props: {
@@ -17536,7 +17536,7 @@ const _sfc_main$R = defineComponent({
     };
   }
 });
-function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ButtonClose = resolveComponent("ButtonClose");
   return _ctx.visible ? (openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     key: 0,
@@ -17560,7 +17560,7 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"])) : createCommentVNode("", true);
 }
-var Alert = /* @__PURE__ */ _export_sfc$1(_sfc_main$R, [["render", _sfc_render$R]]);
+var Alert = /* @__PURE__ */ _export_sfc$1(_sfc_main$T, [["render", _sfc_render$T]]);
 
 var AlertHeading = defineComponent({
   name: "AlertHeading",
@@ -17620,7 +17620,7 @@ var Badge = defineComponent({
   }
 });
 
-const _sfc_main$Q = defineComponent({
+const _sfc_main$S = defineComponent({
   name: "BreadcrumbItem",
   props: {
     tag: { type: String, default: "li" },
@@ -17654,8 +17654,8 @@ const _sfc_main$Q = defineComponent({
     };
   }
 });
-const _hoisted_1$p = ["href"];
-function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$q = ["href"];
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
     default: withCtx(() => [
@@ -17664,7 +17664,7 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
         href: _ctx.href
       }, [
         renderSlot(_ctx.$slots, "default")
-      ], 8, _hoisted_1$p)) : _ctx.isRouterInstalled && _ctx.to ? (openBlock(), createBlock(_component_router_link, {
+      ], 8, _hoisted_1$q)) : _ctx.isRouterInstalled && _ctx.to ? (openBlock(), createBlock(_component_router_link, {
         key: 1,
         to: _ctx.to
       }, {
@@ -17677,9 +17677,9 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]);
 }
-var BreadcrumbItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$Q, [["render", _sfc_render$Q]]);
+var BreadcrumbItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$S, [["render", _sfc_render$S]]);
 
-const _sfc_main$P = defineComponent({
+const _sfc_main$R = defineComponent({
   name: "Breadcrumb",
   components: { BreadcrumbItem },
   props: {
@@ -17695,7 +17695,7 @@ const _sfc_main$P = defineComponent({
     };
   }
 });
-function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_BreadcrumbItem = resolveComponent("BreadcrumbItem");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
@@ -17719,7 +17719,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Breadcrumb = /* @__PURE__ */ _export_sfc$1(_sfc_main$P, [["render", _sfc_render$P]]);
+var Breadcrumb = /* @__PURE__ */ _export_sfc$1(_sfc_main$R, [["render", _sfc_render$R]]);
 
 var Button = defineComponent({
   props: {
@@ -17979,7 +17979,7 @@ var CardImg = defineComponent({
 
 var Card_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$O = defineComponent({
+const _sfc_main$Q = defineComponent({
   name: "Card",
   components: { CardImg, CardFooter, CardBody, CardHeader },
   props: {
@@ -18069,7 +18069,7 @@ const _sfc_main$O = defineComponent({
     };
   }
 });
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CardHeader = resolveComponent("CardHeader");
   const _component_CardImg = resolveComponent("CardImg");
   const _component_CardBody = resolveComponent("CardBody");
@@ -18127,7 +18127,7 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Card = /* @__PURE__ */ _export_sfc$1(_sfc_main$O, [["render", _sfc_render$O]]);
+var Card = /* @__PURE__ */ _export_sfc$1(_sfc_main$Q, [["render", _sfc_render$Q]]);
 
 var CardGroup = defineComponent({
   name: "CardGroup",
@@ -18232,7 +18232,7 @@ const uid = (function() {
 function isNullOrUndef(value) {
   return value === null || typeof value === 'undefined';
 }
-function isArray$3(value) {
+function isArray$4(value) {
   if (Array.isArray && Array.isArray(value)) {
     return true;
   }
@@ -18242,7 +18242,7 @@ function isArray$3(value) {
   }
   return false;
 }
-function isObject$7(value) {
+function isObject$8(value) {
   return value !== null && Object.prototype.toString.call(value) === '[object Object]';
 }
 const isNumberFinite = (value) => (typeof value === 'number' || value instanceof Number) && isFinite(+value);
@@ -18267,7 +18267,7 @@ function callback(fn, args, thisArg) {
 }
 function each(loopable, fn, thisArg, reverse) {
   let i, len, keys;
-  if (isArray$3(loopable)) {
+  if (isArray$4(loopable)) {
     len = loopable.length;
     if (reverse) {
       for (i = len - 1; i >= 0; i--) {
@@ -18278,7 +18278,7 @@ function each(loopable, fn, thisArg, reverse) {
         fn.call(thisArg, loopable[i], i);
       }
     }
-  } else if (isObject$7(loopable)) {
+  } else if (isObject$8(loopable)) {
     keys = Object.keys(loopable);
     len = keys.length;
     for (i = 0; i < len; i++) {
@@ -18301,10 +18301,10 @@ function _elementsEqual(a0, a1) {
   return true;
 }
 function clone$1(source) {
-  if (isArray$3(source)) {
+  if (isArray$4(source)) {
     return source.map(clone$1);
   }
-  if (isObject$7(source)) {
+  if (isObject$8(source)) {
     const target = Object.create(null);
     const keys = Object.keys(source);
     const klen = keys.length;
@@ -18325,23 +18325,23 @@ function _merger(key, target, source, options) {
   }
   const tval = target[key];
   const sval = source[key];
-  if (isObject$7(tval) && isObject$7(sval)) {
-    merge(tval, sval, options);
+  if (isObject$8(tval) && isObject$8(sval)) {
+    merge$1(tval, sval, options);
   } else {
     target[key] = clone$1(sval);
   }
 }
-function merge(target, source, options) {
-  const sources = isArray$3(source) ? source : [source];
+function merge$1(target, source, options) {
+  const sources = isArray$4(source) ? source : [source];
   const ilen = sources.length;
-  if (!isObject$7(target)) {
+  if (!isObject$8(target)) {
     return target;
   }
   options = options || {};
   const merger = options.merger || _merger;
   for (let i = 0; i < ilen; ++i) {
     source = sources[i];
-    if (!isObject$7(source)) {
+    if (!isObject$8(source)) {
       continue;
     }
     const keys = Object.keys(source);
@@ -18352,7 +18352,7 @@ function merge(target, source, options) {
   return target;
 }
 function mergeIf(target, source) {
-  return merge(target, source, {merger: _mergerIf});
+  return merge$1(target, source, {merger: _mergerIf});
 }
 function _mergerIf(key, target, source) {
   if (!isValidKey(key)) {
@@ -18360,7 +18360,7 @@ function _mergerIf(key, target, source) {
   }
   const tval = target[key];
   const sval = source[key];
-  if (isObject$7(tval) && isObject$7(sval)) {
+  if (isObject$8(tval) && isObject$8(sval)) {
     mergeIf(tval, sval);
   } else if (!Object.prototype.hasOwnProperty.call(target, key)) {
     target[key] = clone$1(sval);
@@ -18389,7 +18389,7 @@ function _capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 const defined = (value) => typeof value !== 'undefined';
-const isFunction$3 = (value) => typeof value === 'function';
+const isFunction$4 = (value) => typeof value === 'function';
 const setsEqual = (a, b) => {
   if (a.size !== b.size) {
     return false;
@@ -18439,7 +18439,7 @@ function _factorize(value) {
   result.sort((a, b) => a - b).pop();
   return result;
 }
-function isNumber(n) {
+function isNumber$1(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 function almostEquals(x, y, epsilon) {
@@ -19183,9 +19183,9 @@ function getScope$1(node, key) {
 }
 function set(root, scope, values) {
   if (typeof scope === 'string') {
-    return merge(getScope$1(root, scope), values);
+    return merge$1(getScope$1(root, scope), values);
   }
-  return merge(getScope$1(root, ''), scope);
+  return merge$1(getScope$1(root, ''), scope);
 }
 class Defaults {
   constructor(_descriptors) {
@@ -19257,7 +19257,7 @@ class Defaults {
         get() {
           const local = this[privateName];
           const target = targetScopeObject[targetName];
-          if (isObject$7(local)) {
+          if (isObject$8(local)) {
             return Object.assign({}, target, local);
           }
           return valueOrDefault(local, target);
@@ -19269,7 +19269,7 @@ class Defaults {
     });
   }
 }
-var defaults = new Defaults({
+var defaults$4 = new Defaults({
   _scriptable: (name) => !name.startsWith('on'),
   _indexable: (name) => name !== 'events',
   hover: {
@@ -19317,12 +19317,12 @@ function _longestText(ctx, font, arrayOfThings, cache) {
   let i, j, jlen, thing, nestedThing;
   for (i = 0; i < ilen; i++) {
     thing = arrayOfThings[i];
-    if (thing !== undefined && thing !== null && isArray$3(thing) !== true) {
+    if (thing !== undefined && thing !== null && isArray$4(thing) !== true) {
       longest = _measureText(ctx, data, gc, longest, thing);
-    } else if (isArray$3(thing)) {
+    } else if (isArray$4(thing)) {
       for (j = 0, jlen = thing.length; j < jlen; j++) {
         nestedThing = thing[j];
-        if (nestedThing !== undefined && nestedThing !== null && !isArray$3(nestedThing)) {
+        if (nestedThing !== undefined && nestedThing !== null && !isArray$4(nestedThing)) {
           longest = _measureText(ctx, data, gc, longest, nestedThing);
         }
       }
@@ -19494,7 +19494,7 @@ function _bezierCurveTo(ctx, previous, target, flip) {
     target.y);
 }
 function renderText(ctx, text, x, y, font, opts = {}) {
-  const lines = isArray$3(text) ? text : [text];
+  const lines = isArray$4(text) ? text : [text];
   const stroke = opts.strokeWidth > 0 && opts.strokeColor !== '';
   let i, line;
   ctx.save();
@@ -19582,9 +19582,9 @@ function toLineHeight(value, size) {
 const numberOrZero = v => +v || 0;
 function _readValueToProps(value, props) {
   const ret = {};
-  const objProps = isObject$7(props);
+  const objProps = isObject$8(props);
   const keys = objProps ? Object.keys(props) : props;
-  const read = isObject$7(value)
+  const read = isObject$8(value)
     ? objProps
       ? prop => valueOrDefault(value[prop], value[props[prop]])
       : prop => value[prop]
@@ -19608,7 +19608,7 @@ function toPadding(value) {
 }
 function toFont(options, fallback) {
   options = options || {};
-  fallback = fallback || defaults.font;
+  fallback = fallback || defaults$4.font;
   let size = valueOrDefault(options.size, fallback.size);
   if (typeof size === 'string') {
     size = parseInt(size, 10);
@@ -19641,7 +19641,7 @@ function resolve(inputs, context, index, info) {
       value = value(context);
       cacheable = false;
     }
-    if (index !== undefined && isArray$3(value)) {
+    if (index !== undefined && isArray$4(value)) {
       value = value[index % value.length];
       cacheable = false;
     }
@@ -19851,12 +19851,12 @@ function _descriptors(proxy, defaults = {scriptable: true, indexable: true}) {
     allKeys: _allKeys,
     scriptable: _scriptable,
     indexable: _indexable,
-    isScriptable: isFunction$3(_scriptable) ? _scriptable : () => _scriptable,
-    isIndexable: isFunction$3(_indexable) ? _indexable : () => _indexable
+    isScriptable: isFunction$4(_scriptable) ? _scriptable : () => _scriptable,
+    isIndexable: isFunction$4(_indexable) ? _indexable : () => _indexable
   };
 }
 const readKey = (prefix, name) => prefix ? prefix + _capitalize(name) : name;
-const needsSubResolver = (prop, value) => isObject$7(value) && prop !== 'adapters' &&
+const needsSubResolver = (prop, value) => isObject$8(value) && prop !== 'adapters' &&
   (Object.getPrototypeOf(value) === null || value.constructor === Object);
 function _cached(target, prop, resolve) {
   if (Object.prototype.hasOwnProperty.call(target, prop)) {
@@ -19869,10 +19869,10 @@ function _cached(target, prop, resolve) {
 function _resolveWithContext(target, prop, receiver) {
   const {_proxy, _context, _subProxy, _descriptors: descriptors} = target;
   let value = _proxy[prop];
-  if (isFunction$3(value) && descriptors.isScriptable(prop)) {
+  if (isFunction$4(value) && descriptors.isScriptable(prop)) {
     value = _resolveScriptable(prop, value, target, receiver);
   }
-  if (isArray$3(value) && value.length) {
+  if (isArray$4(value) && value.length) {
     value = _resolveArray(prop, value, target, descriptors.isIndexable);
   }
   if (needsSubResolver(prop, value)) {
@@ -19897,7 +19897,7 @@ function _resolveArray(prop, value, target, isIndexable) {
   const {_proxy, _context, _subProxy, _descriptors: descriptors} = target;
   if (defined(_context.index) && isIndexable(prop)) {
     value = value[_context.index % value.length];
-  } else if (isObject$7(value[0])) {
+  } else if (isObject$8(value[0])) {
     const arr = value;
     const scopes = _proxy._scopes.filter(s => s !== arr);
     value = [];
@@ -19909,7 +19909,7 @@ function _resolveArray(prop, value, target, isIndexable) {
   return value;
 }
 function resolveFallback(fallback, prop, value) {
-  return isFunction$3(fallback) ? fallback(prop, value) : fallback;
+  return isFunction$4(fallback) ? fallback(prop, value) : fallback;
 }
 const getScope = (key, parent) => key === true ? parent
   : typeof key === 'string' ? resolveObjectKey(parent, key) : undefined;
@@ -19959,7 +19959,7 @@ function subGetTarget(resolver, prop, value) {
     parent[prop] = {};
   }
   const target = parent[prop];
-  if (isArray$3(target) && isObject$7(value)) {
+  if (isArray$4(target) && isObject$8(value)) {
     return value;
   }
   return target;
@@ -20908,7 +20908,7 @@ class Animation {
 
 const numbers = ['x', 'y', 'borderWidth', 'radius', 'tension'];
 const colors = ['color', 'borderColor', 'backgroundColor'];
-defaults.set('animation', {
+defaults$4.set('animation', {
   delay: undefined,
   duration: 1000,
   easing: 'easeOutQuart',
@@ -20918,13 +20918,13 @@ defaults.set('animation', {
   to: undefined,
   type: undefined,
 });
-const animationOptions = Object.keys(defaults.animation);
-defaults.describe('animation', {
+const animationOptions = Object.keys(defaults$4.animation);
+defaults$4.describe('animation', {
   _fallback: false,
   _indexable: false,
   _scriptable: (name) => name !== 'onProgress' && name !== 'onComplete' && name !== 'fn',
 });
-defaults.set('animations', {
+defaults$4.set('animations', {
   colors: {
     type: 'color',
     properties: colors
@@ -20934,10 +20934,10 @@ defaults.set('animations', {
     properties: numbers
   },
 });
-defaults.describe('animations', {
+defaults$4.describe('animations', {
   _fallback: 'animation',
 });
-defaults.set('transitions', {
+defaults$4.set('transitions', {
   active: {
     animation: {
       duration: 400
@@ -20979,20 +20979,20 @@ class Animations {
     this.configure(config);
   }
   configure(config) {
-    if (!isObject$7(config)) {
+    if (!isObject$8(config)) {
       return;
     }
     const animatedProps = this._properties;
     Object.getOwnPropertyNames(config).forEach(key => {
       const cfg = config[key];
-      if (!isObject$7(cfg)) {
+      if (!isObject$8(cfg)) {
         return;
       }
       const resolved = {};
       for (const option of animationOptions) {
         resolved[option] = cfg[option];
       }
-      (isArray$3(cfg.properties) && cfg.properties || [key]).forEach((prop) => {
+      (isArray$4(cfg.properties) && cfg.properties || [key]).forEach((prop) => {
         if (prop === key || !animatedProps.has(prop)) {
           animatedProps.set(prop, resolved);
         }
@@ -21113,7 +21113,7 @@ function defaultClip(xScale, yScale, allowedOverflow) {
 }
 function toClip(value) {
   let t, r, b, l;
-  if (isObject$7(value)) {
+  if (isObject$8(value)) {
     t = value.top;
     r = value.right;
     b = value.bottom;
@@ -21347,7 +21347,7 @@ class DatasetController {
     const dataset = this.getDataset();
     const data = dataset.data || (dataset.data = []);
     const _data = this._data;
-    if (isObject$7(data)) {
+    if (isObject$8(data)) {
       this._data = convertObjectDataToArray(data);
     } else if (_data !== data) {
       if (_data) {
@@ -21407,9 +21407,9 @@ class DatasetController {
       meta._sorted = true;
       parsed = data;
     } else {
-      if (isArray$3(data[start])) {
+      if (isArray$4(data[start])) {
         parsed = this.parseArrayData(meta, data, start, count);
-      } else if (isObject$7(data[start])) {
+      } else if (isObject$8(data[start])) {
         parsed = this.parseObjectData(meta, data, start, count);
       } else {
         parsed = this.parsePrimitiveData(meta, data, start, count);
@@ -21643,7 +21643,7 @@ class DatasetController {
     const scopeKeys = config.datasetElementScopeKeys(this._type, elementType);
     const prefixes = active ? [`${elementType}Hover`, 'hover', elementType, ''] : [elementType, ''];
     const scopes = config.getOptionScopes(this.getDataset(), scopeKeys);
-    const names = Object.keys(defaults.elements[elementType]);
+    const names = Object.keys(defaults$4.elements[elementType]);
     const context = () => this.getContext(index, active);
     const values = config.resolveNamedOptions(scopes, names, context, prefixes);
     if (values.$shared) {
@@ -21902,7 +21902,7 @@ function parseFloatBar(entry, item, vScale, i) {
   };
 }
 function parseValue(entry, item, vScale, i) {
-  if (isArray$3(entry)) {
+  if (isArray$4(entry)) {
     parseFloatBar(entry, item, vScale, i);
   } else {
     item[vScale.axis] = vScale.parse(entry, i);
@@ -22433,7 +22433,7 @@ class DoughnutController extends DatasetController {
       meta._parsed = data;
     } else {
       let getter = (i) => +data[i];
-      if (isObject$7(data[start])) {
+      if (isObject$8(data[start])) {
         const {key = 'value'} = this._parsing;
         getter = (i) => +resolveObjectKey(data[i], key);
       }
@@ -22681,7 +22681,7 @@ DoughnutController.overrides = {
         label(tooltipItem) {
           let dataLabel = tooltipItem.label;
           const value = ': ' + tooltipItem.formattedValue;
-          if (isArray$3(dataLabel)) {
+          if (isArray$4(dataLabel)) {
             dataLabel = dataLabel.slice();
             dataLabel[0] += value;
           } else {
@@ -22734,7 +22734,7 @@ class LineController extends DatasetController {
     const iAxis = iScale.axis;
     const vAxis = vScale.axis;
     const {spanGaps, segment} = this.options;
-    const maxGapLength = isNumber(spanGaps) ? spanGaps : Number.POSITIVE_INFINITY;
+    const maxGapLength = isNumber$1(spanGaps) ? spanGaps : Number.POSITIVE_INFINITY;
     const directUpdate = this.chart._animationsDisabled || reset || mode === 'none';
     let prevParsed = start > 0 && this.getParsed(start - 1);
     for (let i = start; i < start + count; ++i) {
@@ -23462,7 +23462,7 @@ function updateMaxPadding(maxPadding, boxPadding) {
 function updateDims(chartArea, params, layout, stacks) {
   const {pos, box} = layout;
   const maxPadding = chartArea.maxPadding;
-  if (!isObject$7(pos)) {
+  if (!isObject$8(pos)) {
     if (layout.size) {
       chartArea[pos] -= layout.size;
     }
@@ -23577,7 +23577,7 @@ function placeBoxes(boxes, chartArea, params, stacks) {
   chartArea.x = x;
   chartArea.y = y;
 }
-defaults.set('layout', {
+defaults$4.set('layout', {
   autoPadding: true,
   padding: {
     top: 0,
@@ -23976,7 +23976,7 @@ class Element$1 {
     return {x, y};
   }
   hasValue() {
-    return isNumber(this.x) && isNumber(this.y);
+    return isNumber$1(this.x) && isNumber$1(this.y);
   }
   getProps(props, final) {
     const anims = this.$animations;
@@ -23995,7 +23995,7 @@ Element$1.defaultRoutes = undefined;
 
 const formatters = {
   values(value) {
-    return isArray$3(value) ? value : '' + value;
+    return isArray$4(value) ? value : '' + value;
   },
   numeric(tickValue, index, ticks) {
     if (tickValue === 0) {
@@ -24037,7 +24037,7 @@ function calculateDelta(tickValue, ticks) {
 }
 var Ticks = {formatters};
 
-defaults.set('scale', {
+defaults$4.set('scale', {
   display: true,
   offset: false,
   reverse: false,
@@ -24087,19 +24087,19 @@ defaults.set('scale', {
     backdropPadding: 2,
   }
 });
-defaults.route('scale.ticks', 'color', '', 'color');
-defaults.route('scale.grid', 'color', '', 'borderColor');
-defaults.route('scale.grid', 'borderColor', '', 'borderColor');
-defaults.route('scale.title', 'color', '', 'color');
-defaults.describe('scale', {
+defaults$4.route('scale.ticks', 'color', '', 'color');
+defaults$4.route('scale.grid', 'color', '', 'borderColor');
+defaults$4.route('scale.grid', 'borderColor', '', 'borderColor');
+defaults$4.route('scale.title', 'color', '', 'color');
+defaults$4.describe('scale', {
   _fallback: false,
   _scriptable: (name) => !name.startsWith('before') && !name.startsWith('after') && name !== 'callback' && name !== 'parser',
   _indexable: (name) => name !== 'borderDash' && name !== 'tickBorderDash',
 });
-defaults.describe('scales', {
+defaults$4.describe('scales', {
   _fallback: 'scale',
 });
-defaults.describe('scale.ticks', {
+defaults$4.describe('scale.ticks', {
   _scriptable: (name) => name !== 'backdropPadding' && name !== 'callback',
   _indexable: (name) => name !== 'backdropPadding',
 });
@@ -24269,7 +24269,7 @@ function getTitleHeight(options, fallback) {
   }
   const font = toFont(options.font, fallback);
   const padding = toPadding(options.padding);
-  const lines = isArray$3(options.text) ? options.text.length : 1;
+  const lines = isArray$4(options.text) ? options.text.length : 1;
   return (lines * font.lineHeight) + padding.height;
 }
 function createScaleContext(parent, scale) {
@@ -24301,7 +24301,7 @@ function titleArgs(scale, offset, position, align) {
   const width = right - left;
   if (scale.isHorizontal()) {
     titleX = _alignStartEnd(align, left, right);
-    if (isObject$7(position)) {
+    if (isObject$8(position)) {
       const positionAxisID = Object.keys(position)[0];
       const value = position[positionAxisID];
       titleY = scales[positionAxisID].getPixelForValue(value) + height - offset;
@@ -24312,7 +24312,7 @@ function titleArgs(scale, offset, position, align) {
     }
     maxWidth = right - left;
   } else {
-    if (isObject$7(position)) {
+    if (isObject$8(position)) {
       const positionAxisID = Object.keys(position)[0];
       const value = position[positionAxisID];
       titleX = scales[positionAxisID].getPixelForValue(value) - width + offset;
@@ -24750,13 +24750,13 @@ class Scale extends Element$1 {
       cache = caches[fontString] = caches[fontString] || {data: {}, gc: []};
       lineHeight = tickFont.lineHeight;
       width = height = 0;
-      if (!isNullOrUndef(label) && !isArray$3(label)) {
+      if (!isNullOrUndef(label) && !isArray$4(label)) {
         width = _measureText(ctx, cache.data, cache.gc, width, label);
         height = lineHeight;
-      } else if (isArray$3(label)) {
+      } else if (isArray$4(label)) {
         for (j = 0, jlen = label.length; j < jlen; ++j) {
           nestedLabel = label[j];
-          if (!isNullOrUndef(nestedLabel) && !isArray$3(nestedLabel)) {
+          if (!isNullOrUndef(nestedLabel) && !isArray$4(nestedLabel)) {
             width = _measureText(ctx, cache.data, cache.gc, width, nestedLabel);
             height += lineHeight;
           }
@@ -24890,7 +24890,7 @@ class Scale extends Element$1 {
     } else if (axis === 'x') {
       if (position === 'center') {
         borderValue = alignBorderValue((chartArea.top + chartArea.bottom) / 2 + 0.5);
-      } else if (isObject$7(position)) {
+      } else if (isObject$8(position)) {
         const positionAxisID = Object.keys(position)[0];
         const value = position[positionAxisID];
         borderValue = alignBorderValue(this.chart.scales[positionAxisID].getPixelForValue(value));
@@ -24902,7 +24902,7 @@ class Scale extends Element$1 {
     } else if (axis === 'y') {
       if (position === 'center') {
         borderValue = alignBorderValue((chartArea.left + chartArea.right) / 2);
-      } else if (isObject$7(position)) {
+      } else if (isObject$8(position)) {
         const positionAxisID = Object.keys(position)[0];
         const value = position[positionAxisID];
         borderValue = alignBorderValue(this.chart.scales[positionAxisID].getPixelForValue(value));
@@ -24988,7 +24988,7 @@ class Scale extends Element$1 {
     } else if (axis === 'x') {
       if (position === 'center') {
         y = ((chartArea.top + chartArea.bottom) / 2) + tickAndPadding;
-      } else if (isObject$7(position)) {
+      } else if (isObject$8(position)) {
         const positionAxisID = Object.keys(position)[0];
         const value = position[positionAxisID];
         y = this.chart.scales[positionAxisID].getPixelForValue(value) + tickAndPadding;
@@ -24997,7 +24997,7 @@ class Scale extends Element$1 {
     } else if (axis === 'y') {
       if (position === 'center') {
         x = ((chartArea.left + chartArea.right) / 2) - tickAndPadding;
-      } else if (isObject$7(position)) {
+      } else if (isObject$8(position)) {
         const positionAxisID = Object.keys(position)[0];
         const value = position[positionAxisID];
         x = this.chart.scales[positionAxisID].getPixelForValue(value);
@@ -25019,7 +25019,7 @@ class Scale extends Element$1 {
       pixel = this.getPixelForTick(i) + optionTicks.labelOffset;
       font = this._resolveTickFontOptions(i);
       lineHeight = font.lineHeight;
-      lineCount = isArray$3(label) ? label.length : 1;
+      lineCount = isArray$4(label) ? label.length : 1;
       const halfCount = lineCount / 2;
       const color = optsAtIndex.color;
       const strokeColor = optsAtIndex.textStrokeColor;
@@ -25314,9 +25314,9 @@ class Scale extends Element$1 {
     const padding = toPadding(title.padding);
     const align = title.align;
     let offset = font.lineHeight / 2;
-    if (position === 'bottom' || position === 'center' || isObject$7(position)) {
+    if (position === 'bottom' || position === 'center' || isObject$8(position)) {
       offset += padding.bottom;
-      if (isArray$3(title.text)) {
+      if (isArray$4(title.text)) {
         offset += font.lineHeight * (title.text.length - 1);
       }
     } else {
@@ -25424,7 +25424,7 @@ class TypedRegistry {
     items[id] = item;
     registerDefaults(item, scope, parentScope);
     if (this.override) {
-      defaults.override(item.id, item.overrides);
+      defaults$4.override(item.id, item.overrides);
     }
     return scope;
   }
@@ -25438,8 +25438,8 @@ class TypedRegistry {
     if (id in items) {
       delete items[id];
     }
-    if (scope && id in defaults[scope]) {
-      delete defaults[scope][id];
+    if (scope && id in defaults$4[scope]) {
+      delete defaults$4[scope][id];
       if (this.override) {
         delete overrides[id];
       }
@@ -25447,17 +25447,17 @@ class TypedRegistry {
   }
 }
 function registerDefaults(item, scope, parentScope) {
-  const itemDefaults = merge(Object.create(null), [
-    parentScope ? defaults.get(parentScope) : {},
-    defaults.get(scope),
+  const itemDefaults = merge$1(Object.create(null), [
+    parentScope ? defaults$4.get(parentScope) : {},
+    defaults$4.get(scope),
     item.defaults
   ]);
-  defaults.set(scope, itemDefaults);
+  defaults$4.set(scope, itemDefaults);
   if (item.defaultRoutes) {
     routeDefaults(scope, item.defaultRoutes);
   }
   if (item.descriptors) {
-    defaults.describe(scope, item.descriptors);
+    defaults$4.describe(scope, item.descriptors);
   }
 }
 function routeDefaults(scope, routes) {
@@ -25468,7 +25468,7 @@ function routeDefaults(scope, routes) {
     const parts = routes[property].split('.');
     const targetName = parts.pop();
     const targetScope = parts.join('.');
-    defaults.route(sourceScope, sourceName, targetScope, targetName);
+    defaults$4.route(sourceScope, sourceName, targetScope, targetName);
   });
 }
 function isIChartComponent(proto) {
@@ -25668,7 +25668,7 @@ function pluginOpts(config, plugin, opts, context) {
 }
 
 function getIndexAxis(type, options) {
-  const datasetDefaults = defaults.datasets[type] || {};
+  const datasetDefaults = defaults$4.datasets[type] || {};
   const datasetOptions = (options.datasets || {})[type] || {};
   return datasetOptions.indexAxis || options.indexAxis || datasetDefaults.indexAxis || 'x';
 }
@@ -25706,7 +25706,7 @@ function mergeScaleConfig(config, options) {
   const scales = Object.create(null);
   Object.keys(configScales).forEach(id => {
     const scaleConf = configScales[id];
-    if (!isObject$7(scaleConf)) {
+    if (!isObject$8(scaleConf)) {
       return console.error(`Invalid scale configuration for scale: ${id}`);
     }
     if (scaleConf._proxy) {
@@ -25732,7 +25732,7 @@ function mergeScaleConfig(config, options) {
   });
   Object.keys(scales).forEach(key => {
     const scale = scales[key];
-    mergeIf(scale, [defaults.scales[scale.type], defaults.scale]);
+    mergeIf(scale, [defaults$4.scales[scale.type], defaults$4.scale]);
   });
   return scales;
 }
@@ -25871,7 +25871,7 @@ class Config {
       }
       keys.forEach(key => addIfFound(scopes, options, key));
       keys.forEach(key => addIfFound(scopes, overrides[type] || {}, key));
-      keys.forEach(key => addIfFound(scopes, defaults, key));
+      keys.forEach(key => addIfFound(scopes, defaults$4, key));
       keys.forEach(key => addIfFound(scopes, descriptors, key));
     });
     const array = Array.from(scopes);
@@ -25888,9 +25888,9 @@ class Config {
     return [
       options,
       overrides[type] || {},
-      defaults.datasets[type] || {},
+      defaults$4.datasets[type] || {},
       {type},
-      defaults,
+      defaults$4,
       descriptors
     ];
   }
@@ -25900,7 +25900,7 @@ class Config {
     let options = resolver;
     if (needContext(resolver, names)) {
       result.$shared = false;
-      context = isFunction$3(context) ? context() : context;
+      context = isFunction$4(context) ? context() : context;
       const subResolver = this.createResolver(scopes, context, subPrefixes);
       options = _attachContext(resolver, context, subResolver);
     }
@@ -25911,7 +25911,7 @@ class Config {
   }
   createResolver(scopes, context, prefixes = [''], descriptorDefaults) {
     const {resolver} = getResolver(this._resolverCache, scopes, prefixes);
-    return isObject$7(context)
+    return isObject$8(context)
       ? _attachContext(resolver, context, undefined, descriptorDefaults)
       : resolver;
   }
@@ -25934,16 +25934,16 @@ function getResolver(resolverCache, scopes, prefixes) {
   }
   return cached;
 }
-const hasFunction = value => isObject$7(value)
-  && Object.getOwnPropertyNames(value).reduce((acc, key) => acc || isFunction$3(value[key]), false);
+const hasFunction = value => isObject$8(value)
+  && Object.getOwnPropertyNames(value).reduce((acc, key) => acc || isFunction$4(value[key]), false);
 function needContext(proxy, names) {
   const {isScriptable, isIndexable} = _descriptors(proxy);
   for (const prop of names) {
     const scriptable = isScriptable(prop);
     const indexable = isIndexable(prop);
     const value = (indexable || scriptable) && proxy[prop];
-    if ((scriptable && (isFunction$3(value) || hasFunction(value)))
-      || (indexable && isArray$3(value))) {
+    if ((scriptable && (isFunction$4(value) || hasFunction(value)))
+      || (indexable && isArray$4(value))) {
       return true;
     }
   }
@@ -26251,7 +26251,7 @@ class Chart$1 {
         meta.controller.linkScales();
       } else {
         const ControllerClass = registry.getController(type);
-        const {datasetElementType, dataElementType} = defaults.datasets[type];
+        const {datasetElementType, dataElementType} = defaults$4.datasets[type];
         Object.assign(ControllerClass.prototype, {
           dataElementType: registry.getElement(dataElementType),
           datasetElementType: datasetElementType && registry.getElement(datasetElementType)
@@ -26387,7 +26387,7 @@ class Chart$1 {
       this.getDatasetMeta(i).controller.configure();
     }
     for (let i = 0, ilen = this.data.datasets.length; i < ilen; ++i) {
-      this._updateDataset(i, isFunction$3(mode) ? mode({datasetIndex: i}) : mode);
+      this._updateDataset(i, isFunction$4(mode) ? mode({datasetIndex: i}) : mode);
     }
     this.notifyPlugins('afterDatasetsUpdate', {mode});
   }
@@ -26781,7 +26781,7 @@ const enumerable = true;
 Object.defineProperties(Chart$1, {
   defaults: {
     enumerable,
-    value: defaults
+    value: defaults$4
   },
   instances: {
     enumerable,
@@ -27444,7 +27444,7 @@ function parseBorderRadius(bar, maxW, maxH) {
   const o = toTRBLCorners(value);
   const maxR = Math.min(maxW, maxH);
   const skip = bar.borderSkipped;
-  const enableBorder = enableBorderRadius || isObject$7(value);
+  const enableBorder = enableBorderRadius || isObject$8(value);
   return {
     topLeft: skipOrLimit(!enableBorder || skip.top || skip.left, o.topLeft, 0, maxR),
     topRight: skipOrLimit(!enableBorder || skip.top || skip.right, o.topRight, 0, maxR),
@@ -27799,7 +27799,7 @@ function parseFillOption(line) {
 }
 function decodeFill(line, index, count) {
   const fill = parseFillOption(line);
-  if (isObject$7(fill)) {
+  if (isObject$8(fill)) {
     return isNaN(fill.value) ? false : fill;
   }
   let target = parseFloat(fill);
@@ -27822,7 +27822,7 @@ function computeLinearBoundary(source) {
     target = scale.bottom;
   } else if (fill === 'end') {
     target = scale.top;
-  } else if (isObject$7(fill)) {
+  } else if (isObject$8(fill)) {
     target = scale.getPixelForValue(fill.value);
   } else if (scale.getBasePixel) {
     target = scale.getBasePixel();
@@ -27870,7 +27870,7 @@ function computeCircularBoundary(source) {
     value = start;
   } else if (fill === 'end') {
     value = end;
-  } else if (isObject$7(fill)) {
+  } else if (isObject$8(fill)) {
     value = fill.value;
   } else {
     value = scale.getBaseValue();
@@ -28012,7 +28012,7 @@ function getTarget(source) {
 function createBoundaryLine(boundary, line) {
   let points = [];
   let _loop = false;
-  if (isArray$3(boundary)) {
+  if (isArray$4(boundary)) {
     _loop = true;
     points = boundary;
   } else {
@@ -28468,7 +28468,7 @@ class Legend extends Element$1 {
   _draw() {
     const {options: opts, columnSizes, lineWidths, ctx} = this;
     const {align, labels: labelOpts} = opts;
-    const defaultColor = defaults.color;
+    const defaultColor = defaults$4.color;
     const rtlHelper = getRtlAdapter(opts.rtl, this.left, this.width);
     const labelFont = toFont(labelOpts.font);
     const {color: fontColor, padding} = labelOpts;
@@ -28784,7 +28784,7 @@ class Title extends Element$1 {
     }
     this.width = this.right = maxWidth;
     this.height = this.bottom = maxHeight;
-    const lineCount = isArray$3(opts.text) ? opts.text.length : 1;
+    const lineCount = isArray$4(opts.text) ? opts.text.length : 1;
     this._padding = toPadding(opts.padding);
     const textSize = lineCount * toFont(opts.font).lineHeight + this._padding.height;
     if (this.isHorizontal()) {
@@ -28985,7 +28985,7 @@ const positioners = {
 };
 function pushOrConcat(base, toPush) {
   if (toPush) {
-    if (isArray$3(toPush)) {
+    if (isArray$4(toPush)) {
       Array.prototype.push.apply(base, toPush);
     } else {
       base.push(toPush);
@@ -30385,12 +30385,12 @@ function getTickBackdropHeight(opts) {
   const tickOpts = opts.ticks;
   if (tickOpts.display && opts.display) {
     const padding = toPadding(tickOpts.backdropPadding);
-    return valueOrDefault(tickOpts.font && tickOpts.font.size, defaults.font.size) + padding.height;
+    return valueOrDefault(tickOpts.font && tickOpts.font.size, defaults$4.font.size) + padding.height;
   }
   return 0;
 }
 function measureLabelSize(ctx, font, label) {
-  label = isArray$3(label) ? label : [label];
+  label = isArray$4(label) ? label : [label];
   return {
     w: _longestText(ctx, font.string, label),
     h: label.length * font.lineHeight
@@ -30854,7 +30854,7 @@ function parse(scale, input) {
     return null;
   }
   if (round) {
-    value = round === 'week' && (isNumber(isoWeekday) || isoWeekday === true)
+    value = round === 'week' && (isNumber$1(isoWeekday) || isoWeekday === true)
       ? adapter.startOf(value, 'isoWeek', isoWeekday)
       : adapter.startOf(value, round);
   }
@@ -31053,7 +31053,7 @@ class TimeScale extends Scale {
     const minor = timeOpts.unit || determineUnitForAutoTicks(timeOpts.minUnit, min, max, this._getLabelCapacity(min));
     const stepSize = valueOrDefault(timeOpts.stepSize, 1);
     const weekday = minor === 'week' ? timeOpts.isoWeekday : false;
-    const hasWeekday = isNumber(weekday) || weekday === true;
+    const hasWeekday = isNumber$1(weekday) || weekday === true;
     const ticks = {};
     let first = min;
     let time, count;
@@ -31293,7 +31293,7 @@ const registerables = [
 
 Chart$1.register(...registerables);
 
-const _sfc_main$N = defineComponent({
+const _sfc_main$P = defineComponent({
   props: {
     type: { type: String, default: "bar" },
     data: { type: Object, default: null },
@@ -31349,22 +31349,22 @@ const _sfc_main$N = defineComponent({
     };
   }
 });
-const _hoisted_1$o = ["height", "width"];
-function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$p = ["height", "width"];
+function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", null, [
     createElementVNode("canvas", {
       height: _ctx.height,
       width: _ctx.width,
       ref: "root",
       role: "img"
-    }, null, 8, _hoisted_1$o)
+    }, null, 8, _hoisted_1$p)
   ]);
 }
-var Chart = /* @__PURE__ */ _export_sfc$1(_sfc_main$N, [["render", _sfc_render$N]]);
+var Chart = /* @__PURE__ */ _export_sfc$1(_sfc_main$P, [["render", _sfc_render$P]]);
 
-const _sfc_main$M = defineComponent({
+const _sfc_main$O = defineComponent({
   name: "Checkbox",
-  emits: ["update:modelValue", "checked", "unchecked"],
+  emits: ["update:modelValue", "checked", "unchecked", "change"],
   props: {
     name: { type: String, default: null },
     id: { type: String, default: null },
@@ -31407,7 +31407,10 @@ const _sfc_main$M = defineComponent({
       }
     };
     watch(() => props.modelValue, (value) => model.value = value);
-    watch(model, (value) => context.emit("update:modelValue", value));
+    watch(model, (value) => {
+      context.emit("update:modelValue", value);
+      context.emit("change", value);
+    });
     const btnClass = computed(() => [
       "btn",
       {
@@ -31439,11 +31442,11 @@ const _sfc_main$M = defineComponent({
     }
   }
 });
-const _hoisted_1$n = ["required", "readonly", "disabled", "name", "value", "id"];
-const _hoisted_2$f = ["for"];
-const _hoisted_3$8 = ["required", "readonly", "disabled", "name", "value", "id"];
+const _hoisted_1$o = ["required", "readonly", "disabled", "name", "value", "id"];
+const _hoisted_2$g = ["for"];
+const _hoisted_3$9 = ["required", "readonly", "disabled", "name", "value", "id"];
 const _hoisted_4$3 = ["for"];
-function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.button ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
     withDirectives(createElementVNode("input", mergeProps({
       class: "btn-check",
@@ -31455,7 +31458,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
       type: "checkbox",
       "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => _ctx.model = $event),
       value: _ctx.value
-    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_1$n), [
+    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_1$o), [
       [vModelCheckbox, _ctx.model]
     ]),
     _ctx.$slots.default ? (openBlock(), createElementBlock("label", {
@@ -31464,7 +31467,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
       for: _ctx.identifier
     }, [
       renderSlot(_ctx.$slots, "default")
-    ], 10, _hoisted_2$f)) : createCommentVNode("", true)
+    ], 10, _hoisted_2$g)) : createCommentVNode("", true)
   ], 64)) : (openBlock(), createElementBlock("div", {
     key: 1,
     class: normalizeClass(_ctx.classes)
@@ -31479,7 +31482,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
       type: "checkbox",
       "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => _ctx.model = $event),
       value: _ctx.value
-    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_3$8), [
+    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_3$9), [
       [vModelCheckbox, _ctx.model]
     ]),
     _ctx.$slots.default ? (openBlock(), createElementBlock("label", {
@@ -31491,9 +31494,9 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     ], 8, _hoisted_4$3)) : createCommentVNode("", true)
   ], 2));
 }
-var Checkbox = /* @__PURE__ */ _export_sfc$1(_sfc_main$M, [["render", _sfc_render$M]]);
+var Checkbox = /* @__PURE__ */ _export_sfc$1(_sfc_main$O, [["render", _sfc_render$O]]);
 
-const _sfc_main$L = defineComponent({
+const _sfc_main$N = defineComponent({
   name: "CheckboxGroup",
   components: { Checkbox },
   emits: ["update:modelValue"],
@@ -31520,10 +31523,10 @@ const _sfc_main$L = defineComponent({
     }
   }
 });
-const _hoisted_1$m = { role: "group" };
-function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$n = { role: "group" };
+function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Checkbox = resolveComponent("Checkbox");
-  return openBlock(), createElementBlock("div", _hoisted_1$m, [
+  return openBlock(), createElementBlock("div", _hoisted_1$n, [
     (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.options, (option, option_key) => {
       return openBlock(), createBlock(_component_Checkbox, {
         key: option_key,
@@ -31541,7 +31544,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var CheckboxGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$L, [["render", _sfc_render$L]]);
+var CheckboxGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$N, [["render", _sfc_render$N]]);
 
 const isBoolean = (val) => typeof val === "boolean";
 
@@ -31822,9 +31825,9 @@ var _arrayMap = arrayMap$2;
  * // => false
  */
 
-var isArray$2 = Array.isArray;
+var isArray$3 = Array.isArray;
 
-var isArray_1 = isArray$2;
+var isArray_1 = isArray$3;
 
 var Symbol$3 = _Symbol;
 
@@ -31989,7 +31992,7 @@ var isSymbol_1 = isSymbol$2;
 
 var Symbol$1 = _Symbol,
     arrayMap$1 = _arrayMap,
-    isArray$1 = isArray_1,
+    isArray$2 = isArray_1,
     isSymbol$1 = isSymbol_1;
 
 /** Used as references for various `Number` constants. */
@@ -32012,7 +32015,7 @@ function baseToString$9(value) {
   if (typeof value == 'string') {
     return value;
   }
-  if (isArray$1(value)) {
+  if (isArray$2(value)) {
     // Recursively convert values (susceptible to call stack limits).
     return arrayMap$1(value, baseToString$9) + '';
   }
@@ -32048,11 +32051,11 @@ var baseToString$8 = _baseToString;
  * _.toString([1, 2, 3]);
  * // => '1,2,3'
  */
-function toString$n(value) {
+function toString$o(value) {
   return value == null ? '' : baseToString$8(value);
 }
 
-var toString_1 = toString$n;
+var toString_1 = toString$o;
 
 /**
  * The base implementation of `_.slice` without an iteratee call guard.
@@ -32212,7 +32215,7 @@ var _stringToArray = stringToArray$7;
 var castSlice$6 = _castSlice,
     hasUnicode$4 = _hasUnicode,
     stringToArray$6 = _stringToArray,
-    toString$m = toString_1;
+    toString$n = toString_1;
 
 /**
  * Creates a function like `_.lowerFirst`.
@@ -32223,7 +32226,7 @@ var castSlice$6 = _castSlice,
  */
 function createCaseFirst$2(methodName) {
   return function(string) {
-    string = toString$m(string);
+    string = toString$n(string);
 
     var strSymbols = hasUnicode$4(string)
       ? stringToArray$6(string)
@@ -32266,7 +32269,7 @@ var upperFirst$2 = createCaseFirst$1('toUpperCase');
 
 var upperFirst_1 = upperFirst$2;
 
-var toString$l = toString_1,
+var toString$m = toString_1,
     upperFirst$1 = upperFirst_1;
 
 /**
@@ -32285,7 +32288,7 @@ var toString$l = toString_1,
  * // => 'Fred'
  */
 function capitalize$1(string) {
-  return upperFirst$1(toString$l(string).toLowerCase());
+  return upperFirst$1(toString$m(string).toLowerCase());
 }
 
 var capitalize_1 = capitalize$1;
@@ -32407,7 +32410,7 @@ var deburrLetter$1 = basePropertyOf$2(deburredLetters);
 var _deburrLetter = deburrLetter$1;
 
 var deburrLetter = _deburrLetter,
-    toString$k = toString_1;
+    toString$l = toString_1;
 
 /** Used to match Latin Unicode letters (excluding mathematical operators). */
 var reLatin = /[\xc0-\xd6\xd8-\xf6\xf8-\xff\u0100-\u017f]/g;
@@ -32446,7 +32449,7 @@ var reComboMark = RegExp(rsCombo$2, 'g');
  * // => 'deja vu'
  */
 function deburr$1(string) {
-  string = toString$k(string);
+  string = toString$l(string);
   return string && string.replace(reLatin, deburrLetter).replace(reComboMark, '');
 }
 
@@ -32559,7 +32562,7 @@ var _unicodeWords = unicodeWords$1;
 
 var asciiWords = _asciiWords,
     hasUnicodeWord = _hasUnicodeWord,
-    toString$j = toString_1,
+    toString$k = toString_1,
     unicodeWords = _unicodeWords;
 
 /**
@@ -32582,7 +32585,7 @@ var asciiWords = _asciiWords,
  * // => ['fred', 'barney', '&', 'pebbles']
  */
 function words$1(string, pattern, guard) {
-  string = toString$j(string);
+  string = toString$k(string);
   pattern = guard ? undefined : pattern;
 
   if (pattern === undefined) {
@@ -32739,15 +32742,15 @@ var _baseTrim = baseTrim$2;
  * // => false
  */
 
-function isObject$6(value) {
+function isObject$7(value) {
   var type = typeof value;
   return value != null && (type == 'object' || type == 'function');
 }
 
-var isObject_1 = isObject$6;
+var isObject_1 = isObject$7;
 
 var baseTrim$1 = _baseTrim,
-    isObject$5 = isObject_1,
+    isObject$6 = isObject_1,
     isSymbol = isSymbol_1;
 
 /** Used as references for various `Number` constants. */
@@ -32795,9 +32798,9 @@ function toNumber$1(value) {
   if (isSymbol(value)) {
     return NAN;
   }
-  if (isObject$5(value)) {
+  if (isObject$6(value)) {
     var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
-    value = isObject$5(other) ? (other + '') : other;
+    value = isObject$6(other) ? (other + '') : other;
   }
   if (typeof value != 'string') {
     return value === 0 ? value : +value;
@@ -32894,7 +32897,7 @@ var toInteger_1 = toInteger$7;
 var baseClamp$1 = _baseClamp,
     baseToString$7 = _baseToString,
     toInteger$6 = toInteger_1,
-    toString$i = toString_1;
+    toString$j = toString_1;
 
 /**
  * Checks if `string` ends with the given target string.
@@ -32920,7 +32923,7 @@ var baseClamp$1 = _baseClamp,
  * // => true
  */
 function endsWith(string, target, position) {
-  string = toString$i(string);
+  string = toString$j(string);
   target = baseToString$7(target);
 
   var length = string.length;
@@ -32958,7 +32961,7 @@ var escapeHtmlChar$1 = basePropertyOf$1(htmlEscapes);
 var _escapeHtmlChar = escapeHtmlChar$1;
 
 var escapeHtmlChar = _escapeHtmlChar,
-    toString$h = toString_1;
+    toString$i = toString_1;
 
 /** Used to match HTML entities and HTML characters. */
 var reUnescapedHtml = /[&<>"']/g,
@@ -32993,7 +32996,7 @@ var reUnescapedHtml = /[&<>"']/g,
  * // => 'fred, barney, &amp; pebbles'
  */
 function escape$1(string) {
-  string = toString$h(string);
+  string = toString$i(string);
   return (string && reHasUnescapedHtml.test(string))
     ? string.replace(reUnescapedHtml, escapeHtmlChar)
     : string;
@@ -33001,7 +33004,7 @@ function escape$1(string) {
 
 var _escape = escape$1;
 
-var toString$g = toString_1;
+var toString$h = toString_1;
 
 /**
  * Used to match `RegExp`
@@ -33026,7 +33029,7 @@ var reRegExpChar$1 = /[\\^$.*+?()[\]{}|]/g,
  * // => '\[lodash\]\(https://lodash\.com/\)'
  */
 function escapeRegExp(string) {
-  string = toString$g(string);
+  string = toString$h(string);
   return (string && reHasRegExpChar.test(string))
     ? string.replace(reRegExpChar$1, '\\$&')
     : string;
@@ -33282,7 +33285,7 @@ var _createPadding = createPadding$3;
 var createPadding$2 = _createPadding,
     stringSize$3 = _stringSize,
     toInteger$5 = toInteger_1,
-    toString$f = toString_1;
+    toString$g = toString_1;
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeCeil = Math.ceil,
@@ -33312,7 +33315,7 @@ var nativeCeil = Math.ceil,
  * // => 'abc'
  */
 function pad(string, length, chars) {
-  string = toString$f(string);
+  string = toString$g(string);
   length = toInteger$5(length);
 
   var strLength = length ? stringSize$3(string) : 0;
@@ -33332,7 +33335,7 @@ var pad_1 = pad;
 var createPadding$1 = _createPadding,
     stringSize$2 = _stringSize,
     toInteger$4 = toInteger_1,
-    toString$e = toString_1;
+    toString$f = toString_1;
 
 /**
  * Pads `string` on the right side if it's shorter than `length`. Padding
@@ -33358,7 +33361,7 @@ var createPadding$1 = _createPadding,
  * // => 'abc'
  */
 function padEnd(string, length, chars) {
-  string = toString$e(string);
+  string = toString$f(string);
   length = toInteger$4(length);
 
   var strLength = length ? stringSize$2(string) : 0;
@@ -33372,7 +33375,7 @@ var padEnd_1 = padEnd;
 var createPadding = _createPadding,
     stringSize$1 = _stringSize,
     toInteger$3 = toInteger_1,
-    toString$d = toString_1;
+    toString$e = toString_1;
 
 /**
  * Pads `string` on the left side if it's shorter than `length`. Padding
@@ -33398,7 +33401,7 @@ var createPadding = _createPadding,
  * // => 'abc'
  */
 function padStart(string, length, chars) {
-  string = toString$d(string);
+  string = toString$e(string);
   length = toInteger$3(length);
 
   var strLength = length ? stringSize$1(string) : 0;
@@ -33410,7 +33413,7 @@ function padStart(string, length, chars) {
 var padStart_1 = padStart;
 
 var root$1 = _root,
-    toString$c = toString_1;
+    toString$d = toString_1;
 
 /** Used to match leading whitespace. */
 var reTrimStart$1 = /^\s+/;
@@ -33448,7 +33451,7 @@ function parseInt$1(string, radix, guard) {
   } else if (radix) {
     radix = +radix;
   }
-  return nativeParseInt(toString$c(string).replace(reTrimStart$1, ''), radix || 0);
+  return nativeParseInt(toString$d(string).replace(reTrimStart$1, ''), radix || 0);
 }
 
 var _parseInt = parseInt$1;
@@ -33493,7 +33496,7 @@ function eq$3(value, other) {
 var eq_1 = eq$3;
 
 var baseGetTag$5 = _baseGetTag,
-    isObject$4 = isObject_1;
+    isObject$5 = isObject_1;
 
 /** `Object#toString` result references. */
 var asyncTag = '[object AsyncFunction]',
@@ -33518,8 +33521,8 @@ var asyncTag = '[object AsyncFunction]',
  * _.isFunction(/abc/);
  * // => false
  */
-function isFunction$2(value) {
-  if (!isObject$4(value)) {
+function isFunction$3(value) {
+  if (!isObject$5(value)) {
     return false;
   }
   // The use of `Object#toString` avoids issues with the `typeof` operator
@@ -33528,7 +33531,7 @@ function isFunction$2(value) {
   return tag == funcTag$1 || tag == genTag || tag == asyncTag || tag == proxyTag;
 }
 
-var isFunction_1 = isFunction$2;
+var isFunction_1 = isFunction$3;
 
 /** Used as references for various `Number` constants. */
 
@@ -33567,7 +33570,7 @@ function isLength$2(value) {
 
 var isLength_1 = isLength$2;
 
-var isFunction$1 = isFunction_1,
+var isFunction$2 = isFunction_1,
     isLength$1 = isLength_1;
 
 /**
@@ -33596,7 +33599,7 @@ var isFunction$1 = isFunction_1,
  * // => false
  */
 function isArrayLike$3(value) {
-  return value != null && isLength$1(value.length) && !isFunction$1(value);
+  return value != null && isLength$1(value.length) && !isFunction$2(value);
 }
 
 var isArrayLike_1 = isArrayLike$3;
@@ -33631,7 +33634,7 @@ var _isIndex = isIndex$2;
 var eq$2 = eq_1,
     isArrayLike$2 = isArrayLike_1,
     isIndex$1 = _isIndex,
-    isObject$3 = isObject_1;
+    isObject$4 = isObject_1;
 
 /**
  * Checks if the given arguments are from an iteratee call.
@@ -33644,7 +33647,7 @@ var eq$2 = eq_1,
  *  else `false`.
  */
 function isIterateeCall$4(value, index, object) {
-  if (!isObject$3(object)) {
+  if (!isObject$4(object)) {
     return false;
   }
   var type = typeof index;
@@ -33662,7 +33665,7 @@ var _isIterateeCall = isIterateeCall$4;
 var baseRepeat = _baseRepeat,
     isIterateeCall$3 = _isIterateeCall,
     toInteger$2 = toInteger_1,
-    toString$b = toString_1;
+    toString$c = toString_1;
 
 /**
  * Repeats the given string `n` times.
@@ -33692,12 +33695,12 @@ function repeat(string, n, guard) {
   } else {
     n = toInteger$2(n);
   }
-  return baseRepeat(toString$b(string), n);
+  return baseRepeat(toString$c(string), n);
 }
 
 var repeat_1 = repeat;
 
-var toString$a = toString_1;
+var toString$b = toString_1;
 
 /**
  * Replaces matches for `pattern` in `string` with `replacement`.
@@ -33720,7 +33723,7 @@ var toString$a = toString_1;
  */
 function replace() {
   var args = arguments,
-      string = toString$a(args[0]);
+      string = toString$b(args[0]);
 
   return args.length < 3 ? string : string.replace(args[1], args[2]);
 }
@@ -33860,7 +33863,7 @@ var baseToString$5 = _baseToString,
     isIterateeCall$2 = _isIterateeCall,
     isRegExp$1 = isRegExp_1,
     stringToArray$4 = _stringToArray,
-    toString$9 = toString_1;
+    toString$a = toString_1;
 
 /** Used as references for the maximum length and index of an array. */
 var MAX_ARRAY_LENGTH = 4294967295;
@@ -33892,7 +33895,7 @@ function split(string, separator, limit) {
   if (!limit) {
     return [];
   }
-  string = toString$9(string);
+  string = toString$a(string);
   if (string && (
         typeof separator == 'string' ||
         (separator != null && !isRegExp$1(separator))
@@ -33940,7 +33943,7 @@ var startCase_1 = startCase;
 var baseClamp = _baseClamp,
     baseToString$4 = _baseToString,
     toInteger$1 = toInteger_1,
-    toString$8 = toString_1;
+    toString$9 = toString_1;
 
 /**
  * Checks if `string` starts with the given target string.
@@ -33966,7 +33969,7 @@ var baseClamp = _baseClamp,
  * // => true
  */
 function startsWith(string, target, position) {
-  string = toString$8(string);
+  string = toString$9(string);
   position = position == null
     ? 0
     : baseClamp(toInteger$1(position), 0, string.length);
@@ -34033,9 +34036,9 @@ function toSource$1(func) {
 
 var _toSource = toSource$1;
 
-var isFunction = isFunction_1,
+var isFunction$1 = isFunction_1,
     isMasked = _isMasked,
-    isObject$2 = isObject_1,
+    isObject$3 = isObject_1,
     toSource = _toSource;
 
 /**
@@ -34072,10 +34075,10 @@ var reIsNative = RegExp('^' +
  *  else `false`.
  */
 function baseIsNative$1(value) {
-  if (!isObject$2(value) || isMasked(value)) {
+  if (!isObject$3(value) || isMasked(value)) {
     return false;
   }
-  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
+  var pattern = isFunction$1(value) ? reIsNative : reIsHostCtor;
   return pattern.test(toSource(value));
 }
 
@@ -34544,7 +34547,7 @@ var isArguments$1 = baseIsArguments(function() { return arguments; }()) ? baseIs
 
 var isArguments_1 = isArguments$1;
 
-var isBuffer$1 = {exports: {}};
+var isBuffer$2 = {exports: {}};
 
 /**
  * This method returns `false`.
@@ -34605,7 +34608,7 @@ var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
 var isBuffer = nativeIsBuffer || stubFalse;
 
 module.exports = isBuffer;
-}(isBuffer$1, isBuffer$1.exports));
+}(isBuffer$2, isBuffer$2.exports));
 
 var baseGetTag$2 = _baseGetTag,
     isLength = isLength_1,
@@ -34698,8 +34701,8 @@ var isTypedArray_1 = isTypedArray$1;
 
 var baseTimes = _baseTimes,
     isArguments = isArguments_1,
-    isArray = isArray_1,
-    isBuffer = isBuffer$1.exports,
+    isArray$1 = isArray_1,
+    isBuffer$1 = isBuffer$2.exports,
     isIndex = _isIndex,
     isTypedArray = isTypedArray_1;
 
@@ -34718,9 +34721,9 @@ var hasOwnProperty$5 = objectProto$6.hasOwnProperty;
  * @returns {Array} Returns the array of property names.
  */
 function arrayLikeKeys$2(value, inherited) {
-  var isArr = isArray(value),
+  var isArr = isArray$1(value),
       isArg = !isArr && isArguments(value),
-      isBuff = !isArr && !isArg && isBuffer(value),
+      isBuff = !isArr && !isArg && isBuffer$1(value),
       isType = !isArr && !isArg && !isBuff && isTypedArray(value),
       skipIndexes = isArr || isArg || isBuff || isType,
       result = skipIndexes ? baseTimes(value.length, String) : [],
@@ -34788,7 +34791,7 @@ function nativeKeysIn$1(object) {
 
 var _nativeKeysIn = nativeKeysIn$1;
 
-var isObject$1 = isObject_1,
+var isObject$2 = isObject_1,
     isPrototype$1 = _isPrototype,
     nativeKeysIn = _nativeKeysIn;
 
@@ -34806,7 +34809,7 @@ var hasOwnProperty$4 = objectProto$4.hasOwnProperty;
  * @returns {Array} Returns the array of property names.
  */
 function baseKeysIn$1(object) {
-  if (!isObject$1(object)) {
+  if (!isObject$2(object)) {
     return nativeKeysIn(object);
   }
   var isProto = isPrototype$1(object),
@@ -34966,7 +34969,7 @@ var objectCtorString = funcToString.call(Object);
  * _.isPlainObject(Object.create(null));
  * // => true
  */
-function isPlainObject$1(value) {
+function isPlainObject$2(value) {
   if (!isObjectLike$1(value) || baseGetTag$1(value) != objectTag) {
     return false;
   }
@@ -34979,11 +34982,11 @@ function isPlainObject$1(value) {
     funcToString.call(Ctor) == objectCtorString;
 }
 
-var isPlainObject_1 = isPlainObject$1;
+var isPlainObject_1 = isPlainObject$2;
 
 var baseGetTag = _baseGetTag,
     isObjectLike = isObjectLike_1,
-    isPlainObject = isPlainObject_1;
+    isPlainObject$1 = isPlainObject_1;
 
 /** `Object#toString` result references. */
 var domExcTag = '[object DOMException]',
@@ -35013,7 +35016,7 @@ function isError$2(value) {
   }
   var tag = baseGetTag(value);
   return tag == errorTag || tag == domExcTag ||
-    (typeof value.message == 'string' && typeof value.name == 'string' && !isPlainObject(value));
+    (typeof value.message == 'string' && typeof value.name == 'string' && !isPlainObject$1(value));
 }
 
 var isError_1 = isError$2;
@@ -35300,7 +35303,7 @@ var assignInWith = assignInWith_1,
     keys = keys_1,
     reInterpolate = _reInterpolate,
     templateSettings = templateSettings_1,
-    toString$7 = toString_1;
+    toString$8 = toString_1;
 
 /** Error message constants. */
 var INVALID_TEMPL_VAR_ERROR_TEXT = 'Invalid `variable` option passed into `_.template`';
@@ -35453,7 +35456,7 @@ function template(string, options, guard) {
   if (guard && isIterateeCall(string, options, guard)) {
     options = undefined;
   }
-  string = toString$7(string);
+  string = toString$8(string);
   options = assignInWith({}, options, settings, customDefaultsAssignIn);
 
   var imports = assignInWith({}, options.imports, settings.imports, customDefaultsAssignIn),
@@ -35563,7 +35566,7 @@ function template(string, options, guard) {
 
 var template_1 = template;
 
-var toString$6 = toString_1;
+var toString$7 = toString_1;
 
 /**
  * Converts `string`, as a whole, to lower case just like
@@ -35587,12 +35590,12 @@ var toString$6 = toString_1;
  * // => '__foo_bar__'
  */
 function toLower(value) {
-  return toString$6(value).toLowerCase();
+  return toString$7(value).toLowerCase();
 }
 
 var toLower_1 = toLower;
 
-var toString$5 = toString_1;
+var toString$6 = toString_1;
 
 /**
  * Converts `string`, as a whole, to upper case just like
@@ -35616,7 +35619,7 @@ var toString$5 = toString_1;
  * // => '__FOO_BAR__'
  */
 function toUpper(value) {
-  return toString$5(value).toUpperCase();
+  return toString$6(value).toUpperCase();
 }
 
 var toUpper_1 = toUpper;
@@ -35754,7 +35757,7 @@ var baseToString$3 = _baseToString,
     charsEndIndex$1 = _charsEndIndex,
     charsStartIndex$1 = _charsStartIndex,
     stringToArray$3 = _stringToArray,
-    toString$4 = toString_1;
+    toString$5 = toString_1;
 
 /**
  * Removes leading and trailing whitespace or specified characters from `string`.
@@ -35778,8 +35781,8 @@ var baseToString$3 = _baseToString,
  * _.map(['  foo  ', '  bar  '], _.trim);
  * // => ['foo', 'bar']
  */
-function trim(string, chars, guard) {
-  string = toString$4(string);
+function trim$1(string, chars, guard) {
+  string = toString$5(string);
   if (string && (guard || chars === undefined)) {
     return baseTrim(string);
   }
@@ -35794,13 +35797,13 @@ function trim(string, chars, guard) {
   return castSlice$3(strSymbols, start, end).join('');
 }
 
-var trim_1 = trim;
+var trim_1 = trim$1;
 
 var baseToString$2 = _baseToString,
     castSlice$2 = _castSlice,
     charsEndIndex = _charsEndIndex,
     stringToArray$2 = _stringToArray,
-    toString$3 = toString_1,
+    toString$4 = toString_1,
     trimmedEndIndex = _trimmedEndIndex;
 
 /**
@@ -35823,7 +35826,7 @@ var baseToString$2 = _baseToString,
  * // => '-_-abc'
  */
 function trimEnd(string, chars, guard) {
-  string = toString$3(string);
+  string = toString$4(string);
   if (string && (guard || chars === undefined)) {
     return string.slice(0, trimmedEndIndex(string) + 1);
   }
@@ -35842,7 +35845,7 @@ var baseToString$1 = _baseToString,
     castSlice$1 = _castSlice,
     charsStartIndex = _charsStartIndex,
     stringToArray$1 = _stringToArray,
-    toString$2 = toString_1;
+    toString$3 = toString_1;
 
 /** Used to match leading whitespace. */
 var reTrimStart = /^\s+/;
@@ -35867,7 +35870,7 @@ var reTrimStart = /^\s+/;
  * // => 'abc-_-'
  */
 function trimStart(string, chars, guard) {
-  string = toString$2(string);
+  string = toString$3(string);
   if (string && (guard || chars === undefined)) {
     return string.replace(reTrimStart, '');
   }
@@ -35885,12 +35888,12 @@ var trimStart_1 = trimStart;
 var baseToString = _baseToString,
     castSlice = _castSlice,
     hasUnicode = _hasUnicode,
-    isObject = isObject_1,
+    isObject$1 = isObject_1,
     isRegExp = isRegExp_1,
     stringSize = _stringSize,
     stringToArray = _stringToArray,
     toInteger = toInteger_1,
-    toString$1 = toString_1;
+    toString$2 = toString_1;
 
 /** Used as default options for `_.truncate`. */
 var DEFAULT_TRUNC_LENGTH = 30,
@@ -35940,12 +35943,12 @@ function truncate(string, options) {
   var length = DEFAULT_TRUNC_LENGTH,
       omission = DEFAULT_TRUNC_OMISSION;
 
-  if (isObject(options)) {
+  if (isObject$1(options)) {
     var separator = 'separator' in options ? options.separator : separator;
     length = 'length' in options ? toInteger(options.length) : length;
     omission = 'omission' in options ? baseToString(options.omission) : omission;
   }
-  string = toString$1(string);
+  string = toString$2(string);
 
   var strLength = string.length;
   if (hasUnicode(string)) {
@@ -35975,7 +35978,7 @@ function truncate(string, options) {
           substring = result;
 
       if (!separator.global) {
-        separator = RegExp(separator.source, toString$1(reFlags.exec(separator)) + 'g');
+        separator = RegExp(separator.source, toString$2(reFlags.exec(separator)) + 'g');
       }
       separator.lastIndex = 0;
       while ((match = separator.exec(substring))) {
@@ -36016,7 +36019,7 @@ var unescapeHtmlChar$1 = basePropertyOf(htmlUnescapes);
 
 var _unescapeHtmlChar = unescapeHtmlChar$1;
 
-var toString = toString_1,
+var toString$1 = toString_1,
     unescapeHtmlChar = _unescapeHtmlChar;
 
 /** Used to match HTML entities and HTML characters. */
@@ -36042,14 +36045,14 @@ var reEscapedHtml = /&(?:amp|lt|gt|quot|#39);/g,
  * _.unescape('fred, barney, &amp; pebbles');
  * // => 'fred, barney, & pebbles'
  */
-function unescape(string) {
-  string = toString(string);
+function unescape$1(string) {
+  string = toString$1(string);
   return (string && reHasEscapedHtml.test(string))
     ? string.replace(reEscapedHtml, unescapeHtmlChar)
     : string;
 }
 
-var _unescape = unescape;
+var _unescape = unescape$1;
 
 var createCompounder = _createCompounder;
 
@@ -36113,7 +36116,7 @@ var string = {
   'words': words_1
 };
 
-const _sfc_main$K = defineComponent({
+const _sfc_main$M = defineComponent({
   name: "Icon",
   props: {
     icon: { type: String, default: null },
@@ -36125,14 +36128,14 @@ const _sfc_main$K = defineComponent({
     };
   }
 });
-function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("i", {
     class: normalizeClass(["bi", { ["bi-" + _ctx.theIcon]: _ctx.theIcon, ["text-" + _ctx.variant]: _ctx.variant }])
   }, null, 2);
 }
-var Icon = /* @__PURE__ */ _export_sfc$1(_sfc_main$K, [["render", _sfc_render$K]]);
+var Icon = /* @__PURE__ */ _export_sfc$1(_sfc_main$M, [["render", _sfc_render$M]]);
 
-const _sfc_main$J = defineComponent({
+const _sfc_main$L = defineComponent({
   name: "DataTable",
   emits: ["update:selectedRows"],
   components: { Icon, Tr, TBody, Th, Td, THead, Table },
@@ -36161,7 +36164,7 @@ const _sfc_main$J = defineComponent({
     const classes = computed(() => []);
     const { items, fields, ...otherProps } = props;
     const getLabel = (th) => {
-      if (isObject$8(th)) {
+      if (isObject$9(th)) {
         if (th.hasOwnProperty("label")) {
           return th.label;
         } else if (th.hasOwnProperty("key")) {
@@ -36177,7 +36180,7 @@ const _sfc_main$J = defineComponent({
       props.fields.forEach((i) => {
         if (typeof i === "string") {
           cols.push(i);
-        } else if (isObject$8(i) && i.sortable !== false) {
+        } else if (isObject$9(i) && i.sortable !== false) {
           cols.push(getKey(i));
         }
       });
@@ -36185,7 +36188,7 @@ const _sfc_main$J = defineComponent({
     });
     const getValue = (row, th, th_index) => {
       let key = getKey(th);
-      if (isObject$8(th)) {
+      if (isObject$9(th)) {
         if (th.hasOwnProperty("formatter")) {
           return th.formatter(row, key);
         }
@@ -36196,7 +36199,7 @@ const _sfc_main$J = defineComponent({
       return row[th_index];
     };
     const getKey = (th) => {
-      if (isObject$8(th)) {
+      if (isObject$9(th)) {
         return th.key;
       } else if (typeof th === "string") {
         return string.lowerCase(th);
@@ -36212,7 +36215,7 @@ const _sfc_main$J = defineComponent({
           return props.items.filter((row) => {
             if (Array.isArray(row)) {
               console.log(row);
-            } else if (isObject$8(row)) {
+            } else if (isObject$9(row)) {
               return filterableColumns.value.reduce((cond, col) => cond || row[col].toString().search(props.filter) > -1, false);
             }
             return true;
@@ -36249,7 +36252,7 @@ const _sfc_main$J = defineComponent({
     };
   }
 });
-function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Icon = resolveComponent("Icon");
   const _component_Th = resolveComponent("Th");
   const _component_THead = resolveComponent("THead");
@@ -36329,9 +36332,9 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-var DataTable = /* @__PURE__ */ _export_sfc$1(_sfc_main$J, [["render", _sfc_render$J]]);
+var DataTable = /* @__PURE__ */ _export_sfc$1(_sfc_main$L, [["render", _sfc_render$L]]);
 
-const _sfc_main$I = defineComponent({
+const _sfc_main$K = defineComponent({
   name: "Datepicker",
   props: {
     modelValue: {
@@ -36346,10 +36349,10 @@ const _sfc_main$I = defineComponent({
     };
   }
 });
-function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   return null;
 }
-var Datepicker = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I]]);
+var Datepicker = /* @__PURE__ */ _export_sfc$1(_sfc_main$K, [["render", _sfc_render$K]]);
 
 var top = 'top';
 var bottom = 'bottom';
@@ -38104,10 +38107,11 @@ var dropdownProps = {
   menuDark: { type: Boolean, default: false },
   menuClass: { type: [String, Array, Object], default: () => [] },
   split: { type: Boolean, default: false },
-  isNav: { type: Boolean, default: false }
+  isNav: { type: Boolean, default: false },
+  disableInnerClicks: { type: Boolean, default: false }
 };
 
-const _sfc_main$H = defineComponent({
+const _sfc_main$J = defineComponent({
   name: "DropdownMenu",
   props: {
     tag: { type: String, default: "ul" },
@@ -38126,7 +38130,7 @@ const _sfc_main$H = defineComponent({
     };
   }
 });
-function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
   }, {
@@ -38136,9 +38140,9 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var DropdownMenu = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["render", _sfc_render$H]]);
+var DropdownMenu = /* @__PURE__ */ _export_sfc$1(_sfc_main$J, [["render", _sfc_render$J]]);
 
-const _sfc_main$G = defineComponent({
+const _sfc_main$I = defineComponent({
   name: "NavLink",
   props: {
     ariaCurrent: { type: String, default: null },
@@ -38162,7 +38166,7 @@ const _sfc_main$G = defineComponent({
     };
   }
 });
-function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return _ctx.to ? (openBlock(), createBlock(_component_router_link, mergeProps({
     key: 0,
@@ -38183,9 +38187,9 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]));
 }
-var NavLink = /* @__PURE__ */ _export_sfc$1(_sfc_main$G, [["render", _sfc_render$G]]);
+var NavLink = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I]]);
 
-const _sfc_main$F = defineComponent({
+const _sfc_main$H = defineComponent({
   name: "NavItem",
   components: { NavLink },
   props: {
@@ -38211,7 +38215,7 @@ const _sfc_main$F = defineComponent({
     };
   }
 });
-function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_NavLink = resolveComponent("NavLink");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
     default: withCtx(() => [
@@ -38233,9 +38237,9 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]);
 }
-var NavItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F]]);
+var NavItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["render", _sfc_render$H]]);
 
-const _sfc_main$E = defineComponent({
+const _sfc_main$G = defineComponent({
   name: "Dropdown",
   components: { NavLink, NavItem, Button, DropdownMenu },
   props: dropdownProps,
@@ -38275,9 +38279,14 @@ const _sfc_main$E = defineComponent({
   },
   methods: {
     clickOutside(e) {
-      if (e.target !== this.$refs.toggle.$el) {
+      if (!this.disableInnerClicks) {
+        this.shouldOpen = this.$refs.toggle.$el.contains(e.target);
+        return;
+      }
+      if (!this.$refs.menu.$el.contains(e.target) && e.target !== this.$refs.toggle.$el) {
         this.shouldOpen = false;
       }
+      return;
     }
   },
   watch: {
@@ -38292,11 +38301,11 @@ const _sfc_main$E = defineComponent({
     }
   }
 });
-const _hoisted_1$l = {
+const _hoisted_1$m = {
   key: 0,
   class: "visually-hidden"
 };
-function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Button = resolveComponent("Button");
   const _component_NavLink = resolveComponent("NavLink");
   const _component_DropdownMenu = resolveComponent("DropdownMenu");
@@ -38343,7 +38352,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
       }, {
         default: withCtx(() => [
           renderSlot(_ctx.$slots, "button-content", {}, () => [
-            _ctx.split ? (openBlock(), createElementBlock("span", _hoisted_1$l, "Toggle Dropdown")) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+            _ctx.split ? (openBlock(), createElementBlock("span", _hoisted_1$m, "Toggle Dropdown")) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
               createTextVNode(toDisplayString(_ctx.text), 1)
             ], 64))
           ])
@@ -38366,18 +38375,18 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Dropdown = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E]]);
+var Dropdown = /* @__PURE__ */ _export_sfc$1(_sfc_main$G, [["render", _sfc_render$G]]);
 
-const _sfc_main$D = defineComponent({
+const _sfc_main$F = defineComponent({
   name: "DropdownButton",
   props: {
     active: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false }
   }
 });
-const _hoisted_1$k = { role: "menuitem" };
-function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("li", _hoisted_1$k, [
+const _hoisted_1$l = { role: "menuitem" };
+function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("li", _hoisted_1$l, [
     createElementVNode("button", {
       class: normalizeClass(["dropdown-item", { "active": _ctx.active, "disabled": _ctx.disabled }]),
       type: "button"
@@ -38386,26 +38395,26 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)
   ]);
 }
-var DropdownButton = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["render", _sfc_render$D]]);
+var DropdownButton = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F]]);
 
-const _sfc_main$C = defineComponent({
+const _sfc_main$E = defineComponent({
   name: "DropdownDivider"
 });
-const _hoisted_1$j = { role: "presentation" };
-const _hoisted_2$e = /* @__PURE__ */ createElementVNode("hr", {
+const _hoisted_1$k = { role: "presentation" };
+const _hoisted_2$f = /* @__PURE__ */ createElementVNode("hr", {
   role: "separator",
   "aria-orientation": "horizontal",
   class: "dropdown-divider"
 }, null, -1);
-const _hoisted_3$7 = [
-  _hoisted_2$e
+const _hoisted_3$8 = [
+  _hoisted_2$f
 ];
-function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("li", _hoisted_1$j, _hoisted_3$7);
+function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("li", _hoisted_1$k, _hoisted_3$8);
 }
-var DropdownDivider = /* @__PURE__ */ _export_sfc$1(_sfc_main$C, [["render", _sfc_render$C]]);
+var DropdownDivider = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E]]);
 
-const _sfc_main$B = defineComponent({
+const _sfc_main$D = defineComponent({
   name: "DropdownItem",
   props: {
     href: { type: String, default: "#" },
@@ -38414,15 +38423,15 @@ const _sfc_main$B = defineComponent({
     isText: { type: Boolean, default: false }
   }
 });
-const _hoisted_1$i = { role: "presentation" };
-const _hoisted_2$d = {
+const _hoisted_1$j = { role: "presentation" };
+const _hoisted_2$e = {
   key: 0,
   class: "dropdown-item-text"
 };
-const _hoisted_3$6 = ["href"];
-function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("li", _hoisted_1$i, [
-    _ctx.isText ? (openBlock(), createElementBlock("p", _hoisted_2$d, [
+const _hoisted_3$7 = ["href"];
+function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("li", _hoisted_1$j, [
+    _ctx.isText ? (openBlock(), createElementBlock("p", _hoisted_2$e, [
       renderSlot(_ctx.$slots, "default")
     ])) : (openBlock(), createElementBlock("a", {
       key: 1,
@@ -38430,10 +38439,10 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
       href: _ctx.href
     }, [
       renderSlot(_ctx.$slots, "default")
-    ], 10, _hoisted_3$6))
+    ], 10, _hoisted_3$7))
   ]);
 }
-var DropdownItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["render", _sfc_render$B]]);
+var DropdownItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["render", _sfc_render$D]]);
 
 var FormLabel = defineComponent({
   name: "FormLabel",
@@ -38458,7 +38467,7 @@ var FormLabel = defineComponent({
   }
 });
 
-const _sfc_main$A = defineComponent({
+const _sfc_main$C = defineComponent({
   name: "FormGroup",
   components: { FormLabel },
   props: {
@@ -38498,7 +38507,7 @@ const _sfc_main$A = defineComponent({
     };
   }
 });
-function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_FormLabel = resolveComponent("FormLabel");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
@@ -38533,9 +38542,9 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var FormGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A]]);
+var FormGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$C, [["render", _sfc_render$C]]);
 
-const _sfc_main$z = defineComponent({
+const _sfc_main$B = defineComponent({
   name: "Figure",
   props: {
     caption: { type: String, default: null },
@@ -38544,12 +38553,12 @@ const _sfc_main$z = defineComponent({
     imgAlt: { type: String, default: null }
   }
 });
-const _hoisted_1$h = ["src", "alt"];
-const _hoisted_2$c = {
+const _hoisted_1$i = ["src", "alt"];
+const _hoisted_2$d = {
   key: 1,
   class: "figure-caption"
 };
-function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent("figure"), { class: "figure" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default"),
@@ -38558,8 +38567,8 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
         class: normalizeClass(["figure-img", { "img-fluid": _ctx.imgFluid }]),
         src: _ctx.imgUrl,
         alt: _ctx.imgAlt
-      }, null, 10, _hoisted_1$h)) : createCommentVNode("", true),
-      _ctx.caption || _ctx.$slots.caption ? (openBlock(), createElementBlock("div", _hoisted_2$c, [
+      }, null, 10, _hoisted_1$i)) : createCommentVNode("", true),
+      _ctx.caption || _ctx.$slots.caption ? (openBlock(), createElementBlock("div", _hoisted_2$d, [
         renderSlot(_ctx.$slots, "caption", {}, () => [
           createTextVNode(toDisplayString(_ctx.caption), 1)
         ])
@@ -38568,7 +38577,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var Figure = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["render", _sfc_render$z]]);
+var Figure = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["render", _sfc_render$B]]);
 
 var Grid = defineComponent({
   name: "Grid",
@@ -38607,7 +38616,7 @@ var GridCol = defineComponent({
   }
 });
 
-const _sfc_main$y = defineComponent({
+const _sfc_main$A = defineComponent({
   emits: ["update:modelValue"],
   props: {
     type: { type: String, default: "text" },
@@ -38638,24 +38647,24 @@ const _sfc_main$y = defineComponent({
     };
   }
 });
-const _hoisted_1$g = ["type", "value"];
-function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$h = ["type", "value"];
+function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("input", mergeProps({
     type: _ctx.type,
     value: _ctx.modelValue,
     onInput: _cache[0] || (_cache[0] = (e) => _ctx.$emit("update:modelValue", _ctx.type === "number" ? Number(e.target.value) : e.target.value)),
     class: _ctx.classes
-  }, _ctx.attributes), null, 16, _hoisted_1$g);
+  }, _ctx.attributes), null, 16, _hoisted_1$h);
 }
-var Input = /* @__PURE__ */ _export_sfc$1(_sfc_main$y, [["render", _sfc_render$y]]);
+var Input = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A]]);
 
-const _sfc_main$x = defineComponent({
+const _sfc_main$z = defineComponent({
   name: "InputGroupText",
   props: {
     tag: { type: String, default: "span" }
   }
 });
-function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "input-group-text" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
@@ -38663,11 +38672,11 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var InputGroupText = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["render", _sfc_render$x]]);
+var InputGroupText = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["render", _sfc_render$z]]);
 
 var InputGroup_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$w = defineComponent({
+const _sfc_main$y = defineComponent({
   components: { InputGroupText },
   props: {
     tag: { type: String, default: "div" },
@@ -38688,7 +38697,7 @@ const _sfc_main$w = defineComponent({
     };
   }
 });
-function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_InputGroupText = resolveComponent("InputGroupText");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
@@ -38716,7 +38725,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var InputGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$w, [["render", _sfc_render$w]]);
+var InputGroup = /* @__PURE__ */ _export_sfc$1(_sfc_main$y, [["render", _sfc_render$y]]);
 
 var Link = defineComponent({
   name: "Link",
@@ -38757,7 +38766,7 @@ var ListGroup = defineComponent({
   }
 });
 
-const _sfc_main$v = defineComponent({
+const _sfc_main$x = defineComponent({
   name: "ListGroupItem",
   props: {
     tag: { type: String, default: "li" },
@@ -38803,7 +38812,7 @@ const _sfc_main$v = defineComponent({
     };
   }
 });
-function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return _ctx.to ? (openBlock(), createBlock(_component_router_link, mergeProps({
     key: 0,
@@ -38824,7 +38833,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]));
 }
-var ListGroupItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$v, [["render", _sfc_render$v]]);
+var ListGroupItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["render", _sfc_render$x]]);
 
 var ModalBody = defineComponent({
   name: "ModalBody",
@@ -38863,7 +38872,7 @@ var ModalFooter = defineComponent({
   }
 });
 
-const _sfc_main$u = defineComponent({
+const _sfc_main$w = defineComponent({
   name: "Modal",
   components: { Button, ModalFooter, ModalTitle, ModalHeader, ModalBody, ButtonClose },
   emits: ["update:modelValue", "close", "ok", "showing", "hiding", "shown", "hidden", "stateChanged"],
@@ -38871,6 +38880,7 @@ const _sfc_main$u = defineComponent({
     animation: { type: String, default: "fade" },
     modelValue: { type: Boolean, default: false },
     noClose: { type: Boolean, default: false },
+    closeBtnWhite: { type: Boolean, default: false },
     noBody: { type: Boolean, default: false },
     title: { type: String, default: null },
     titleTag: { type: String, default: "h5" },
@@ -38942,25 +38952,29 @@ const _sfc_main$u = defineComponent({
         emit("close", true);
         nextTick(() => toggleState(false));
       },
-      ok() {
-        emit("ok", true);
-        nextTick(() => toggleState(false));
+      ok(e) {
+        emit("ok", e);
+        if (!e.defaultPrevented) {
+          nextTick(() => toggleState(false));
+        }
       }
     };
   },
   methods: {
-    clickedOutside() {
-      if (this.static && this.shown) {
-        let modal = this.$refs.modal;
-        modal.classList.add("modal-static");
-        modal.style.display = "block";
-        modal.style.overflowY = "hidden";
-        setTimeout(() => {
-          modal.style.overflowY = "";
-          modal.classList.remove("modal-static");
-        }, 300);
-      } else if (!this.shown) {
-        this.hide();
+    transitionEnded(e) {
+      if (this.$refs.modal.classList.contains("modal-static")) {
+        this.$refs.modal.classList.remove("modal-static");
+        this.$refs.modal.style.overflowY = "";
+      }
+    },
+    clickOutside(e) {
+      if (e.target === this.$refs.modal) {
+        if (this.static) {
+          this.$refs.modal.classList.add("modal-static");
+          this.$refs.modal.style.overflowY = "hidden";
+        } else {
+          this.hide();
+        }
       }
     }
   },
@@ -38985,7 +38999,9 @@ const _sfc_main$u = defineComponent({
         setTimeout(() => this.$refs.backdrop.classList.add("show"), 0);
         modal.style.display = "block";
         setTimeout(() => modal.classList.add("show"), 150);
+        setTimeout(() => document.addEventListener("click", this.clickOutside), 0);
       } else {
+        document.removeEventListener("click", this.clickOutside);
         if (document.body.hasAttribute("data-count-modal")) {
           if (Number(document.body.getAttribute("data-count-modal")) > 1) {
             document.body.setAttribute("data-count-modal", (Number(document.body.getAttribute("data-count-modal")) - 1).toString());
@@ -39011,9 +39027,14 @@ const _sfc_main$u = defineComponent({
     }
   }
 });
-const _hoisted_1$f = ["aria-hidden", "role"];
-const _hoisted_2$b = { class: "modal-content" };
-function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$g = ["aria-hidden", "role"];
+const _hoisted_2$c = { class: "modal-content" };
+const _hoisted_3$6 = {
+  key: 0,
+  ref: "backdrop",
+  class: "modal-backdrop fade"
+};
+function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ModalTitle = resolveComponent("ModalTitle");
   const _component_ButtonClose = resolveComponent("ButtonClose");
   const _component_ModalHeader = resolveComponent("ModalHeader");
@@ -39023,7 +39044,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(Teleport, { to: "body" }, [
     createElementVNode("div", {
       ref: "modal",
-      onClick: _cache[0] || (_cache[0] = withModifiers((...args) => _ctx.clickedOutside && _ctx.clickedOutside(...args), ["self"])),
+      onTransitionend: _cache[0] || (_cache[0] = (...args) => _ctx.transitionEnded && _ctx.transitionEnded(...args)),
       class: normalizeClass(_ctx.classes),
       tabindex: "-1",
       "aria-hidden": _ctx.shown,
@@ -39032,7 +39053,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", {
         class: normalizeClass(_ctx.dialogClass)
       }, [
-        createElementVNode("div", _hoisted_2$b, [
+        createElementVNode("div", _hoisted_2$c, [
           !_ctx.noHeader && (_ctx.$slots.header || _ctx.header || _ctx.title) ? (openBlock(), createBlock(_component_ModalHeader, mergeProps({
             key: 0,
             tag: _ctx.headerTag,
@@ -39056,8 +39077,9 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
               ], 64)),
               !_ctx.noClose ? (openBlock(), createBlock(_component_ButtonClose, {
                 key: 2,
+                white: _ctx.closeBtnWhite,
                 onClick: _ctx.close
-              }, null, 8, ["onClick"])) : createCommentVNode("", true)
+              }, null, 8, ["white", "onClick"])) : createCommentVNode("", true)
             ]),
             _: 3
           }, 16, ["tag", "class"])) : createCommentVNode("", true),
@@ -39100,16 +39122,11 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
           })) : createCommentVNode("", true)
         ])
       ], 2)
-    ], 10, _hoisted_1$f),
-    !_ctx.noBackdrop && _ctx.shouldShowBackdrop ? (openBlock(), createElementBlock("div", {
-      key: 0,
-      ref: "backdrop",
-      onClick: _cache[1] || (_cache[1] = (...args) => _ctx.hide && _ctx.hide(...args)),
-      class: "modal-backdrop fade"
-    }, null, 512)) : createCommentVNode("", true)
+    ], 42, _hoisted_1$g),
+    !_ctx.noBackdrop && _ctx.shouldShowBackdrop ? (openBlock(), createElementBlock("div", _hoisted_3$6, null, 512)) : createCommentVNode("", true)
   ]);
 }
-var Modal = /* @__PURE__ */ _export_sfc$1(_sfc_main$u, [["render", _sfc_render$u]]);
+var Modal = /* @__PURE__ */ _export_sfc$1(_sfc_main$w, [["render", _sfc_render$w]]);
 
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
@@ -39492,6 +39509,129 @@ function _sfc_render$fL(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_3$fI, 10, _hoisted_1$fL);
 }
 var Dash = /* @__PURE__ */ _export_sfc(_sfc_main$fL, [["render", _sfc_render$fL]]);
+const _sfc_main$dV = {
+  name: "Eye",
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    }
+  },
+  setup(props) {
+    return {
+      sizeWidth: computed(() => props.width * props.size),
+      sizeHeight: computed(() => props.height * props.size),
+      classes: computed(() => [
+        "bi bi-eye",
+        {
+          ["text-" + props.variant]: props.variant,
+          ["bg-" + props.bgVariant]: props.bgVariant
+        }
+      ])
+    };
+  }
+};
+const _hoisted_1$dV = ["width", "height", "fill"];
+const _hoisted_2$dV = /* @__PURE__ */ createElementVNode("path", { d: "M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" }, null, -1);
+const _hoisted_3$dS = /* @__PURE__ */ createElementVNode("path", { d: "M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" }, null, -1);
+const _hoisted_4$5t = [
+  _hoisted_2$dV,
+  _hoisted_3$dS
+];
+function _sfc_render$dV(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: $setup.sizeWidth,
+    height: $setup.sizeHeight,
+    fill: $props.fill,
+    class: normalizeClass($setup.classes),
+    viewBox: "0 0 16 16"
+  }, _hoisted_4$5t, 10, _hoisted_1$dV);
+}
+var Eye = /* @__PURE__ */ _export_sfc(_sfc_main$dV, [["render", _sfc_render$dV]]);
+const _sfc_main$73 = {
+  name: "PencilSquare",
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    }
+  },
+  setup(props) {
+    return {
+      sizeWidth: computed(() => props.width * props.size),
+      sizeHeight: computed(() => props.height * props.size),
+      classes: computed(() => [
+        "bi bi-pencil-square",
+        {
+          ["text-" + props.variant]: props.variant,
+          ["bg-" + props.bgVariant]: props.bgVariant
+        }
+      ])
+    };
+  }
+};
+const _hoisted_1$73 = ["width", "height", "fill"];
+const _hoisted_2$73 = /* @__PURE__ */ createElementVNode("path", { d: "M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" }, null, -1);
+const _hoisted_3$71 = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+}, null, -1);
+const _hoisted_4$2K = [
+  _hoisted_2$73,
+  _hoisted_3$71
+];
+function _sfc_render$73(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: $setup.sizeWidth,
+    height: $setup.sizeHeight,
+    fill: $props.fill,
+    class: normalizeClass($setup.classes),
+    viewBox: "0 0 16 16"
+  }, _hoisted_4$2K, 10, _hoisted_1$73);
+}
+var PencilSquare = /* @__PURE__ */ _export_sfc(_sfc_main$73, [["render", _sfc_render$73]]);
 const _sfc_main$62 = {
   name: "Plus",
   props: {
@@ -39724,6 +39864,69 @@ function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_3$1$, 10, _hoisted_1$1$);
 }
 var ThreeDots = /* @__PURE__ */ _export_sfc(_sfc_main$1$, [["render", _sfc_render$1$]]);
+const _sfc_main$1H = {
+  name: "Trash",
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    }
+  },
+  setup(props) {
+    return {
+      sizeWidth: computed(() => props.width * props.size),
+      sizeHeight: computed(() => props.height * props.size),
+      classes: computed(() => [
+        "bi bi-trash",
+        {
+          ["text-" + props.variant]: props.variant,
+          ["bg-" + props.bgVariant]: props.bgVariant
+        }
+      ])
+    };
+  }
+};
+const _hoisted_1$1H = ["width", "height", "fill"];
+const _hoisted_2$1H = /* @__PURE__ */ createElementVNode("path", { d: "M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" }, null, -1);
+const _hoisted_3$1H = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+}, null, -1);
+const _hoisted_4$z = [
+  _hoisted_2$1H,
+  _hoisted_3$1H
+];
+function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: $setup.sizeWidth,
+    height: $setup.sizeHeight,
+    fill: $props.fill,
+    class: normalizeClass($setup.classes),
+    viewBox: "0 0 16 16"
+  }, _hoisted_4$z, 10, _hoisted_1$1H);
+}
+var Trash = /* @__PURE__ */ _export_sfc(_sfc_main$1H, [["render", _sfc_render$1H]]);
 const _sfc_main$5$1 = {
   name: "X",
   props: {
@@ -39785,7 +39988,7 @@ var X = /* @__PURE__ */ _export_sfc(_sfc_main$5$1, [["render", _sfc_render$5$1]]
 
 var Menu_vue_vue_type_style_index_0_scoped_true_lang = '';
 
-const _sfc_main$t = defineComponent({
+const _sfc_main$v = defineComponent({
   name: "Menu",
   components: { AccordionItem, Accordion, ChevronRight },
   props: {
@@ -39809,9 +40012,9 @@ const _sfc_main$t = defineComponent({
     };
   }
 });
-const _hoisted_1$e = { class: "accordion-header" };
-const _hoisted_2$a = ["href"];
-function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$f = { class: "accordion-header" };
+const _hoisted_2$b = ["href"];
+function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Menu = resolveComponent("Menu", true);
   const _component_AccordionItem = resolveComponent("AccordionItem");
   const _component_ChevronRight = resolveComponent("ChevronRight");
@@ -39842,7 +40045,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
             class: "accordion-item",
             style: normalizeStyle(_ctx.style)
           }, [
-            createElementVNode("div", _hoisted_1$e, [
+            createElementVNode("div", _hoisted_1$f, [
               typeof item.link === "string" ? (openBlock(), createElementBlock("a", {
                 key: 0,
                 href: item.link,
@@ -39850,7 +40053,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
               }, [
                 _ctx.child ? (openBlock(), createBlock(_component_ChevronRight, { key: 0 })) : createCommentVNode("", true),
                 createTextVNode(" " + toDisplayString(item?.text || item?.title), 1)
-              ], 8, _hoisted_2$a)) : typeof item.link === "object" ? (openBlock(), createBlock(_component_router_link, {
+              ], 8, _hoisted_2$b)) : typeof item.link === "object" ? (openBlock(), createBlock(_component_router_link, {
                 key: 1,
                 to: item.link,
                 class: "accordion-button collapsed menu-link"
@@ -39869,7 +40072,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["class"]);
 }
-var Menu = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-022fa87b"]]);
+var Menu = /* @__PURE__ */ _export_sfc$1(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-022fa87b"]]);
 
 var navProps = {
   tag: { type: String, default: "ul" },
@@ -39937,7 +40140,7 @@ var NavbarToggler = defineComponent({
   }
 });
 
-const _sfc_main$s = defineComponent({
+const _sfc_main$u = defineComponent({
   components: { NavbarToggler, NavbarBrand, Container },
   props: {
     brand: { type: String, default: null },
@@ -39970,7 +40173,7 @@ const _sfc_main$s = defineComponent({
     };
   }
 });
-function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_NavbarBrand = resolveComponent("NavbarBrand");
   const _component_NavbarToggler = resolveComponent("NavbarToggler");
   const _component_Container = resolveComponent("Container");
@@ -40001,9 +40204,9 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["fluid"])
   ], 2);
 }
-var Navbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$s, [["render", _sfc_render$s]]);
+var Navbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$u, [["render", _sfc_render$u]]);
 
-const _sfc_main$r = defineComponent({
+const _sfc_main$t = defineComponent({
   name: "NavbarNav",
   components: { Nav },
   props: {
@@ -40021,7 +40224,7 @@ const _sfc_main$r = defineComponent({
     };
   }
 });
-function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Nav = resolveComponent("Nav");
   return openBlock(), createBlock(_component_Nav, mergeProps(_ctx.$props, {
     navs: "",
@@ -40033,9 +40236,9 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["style"]);
 }
-var NavbarNav = /* @__PURE__ */ _export_sfc$1(_sfc_main$r, [["render", _sfc_render$r]]);
+var NavbarNav = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t]]);
 
-const _sfc_main$q = defineComponent({
+const _sfc_main$s = defineComponent({
   name: "NavItemDropdown",
   components: { Dropdown },
   props: {
@@ -40044,7 +40247,7 @@ const _sfc_main$q = defineComponent({
     tag: { type: String, default: "li" }
   }
 });
-function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Dropdown = resolveComponent("Dropdown");
   return openBlock(), createBlock(_component_Dropdown, mergeProps(_ctx.$props, { class: "nav-item" }), {
     default: withCtx(() => [
@@ -40053,15 +40256,15 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-var NavItemDropdown = /* @__PURE__ */ _export_sfc$1(_sfc_main$q, [["render", _sfc_render$q]]);
+var NavItemDropdown = /* @__PURE__ */ _export_sfc$1(_sfc_main$s, [["render", _sfc_render$s]]);
 
-const _sfc_main$p = defineComponent({
+const _sfc_main$r = defineComponent({
   name: "OffCanvasTitle",
   props: {
     tag: { type: String, default: "h5" }
   }
 });
-function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-title" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
@@ -40069,9 +40272,9 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var OffCanvasTitle = /* @__PURE__ */ _export_sfc$1(_sfc_main$p, [["render", _sfc_render$p]]);
+var OffCanvasTitle = /* @__PURE__ */ _export_sfc$1(_sfc_main$r, [["render", _sfc_render$r]]);
 
-const _sfc_main$o = defineComponent({
+const _sfc_main$q = defineComponent({
   name: "OffCanvasHeader",
   emits: ["update:modelValue"],
   components: {
@@ -40091,7 +40294,7 @@ const _sfc_main$o = defineComponent({
     };
   }
 });
-function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_OffCanvasTitle = resolveComponent("OffCanvasTitle");
   const _component_ButtonClose = resolveComponent("ButtonClose");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
@@ -40116,15 +40319,15 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var OffCanvasHeader = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o]]);
+var OffCanvasHeader = /* @__PURE__ */ _export_sfc$1(_sfc_main$q, [["render", _sfc_render$q]]);
 
-const _sfc_main$n = defineComponent({
+const _sfc_main$p = defineComponent({
   name: "OffCanvasBody",
   props: {
     tag: { type: String, default: "div" }
   }
 });
-function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-body" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
@@ -40132,9 +40335,9 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var OffCanvasBody = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n]]);
+var OffCanvasBody = /* @__PURE__ */ _export_sfc$1(_sfc_main$p, [["render", _sfc_render$p]]);
 
-const _sfc_main$m = defineComponent({
+const _sfc_main$o = defineComponent({
   name: "OffCanvas",
   components: { OffCanvasBody, OffCanvasHeader, ButtonClose },
   emits: ["update:modelValue", "beforeShow", "beforeHide", "shown", "hidden"],
@@ -40241,7 +40444,7 @@ const _sfc_main$m = defineComponent({
     window.removeEventListener("toggleOffCanvas", this.globalEventListener);
   }
 });
-function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_OffCanvasHeader = resolveComponent("OffCanvasHeader");
   const _component_OffCanvasBody = resolveComponent("OffCanvasBody");
   return openBlock(), createBlock(Teleport, { to: "body" }, [
@@ -40286,9 +40489,9 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 512)) : createCommentVNode("", true)
   ]);
 }
-var OffCanvas = /* @__PURE__ */ _export_sfc$1(_sfc_main$m, [["render", _sfc_render$m]]);
+var OffCanvas = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o]]);
 
-const _sfc_main$l = defineComponent({
+const _sfc_main$n = defineComponent({
   name: "Popover",
   props: {
     target: { type: String, required: true },
@@ -40398,16 +40601,16 @@ const _sfc_main$l = defineComponent({
     }
   }
 });
-const _hoisted_1$d = /* @__PURE__ */ createElementVNode("div", {
+const _hoisted_1$e = /* @__PURE__ */ createElementVNode("div", {
   "data-popper-arrow": "",
   class: "popover-arrow"
 }, null, -1);
-const _hoisted_2$9 = {
+const _hoisted_2$a = {
   key: 0,
   class: "popover-header"
 };
 const _hoisted_3$5 = { class: "popover-body" };
-function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(Teleport, { to: "body" }, [
     _ctx.shown ? (openBlock(), createElementBlock("div", {
       key: 0,
@@ -40415,8 +40618,8 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
       class: normalizeClass(_ctx.classes),
       role: "tooltip"
     }, [
-      _hoisted_1$d,
-      _ctx.$slots.header || _ctx.header ? (openBlock(), createElementBlock("div", _hoisted_2$9, [
+      _hoisted_1$e,
+      _ctx.$slots.header || _ctx.header ? (openBlock(), createElementBlock("div", _hoisted_2$a, [
         renderSlot(_ctx.$slots, "header", {}, () => [
           createTextVNode(toDisplayString(_ctx.header), 1)
         ])
@@ -40427,9 +40630,9 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)) : createCommentVNode("", true)
   ]);
 }
-var Popover = /* @__PURE__ */ _export_sfc$1(_sfc_main$l, [["render", _sfc_render$l]]);
+var Popover = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n]]);
 
-const _sfc_main$k = defineComponent({
+const _sfc_main$m = defineComponent({
   name: "Radio",
   props: {
     name: { type: String, default: null },
@@ -40451,11 +40654,11 @@ const _sfc_main$k = defineComponent({
     };
   }
 });
-const _hoisted_1$c = { class: "form-check" };
-const _hoisted_2$8 = ["name", "id", "value", "checked"];
+const _hoisted_1$d = { class: "form-check" };
+const _hoisted_2$9 = ["name", "id", "value", "checked"];
 const _hoisted_3$4 = ["for"];
-function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$c, [
+function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", _hoisted_1$d, [
     createElementVNode("input", {
       class: "form-check-input",
       type: "radio",
@@ -40464,7 +40667,7 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
       value: _ctx.value,
       checked: _ctx.isChecked,
       onChange: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", _ctx.value))
-    }, null, 40, _hoisted_2$8),
+    }, null, 40, _hoisted_2$9),
     createElementVNode("label", {
       class: "form-check-label",
       for: _ctx.identifier
@@ -40473,9 +40676,9 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     ], 8, _hoisted_3$4)
   ]);
 }
-var Radio = /* @__PURE__ */ _export_sfc$1(_sfc_main$k, [["render", _sfc_render$k]]);
+var Radio = /* @__PURE__ */ _export_sfc$1(_sfc_main$m, [["render", _sfc_render$m]]);
 
-const _sfc_main$j = defineComponent({
+const _sfc_main$l = defineComponent({
   name: "Range",
   props: {
     min: { type: Number, default: null },
@@ -40491,8 +40694,8 @@ const _sfc_main$j = defineComponent({
     };
   }
 });
-const _hoisted_1$b = ["value", "min", "max", "step"];
-function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$c = ["value", "min", "max", "step"];
+function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("input", {
     value: _ctx.modelValue,
     onInput: _cache[0] || (_cache[0] = (e) => _ctx.$emit("update:modelValue", Number(e.target.value))),
@@ -40501,13 +40704,13 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     step: _ctx.step,
     type: "range",
     class: normalizeClass(_ctx.classes)
-  }, null, 42, _hoisted_1$b);
+  }, null, 42, _hoisted_1$c);
 }
-var Range = /* @__PURE__ */ _export_sfc$1(_sfc_main$j, [["render", _sfc_render$j]]);
+var Range = /* @__PURE__ */ _export_sfc$1(_sfc_main$l, [["render", _sfc_render$l]]);
 
 var Rating_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$i = defineComponent({
+const _sfc_main$k = defineComponent({
   name: "Rating",
   components: { StarFill, Star },
   props: {
@@ -40533,9 +40736,9 @@ const _sfc_main$i = defineComponent({
     };
   }
 });
-const _hoisted_1$a = { class: "form-rating" };
-function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$a, [
+const _hoisted_1$b = { class: "form-rating" };
+function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", _hoisted_1$b, [
     (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.items, (i) => {
       return openBlock(), createBlock(resolveDynamicComponent(_ctx.value >= i ? "StarFill" : "Star"), {
         onClick: ($event) => _ctx.value = i,
@@ -40545,7 +40748,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     }), 256))
   ]);
 }
-var Rating = /* @__PURE__ */ _export_sfc$1(_sfc_main$i, [["render", _sfc_render$i]]);
+var Rating = /* @__PURE__ */ _export_sfc$1(_sfc_main$k, [["render", _sfc_render$k]]);
 
 var Row = defineComponent({
   name: "Row",
@@ -40588,7 +40791,7 @@ var Row = defineComponent({
   }
 });
 
-const _sfc_main$h = defineComponent({
+const _sfc_main$j = defineComponent({
   props: {
     multiple: { type: Boolean, default: false },
     size: { type: String, default: null },
@@ -40603,9 +40806,12 @@ const _sfc_main$h = defineComponent({
     const model = ref(null);
     watch(() => props.modelValue, (value) => model.value = value);
     watch(model, (val) => context.emit("update:modelValue", val));
+    if (props.modelValue !== null) {
+      model.value = props.modelValue;
+    }
     const getEntity = (o, k) => {
       if (typeof props[k] === "string" || props[k] === null) {
-        if (!isObject$8(o)) {
+        if (!isObject$9(o)) {
           return o;
         }
         return o[props[k] === null ? "text" : props[k]];
@@ -40627,11 +40833,11 @@ const _sfc_main$h = defineComponent({
     };
   }
 });
-const _hoisted_1$9 = ["multiple"];
-const _hoisted_2$7 = ["label"];
+const _hoisted_1$a = ["multiple"];
+const _hoisted_2$8 = ["label"];
 const _hoisted_3$3 = ["value", "disabled"];
 const _hoisted_4$2 = ["value", "disabled"];
-function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createElementBlock("select", {
     class: normalizeClass(_ctx.classes),
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.model = $event),
@@ -40656,7 +40862,7 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
               ])
             ], 8, _hoisted_3$3);
           }), 128))
-        ], 8, _hoisted_2$7)) : (openBlock(), createElementBlock("option", {
+        ], 8, _hoisted_2$8)) : (openBlock(), createElementBlock("option", {
           key: 1,
           value: _ctx.getEntity(o, "valueField"),
           disabled: _ctx.isDisabledOption(o)
@@ -40668,15 +40874,15 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
       ], 64);
     }), 128)),
     renderSlot(_ctx.$slots, "last")
-  ], 10, _hoisted_1$9)), [
+  ], 10, _hoisted_1$a)), [
     [vModelSelect, _ctx.model]
   ]);
 }
-var Select = /* @__PURE__ */ _export_sfc$1(_sfc_main$h, [["render", _sfc_render$h]]);
+var Select = /* @__PURE__ */ _export_sfc$1(_sfc_main$j, [["render", _sfc_render$j]]);
 
 var SpinButton_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$g = defineComponent({
+const _sfc_main$i = defineComponent({
   name: "SpinButton",
   components: { Dash, Plus, Button, InputGroup },
   props: {
@@ -40713,8 +40919,8 @@ const _sfc_main$g = defineComponent({
     };
   }
 });
-const _hoisted_1$8 = ["aria-valuemin", "aria-valuemax", "aria-valuenow", "aria-valuetext"];
-function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$9 = ["aria-valuemin", "aria-valuemax", "aria-valuenow", "aria-valuetext"];
+function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Dash = resolveComponent("Dash");
   const _component_Button = resolveComponent("Button");
   const _component_Plus = resolveComponent("Plus");
@@ -40765,14 +40971,14 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
         "aria-valuenow": _ctx.model,
         "aria-valuetext": _ctx.model,
         class: normalizeClass([{ ["form-control-" + _ctx.size]: _ctx.size }, "form-control text-center"])
-      }, toDisplayString(_ctx.formatter(_ctx.model)), 11, _hoisted_1$8)
+      }, toDisplayString(_ctx.formatter(_ctx.model)), 11, _hoisted_1$9)
     ]),
     _: 1
   }, 8, ["class"]);
 }
-var SpinButton = /* @__PURE__ */ _export_sfc$1(_sfc_main$g, [["render", _sfc_render$g]]);
+var SpinButton = /* @__PURE__ */ _export_sfc$1(_sfc_main$i, [["render", _sfc_render$i]]);
 
-const _sfc_main$f = defineComponent({
+const _sfc_main$h = defineComponent({
   emits: ["update:active"],
   props: {
     active: { type: Boolean, default: false },
@@ -40813,16 +41019,16 @@ const _sfc_main$f = defineComponent({
     }
   }
 });
-function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(_ctx.classes)
   }, [
     renderSlot(_ctx.$slots, "default")
   ], 2);
 }
-var Tab = /* @__PURE__ */ _export_sfc$1(_sfc_main$f, [["render", _sfc_render$f]]);
+var Tab = /* @__PURE__ */ _export_sfc$1(_sfc_main$h, [["render", _sfc_render$h]]);
 
-const _sfc_main$e = defineComponent({
+const _sfc_main$g = defineComponent({
   emits: ["update:modelValue"],
   components: { NavItem, Nav },
   props: {
@@ -40871,21 +41077,21 @@ const _sfc_main$e = defineComponent({
     };
   }
 });
-const _hoisted_1$7 = {
+const _hoisted_1$8 = {
   key: 0,
   class: "tab-content"
 };
-const _hoisted_2$6 = {
+const _hoisted_2$7 = {
   key: 1,
   class: "tab-content"
 };
-function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_NavItem = resolveComponent("NavItem");
   const _component_Nav = resolveComponent("Nav");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(_ctx.classes)
   }, [
-    _ctx.end ? (openBlock(), createElementBlock("div", _hoisted_1$7, [
+    _ctx.end ? (openBlock(), createElementBlock("div", _hoisted_1$8, [
       renderSlot(_ctx.$slots, "default")
     ])) : createCommentVNode("", true),
     createElementVNode("div", {
@@ -40920,12 +41126,12 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }, 8, ["pills", "fill", "justified", "align", "vertical", "class"])
     ], 2),
-    !_ctx.end ? (openBlock(), createElementBlock("div", _hoisted_2$6, [
+    !_ctx.end ? (openBlock(), createElementBlock("div", _hoisted_2$7, [
       renderSlot(_ctx.$slots, "default")
     ])) : createCommentVNode("", true)
   ], 2);
 }
-var Tabs = /* @__PURE__ */ _export_sfc$1(_sfc_main$e, [["render", _sfc_render$e]]);
+var Tabs = /* @__PURE__ */ _export_sfc$1(_sfc_main$g, [["render", _sfc_render$g]]);
 
 var Textarea = defineComponent({
   name: "Textarea",
@@ -40991,7 +41197,7 @@ var localData = localeData.exports;
 
 dayjs.extend(localData);
 dayjs.extend(isToday);
-const _sfc_main$d = defineComponent({
+const _sfc_main$f = defineComponent({
   name: "Calendar",
   components: {
     InputGroup,
@@ -41058,18 +41264,18 @@ const _sfc_main$d = defineComponent({
     };
   }
 });
-const _hoisted_1$6 = {
+const _hoisted_1$7 = {
   class: "wui-calendar border-1 border",
   role: "group"
 };
-const _hoisted_2$5 = { class: "wui-calendar-header p-2 text-center fw-bold" };
+const _hoisted_2$6 = { class: "wui-calendar-header p-2 text-center fw-bold" };
 const _hoisted_3$2 = ["value"];
 const _hoisted_4$1 = { class: "w-100 border" };
 const _hoisted_5 = { class: "text-center border" };
 const _hoisted_6 = { class: "text-center border" };
 const _hoisted_7 = { class: "text-center border" };
 const _hoisted_8 = { class: "text-center border" };
-function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ChevronDoubleLeft = resolveComponent("ChevronDoubleLeft");
   const _component_Button = resolveComponent("Button");
   const _component_Col = resolveComponent("Col");
@@ -41078,8 +41284,8 @@ function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ChevronRight = resolveComponent("ChevronRight");
   const _component_ChevronDoubleRight = resolveComponent("ChevronDoubleRight");
   const _component_Row = resolveComponent("Row");
-  return openBlock(), createElementBlock("div", _hoisted_1$6, [
-    createElementVNode("header", _hoisted_2$5, [
+  return openBlock(), createElementBlock("div", _hoisted_1$7, [
+    createElementVNode("header", _hoisted_2$6, [
       createVNode(_component_Row, null, {
         default: withCtx(() => [
           createVNode(_component_Col, null, {
@@ -41220,7 +41426,7 @@ function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var Calendar = /* @__PURE__ */ _export_sfc$1(_sfc_main$d, [["render", _sfc_render$d]]);
+var Calendar = /* @__PURE__ */ _export_sfc$1(_sfc_main$f, [["render", _sfc_render$f]]);
 
 var CarouselInner = defineComponent({
   name: "CarouselInner",
@@ -41246,7 +41452,7 @@ var CarouselIndicators = defineComponent({
   }
 });
 
-const _sfc_main$c = defineComponent({
+const _sfc_main$e = defineComponent({
   name: "Carousel",
   components: { ChevronLeft, ChevronRight, CarouselInner, CarouselIndicators },
   props: {
@@ -41310,10 +41516,10 @@ const _sfc_main$c = defineComponent({
     };
   }
 });
-const _hoisted_1$5 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Previous", -1);
-const _hoisted_2$4 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Next", -1);
+const _hoisted_1$6 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Previous", -1);
+const _hoisted_2$5 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Next", -1);
 const _hoisted_3$1 = ["onClick", "aria-current"];
-function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CarouselInner = resolveComponent("CarouselInner");
   const _component_ChevronLeft = resolveComponent("ChevronLeft");
   const _component_ChevronRight = resolveComponent("ChevronRight");
@@ -41340,7 +41546,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
             class: "carousel-control-prev-icon text-black",
             "aria-hidden": "true"
           }),
-          _hoisted_1$5
+          _hoisted_1$6
         ]),
         createElementVNode("button", {
           class: "carousel-control-next",
@@ -41353,7 +41559,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
             class: "carousel-control-next-icon text-black",
             "aria-hidden": "true"
           }),
-          _hoisted_2$4
+          _hoisted_2$5
         ])
       ], 64)) : createCommentVNode("", true),
       _ctx.indicatorsEnabled ? (openBlock(), createBlock(_component_CarouselIndicators, { key: 1 }, {
@@ -41376,7 +41582,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Carousel = /* @__PURE__ */ _export_sfc$1(_sfc_main$c, [["render", _sfc_render$c]]);
+var Carousel = /* @__PURE__ */ _export_sfc$1(_sfc_main$e, [["render", _sfc_render$e]]);
 
 var CarouselCaption = defineComponent({
   name: "CarouselCaption",
@@ -41390,15 +41596,15 @@ var CarouselCaption = defineComponent({
   }
 });
 
-const _sfc_main$b = defineComponent({
+const _sfc_main$d = defineComponent({
   name: "CarouselControl"
 });
-function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   return null;
 }
-var CarouselControl = /* @__PURE__ */ _export_sfc$1(_sfc_main$b, [["render", _sfc_render$b]]);
+var CarouselControl = /* @__PURE__ */ _export_sfc$1(_sfc_main$d, [["render", _sfc_render$d]]);
 
-const _sfc_main$a = defineComponent({
+const _sfc_main$c = defineComponent({
   name: "CarouselItem",
   emits: ["slidingStart", "slidingEnd", "update:active"],
   props: {
@@ -41447,7 +41653,7 @@ const _sfc_main$a = defineComponent({
     }
   }
 });
-function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     onTransitionend: _ctx.transitionEnd
@@ -41458,11 +41664,11 @@ function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "onTransitionend"]);
 }
-var CarouselItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$a, [["render", _sfc_render$a]]);
+var CarouselItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$c, [["render", _sfc_render$c]]);
 
 var Tags_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$9 = defineComponent({
+const _sfc_main$b = defineComponent({
   name: "Tags",
   components: { Button, Badge, X },
   props: {
@@ -41515,9 +41721,9 @@ const _sfc_main$9 = defineComponent({
     };
   }
 });
-const _hoisted_1$4 = { class: "d-inline-flex flex-grow-1" };
-const _hoisted_2$3 = ["placeholder"];
-function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$5 = { class: "d-inline-flex flex-grow-1" };
+const _hoisted_2$4 = ["placeholder"];
+function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_X = resolveComponent("X");
   const _component_Badge = resolveComponent("Badge");
   const _component_Button = resolveComponent("Button");
@@ -41545,14 +41751,14 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
           _: 2
         }, 1032, ["pill", "variant"]);
       }), 128)),
-      createElementVNode("li", _hoisted_1$4, [
+      createElementVNode("li", _hoisted_1$5, [
         withDirectives(createElementVNode("input", {
           class: "wui-tags-input w-100",
           placeholder: _ctx.placeholder,
           "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.inputText = $event),
           onKeyup: _cache[1] || (_cache[1] = withKeys((...args) => _ctx.backspacePressed && _ctx.backspacePressed(...args), ["delete"])),
           onKeypress: _cache[2] || (_cache[2] = (...args) => _ctx.addTag && _ctx.addTag(...args))
-        }, null, 40, _hoisted_2$3), [
+        }, null, 40, _hoisted_2$4), [
           [
             vModelText,
             _ctx.inputText,
@@ -41576,9 +41782,9 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["role", "tabindex", "class"]);
 }
-var Tags = /* @__PURE__ */ _export_sfc$1(_sfc_main$9, [["render", _sfc_render$9]]);
+var Tags = /* @__PURE__ */ _export_sfc$1(_sfc_main$b, [["render", _sfc_render$b]]);
 
-const _sfc_main$8 = defineComponent({
+const _sfc_main$a = defineComponent({
   name: "PageLink",
   props: {
     tag: { type: String, default: "a" },
@@ -41606,7 +41812,7 @@ const _sfc_main$8 = defineComponent({
     };
   }
 });
-function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     href: _ctx.href,
@@ -41618,9 +41824,9 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "href", "aria-label"]);
 }
-var PageLink = /* @__PURE__ */ _export_sfc$1(_sfc_main$8, [["render", _sfc_render$8]]);
+var PageLink = /* @__PURE__ */ _export_sfc$1(_sfc_main$a, [["render", _sfc_render$a]]);
 
-const _sfc_main$7 = defineComponent({
+const _sfc_main$9 = defineComponent({
   name: "PageItem",
   props: {
     tag: { type: String, default: "li" },
@@ -41645,7 +41851,7 @@ const _sfc_main$7 = defineComponent({
     };
   }
 });
-function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PageLink = resolveComponent("PageLink");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
@@ -41667,9 +41873,9 @@ function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var PageItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$7, [["render", _sfc_render$7]]);
+var PageItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$9, [["render", _sfc_render$9]]);
 
-const _sfc_main$6 = defineComponent({
+const _sfc_main$8 = defineComponent({
   name: "Pagination",
   components: { PageItem, ThreeDots },
   emits: ["update:modelValue", "update:currentPage"],
@@ -41753,7 +41959,7 @@ const _sfc_main$6 = defineComponent({
     };
   }
 });
-function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PageItem = resolveComponent("PageItem");
   const _component_ThreeDots = resolveComponent("ThreeDots");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
@@ -41837,9 +42043,9 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Pagination = /* @__PURE__ */ _export_sfc$1(_sfc_main$6, [["render", _sfc_render$6]]);
+var Pagination = /* @__PURE__ */ _export_sfc$1(_sfc_main$8, [["render", _sfc_render$8]]);
 
-const _sfc_main$5 = defineComponent({
+const _sfc_main$7 = defineComponent({
   name: "ProgressBar",
   props: {
     tag: { type: String, default: "div" },
@@ -41864,7 +42070,7 @@ const _sfc_main$5 = defineComponent({
     };
   }
 });
-function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     role: "progressbar",
@@ -41885,7 +42091,7 @@ function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "style", "aria-valuenow", "aria-valuemin", "aria-valuemax"]);
 }
-var ProgressBar = /* @__PURE__ */ _export_sfc$1(_sfc_main$5, [["render", _sfc_render$5]]);
+var ProgressBar = /* @__PURE__ */ _export_sfc$1(_sfc_main$7, [["render", _sfc_render$7]]);
 
 var Progress = defineComponent({
   name: "Progress",
@@ -41945,7 +42151,7 @@ var Placeholder = defineComponent({
   }
 });
 
-const _sfc_main$4 = defineComponent({
+const _sfc_main$6 = defineComponent({
   name: "Spinner",
   props: {
     grow: { type: Boolean, default: false },
@@ -41964,17 +42170,17 @@ const _sfc_main$4 = defineComponent({
     };
   }
 });
-const _hoisted_1$3 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Loading...", -1);
-const _hoisted_2$2 = [
-  _hoisted_1$3
+const _hoisted_1$4 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Loading...", -1);
+const _hoisted_2$3 = [
+  _hoisted_1$4
 ];
-function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(_ctx.classes),
     role: "status"
-  }, _hoisted_2$2, 2);
+  }, _hoisted_2$3, 2);
 }
-var Spinner = /* @__PURE__ */ _export_sfc$1(_sfc_main$4, [["render", _sfc_render$4]]);
+var Spinner = /* @__PURE__ */ _export_sfc$1(_sfc_main$6, [["render", _sfc_render$6]]);
 
 var ToastBody = defineComponent({
   name: "ToastBody",
@@ -41985,7 +42191,7 @@ var ToastBody = defineComponent({
   }
 });
 
-const _sfc_main$3 = defineComponent({
+const _sfc_main$5 = defineComponent({
   name: "Toast",
   components: { ToastBody, ButtonClose },
   emits: ["update:show", "update:modelValue"],
@@ -42026,17 +42232,17 @@ const _sfc_main$3 = defineComponent({
     };
   }
 });
-const _hoisted_1$2 = {
+const _hoisted_1$3 = {
   key: 0,
   class: "toast-header"
 };
-const _hoisted_2$1 = { class: "me-auto" };
+const _hoisted_2$2 = { class: "me-auto" };
 const _hoisted_3 = {
   key: 0,
   class: "toast-header"
 };
 const _hoisted_4 = { class: "me-auto" };
-function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ButtonClose = resolveComponent("ButtonClose");
   const _component_ToastBody = resolveComponent("ToastBody");
   return openBlock(), createElementBlock(Fragment, null, [
@@ -42050,9 +42256,9 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
         "aria-live": "assertive",
         "aria-atomic": "true"
       }), [
-        _ctx.$slots.header || _ctx.header ? (openBlock(), createElementBlock("div", _hoisted_1$2, [
+        _ctx.$slots.header || _ctx.header ? (openBlock(), createElementBlock("div", _hoisted_1$3, [
           renderSlot(_ctx.$slots, "header", {}, () => [
-            createElementVNode("strong", _hoisted_2$1, toDisplayString(_ctx.header), 1)
+            createElementVNode("strong", _hoisted_2$2, toDisplayString(_ctx.header), 1)
           ]),
           !_ctx.noCloseButton ? (openBlock(), createBlock(_component_ButtonClose, {
             key: 0,
@@ -42097,9 +42303,9 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16)
   ], 64);
 }
-var Toast = /* @__PURE__ */ _export_sfc$1(_sfc_main$3, [["render", _sfc_render$3]]);
+var Toast = /* @__PURE__ */ _export_sfc$1(_sfc_main$5, [["render", _sfc_render$5]]);
 
-const _sfc_main$2 = defineComponent({
+const _sfc_main$4 = defineComponent({
   name: "ToastContainer",
   props: {
     tag: { type: String, default: "div" },
@@ -42125,7 +42331,7 @@ const _sfc_main$2 = defineComponent({
     };
   }
 });
-function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.container ? (openBlock(), createBlock(Teleport, {
     key: 0,
     to: _ctx.container
@@ -42146,10 +42352,10 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]));
 }
-var ToastContainer = /* @__PURE__ */ _export_sfc$1(_sfc_main$2, [["render", _sfc_render$2]]);
+var ToastContainer = /* @__PURE__ */ _export_sfc$1(_sfc_main$4, [["render", _sfc_render$4]]);
 
 let popper = null;
-const _sfc_main$1 = defineComponent({
+const _sfc_main$3 = defineComponent({
   name: "Tooltip",
   props: {
     target: { type: String, default: null, required: true },
@@ -42236,15 +42442,15 @@ const _sfc_main$1 = defineComponent({
     }
   }
 });
-const _hoisted_1$1 = /* @__PURE__ */ createElementVNode("div", {
+const _hoisted_1$2 = /* @__PURE__ */ createElementVNode("div", {
   "data-popper-arrow": "",
   class: "tooltip-arrow"
 }, null, -1);
-const _hoisted_2 = {
+const _hoisted_2$1 = {
   class: "tooltip-inner",
   ref: "inner"
 };
-function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.shouldShow ? (openBlock(), createBlock(Teleport, {
     key: 0,
     to: "body"
@@ -42254,8 +42460,8 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
       ref: "tooltip",
       role: "tooltip"
     }, [
-      _hoisted_1$1,
-      createElementVNode("div", _hoisted_2, [
+      _hoisted_1$2,
+      createElementVNode("div", _hoisted_2$1, [
         renderSlot(_ctx.$slots, "default", {}, () => [
           createTextVNode(toDisplayString(_ctx.content), 1)
         ])
@@ -42263,7 +42469,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)
   ])) : createCommentVNode("", true);
 }
-var Tooltip = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["render", _sfc_render$1]]);
+var Tooltip = /* @__PURE__ */ _export_sfc$1(_sfc_main$3, [["render", _sfc_render$3]]);
 
 var Aspect = defineComponent({
   name: "Aspect",
@@ -42319,7 +42525,7 @@ var Vr = defineComponent({
 
 var Layout_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main = defineComponent({
+const _sfc_main$2 = defineComponent({
   name: "Layout",
   components: { Container, Col, Row, OffCanvas },
   props: {
@@ -42337,13 +42543,13 @@ const _sfc_main = defineComponent({
     };
   }
 });
-const _hoisted_1 = { class: "layout" };
-function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$1 = { class: "layout" };
+function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_OffCanvas = resolveComponent("OffCanvas");
   const _component_Col = resolveComponent("Col");
   const _component_Row = resolveComponent("Row");
   const _component_Container = resolveComponent("Container");
-  return openBlock(), createElementBlock("div", _hoisted_1, [
+  return openBlock(), createElementBlock("div", _hoisted_1$1, [
     createVNode(_component_OffCanvas, {
       header: _ctx.sidebarHeader,
       "btn-close-white": "",
@@ -42406,6 +42612,2358 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var Layout = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["render", _sfc_render]]);
+var Layout = /* @__PURE__ */ _export_sfc$1(_sfc_main$2, [["render", _sfc_render$2]]);
 
-export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Chart, Checkbox, CheckboxGroup, Col, Collapse, Container, DataTable, DataTable as Datatable, Datepicker, Dropdown, DropdownButton, DropdownDivider, DropdownItem, DropdownMenu, Figure, FormGroup, FormLabel, Grid, GridCol, Icon, Input, InputGroup, InputGroupText, Layout, Link, ListGroup, ListGroupItem, Menu, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, Placeholder, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, Vr };
+var axios$2 = {exports: {}};
+
+var bind$2 = function bind(fn, thisArg) {
+  return function wrap() {
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+    return fn.apply(thisArg, args);
+  };
+};
+
+var bind$1 = bind$2;
+
+// utils is a library of generic helper functions non-specific to axios
+
+var toString = Object.prototype.toString;
+
+/**
+ * Determine if a value is an Array
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Array, otherwise false
+ */
+function isArray(val) {
+  return Array.isArray(val);
+}
+
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */
+function isUndefined(val) {
+  return typeof val === 'undefined';
+}
+
+/**
+ * Determine if a value is a Buffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Buffer, otherwise false
+ */
+function isBuffer(val) {
+  return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor)
+    && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
+}
+
+/**
+ * Determine if a value is an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+ */
+function isArrayBuffer(val) {
+  return toString.call(val) === '[object ArrayBuffer]';
+}
+
+/**
+ * Determine if a value is a FormData
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an FormData, otherwise false
+ */
+function isFormData(val) {
+  return toString.call(val) === '[object FormData]';
+}
+
+/**
+ * Determine if a value is a view on an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+ */
+function isArrayBufferView(val) {
+  var result;
+  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+    result = ArrayBuffer.isView(val);
+  } else {
+    result = (val) && (val.buffer) && (isArrayBuffer(val.buffer));
+  }
+  return result;
+}
+
+/**
+ * Determine if a value is a String
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a String, otherwise false
+ */
+function isString(val) {
+  return typeof val === 'string';
+}
+
+/**
+ * Determine if a value is a Number
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Number, otherwise false
+ */
+function isNumber(val) {
+  return typeof val === 'number';
+}
+
+/**
+ * Determine if a value is an Object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Object, otherwise false
+ */
+function isObject(val) {
+  return val !== null && typeof val === 'object';
+}
+
+/**
+ * Determine if a value is a plain Object
+ *
+ * @param {Object} val The value to test
+ * @return {boolean} True if value is a plain Object, otherwise false
+ */
+function isPlainObject(val) {
+  if (toString.call(val) !== '[object Object]') {
+    return false;
+  }
+
+  var prototype = Object.getPrototypeOf(val);
+  return prototype === null || prototype === Object.prototype;
+}
+
+/**
+ * Determine if a value is a Date
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Date, otherwise false
+ */
+function isDate(val) {
+  return toString.call(val) === '[object Date]';
+}
+
+/**
+ * Determine if a value is a File
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a File, otherwise false
+ */
+function isFile(val) {
+  return toString.call(val) === '[object File]';
+}
+
+/**
+ * Determine if a value is a Blob
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Blob, otherwise false
+ */
+function isBlob(val) {
+  return toString.call(val) === '[object Blob]';
+}
+
+/**
+ * Determine if a value is a Function
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Function, otherwise false
+ */
+function isFunction(val) {
+  return toString.call(val) === '[object Function]';
+}
+
+/**
+ * Determine if a value is a Stream
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Stream, otherwise false
+ */
+function isStream(val) {
+  return isObject(val) && isFunction(val.pipe);
+}
+
+/**
+ * Determine if a value is a URLSearchParams object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+ */
+function isURLSearchParams(val) {
+  return toString.call(val) === '[object URLSearchParams]';
+}
+
+/**
+ * Trim excess whitespace off the beginning and end of a string
+ *
+ * @param {String} str The String to trim
+ * @returns {String} The String freed of excess whitespace
+ */
+function trim(str) {
+  return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g, '');
+}
+
+/**
+ * Determine if we're running in a standard browser environment
+ *
+ * This allows axios to run in a web worker, and react-native.
+ * Both environments support XMLHttpRequest, but not fully standard globals.
+ *
+ * web workers:
+ *  typeof window -> undefined
+ *  typeof document -> undefined
+ *
+ * react-native:
+ *  navigator.product -> 'ReactNative'
+ * nativescript
+ *  navigator.product -> 'NativeScript' or 'NS'
+ */
+function isStandardBrowserEnv() {
+  if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
+                                           navigator.product === 'NativeScript' ||
+                                           navigator.product === 'NS')) {
+    return false;
+  }
+  return (
+    typeof window !== 'undefined' &&
+    typeof document !== 'undefined'
+  );
+}
+
+/**
+ * Iterate over an Array or an Object invoking a function for each item.
+ *
+ * If `obj` is an Array callback will be called passing
+ * the value, index, and complete array for each item.
+ *
+ * If 'obj' is an Object callback will be called passing
+ * the value, key, and complete object for each property.
+ *
+ * @param {Object|Array} obj The object to iterate
+ * @param {Function} fn The callback to invoke for each item
+ */
+function forEach(obj, fn) {
+  // Don't bother if no value provided
+  if (obj === null || typeof obj === 'undefined') {
+    return;
+  }
+
+  // Force an array if not already something iterable
+  if (typeof obj !== 'object') {
+    /*eslint no-param-reassign:0*/
+    obj = [obj];
+  }
+
+  if (isArray(obj)) {
+    // Iterate over array values
+    for (var i = 0, l = obj.length; i < l; i++) {
+      fn.call(null, obj[i], i, obj);
+    }
+  } else {
+    // Iterate over object keys
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        fn.call(null, obj[key], key, obj);
+      }
+    }
+  }
+}
+
+/**
+ * Accepts varargs expecting each argument to be an object, then
+ * immutably merges the properties of each object and returns result.
+ *
+ * When multiple objects contain the same key the later object in
+ * the arguments list will take precedence.
+ *
+ * Example:
+ *
+ * ```js
+ * var result = merge({foo: 123}, {foo: 456});
+ * console.log(result.foo); // outputs 456
+ * ```
+ *
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */
+function merge(/* obj1, obj2, obj3, ... */) {
+  var result = {};
+  function assignValue(val, key) {
+    if (isPlainObject(result[key]) && isPlainObject(val)) {
+      result[key] = merge(result[key], val);
+    } else if (isPlainObject(val)) {
+      result[key] = merge({}, val);
+    } else if (isArray(val)) {
+      result[key] = val.slice();
+    } else {
+      result[key] = val;
+    }
+  }
+
+  for (var i = 0, l = arguments.length; i < l; i++) {
+    forEach(arguments[i], assignValue);
+  }
+  return result;
+}
+
+/**
+ * Extends object a by mutably adding to it the properties of object b.
+ *
+ * @param {Object} a The object to be extended
+ * @param {Object} b The object to copy properties from
+ * @param {Object} thisArg The object to bind function to
+ * @return {Object} The resulting value of object a
+ */
+function extend(a, b, thisArg) {
+  forEach(b, function assignValue(val, key) {
+    if (thisArg && typeof val === 'function') {
+      a[key] = bind$1(val, thisArg);
+    } else {
+      a[key] = val;
+    }
+  });
+  return a;
+}
+
+/**
+ * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
+ *
+ * @param {string} content with BOM
+ * @return {string} content value without BOM
+ */
+function stripBOM(content) {
+  if (content.charCodeAt(0) === 0xFEFF) {
+    content = content.slice(1);
+  }
+  return content;
+}
+
+var utils$e = {
+  isArray: isArray,
+  isArrayBuffer: isArrayBuffer,
+  isBuffer: isBuffer,
+  isFormData: isFormData,
+  isArrayBufferView: isArrayBufferView,
+  isString: isString,
+  isNumber: isNumber,
+  isObject: isObject,
+  isPlainObject: isPlainObject,
+  isUndefined: isUndefined,
+  isDate: isDate,
+  isFile: isFile,
+  isBlob: isBlob,
+  isFunction: isFunction,
+  isStream: isStream,
+  isURLSearchParams: isURLSearchParams,
+  isStandardBrowserEnv: isStandardBrowserEnv,
+  forEach: forEach,
+  merge: merge,
+  extend: extend,
+  trim: trim,
+  stripBOM: stripBOM
+};
+
+var utils$d = utils$e;
+
+function encode(val) {
+  return encodeURIComponent(val).
+    replace(/%3A/gi, ':').
+    replace(/%24/g, '$').
+    replace(/%2C/gi, ',').
+    replace(/%20/g, '+').
+    replace(/%5B/gi, '[').
+    replace(/%5D/gi, ']');
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+var buildURL$2 = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils$d.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils$d.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === 'undefined') {
+        return;
+      }
+
+      if (utils$d.isArray(val)) {
+        key = key + '[]';
+      } else {
+        val = [val];
+      }
+
+      utils$d.forEach(val, function parseValue(v) {
+        if (utils$d.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils$d.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + '=' + encode(v));
+      });
+    });
+
+    serializedParams = parts.join('&');
+  }
+
+  if (serializedParams) {
+    var hashmarkIndex = url.indexOf('#');
+    if (hashmarkIndex !== -1) {
+      url = url.slice(0, hashmarkIndex);
+    }
+
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+
+  return url;
+};
+
+var utils$c = utils$e;
+
+function InterceptorManager$1() {
+  this.handlers = [];
+}
+
+/**
+ * Add a new interceptor to the stack
+ *
+ * @param {Function} fulfilled The function to handle `then` for a `Promise`
+ * @param {Function} rejected The function to handle `reject` for a `Promise`
+ *
+ * @return {Number} An ID used to remove interceptor later
+ */
+InterceptorManager$1.prototype.use = function use(fulfilled, rejected, options) {
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected,
+    synchronous: options ? options.synchronous : false,
+    runWhen: options ? options.runWhen : null
+  });
+  return this.handlers.length - 1;
+};
+
+/**
+ * Remove an interceptor from the stack
+ *
+ * @param {Number} id The ID that was returned by `use`
+ */
+InterceptorManager$1.prototype.eject = function eject(id) {
+  if (this.handlers[id]) {
+    this.handlers[id] = null;
+  }
+};
+
+/**
+ * Iterate over all the registered interceptors
+ *
+ * This method is particularly useful for skipping over any
+ * interceptors that may have become `null` calling `eject`.
+ *
+ * @param {Function} fn The function to call for each interceptor
+ */
+InterceptorManager$1.prototype.forEach = function forEach(fn) {
+  utils$c.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+var InterceptorManager_1 = InterceptorManager$1;
+
+var utils$b = utils$e;
+
+var normalizeHeaderName$1 = function normalizeHeaderName(headers, normalizedName) {
+  utils$b.forEach(headers, function processHeader(value, name) {
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = value;
+      delete headers[name];
+    }
+  });
+};
+
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */
+var enhanceError$2 = function enhanceError(error, config, code, request, response) {
+  error.config = config;
+  if (code) {
+    error.code = code;
+  }
+
+  error.request = request;
+  error.response = response;
+  error.isAxiosError = true;
+
+  error.toJSON = function toJSON() {
+    return {
+      // Standard
+      message: this.message,
+      name: this.name,
+      // Microsoft
+      description: this.description,
+      number: this.number,
+      // Mozilla
+      fileName: this.fileName,
+      lineNumber: this.lineNumber,
+      columnNumber: this.columnNumber,
+      stack: this.stack,
+      // Axios
+      config: this.config,
+      code: this.code,
+      status: this.response && this.response.status ? this.response.status : null
+    };
+  };
+  return error;
+};
+
+var transitional = {
+  silentJSONParsing: true,
+  forcedJSONParsing: true,
+  clarifyTimeoutError: false
+};
+
+var enhanceError$1 = enhanceError$2;
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+var createError$2 = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError$1(error, config, code, request, response);
+};
+
+var createError$1 = createError$2;
+
+/**
+ * Resolve or reject a Promise based on response status.
+ *
+ * @param {Function} resolve A function that resolves the promise.
+ * @param {Function} reject A function that rejects the promise.
+ * @param {object} response The response.
+ */
+var settle$1 = function settle(resolve, reject, response) {
+  var validateStatus = response.config.validateStatus;
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
+    resolve(response);
+  } else {
+    reject(createError$1(
+      'Request failed with status code ' + response.status,
+      response.config,
+      null,
+      response.request,
+      response
+    ));
+  }
+};
+
+var utils$a = utils$e;
+
+var cookies$1 = (
+  utils$a.isStandardBrowserEnv() ?
+
+  // Standard browser envs support document.cookie
+    (function standardBrowserEnv() {
+      return {
+        write: function write(name, value, expires, path, domain, secure) {
+          var cookie = [];
+          cookie.push(name + '=' + encodeURIComponent(value));
+
+          if (utils$a.isNumber(expires)) {
+            cookie.push('expires=' + new Date(expires).toGMTString());
+          }
+
+          if (utils$a.isString(path)) {
+            cookie.push('path=' + path);
+          }
+
+          if (utils$a.isString(domain)) {
+            cookie.push('domain=' + domain);
+          }
+
+          if (secure === true) {
+            cookie.push('secure');
+          }
+
+          document.cookie = cookie.join('; ');
+        },
+
+        read: function read(name) {
+          var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+          return (match ? decodeURIComponent(match[3]) : null);
+        },
+
+        remove: function remove(name) {
+          this.write(name, '', Date.now() - 86400000);
+        }
+      };
+    })() :
+
+  // Non standard browser env (web workers, react-native) lack needed support.
+    (function nonStandardBrowserEnv() {
+      return {
+        write: function write() {},
+        read: function read() { return null; },
+        remove: function remove() {}
+      };
+    })()
+);
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+var isAbsoluteURL$1 = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
+};
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+var combineURLs$1 = function combineURLs(baseURL, relativeURL) {
+  return relativeURL
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    : baseURL;
+};
+
+var isAbsoluteURL = isAbsoluteURL$1;
+var combineURLs = combineURLs$1;
+
+/**
+ * Creates a new URL by combining the baseURL with the requestedURL,
+ * only when the requestedURL is not already an absolute URL.
+ * If the requestURL is absolute, this function returns the requestedURL untouched.
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} requestedURL Absolute or relative URL to combine
+ * @returns {string} The combined full path
+ */
+var buildFullPath$1 = function buildFullPath(baseURL, requestedURL) {
+  if (baseURL && !isAbsoluteURL(requestedURL)) {
+    return combineURLs(baseURL, requestedURL);
+  }
+  return requestedURL;
+};
+
+var utils$9 = utils$e;
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = [
+  'age', 'authorization', 'content-length', 'content-type', 'etag',
+  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+  'referer', 'retry-after', 'user-agent'
+];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+var parseHeaders$1 = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) { return parsed; }
+
+  utils$9.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils$9.trim(line.substr(0, i)).toLowerCase();
+    val = utils$9.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+var utils$8 = utils$e;
+
+var isURLSameOrigin$1 = (
+  utils$8.isStandardBrowserEnv() ?
+
+  // Standard browser envs have full support of the APIs needed to test
+  // whether the request URL is of the same origin as current location.
+    (function standardBrowserEnv() {
+      var msie = /(msie|trident)/i.test(navigator.userAgent);
+      var urlParsingNode = document.createElement('a');
+      var originURL;
+
+      /**
+    * Parse a URL to discover it's components
+    *
+    * @param {String} url The URL to be parsed
+    * @returns {Object}
+    */
+      function resolveURL(url) {
+        var href = url;
+
+        if (msie) {
+        // IE needs attribute set twice to normalize properties
+          urlParsingNode.setAttribute('href', href);
+          href = urlParsingNode.href;
+        }
+
+        urlParsingNode.setAttribute('href', href);
+
+        // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+        return {
+          href: urlParsingNode.href,
+          protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+          host: urlParsingNode.host,
+          search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+          hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+          hostname: urlParsingNode.hostname,
+          port: urlParsingNode.port,
+          pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+            urlParsingNode.pathname :
+            '/' + urlParsingNode.pathname
+        };
+      }
+
+      originURL = resolveURL(window.location.href);
+
+      /**
+    * Determine if a URL shares the same origin as the current location
+    *
+    * @param {String} requestURL The URL to test
+    * @returns {boolean} True if URL shares the same origin, otherwise false
+    */
+      return function isURLSameOrigin(requestURL) {
+        var parsed = (utils$8.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+        return (parsed.protocol === originURL.protocol &&
+            parsed.host === originURL.host);
+      };
+    })() :
+
+  // Non standard browser envs (web workers, react-native) lack needed support.
+    (function nonStandardBrowserEnv() {
+      return function isURLSameOrigin() {
+        return true;
+      };
+    })()
+);
+
+/**
+ * A `Cancel` is an object that is thrown when an operation is canceled.
+ *
+ * @class
+ * @param {string=} message The message.
+ */
+function Cancel$3(message) {
+  this.message = message;
+}
+
+Cancel$3.prototype.toString = function toString() {
+  return 'Cancel' + (this.message ? ': ' + this.message : '');
+};
+
+Cancel$3.prototype.__CANCEL__ = true;
+
+var Cancel_1 = Cancel$3;
+
+var utils$7 = utils$e;
+var settle = settle$1;
+var cookies = cookies$1;
+var buildURL$1 = buildURL$2;
+var buildFullPath = buildFullPath$1;
+var parseHeaders = parseHeaders$1;
+var isURLSameOrigin = isURLSameOrigin$1;
+var createError = createError$2;
+var transitionalDefaults$1 = transitional;
+var Cancel$2 = Cancel_1;
+
+var xhr = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+    var responseType = config.responseType;
+    var onCanceled;
+    function done() {
+      if (config.cancelToken) {
+        config.cancelToken.unsubscribe(onCanceled);
+      }
+
+      if (config.signal) {
+        config.signal.removeEventListener('abort', onCanceled);
+      }
+    }
+
+    if (utils$7.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password ? unescape(encodeURIComponent(config.auth.password)) : '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    var fullPath = buildFullPath(config.baseURL, config.url);
+    request.open(config.method.toUpperCase(), buildURL$1(fullPath, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    function onloadend() {
+      if (!request) {
+        return;
+      }
+      // Prepare the response
+      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+      var responseData = !responseType || responseType === 'text' ||  responseType === 'json' ?
+        request.responseText : request.response;
+      var response = {
+        data: responseData,
+        status: request.status,
+        statusText: request.statusText,
+        headers: responseHeaders,
+        config: config,
+        request: request
+      };
+
+      settle(function _resolve(value) {
+        resolve(value);
+        done();
+      }, function _reject(err) {
+        reject(err);
+        done();
+      }, response);
+
+      // Clean up request
+      request = null;
+    }
+
+    if ('onloadend' in request) {
+      // Use onloadend if available
+      request.onloadend = onloadend;
+    } else {
+      // Listen for ready state to emulate onloadend
+      request.onreadystatechange = function handleLoad() {
+        if (!request || request.readyState !== 4) {
+          return;
+        }
+
+        // The request errored out and we didn't get a response, this will be
+        // handled by onerror instead
+        // With one exception: request that using file: protocol, most browsers
+        // will return status as 0 even though it's a successful request
+        if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+          return;
+        }
+        // readystate handler is calling before onerror or ontimeout handlers,
+        // so we should call onloadend on the next 'tick'
+        setTimeout(onloadend);
+      };
+    }
+
+    // Handle browser request cancellation (as opposed to a manual cancellation)
+    request.onabort = function handleAbort() {
+      if (!request) {
+        return;
+      }
+
+      reject(createError('Request aborted', config, 'ECONNABORTED', request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle low level network errors
+    request.onerror = function handleError() {
+      // Real errors are hidden from us by the browser
+      // onerror should only fire if it's a network error
+      reject(createError('Network Error', config, null, request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle timeout
+    request.ontimeout = function handleTimeout() {
+      var timeoutErrorMessage = config.timeout ? 'timeout of ' + config.timeout + 'ms exceeded' : 'timeout exceeded';
+      var transitional = config.transitional || transitionalDefaults$1;
+      if (config.timeoutErrorMessage) {
+        timeoutErrorMessage = config.timeoutErrorMessage;
+      }
+      reject(createError(
+        timeoutErrorMessage,
+        config,
+        transitional.clarifyTimeoutError ? 'ETIMEDOUT' : 'ECONNABORTED',
+        request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils$7.isStandardBrowserEnv()) {
+      // Add xsrf header
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
+        cookies.read(config.xsrfCookieName) :
+        undefined;
+
+      if (xsrfValue) {
+        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+      }
+    }
+
+    // Add headers to the request
+    if ('setRequestHeader' in request) {
+      utils$7.forEach(requestHeaders, function setRequestHeader(val, key) {
+        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+          // Remove Content-Type if data is undefined
+          delete requestHeaders[key];
+        } else {
+          // Otherwise add header to the request
+          request.setRequestHeader(key, val);
+        }
+      });
+    }
+
+    // Add withCredentials to request if needed
+    if (!utils$7.isUndefined(config.withCredentials)) {
+      request.withCredentials = !!config.withCredentials;
+    }
+
+    // Add responseType to request if needed
+    if (responseType && responseType !== 'json') {
+      request.responseType = config.responseType;
+    }
+
+    // Handle progress if needed
+    if (typeof config.onDownloadProgress === 'function') {
+      request.addEventListener('progress', config.onDownloadProgress);
+    }
+
+    // Not all browsers support upload events
+    if (typeof config.onUploadProgress === 'function' && request.upload) {
+      request.upload.addEventListener('progress', config.onUploadProgress);
+    }
+
+    if (config.cancelToken || config.signal) {
+      // Handle cancellation
+      // eslint-disable-next-line func-names
+      onCanceled = function(cancel) {
+        if (!request) {
+          return;
+        }
+        reject(!cancel || (cancel && cancel.type) ? new Cancel$2('canceled') : cancel);
+        request.abort();
+        request = null;
+      };
+
+      config.cancelToken && config.cancelToken.subscribe(onCanceled);
+      if (config.signal) {
+        config.signal.aborted ? onCanceled() : config.signal.addEventListener('abort', onCanceled);
+      }
+    }
+
+    if (!requestData) {
+      requestData = null;
+    }
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+var utils$6 = utils$e;
+var normalizeHeaderName = normalizeHeaderName$1;
+var enhanceError = enhanceError$2;
+var transitionalDefaults = transitional;
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils$6.isUndefined(headers) && utils$6.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = xhr;
+  } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
+    // For node use HTTP adapter
+    adapter = xhr;
+  }
+  return adapter;
+}
+
+function stringifySafely(rawValue, parser, encoder) {
+  if (utils$6.isString(rawValue)) {
+    try {
+      (parser || JSON.parse)(rawValue);
+      return utils$6.trim(rawValue);
+    } catch (e) {
+      if (e.name !== 'SyntaxError') {
+        throw e;
+      }
+    }
+  }
+
+  return (encoder || JSON.stringify)(rawValue);
+}
+
+var defaults$3 = {
+
+  transitional: transitionalDefaults,
+
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Accept');
+    normalizeHeaderName(headers, 'Content-Type');
+
+    if (utils$6.isFormData(data) ||
+      utils$6.isArrayBuffer(data) ||
+      utils$6.isBuffer(data) ||
+      utils$6.isStream(data) ||
+      utils$6.isFile(data) ||
+      utils$6.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils$6.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils$6.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils$6.isObject(data) || (headers && headers['Content-Type'] === 'application/json')) {
+      setContentTypeIfUnset(headers, 'application/json');
+      return stringifySafely(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    var transitional = this.transitional || defaults$3.transitional;
+    var silentJSONParsing = transitional && transitional.silentJSONParsing;
+    var forcedJSONParsing = transitional && transitional.forcedJSONParsing;
+    var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';
+
+    if (strictJSONParsing || (forcedJSONParsing && utils$6.isString(data) && data.length)) {
+      try {
+        return JSON.parse(data);
+      } catch (e) {
+        if (strictJSONParsing) {
+          if (e.name === 'SyntaxError') {
+            throw enhanceError(e, this, 'E_JSON_PARSE');
+          }
+          throw e;
+        }
+      }
+    }
+
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+  maxBodyLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  },
+
+  headers: {
+    common: {
+      'Accept': 'application/json, text/plain, */*'
+    }
+  }
+};
+
+utils$6.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults$3.headers[method] = {};
+});
+
+utils$6.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults$3.headers[method] = utils$6.merge(DEFAULT_CONTENT_TYPE);
+});
+
+var defaults_1 = defaults$3;
+
+var utils$5 = utils$e;
+var defaults$2 = defaults_1;
+
+/**
+ * Transform the data for a request or a response
+ *
+ * @param {Object|String} data The data to be transformed
+ * @param {Array} headers The headers for the request or response
+ * @param {Array|Function} fns A single function or Array of functions
+ * @returns {*} The resulting transformed data
+ */
+var transformData$1 = function transformData(data, headers, fns) {
+  var context = this || defaults$2;
+  /*eslint no-param-reassign:0*/
+  utils$5.forEach(fns, function transform(fn) {
+    data = fn.call(context, data, headers);
+  });
+
+  return data;
+};
+
+var isCancel$1 = function isCancel(value) {
+  return !!(value && value.__CANCEL__);
+};
+
+var utils$4 = utils$e;
+var transformData = transformData$1;
+var isCancel = isCancel$1;
+var defaults$1 = defaults_1;
+var Cancel$1 = Cancel_1;
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+function throwIfCancellationRequested(config) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
+  }
+
+  if (config.signal && config.signal.aborted) {
+    throw new Cancel$1('canceled');
+  }
+}
+
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */
+var dispatchRequest$1 = function dispatchRequest(config) {
+  throwIfCancellationRequested(config);
+
+  // Ensure headers exist
+  config.headers = config.headers || {};
+
+  // Transform request data
+  config.data = transformData.call(
+    config,
+    config.data,
+    config.headers,
+    config.transformRequest
+  );
+
+  // Flatten headers
+  config.headers = utils$4.merge(
+    config.headers.common || {},
+    config.headers[config.method] || {},
+    config.headers
+  );
+
+  utils$4.forEach(
+    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+    function cleanHeaderConfig(method) {
+      delete config.headers[method];
+    }
+  );
+
+  var adapter = config.adapter || defaults$1.adapter;
+
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData.call(
+      config,
+      response.data,
+      response.headers,
+      config.transformResponse
+    );
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason && reason.response) {
+        reason.response.data = transformData.call(
+          config,
+          reason.response.data,
+          reason.response.headers,
+          config.transformResponse
+        );
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+
+var utils$3 = utils$e;
+
+/**
+ * Config-specific merge-function which creates a new config-object
+ * by merging two configuration objects together.
+ *
+ * @param {Object} config1
+ * @param {Object} config2
+ * @returns {Object} New object resulting from merging config2 to config1
+ */
+var mergeConfig$2 = function mergeConfig(config1, config2) {
+  // eslint-disable-next-line no-param-reassign
+  config2 = config2 || {};
+  var config = {};
+
+  function getMergedValue(target, source) {
+    if (utils$3.isPlainObject(target) && utils$3.isPlainObject(source)) {
+      return utils$3.merge(target, source);
+    } else if (utils$3.isPlainObject(source)) {
+      return utils$3.merge({}, source);
+    } else if (utils$3.isArray(source)) {
+      return source.slice();
+    }
+    return source;
+  }
+
+  // eslint-disable-next-line consistent-return
+  function mergeDeepProperties(prop) {
+    if (!utils$3.isUndefined(config2[prop])) {
+      return getMergedValue(config1[prop], config2[prop]);
+    } else if (!utils$3.isUndefined(config1[prop])) {
+      return getMergedValue(undefined, config1[prop]);
+    }
+  }
+
+  // eslint-disable-next-line consistent-return
+  function valueFromConfig2(prop) {
+    if (!utils$3.isUndefined(config2[prop])) {
+      return getMergedValue(undefined, config2[prop]);
+    }
+  }
+
+  // eslint-disable-next-line consistent-return
+  function defaultToConfig2(prop) {
+    if (!utils$3.isUndefined(config2[prop])) {
+      return getMergedValue(undefined, config2[prop]);
+    } else if (!utils$3.isUndefined(config1[prop])) {
+      return getMergedValue(undefined, config1[prop]);
+    }
+  }
+
+  // eslint-disable-next-line consistent-return
+  function mergeDirectKeys(prop) {
+    if (prop in config2) {
+      return getMergedValue(config1[prop], config2[prop]);
+    } else if (prop in config1) {
+      return getMergedValue(undefined, config1[prop]);
+    }
+  }
+
+  var mergeMap = {
+    'url': valueFromConfig2,
+    'method': valueFromConfig2,
+    'data': valueFromConfig2,
+    'baseURL': defaultToConfig2,
+    'transformRequest': defaultToConfig2,
+    'transformResponse': defaultToConfig2,
+    'paramsSerializer': defaultToConfig2,
+    'timeout': defaultToConfig2,
+    'timeoutMessage': defaultToConfig2,
+    'withCredentials': defaultToConfig2,
+    'adapter': defaultToConfig2,
+    'responseType': defaultToConfig2,
+    'xsrfCookieName': defaultToConfig2,
+    'xsrfHeaderName': defaultToConfig2,
+    'onUploadProgress': defaultToConfig2,
+    'onDownloadProgress': defaultToConfig2,
+    'decompress': defaultToConfig2,
+    'maxContentLength': defaultToConfig2,
+    'maxBodyLength': defaultToConfig2,
+    'transport': defaultToConfig2,
+    'httpAgent': defaultToConfig2,
+    'httpsAgent': defaultToConfig2,
+    'cancelToken': defaultToConfig2,
+    'socketPath': defaultToConfig2,
+    'responseEncoding': defaultToConfig2,
+    'validateStatus': mergeDirectKeys
+  };
+
+  utils$3.forEach(Object.keys(config1).concat(Object.keys(config2)), function computeConfigValue(prop) {
+    var merge = mergeMap[prop] || mergeDeepProperties;
+    var configValue = merge(prop);
+    (utils$3.isUndefined(configValue) && merge !== mergeDirectKeys) || (config[prop] = configValue);
+  });
+
+  return config;
+};
+
+var data = {
+  "version": "0.26.1"
+};
+
+var VERSION = data.version;
+
+var validators$1 = {};
+
+// eslint-disable-next-line func-names
+['object', 'boolean', 'number', 'function', 'string', 'symbol'].forEach(function(type, i) {
+  validators$1[type] = function validator(thing) {
+    return typeof thing === type || 'a' + (i < 1 ? 'n ' : ' ') + type;
+  };
+});
+
+var deprecatedWarnings = {};
+
+/**
+ * Transitional option validator
+ * @param {function|boolean?} validator - set to false if the transitional option has been removed
+ * @param {string?} version - deprecated version / removed since version
+ * @param {string?} message - some message with additional info
+ * @returns {function}
+ */
+validators$1.transitional = function transitional(validator, version, message) {
+  function formatMessage(opt, desc) {
+    return '[Axios v' + VERSION + '] Transitional option \'' + opt + '\'' + desc + (message ? '. ' + message : '');
+  }
+
+  // eslint-disable-next-line func-names
+  return function(value, opt, opts) {
+    if (validator === false) {
+      throw new Error(formatMessage(opt, ' has been removed' + (version ? ' in ' + version : '')));
+    }
+
+    if (version && !deprecatedWarnings[opt]) {
+      deprecatedWarnings[opt] = true;
+      // eslint-disable-next-line no-console
+      console.warn(
+        formatMessage(
+          opt,
+          ' has been deprecated since v' + version + ' and will be removed in the near future'
+        )
+      );
+    }
+
+    return validator ? validator(value, opt, opts) : true;
+  };
+};
+
+/**
+ * Assert object's properties type
+ * @param {object} options
+ * @param {object} schema
+ * @param {boolean?} allowUnknown
+ */
+
+function assertOptions(options, schema, allowUnknown) {
+  if (typeof options !== 'object') {
+    throw new TypeError('options must be an object');
+  }
+  var keys = Object.keys(options);
+  var i = keys.length;
+  while (i-- > 0) {
+    var opt = keys[i];
+    var validator = schema[opt];
+    if (validator) {
+      var value = options[opt];
+      var result = value === undefined || validator(value, opt, options);
+      if (result !== true) {
+        throw new TypeError('option ' + opt + ' must be ' + result);
+      }
+      continue;
+    }
+    if (allowUnknown !== true) {
+      throw Error('Unknown option ' + opt);
+    }
+  }
+}
+
+var validator$1 = {
+  assertOptions: assertOptions,
+  validators: validators$1
+};
+
+var utils$2 = utils$e;
+var buildURL = buildURL$2;
+var InterceptorManager = InterceptorManager_1;
+var dispatchRequest = dispatchRequest$1;
+var mergeConfig$1 = mergeConfig$2;
+var validator = validator$1;
+
+var validators = validator.validators;
+/**
+ * Create a new instance of Axios
+ *
+ * @param {Object} instanceConfig The default config for the instance
+ */
+function Axios$1(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+/**
+ * Dispatch a request
+ *
+ * @param {Object} config The config specific for this request (merged with this.defaults)
+ */
+Axios$1.prototype.request = function request(configOrUrl, config) {
+  /*eslint no-param-reassign:0*/
+  // Allow for axios('example/url'[, config]) a la fetch API
+  if (typeof configOrUrl === 'string') {
+    config = config || {};
+    config.url = configOrUrl;
+  } else {
+    config = configOrUrl || {};
+  }
+
+  config = mergeConfig$1(this.defaults, config);
+
+  // Set config.method
+  if (config.method) {
+    config.method = config.method.toLowerCase();
+  } else if (this.defaults.method) {
+    config.method = this.defaults.method.toLowerCase();
+  } else {
+    config.method = 'get';
+  }
+
+  var transitional = config.transitional;
+
+  if (transitional !== undefined) {
+    validator.assertOptions(transitional, {
+      silentJSONParsing: validators.transitional(validators.boolean),
+      forcedJSONParsing: validators.transitional(validators.boolean),
+      clarifyTimeoutError: validators.transitional(validators.boolean)
+    }, false);
+  }
+
+  // filter out skipped interceptors
+  var requestInterceptorChain = [];
+  var synchronousRequestInterceptors = true;
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    if (typeof interceptor.runWhen === 'function' && interceptor.runWhen(config) === false) {
+      return;
+    }
+
+    synchronousRequestInterceptors = synchronousRequestInterceptors && interceptor.synchronous;
+
+    requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  var responseInterceptorChain = [];
+  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    responseInterceptorChain.push(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  var promise;
+
+  if (!synchronousRequestInterceptors) {
+    var chain = [dispatchRequest, undefined];
+
+    Array.prototype.unshift.apply(chain, requestInterceptorChain);
+    chain = chain.concat(responseInterceptorChain);
+
+    promise = Promise.resolve(config);
+    while (chain.length) {
+      promise = promise.then(chain.shift(), chain.shift());
+    }
+
+    return promise;
+  }
+
+
+  var newConfig = config;
+  while (requestInterceptorChain.length) {
+    var onFulfilled = requestInterceptorChain.shift();
+    var onRejected = requestInterceptorChain.shift();
+    try {
+      newConfig = onFulfilled(newConfig);
+    } catch (error) {
+      onRejected(error);
+      break;
+    }
+  }
+
+  try {
+    promise = dispatchRequest(newConfig);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+
+  while (responseInterceptorChain.length) {
+    promise = promise.then(responseInterceptorChain.shift(), responseInterceptorChain.shift());
+  }
+
+  return promise;
+};
+
+Axios$1.prototype.getUri = function getUri(config) {
+  config = mergeConfig$1(this.defaults, config);
+  return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '');
+};
+
+// Provide aliases for supported request methods
+utils$2.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  /*eslint func-names:0*/
+  Axios$1.prototype[method] = function(url, config) {
+    return this.request(mergeConfig$1(config || {}, {
+      method: method,
+      url: url,
+      data: (config || {}).data
+    }));
+  };
+});
+
+utils$2.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  /*eslint func-names:0*/
+  Axios$1.prototype[method] = function(url, data, config) {
+    return this.request(mergeConfig$1(config || {}, {
+      method: method,
+      url: url,
+      data: data
+    }));
+  };
+});
+
+var Axios_1 = Axios$1;
+
+var Cancel = Cancel_1;
+
+/**
+ * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ *
+ * @class
+ * @param {Function} executor The executor function.
+ */
+function CancelToken(executor) {
+  if (typeof executor !== 'function') {
+    throw new TypeError('executor must be a function.');
+  }
+
+  var resolvePromise;
+
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+
+  // eslint-disable-next-line func-names
+  this.promise.then(function(cancel) {
+    if (!token._listeners) return;
+
+    var i;
+    var l = token._listeners.length;
+
+    for (i = 0; i < l; i++) {
+      token._listeners[i](cancel);
+    }
+    token._listeners = null;
+  });
+
+  // eslint-disable-next-line func-names
+  this.promise.then = function(onfulfilled) {
+    var _resolve;
+    // eslint-disable-next-line func-names
+    var promise = new Promise(function(resolve) {
+      token.subscribe(resolve);
+      _resolve = resolve;
+    }).then(onfulfilled);
+
+    promise.cancel = function reject() {
+      token.unsubscribe(_resolve);
+    };
+
+    return promise;
+  };
+
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  if (this.reason) {
+    throw this.reason;
+  }
+};
+
+/**
+ * Subscribe to the cancel signal
+ */
+
+CancelToken.prototype.subscribe = function subscribe(listener) {
+  if (this.reason) {
+    listener(this.reason);
+    return;
+  }
+
+  if (this._listeners) {
+    this._listeners.push(listener);
+  } else {
+    this._listeners = [listener];
+  }
+};
+
+/**
+ * Unsubscribe from the cancel signal
+ */
+
+CancelToken.prototype.unsubscribe = function unsubscribe(listener) {
+  if (!this._listeners) {
+    return;
+  }
+  var index = this._listeners.indexOf(listener);
+  if (index !== -1) {
+    this._listeners.splice(index, 1);
+  }
+};
+
+/**
+ * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * cancels the `CancelToken`.
+ */
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+
+var CancelToken_1 = CancelToken;
+
+/**
+ * Syntactic sugar for invoking a function and expanding an array for arguments.
+ *
+ * Common use case would be to use `Function.prototype.apply`.
+ *
+ *  ```js
+ *  function f(x, y, z) {}
+ *  var args = [1, 2, 3];
+ *  f.apply(null, args);
+ *  ```
+ *
+ * With `spread` this example can be re-written.
+ *
+ *  ```js
+ *  spread(function(x, y, z) {})([1, 2, 3]);
+ *  ```
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+var spread = function spread(callback) {
+  return function wrap(arr) {
+    return callback.apply(null, arr);
+  };
+};
+
+var utils$1 = utils$e;
+
+/**
+ * Determines whether the payload is an error thrown by Axios
+ *
+ * @param {*} payload The value to test
+ * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
+ */
+var isAxiosError = function isAxiosError(payload) {
+  return utils$1.isObject(payload) && (payload.isAxiosError === true);
+};
+
+var utils = utils$e;
+var bind = bind$2;
+var Axios = Axios_1;
+var mergeConfig = mergeConfig$2;
+var defaults = defaults_1;
+
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+  var instance = bind(Axios.prototype.request, context);
+
+  // Copy axios.prototype to instance
+  utils.extend(instance, Axios.prototype, context);
+
+  // Copy context to instance
+  utils.extend(instance, context);
+
+  // Factory for creating new instances
+  instance.create = function create(instanceConfig) {
+    return createInstance(mergeConfig(defaultConfig, instanceConfig));
+  };
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios$1 = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios$1.Axios = Axios;
+
+// Expose Cancel & CancelToken
+axios$1.Cancel = Cancel_1;
+axios$1.CancelToken = CancelToken_1;
+axios$1.isCancel = isCancel$1;
+axios$1.VERSION = data.version;
+
+// Expose all/spread
+axios$1.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios$1.spread = spread;
+
+// Expose isAxiosError
+axios$1.isAxiosError = isAxiosError;
+
+axios$2.exports = axios$1;
+
+// Allow use of default import syntax in TypeScript
+axios$2.exports.default = axios$1;
+
+var axios = axios$2.exports;
+
+const _sfc_main$1 = defineComponent({
+  name: "Column",
+  components: {
+    Button,
+    ButtonGroup,
+    Eye,
+    PencilSquare,
+    Trash
+  },
+  props: {
+    tag: { type: String, default: "td" },
+    field: { type: String, default: null },
+    label: { type: String, default: null },
+    visible: { type: Boolean, default: true },
+    actions: { type: Boolean, default: false },
+    actionsSize: { type: String, default: "sm" },
+    viewVariant: { type: String, default: "primary" },
+    editVariant: { type: String, default: "dark" },
+    destroyVariant: { type: String, default: "danger" },
+    actionsAlignment: { type: String, default: "end" },
+    thClass: { type: [String, Object, Array], default: null },
+    tdClass: { type: [String, Object, Array], default: null }
+  },
+  setup(props) {
+    return {
+      item: inject("item"),
+      showViewModal: inject("showViewModal"),
+      showCreateUpdateModal: inject("showCreateUpdateModal"),
+      currentItem: inject("currentItem"),
+      processDelete: (item) => {
+        if (confirm("Are You Sure?")) ;
+      }
+    };
+  }
+});
+function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_Eye = resolveComponent("Eye");
+  const _component_Button = resolveComponent("Button");
+  const _component_PencilSquare = resolveComponent("PencilSquare");
+  const _component_Trash = resolveComponent("Trash");
+  const _component_ButtonGroup = resolveComponent("ButtonGroup");
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
+    class: normalizeClass({ ["text-" + _ctx.actionsAlignment]: _ctx.actions })
+  }, {
+    default: withCtx(() => [
+      renderSlot(_ctx.$slots, "default", {
+        field: _ctx.field,
+        data: _ctx.item
+      }, () => [
+        _ctx.actions ? (openBlock(), createBlock(_component_ButtonGroup, {
+          key: 0,
+          size: _ctx.actionsSize
+        }, {
+          default: withCtx(() => [
+            createVNode(_component_Button, {
+              variant: _ctx.viewVariant,
+              onClick: _cache[0] || (_cache[0] = () => {
+                _ctx.showViewModal = true;
+                _ctx.currentItem = _ctx.item;
+              })
+            }, {
+              default: withCtx(() => [
+                createVNode(_component_Eye)
+              ]),
+              _: 1
+            }, 8, ["variant"]),
+            createVNode(_component_Button, {
+              variant: _ctx.editVariant,
+              onClick: _cache[1] || (_cache[1] = () => {
+                _ctx.showCreateUpdateModal = true;
+                _ctx.currentItem = _ctx.item;
+              })
+            }, {
+              default: withCtx(() => [
+                createVNode(_component_PencilSquare)
+              ]),
+              _: 1
+            }, 8, ["variant"]),
+            createVNode(_component_Button, {
+              variant: _ctx.destroyVariant,
+              onClick: _cache[2] || (_cache[2] = ($event) => _ctx.processDelete(_ctx.item))
+            }, {
+              default: withCtx(() => [
+                createVNode(_component_Trash)
+              ]),
+              _: 1
+            }, 8, ["variant"])
+          ]),
+          _: 1
+        }, 8, ["size"])) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+          createTextVNode(toDisplayString(_ctx.item[_ctx.field]), 1)
+        ], 64))
+      ])
+    ]),
+    _: 3
+  }, 8, ["class"]);
+}
+var Column = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["render", _sfc_render$1]]);
+
+var RenderColumnVNode = {
+  props: {
+    node: { default: null, type: Object },
+    item: { type: Object, default: null }
+  },
+  setup(props) {
+    provide("item", props.item);
+    return () => h(props.node);
+  }
+};
+
+const _sfc_main = defineComponent({
+  name: "LaravelCrudTable",
+  components: {
+    FormGroup,
+    Modal,
+    ListGroupItem,
+    Checkbox,
+    Dropdown,
+    Input,
+    ButtonGroup,
+    Button,
+    Select,
+    Col,
+    Row,
+    Column,
+    TBody,
+    Th,
+    Td,
+    Tr,
+    THead,
+    Table,
+    CardTitle,
+    Card,
+    RenderColumnVNode,
+    Spinner,
+    Plus,
+    Trash
+  },
+  props: {
+    apiUrl: { type: String, default: null, required: true },
+    title: { type: String, default: null },
+    titleTag: { type: String, default: "h4" },
+    fields: { type: Array, default: () => [] },
+    pager: { type: Array, default: () => [5, 10, 15, 20, 30, 50, 70, 100, 150, 200, 300, 500] },
+    searchPlaceholder: { type: String, default: "Search..." },
+    searchSize: { type: String, default: "sm" },
+    ...tableProps,
+    headVariant: { type: String, default: null },
+    headClass: { type: [String, Object, Array], default: null },
+    viewModalTitle: { type: String, default: "View Details" },
+    createUpdateModalTitle: { type: String, default: "Add/Edit Details" },
+    viewModalProps: { type: Object, default: null },
+    createUpdateModalProps: { type: Object, default: null },
+    dateLocale: { type: String, default: "en-US" },
+    dateOptions: { type: Object, default: () => ({}) },
+    excludeFromView: { type: Array, default: () => [] },
+    excludeFromCreateUpdateForm: {
+      type: Array,
+      default: () => ["id", "created_at", "updated_at", "deleted_at"]
+    },
+    createUpdateFormFields: {
+      type: Object,
+      default: () => ({})
+    },
+    formSubmitUrl: { type: String, default: null },
+    handleFormSubmit: { type: Function, default: null }
+  },
+  setup(props, { expose, slots }) {
+    const items = ref([]);
+    const loading = ref(false);
+    const perPage = ref(15);
+    const fetchItems = () => {
+      loading.value = true;
+      return axios.post(props.apiUrl).then((res) => {
+        loading.value = false;
+        items.value = res.data?.data;
+        return res.data?.data;
+      }).catch((err) => {
+        loading.value = false;
+        items.value = [];
+        console.log(err.response.data);
+        return [];
+      });
+    };
+    onMounted(() => {
+      fetchItems();
+    });
+    const getTableProps = computed(() => {
+      const keys = Object.keys(tableProps);
+      let output = {};
+      for (let x in props) {
+        if (keys.includes(x)) {
+          output[x] = props[x];
+        }
+      }
+      return output;
+    });
+    const showViewModal = ref(false);
+    const showCreateUpdateModal = ref(false);
+    const currentItem = ref(null);
+    provide("showViewModal", showViewModal);
+    provide("showCreateUpdateModal", showCreateUpdateModal);
+    provide("currentItem", currentItem);
+    const dateFormat = (date) => {
+      if (!date) {
+        return null;
+      }
+      return new Intl.DateTimeFormat(props.dateLocale, props.dateOptions || {}).format(new Date(date));
+    };
+    return {
+      dateFormat,
+      startCase: lodash.exports.startCase,
+      currentItem,
+      items,
+      loading,
+      perPage,
+      getTableProps,
+      theCols: ref(slots.default()),
+      showViewModal,
+      showCreateUpdateModal,
+      hackReRendered: ref(Math.random() * 1e3),
+      getLabel(node) {
+        return node.props.label || lodash.exports.startCase(node.props.field);
+      },
+      getFormInputLabel(prop) {
+        if (Object.keys(props.createUpdateFormFields).includes(prop) && props.createUpdateFormFields[prop].hasOwnProperty("label")) {
+          return props.createUpdateFormFields[prop].label;
+        }
+        return lodash.exports.startCase(prop);
+      },
+      getComponentName(prop) {
+        if (Object.keys(props.createUpdateFormFields).includes(prop) && props.createUpdateFormFields[prop].hasOwnProperty("component")) {
+          return props.createUpdateFormFields[prop].component;
+        }
+        return Input;
+      },
+      getAttributeBindings(prop) {
+        if (Object.keys(props.createUpdateFormFields).includes(prop) && props.createUpdateFormFields[prop].hasOwnProperty("attrs")) {
+          return props.createUpdateFormFields[prop].attrs;
+        }
+        return null;
+      },
+      handleSubmit() {
+        if (props.handleFormSubmit) {
+          return props.handleFormSubmit(currentItem.value);
+        }
+        return axios.put(props.formSubmitUrl, currentItem.value).then((res) => {
+          alert(res.data?.message || "Successfully Done");
+          return res;
+        }).catch((err) => {
+          console.log(err.response.data);
+          return err;
+        });
+      }
+    };
+  }
+});
+const _hoisted_1 = { class: "form-check-label d-block" };
+const _hoisted_2 = ["onChange", "checked"];
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_FormGroup = resolveComponent("FormGroup");
+  const _component_Col = resolveComponent("Col");
+  const _component_Row = resolveComponent("Row");
+  const _component_Modal = resolveComponent("Modal");
+  const _component_Th = resolveComponent("Th");
+  const _component_Td = resolveComponent("Td");
+  const _component_Tr = resolveComponent("Tr");
+  const _component_TBody = resolveComponent("TBody");
+  const _component_Table = resolveComponent("Table");
+  const _component_Select = resolveComponent("Select");
+  const _component_Spinner = resolveComponent("Spinner");
+  const _component_Input = resolveComponent("Input");
+  const _component_Plus = resolveComponent("Plus");
+  const _component_Button = resolveComponent("Button");
+  const _component_Trash = resolveComponent("Trash");
+  const _component_ListGroupItem = resolveComponent("ListGroupItem");
+  const _component_Dropdown = resolveComponent("Dropdown");
+  const _component_ButtonGroup = resolveComponent("ButtonGroup");
+  const _component_CardTitle = resolveComponent("CardTitle");
+  const _component_THead = resolveComponent("THead");
+  const _component_RenderColumnVNode = resolveComponent("RenderColumnVNode");
+  const _component_Card = resolveComponent("Card");
+  return openBlock(), createElementBlock(Fragment, null, [
+    createVNode(_component_Modal, mergeProps({
+      onHidden: _cache[1] || (_cache[1] = ($event) => _ctx.currentItem = null),
+      modelValue: _ctx.showCreateUpdateModal,
+      "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => _ctx.showCreateUpdateModal = $event)
+    }, _ctx.createUpdateModalProps, {
+      static: "",
+      "ok-title": "Submit",
+      onOk: withModifiers(_ctx.handleSubmit, ["prevent"]),
+      title: _ctx.createUpdateModalTitle
+    }), {
+      default: withCtx(() => [
+        renderSlot(_ctx.$slots, "create_update", { currentItem: _ctx.currentItem }, () => [
+          _ctx.currentItem ? (openBlock(), createElementBlock("form", {
+            key: 0,
+            onSubmit: _cache[0] || (_cache[0] = withModifiers((...args) => _ctx.handleSubmit && _ctx.handleSubmit(...args), ["prevent"]))
+          }, [
+            createVNode(_component_Row, null, {
+              default: withCtx(() => [
+                (openBlock(true), createElementBlock(Fragment, null, renderList(Object.keys(_ctx.currentItem).filter((i) => !_ctx.excludeFromCreateUpdateForm.includes(i)), (prop) => {
+                  return openBlock(), createBlock(_component_Col, {
+                    md: 4,
+                    sm: 12
+                  }, {
+                    default: withCtx(() => [
+                      createVNode(_component_FormGroup, {
+                        label: _ctx.getFormInputLabel(prop)
+                      }, {
+                        default: withCtx(() => [
+                          (openBlock(), createBlock(resolveDynamicComponent(_ctx.getComponentName(prop)), mergeProps({
+                            modelValue: _ctx.currentItem[prop],
+                            "onUpdate:modelValue": ($event) => _ctx.currentItem[prop] = $event
+                          }, _ctx.getAttributeBindings(prop)), null, 16, ["modelValue", "onUpdate:modelValue"]))
+                        ]),
+                        _: 2
+                      }, 1032, ["label"])
+                    ]),
+                    _: 2
+                  }, 1024);
+                }), 256))
+              ]),
+              _: 1
+            })
+          ], 32)) : createCommentVNode("", true)
+        ])
+      ]),
+      _: 3
+    }, 16, ["modelValue", "onOk", "title"]),
+    createVNode(_component_Modal, mergeProps({
+      onHidden: _cache[3] || (_cache[3] = ($event) => _ctx.currentItem = null),
+      modelValue: _ctx.showViewModal,
+      "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => _ctx.showViewModal = $event)
+    }, _ctx.viewModalProps, { title: _ctx.viewModalTitle }), {
+      default: withCtx(() => [
+        renderSlot(_ctx.$slots, "view", { currentItem: _ctx.currentItem }, () => [
+          _ctx.currentItem ? (openBlock(), createBlock(_component_Table, {
+            key: 0,
+            bordered: "",
+            hover: "",
+            striped: "",
+            small: ""
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_TBody, null, {
+                default: withCtx(() => [
+                  (openBlock(true), createElementBlock(Fragment, null, renderList(Object.keys(_ctx.currentItem).filter((i) => !_ctx.excludeFromView.includes(i)), (row) => {
+                    return openBlock(), createBlock(_component_Tr, null, {
+                      default: withCtx(() => [
+                        createVNode(_component_Th, null, {
+                          default: withCtx(() => [
+                            createTextVNode(toDisplayString(_ctx.startCase(row)), 1)
+                          ]),
+                          _: 2
+                        }, 1024),
+                        createVNode(_component_Td, null, {
+                          default: withCtx(() => [
+                            ["created_at", "updated_at"].includes(row) ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+                              createTextVNode(toDisplayString(_ctx.dateFormat(_ctx.currentItem[row])), 1)
+                            ], 64)) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+                              createTextVNode(toDisplayString(_ctx.currentItem[row]), 1)
+                            ], 64))
+                          ]),
+                          _: 2
+                        }, 1024)
+                      ]),
+                      _: 2
+                    }, 1024);
+                  }), 256))
+                ]),
+                _: 1
+              })
+            ]),
+            _: 1
+          })) : createCommentVNode("", true)
+        ])
+      ]),
+      _: 3
+    }, 16, ["modelValue", "title"]),
+    createVNode(_component_Card, { "body-class": "p-0" }, {
+      header: withCtx(() => [
+        createVNode(_component_Row, null, {
+          default: withCtx(() => [
+            createVNode(_component_Col, {
+              md: 2,
+              sm: 12,
+              lg: 2
+            }, {
+              default: withCtx(() => [
+                createVNode(_component_Select, {
+                  modelValue: _ctx.perPage,
+                  "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => _ctx.perPage = $event),
+                  options: _ctx.pager,
+                  size: "sm"
+                }, null, 8, ["modelValue", "options"])
+              ]),
+              _: 1
+            }),
+            createVNode(_component_Col, {
+              class: "text-center",
+              sm: 12,
+              md: 6
+            }, {
+              default: withCtx(() => [
+                _ctx.loading ? (openBlock(), createBlock(_component_Spinner, { key: 0 })) : (openBlock(), createBlock(_component_Input, {
+                  key: 1,
+                  type: "search",
+                  placeholder: _ctx.searchPlaceholder,
+                  size: _ctx.searchSize
+                }, null, 8, ["placeholder", "size"]))
+              ]),
+              _: 1
+            }),
+            createVNode(_component_Col, {
+              sm: 12,
+              md: 4,
+              class: "text-md-end text-sm-start"
+            }, {
+              default: withCtx(() => [
+                createVNode(_component_ButtonGroup, { size: "sm" }, {
+                  default: withCtx(() => [
+                    createVNode(_component_Button, { variant: "primary" }, {
+                      default: withCtx(() => [
+                        createVNode(_component_Plus)
+                      ]),
+                      _: 1
+                    }),
+                    createVNode(_component_Button, { variant: "danger" }, {
+                      default: withCtx(() => [
+                        createVNode(_component_Trash)
+                      ]),
+                      _: 1
+                    }),
+                    createVNode(_component_Dropdown, {
+                      "menu-tag": "ul",
+                      size: "sm",
+                      "disable-inner-clicks": "",
+                      "menu-class": "border-0 p-0"
+                    }, {
+                      default: withCtx(() => [
+                        (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.theCols, (node) => {
+                          return openBlock(), createBlock(_component_ListGroupItem, null, {
+                            default: withCtx(() => [
+                              createElementVNode("label", _hoisted_1, [
+                                createElementVNode("input", {
+                                  type: "checkbox",
+                                  class: "form-check-input",
+                                  onChange: (e) => {
+                                    node.props.visible = e.target.checked;
+                                    _ctx.hackReRendered = Math.random() * 1e3;
+                                  },
+                                  checked: node.props.visible !== false
+                                }, null, 40, _hoisted_2),
+                                createTextVNode(" " + toDisplayString(_ctx.getLabel(node)), 1)
+                              ])
+                            ]),
+                            _: 2
+                          }, 1024);
+                        }), 256))
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  _: 1
+                })
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        })
+      ]),
+      default: withCtx(() => [
+        createVNode(_component_CardTitle, { class: "p-2 m-0" }, {
+          default: withCtx(() => [
+            createTextVNode(toDisplayString(_ctx.title), 1)
+          ]),
+          _: 1
+        }),
+        _ctx.hackReRendered ? (openBlock(), createBlock(_component_Table, normalizeProps(mergeProps({ key: 0 }, _ctx.getTableProps)), {
+          default: withCtx(() => [
+            createVNode(_component_THead, {
+              variant: _ctx.headVariant,
+              class: normalizeClass(_ctx.headClass)
+            }, {
+              default: withCtx(() => [
+                createVNode(_component_Tr, null, {
+                  default: withCtx(() => [
+                    (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.theCols, (node, node_key) => {
+                      return openBlock(), createElementBlock(Fragment, null, [
+                        node.props.visible !== false ? (openBlock(), createBlock(_component_Th, {
+                          key: 0,
+                          class: normalizeClass(node.props.thClass || node.props["th-class"])
+                        }, {
+                          default: withCtx(() => [
+                            createTextVNode(toDisplayString(_ctx.getLabel(node)), 1)
+                          ]),
+                          _: 2
+                        }, 1032, ["class"])) : createCommentVNode("", true)
+                      ], 64);
+                    }), 256))
+                  ]),
+                  _: 1
+                })
+              ]),
+              _: 1
+            }, 8, ["variant", "class"]),
+            createVNode(_component_TBody, null, {
+              default: withCtx(() => [
+                (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.items, (item, item_key) => {
+                  return openBlock(), createBlock(_component_Tr, { key: item_key }, {
+                    default: withCtx(() => [
+                      (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.theCols, (node, node_key) => {
+                        return openBlock(), createElementBlock(Fragment, null, [
+                          node.props.visible !== false ? (openBlock(), createBlock(_component_RenderColumnVNode, {
+                            key: 0,
+                            class: normalizeClass(node.props.tdClass || node.props["td-class"]),
+                            item,
+                            node
+                          }, null, 8, ["class", "item", "node"])) : createCommentVNode("", true)
+                        ], 64);
+                      }), 256))
+                    ]),
+                    _: 2
+                  }, 1024);
+                }), 128))
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        }, 16)) : createCommentVNode("", true)
+      ]),
+      _: 1
+    })
+  ], 64);
+}
+var LaravelCrudTable = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["render", _sfc_render]]);
+
+export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Chart, Checkbox, CheckboxGroup, Col, Collapse, Column, Container, DataTable, DataTable as Datatable, Datepicker, Dropdown, DropdownButton, DropdownDivider, DropdownItem, DropdownMenu, Figure, FormGroup, FormLabel, Grid, GridCol, Icon, Input, InputGroup, InputGroupText, LaravelCrudTable, Layout, Link, ListGroup, ListGroupItem, Menu, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, Placeholder, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, Vr };

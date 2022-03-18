@@ -52,8 +52,8 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
 }, {
-    modelValue: any;
     options: any;
+    modelValue: any;
     inline: boolean;
     switch: boolean;
     textField: string;

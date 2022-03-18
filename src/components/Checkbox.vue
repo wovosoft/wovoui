@@ -39,7 +39,7 @@ import type {ColorVariants} from "../types/colorVariants";
 
 export default defineComponent({
     name: "Checkbox",
-    emits: ['update:modelValue', 'checked', 'unchecked'],
+    emits: ['update:modelValue', 'checked', 'unchecked','change'],
     props: {
         name: {type: String as PropType<string>, default: null},
         id: {type: String as PropType<string>, default: null},
@@ -88,7 +88,10 @@ export default defineComponent({
         };
 
         watch(() => props.modelValue, value => model.value = value);
-        watch(model, value => context.emit('update:modelValue', value));
+        watch(model, value => {
+            context.emit('update:modelValue', value);
+            context.emit('change', value);
+        });
 
 
         const btnClass = computed(() => [
