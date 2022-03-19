@@ -343,7 +343,10 @@
       "exclude-from-create-update-form",
       "create-update-form-fields",
       "form-submit-url",
-      "handle-form-submit"
+      "handle-form-submit",
+      "destroy-url",
+      "destroy-handler",
+      "default-form-object"
     ],
     "description": ""
   },

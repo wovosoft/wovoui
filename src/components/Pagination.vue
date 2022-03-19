@@ -3,7 +3,7 @@
         <slot v-if="$slots.default"></slot>
         <template v-else-if="pageCount<=(firstColPageCount + centerColPageCount + lastColPageCount)">
             <PageItem v-for="page in pageCount"
-                      @click="state=page"
+                      @click.prevent="state=page"
                       :active="state===page">
                 {{ page }}
             </PageItem>
@@ -12,7 +12,7 @@
             <template v-if="firstBlock.length>0">
                 <template v-for="page in firstBlock">
                     <PageItem v-if="page<=pageCount"
-                              @click="state=page"
+                              @click.prevent="state=page"
                               :active="state===page">
                         {{ page }}
                     </PageItem>
@@ -24,7 +24,7 @@
             <template v-if="pageCount > firstColPageCount">
                 <template v-for="page in centerBlock">
                     <PageItem v-if="page<=pageCount && !lastBlock.includes(page) && !firstBlock.includes(page)"
-                              @click="state=page"
+                              @click.prevent="state=page"
                               :active="state===page">
                         {{ page }}
                     </PageItem>
@@ -36,7 +36,7 @@
                 </PageItem>
                 <template v-for="page in lastBlock">
                     <PageItem v-if="page<=pageCount"
-                              @click="state=page"
+                              @click.prevent="state=page"
                               :active="state===page">
                         {{ page }}
                     </PageItem>
@@ -55,7 +55,7 @@ import type {buttonSizes} from "../types/buttonSizes";
 export default defineComponent({
     name: "Pagination",
     components: {PageItem, ThreeDots},
-    emits: ["update:modelValue", "update:currentPage"],
+    emits: ["update:modelValue", "update:currentPage","change"],
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'ul'},
         modelValue: {type: Number as PropType<number>, default: 1},
@@ -77,6 +77,7 @@ export default defineComponent({
         watch(state, page => {
             context.emit('update:modelValue', page);
             context.emit('update:currentPage', page);
+            context.emit('change', page);
         });
 
         watch(() => props.currentPage, page => state.value = page);

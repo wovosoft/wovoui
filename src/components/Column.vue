@@ -69,12 +69,8 @@ export default defineComponent({
             item: inject('item') as Object,
             showViewModal: inject('showViewModal') as Ref<boolean>,
             showCreateUpdateModal: inject('showCreateUpdateModal') as Ref<boolean>,
+            processDelete: inject("processDelete") as (item: object) => void,
             currentItem: inject('currentItem') as Ref<object>,
-            processDelete:item=>{
-                if (confirm("Are You Sure?")){
-                    //confirmed
-                }
-            }
         }
     }
 })

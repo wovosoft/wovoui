@@ -9,6 +9,6 @@ export default defineComponent({
     setup(props, {slots}) {
         return () => h(props.tag, {
             class: ["card-title"]
-        }, slots.default?.())
+        }, slots.default?.() || (()=>props.content))
     }
 });

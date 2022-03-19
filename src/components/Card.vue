@@ -13,10 +13,7 @@
         </CardHeader>
         <CardImg v-if="imgSrc && !imgBottom" v-bind="cardImageBindings"/>
 
-        <CardBody v-if="!noBody" v-bind="cardBodyBindings">
-            <template #title v-if="$slots.title">
-                <slot name="title"></slot>
-            </template>
+        <CardBody v-if="!noBody" v-bind="cardBodyBindings" :title="title" :title-tag="titleTag">
             <slot></slot>
         </CardBody>
         <template v-else>
@@ -45,10 +42,11 @@ import CardBody from "./CardBody";
 import CardFooter from "./CardFooter";
 import CardImg from "./CardImg";
 import type {ColorVariants} from "../types/colorVariants";
+import CardTitle from "./CardTitle";
 
 export default defineComponent({
     name: "Card",
-    components: {CardImg, CardFooter, CardBody, CardHeader},
+    components: {CardTitle, CardImg, CardFooter, CardBody, CardHeader},
     props: {
         align: {type: String as PropType<string>, default: null},
         bgVariant: {type: String as PropType<ColorVariants>, default: null},

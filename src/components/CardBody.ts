@@ -25,7 +25,7 @@ export default defineComponent({
             return (slots.title || props.title) ? h(CardTitle, {
                 tag: props.titleTag,
                 content: props.title,
-            }, slots.title?.()) : null;
+            }, slots.title?.() || (() => props.title)) : null;
         }
         const subTitle = () => {
             return (props.subTitle || slots.subTitle) ? h(CardSubTitle, {

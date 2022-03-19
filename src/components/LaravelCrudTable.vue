@@ -53,19 +53,29 @@
             </template>
         </slot>
     </Modal>
-    <Card body-class="p-0">
+    <Card body-class="p-0" class="mb-3" :title="title">
         <template #header>
             <Row>
                 <Col :md="2" :sm="12" :lg="2">
-                    <Select v-model="perPage" :options="pager" size="sm"/>
+                    <Select
+                        @change="()=>{
+                            items.current_page=1;
+                            fetchItems();
+                        }"
+                        v-model="items.per_page"
+                        :options="pager"
+                        size="sm"
+                    />
                 </Col>
                 <Col class="text-center" :sm="12" :md="6">
-                    <Spinner v-if="loading"/>
-                    <Input v-else type="search" :placeholder="searchPlaceholder" :size="searchSize"/>
+                    <Input type="search" :placeholder="searchPlaceholder" :size="searchSize"/>
                 </Col>
                 <Col :sm="12" :md="4" class="text-md-end text-sm-start">
                     <ButtonGroup size="sm">
-                        <Button variant="primary">
+                        <Button @click="fetchItems">
+                            <ArrowRepeat/>
+                        </Button>
+                        <Button variant="primary" @click="initAddForm">
                             <Plus/>
                         </Button>
                         <Button variant="danger">
@@ -92,9 +102,7 @@
                 </Col>
             </Row>
         </template>
-        <CardTitle class="p-2 m-0">
-            {{ title }}
-        </CardTitle>
+
         <Table v-bind="getTableProps" v-if="hackReRendered">
             <THead :variant="headVariant" :class="headClass">
             <Tr>
@@ -106,72 +114,83 @@
             </Tr>
             </THead>
             <TBody>
-            <Tr v-for="(item,item_key) in items" :key="item_key">
-                <template v-for="(node,node_key) in theCols">
-                    <RenderColumnVNode
-                        :class="node.props.tdClass||node.props['td-class']"
-                        v-if="node.props.visible!==false"
-                        :item="item"
-                        :node="node"
-                    />
-                </template>
+            <Tr v-if="loading">
+                <Td class="text-center" style="min-height: 200px;vertical-align: middle;"
+                    :colspan="theCols.filter(node=>node.props.visible!==false).length||1">
+                    <Spinner/>
+                    <br>
+                    <h3>Loading.......</h3>
+                </Td>
             </Tr>
+            <template v-else>
+                <Tr v-for="(item,item_key) in items.data" :key="item_key">
+                    <template v-for="(node,node_key) in theCols">
+                        <RenderColumnVNode
+                            :class="node.props.tdClass||node.props['td-class']"
+                            v-if="node.props.visible!==false"
+                            :item="item"
+                            :node="node"
+                        />
+                    </template>
+                </Tr>
+            </template>
             </TBody>
         </Table>
+        <template #footer>
+            <Row>
+                <Col>
+                    Total: {{ items.total }}, Pages: {{ items.last_page }}
+                </Col>
+                <Col>
+                    <Pagination
+                        @change="fetchItems"
+                        class="mb-0"
+                        size="sm"
+                        align="end"
+                        v-model="items.current_page"
+                        :total-rows="items.total"
+                        :per-page="items.per_page">
+                    </Pagination>
+                </Col>
+            </Row>
+        </template>
     </Card>
 </template>
 
 <script lang="ts">
-import axios from "axios";
-
-import {computed, defineComponent, onMounted, PropType, provide, ref, VNode} from "vue";
-import {TBody, Th, Td, Tr, THead, Table, CardTitle, Card} from "./../index"
-import Column from "./Column.vue";
+import {defineComponent, PropType} from "vue";
 import RenderColumnVNode from "./RenderColumnVNode";
-import Spinner from "./Spinner.vue";
-import Row from "./Row";
-import Col from "./Col";
-import Select from "./Select.vue";
-import Button from "./Button";
-import {Plus, Trash} from "@wovosoft/wovoui-icons";
-import ButtonGroup from "./ButtonGroup";
-import Input from "./Input.vue";
+import {
+    TBody, Th, Td, Tr, THead, Table, CardTitle, Card,
+    Spinner, Row, Col, Select, Button, ButtonGroup, Input, Dropdown,
+    Checkbox, ListGroupItem, Modal, FormGroup, Pagination
+} from "./../index"
+import Column from "./Column.vue";
+import {Plus, Trash, ArrowRepeat} from "@wovosoft/wovoui-icons";
+
 import tableProps from "../shared/tableProps";
+
 
 import type {buttonSizes} from "../types/buttonSizes";
 import type {ColorVariants} from "../types/colorVariants";
 import type {classTypes} from "../types/classTypes";
 
-import Dropdown from "./Dropdown.vue";
-import Checkbox from "./Checkbox.vue";
-import ListGroupItem from "./ListGroupItem.vue";
-import {startCase} from "lodash";
-import Modal from "./Modal.vue";
-import FormGroup from "./FormGroup.vue";
 
 type FieldType = {
     label: string,
     key: string,
     formatter: CallableFunction | null | undefined
 }
+
+import setup from "../shared/laravelcrud/setup";
+
 export default defineComponent({
+    setup,
     name: "LaravelCrudTable",
     components: {
-        FormGroup,
-        Modal,
-        ListGroupItem,
-        Checkbox,
-        Dropdown,
-        Input,
-        ButtonGroup,
-        Button,
-        Select,
-        Col,
-        Row,
+        FormGroup, Modal, ListGroupItem, Checkbox, Dropdown, Input, ButtonGroup, Button, Select, Col, Row,
         Column, TBody, Th, Td, Tr, THead, Table, CardTitle, Card, RenderColumnVNode,
-        Spinner,
-        Plus,
-        Trash
+        Spinner, Plus, Trash, ArrowRepeat, Pagination
     },
     props: {
         apiUrl: {type: String as PropType<string>, default: null, required: true},
@@ -224,119 +243,14 @@ export default defineComponent({
         /**
          *  Form Submission Handler Function, when executes the currentItem object will be provided as parameter
          */
-        handleFormSubmit: {type: Function as PropType<(item: object) => void>, default: null}
-    },
-    setup(props, {expose, slots}) {
-        const items = ref<object[]>([]);
-        const loading = ref<boolean>(false);
-        const perPage = ref<number>(15);
-        const fetchItems = () => {
-            loading.value = true;
-            return axios.post(props.apiUrl)
-                .then(res => {
-                    loading.value = false;
-                    items.value = res.data?.data;
-                    return res.data?.data;
-                })
-                .catch(err => {
-                    loading.value = false;
-                    items.value = [];
-                    console.log(err.response.data);
-                    return []
-                })
-        }
-
-        onMounted(() => {
-            fetchItems();
-        });
-        const getTableProps = computed(() => {
-            const keys = Object.keys(tableProps);
-            let output = {};
-            for (let x in props) {
-                if (keys.includes(x)) {
-                    output[x] = props[x];
-                }
-            }
-            return output;
-        });
+        handleFormSubmit: {type: Function as PropType<(item: object) => void>, default: null},
 
         /**
-         * CRUD Modals
+         * destroy url: should be string or link generator
          */
-        const showViewModal = ref<boolean>(false);
-        const showCreateUpdateModal = ref<boolean>(false);
-        const currentItem = ref<object>(null);
-
-        /**
-         * Provide controls to child columns to trigger modals
-         */
-        provide("showViewModal", showViewModal);
-        provide("showCreateUpdateModal", showCreateUpdateModal);
-        provide("currentItem", currentItem);
-
-        /**
-         * Date Format for created_at and updated_at values
-         */
-        const dateFormat = (date) => {
-            if (!date) {
-                return null;
-            }
-
-            return new Intl.DateTimeFormat(props.dateLocale, props.dateOptions || {}).format(new Date(date));
-        }
-        return {
-            dateFormat,
-            startCase,
-            currentItem,
-            items,
-            loading,
-            perPage,
-            getTableProps,
-            theCols: ref<VNode[]>(slots.default()),
-            showViewModal,
-            showCreateUpdateModal,
-            hackReRendered: ref<number>(Math.random() * 1000),
-            getLabel(node) {
-                return node.props.label || startCase(node.props.field)
-            },
-            getFormInputLabel(prop) {
-                if (Object.keys(props.createUpdateFormFields).includes(prop) && props.createUpdateFormFields[prop].hasOwnProperty('label')) {
-                    return props.createUpdateFormFields[prop].label;
-                }
-                return startCase(prop);
-            },
-            getComponentName(prop) {
-                if (Object.keys(props.createUpdateFormFields).includes(prop) && props.createUpdateFormFields[prop].hasOwnProperty('component')) {
-                    return props.createUpdateFormFields[prop].component;
-                }
-                return Input;
-            },
-            getAttributeBindings(prop) {
-                if (Object.keys(props.createUpdateFormFields).includes(prop) && props.createUpdateFormFields[prop].hasOwnProperty('attrs')) {
-                    return props.createUpdateFormFields[prop].attrs;
-                }
-                return null;
-            },
-
-            /**
-             * When default form submission handler is not provided, it will be used.
-             */
-            handleSubmit() {
-                if (props.handleFormSubmit) {
-                    return props.handleFormSubmit(currentItem.value);
-                }
-                return axios
-                    .put(props.formSubmitUrl, currentItem.value)
-                    .then(res => {
-                        alert(res.data?.message || "Successfully Done");
-                        return res;
-                    })
-                    .catch(err => {
-                        console.log(err.response.data);
-                        return err;
-                    });
-            }
-        }
+        destroyUrl: {type: [String, Function] as PropType<string | ((object) => string)>, default: null},
+        destroyHandler: {type: Function as PropType<(item: object) => void>, default: null},
+        defaultFormObject: {type: Object as PropType<object>, default: () => ({})}
     }
 })
 </script>

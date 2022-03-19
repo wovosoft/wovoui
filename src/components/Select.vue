@@ -24,11 +24,11 @@
 </template>
 
 <script lang="ts">
-import {computed, ref, watch, defineComponent, PropType, Ref} from "vue";
-import {isObject} from "../shared/utilities.js";
+import {computed, ref, watch, defineComponent, PropType} from "vue";
 import type {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
+    emits: ['update:modelValue', 'change'],
     props: {
         multiple: {type: Boolean as PropType<boolean>, default: false},
         size: {type: String as PropType<buttonSizes>, default: null},
@@ -39,10 +39,13 @@ export default defineComponent({
         labelField: {type: String as PropType<string>, default: "label"},
         modelValue: {default: null}
     },
-    setup(props, context) {
+    setup(props, {emit}) {
         const model = ref<unknown>(null);
         watch(() => props.modelValue, value => model.value = value);
-        watch(model, (val) => context.emit('update:modelValue', val));
+        watch(model, (val) => {
+            emit('update:modelValue', val);
+            emit('change', val);
+        });
         if (props.modelValue !== null) {
             model.value = props.modelValue;
         }
@@ -50,7 +53,7 @@ export default defineComponent({
 
         const getEntity = (o, k) => {
             if (typeof props[k] === "string" || props[k] === null) {
-                if (!isObject(o)) {
+                if (!(typeof o === "object" && !Array.isArray(o))) {
                     return o;
                 }
                 return o[props[k] === null ? 'text' : props[k]];

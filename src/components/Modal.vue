@@ -131,20 +131,19 @@ export default defineComponent({
         watch(() => props.modelValue, (value) => shown.value = value);
         watch(shown, value => emit('update:modelValue', value));
         const toggleState = (value?: boolean) => {
-            if (typeof value === "boolean") {
-                if (value) {
-                    emit("showing", true);
-                } else {
-                    emit("hiding", true);
-                }
-                shown.value = value;
-                if (value) {
-                    emit("shown", true);
-                } else {
-                    emit("hidden", true);
-                }
-                emit('stateChanged', value);
+            if (value) {
+                emit("showing", true);
+            } else {
+                emit("hiding", true);
             }
+
+            shown.value = value;
+            if (value) {
+                emit("shown", true);
+            } else {
+                emit("hidden", true);
+            }
+            emit('stateChanged', value);
         }
         const show = () => toggleState(true);
         const hide = () => toggleState(false);

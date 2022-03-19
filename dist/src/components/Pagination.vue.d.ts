@@ -51,7 +51,7 @@ declare const _default: import("vue").DefineComponent<{
     pageCount: import("vue").ComputedRef<number>;
     state: import("vue").Ref<number>;
     setPage: (page: any) => any;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "update:currentPage")[], "update:modelValue" | "update:currentPage", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change" | "update:currentPage")[], "update:modelValue" | "change" | "update:currentPage", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
         type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
@@ -94,14 +94,15 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
+    onChange?: (...args: any[]) => any;
     "onUpdate:currentPage"?: (...args: any[]) => any;
 }, {
     size: buttonSizes;
     tag: keyof HTMLElementTagNameMap;
     modelValue: number;
     align: "center" | "end" | "right";
-    perPage: number;
     totalRows: number;
+    perPage: number;
     currentPage: number;
     firstColPageCount: number;
     centerColPageCount: number;

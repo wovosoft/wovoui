@@ -914,6 +914,18 @@
     "description": "Form Submission Handler Function, when executes the currentItem object will be provided as parameter",
     "type": "(item: object) => void"
   },
+  "laravel-crud-table/destroy-url": {
+    "description": "destroy url: should be string or link generator",
+    "type": "string | ((object) => string)"
+  },
+  "laravel-crud-table/destroy-handler": {
+    "description": "",
+    "type": "(item: object) => void"
+  },
+  "laravel-crud-table/default-form-object": {
+    "description": "",
+    "type": "object"
+  },
   "input-group-text/tag": {
     "description": "",
     "type": "keyof HTMLElementTagNameMap"

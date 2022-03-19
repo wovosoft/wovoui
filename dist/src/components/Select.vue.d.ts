@@ -1,4 +1,4 @@
-import { PropType, Ref } from "vue";
+import { PropType } from "vue";
 import type { buttonSizes } from "../types/buttonSizes";
 declare const _default: import("vue").DefineComponent<{
     multiple: {
@@ -35,11 +35,11 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     getEntity: (o: any, k: any) => any;
     isDisabledOption: (o: any) => any;
-    model: Ref<unknown>;
+    model: import("vue").Ref<unknown>;
     classes: import("vue").ComputedRef<(string | {
         [x: string]: boolean;
     })[]>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change")[], "update:modelValue" | "change", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     multiple: {
         type: PropType<boolean>;
         default: boolean;
@@ -71,7 +71,10 @@ declare const _default: import("vue").DefineComponent<{
     modelValue: {
         default: any;
     };
-}>>, {
+}>> & {
+    "onUpdate:modelValue"?: (...args: any[]) => any;
+    onChange?: (...args: any[]) => any;
+}, {
     size: buttonSizes;
     options: any[];
     modelValue: any;
