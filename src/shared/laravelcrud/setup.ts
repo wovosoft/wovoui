@@ -1,11 +1,24 @@
-import {computed, onMounted, provide, reactive, ref, VNode} from "vue";
-import fetchItems from "./fetchItems";
+import {computed, onMounted, provide, Ref, ref, VNode} from "vue";
+
 import tableProps from "../tableProps";
 import laravelCrudHandleDestroy from "./handleDestroy";
 import {startCase} from "lodash";
-
-import laravelCrudHandleSubmit from "./handleSubmit";
 import type {LaravelDatatableType} from "../../types/LaravelDatatableType";
+
+const laravelCrudHandleSubmit = (props, currentItem: Ref<object>): Promise<any> => {
+    if (props.handleFormSubmit) {
+        return props.handleFormSubmit(currentItem.value);
+    }
+    let url: string = "";
+    // @ts-ignore
+    if (currentItem.value.id && props.formUpdateUrl) {
+        url = typeof props.formUpdateUrl === "function" ? props.formUpdateUrl(currentItem.value) : props.formUpdateUrl;
+    } else {
+        url = props.formSubmitUrl;
+    }
+    return props.axiosPromise.put(url, currentItem.value);
+};
+
 
 let defaultDatatable: LaravelDatatableType = {
     current_page: 1,
@@ -22,14 +35,14 @@ let defaultDatatable: LaravelDatatableType = {
     to: 1,
     total: 0
 };
-export default function setup(props, {expose, slots}) {
+export default function setup(props, {slots}) {
     const items = ref<LaravelDatatableType>(defaultDatatable);
 
     const loading = ref<boolean>(false);
     const hackReRendered = ref<number>(Math.random() * 1000);
     const perPage = ref<number>(15);
 
-    onMounted(() => fetchItems(loading, props.apiUrl, items));
+    onMounted(() => props.fetchItems(loading, props.apiUrl, items, props.axiosPromise));
 
 
     /**
@@ -42,7 +55,7 @@ export default function setup(props, {expose, slots}) {
         if (confirm("Are You Sure?")) {
             laravelCrudHandleDestroy(item, props).then(res => {
                 alert(res.data?.message || "Successfully Done");
-                fetchItems(loading, props.apiUrl, items);
+                props.fetchItems(loading, props.apiUrl, items);
             }).catch(err => {
                 alert(err.response.data?.message || "Operation Failed");
                 console.log(err.response);
@@ -50,7 +63,9 @@ export default function setup(props, {expose, slots}) {
         }
     };
     const currentItem = ref<object>(null);
-
+    const setCurrentItem = (item: object | null): void => {
+        currentItem.value = item ? JSON.parse(JSON.stringify(item)) : null;
+    }
     /**
      * Provide controls to child columns to trigger modals
      */
@@ -58,6 +73,7 @@ export default function setup(props, {expose, slots}) {
     provide("showCreateUpdateModal", showCreateUpdateModal);
     provide("processDelete", processDelete);
     provide("currentItem", currentItem);
+    provide("setCurrentItem", setCurrentItem);
 
     /**
      * Date Format for created_at and updated_at values
@@ -68,7 +84,8 @@ export default function setup(props, {expose, slots}) {
     ).format(new Date(date)) : null;
 
     return {
-        fetchItems: () => fetchItems(loading, props.apiUrl, items),
+        setCurrentItem,
+        getItems: () => props.fetchItems(loading, props.apiUrl, items, props.axiosPromise),
         dateFormat,
         startCase,
         currentItem,
@@ -114,14 +131,14 @@ export default function setup(props, {expose, slots}) {
          */
         handleSubmit: () => laravelCrudHandleSubmit(props, currentItem).then(res => {
             alert(res.data?.message || "Successfully Done");
-            fetchItems(loading, props.apiUrl, items);
+            props.fetchItems(loading, props.apiUrl, items);
         }).catch(err => {
             alert(err.response?.data?.message || "Operation Failed");
             console.log(err.response)
         }),
         initAddForm: () => {
             showCreateUpdateModal.value = true;
-            currentItem.value = props.defaultFormObject;
+            setCurrentItem(props.defaultFormObject)
         }
     }
 }

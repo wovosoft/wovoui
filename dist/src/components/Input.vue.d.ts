@@ -28,7 +28,7 @@ declare const _default: import("vue").DefineComponent<{
         "is-valid": boolean;
         "is-invalid": boolean;
         "form-control-color": boolean;
-    }[]>;
+    }>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     type: {
         type: PropType<string>;

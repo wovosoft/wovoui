@@ -1,4 +1,52 @@
 {
+  "type-head/api-url": {
+    "description": "",
+    "type": "string"
+  },
+  "type-head/get-items": {
+    "description": "",
+    "type": "(items: Ref<unknown>, query: Ref<string | number | null>) => unknown"
+  },
+  "type-head/menu-height": {
+    "description": "",
+    "type": "string"
+  },
+  "type-head/search-size": {
+    "description": "",
+    "type": "buttonSizes"
+  },
+  "type-head/toggle-size": {
+    "description": "",
+    "type": "buttonSizes"
+  },
+  "type-head/menu-dark": {
+    "description": "",
+    "type": "boolean"
+  },
+  "type-head/menu-tag": {
+    "description": "",
+    "type": "keyof HTMLElementTagNameMap"
+  },
+  "type-head/search-placeholder": {
+    "description": "",
+    "type": "string"
+  },
+  "type-head/model-value": {
+    "description": "",
+    "type": "object"
+  },
+  "type-head/variant": {
+    "description": "",
+    "type": "ColorVariants"
+  },
+  "type-head/text-align": {
+    "description": "",
+    "type": "TextAlign"
+  },
+  "type-head/get-label": {
+    "description": "",
+    "type": "(item: unknown) => unknown"
+  },
   "tooltip/target": {
     "description": "",
     "type": "string"
@@ -834,6 +882,10 @@
     "description": "",
     "type": "number"
   },
+  "laravel-crud-table/axios-promise": {
+    "description": "axios instance, if nothing special is applied, then it can be omitted, default axios will be used.",
+    "type": "undefined"
+  },
   "laravel-crud-table/api-url": {
     "description": "",
     "type": "string"
@@ -910,6 +962,10 @@
     "description": "Data Submission URL",
     "type": "string"
   },
+  "laravel-crud-table/form-update-url": {
+    "description": "",
+    "type": "string | ((object) => string)"
+  },
   "laravel-crud-table/handle-form-submit": {
     "description": "Form Submission Handler Function, when executes the currentItem object will be provided as parameter",
     "type": "(item: object) => void"
@@ -925,6 +981,10 @@
   "laravel-crud-table/default-form-object": {
     "description": "",
     "type": "object"
+  },
+  "laravel-crud-table/fetch-items": {
+    "description": "",
+    "type": "(loading: Ref<boolean>, apiUrl: string, items: Ref<any>) => Promise<unknown>"
   },
   "input-group-text/tag": {
     "description": "",
@@ -1066,6 +1126,10 @@
     "description": "",
     "type": "string"
   },
+  "dropdown-item/no-item-tag": {
+    "description": "",
+    "type": "boolean"
+  },
   "dropdown-item/active": {
     "description": "",
     "type": "boolean"
@@ -1077,6 +1141,10 @@
   "dropdown-item/is-text": {
     "description": "",
     "type": "boolean"
+  },
+  "dropdown-item/item-tag": {
+    "description": "",
+    "type": "keyof HTMLElementTagNameMap"
   },
   "dropdown-header/wrapper": {
     "description": "",

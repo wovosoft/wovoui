@@ -1,14 +1,17 @@
 <template>
     <Modal
-        @hidden="currentItem=null"
+        @hidden="setCurrentItem(null);$emit('createUpdateFormHidden',true)"
         v-model="showCreateUpdateModal"
         v-bind="createUpdateModalProps"
         static
         ok-title="Submit"
         @ok.prevent="handleSubmit"
         :title="createUpdateModalTitle">
-        <slot name="create_update" :currentItem="currentItem">
-            <template v-if="currentItem">
+        <slot name="create_update"
+              :shown="showCreateUpdateModal"
+              :currentItem="currentItem"
+              :handleSubmit="handleSubmit">
+            <template v-if="currentItem && showCreateUpdateModal">
                 <form @submit.prevent="handleSubmit">
                     <Row>
                         <Col
@@ -29,12 +32,12 @@
         </slot>
     </Modal>
     <Modal
-        @hidden="currentItem=null"
+        @hidden="setCurrentItem(null)"
         v-model="showViewModal"
         v-bind="viewModalProps"
         :title="viewModalTitle">
-        <slot name="view" :currentItem="currentItem">
-            <template v-if="currentItem">
+        <slot name="view" :currentItem="currentItem" :shown="showViewModal">
+            <template v-if="currentItem && showViewModal">
                 <Table bordered hover striped small>
                     <TBody>
                     <Tr v-for="row in Object.keys(currentItem).filter(i=>!excludeFromView.includes(i))">
@@ -60,7 +63,7 @@
                     <Select
                         @change="()=>{
                             items.current_page=1;
-                            fetchItems();
+                            getItems();
                         }"
                         v-model="items.per_page"
                         :options="pager"
@@ -71,34 +74,36 @@
                     <Input type="search" :placeholder="searchPlaceholder" :size="searchSize"/>
                 </Col>
                 <Col :sm="12" :md="4" class="text-md-end text-sm-start">
-                    <ButtonGroup size="sm">
-                        <Button @click="fetchItems">
-                            <ArrowRepeat/>
-                        </Button>
-                        <Button variant="primary" @click="initAddForm">
-                            <Plus/>
-                        </Button>
-                        <Button variant="danger">
-                            <Trash/>
-                        </Button>
-                        <Dropdown menu-tag="ul"
-                                  size="sm"
-                                  disable-inner-clicks
-                                  menu-class="border-0 p-0">
-                            <ListGroupItem v-for="node in theCols">
-                                <label class="form-check-label d-block">
-                                    <input type="checkbox"
-                                           class="form-check-input"
-                                           @change="e=>{
+                    <slot name="header-right" :getItems="getItems" :initAddForm="initAddForm">
+                        <ButtonGroup size="sm">
+                            <Button @click="getItems">
+                                <ArrowRepeat/>
+                            </Button>
+                            <Button variant="primary" @click="initAddForm">
+                                <Plus/>
+                            </Button>
+                            <Button variant="danger">
+                                <Trash/>
+                            </Button>
+                            <Dropdown menu-tag="ul"
+                                      size="sm"
+                                      disable-inner-clicks
+                                      menu-class="border-0 p-0">
+                                <ListGroupItem v-for="node in theCols">
+                                    <label class="form-check-label d-block">
+                                        <input type="checkbox"
+                                               class="form-check-input"
+                                               @change="e=>{
                                                node.props.visible=e.target.checked;
                                                hackReRendered=Math.random()*1000;
                                            }"
-                                           :checked="node.props.visible!==false">
-                                    {{ getLabel(node) }}
-                                </label>
-                            </ListGroupItem>
-                        </Dropdown>
-                    </ButtonGroup>
+                                               :checked="node.props.visible!==false">
+                                        {{ getLabel(node) }}
+                                    </label>
+                                </ListGroupItem>
+                            </Dropdown>
+                        </ButtonGroup>
+                    </slot>
                 </Col>
             </Row>
         </template>
@@ -143,7 +148,7 @@
                 </Col>
                 <Col>
                     <Pagination
-                        @change="fetchItems"
+                        @change="getItems"
                         class="mb-0"
                         size="sm"
                         align="end"
@@ -158,7 +163,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
+import {defineComponent, PropType, Ref} from "vue";
 import RenderColumnVNode from "./RenderColumnVNode";
 import {
     TBody, Th, Td, Tr, THead, Table, CardTitle, Card,
@@ -183,8 +188,11 @@ type FieldType = {
 }
 
 import setup from "../shared/laravelcrud/setup";
+import fetchItems from "./../shared/laravelcrud/fetchItems";
+import axios from "axios";
 
 export default defineComponent({
+    emits: ['createUpdateFormHidden'],
     setup,
     name: "LaravelCrudTable",
     components: {
@@ -193,6 +201,10 @@ export default defineComponent({
         Spinner, Plus, Trash, ArrowRepeat, Pagination
     },
     props: {
+        /**
+         * axios instance, if nothing special is applied, then it can be omitted, default axios will be used.
+         */
+        axiosPromise: {default: axios},
         apiUrl: {type: String as PropType<string>, default: null, required: true},
         title: {type: String as PropType<string>, default: null},
         titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"},
@@ -239,6 +251,7 @@ export default defineComponent({
          * Data Submission URL
          */
         formSubmitUrl: {type: String as PropType<string>, default: null},
+        formUpdateUrl: {type: [String, Function] as PropType<string | ((object) => string)>, default: null},
 
         /**
          *  Form Submission Handler Function, when executes the currentItem object will be provided as parameter
@@ -250,7 +263,11 @@ export default defineComponent({
          */
         destroyUrl: {type: [String, Function] as PropType<string | ((object) => string)>, default: null},
         destroyHandler: {type: Function as PropType<(item: object) => void>, default: null},
-        defaultFormObject: {type: Object as PropType<object>, default: () => ({})}
+        defaultFormObject: {type: Object as PropType<object>, default: () => ({})},
+        fetchItems: {
+            type: Function as PropType<(loading: Ref<boolean>, apiUrl: string, items: Ref<any>) => Promise<unknown>>,
+            default: fetchItems
+        }
     }
 })
 </script>

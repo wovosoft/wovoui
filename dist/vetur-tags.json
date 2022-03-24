@@ -247,9 +247,11 @@
   "dropdown-item": {
     "attributes": [
       "href",
+      "no-item-tag",
       "active",
       "disabled",
-      "is-text"
+      "is-text",
+      "item-tag"
     ],
     "description": ""
   },
@@ -324,6 +326,7 @@
   },
   "laravel-crud-table": {
     "attributes": [
+      "axios-promise",
       "api-url",
       "title",
       "title-tag",
@@ -343,10 +346,12 @@
       "exclude-from-create-update-form",
       "create-update-form-fields",
       "form-submit-url",
+      "form-update-url",
       "handle-form-submit",
       "destroy-url",
       "destroy-handler",
-      "default-form-object"
+      "default-form-object",
+      "fetch-items"
     ],
     "description": ""
   },
@@ -698,6 +703,23 @@
       "placement",
       "opens-on",
       "closes-on"
+    ],
+    "description": ""
+  },
+  "type-head": {
+    "attributes": [
+      "api-url",
+      "get-items",
+      "menu-height",
+      "search-size",
+      "toggle-size",
+      "menu-dark",
+      "menu-tag",
+      "search-placeholder",
+      "model-value",
+      "variant",
+      "text-align",
+      "get-label"
     ],
     "description": ""
   }

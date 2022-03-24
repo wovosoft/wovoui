@@ -5,13 +5,13 @@
                 <ButtonGroup :size="actionsSize">
                     <Button :variant="viewVariant" @click="()=>{
                         showViewModal=true;
-                        currentItem=item;
+                        setCurrentItem(item);
                     }">
                         <Eye/>
                     </Button>
                     <Button :variant="editVariant" @click="()=>{
                         showCreateUpdateModal=true;
-                        currentItem=item;
+                        setCurrentItem(item);
                     }">
                         <PencilSquare/>
                     </Button>
@@ -71,6 +71,7 @@ export default defineComponent({
             showCreateUpdateModal: inject('showCreateUpdateModal') as Ref<boolean>,
             processDelete: inject("processDelete") as (item: object) => void,
             currentItem: inject('currentItem') as Ref<object>,
+            setCurrentItem: inject('setCurrentItem') as (item: object | null) => void,
         }
     }
 })

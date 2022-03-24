@@ -108,4 +108,5 @@ export { default as Vr } from "./components/Vr";
 export { default as Layout } from "./components/Layout.vue";
 export { default as LaravelCrudTable } from "./components/LaravelCrudTable.vue";
 export { default as Column } from "./components/Column.vue";
+export { default as TypeHead } from "./components/TypeHead.vue";
 //# sourceMappingURL=index.d.ts.map

@@ -29,16 +29,14 @@ export default defineComponent({
         }
         return {
             attributes,
-            classes: computed(() => [
-                {
-                    ["form-control" + (props.plain ? "-plaintext" : "")]: props.type !== "range",
-                    "form-range": props.type === "range",
-                    "is-valid": props.state === true,
-                    "is-invalid": props.state === false,
-                    ["form-control-" + props.size]: !!props.size,
-                    "form-control-color": props.type === "color"
-                }
-            ])
+            classes: computed(() => ({
+                ["form-control" + (props.plain ? "-plaintext" : "")]: props.type !== "range",
+                "form-range": props.type === "range",
+                "is-valid": props.state === true,
+                "is-invalid": props.state === false,
+                ["form-control-" + props.size]: !!props.size,
+                "form-control-color": props.type === "color"
+            }))
         }
     }
 })

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, {AxiosStatic} from "axios";
 import {Ref} from "vue";
 
 import type {LaravelDatatableType} from "../../types/LaravelDatatableType";
@@ -19,9 +19,9 @@ let defaultDatatable: LaravelDatatableType = {
     total: 0
 };
 
-export default function (loading: Ref<boolean>, url: string, items: Ref<LaravelDatatableType>) {
+export default function (loading: Ref<boolean>, url: string, items: Ref<LaravelDatatableType>, axiosPromise: AxiosStatic = axios) {
     loading.value = true;
-    return axios.post(url, {
+    return axiosPromise.post(url, {
         page: items.value.current_page || 1,
         per_page: items.value.per_page || 15,
         filter: null,
