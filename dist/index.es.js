@@ -44718,6 +44718,7 @@ function setup(props, { slots }) {
     },
     handleSubmit: () => laravelCrudHandleSubmit(props, currentItem).then((res) => {
       alert(res.data?.message || "Successfully Done");
+      console.log(res.data);
       props.fetchItems(loading, props.apiUrl, items);
     }).catch((err) => {
       alert(err.response?.data?.message || "Operation Failed");
