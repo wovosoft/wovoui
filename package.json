@@ -1,6 +1,6 @@
 {
   "name": "@wovosoft/wovoui",
-  "version": "0.2.25",
+  "version": "0.2.26",
   "scripts": {
     "dev": "vite",
     "build": "vite build && node vetur-tags-generate.js",
