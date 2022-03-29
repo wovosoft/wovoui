@@ -23,9 +23,9 @@ export default defineComponent({
         variant: {type: String as PropType<ColorVariants>, default: "primary"},
         dismissible: {type: Boolean as PropType<boolean>, default: false},
         fade: {type: Boolean as PropType<boolean>, default: false},
-        modelValue: {type: Boolean as PropType<boolean>, default: null},
+        modelValue: {type: Boolean as PropType<boolean | null>, default: null},
         show: {type: Boolean as PropType<boolean>, default: false},
-        countdown: {type: Number as PropType<null>, default: null},
+        countdown: {type: Number as PropType<number | null>, default: null},
         countdownStep: {type: Number as PropType<number>, default: 1} //in seconds
     },
     setup(props, context) {

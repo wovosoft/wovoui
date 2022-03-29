@@ -1,4 +1,4 @@
-import * as components from "./index.ts";
+import * as components from "./index";
 
 export default {
     install: (app, options) => {

@@ -31,60 +31,51 @@
         </template>
     </InputGroup>
 </template>
-
-<script lang="ts">
+<script lang="ts" setup>
+import {computed, ref, watch, PropType} from "vue";
 import InputGroup from "./InputGroup.vue";
 import Button from "./Button";
-import {computed, ref, watch, defineComponent, PropType} from "vue";
+
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
 import type {ColorVariants} from "../types/colorVariants";
 import type {buttonSizes} from "../types/buttonSizes";
 
-export default defineComponent({
-    name: "SpinButton",
-    components: {Dash, Plus, Button, InputGroup},
-    props: {
-        modelValue: {type: Number as PropType<number>, default: 0},
-        step: {type: Number as PropType<number>, default: 1},
-        min: {type: Number as PropType<number>, default: 0},
-        max: {type: Number as PropType<number>, default: 100},
-        buttonVariant: {type: String as PropType<ColorVariants>, default: "secondary"},
-        size: {type: String as PropType<buttonSizes>, default: null},
-        formatter: {type: Function as PropType<Function>, default: v => v},
-        inline: {type: Boolean as PropType<boolean>, default: false},
-        vertical: {type: Boolean as PropType<boolean>, default: false},
-    },
-    setup(props, context) {
-        const model = ref(props.modelValue);
-        watch(model, v => context.emit('update:modelValue', v));
-        watch(() => props.modelValue, v => model.value = v);
-        const updateValue = (type) => {
-            if (type === "increment" && (model.value + props.step) <= props.max) {
-                model.value += props.step;
-            } else if (type === "decrement" && (model.value - props.step) >= props.min) {
-                model.value -= props.step;
-            }
-        }
+const props = defineProps({
+    modelValue: {type: Number as PropType<number>, default: 0},
+    step: {type: Number as PropType<number>, default: 1},
+    min: {type: Number as PropType<number>, default: 0},
+    max: {type: Number as PropType<number>, default: 100},
+    buttonVariant: {type: String as PropType<ColorVariants>, default: "secondary"},
+    size: {type: String as PropType<buttonSizes>, default: null},
+    formatter: {type: Function as PropType<Function>, default: v => v},
+    inline: {type: Boolean as PropType<boolean>, default: false},
+    vertical: {type: Boolean as PropType<boolean>, default: false},
+});
 
-        return {
-            model,
-            updateValue,
-            classes: computed(() => [
-                "spin-button", {
-                    "inline": props.inline
-                }
-            ])
-        }
+const emit = defineEmits(["update:modelValue"]);
+
+const model = ref<number>(props.modelValue);
+watch(model, v => emit('update:modelValue', v));
+watch(() => props.modelValue, v => model.value = v);
+
+
+const updateValue = (type) => {
+    if (type === "increment" && (model.value + props.step) <= props.max) {
+        model.value += props.step;
+    } else if (type === "decrement" && (model.value - props.step) >= props.min) {
+        model.value -= props.step;
     }
-})
+};
+const classes = computed(() => [
+    "spin-button", {
+        "inline": props.inline
+    }
+]);
 </script>
+
 <style>
 .spin-button:focus {
     box-shadow: 0 0 6px #007bff;
     border-radius: 4px;
-}
-
-.spin-button.inline {
-
 }
 </style>

@@ -30,7 +30,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     countdown: {
-        type: PropType<null>;
+        type: PropType<number>;
         default: any;
     };
     countdownStep: {
@@ -77,7 +77,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     countdown: {
-        type: PropType<null>;
+        type: PropType<number>;
         default: any;
     };
     countdownStep: {
@@ -92,7 +92,7 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     tag: keyof HTMLElementTagNameMap;
     modelValue: boolean;
-    countdown: null;
+    countdown: number;
     dismissLabel: string;
     variant: ColorVariants;
     dismissible: boolean;

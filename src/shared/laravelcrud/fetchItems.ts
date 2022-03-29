@@ -19,12 +19,13 @@ let defaultDatatable: LaravelDatatableType = {
     total: 0
 };
 
-export default function (loading: Ref<boolean>, url: string, items: Ref<LaravelDatatableType>, axiosPromise: AxiosStatic = axios) {
+export default function (loading: Ref<boolean>, url: string, items: Ref<LaravelDatatableType>, axiosPromise: AxiosStatic = axios, props: any = {}) {
     loading.value = true;
     return axiosPromise.post(url, {
         page: items.value.current_page || 1,
         per_page: items.value.per_page || 15,
         filter: null,
+        ...(props.withQuery ? props.withQuery : {})
     }).then(res => {
         loading.value = false;
         items.value = res.data;
@@ -32,7 +33,7 @@ export default function (loading: Ref<boolean>, url: string, items: Ref<LaravelD
     }).catch(err => {
         loading.value = false;
         items.value = JSON.parse(JSON.stringify(defaultDatatable));
-        console.log(err.response.data);
+        console.log(err.response?.data);
         return []
     })
 }

@@ -4,6 +4,10 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<string>;
         default: string;
     };
+    to: {
+        type: PropType<object>;
+        default: any;
+    };
     noItemTag: {
         type: PropType<boolean>;
         default: boolean;
@@ -29,6 +33,10 @@ declare const _default: import("vue").DefineComponent<{
         type: PropType<string>;
         default: string;
     };
+    to: {
+        type: PropType<object>;
+        default: any;
+    };
     noItemTag: {
         type: PropType<boolean>;
         default: boolean;
@@ -53,6 +61,7 @@ declare const _default: import("vue").DefineComponent<{
     disabled: boolean;
     href: string;
     active: boolean;
+    to: object;
     noItemTag: boolean;
     isText: boolean;
     itemTag: keyof HTMLElementTagNameMap;

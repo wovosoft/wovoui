@@ -42,7 +42,7 @@ export default function setup(props, {slots}) {
     const hackReRendered = ref<number>(Math.random() * 1000);
     const perPage = ref<number>(15);
 
-    onMounted(() => props.fetchItems(loading, props.apiUrl, items, props.axiosPromise));
+    onMounted(() => props.fetchItems(loading, props.apiUrl, items, props.axiosPromise, props));
 
 
     /**
@@ -55,7 +55,7 @@ export default function setup(props, {slots}) {
         if (confirm("Are You Sure?")) {
             laravelCrudHandleDestroy(item, props).then(res => {
                 alert(res.data?.message || "Successfully Done");
-                props.fetchItems(loading, props.apiUrl, items);
+                props.fetchItems(loading, props.apiUrl, items, props);
             }).catch(err => {
                 alert(err.response.data?.message || "Operation Failed");
                 console.log(err.response);
@@ -85,7 +85,7 @@ export default function setup(props, {slots}) {
 
     return {
         setCurrentItem,
-        getItems: () => props.fetchItems(loading, props.apiUrl, items, props.axiosPromise),
+        getItems: () => props.fetchItems(loading, props.apiUrl, items, props.axiosPromise, props),
         dateFormat,
         startCase,
         currentItem,
@@ -132,7 +132,7 @@ export default function setup(props, {slots}) {
         handleSubmit: () => laravelCrudHandleSubmit(props, currentItem).then(res => {
             alert(res.data?.message || "Successfully Done");
             console.log(res.data)
-            props.fetchItems(loading, props.apiUrl, items);
+            props.fetchItems(loading, props.apiUrl, items, props.axiosPromise, props);
         }).catch(err => {
             alert(err.response?.data?.message || "Operation Failed");
             console.log(err.response)

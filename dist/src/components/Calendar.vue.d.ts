@@ -1,9 +1,9 @@
 import { PropType, Ref } from "vue";
-import dayjs from "dayjs";
-import { Binary } from "../types/Binary";
+import dayjs, { Dayjs } from "dayjs";
+declare type DateType = string | number | Date | Dayjs | null | undefined;
 declare const _default: import("vue").DefineComponent<{
     modelValue: {
-        type: PropType<string | object>;
+        type: PropType<DateType>;
         default: any;
     };
     format: {
@@ -18,7 +18,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     monthSelectorEnabled: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     activeClass: {
@@ -39,7 +39,7 @@ declare const _default: import("vue").DefineComponent<{
     weekdays: import("vue").ComputedRef<dayjs.WeekdayNames>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     modelValue: {
-        type: PropType<string | object>;
+        type: PropType<DateType>;
         default: any;
     };
     format: {
@@ -54,7 +54,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     monthSelectorEnabled: {
-        type: PropType<Binary>;
+        type: PropType<boolean>;
         default: boolean;
     };
     activeClass: {
@@ -62,11 +62,11 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
-    modelValue: string | object;
+    modelValue: DateType;
     activeClass: string;
     format: string;
     weekdayType: string;
-    monthSelectorEnabled: Binary;
+    monthSelectorEnabled: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=Calendar.vue.d.ts.map

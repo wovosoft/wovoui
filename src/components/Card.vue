@@ -149,7 +149,7 @@ export default defineComponent({
     }
 
     .card-deck .card {
-        flex: 1 0 0%;
+        flex: 1 0 0;
         margin-right: 15px;
         margin-bottom: 0;
         margin-left: 15px

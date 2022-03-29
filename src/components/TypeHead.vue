@@ -1,7 +1,8 @@
 <template>
     <div ref="root" class="dropdown wui-typehead"
-         @keydown.esc="dropdownShown=false;$refs.search?.$el?.focus()">
+         @keydown.esc="dropdownShown=false;$refs.toggle?.$el?.focus()">
         <Button :class="classes"
+                ref="toggle"
                 :variant="variant"
                 type="button"
                 :size="toggleSize"
@@ -92,6 +93,7 @@ export default defineComponent({
 
         const root = ref<HTMLElement | null>(null);
         const search = ref<InstanceType<typeof Input> | null>(null);
+        const toggle = ref<InstanceType<typeof Button> | null>(null);
         const outsideClickHandler = (e): void => {
             /**
              * If clicked outside of the root, dismiss the dropdown menu
@@ -124,6 +126,7 @@ export default defineComponent({
             query,
             root,
             search,
+            toggle,
             dropdownShown,
             items,
             selectedItem,

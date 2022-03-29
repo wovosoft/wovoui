@@ -74,36 +74,35 @@
                     <Input type="search" :placeholder="searchPlaceholder" :size="searchSize"/>
                 </Col>
                 <Col :sm="12" :md="4" class="text-md-end text-sm-start">
-                    <slot name="header-right" :getItems="getItems" :initAddForm="initAddForm">
-                        <ButtonGroup size="sm">
-                            <Button @click="getItems">
-                                <ArrowRepeat/>
-                            </Button>
-                            <Button variant="primary" @click="initAddForm">
-                                <Plus/>
-                            </Button>
-                            <Button variant="danger">
-                                <Trash/>
-                            </Button>
-                            <Dropdown menu-tag="ul"
-                                      size="sm"
-                                      disable-inner-clicks
-                                      menu-class="border-0 p-0">
-                                <ListGroupItem v-for="node in theCols">
-                                    <label class="form-check-label d-block">
-                                        <input type="checkbox"
-                                               class="form-check-input"
-                                               @change="e=>{
+                    <ButtonGroup size="sm">
+                        <slot name="header-right" :getItems="getItems" :initAddForm="initAddForm"></slot>
+                        <Button @click="getItems">
+                            <ArrowRepeat/>
+                        </Button>
+                        <Button variant="primary" @click="initAddForm">
+                            <Plus/>
+                        </Button>
+                        <Button variant="danger">
+                            <Trash/>
+                        </Button>
+                        <Dropdown menu-tag="ul"
+                                  size="sm"
+                                  disable-inner-clicks
+                                  menu-class="border-0 p-0">
+                            <ListGroupItem v-for="node in theCols">
+                                <label class="form-check-label d-block">
+                                    <input type="checkbox"
+                                           class="form-check-input"
+                                           @change="e=>{
                                                node.props.visible=e.target.checked;
                                                hackReRendered=Math.random()*1000;
                                            }"
-                                               :checked="node.props.visible!==false">
-                                        {{ getLabel(node) }}
-                                    </label>
-                                </ListGroupItem>
-                            </Dropdown>
-                        </ButtonGroup>
-                    </slot>
+                                           :checked="node.props.visible!==false">
+                                    {{ getLabel(node) }}
+                                </label>
+                            </ListGroupItem>
+                        </Dropdown>
+                    </ButtonGroup>
                 </Col>
             </Row>
         </template>
@@ -169,7 +168,7 @@ import {
     TBody, Th, Td, Tr, THead, Table, CardTitle, Card,
     Spinner, Row, Col, Select, Button, ButtonGroup, Input, Dropdown,
     Checkbox, ListGroupItem, Modal, FormGroup, Pagination
-} from "./../index"
+} from "./../index";
 import Column from "./Column.vue";
 import {Plus, Trash, ArrowRepeat} from "@wovosoft/wovoui-icons";
 
@@ -189,7 +188,7 @@ type FieldType = {
 
 import setup from "../shared/laravelcrud/setup";
 import fetchItems from "./../shared/laravelcrud/fetchItems";
-import axios from "axios";
+import axios, {AxiosStatic} from "axios";
 
 export default defineComponent({
     emits: ['createUpdateFormHidden'],
@@ -251,7 +250,7 @@ export default defineComponent({
          * Data Submission URL
          */
         formSubmitUrl: {type: String as PropType<string>, default: null},
-        formUpdateUrl: {type: [String, Function] as PropType<string | ((object) => string)>, default: null},
+        formUpdateUrl: {type: [String, Function] as PropType<string | ((url: object) => string)>, default: null},
 
         /**
          *  Form Submission Handler Function, when executes the currentItem object will be provided as parameter
@@ -261,13 +260,14 @@ export default defineComponent({
         /**
          * destroy url: should be string or link generator
          */
-        destroyUrl: {type: [String, Function] as PropType<string | ((object) => string)>, default: null},
+        destroyUrl: {type: [String, Function] as PropType<string | ((url: object) => string)>, default: null},
         destroyHandler: {type: Function as PropType<(item: object) => void>, default: null},
         defaultFormObject: {type: Object as PropType<object>, default: () => ({})},
         fetchItems: {
-            type: Function as PropType<(loading: Ref<boolean>, apiUrl: string, items: Ref<any>) => Promise<unknown>>,
+            type: Function as PropType<(loading: Ref<boolean>, apiUrl: string, items: Ref<any>, axiosPromise: AxiosStatic, props: object) => Promise<unknown>>,
             default: fetchItems
-        }
+        },
+        withQuery: {type: Object as PropType<object | null>, default: null}
     }
 })
 </script>

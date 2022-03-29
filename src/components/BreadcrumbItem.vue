@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
+import {computed, defineComponent, getCurrentInstance, PropType} from "vue";
 
 export default defineComponent({
     name: "BreadcrumbItem",
@@ -49,7 +49,7 @@ export default defineComponent({
                     "active": props.active
                 }
             ]),
-            isRouterInstalled: computed(() => !!context.$router)
+            isRouterInstalled: computed(() => !!getCurrentInstance().appContext.config.globalProperties.$router)
         }
     }
 })

@@ -3,7 +3,9 @@
   "version": "0.2.26",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node vetur-tags-generate.js",
+    "build": "vite build",
+    "build:with_tags": "vite build && node vetur-tags-generate.js",
+    "build:tags": "node vetur-tags-generate.js",
     "serve": "vite preview",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly --declarationDir dist/types"
   },
