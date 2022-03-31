@@ -1,6 +1,9 @@
 <template>
     <component :is="tag" :class="{['text-'+actionsAlignment]:actions}">
         <slot :field="field" :data="item">
+            <template v-if="typeof formatter==='function'">
+                {{ formatter(getCurrentItemRefInTemplate()) }}
+            </template>
             <template v-if="actions">
                 <ButtonGroup :size="actionsSize">
                     <Button :variant="viewVariant" @click="()=>{
@@ -63,15 +66,18 @@ export default defineComponent({
          */
         thClass: {type: [String, Object, Array] as PropType<classTypes>, default: null},
         tdClass: {type: [String, Object, Array] as PropType<classTypes>, default: null},
+        formatter: {type: Function as PropType<(item: Ref<object>) => unknown>, default: null}
     },
     setup(props) {
+        const currentItem = inject('currentItem') as Ref<object>;
         return {
             item: inject('item') as Object,
             showViewModal: inject('showViewModal') as Ref<boolean>,
             showCreateUpdateModal: inject('showCreateUpdateModal') as Ref<boolean>,
             processDelete: inject("processDelete") as (item: object) => void,
-            currentItem: inject('currentItem') as Ref<object>,
+            currentItem,
             setCurrentItem: inject('setCurrentItem') as (item: object | null) => void,
+            getCurrentItemRefInTemplate: () => currentItem as Ref<object>
         }
     }
 })

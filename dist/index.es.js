@@ -31751,26 +31751,6 @@ var Td = defineComponent({
   }
 });
 
-var TFoot = defineComponent({
-  name: "TFoot",
-  props: {
-    variant: { type: String, default: null },
-    active: { type: Boolean, default: false },
-    align: { type: String, default: null }
-  },
-  setup(props, { slots }) {
-    return () => h("tfoot", {
-      class: [
-        {
-          ["table-" + props.variant]: props.variant,
-          "table-active": props.active,
-          ["align-" + props.align]: !!props.align
-        }
-      ]
-    }, slots.default?.());
-  }
-});
-
 /** Detect free variable `global` from Node.js. */
 
 var freeGlobal$1 = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
@@ -36154,7 +36134,7 @@ var Icon = /* @__PURE__ */ _export_sfc$1(_sfc_main$O, [["render", _sfc_render$M]
 const _sfc_main$N = defineComponent({
   name: "DataTable",
   emits: ["update:selectedRows"],
-  components: { Icon, Tr, TBody, Th, Td, THead, Table, TFoot },
+  components: { Icon, Tr, TBody, Th, Td, THead, Table },
   props: {
     ...tableProps,
     selectedRows: { type: Array, default: () => [] },
@@ -41243,6 +41223,26 @@ var Textarea = defineComponent({
   }
 });
 
+var TFoot = defineComponent({
+  name: "TFoot",
+  props: {
+    variant: { type: String, default: null },
+    active: { type: Boolean, default: false },
+    align: { type: String, default: null }
+  },
+  setup(props, { slots }) {
+    return () => h("tfoot", {
+      class: [
+        {
+          ["table-" + props.variant]: props.variant,
+          "table-active": props.active,
+          ["align-" + props.align]: !!props.align
+        }
+      ]
+    }, slots.default?.());
+  }
+});
+
 var dayjs_min = {exports: {}};
 
 (function (module, exports) {
@@ -42719,16 +42719,19 @@ const _sfc_main$3 = defineComponent({
     destroyVariant: { type: String, default: "danger" },
     actionsAlignment: { type: String, default: "end" },
     thClass: { type: [String, Object, Array], default: null },
-    tdClass: { type: [String, Object, Array], default: null }
+    tdClass: { type: [String, Object, Array], default: null },
+    formatter: { type: Function, default: null }
   },
   setup(props) {
+    const currentItem = inject("currentItem");
     return {
       item: inject("item"),
       showViewModal: inject("showViewModal"),
       showCreateUpdateModal: inject("showCreateUpdateModal"),
       processDelete: inject("processDelete"),
-      currentItem: inject("currentItem"),
-      setCurrentItem: inject("setCurrentItem")
+      currentItem,
+      setCurrentItem: inject("setCurrentItem"),
+      getCurrentItemRefInTemplate: () => currentItem
     };
   }
 });
@@ -42746,8 +42749,11 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
         field: _ctx.field,
         data: _ctx.item
       }, () => [
+        typeof _ctx.formatter === "function" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+          createTextVNode(toDisplayString(_ctx.formatter(_ctx.getCurrentItemRefInTemplate())), 1)
+        ], 64)) : createCommentVNode("", true),
         _ctx.actions ? (openBlock(), createBlock(_component_ButtonGroup, {
-          key: 0,
+          key: 1,
           size: _ctx.actionsSize
         }, {
           default: withCtx(() => [
@@ -42786,7 +42792,7 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
             }, 8, ["variant"])
           ]),
           _: 1
-        }, 8, ["size"])) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+        }, 8, ["size"])) : (openBlock(), createElementBlock(Fragment, { key: 2 }, [
           createTextVNode(toDisplayString(_ctx.item[_ctx.field]), 1)
         ], 64))
       ])
