@@ -1,27 +1,31 @@
 <template>
     <Table v-bind="otherProps">
-        <THead>
-        <Th v-for="(th,th_index) in fields"
-            @click="applySorting(th)"
-            :style="{'cursor':th.sortable===true?'pointer':null}"
-            :key="th_index">
-            <slot :name="'head('+th.key+')'"
-                  :column="th.key"
-                  :field="th"
-                  :index="th_index"
-                  :label="getLabel(th)"
-                  :sortBy="sorting.sortBy"
-                  :sort="sorting.sort"
-                  :unselectAllRows="unselectAllRows"
-                  :selectAllRows="selectAllRows"
-                  :selectedAllRows="selectedAllRows">
-                {{ getLabel(th) }}
-            </slot>
-            <template v-if="typeof th==='object'&& th.sortable===true">
-                <Icon :icon="sorting.sortBy===th.key && sorting.sort==='asc'?'sort-down':'sort-up'"/>
-            </template>
-        </Th>
-        </THead>
+        <slot name="header">
+            <THead>
+            <Tr>
+                <Th v-for="(th,th_index) in fields"
+                    @click="applySorting(th)"
+                    :style="{'cursor':th.sortable===true?'pointer':null}"
+                    :key="th_index">
+                    <slot :name="'head('+th.key+')'"
+                          :column="th.key"
+                          :field="th"
+                          :index="th_index"
+                          :label="getLabel(th)"
+                          :sortBy="sorting.sortBy"
+                          :sort="sorting.sort"
+                          :unselectAllRows="unselectAllRows"
+                          :selectAllRows="selectAllRows"
+                          :selectedAllRows="selectedAllRows">
+                        {{ getLabel(th) }}
+                    </slot>
+                    <template v-if="typeof th==='object'&& th.sortable===true">
+                        <Icon :icon="sorting.sortBy===th.key && sorting.sort==='asc'?'sort-down':'sort-up'"/>
+                    </template>
+                </Th>
+            </Tr>
+            </THead>
+        </slot>
         <TBody>
         <Tr v-for="(row,row_index) in itemsSorted" :key="row_index">
             <Td v-for="(th,th_index) in fields" :key="th_index">
@@ -41,6 +45,7 @@
             </Td>
         </Tr>
         </TBody>
+        <slot name="footer"></slot>
     </Table>
 </template>
 

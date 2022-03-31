@@ -36251,46 +36251,53 @@ const _sfc_main$N = defineComponent({
 function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Icon = resolveComponent("Icon");
   const _component_Th = resolveComponent("Th");
+  const _component_Tr = resolveComponent("Tr");
   const _component_THead = resolveComponent("THead");
   const _component_Td = resolveComponent("Td");
-  const _component_Tr = resolveComponent("Tr");
   const _component_TBody = resolveComponent("TBody");
   const _component_Table = resolveComponent("Table");
   return openBlock(), createBlock(_component_Table, normalizeProps(guardReactiveProps(_ctx.otherProps)), {
     default: withCtx(() => [
-      createVNode(_component_THead, null, {
-        default: withCtx(() => [
-          (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.fields, (th, th_index) => {
-            return openBlock(), createBlock(_component_Th, {
-              onClick: ($event) => _ctx.applySorting(th),
-              style: normalizeStyle({ "cursor": th.sortable === true ? "pointer" : null }),
-              key: th_index
-            }, {
+      renderSlot(_ctx.$slots, "header", {}, () => [
+        createVNode(_component_THead, null, {
+          default: withCtx(() => [
+            createVNode(_component_Tr, null, {
               default: withCtx(() => [
-                renderSlot(_ctx.$slots, "head(" + th.key + ")", {
-                  column: th.key,
-                  field: th,
-                  index: th_index,
-                  label: _ctx.getLabel(th),
-                  sortBy: _ctx.sorting.sortBy,
-                  sort: _ctx.sorting.sort,
-                  unselectAllRows: _ctx.unselectAllRows,
-                  selectAllRows: _ctx.selectAllRows,
-                  selectedAllRows: _ctx.selectedAllRows
-                }, () => [
-                  createTextVNode(toDisplayString(_ctx.getLabel(th)), 1)
-                ]),
-                typeof th === "object" && th.sortable === true ? (openBlock(), createBlock(_component_Icon, {
-                  key: 0,
-                  icon: _ctx.sorting.sortBy === th.key && _ctx.sorting.sort === "asc" ? "sort-down" : "sort-up"
-                }, null, 8, ["icon"])) : createCommentVNode("", true)
+                (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.fields, (th, th_index) => {
+                  return openBlock(), createBlock(_component_Th, {
+                    onClick: ($event) => _ctx.applySorting(th),
+                    style: normalizeStyle({ "cursor": th.sortable === true ? "pointer" : null }),
+                    key: th_index
+                  }, {
+                    default: withCtx(() => [
+                      renderSlot(_ctx.$slots, "head(" + th.key + ")", {
+                        column: th.key,
+                        field: th,
+                        index: th_index,
+                        label: _ctx.getLabel(th),
+                        sortBy: _ctx.sorting.sortBy,
+                        sort: _ctx.sorting.sort,
+                        unselectAllRows: _ctx.unselectAllRows,
+                        selectAllRows: _ctx.selectAllRows,
+                        selectedAllRows: _ctx.selectedAllRows
+                      }, () => [
+                        createTextVNode(toDisplayString(_ctx.getLabel(th)), 1)
+                      ]),
+                      typeof th === "object" && th.sortable === true ? (openBlock(), createBlock(_component_Icon, {
+                        key: 0,
+                        icon: _ctx.sorting.sortBy === th.key && _ctx.sorting.sort === "asc" ? "sort-down" : "sort-up"
+                      }, null, 8, ["icon"])) : createCommentVNode("", true)
+                    ]),
+                    _: 2
+                  }, 1032, ["onClick", "style"]);
+                }), 128))
               ]),
-              _: 2
-            }, 1032, ["onClick", "style"]);
-          }), 128))
-        ]),
-        _: 3
-      }),
+              _: 3
+            })
+          ]),
+          _: 3
+        })
+      ]),
       createVNode(_component_TBody, null, {
         default: withCtx(() => [
           (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.itemsSorted, (row, row_index) => {
@@ -36323,7 +36330,8 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
           }), 128))
         ]),
         _: 3
-      })
+      }),
+      renderSlot(_ctx.$slots, "footer")
     ]),
     _: 3
   }, 16);
