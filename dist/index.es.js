@@ -31751,6 +31751,26 @@ var Td = defineComponent({
   }
 });
 
+var TFoot = defineComponent({
+  name: "TFoot",
+  props: {
+    variant: { type: String, default: null },
+    active: { type: Boolean, default: false },
+    align: { type: String, default: null }
+  },
+  setup(props, { slots }) {
+    return () => h("tfoot", {
+      class: [
+        {
+          ["table-" + props.variant]: props.variant,
+          "table-active": props.active,
+          ["align-" + props.align]: !!props.align
+        }
+      ]
+    }, slots.default?.());
+  }
+});
+
 /** Detect free variable `global` from Node.js. */
 
 var freeGlobal$1 = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
@@ -36134,7 +36154,7 @@ var Icon = /* @__PURE__ */ _export_sfc$1(_sfc_main$O, [["render", _sfc_render$M]
 const _sfc_main$N = defineComponent({
   name: "DataTable",
   emits: ["update:selectedRows"],
-  components: { Icon, Tr, TBody, Th, Td, THead, Table },
+  components: { Icon, Tr, TBody, Th, Td, THead, Table, TFoot },
   props: {
     ...tableProps,
     selectedRows: { type: Array, default: () => [] },
@@ -41220,26 +41240,6 @@ var Textarea = defineComponent({
         ["form-control-" + props.size]: !!props.size
       }]
     });
-  }
-});
-
-var TFoot = defineComponent({
-  name: "TFoot",
-  props: {
-    variant: { type: String, default: null },
-    active: { type: Boolean, default: false },
-    align: { type: String, default: null }
-  },
-  setup(props, { slots }) {
-    return () => h("tfoot", {
-      class: [
-        {
-          ["table-" + props.variant]: props.variant,
-          "table-active": props.active,
-          ["align-" + props.align]: !!props.align
-        }
-      ]
-    }, slots.default?.());
   }
 });
 

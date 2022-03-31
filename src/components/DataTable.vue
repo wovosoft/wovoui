@@ -50,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, reactive, ref} from "vue";
+import {computed, defineComponent, PropType, ref} from "vue";
 import Table from "./Table";
 import tableProps from "../shared/tableProps";
 import THead from "./THead";
@@ -58,6 +58,7 @@ import Th from "./Th";
 import TBody from "./TBody";
 import Tr from "./Tr";
 import Td from "./Td";
+import TFoot from "./TFoot";
 import {isObject, title} from "../shared/utilities.js";
 import {lowerCase} from "lodash/string.js";
 import {orderBy} from "lodash";
@@ -66,7 +67,7 @@ import Icon from "./Icon.vue";
 export default defineComponent({
     name: "DataTable",
     emits: ['update:selectedRows'],
-    components: {Icon, Tr, TBody, Th, Td, THead, Table},
+    components: {Icon, Tr, TBody, Th, Td, THead, Table, TFoot},
     props: {
         ...tableProps,
         selectedRows: {type: Array as PropType<any[]>, default: () => ([])},
