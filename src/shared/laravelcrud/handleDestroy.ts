@@ -10,5 +10,5 @@ export default function (item: object, props): Promise<any> {
     } else if (typeof props.destroyUrl === "function") {
         url = props.destroyUrl(item);
     }
-    return axios.delete(url);
+    return (props.axiosPromise || axios).delete(url);
 }

@@ -42750,9 +42750,8 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
         data: _ctx.item
       }, () => [
         typeof _ctx.formatter === "function" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-          createTextVNode(toDisplayString(_ctx.formatter(_ctx.getCurrentItemRefInTemplate())), 1)
-        ], 64)) : createCommentVNode("", true),
-        _ctx.actions ? (openBlock(), createBlock(_component_ButtonGroup, {
+          createTextVNode(toDisplayString(_ctx.formatter(_ctx.item)), 1)
+        ], 64)) : _ctx.actions ? (openBlock(), createBlock(_component_ButtonGroup, {
           key: 1,
           size: _ctx.actionsSize
         }, {
@@ -44624,7 +44623,7 @@ function laravelCrudHandleDestroy(item, props) {
   } else if (typeof props.destroyUrl === "function") {
     url = props.destroyUrl(item);
   }
-  return axios.delete(url);
+  return (props.axiosPromise || axios).delete(url);
 }
 
 const laravelCrudHandleSubmit = (props, currentItem) => {
@@ -44666,9 +44665,9 @@ function setup(props, { slots }) {
     if (confirm("Are You Sure?")) {
       laravelCrudHandleDestroy(item, props).then((res) => {
         alert(res.data?.message || "Successfully Done");
-        props.fetchItems(loading, props.apiUrl, items, props);
+        props.fetchItems(loading, props.apiUrl, items, props.axiosPromise, props);
       }).catch((err) => {
-        alert(err.response.data?.message || "Operation Failed");
+        alert(err.response?.data?.message || "Operation Failed");
         console.log(err.response);
       });
     }
@@ -44757,7 +44756,7 @@ let defaultDatatable = {
 };
 function fetchItems(loading, url, items, axiosPromise = axios, props = {}) {
   loading.value = true;
-  return axiosPromise.post(url, {
+  return props.axiosPromise.post(url, {
     page: items.value.current_page || 1,
     per_page: items.value.per_page || 15,
     filter: null,
@@ -44862,13 +44861,13 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Table = resolveComponent("Table");
   const _component_Select = resolveComponent("Select");
   const _component_Input = resolveComponent("Input");
+  const _component_ButtonGroup = resolveComponent("ButtonGroup");
   const _component_ArrowRepeat = resolveComponent("ArrowRepeat");
   const _component_Button = resolveComponent("Button");
   const _component_Plus = resolveComponent("Plus");
   const _component_Trash = resolveComponent("Trash");
   const _component_ListGroupItem = resolveComponent("ListGroupItem");
   const _component_Dropdown = resolveComponent("Dropdown");
-  const _component_ButtonGroup = resolveComponent("ButtonGroup");
   const _component_THead = resolveComponent("THead");
   const _component_Spinner = resolveComponent("Spinner");
   const _component_RenderColumnVNode = resolveComponent("RenderColumnVNode");
@@ -44991,9 +44990,9 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
         createVNode(_component_Row, null, {
           default: withCtx(() => [
             createVNode(_component_Col, {
-              md: 2,
+              md: 1,
               sm: 12,
-              lg: 2
+              lg: 1
             }, {
               default: withCtx(() => [
                 createVNode(_component_Select, {
@@ -45012,7 +45011,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
             createVNode(_component_Col, {
               class: "text-center",
               sm: 12,
-              md: 6
+              md: 4
             }, {
               default: withCtx(() => [
                 createVNode(_component_Input, {
@@ -45025,16 +45024,25 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
             }),
             createVNode(_component_Col, {
               sm: 12,
-              md: 4,
+              md: 7,
               class: "text-md-end text-sm-start"
             }, {
               default: withCtx(() => [
-                createVNode(_component_ButtonGroup, { size: "sm" }, {
+                _ctx.$slots["header-right"] ? (openBlock(), createBlock(_component_ButtonGroup, {
+                  key: 0,
+                  size: "sm",
+                  class: "me-md-2"
+                }, {
                   default: withCtx(() => [
                     renderSlot(_ctx.$slots, "header-right", {
                       getItems: _ctx.getItems,
                       initAddForm: _ctx.initAddForm
-                    }),
+                    })
+                  ]),
+                  _: 3
+                })) : createCommentVNode("", true),
+                createVNode(_component_ButtonGroup, { size: "sm" }, {
+                  default: withCtx(() => [
                     createVNode(_component_Button, { onClick: _ctx.getItems }, {
                       default: withCtx(() => [
                         createVNode(_component_ArrowRepeat)
@@ -45086,7 +45094,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
                       _: 1
                     })
                   ]),
-                  _: 3
+                  _: 1
                 })
               ]),
               _: 3

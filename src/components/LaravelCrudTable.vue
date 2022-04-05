@@ -59,7 +59,7 @@
     <Card body-class="p-0" class="mb-3" :title="title">
         <template #header>
             <Row>
-                <Col :md="2" :sm="12" :lg="2">
+                <Col :md="1" :sm="12" :lg="1">
                     <Select
                         @change="()=>{
                             items.current_page=1;
@@ -70,12 +70,14 @@
                         size="sm"
                     />
                 </Col>
-                <Col class="text-center" :sm="12" :md="6">
+                <Col class="text-center" :sm="12" :md="4">
                     <Input type="search" :placeholder="searchPlaceholder" :size="searchSize"/>
                 </Col>
-                <Col :sm="12" :md="4" class="text-md-end text-sm-start">
-                    <ButtonGroup size="sm">
+                <Col :sm="12" :md="7" class="text-md-end text-sm-start">
+                    <ButtonGroup size="sm" class="me-md-2" v-if="$slots['header-right']">
                         <slot name="header-right" :getItems="getItems" :initAddForm="initAddForm"></slot>
+                    </ButtonGroup>
+                    <ButtonGroup size="sm">
                         <Button @click="getItems">
                             <ArrowRepeat/>
                         </Button>

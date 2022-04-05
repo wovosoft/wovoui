@@ -55,9 +55,9 @@ export default function setup(props, {slots}) {
         if (confirm("Are You Sure?")) {
             laravelCrudHandleDestroy(item, props).then(res => {
                 alert(res.data?.message || "Successfully Done");
-                props.fetchItems(loading, props.apiUrl, items, props);
+                props.fetchItems(loading, props.apiUrl, items, props.axiosPromise, props);
             }).catch(err => {
-                alert(err.response.data?.message || "Operation Failed");
+                alert(err.response?.data?.message || "Operation Failed");
                 console.log(err.response);
             });
         }

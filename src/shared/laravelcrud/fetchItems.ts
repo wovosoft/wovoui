@@ -21,7 +21,7 @@ let defaultDatatable: LaravelDatatableType = {
 
 export default function (loading: Ref<boolean>, url: string, items: Ref<LaravelDatatableType>, axiosPromise: AxiosStatic = axios, props: any = {}) {
     loading.value = true;
-    return axiosPromise.post(url, {
+    return props.axiosPromise.post(url, {
         page: items.value.current_page || 1,
         per_page: items.value.per_page || 15,
         filter: null,

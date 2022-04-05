@@ -2,9 +2,9 @@
     <component :is="tag" :class="{['text-'+actionsAlignment]:actions}">
         <slot :field="field" :data="item">
             <template v-if="typeof formatter==='function'">
-                {{ formatter(getCurrentItemRefInTemplate()) }}
+                {{ formatter(item) }}
             </template>
-            <template v-if="actions">
+            <template v-else-if="actions">
                 <ButtonGroup :size="actionsSize">
                     <Button :variant="viewVariant" @click="()=>{
                         showViewModal=true;
