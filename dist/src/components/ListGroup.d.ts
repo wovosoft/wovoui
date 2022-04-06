@@ -37,9 +37,9 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
-    tag: string;
     flush: boolean;
     horizontal: boolean | responsiveSizes;
+    tag: string;
     numbered: boolean;
 }>;
 export default _default;

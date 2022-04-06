@@ -78,14 +78,14 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
-    tag: keyof HTMLElementTagNameMap;
     dark: boolean;
+    direction: "next" | "prev";
     fade: boolean;
+    tag: keyof HTMLElementTagNameMap;
     slide: boolean;
     controlsEnabled: boolean;
     indicatorsEnabled: boolean;
     intervals: number;
-    direction: "next" | "prev";
 }>;
 export default _default;
 //# sourceMappingURL=Carousel.vue.d.ts.map

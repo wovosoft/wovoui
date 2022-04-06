@@ -4,6 +4,7 @@ import tableProps from "../tableProps";
 import laravelCrudHandleDestroy from "./handleDestroy";
 import {startCase} from "lodash";
 import type {LaravelDatatableType} from "../../types/LaravelDatatableType";
+import Ob from "../../../../project-manager-frontend/dist/assets/Index.d4fa47c5";
 
 const laravelCrudHandleSubmit = (props, currentItem: Ref<object>): Promise<any> => {
     if (props.handleFormSubmit) {
@@ -140,6 +141,12 @@ export default function setup(props, {slots}) {
         initAddForm: () => {
             showCreateUpdateModal.value = true;
             setCurrentItem(props.defaultFormObject)
-        }
+        },
+        viewableItems: computed(() => {
+            if (Array.isArray(props.includeOnlyInView) && props.includeOnlyInView.length > 0) {
+                return Object.keys(currentItem.value).filter(i=>props.includeOnlyInView.includes(i));
+            }
+            return Object.keys(currentItem.value).filter(i=>!props.excludeFromView.includes(i));
+        })
     }
 }

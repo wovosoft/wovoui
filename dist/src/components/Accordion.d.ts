@@ -37,9 +37,9 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
 }, {
-    tag: keyof HTMLElementTagNameMap;
     modelValue: number;
     flush: boolean;
+    tag: keyof HTMLElementTagNameMap;
     alwaysOpen: boolean;
 }>;
 export default _default;

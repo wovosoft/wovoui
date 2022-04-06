@@ -90,14 +90,14 @@ declare const _default: import("vue").DefineComponent<{
     onDismissed?: (...args: any[]) => any;
     onCountdown?: (...args: any[]) => any;
 }, {
-    tag: keyof HTMLElementTagNameMap;
     modelValue: boolean;
     countdown: number;
-    dismissLabel: string;
-    variant: ColorVariants;
-    dismissible: boolean;
-    fade: boolean;
     show: boolean;
+    fade: boolean;
+    tag: keyof HTMLElementTagNameMap;
+    variant: ColorVariants;
+    dismissLabel: string;
+    dismissible: boolean;
     countdownStep: number;
 }>;
 export default _default;

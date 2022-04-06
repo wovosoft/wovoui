@@ -134,7 +134,7 @@ declare const _default: import("vue").DefineComponent<{
 }, unknown, {}, {
     transitionEnded(e: any): void;
     clickOutside(e: any): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "close" | "ok" | "showing" | "hiding" | "shown" | "hidden" | "stateChanged")[], "close" | "update:modelValue" | "shown" | "hidden" | "ok" | "showing" | "hiding" | "stateChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("close" | "update:modelValue" | "ok" | "showing" | "hiding" | "shown" | "hidden" | "stateChanged")[], "close" | "shown" | "update:modelValue" | "ok" | "showing" | "hiding" | "hidden" | "stateChanged", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     animation: {
         type: PropType<string>;
         default: string;
@@ -249,8 +249,8 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
-    onClose?: (...args: any[]) => any;
     onOk?: (...args: any[]) => any;
+    onClose?: (...args: any[]) => any;
     onShowing?: (...args: any[]) => any;
     onHiding?: (...args: any[]) => any;
     onShown?: (...args: any[]) => any;
@@ -258,14 +258,15 @@ declare const _default: import("vue").DefineComponent<{
     onStateChanged?: (...args: any[]) => any;
 }, {
     size: buttonSizes;
-    header: string;
-    title: string;
     modelValue: boolean;
+    title: string;
+    header: string;
+    animation: string;
+    static: boolean;
     titleTag: keyof HTMLElementTagNameMap;
     headerClass: any;
     headerTag: keyof HTMLElementTagNameMap;
     noBody: boolean;
-    animation: string;
     noClose: boolean;
     closeBtnWhite: boolean;
     titleClass: string | object | any[];
@@ -279,7 +280,6 @@ declare const _default: import("vue").DefineComponent<{
     closeButtonOptions: object;
     noOkButton: boolean;
     noCloseButton: boolean;
-    static: boolean;
     noBackdrop: boolean;
     buttonSize: buttonSizes;
     scrollable: boolean;

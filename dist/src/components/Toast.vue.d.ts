@@ -85,12 +85,12 @@ declare const _default: import("vue").DefineComponent<{
     "onUpdate:modelValue"?: (...args: any[]) => any;
     "onUpdate:show"?: (...args: any[]) => any;
 }, {
-    header: string;
     modelValue: boolean;
-    bodyClass: string | object;
-    variant: ColorVariants;
-    fade: boolean;
+    header: string;
     show: boolean;
+    fade: boolean;
+    variant: ColorVariants;
+    bodyClass: string | object;
     noBody: boolean;
     noCloseButton: boolean;
     container: string;

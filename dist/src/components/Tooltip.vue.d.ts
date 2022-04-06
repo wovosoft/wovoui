@@ -66,9 +66,9 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
-    content: string;
     target: string;
     placement: tooltipPlacement;
+    content: string;
     opensOn: keyof GlobalEventHandlersEventMap;
     ClosesOn: keyof GlobalEventHandlersEventMap;
 }>;

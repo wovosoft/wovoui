@@ -349,9 +349,10 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
-    footer: string;
-    header: string;
     title: string;
+    header: string;
+    footer: string;
+    align: string;
     tag: string;
     bodyClass: string | any[];
     overlay: boolean;
@@ -361,7 +362,6 @@ declare const _default: import("vue").DefineComponent<{
     subTitleTag: string;
     subTitleTextVariant: string;
     titleTag: keyof HTMLElementTagNameMap;
-    align: string;
     bgVariant: ColorVariants;
     bodyBgVariant: ColorVariants;
     bodyBorderVariant: ColorVariants;

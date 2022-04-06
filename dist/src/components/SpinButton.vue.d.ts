@@ -64,9 +64,9 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
         };
     }>>, {
         size: string;
+        prepend: string;
         tag: keyof HTMLElementTagNameMap;
         append: string;
-        prepend: string;
         noWrap: boolean;
     }>;
     Button: import("vue").DefineComponent<{
@@ -203,17 +203,17 @@ declare const _sfc_main: import("vue").DefineComponent<Readonly<import("vue").Co
         };
     }>>, {
         size: buttonSizes;
-        tag: keyof HTMLElementTagNameMap;
         type: string;
-        disabled: boolean;
-        variant: ColorVariants;
-        href: string;
-        pill: boolean;
-        badge: string | number;
         active: boolean;
-        activeClass: string;
-        outline: boolean;
+        href: string;
+        disabled: boolean;
         block: boolean;
+        tag: keyof HTMLElementTagNameMap;
+        variant: ColorVariants;
+        activeClass: string;
+        badge: string | number;
+        pill: boolean;
+        outline: boolean;
         squared: boolean;
         pressed: boolean;
         badePosition: import("../types/badgePositions").badgePositions;

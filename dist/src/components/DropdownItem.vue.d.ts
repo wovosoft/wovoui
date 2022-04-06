@@ -58,9 +58,9 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    disabled: boolean;
-    href: string;
     active: boolean;
+    href: string;
+    disabled: boolean;
     to: object;
     noItemTag: boolean;
     isText: boolean;

@@ -34,9 +34,9 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     value: any;
-    name: string;
-    modelValue: any;
     id: string;
+    modelValue: any;
+    name: string;
 }>;
 export default _default;
 //# sourceMappingURL=Radio.vue.d.ts.map

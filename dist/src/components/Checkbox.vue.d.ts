@@ -68,7 +68,7 @@ declare const _default: import("vue").DefineComponent<{
         role: string;
     }>;
     valueChanged: (e: any) => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change" | "checked" | "unchecked")[], "update:modelValue" | "change" | "checked" | "unchecked", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("change" | "update:modelValue" | "checked" | "unchecked")[], "change" | "update:modelValue" | "checked" | "unchecked", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     name: {
         type: PropType<string>;
         default: any;
@@ -129,19 +129,19 @@ declare const _default: import("vue").DefineComponent<{
     onUnchecked?: (...args: any[]) => any;
 }, {
     value: boolean;
-    button: boolean;
-    name: string;
-    modelValue: any;
-    required: boolean;
     id: string;
-    disabled: boolean;
-    variant: ColorVariants;
-    outline: boolean;
-    checked: boolean;
+    modelValue: any;
+    name: string;
+    button: boolean;
+    required: boolean;
     readonly: boolean;
-    inline: boolean;
-    uncheckedValue: boolean;
+    disabled: boolean;
+    checked: boolean;
     switch: boolean;
+    variant: ColorVariants;
+    uncheckedValue: boolean;
+    outline: boolean;
+    inline: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=Checkbox.vue.d.ts.map

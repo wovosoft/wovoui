@@ -96,14 +96,14 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     small: boolean;
     fill: boolean;
+    align: string;
+    scrollHeight: string | number;
     tag: keyof HTMLElementTagNameMap;
     vertical: boolean;
     justified: boolean;
-    align: string;
     pills: boolean;
     tabs: boolean;
     navs: boolean;
-    scrollHeight: string | number;
     scrollableL: boolean;
 }>;
 export default _default;

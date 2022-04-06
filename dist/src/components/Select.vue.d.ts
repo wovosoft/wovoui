@@ -39,7 +39,7 @@ declare const _default: import("vue").DefineComponent<{
     classes: import("vue").ComputedRef<(string | {
         [x: string]: boolean;
     })[]>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change")[], "update:modelValue" | "change", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("change" | "update:modelValue")[], "change" | "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     multiple: {
         type: PropType<boolean>;
         default: boolean;
@@ -78,9 +78,9 @@ declare const _default: import("vue").DefineComponent<{
     size: buttonSizes;
     options: any[];
     modelValue: any;
-    textField: string | Function;
-    valueField: string | Function;
     multiple: boolean;
+    valueField: string | Function;
+    textField: string | Function;
     disabledField: string;
     labelField: string;
 }>;

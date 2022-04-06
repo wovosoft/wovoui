@@ -39,8 +39,8 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    tag: keyof HTMLElementTagNameMap;
     placement: toastPlacements;
+    tag: keyof HTMLElementTagNameMap;
     container: string;
 }>;
 export default _default;

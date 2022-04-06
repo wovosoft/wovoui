@@ -29,8 +29,8 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
-    tag: string;
     role: string;
+    tag: string;
     justified: Binary;
 }>;
 export default _default;

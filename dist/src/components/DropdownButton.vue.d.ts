@@ -18,8 +18,8 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
-    disabled: boolean;
     active: boolean;
+    disabled: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=DropdownButton.vue.d.ts.map

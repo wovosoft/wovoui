@@ -40,7 +40,7 @@
             <template v-if="currentItem && showViewModal">
                 <Table bordered hover striped small>
                     <TBody>
-                    <Tr v-for="row in Object.keys(currentItem).filter(i=>!excludeFromView.includes(i))">
+                    <Tr v-for="row in viewableItems">
                         <Th>{{ startCase(row) }}</Th>
                         <Td>
                             <template v-if="['created_at','updated_at'].includes(row)">
@@ -109,7 +109,7 @@
             </Row>
         </template>
 
-        <Table v-bind="getTableProps" v-if="hackReRendered">
+        <Table v-bind="getTableProps" v-if="hackReRendered" :responsive="true">
             <THead :variant="headVariant" :class="headClass">
             <Tr>
                 <template v-for="(node,node_key) in theCols">
@@ -235,6 +235,7 @@ export default defineComponent({
          * Applicable when default scope is not provided.
          */
         excludeFromView: {type: Array as PropType<string[]>, default: () => ([])},
+        includeOnlyInView: {type: Array as PropType<string[]>, default: () => ([])},
         excludeFromCreateUpdateForm: {
             type: Array as PropType<string[]>,
             default: () => (["id", "created_at", "updated_at", "deleted_at"])

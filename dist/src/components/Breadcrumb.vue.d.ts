@@ -28,8 +28,8 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    tag: keyof HTMLElementTagNameMap;
     items: any[];
+    tag: keyof HTMLElementTagNameMap;
     divider: string;
 }>;
 export default _default;

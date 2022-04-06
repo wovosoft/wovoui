@@ -53,7 +53,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     valign: {
-        type: PropType<"top" | "bottom" | "middle">;
+        type: PropType<"top" | "middle" | "bottom">;
         default: any;
     };
     caption: {
@@ -70,18 +70,18 @@ declare const _default: import("vue").DefineComponent<{
         filter: string;
         small: boolean;
         caption: string;
-        variant: import("../types/colorVariants").ColorVariants;
         active: boolean;
+        hover: boolean;
+        variant: import("../types/colorVariants").ColorVariants;
+        selectedRows: any[];
         borderVariant: import("../types/colorVariants").ColorVariants;
         responsive: boolean | import("../types/responsiveLayoutSizes").responsiveSizes;
-        hover: boolean;
         striped: boolean;
         bordered: boolean;
         borderless: boolean;
-        valign: "top" | "bottom" | "middle";
+        valign: "top" | "middle" | "bottom";
         captionTop: boolean;
         "onUpdate:selectedRows": (...args: any[]) => any;
-        selectedRows: any[];
     };
     getLabel: (th: any) => any;
     getValue: (row: any, th: any, th_index: any) => any;
@@ -152,7 +152,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     valign: {
-        type: PropType<"top" | "bottom" | "middle">;
+        type: PropType<"top" | "middle" | "bottom">;
         default: any;
     };
     caption: {
@@ -168,20 +168,20 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     filter: string;
     small: boolean;
-    caption: string;
-    variant: import("../types/colorVariants").ColorVariants;
-    active: boolean;
     items: any[];
+    caption: string;
+    active: boolean;
+    hover: boolean;
+    variant: import("../types/colorVariants").ColorVariants;
+    fields: any[];
+    selectedRows: any[];
     borderVariant: import("../types/colorVariants").ColorVariants;
     responsive: boolean | import("../types/responsiveLayoutSizes").responsiveSizes;
-    hover: boolean;
     striped: boolean;
     bordered: boolean;
     borderless: boolean;
-    valign: "top" | "bottom" | "middle";
+    valign: "top" | "middle" | "bottom";
     captionTop: boolean;
-    selectedRows: any[];
-    fields: any[];
 }>;
 export default _default;
 //# sourceMappingURL=DataTable.vue.d.ts.map

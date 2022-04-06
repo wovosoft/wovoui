@@ -44735,7 +44735,13 @@ function setup(props, { slots }) {
     initAddForm: () => {
       showCreateUpdateModal.value = true;
       setCurrentItem(props.defaultFormObject);
-    }
+    },
+    viewableItems: computed(() => {
+      if (Array.isArray(props.includeOnlyInView) && props.includeOnlyInView.length > 0) {
+        return Object.keys(currentItem.value).filter((i) => props.includeOnlyInView.includes(i));
+      }
+      return Object.keys(currentItem.value).filter((i) => !props.excludeFromView.includes(i));
+    })
   };
 }
 
@@ -44824,6 +44830,7 @@ const _sfc_main$2 = defineComponent({
     dateLocale: { type: String, default: "en-US" },
     dateOptions: { type: Object, default: () => ({}) },
     excludeFromView: { type: Array, default: () => [] },
+    includeOnlyInView: { type: Array, default: () => [] },
     excludeFromCreateUpdateForm: {
       type: Array,
       default: () => ["id", "created_at", "updated_at", "deleted_at"]
@@ -44948,7 +44955,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
             default: withCtx(() => [
               createVNode(_component_TBody, null, {
                 default: withCtx(() => [
-                  (openBlock(true), createElementBlock(Fragment, null, renderList(Object.keys(_ctx.currentItem).filter((i) => !_ctx.excludeFromView.includes(i)), (row) => {
+                  (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.viewableItems, (row) => {
                     return openBlock(), createBlock(_component_Tr, null, {
                       default: withCtx(() => [
                         createVNode(_component_Th, null, {
@@ -45132,7 +45139,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
         })
       ]),
       default: withCtx(() => [
-        _ctx.hackReRendered ? (openBlock(), createBlock(_component_Table, normalizeProps(mergeProps({ key: 0 }, _ctx.getTableProps)), {
+        _ctx.hackReRendered ? (openBlock(), createBlock(_component_Table, mergeProps({ key: 0 }, _ctx.getTableProps, { responsive: true }), {
           default: withCtx(() => [
             createVNode(_component_THead, {
               variant: _ctx.headVariant,

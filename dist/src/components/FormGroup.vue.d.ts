@@ -124,8 +124,8 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     label: string;
-    tag: keyof HTMLElementTagNameMap;
     horizontal: boolean;
+    tag: keyof HTMLElementTagNameMap;
     floating: boolean;
     labelFor: string;
     labelSm: number;

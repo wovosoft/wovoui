@@ -125,15 +125,15 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    col: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-    tag: keyof HTMLElementTagNameMap;
     sm: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
     lg: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
     md: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
     xl: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+    col: string | boolean | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+    order: colOrders;
+    tag: keyof HTMLElementTagNameMap;
     alignSelf: colAlignments;
     justifyContent: justifyContentAlignments;
-    order: colOrders;
     offsetSm: 0 | responsiveNumbers;
     offsetMd: 0 | responsiveNumbers;
     offsetLg: 0 | responsiveNumbers;

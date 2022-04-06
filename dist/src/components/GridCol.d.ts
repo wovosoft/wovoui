@@ -60,13 +60,13 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    col: string | number;
-    tag: keyof HTMLElementTagNameMap;
     sm: string | number;
     lg: string | number;
-    start: string | number;
     md: string | number;
     xl: string | number;
+    col: string | number;
+    start: string | number;
+    tag: keyof HTMLElementTagNameMap;
 }>;
 export default _default;
 //# sourceMappingURL=GridCol.d.ts.map

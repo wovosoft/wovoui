@@ -26,7 +26,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     align: {
-        type: PropType<"center" | "end" | "right">;
+        type: PropType<"right" | "center" | "end">;
         default: any;
     };
     firstColPageCount: {
@@ -46,12 +46,12 @@ declare const _default: import("vue").DefineComponent<{
     centerBlock: import("vue").ComputedRef<any[]>;
     lastBlock: import("vue").ComputedRef<any[]>;
     classes: import("vue").ComputedRef<(string | {
-        [x: string]: buttonSizes | "center" | "end" | "right";
+        [x: string]: "right" | "center" | "end" | buttonSizes;
     })[]>;
     pageCount: import("vue").ComputedRef<number>;
     state: import("vue").Ref<number>;
     setPage: (page: any) => any;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change" | "update:currentPage")[], "update:modelValue" | "change" | "update:currentPage", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("change" | "update:modelValue" | "update:currentPage")[], "change" | "update:modelValue" | "update:currentPage", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
         type: PropType<keyof HTMLElementTagNameMap>;
         default: string;
@@ -77,7 +77,7 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
     align: {
-        type: PropType<"center" | "end" | "right">;
+        type: PropType<"right" | "center" | "end">;
         default: any;
     };
     firstColPageCount: {
@@ -98,9 +98,9 @@ declare const _default: import("vue").DefineComponent<{
     "onUpdate:currentPage"?: (...args: any[]) => any;
 }, {
     size: buttonSizes;
-    tag: keyof HTMLElementTagNameMap;
     modelValue: number;
-    align: "center" | "end" | "right";
+    align: "right" | "center" | "end";
+    tag: keyof HTMLElementTagNameMap;
     totalRows: number;
     perPage: number;
     currentPage: number;

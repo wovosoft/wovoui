@@ -108,9 +108,9 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     placeholder: string;
     separator: any[];
-    tag: keyof HTMLElementTagNameMap;
     modelValue: any[];
     role: string;
+    tag: keyof HTMLElementTagNameMap;
     tabindex: string | number;
     removeOnDelete: boolean;
     tagPills: boolean;

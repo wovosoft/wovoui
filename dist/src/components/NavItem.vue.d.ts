@@ -69,13 +69,13 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
-    tag: keyof HTMLElementTagNameMap;
-    disabled: boolean;
-    href: string;
-    target: string;
     active: boolean;
-    ariaCurrent: string;
+    href: string;
+    disabled: boolean;
+    target: string;
     to: object;
+    tag: keyof HTMLElementTagNameMap;
+    ariaCurrent: string;
     linkTag: keyof HTMLElementTagNameMap;
 }>;
 export default _default;

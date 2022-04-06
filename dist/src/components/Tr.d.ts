@@ -27,8 +27,8 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    variant: ColorVariants;
     align: string;
+    variant: ColorVariants;
 }>;
 export default _default;
 //# sourceMappingURL=Tr.d.ts.map
