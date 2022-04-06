@@ -1,6 +1,7 @@
 <template>
     <div class="layout">
         <OffCanvas
+            v-if="hasSidebarLeft"
             :header="sidebarHeader"
             btn-close-white
             v-model="sidebar"
@@ -16,14 +17,18 @@
         <Container tag="section" style="margin-top: 58px;" fluid>
             <Row>
                 <Col tag="aside"
-                     v-if="!sidebar"
+                     v-if="!sidebar && hasSidebarLeft"
                      :md="3"
                      :lg="2"
                      class="d-sm-block d-none bg-light start-0 top-0 overflow-auto bottom-0 p-0 position-fixed wui-sidebar"
                      :style="{maxWidth:leftSidebarWidth,zIndex: navbarZIndex-1}">
                     <slot name="sidebar-left"></slot>
                 </Col>
-                <Col tag="main" role="main" :md="9" :lg="10" class="ms-sm-auto px-md-4">
+                <Col tag="main"
+                     role="main"
+                     :md="hasSidebarLeft?9:12"
+                     :lg="hasSidebarLeft?10:12"
+                     class="ms-sm-auto px-md-4">
                     <slot></slot>
                 </Col>
             </Row>
@@ -36,7 +41,7 @@ import Row from "./Row";
 import Col from "./Col";
 import Container from "./Container";
 import OffCanvas from "./OffCanvas.vue";
-import {defineComponent, PropType, ref} from "vue";
+import {computed, defineComponent, PropType, ref} from "vue";
 
 export default defineComponent({
     name: "Layout",
@@ -47,12 +52,13 @@ export default defineComponent({
         leftSidebarWidth: {type: String as PropType<string>, default: "300px"},
         navbarZIndex: {type: Number as PropType<number>, default: 100}
     },
-    setup(props) {
+    setup(props, {slots}) {
         const sidebar = ref(false);
         const toggleSidebar = () => sidebar.value = !sidebar.value;
         return {
             sidebar,
-            toggleSidebar
+            toggleSidebar,
+            hasSidebarLeft: computed(() => !!slots['sidebar-left'])
         }
     }
 })

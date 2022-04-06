@@ -42607,12 +42607,13 @@ const _sfc_main$4 = defineComponent({
     leftSidebarWidth: { type: String, default: "300px" },
     navbarZIndex: { type: Number, default: 100 }
   },
-  setup(props) {
+  setup(props, { slots }) {
     const sidebar = ref(false);
     const toggleSidebar = () => sidebar.value = !sidebar.value;
     return {
       sidebar,
-      toggleSidebar
+      toggleSidebar,
+      hasSidebarLeft: computed(() => !!slots["sidebar-left"])
     };
   }
 });
@@ -42623,7 +42624,8 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Row = resolveComponent("Row");
   const _component_Container = resolveComponent("Container");
   return openBlock(), createElementBlock("div", _hoisted_1$3, [
-    createVNode(_component_OffCanvas, {
+    _ctx.hasSidebarLeft ? (openBlock(), createBlock(_component_OffCanvas, {
+      key: 0,
       header: _ctx.sidebarHeader,
       "btn-close-white": "",
       modelValue: _ctx.sidebar,
@@ -42634,7 +42636,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
         renderSlot(_ctx.$slots, "sidebar-left")
       ]),
       _: 3
-    }, 8, ["header", "modelValue"]),
+    }, 8, ["header", "modelValue"])) : createCommentVNode("", true),
     createElementVNode("header", {
       class: "menu position-fixed top-0 end-0 start-0",
       style: normalizeStyle({ zIndex: _ctx.navbarZIndex })
@@ -42652,7 +42654,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
       default: withCtx(() => [
         createVNode(_component_Row, null, {
           default: withCtx(() => [
-            !_ctx.sidebar ? (openBlock(), createBlock(_component_Col, {
+            !_ctx.sidebar && _ctx.hasSidebarLeft ? (openBlock(), createBlock(_component_Col, {
               key: 0,
               tag: "aside",
               md: 3,
@@ -42668,15 +42670,15 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
             createVNode(_component_Col, {
               tag: "main",
               role: "main",
-              md: 9,
-              lg: 10,
+              md: _ctx.hasSidebarLeft ? 9 : 12,
+              lg: _ctx.hasSidebarLeft ? 10 : 12,
               class: "ms-sm-auto px-md-4"
             }, {
               default: withCtx(() => [
                 renderSlot(_ctx.$slots, "default")
               ]),
               _: 3
-            })
+            }, 8, ["md", "lg"])
           ]),
           _: 3
         })
