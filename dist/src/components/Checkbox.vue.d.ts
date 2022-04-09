@@ -68,7 +68,7 @@ declare const _default: import("vue").DefineComponent<{
         role: string;
     }>;
     valueChanged: (e: any) => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "checked" | "unchecked" | "change")[], "update:modelValue" | "checked" | "unchecked" | "change", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change" | "checked" | "unchecked")[], "update:modelValue" | "change" | "checked" | "unchecked", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     name: {
         type: PropType<string>;
         default: any;
@@ -124,9 +124,9 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
+    onChange?: (...args: any[]) => any;
     onChecked?: (...args: any[]) => any;
     onUnchecked?: (...args: any[]) => any;
-    onChange?: (...args: any[]) => any;
 }, {
     value: boolean;
     button: boolean;

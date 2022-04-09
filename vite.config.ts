@@ -30,12 +30,12 @@ export default defineConfig({
         rollupOptions: {
             external: [
                 'vue',
-                'chart.js/auto',
                 'axios'
             ],
             output: {
                 globals: {
-                    vue: 'Vue'
+                    vue: 'Vue',
+                    axios: 'axios'
                 },
                 // Since we publish our ./src folder, there's no point
                 // in bloating sourcemaps with another copy of it.
