@@ -12,15 +12,10 @@
   "dependencies": {
     "@popperjs/core": "^2.10.2",
     "@wovosoft/wovoui-icons": "^0.0.3",
-    "axios": "^0.26.1",
     "bootstrap": "^5.1.3",
-    "bootstrap-icons": "^1.7.2",
-    "chart.js": "^3.7.1",
     "dayjs": "^1.10.7",
-    "highlight.js": "^11.4.0",
     "lodash": "^4.17.21",
-    "vue": "^3.2.16",
-    "vue-router": "^4.0.12"
+    "vue": "^3.2.16"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -76,5 +71,12 @@
   "bugs": {
     "url": "https://github.com/wovosoft/wovoui/issues"
   },
-  "homepage": "https://github.com/wovosoft/wovoui#readme"
+  "homepage": "https://github.com/wovosoft/wovoui#readme",
+  "peerDependencies": {
+    "axios": "^0.26.1",
+    "bootstrap-icons": "^1.8.1",
+    "chart.js": "^3.7.1",
+    "highlight.js": "^11.5.0",
+    "vue-router": "^4.0.14"
+  }
 }

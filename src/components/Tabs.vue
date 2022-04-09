@@ -16,7 +16,7 @@
                     v-for="(tab,tab_index) in tabsMap"
                     :key="tab_index"
                     tag="li"
-                    :active="tab_index===active"
+                    :active="tab.visible"
                     @click="active=tab_index"
                     link-tag="button">
                     {{ tab.title }}

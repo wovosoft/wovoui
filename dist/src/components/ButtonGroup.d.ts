@@ -44,9 +44,9 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     size: buttonSizes;
-    role: string;
     tag: string;
     ariaLabel: string;
+    role: string;
 }>;
 export default _default;
 /**

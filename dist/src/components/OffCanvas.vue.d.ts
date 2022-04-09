@@ -18,7 +18,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     placement: {
-        type: PropType<"top" | "left" | "right" | "bottom" | "start" | "end">;
+        type: PropType<"top" | "start" | "end" | "bottom" | "left" | "right">;
         default: string;
     };
     header: {
@@ -74,7 +74,7 @@ declare const _default: import("vue").DefineComponent<{
     show(): void;
     hide(): void;
     toggle(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "shown" | "hidden" | "beforeShow" | "beforeHide")[], "shown" | "update:modelValue" | "hidden" | "beforeShow" | "beforeHide", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "shown" | "hidden" | "beforeShow" | "beforeHide")[], "update:modelValue" | "shown" | "hidden" | "beforeShow" | "beforeHide", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tabIndex: {
         type: PropType<number>;
         default: number;
@@ -92,7 +92,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     placement: {
-        type: PropType<"top" | "left" | "right" | "bottom" | "start" | "end">;
+        type: PropType<"top" | "start" | "end" | "bottom" | "left" | "right">;
         default: string;
     };
     header: {
@@ -142,20 +142,20 @@ declare const _default: import("vue").DefineComponent<{
     onBeforeShow?: (...args: any[]) => any;
     onBeforeHide?: (...args: any[]) => any;
 }, {
-    id: string;
-    modelValue: boolean;
-    title: string;
     header: string;
-    backdrop: boolean;
-    placement: "top" | "left" | "right" | "bottom" | "start" | "end";
+    title: string;
     tag: keyof HTMLElementTagNameMap;
+    modelValue: boolean;
+    id: string;
     textVariant: ColorVariants;
     bgVariant: ColorVariants;
     headerClass: any;
+    placement: "top" | "start" | "end" | "bottom" | "left" | "right";
     btnCloseWhite: boolean;
     tabIndex: number;
     ariaLabelledby: string;
     headerStyle: string | object;
+    backdrop: boolean;
     enableBodyScroll: boolean;
 }>;
 export default _default;

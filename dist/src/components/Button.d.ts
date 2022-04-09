@@ -136,17 +136,17 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     size: buttonSizes;
-    type: string;
-    active: boolean;
-    href: string;
-    disabled: boolean;
-    block: boolean;
     tag: keyof HTMLElementTagNameMap;
+    type: string;
+    disabled: boolean;
     variant: ColorVariants;
-    activeClass: string;
-    badge: string | number;
+    href: string;
     pill: boolean;
+    badge: string | number;
+    active: boolean;
+    activeClass: string;
     outline: boolean;
+    block: boolean;
     squared: boolean;
     pressed: boolean;
     badePosition: badgePositions;

@@ -38,9 +38,9 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     modelValue: number;
+    variant: string;
     min: number;
     max: number;
-    variant: string;
 }>;
 export default _default;
 //# sourceMappingURL=Rating.vue.d.ts.map

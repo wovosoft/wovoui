@@ -28,7 +28,11 @@ export default defineConfig({
             fileName: (format) => `index.${format}.js`
         },
         rollupOptions: {
-            external: ['vue'],
+            external: [
+                'vue',
+                'chart.js/auto',
+                'axios'
+            ],
             output: {
                 globals: {
                     vue: 'Vue'

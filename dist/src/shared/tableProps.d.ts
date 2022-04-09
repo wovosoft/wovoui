@@ -39,7 +39,7 @@ declare const _default: {
         default: boolean;
     };
     valign: {
-        type: PropType<"top" | "middle" | "bottom">;
+        type: PropType<"top" | "bottom" | "middle">;
         default: any;
     };
     caption: {

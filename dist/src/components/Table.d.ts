@@ -36,7 +36,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     valign: {
-        type: import("vue").PropType<"top" | "middle" | "bottom">;
+        type: import("vue").PropType<"top" | "bottom" | "middle">;
         default: any;
     };
     caption: {
@@ -87,7 +87,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     valign: {
-        type: import("vue").PropType<"top" | "middle" | "bottom">;
+        type: import("vue").PropType<"top" | "bottom" | "middle">;
         default: any;
     };
     caption: {
@@ -101,15 +101,15 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     small: boolean;
     caption: string;
-    active: boolean;
-    hover: boolean;
     variant: import("../types/colorVariants").ColorVariants;
+    active: boolean;
     borderVariant: import("../types/colorVariants").ColorVariants;
     responsive: boolean | import("../types/responsiveLayoutSizes").responsiveSizes;
     striped: boolean;
+    hover: boolean;
     bordered: boolean;
     borderless: boolean;
-    valign: "top" | "middle" | "bottom";
+    valign: "top" | "bottom" | "middle";
     captionTop: boolean;
 }>;
 export default _default;

@@ -18,7 +18,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     variant: {
-        type: PropType<"dark" | "light">;
+        type: PropType<"light" | "dark">;
         default: string;
     };
     bgVariant: {
@@ -41,7 +41,7 @@ declare const _default: import("vue").DefineComponent<{
     collapsed: Ref<boolean>;
     toggleNavbar(): void;
     classes: import("vue").ComputedRef<(string | {
-        [x: string]: boolean | "sm" | "lg" | "md" | "xl" | ColorVariants | "xxl";
+        [x: string]: boolean | ColorVariants | "sm" | "lg" | "md" | "xl" | "xxl";
     })[]>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     brand: {
@@ -61,7 +61,7 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
     variant: {
-        type: PropType<"dark" | "light">;
+        type: PropType<"light" | "dark">;
         default: string;
     };
     bgVariant: {
@@ -82,10 +82,10 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     fixed: "top" | "bottom";
-    variant: "dark" | "light";
+    variant: "light" | "dark";
+    bgVariant: ColorVariants;
     fluid: boolean;
     brand: string;
-    bgVariant: ColorVariants;
     brandUrl: string | object;
     toggleEnabled: boolean;
     sticky: "top" | "bottom";

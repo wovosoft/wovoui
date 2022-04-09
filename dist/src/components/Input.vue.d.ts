@@ -56,8 +56,8 @@ declare const _default: import("vue").DefineComponent<{
     size: string;
     modelValue: string | number;
     type: string;
-    state: boolean;
     plain: boolean;
+    state: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=Input.vue.d.ts.map

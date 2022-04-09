@@ -30,8 +30,8 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
 }, {
-    modelValue: boolean;
     header: string;
+    modelValue: boolean;
     bodyClass: any;
 }>;
 export default _default;

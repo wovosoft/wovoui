@@ -45,11 +45,11 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
+    horizontal: boolean;
     sm: responsiveNumbers;
     lg: responsiveNumbers;
     md: responsiveNumbers;
     xl: responsiveNumbers;
-    horizontal: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=FormLabel.d.ts.map

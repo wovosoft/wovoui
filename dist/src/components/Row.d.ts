@@ -127,11 +127,11 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     g: ColSizes;
+    tag: keyof HTMLElementTagNameMap;
     sm: ColSizes;
     lg: ColSizes;
     md: ColSizes;
     xl: ColSizes;
-    tag: keyof HTMLElementTagNameMap;
     justifyContent: justifyContentAlignments;
     gx: 0 | responsiveNumbers;
     gy: 0 | responsiveNumbers;

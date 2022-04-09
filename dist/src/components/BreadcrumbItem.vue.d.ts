@@ -107,17 +107,17 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     replace: boolean;
-    active: boolean;
-    href: string;
-    disabled: boolean;
-    target: string;
-    to: string | object;
     tag: keyof HTMLElementTagNameMap;
-    append: boolean;
+    disabled: boolean;
+    href: string;
+    target: string;
+    active: boolean;
     activeClass: string;
-    rel: string;
+    append: boolean;
     ariaCurrent: string;
     exact: boolean;
+    rel: string;
+    to: string | object;
 }>;
 export default _default;
 //# sourceMappingURL=BreadcrumbItem.vue.d.ts.map

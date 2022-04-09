@@ -31,7 +31,9 @@ export default defineComponent({
     },
     setup(props) {
         return {
-            classes: computed<classTypes>(() => ["nav-link"]),
+            classes: computed<classTypes>(() => ["nav-link", {
+                active: props.active
+            }]),
             linkAttributes: computed<linkAttributesType>(() => {
                 return {
                     href: props.tag === "a" ? props.href : null,

@@ -31,9 +31,9 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
+    tag: keyof HTMLElementTagNameMap;
     dark: boolean;
     show: boolean;
-    tag: keyof HTMLElementTagNameMap;
 }>;
 export default _default;
 //# sourceMappingURL=DropdownMenu.vue.d.ts.map

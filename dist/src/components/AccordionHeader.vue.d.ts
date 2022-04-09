@@ -28,8 +28,8 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
 }, {
-    modelValue: boolean;
     tag: keyof HTMLElementTagNameMap;
+    modelValue: boolean;
     toggleTag: keyof HTMLElementTagNameMap;
 }>;
 export default _default;

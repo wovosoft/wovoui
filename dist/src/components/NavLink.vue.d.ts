@@ -67,13 +67,13 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    active: boolean;
-    href: string;
-    disabled: boolean;
-    target: string;
-    to: object;
     tag: keyof HTMLElementTagNameMap;
+    disabled: boolean;
+    href: string;
+    target: string;
+    active: boolean;
     ariaCurrent: string;
+    to: object;
 }>;
 export default _default;
 //# sourceMappingURL=NavLink.vue.d.ts.map

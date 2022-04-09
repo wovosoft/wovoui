@@ -67,12 +67,12 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     button: boolean;
-    active: boolean;
-    href: string;
-    disabled: boolean;
-    to: any;
     tag: string;
+    disabled: boolean;
     variant: ColorVariants;
+    href: string;
+    active: boolean;
+    to: any;
 }>;
 export default _default;
 //# sourceMappingURL=ListGroupItem.vue.d.ts.map

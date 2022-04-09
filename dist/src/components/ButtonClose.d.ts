@@ -28,9 +28,9 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
-    disabled: boolean;
     white: boolean;
     ariaLabel: string;
+    disabled: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=ButtonClose.d.ts.map

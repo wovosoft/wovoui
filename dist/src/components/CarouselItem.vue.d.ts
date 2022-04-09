@@ -18,7 +18,7 @@ declare const _default: import("vue").DefineComponent<{
     classes: import("vue").ComputedRef<string[]>;
 }, unknown, {}, {
     transitionEnd(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:active" | "slidingStart" | "slidingEnd")[], "update:active" | "slidingStart" | "slidingEnd", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("slidingStart" | "slidingEnd" | "update:active")[], "slidingStart" | "slidingEnd" | "update:active", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     tag: {
         type: PropType<string>;
         default: string;
@@ -32,12 +32,12 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }>> & {
-    "onUpdate:active"?: (...args: any[]) => any;
     onSlidingStart?: (...args: any[]) => any;
     onSlidingEnd?: (...args: any[]) => any;
+    "onUpdate:active"?: (...args: any[]) => any;
 }, {
-    active: boolean;
     tag: string;
+    active: boolean;
     activeClass: string;
 }>;
 export default _default;

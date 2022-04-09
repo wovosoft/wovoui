@@ -70,11 +70,11 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
-    items: itemType[];
+    tag: keyof HTMLElementTagNameMap;
     modelValue: number;
     flush: boolean;
-    tag: keyof HTMLElementTagNameMap;
     alwaysOpen: boolean;
+    items: itemType[];
     child: boolean;
     ps: number;
 }>;

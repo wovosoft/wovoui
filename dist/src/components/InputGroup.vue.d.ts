@@ -48,9 +48,9 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     size: string;
-    prepend: string;
     tag: keyof HTMLElementTagNameMap;
     append: string;
+    prepend: string;
     noWrap: boolean;
 }>;
 export default _default;

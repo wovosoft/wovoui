@@ -61,11 +61,11 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    href: string;
     tag: keyof HTMLElementTagNameMap;
+    ariaLabel: string;
+    href: string;
     next: boolean;
     prev: boolean;
-    ariaLabel: string;
     prevText: string;
     nextText: string;
 }>;

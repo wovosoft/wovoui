@@ -154,20 +154,20 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     size: import("../types/buttonSizes").buttonSizes;
     split: boolean;
-    text: string;
     dir: import("../types/dropdownDirections").dropdownDirections;
-    disabled: boolean;
-    block: boolean;
-    align: import("../types/dropdownAlignments").dropdownAlignments;
     tag: keyof HTMLElementTagNameMap;
-    variant: import("../types/colorVariants").ColorVariants;
-    disableInnerClicks: boolean;
     toggleTag: keyof HTMLElementTagNameMap;
     isNav: boolean;
+    disabled: boolean;
+    variant: import("../types/colorVariants").ColorVariants;
+    block: boolean;
+    align: import("../types/dropdownAlignments").dropdownAlignments;
     menuTag: keyof HTMLElementTagNameMap;
+    text: string;
     splitVariant: import("../types/colorVariants").ColorVariants;
     menuDark: boolean;
     menuClass: string | object | any[];
+    disableInnerClicks: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=Dropdown.vue.d.ts.map

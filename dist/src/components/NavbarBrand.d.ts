@@ -20,8 +20,8 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }>>, {
-    href: string;
     tag: keyof HTMLElementTagNameMap;
+    href: string;
 }>;
 export default _default;
 //# sourceMappingURL=NavbarBrand.d.ts.map

@@ -93,16 +93,16 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     top: boolean;
-    alt: string;
     height: string | number;
-    width: string | number;
-    left: boolean;
-    right: boolean;
-    bottom: boolean;
     start: boolean;
     end: boolean;
     src: string;
+    alt: string;
     overlay: boolean;
+    bottom: boolean;
+    left: boolean;
+    right: boolean;
+    width: string | number;
 }>;
 export default _default;
 //# sourceMappingURL=CardImg.d.ts.map

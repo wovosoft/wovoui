@@ -70,13 +70,13 @@ declare const _default: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
-    id: string;
-    modelValue: boolean;
-    visible: boolean;
-    class: any;
-    horizontal: boolean;
     tag: keyof HTMLElementTagNameMap;
+    modelValue: boolean;
+    class: any;
+    visible: boolean;
+    id: string;
     isNav: boolean;
+    horizontal: boolean;
 }>;
 export default _default;
 //# sourceMappingURL=Collapse.vue.d.ts.map

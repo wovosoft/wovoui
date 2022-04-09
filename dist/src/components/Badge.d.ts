@@ -54,11 +54,11 @@ declare const _default: import("vue").DefineComponent<{
         default: any;
     };
 }>>, {
-    href: string;
-    position: badgePositions;
     tag: keyof HTMLElementTagNameMap;
     variant: ColorVariants;
+    href: string;
     pill: boolean;
+    position: badgePositions;
     content: string | number;
 }>;
 export default _default;

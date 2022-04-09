@@ -84,12 +84,12 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     value: number;
+    tag: keyof HTMLElementTagNameMap;
     height: string | number;
     min: number;
-    max: number;
-    tag: keyof HTMLElementTagNameMap;
     striped: boolean;
     barTag: keyof HTMLElementTagNameMap;
+    max: number;
     showValue: boolean;
     animated: boolean;
 }>;

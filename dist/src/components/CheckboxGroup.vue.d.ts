@@ -52,12 +52,12 @@ declare const _default: import("vue").DefineComponent<{
 }>> & {
     "onUpdate:modelValue"?: (...args: any[]) => any;
 }, {
-    options: any;
     modelValue: any;
-    switch: boolean;
-    valueField: string;
-    textField: string;
+    options: any;
     inline: boolean;
+    switch: boolean;
+    textField: string;
+    valueField: string;
 }>;
 export default _default;
 //# sourceMappingURL=CheckboxGroup.vue.d.ts.map
