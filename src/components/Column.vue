@@ -5,7 +5,9 @@
                 {{ formatter(item) }}
             </template>
             <template v-else-if="actions">
+                <slot name="actions_group_prepend"></slot>
                 <ButtonGroup :size="actionsSize">
+                    <slot name="actions_prepend"></slot>
                     <Button :variant="viewVariant" @click="()=>{
                         showViewModal=true;
                         setCurrentItem(item);
@@ -21,7 +23,9 @@
                     <Button :variant="destroyVariant" @click="processDelete(item)">
                         <Trash/>
                     </Button>
+                    <slot name="actions_append"></slot>
                 </ButtonGroup>
+                <slot name="actions_group_append"></slot>
             </template>
             <template v-else>
                 {{ item[field] }}

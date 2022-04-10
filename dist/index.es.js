@@ -42756,47 +42756,50 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
       }, () => [
         typeof _ctx.formatter === "function" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
           createTextVNode(toDisplayString(_ctx.formatter(_ctx.item)), 1)
-        ], 64)) : _ctx.actions ? (openBlock(), createBlock(_component_ButtonGroup, {
-          key: 1,
-          size: _ctx.actionsSize
-        }, {
-          default: withCtx(() => [
-            createVNode(_component_Button, {
-              variant: _ctx.viewVariant,
-              onClick: _cache[0] || (_cache[0] = () => {
-                _ctx.showViewModal = true;
-                _ctx.setCurrentItem(_ctx.item);
-              })
-            }, {
-              default: withCtx(() => [
-                createVNode(_component_Eye)
-              ]),
-              _: 1
-            }, 8, ["variant"]),
-            createVNode(_component_Button, {
-              variant: _ctx.editVariant,
-              onClick: _cache[1] || (_cache[1] = () => {
-                _ctx.showCreateUpdateModal = true;
-                _ctx.setCurrentItem(_ctx.item);
-              })
-            }, {
-              default: withCtx(() => [
-                createVNode(_component_PencilSquare)
-              ]),
-              _: 1
-            }, 8, ["variant"]),
-            createVNode(_component_Button, {
-              variant: _ctx.destroyVariant,
-              onClick: _cache[2] || (_cache[2] = ($event) => _ctx.processDelete(_ctx.item))
-            }, {
-              default: withCtx(() => [
-                createVNode(_component_Trash)
-              ]),
-              _: 1
-            }, 8, ["variant"])
-          ]),
-          _: 1
-        }, 8, ["size"])) : (openBlock(), createElementBlock(Fragment, { key: 2 }, [
+        ], 64)) : _ctx.actions ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+          renderSlot(_ctx.$slots, "actions_group_prepend"),
+          createVNode(_component_ButtonGroup, { size: _ctx.actionsSize }, {
+            default: withCtx(() => [
+              renderSlot(_ctx.$slots, "actions_prepend"),
+              createVNode(_component_Button, {
+                variant: _ctx.viewVariant,
+                onClick: _cache[0] || (_cache[0] = () => {
+                  _ctx.showViewModal = true;
+                  _ctx.setCurrentItem(_ctx.item);
+                })
+              }, {
+                default: withCtx(() => [
+                  createVNode(_component_Eye)
+                ]),
+                _: 1
+              }, 8, ["variant"]),
+              createVNode(_component_Button, {
+                variant: _ctx.editVariant,
+                onClick: _cache[1] || (_cache[1] = () => {
+                  _ctx.showCreateUpdateModal = true;
+                  _ctx.setCurrentItem(_ctx.item);
+                })
+              }, {
+                default: withCtx(() => [
+                  createVNode(_component_PencilSquare)
+                ]),
+                _: 1
+              }, 8, ["variant"]),
+              createVNode(_component_Button, {
+                variant: _ctx.destroyVariant,
+                onClick: _cache[2] || (_cache[2] = ($event) => _ctx.processDelete(_ctx.item))
+              }, {
+                default: withCtx(() => [
+                  createVNode(_component_Trash)
+                ]),
+                _: 1
+              }, 8, ["variant"]),
+              renderSlot(_ctx.$slots, "actions_append")
+            ]),
+            _: 3
+          }, 8, ["size"]),
+          renderSlot(_ctx.$slots, "actions_group_append")
+        ], 64)) : (openBlock(), createElementBlock(Fragment, { key: 2 }, [
           createTextVNode(toDisplayString(_ctx.item[_ctx.field]), 1)
         ], 64))
       ])
