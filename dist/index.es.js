@@ -42757,10 +42757,10 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
         typeof _ctx.formatter === "function" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
           createTextVNode(toDisplayString(_ctx.formatter(_ctx.item)), 1)
         ], 64)) : _ctx.actions ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-          renderSlot(_ctx.$slots, "actions_group_prepend"),
+          renderSlot(_ctx.$slots, "actions_group_prepend", { item: _ctx.currentItem }),
           createVNode(_component_ButtonGroup, { size: _ctx.actionsSize }, {
             default: withCtx(() => [
-              renderSlot(_ctx.$slots, "actions_prepend"),
+              renderSlot(_ctx.$slots, "actions_prepend", { item: _ctx.currentItem }),
               createVNode(_component_Button, {
                 variant: _ctx.viewVariant,
                 onClick: _cache[0] || (_cache[0] = () => {
@@ -42794,11 +42794,11 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
                 ]),
                 _: 1
               }, 8, ["variant"]),
-              renderSlot(_ctx.$slots, "actions_append")
+              renderSlot(_ctx.$slots, "actions_append", { item: _ctx.currentItem })
             ]),
             _: 3
           }, 8, ["size"]),
-          renderSlot(_ctx.$slots, "actions_group_append")
+          renderSlot(_ctx.$slots, "actions_group_append", { item: _ctx.currentItem })
         ], 64)) : (openBlock(), createElementBlock(Fragment, { key: 2 }, [
           createTextVNode(toDisplayString(_ctx.item[_ctx.field]), 1)
         ], 64))
