@@ -5,3 +5,4 @@ dist-ssr
 .idea
 .vscode
 dist
+storybook-static
