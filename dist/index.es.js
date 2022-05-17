@@ -39108,6 +39108,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
           })) : renderSlot(_ctx.$slots, "default", { key: 2 }),
           !_ctx.noFooter ? (openBlock(), createBlock(_component_ModalFooter, { key: 3 }, {
             default: withCtx(() => [
+              renderSlot(_ctx.$slots, "prepend_buttons"),
               renderSlot(_ctx.$slots, "footer", {}, () => [
                 !_ctx.noCloseButton ? (openBlock(), createBlock(_component_Button, mergeProps({
                   key: 0,
@@ -39133,7 +39134,8 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
                   ]),
                   _: 1
                 }, 16, ["size", "onClick"])) : createCommentVNode("", true)
-              ])
+              ]),
+              renderSlot(_ctx.$slots, "append_buttons")
             ]),
             _: 3
           })) : createCommentVNode("", true)

@@ -36,6 +36,7 @@
                         <slot></slot>
                     </template>
                     <ModalFooter v-if="!noFooter">
+                        <slot name="prepend_buttons"></slot>
                         <slot name="footer">
                             <Button v-if="!noCloseButton"
                                     variant="secondary"
@@ -52,6 +53,7 @@
                                 {{ okTitle }}
                             </Button>
                         </slot>
+                        <slot name="append_buttons"></slot>
                     </ModalFooter>
                 </div>
             </div>
