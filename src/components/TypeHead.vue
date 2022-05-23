@@ -1,15 +1,18 @@
 <template>
-    <div ref="root" class="dropdown wui-typehead" @keydown.esc="dropdownShown=false;$refs.toggle?.focus()">
-        <button :class="classes"
+    <div ref="root" class="dropdown wui-typehead"
+         @keydown.esc="dropdownShown=false;$refs.toggle?.$el?.focus()">
+        <Button :class="classes"
                 ref="toggle"
+                :variant="variant"
                 type="button"
+                :size="toggleSize"
                 @keydown.down="()=>{if (!dropdownShown) openDropdown() }"
                 @click="openDropdown"
                 :aria-expanded="dropdownShown">
             <slot name="label" :selectedItem="selectedItem">
                 {{ getLabel(selectedItem) }}
             </slot>
-        </button>
+        </Button>
         <DropdownMenu
             :tag="menuTag"
             v-model:show="dropdownShown"
@@ -29,7 +32,7 @@
             <li v-for="(item,item_key) in items" :key="item_key" role="menuitem">
                 <button @click="selected(item)" class="dropdown-item" type="button">
                     <slot :option="item">
-                        {{ item }}
+                        {{ getOption(item) }}
                     </slot>
                 </button>
             </li>
@@ -69,6 +72,10 @@ export default defineComponent({
         getLabel: {
             type: Function as PropType<(item: unknown) => unknown>,
             default: (item: unknown) => item ? item : "Not Selected"
+        },
+        getOption: {
+            type: Function as PropType<(item: unknown) => unknown>,
+            default: (item: unknown) => item
         }
     },
     setup(props, {emit}) {
@@ -90,7 +97,7 @@ export default defineComponent({
 
         const root = ref<HTMLElement | null>(null);
         const search = ref<InstanceType<typeof Input> | null>(null);
-        const toggle = ref<HTMLElement | null>(null);
+        const toggle = ref<InstanceType<typeof Button> | null>(null);
         const outsideClickHandler = (e): void => {
             /**
              * If clicked outside of the root, dismiss the dropdown menu
@@ -148,10 +155,8 @@ export default defineComponent({
             },
             classes: computed(() => ([
                 "dropdown-toggle",
-                "form-control",
                 "w-100",
                 {
-                    ["form-control-" + props.toggleSize]: props.toggleSize,
                     ["text-" + props.textAlign]: props.textAlign
                 }
             ]))
