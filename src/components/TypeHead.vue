@@ -1,18 +1,15 @@
 <template>
-    <div ref="root" class="dropdown wui-typehead"
-         @keydown.esc="dropdownShown=false;$refs.toggle?.$el?.focus()">
-        <Button :class="classes"
+    <div ref="root" class="dropdown" @keydown.esc="dropdownShown=false;$refs.toggle?.focus()">
+        <button :class="classes"
                 ref="toggle"
-                :variant="variant"
                 type="button"
-                :size="toggleSize"
                 @keydown.down="()=>{if (!dropdownShown) openDropdown() }"
                 @click="openDropdown"
                 :aria-expanded="dropdownShown">
             <slot name="label" :selectedItem="selectedItem">
                 {{ getLabel(selectedItem) }}
             </slot>
-        </Button>
+        </button>
         <DropdownMenu
             :tag="menuTag"
             v-model:show="dropdownShown"
@@ -97,7 +94,7 @@ export default defineComponent({
 
         const root = ref<HTMLElement | null>(null);
         const search = ref<InstanceType<typeof Input> | null>(null);
-        const toggle = ref<InstanceType<typeof Button> | null>(null);
+        const toggle = ref<HTMLElement | null>(null);
         const outsideClickHandler = (e): void => {
             /**
              * If clicked outside of the root, dismiss the dropdown menu
@@ -155,8 +152,10 @@ export default defineComponent({
             },
             classes: computed(() => ([
                 "dropdown-toggle",
+                "form-control",
                 "w-100",
                 {
+                    ["form-control-" + props.toggleSize]: props.toggleSize,
                     ["text-" + props.textAlign]: props.textAlign
                 }
             ]))
@@ -164,9 +163,3 @@ export default defineComponent({
     }
 })
 </script>
-<style>
-.wui-typehead .dropdown-toggle::after {
-    float: right;
-    margin-top: 10px;
-}
-</style>

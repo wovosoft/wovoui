@@ -31441,7 +31441,7 @@ const _sfc_main$Q = defineComponent({
 });
 const _hoisted_1$q = ["required", "readonly", "disabled", "name", "value", "id"];
 const _hoisted_2$i = ["for"];
-const _hoisted_3$b = ["required", "readonly", "disabled", "name", "value", "id"];
+const _hoisted_3$c = ["required", "readonly", "disabled", "name", "value", "id"];
 const _hoisted_4$4 = ["for"];
 function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.button ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
@@ -31479,7 +31479,7 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
       type: "checkbox",
       "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => _ctx.model = $event),
       value: _ctx.value
-    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_3$b), [
+    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_3$c), [
       [vModelCheckbox, _ctx.model]
     ]),
     _ctx.$slots.default ? (openBlock(), createElementBlock("label", {
@@ -38413,11 +38413,11 @@ const _hoisted_2$h = /* @__PURE__ */ createElementVNode("hr", {
   "aria-orientation": "horizontal",
   class: "dropdown-divider"
 }, null, -1);
-const _hoisted_3$a = [
+const _hoisted_3$b = [
   _hoisted_2$h
 ];
 function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("li", _hoisted_1$m, _hoisted_3$a);
+  return openBlock(), createElementBlock("li", _hoisted_1$m, _hoisted_3$b);
 }
 var DropdownDivider = /* @__PURE__ */ _export_sfc$1(_sfc_main$G, [["render", _sfc_render$E]]);
 
@@ -38438,7 +38438,7 @@ const _hoisted_2$g = {
   key: 2,
   class: "dropdown-item-text"
 };
-const _hoisted_3$9 = ["href"];
+const _hoisted_3$a = ["href"];
 function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$l, [
     _ctx.noItemTag ? renderSlot(_ctx.$slots, "default", {
@@ -38460,7 +38460,7 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
       href: _ctx.href
     }, [
       renderSlot(_ctx.$slots, "default")
-    ], 10, _hoisted_3$9))
+    ], 10, _hoisted_3$a))
   ]);
 }
 var DropdownItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$D]]);
@@ -39046,7 +39046,7 @@ const _sfc_main$y = defineComponent({
 });
 const _hoisted_1$i = ["aria-hidden", "role"];
 const _hoisted_2$e = { class: "modal-content" };
-const _hoisted_3$8 = {
+const _hoisted_3$9 = {
   key: 0,
   ref: "backdrop",
   class: "modal-backdrop fade"
@@ -39142,7 +39142,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
         ])
       ], 2)
     ], 42, _hoisted_1$i),
-    !_ctx.noBackdrop && _ctx.shouldShowBackdrop ? (openBlock(), createElementBlock("div", _hoisted_3$8, null, 512)) : createCommentVNode("", true)
+    !_ctx.noBackdrop && _ctx.shouldShowBackdrop ? (openBlock(), createElementBlock("div", _hoisted_3$9, null, 512)) : createCommentVNode("", true)
   ]);
 }
 var Modal = /* @__PURE__ */ _export_sfc$1(_sfc_main$y, [["render", _sfc_render$w]]);
@@ -40691,7 +40691,7 @@ const _hoisted_2$c = {
   key: 0,
   class: "popover-header"
 };
-const _hoisted_3$7 = { class: "popover-body" };
+const _hoisted_3$8 = { class: "popover-body" };
 function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(Teleport, { to: "body" }, [
     _ctx.shown ? (openBlock(), createElementBlock("div", {
@@ -40706,7 +40706,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
           createTextVNode(toDisplayString(_ctx.header), 1)
         ])
       ])) : createCommentVNode("", true),
-      createElementVNode("div", _hoisted_3$7, [
+      createElementVNode("div", _hoisted_3$8, [
         renderSlot(_ctx.$slots, "default")
       ])
     ], 2)) : createCommentVNode("", true)
@@ -40738,7 +40738,7 @@ const _sfc_main$o = defineComponent({
 });
 const _hoisted_1$f = { class: "form-check" };
 const _hoisted_2$b = ["name", "id", "value", "checked"];
-const _hoisted_3$6 = ["for"];
+const _hoisted_3$7 = ["for"];
 function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$f, [
     createElementVNode("input", {
@@ -40755,7 +40755,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
       for: _ctx.identifier
     }, [
       renderSlot(_ctx.$slots, "default")
-    ], 8, _hoisted_3$6)
+    ], 8, _hoisted_3$7)
   ]);
 }
 var Radio = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$m]]);
@@ -40921,7 +40921,7 @@ const _sfc_main$l = defineComponent({
 });
 const _hoisted_1$c = ["multiple"];
 const _hoisted_2$a = ["label"];
-const _hoisted_3$5 = ["value", "disabled"];
+const _hoisted_3$6 = ["value", "disabled"];
 const _hoisted_4$3 = ["value", "disabled"];
 function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createElementBlock("select", {
@@ -40946,7 +40946,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
               renderSlot(_ctx.$slots, "text", {}, () => [
                 createTextVNode(toDisplayString(_ctx.getEntity(gi, "textField")), 1)
               ])
-            ], 8, _hoisted_3$5);
+            ], 8, _hoisted_3$6);
           }), 128))
         ], 8, _hoisted_2$a)) : (openBlock(), createElementBlock("option", {
           key: 1,
@@ -41346,7 +41346,7 @@ const _hoisted_1$9 = {
   role: "group"
 };
 const _hoisted_2$8 = { class: "wui-calendar-header p-2 text-center fw-bold" };
-const _hoisted_3$4 = ["value"];
+const _hoisted_3$5 = ["value"];
 const _hoisted_4$2 = { class: "w-100 border" };
 const _hoisted_5 = { class: "text-center border" };
 const _hoisted_6 = { class: "text-center border" };
@@ -41464,7 +41464,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
         type: "month",
         class: "border-0 text-center",
         onInput: _cache[4] || (_cache[4] = (...args) => _ctx.setMonth && _ctx.setMonth(...args))
-      }, null, 40, _hoisted_3$4)
+      }, null, 40, _hoisted_3$5)
     ]),
     createElementVNode("table", _hoisted_4$2, [
       createElementVNode("tr", null, [
@@ -41595,7 +41595,7 @@ const _sfc_main$g = defineComponent({
 });
 const _hoisted_1$8 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Previous", -1);
 const _hoisted_2$7 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Next", -1);
-const _hoisted_3$3 = ["onClick", "aria-current"];
+const _hoisted_3$4 = ["onClick", "aria-current"];
 function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CarouselInner = resolveComponent("CarouselInner");
   const _component_ChevronLeft = resolveComponent("ChevronLeft");
@@ -41650,7 +41650,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
               class: normalizeClass({ active: indicator.value }),
               "aria-current": indicator.value,
               "aria-label": "Slide 1"
-            }, null, 10, _hoisted_3$3);
+            }, null, 10, _hoisted_3$4);
           }), 128))
         ]),
         _: 1
@@ -42315,7 +42315,7 @@ const _hoisted_1$5 = {
   class: "toast-header"
 };
 const _hoisted_2$4 = { class: "me-auto" };
-const _hoisted_3$2 = {
+const _hoisted_3$3 = {
   key: 0,
   class: "toast-header"
 };
@@ -42360,7 +42360,7 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
       "aria-live": "assertive",
       "aria-atomic": "true"
     }), [
-      _ctx.$slots.header || _ctx.header ? (openBlock(), createElementBlock("div", _hoisted_3$2, [
+      _ctx.$slots.header || _ctx.header ? (openBlock(), createElementBlock("div", _hoisted_3$3, [
         renderSlot(_ctx.$slots, "header", {}, () => [
           createElementVNode("strong", _hoisted_4$1, toDisplayString(_ctx.header), 1)
         ]),
@@ -43064,7 +43064,7 @@ const _sfc_main$2 = defineComponent({
 });
 const _hoisted_1$2 = { class: "form-check-label d-block" };
 const _hoisted_2$2 = ["onChange", "checked"];
-const _hoisted_3$1 = /* @__PURE__ */ createElementVNode("br", null, null, -1);
+const _hoisted_3$2 = /* @__PURE__ */ createElementVNode("br", null, null, -1);
 const _hoisted_4 = /* @__PURE__ */ createElementVNode("h3", null, "Loading.......", -1);
 function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_FormGroup = resolveComponent("FormGroup");
@@ -43388,7 +43388,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
                     }, {
                       default: withCtx(() => [
                         createVNode(_component_Spinner),
-                        _hoisted_3$1,
+                        _hoisted_3$2,
                         _hoisted_4
                       ]),
                       _: 1
@@ -43424,8 +43424,6 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   ], 64);
 }
 var LaravelCrudTable = /* @__PURE__ */ _export_sfc$1(_sfc_main$2, [["render", _sfc_render$1]]);
-
-var TypeHead_vue_vue_type_style_index_0_lang = '';
 
 const _sfc_main$1 = defineComponent({
   name: "TypeHead",
@@ -43515,66 +43513,63 @@ const _sfc_main$1 = defineComponent({
       },
       classes: computed(() => [
         "dropdown-toggle",
+        "form-control",
         "w-100",
         {
+          ["form-control-" + props.toggleSize]: props.toggleSize,
           ["text-" + props.textAlign]: props.textAlign
         }
       ])
     };
   }
 });
-const _hoisted_1$1 = { class: "px-3" };
-const _hoisted_2$1 = ["onClick"];
+const _hoisted_1$1 = ["aria-expanded"];
+const _hoisted_2$1 = { class: "px-3" };
+const _hoisted_3$1 = ["onClick"];
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_Button = resolveComponent("Button");
   const _component_Input = resolveComponent("Input");
   const _component_DropdownMenu = resolveComponent("DropdownMenu");
   return openBlock(), createElementBlock("div", {
     ref: "root",
-    class: "dropdown wui-typehead",
-    onKeydown: _cache[3] || (_cache[3] = withKeys(($event) => {
+    class: "dropdown",
+    onKeydown: _cache[4] || (_cache[4] = withKeys(($event) => {
       _ctx.dropdownShown = false;
-      _ctx.$refs.toggle?.$el?.focus();
+      _ctx.$refs.toggle?.focus();
     }, ["esc"]))
   }, [
-    createVNode(_component_Button, {
+    createElementVNode("button", {
       class: normalizeClass(_ctx.classes),
       ref: "toggle",
-      variant: _ctx.variant,
       type: "button",
-      size: _ctx.toggleSize,
       onKeydown: _cache[0] || (_cache[0] = withKeys(() => {
         if (!_ctx.dropdownShown)
           _ctx.openDropdown();
       }, ["down"])),
-      onClick: _ctx.openDropdown,
+      onClick: _cache[1] || (_cache[1] = (...args) => _ctx.openDropdown && _ctx.openDropdown(...args)),
       "aria-expanded": _ctx.dropdownShown
-    }, {
-      default: withCtx(() => [
-        renderSlot(_ctx.$slots, "label", { selectedItem: _ctx.selectedItem }, () => [
-          createTextVNode(toDisplayString(_ctx.getLabel(_ctx.selectedItem)), 1)
-        ])
-      ]),
-      _: 3
-    }, 8, ["class", "variant", "size", "onClick", "aria-expanded"]),
+    }, [
+      renderSlot(_ctx.$slots, "label", { selectedItem: _ctx.selectedItem }, () => [
+        createTextVNode(toDisplayString(_ctx.getLabel(_ctx.selectedItem)), 1)
+      ])
+    ], 42, _hoisted_1$1),
     createVNode(_component_DropdownMenu, {
       tag: _ctx.menuTag,
       show: _ctx.dropdownShown,
-      "onUpdate:show": _cache[2] || (_cache[2] = ($event) => _ctx.dropdownShown = $event),
+      "onUpdate:show": _cache[3] || (_cache[3] = ($event) => _ctx.dropdownShown = $event),
       onKeydown: withKeys(_ctx.focusItem, ["up", "down"]),
       dark: _ctx.menuDark,
       style: normalizeStyle({ maxHeight: _ctx.menuHeight }),
       class: "overflow-auto w-100"
     }, {
       default: withCtx(() => [
-        createElementVNode("li", _hoisted_1$1, [
+        createElementVNode("li", _hoisted_2$1, [
           createVNode(_component_Input, {
             placeholder: _ctx.searchPlaceholder,
             ref: "search",
             type: "search",
             tabindex: "0",
             modelValue: _ctx.query,
-            "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => _ctx.query = $event),
+            "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => _ctx.query = $event),
             size: _ctx.searchSize
           }, null, 8, ["placeholder", "modelValue", "size"])
         ]),
@@ -43591,7 +43586,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               renderSlot(_ctx.$slots, "default", { option: item }, () => [
                 createTextVNode(toDisplayString(_ctx.getOption(item)), 1)
               ])
-            ], 8, _hoisted_2$1)
+            ], 8, _hoisted_3$1)
           ]);
         }), 128))
       ]),
