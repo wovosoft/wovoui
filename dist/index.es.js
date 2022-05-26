@@ -43466,6 +43466,7 @@ const _sfc_main$1 = defineComponent({
     const root = ref(null);
     const search = ref(null);
     const toggle = ref(null);
+    const menu = ref(null);
     const outsideClickHandler = (e) => {
       if (dropdownShown.value && !root.value?.contains(e.target)) {
         dropdownShown.value = false;
@@ -43478,8 +43479,20 @@ const _sfc_main$1 = defineComponent({
         document.removeEventListener("click", outsideClickHandler);
       }
     });
+    const popperOptions = computed(() => ({
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 5]
+          }
+        }
+      ]
+    }));
+    let popperInstance = null;
     onMounted(() => {
       props.getItems(items, query);
+      popperInstance = createPopper(toggle.value, menu.value?.$el, popperOptions.value);
     });
     onBeforeUnmount(() => {
       document.removeEventListener("click", outsideClickHandler);
@@ -43489,6 +43502,7 @@ const _sfc_main$1 = defineComponent({
       root,
       search,
       toggle,
+      menu,
       dropdownShown,
       items,
       selectedItem,
@@ -43508,7 +43522,10 @@ const _sfc_main$1 = defineComponent({
       openDropdown() {
         dropdownShown.value = !dropdownShown.value;
         if (dropdownShown.value) {
-          setTimeout(() => search.value?.$el.focus(), 0);
+          setTimeout(() => {
+            search.value?.$el.focus();
+            popperInstance?.update();
+          }, 0);
         }
       },
       classes: computed(() => [
@@ -43518,7 +43535,8 @@ const _sfc_main$1 = defineComponent({
           ["form-select-" + props.toggleSize]: props.toggleSize,
           ["text-" + props.textAlign]: props.textAlign
         }
-      ])
+      ]),
+      popperOptions
     };
   }
 });
@@ -43552,6 +43570,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       ])
     ], 42, _hoisted_1$1),
     createVNode(_component_DropdownMenu, {
+      ref: "menu",
       tag: _ctx.menuTag,
       show: _ctx.dropdownShown,
       "onUpdate:show": _cache[3] || (_cache[3] = ($event) => _ctx.dropdownShown = $event),

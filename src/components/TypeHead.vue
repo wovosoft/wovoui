@@ -11,6 +11,7 @@
             </slot>
         </button>
         <DropdownMenu
+            ref="menu"
             :tag="menuTag"
             v-model:show="dropdownShown"
             @keydown.up.down="focusItem"
@@ -45,6 +46,7 @@ import Input from "./Input.vue";
 import DropdownMenu from "./DropdownMenu.vue";
 import type {ColorVariants} from "../types/colorVariants";
 import type {TextAlign} from "../types/TextAlign";
+import {createPopper} from "@popperjs/core";
 
 export default defineComponent({
     name: "TypeHead",
@@ -95,6 +97,9 @@ export default defineComponent({
         const root = ref<HTMLElement | null>(null);
         const search = ref<InstanceType<typeof Input> | null>(null);
         const toggle = ref<HTMLElement | null>(null);
+        const menu = ref<InstanceType<typeof DropdownMenu> | null>(null);
+
+
         const outsideClickHandler = (e): void => {
             /**
              * If clicked outside of the root, dismiss the dropdown menu
@@ -110,9 +115,27 @@ export default defineComponent({
             } else {
                 document.removeEventListener("click", outsideClickHandler);
             }
-        })
+        });
+
+        const popperOptions = computed(() => ({
+            modifiers: [
+                {
+                    name: 'offset',
+                    options: {
+                        offset: [0, 5],
+                    },
+                },
+            ],
+        }));
+
+        let popperInstance = null;
         onMounted(() => {
             props.getItems(items, query);
+            popperInstance = createPopper(
+                toggle.value,
+                menu.value?.$el,
+                popperOptions.value
+            )
         });
 
         /**
@@ -128,6 +151,8 @@ export default defineComponent({
             root,
             search,
             toggle,
+            menu,
+
             dropdownShown,
             items,
             selectedItem,
@@ -147,7 +172,10 @@ export default defineComponent({
             openDropdown() {
                 dropdownShown.value = !dropdownShown.value;
                 if (dropdownShown.value) {
-                    setTimeout(() => search.value?.$el.focus(), 0)
+                    setTimeout(() => {
+                        search.value?.$el.focus();
+                        popperInstance?.update();
+                    }, 0);
                 }
             },
             classes: computed(() => ([
@@ -157,7 +185,8 @@ export default defineComponent({
                     ["form-select-" + props.toggleSize]: props.toggleSize,
                     ["text-" + props.textAlign]: props.textAlign
                 }
-            ]))
+            ])),
+            popperOptions
         }
     }
 })
