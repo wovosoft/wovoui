@@ -151,11 +151,10 @@ export default defineComponent({
                 }
             },
             classes: computed(() => ([
-                "dropdown-toggle",
-                "form-control",
+                "form-select",
                 "w-100",
                 {
-                    ["form-control-" + props.toggleSize]: props.toggleSize,
+                    ["form-select-" + props.toggleSize]: props.toggleSize,
                     ["text-" + props.textAlign]: props.textAlign
                 }
             ]))
