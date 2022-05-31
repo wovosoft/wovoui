@@ -43431,6 +43431,7 @@ const _sfc_main$1 = defineComponent({
   emits: ["update:modelValue", "selected"],
   props: {
     apiUrl: { type: String, default: null },
+    lazy: { type: Boolean, default: true },
     getItems: {
       type: Function,
       required: true
@@ -43491,7 +43492,9 @@ const _sfc_main$1 = defineComponent({
     }));
     let popperInstance = null;
     onMounted(() => {
-      props.getItems(items, query);
+      if (!props.lazy) {
+        props.getItems(items, query);
+      }
       popperInstance = createPopper(toggle.value, menu.value?.$el, popperOptions.value);
     });
     onBeforeUnmount(() => {

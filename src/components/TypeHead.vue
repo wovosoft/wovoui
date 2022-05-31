@@ -54,6 +54,7 @@ export default defineComponent({
     emits: ['update:modelValue', 'selected'],
     props: {
         apiUrl: {type: String as PropType<string>, default: null},
+        lazy: {type: Boolean as PropType<boolean>, default: true},
         getItems: {
             //sending refs, so that can be modified from outside
             type: Function as PropType<(items: Ref<unknown>, query: Ref<string | number | null>) => unknown>,
@@ -130,7 +131,9 @@ export default defineComponent({
 
         let popperInstance = null;
         onMounted(() => {
-            props.getItems(items, query);
+            if (!props.lazy) {
+                props.getItems(items, query);
+            }
             popperInstance = createPopper(
                 toggle.value,
                 menu.value?.$el,
