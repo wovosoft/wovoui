@@ -47,7 +47,9 @@ export default defineComponent({
         noCloseButton: {type: Boolean as PropType<boolean>, default: false},
         bodyClass: {type: [Array, String, Object] as PropType<string | object>, default: null},
         variant: {type: String as PropType<ColorVariants>, default: null},
-        container: {type: String as PropType<string>, default: null}
+        container: {type: String as PropType<string>, default: null},
+        //in seconds
+        timeout:{type:Number as PropType<number>,default:3}
     },
     setup(props, {emit, expose}) {
         const visible = ref(false);
@@ -55,9 +57,20 @@ export default defineComponent({
 
         watch(() => props.show, value => visible.value = value);
 
+        const timer = null;
+
         watch(visible, value => {
             emit('update:show', value);
             emit('update:modelValue', value);
+            
+            if (value && props.timeout) {
+                timer = setTimeout(() => visible.value = false, props.timeout);
+            }else{
+                if(timer){
+                    clearTimeout(timer);
+                    timer = null;
+                }
+            }
         });
 
         expose({
