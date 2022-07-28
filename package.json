@@ -11,6 +11,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "@wovosoft/wovoui-icons": "^1.1.4",
+    "bootstrap": "^5.2.0",
     "dayjs": "^1.11.4",
     "vue": "^3.2.16",
     "vue-router": "^4.1.3"

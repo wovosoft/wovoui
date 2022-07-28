@@ -4,7 +4,11 @@ import vue from '@vitejs/plugin-vue'
 const path = require("path");
 
 export default defineConfig({
-    // esbuild: {
+    resolve:{
+        alias:{
+            "@":path.resolve(__dirname,"/demo")
+        }
+    },
     plugins: [
         vue({}),
     ],
