@@ -2,6 +2,7 @@ import {defineComponent, h, PropType} from "vue";
 import type {buttonSizes} from "../types/buttonSizes";
 
 export default defineComponent({
+    name:'ButtonGroup',
     props: {
         tag: {type: String as PropType<string>, default: "div"},
         ariaLabel: {type: String as PropType<string>, default: "Button Group"},
@@ -13,13 +14,11 @@ export default defineComponent({
         return () => h(
             props.tag,
             {
-                class: [
-                    {
-                        "btn-group": !props.vertical,
-                        "btn-group-vertical": props.vertical,
-                        ["btn-group-" + props.size]: props.size
-                    }
-                ],
+                class: {
+                    "btn-group": !props.vertical,
+                    "btn-group-vertical": props.vertical,
+                    ["btn-group-" + props.size]: props.size
+                },
                 role: props.role,
                 ariaLabel: props.ariaLabel
             },

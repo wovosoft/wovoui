@@ -1,25 +1,37 @@
-import { createRouter,createWebHashHistory } from "vue-router";
+import {createRouter, createWebHashHistory} from "vue-router";
 
 import Index from "./pages/Index.vue";
 import Buttons from "./pages/Buttons.vue";
-import Badges from "./pages/Badges.ts";
-const routes=[
+import Badges from "./pages/Badges.vue";
+import Alerts from "./pages/Alerts.vue";
+
+export const routes = [
     {
-        name:"Index",
-        component:Index
+        path:"/",
+        name: "Index",
+        component: Index
     },
     {
-        name:"Buttons",
-        component:Buttons
+        path:"/buttons",
+        name: "Buttons",
+        component: Buttons
     },
     {
-        name:"Badges",
-        component:Badges
+        path:"/badges",
+        name: "Badges",
+        component: Badges
+    },
+    {
+        path:"/alerts",
+        name: "Alerts",
+        component: Alerts
     }
 ]
 
-export default  createRouter({
+
+export default createRouter({
     // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-  history: createWebHashHistory(),
-  routes
+    history: createWebHashHistory(),
+    // @ts-ignore
+    routes
 });

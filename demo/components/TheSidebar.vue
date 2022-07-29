@@ -1,11 +1,10 @@
 <template>
   <ul>
-    <li>
-        <router-link :to="{'name':'Buttons'}">Button</router-link>
-    </li>
-    <li>
-        <router-link :to="{'name':'Badges'}">Badges</router-link>
+    <li v-for="route in routes.sort()">
+        <router-link :to="{'name':route.name}">{{route.name}}</router-link>
     </li>
   </ul>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import {routes} from "../routes";
+</script>
