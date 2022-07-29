@@ -2,14 +2,15 @@
   "name": "@wovosoft/wovoui",
   "version": "0.2.46",
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
-    "dev:demo": "vite --config demo-vite.config.ts",
+    "dev": "vite --config demo-vite.config.ts",
     "build:demo": "vite build --config demo-vite.config.ts",
     "serve": "vite preview"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
+    "@vueuse/components": "^9.0.2",
+    "@vueuse/core": "^9.0.2",
     "@wovosoft/wovoui-icons": "^1.1.4",
     "bootstrap": "^5.2.0",
     "dayjs": "^1.11.4",

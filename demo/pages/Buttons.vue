@@ -4,13 +4,14 @@
     <Button>Default Button</Button>
 
     <h3 class="my-3">Color Variants</h3>
-    <Button v-for="c in colors" :variant="c" class="me-3">{{c}}</Button>
+    <Button v-for="c in colors" :variant="c" class="me-3">{{ c }}</Button>
 
     <h3 class="my-3">Outline Colors</h3>
-    <Button v-for="c in colors" outline :variant="c" class="me-3">{{c}}</Button>
+    <Button v-for="c in colors" outline :variant="c" class="me-3">{{ c }}</Button>
 
     <h3 class="my-3">Sizes</h3>
-    <Button v-for="size in sizesOf('button')" class="me-3" :size="size">Button {{size}}</Button>
+    <Button v-for="size in sizesOf('button')" class="me-3" :size="size">Button {{ size }}
+    </Button>
 
     <h3 class="my-3">Disabled Button</h3>
     <Button disabled>Disabled</Button>
@@ -22,9 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import {
-    Button
-} from "./../../src/index"
+import { Button } from "./../../src/index";
 
-import {colors,sizesOf} from "./../assets/index";
+import { colors, sizesOf } from "./../assets/index";
 </script>

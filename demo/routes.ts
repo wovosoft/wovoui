@@ -2,6 +2,7 @@ import { createRouter,createWebHashHistory } from "vue-router";
 
 import Index from "./pages/Index.vue";
 import Buttons from "./pages/Buttons.vue";
+import Badges from "./pages/Badges.ts";
 const routes=[
     {
         name:"Index",
@@ -10,6 +11,10 @@ const routes=[
     {
         name:"Buttons",
         component:Buttons
+    },
+    {
+        name:"Badges",
+        component:Badges
     }
 ]
 
