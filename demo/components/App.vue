@@ -21,9 +21,13 @@
       </template>
     </Navbar>
     <div class="d-flex flex-row">
-      <div class="border" style="width: 250px">Sidebar</div>
-      <div class="border flex-grow-1">
-        <router-view></router-view>
+      <div  style="width: 250px">
+        <TheSidebar />
+      </div>
+      <div class="flex-grow-1">
+        <Container>
+          <router-view></router-view>
+        </Container>
       </div>
     </div>
   </div>
@@ -38,5 +42,7 @@ import {
   DropdownItem,
   Input,
   Button,
+  Container
 } from "../../src";
+import TheSidebar from "./TheSidebar.vue";
 </script>

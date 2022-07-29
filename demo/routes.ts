@@ -1,10 +1,15 @@
 import { createRouter,createWebHashHistory } from "vue-router";
 
 import Index from "./pages/Index.vue";
+import Buttons from "./pages/Buttons.vue";
 const routes=[
     {
         name:"Index",
         component:Index
+    },
+    {
+        name:"Buttons",
+        component:Buttons
     }
 ]
 

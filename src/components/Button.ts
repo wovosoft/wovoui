@@ -19,6 +19,7 @@ export default defineComponent({
         squared: {type: Boolean as PropType<boolean>, default: false},
         disabled: {type: Boolean as PropType<boolean>, default: false},
         pressed: {type: Boolean as PropType<boolean>, default: false},
+        noWrap: {type: Boolean as PropType<boolean>, default: false},
         badge: {type: [String, Number] as PropType<string | number>, default: null},
         badePosition: {type: String as PropType<badgePositions>, default: () => null},
         badgeVariant: {type: String as PropType<ColorVariants>, default: () => 'secondary'},
@@ -54,16 +55,19 @@ export default defineComponent({
                     autocomplete: props.pressed ? "off" : null,
                     type: type(),
                     class: ["btn", {
+                        "disabled":props.disabled && props.tag==="a",
                         ["btn-" + (props.outline ? 'outline-' : '') + props.variant]: !!props.variant,
                         ["btn-" + props.size]: !!props.size,
                         'w-100': props.block,
                         'rounded-pill': props.pill,
                         'rounded-0': props.squared,
-                        [props.activeClass]: props.pressed || props.active
-                    }]
+                        [props.activeClass]: props.pressed || props.active,
+                        "text-nowrap":props.noWrap
+                    }],
+                    role:props.tag==="a"?"button":null
                 },
                 [
-                    slots.default ? slots.default() : null,
+                    slots.default ?.(),
                     badge()
                 ])
         }
