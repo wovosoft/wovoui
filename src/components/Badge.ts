@@ -28,7 +28,7 @@ export default defineComponent({
                 class: [
                     "badge",
                     {
-                        ["bg-" + props.variant]: !!props.variant,
+                        ["text-bg-" + props.variant]: !!props.variant,
                         "rounded-pill": props.pill,
                         "text-decoration-none": props.href,
                         "position-absolute translate-middle": props.position,
