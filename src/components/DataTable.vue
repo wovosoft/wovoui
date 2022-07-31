@@ -60,8 +60,8 @@ import Tr from "./Tr";
 import Td from "./Td";
 import {isObject, title} from "../shared/utilities.js";
 import {lowerCase} from "lodash/string.js";
-import {orderBy} from "lodash";
-import Icon from "./Icon.vue";
+import orderBy from "lodash/orderBy.js"
+import Icon from "./Icon";
 
 export default defineComponent({
     name: "DataTable",

@@ -6,6 +6,10 @@ export default defineComponent({
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"}
     },
     setup(props, {slots}) {
-        return () => h(props.tag, {class: ["alert-heading"]}, slots.default?.())
+        return () => h(props.tag, {
+                class: ["alert-heading"]
+            },
+            [slots.default?.()]
+        )
     }
 })

@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" :class="classes">
+    <component :is="tag" :class="classes" ref="target">
         <Button
             v-if="split"
             :disabled="disabled"
@@ -46,20 +46,50 @@
 </template>
 
 <script lang="ts">
-import {createPopper} from '@popperjs/core';
+import {createPopper, Instance as PopperType} from '@popperjs/core';
 import dropdownProps from "../shared/dropdownProps";
 import Button from "./Button";
 import DropdownMenu from "./DropdownMenu.vue";
-import {computed, defineComponent} from "vue";
+import {computed, defineComponent, onMounted, ref, watch} from "vue";
 import NavItem from "./NavItem.vue";
 import NavLink from "./NavLink.vue";
+import {onClickOutside} from "@vueuse/core";
 
 export default defineComponent({
     name: "Dropdown",
     components: {NavLink, NavItem, Button, DropdownMenu},
     props: dropdownProps,
     setup(props) {
+        const shouldOpen = ref<boolean>(false);
+        const target = ref<HTMLElement | null>(null);
+        const toggle = ref<HTMLElement | null>(null);
+        const menu = ref<HTMLElement | null>(null);
+
+
+        onClickOutside(target, () => shouldOpen.value = false);
+
+
+        const popperInstance = ref<PopperType>(null);
+        watch(shouldOpen, value => {
+            popperInstance.value?.update();
+            this.toggleAriaExpanded = value;
+        })
+
+        onMounted(() => {
+            popperInstance.value = createPopper(
+                toggle.value.$el,
+                menu.value.$el,
+                this.popperOptions
+            );
+        })
+
         return {
+            target,
+            toggle,
+            menu,
+            shouldOpen,
+            toggleAriaExpanded: ref<boolean>(false),
+            popperInstance: ref<unknown>(null),
             classes: computed(() => [
                 {
                     "btn-group": !props.block && !props.isNav,
@@ -82,44 +112,5 @@ export default defineComponent({
             }))
         }
     },
-
-    data() {
-        return {
-            shouldOpen: false,
-            toggleAriaExpanded: false,
-            popperInstance: null,
-        }
-    },
-    mounted() {
-        //https://popper.js.org/docs/v2/constructors/#options
-        this.popperInstance = createPopper(
-            this.$refs.toggle.$el,
-            this.$refs.menu.$el,
-            this.popperOptions
-        );
-    },
-    methods: {
-        clickOutside(e) {
-            if (!this.disableInnerClicks) {
-                this.shouldOpen = this.$refs.toggle.$el.contains(e.target);
-                return;
-            }
-            if (!this.$refs.menu.$el.contains(e.target) && e.target !== this.$refs.toggle.$el) {
-                this.shouldOpen = false;
-            }
-            return;
-        }
-    },
-    watch: {
-        shouldOpen(value) {
-            this.popperInstance.update();
-            this.toggleAriaExpanded = value;
-            if (value) {
-                document.addEventListener("click", this.clickOutside);
-            } else {
-                document.removeEventListener("click", this.clickOutside);
-            }
-        }
-    }
 })
 </script>

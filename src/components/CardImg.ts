@@ -11,9 +11,7 @@ export default defineComponent({
         left: {type: Boolean as PropType<boolean>, default: false},
         right: {type: Boolean as PropType<boolean>, default: false},
         start: {type: Boolean as PropType<boolean>, default: false},
-        top: {type: Boolean as PropType<boolean>, default: false},
-        height: {type: [Number, String] as PropType<number | string>, default: null},
-        width: {type: [Number, String] as PropType<number | string>, default: null},
+        top: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props, context) {
         return () => h(

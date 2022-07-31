@@ -4,27 +4,33 @@ import Index from "./pages/Index.vue";
 import Buttons from "./pages/Buttons.vue";
 import Badges from "./pages/Badges.vue";
 import Alerts from "./pages/Alerts.vue";
+import Dropdowns from "./pages/Dropdowns.vue";
 
 export const routes = [
     {
-        path:"/",
+        path: "/",
         name: "Index",
         component: Index
     },
     {
-        path:"/buttons",
+        path: "/buttons",
         name: "Buttons",
         component: Buttons
     },
     {
-        path:"/badges",
+        path: "/badges",
         name: "Badges",
         component: Badges
     },
     {
-        path:"/alerts",
+        path: "/alerts",
         name: "Alerts",
         component: Alerts
+    },
+    {
+        path: "/dropdowns",
+        name: "Dropdowns",
+        component: Dropdowns
     }
 ]
 

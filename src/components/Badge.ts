@@ -18,19 +18,23 @@ export default defineComponent({
             href: null,
             target: null
         });
+
         if (props.href) {
             attributes.href = props.href;
             attributes.target = "_self";
         }
-        const getVariant=()=>{
-            if (props.bgVariant || props.textVariant){
+
+        const getVariant = () => {
+            if (props.bgVariant || props.textVariant) {
                 return {
-                    ['bg-'+props.bgVariant]:!!props.bgVariant,
-                    ['text-'+props.textVariant]:!!props.textVariant,
+                    ['bg-' + props.bgVariant]: !!props.bgVariant,
+                    ['text-' + props.textVariant]: !!props.textVariant,
                 }
             }
+
+            //added in 5.2
             return {
-                ['text-bg-'+props.variant]:!!props.variant
+                ['text-bg-' + props.variant]: !!props.variant
             }
         }
         return () => h(

@@ -1,4 +1,4 @@
-import {computed, defineComponent, h, PropType} from "vue";
+import {defineComponent, h, PropType} from "vue";
 
 export default defineComponent({
     name: "AlertLink",
@@ -6,9 +6,8 @@ export default defineComponent({
         href: {type: String as PropType<string>, default: "#"}
     },
     setup(props, {slots}) {
-        const classes = computed(() => ["alert-link"]);
         return () => h("a",
-            {class: classes.value, href: props.href},
+            {class: ["alert-link"], href: props.href},
             slots.default?.()
         )
     }
