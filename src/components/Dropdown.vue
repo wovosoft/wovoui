@@ -45,72 +45,47 @@
     </component>
 </template>
 
-<script lang="ts">
-import {createPopper, Instance as PopperType} from '@popperjs/core';
+<script lang="ts" setup>
 import dropdownProps from "../shared/dropdownProps";
 import Button from "./Button";
 import DropdownMenu from "./DropdownMenu.vue";
-import {computed, defineComponent, onMounted, ref, watch} from "vue";
+import {computed, defineComponent, defineProps, ref, watch} from "vue";
 import NavItem from "./NavItem.vue";
 import NavLink from "./NavLink.vue";
 import {onClickOutside} from "@vueuse/core";
+import usePopper from "../shared/usePopper";
 
-export default defineComponent({
-    name: "Dropdown",
-    components: {NavLink, NavItem, Button, DropdownMenu},
-    props: dropdownProps,
-    setup(props) {
-        const shouldOpen = ref<boolean>(false);
-        const target = ref<HTMLElement | null>(null);
-        const toggle = ref<HTMLElement | null>(null);
-        const menu = ref<HTMLElement | null>(null);
+const props = defineProps(dropdownProps);
 
 
-        onClickOutside(target, () => shouldOpen.value = false);
+const shouldOpen = ref<boolean>(false);
 
+const target = ref(null);
+onClickOutside(target, () => shouldOpen.value = false);
 
-        const popperInstance = ref<PopperType>(null);
-        watch(shouldOpen, value => {
-            popperInstance.value?.update();
-            this.toggleAriaExpanded = value;
-        })
+const toggle = ref(null);
+const menu = ref(null);
+const toggleAriaExpanded = ref<boolean>(false);
 
-        onMounted(() => {
-            popperInstance.value = createPopper(
-                toggle.value.$el,
-                menu.value.$el,
-                this.popperOptions
-            );
-        })
+const {update} = usePopper(toggle, menu, computed(() => ({
+    placement: props.align ? [props.dir, props.align].join("-") : "bottom-start",
+    modifiers: [
+        {
+            name: 'offset',
+            options: {
+                offset: [0, 5],
+            },
+        },
+    ],
+})), shouldOpen);
 
-        return {
-            target,
-            toggle,
-            menu,
-            shouldOpen,
-            toggleAriaExpanded: ref<boolean>(false),
-            popperInstance: ref<unknown>(null),
-            classes: computed(() => [
-                {
-                    "btn-group": !props.block && !props.isNav,
-                    "dropdown": props.block || props.isNav,
-                    "dropend": props.dir === "right",
-                    "dropstart": props.dir === "left",
-                    "dropup": props.dir === "top",
-                }
-            ]),
-            popperOptions: computed(() => ({
-                placement: props.align ? [props.dir, props.align].join("-") : "bottom-start",
-                modifiers: [
-                    {
-                        name: 'offset',
-                        options: {
-                            offset: [0, 5],
-                        },
-                    },
-                ],
-            }))
-        }
-    },
-})
+watch(shouldOpen, value => toggleAriaExpanded.value = value);
+
+const classes = computed(() => ({
+    "btn-group": !props.block && !props.isNav,
+    "dropdown": props.block || props.isNav,
+    "dropend": props.dir === "right",
+    "dropstart": props.dir === "left",
+    "dropup": props.dir === "top",
+}));
 </script>

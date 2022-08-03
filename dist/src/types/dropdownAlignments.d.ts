@@ -1,3 +1,5 @@
+import {Placement} from "@popperjs/core";
+
 export type dropdownAlignments =
     | "start"
     | "end"
@@ -10,4 +12,5 @@ export type dropdownAlignments =
     | "xl-start"
     | "xl-end"
     | "xxl-start"
-    | "xxl-end";
+    | "xxl-end"
+    | Placement;

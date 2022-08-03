@@ -25,5 +25,5 @@ export default {
 
     split: {type: Boolean as PropType<boolean>, default: false},
     isNav: {type: Boolean as PropType<boolean>, default: false},
-    disableInnerClicks: {type: Boolean as PropType<boolean>, default: false}
+    disableInnerClicks: {type: Boolean as PropType<boolean>, default: false},
 }
