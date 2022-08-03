@@ -6,20 +6,20 @@
 
 <script lang="ts">
 
-import {computed, defineComponent, PropType, ref, watch} from "vue";
+import { computed, defineComponent, PropType, ref, watch } from "vue";
 
 export default defineComponent({
     name: "Collapse",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        modelValue: {type: Boolean as PropType<boolean>, default: false},
-        visible: {type: Boolean as PropType<boolean>, default: false},
-        class: {type: [Array, String, Object] as PropType<any>, default: null},
-        isNav: {type: Boolean as PropType<boolean>, default: false},
-        horizontal: {type: Boolean as PropType<boolean>, default: false}
+        tag: { type: String as PropType<keyof HTMLElementTagNameMap>, default: "div" },
+        modelValue: { type: Boolean as PropType<boolean>, default: false },
+        visible: { type: Boolean as PropType<boolean>, default: false },
+        class: { type: [Array, String, Object] as PropType<any>, default: null },
+        isNav: { type: Boolean as PropType<boolean>, default: false },
+        horizontal: { type: Boolean as PropType<boolean>, default: false }
     },
     emits: ["update:modelValue", "update:visible", "showing", "shown", "hiding", "hidden"],
-    setup(props, {emit}) {
+    setup(props, { emit }) {
         const isActive = ref<boolean>(false);
         const isShow = ref<boolean>(false);
         const transitioning = ref<boolean>(false);
@@ -40,29 +40,27 @@ export default defineComponent({
                 transitioning.value = true;
                 emit("showing", true);
                 // collapse.value.style[getDimension()] = "0";
+                //todo:  there are issues with width. should be fixed.
 
                 setTimeout(() => {
-                    if (props.horizontal){
-                        collapse.value.style.width = "1000px";//testing
-                        console.log(
-                            collapse.value.scrollWidth,
-                            collapse.value.getBoundingClientRect().width
-                        )
-                    }else{
+                    if (props.horizontal) {
+                        collapse.value.style.width = "100%";
+                    } else {
                         collapse.value.style[getDimension()] = collapse.value[getDimensionSize()] + "px";
                     }
-
 
                     emit("shown", true);
                 }, 0);
             } else {
+                emit("hiding", true);
                 transitioning.value = true;
                 isShow.value = false;
                 collapse.value.style[getDimension()] = collapse.value[getDimensionSize()] + "px";
                 setTimeout(() => {
                     isShow.value = false;
                     collapse.value.style[getDimension()] = "0px";
-                }, 0)
+                    emit("hidden", true);
+                }, 0);
             }
         });
 
@@ -82,6 +80,9 @@ export default defineComponent({
         }
 
         return {
+            show: () => isActive.value = true,
+            hide: () => isActive.value = false,
+            toggle: () => isActive.value = !isActive.value,
             collapse,   //required to be accessible
             classes,
             transitionEnded
