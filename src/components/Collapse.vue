@@ -1,14 +1,12 @@
 <template>
-    <component :is="tag" :class="classes" ref="collapse"
-               :id="id"
-               @transitionend.self="collapseTransitionEnd($event,shown,'height')">
+    <component :is="tag" :class="classes" ref="collapse" @transitionend.self="transitionEnded">
         <slot></slot>
     </component>
 </template>
 
 <script lang="ts">
-import {computed, ref, defineComponent, PropType, watch} from "vue";
-import {toggleCollapse, collapseTransitionEnd} from "../shared/utilities.js";
+
+import {computed, defineComponent, PropType, ref, watch} from "vue";
 
 export default defineComponent({
     name: "Collapse",
@@ -17,65 +15,77 @@ export default defineComponent({
         modelValue: {type: Boolean as PropType<boolean>, default: false},
         visible: {type: Boolean as PropType<boolean>, default: false},
         class: {type: [Array, String, Object] as PropType<any>, default: null},
-        id: {type: String as PropType<string>, default: null},
         isNav: {type: Boolean as PropType<boolean>, default: false},
         horizontal: {type: Boolean as PropType<boolean>, default: false}
-        // lazy: makeBoolean(false)
     },
-    watch: {
-        modelValue(value) {
-            this.shown = value;
-        },
-        //model value might not be defined, so watching separate one
-        shown(value) {
-            this.$refs.collapse.classList.remove("collapse", "show");
-            this.toggleCollapse(this.$refs.collapse, value, this.horizontal ? 'width' : 'height',/*this.shouldRenderHandler*/);
-        }
-    },
-    setup(props, context) {
-        const shouldRender = ref(true);
-        const shown = ref(props.modelValue);
-        if (props.visible) {
-            context.emit('update:modelValue', true);
-        }
-        watch(() => props.visible, value => shown.value = value);
-        // const shouldRenderHandler = (value) => {
-        //     shouldRender.value = value;
-        // }
-        return {
-            shown,
-            shouldRender,
-            // shouldRenderHandler,
-            toggleCollapse,
-            collapseTransitionEnd,
-            classes: computed(() => [
-                "collapse",
-                {
-                    "navbar-collapse": props.isNav,
-                    "collapse-horizontal": props.horizontal,
-                }
-            ]),
-            updateState: (value) => {
-                shown.value = value;
-                context.emit('update:modelValue', value);
-            },
-        }
-    },
-    methods: {
-        listener(e) {
-            if (e.detail === this.id && this.id) {
-                let value = !this.shown
-                this.shown = value;
-                this.$emit("update:modelValue", value);
+    emits: ["update:modelValue", "update:visible", "showing", "shown", "hiding", "hidden"],
+    setup(props, {emit}) {
+        const isActive = ref<boolean>(false);
+        const isShow = ref<boolean>(false);
+        const transitioning = ref<boolean>(false);
+
+        watch(() => props.visible, value => isActive.value = value);
+        watch(() => props.modelValue, value => isActive.value = value);
+
+        const collapse = ref<HTMLElement | null>(null);
+
+        const getDimension = () => props.horizontal ? 'width' : 'height';
+        const getDimensionSize = () => getDimension() === "height" ? "scrollHeight" : "scrollWidth";
+
+        watch(isActive, value => {
+            emit("update:modelValue", value);
+            emit("update:visible", value);
+
+            if (value) {
+                transitioning.value = true;
+                emit("showing", true);
+                // collapse.value.style[getDimension()] = "0";
+
+                setTimeout(() => {
+                    if (props.horizontal){
+                        collapse.value.style.width = "1000px";//testing
+                        console.log(
+                            collapse.value.scrollWidth,
+                            collapse.value.getBoundingClientRect().width
+                        )
+                    }else{
+                        collapse.value.style[getDimension()] = collapse.value[getDimensionSize()] + "px";
+                    }
+
+
+                    emit("shown", true);
+                }, 0);
+            } else {
+                transitioning.value = true;
+                isShow.value = false;
+                collapse.value.style[getDimension()] = collapse.value[getDimensionSize()] + "px";
+                setTimeout(() => {
+                    isShow.value = false;
+                    collapse.value.style[getDimension()] = "0px";
+                }, 0)
             }
+        });
+
+        const classes = computed(() => [
+            {
+                "collapse-horizontal": props.horizontal,
+                "collapse": !transitioning.value,
+                "collapsing": transitioning.value,
+                "show": isShow.value
+            }
+        ]);
+
+        function transitionEnded() {
+            isShow.value = isActive.value;
+            transitioning.value = false;
+            collapse.value.style[getDimension()] = "";
         }
-    },
-    mounted() {
-        //listening for global event
-        document.addEventListener("toggleCollapse", this.listener);
-    },
-    unmounted() {
-        document.removeEventListener("toggleCollapse", this.listener);
+
+        return {
+            collapse,   //required to be accessible
+            classes,
+            transitionEnded
+        }
     }
-})
+});
 </script>

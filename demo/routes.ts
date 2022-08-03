@@ -5,6 +5,7 @@ import Buttons from "./pages/Buttons.vue";
 import Badges from "./pages/Badges.vue";
 import Alerts from "./pages/Alerts.vue";
 import Dropdowns from "./pages/Dropdowns.vue";
+import Collapses from "./pages/Collapses.vue";
 
 export const routes = [
     {
@@ -31,6 +32,11 @@ export const routes = [
         path: "/dropdowns",
         name: "Dropdowns",
         component: Dropdowns
+    },
+    {
+        path: "/collapses",
+        name: "Collapse",
+        component: Collapses
     }
 ]
 
