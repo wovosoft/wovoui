@@ -94,7 +94,6 @@ var Collapse = defineComponent({
     tag: { type: String, default: "div" },
     modelValue: { type: Boolean, default: null },
     visible: { type: Boolean, default: null },
-    class: { type: [Array, String, Object], default: null },
     isNav: { type: Boolean, default: false },
     horizontal: { type: Boolean, default: false },
     width: { type: [Number, String], default: null }
@@ -132,6 +131,10 @@ var Collapse = defineComponent({
       instance.vnode.el.style[getDim()] = "";
       emit(isActive.value ? "shown" : "hidden", true);
     }
+    const show = () => isActive.value = true;
+    const hide = () => isActive.value = false;
+    const toggle = () => isActive.value = !isActive.value;
+    expose({ show, hide, toggle });
     return () => h(props.tag, {
       onTransitionendSelf,
       class: {
