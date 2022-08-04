@@ -1,4 +1,4 @@
-import { defineComponent, ref, reactive, provide, computed, h, openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, getCurrentInstance, watch, inject, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, onMounted, mergeProps, Fragment, renderList, createCommentVNode, normalizeProps, createElementVNode, withDirectives, vModelCheckbox, guardReactiveProps, normalizeStyle, unref, getCurrentScope, onScopeDispose, onBeforeUnmount, nextTick, Teleport, withModifiers, vModelSelect, withKeys, vModelText } from 'vue';
+import { defineComponent, ref, reactive, provide, computed, h, openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, getCurrentInstance, watch, onBeforeMount, inject, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, onMounted, mergeProps, Fragment, renderList, createCommentVNode, normalizeProps, createElementVNode, withDirectives, vModelCheckbox, guardReactiveProps, normalizeStyle, unref, getCurrentScope, onScopeDispose, onBeforeUnmount, nextTick, Teleport, withModifiers, vModelSelect, withKeys, vModelText } from 'vue';
 import axios from 'axios';
 
 var accordionProps = {
@@ -92,15 +92,15 @@ var Collapse = defineComponent({
   name: "Collapse",
   props: {
     tag: { type: String, default: "div" },
-    modelValue: { type: Boolean, default: false },
-    visible: { type: Boolean, default: false },
+    modelValue: { type: Boolean, default: null },
+    visible: { type: Boolean, default: null },
     class: { type: [Array, String, Object], default: null },
     isNav: { type: Boolean, default: false },
     horizontal: { type: Boolean, default: false },
     width: { type: [Number, String], default: null }
   },
   emits: ["update:modelValue", "update:visible", "showing", "shown", "hiding", "hidden"],
-  setup(props, { emit, slots }) {
+  setup(props, { emit, slots, expose }) {
     const instance = getCurrentInstance();
     const isActive = ref(false);
     const isShow = ref(false);
@@ -118,6 +118,13 @@ var Collapse = defineComponent({
       setTimeout(() => {
         instance.vnode.el.style[getDim()] = (value ? instance.vnode.el[getDimSize()] : 0) + "px";
       }, 0);
+    });
+    onBeforeMount(() => {
+      if (props.modelValue !== null && props.modelValue || props.visible !== null && props.visible) {
+        isActive.value = true;
+        transitioning.value = false;
+        isShow.value = true;
+      }
     });
     function onTransitionendSelf() {
       isShow.value = isActive.value;

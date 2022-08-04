@@ -1,11 +1,11 @@
-import {defineComponent, getCurrentInstance, h, PropType, ref, watch} from "vue";
+import {defineComponent, getCurrentInstance, h, onBeforeMount, PropType, ref, watch} from "vue";
 
 export default defineComponent({
     name: "Collapse",
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        modelValue: {type: Boolean as PropType<boolean>, default: false},
-        visible: {type: Boolean as PropType<boolean>, default: false},
+        modelValue: {type: Boolean as PropType<boolean>, default: null},
+        visible: {type: Boolean as PropType<boolean>, default: null},
         class: {type: [Array, String, Object] as PropType<any>, default: null},
         isNav: {type: Boolean as PropType<boolean>, default: false},
         horizontal: {type: Boolean as PropType<boolean>, default: false},
@@ -14,7 +14,7 @@ export default defineComponent({
         width: {type: [Number, String] as PropType<number | string>, default: null}
     },
     emits: ["update:modelValue", "update:visible", "showing", "shown", "hiding", "hidden"],
-    setup(props, {emit, slots}) {
+    setup(props, {emit, slots, expose}) {
         const instance = getCurrentInstance();
 
         const isActive = ref<boolean>(false);
@@ -38,6 +38,16 @@ export default defineComponent({
             }, 0);
         });
 
+        onBeforeMount(() => {
+            //model value has higher priority than visible
+            //when either modelValue or visible prop is set to true
+            if ((props.modelValue !== null && props.modelValue) || (props.visible !== null && props.visible)) {
+                isActive.value = true;
+                transitioning.value = false;
+                isShow.value = true;
+            }
+        });
+
 
         function onTransitionendSelf() {
             isShow.value = isActive.value;
@@ -45,6 +55,13 @@ export default defineComponent({
             instance.vnode.el.style[getDim()] = "";
             emit(isActive.value ? "shown" : "hidden", true);
         }
+
+        // const show = () => isActive.value = true;
+        // const hide = () => isActive.value = false;
+        // const toggle = () => isActive.value = !isActive.value;
+        // provide('show', show);
+        // provide('hide', hide);
+        // provide('toggle', toggle);
 
         return () => h(props.tag, {
             onTransitionendSelf,
