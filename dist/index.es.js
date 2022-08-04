@@ -125,18 +125,18 @@ var Collapse = defineComponent({
         isShow.value = true;
       }
     });
-    function onTransitionendSelf() {
+    function onTransitionend() {
       isShow.value = isActive.value;
       transitioning.value = false;
-      instance.vnode.el.style[getDim()] = "";
       emit(isActive.value ? "shown" : "hidden", true);
+      instance.vnode.el.style[getDim()] = "";
     }
     const show = () => isActive.value = true;
     const hide = () => isActive.value = false;
     const toggle = () => isActive.value = !isActive.value;
     expose({ show, hide, toggle });
     return () => h(props.tag, {
-      onTransitionendSelf,
+      onTransitionend,
       class: {
         "collapse-horizontal": props.horizontal,
         "collapse": !transitioning.value,
