@@ -21,7 +21,7 @@
 
     <h3>Horizontal </h3>
     <Button @click="$refs.collapse.toggle()">Toggle</Button>
-    <Collapse visible horizontal ref="collapse" width="1000">
+    <Collapse visible class="at dd d" at dd d horizontal ref="collapse" width="1000">
         wovoui is an impmentation of Bootstrap 5 components in vue 3.
         It is developed by Narayan Adhikary at wovosoft<br>
         wovoui is an impmentation of Bootstrap 5 components in vue 3.

@@ -6,7 +6,6 @@ export default defineComponent({
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         modelValue: {type: Boolean as PropType<boolean>, default: null},
         visible: {type: Boolean as PropType<boolean>, default: null},
-        class: {type: [Array, String, Object] as PropType<any>, default: null},
         isNav: {type: Boolean as PropType<boolean>, default: false},
         horizontal: {type: Boolean as PropType<boolean>, default: false},
         //must be set when horizontal is true
@@ -56,12 +55,11 @@ export default defineComponent({
             emit(isActive.value ? "shown" : "hidden", true);
         }
 
-        // const show = () => isActive.value = true;
-        // const hide = () => isActive.value = false;
-        // const toggle = () => isActive.value = !isActive.value;
-        // provide('show', show);
-        // provide('hide', hide);
-        // provide('toggle', toggle);
+        const show = () => isActive.value = true;
+        const hide = () => isActive.value = false;
+        const toggle = () => isActive.value = !isActive.value;
+
+        expose({show, hide, toggle});
 
         return () => h(props.tag, {
             onTransitionendSelf,
