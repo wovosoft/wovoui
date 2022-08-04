@@ -6,6 +6,7 @@ import Badges from "./pages/Badges.vue";
 import Alerts from "./pages/Alerts.vue";
 import Dropdowns from "./pages/Dropdowns.vue";
 import Collapses from "./pages/Collapses.vue";
+import PanelMenus from "./pages/PanelMenus.vue";
 
 export const routes = [
     {
@@ -37,6 +38,11 @@ export const routes = [
         path: "/collapses",
         name: "Collapse",
         component: Collapses
+    },
+    {
+        path: "/panel-menus",
+        name: "Panel Menus",
+        component: PanelMenus
     }
 ]
 
