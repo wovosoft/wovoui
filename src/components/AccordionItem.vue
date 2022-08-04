@@ -18,7 +18,7 @@
 import {defineComponent, inject, PropType, Ref, ref, watch} from "vue";
 import AccordionHeader from "./AccordionHeader.vue";
 import AccordionBody from "./AccordionBody";
-import Collapse from "./Collapse.vue";
+import Collapse from "./Collapse.js";
 import type {setActiveItem as setActiveItemType, registerItem as registerItemType} from "../types/AccordionTypings";
 
 export default defineComponent({

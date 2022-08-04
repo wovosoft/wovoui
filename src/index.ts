@@ -26,7 +26,7 @@ export {default as Chart} from "./components/Chart.vue";
 export {default as Checkbox} from "./components/Checkbox.vue";
 export {default as CheckboxGroup} from "./components/CheckboxGroup.vue";
 export {default as Col} from "./components/Col";
-export {default as Collapse} from "./components/Collapse.vue";
+export {default as Collapse} from "./components/Collapse.js";
 export {default as Container} from "./components/Container";
 export {default as DataTable} from "./components/DataTable.vue";
 export {default as Datepicker} from "./components/Datepicker.vue";

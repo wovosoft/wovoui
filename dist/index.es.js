@@ -1,4 +1,4 @@
-import { defineComponent, ref, reactive, provide, computed, h, openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, watch, withModifiers, inject, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, onMounted, getCurrentInstance, mergeProps, Fragment, renderList, createCommentVNode, normalizeProps, createElementVNode, withDirectives, vModelCheckbox, guardReactiveProps, normalizeStyle, unref, getCurrentScope, onScopeDispose, onBeforeUnmount, nextTick, Teleport, vModelSelect, withKeys, vModelText } from 'vue';
+import { defineComponent, ref, reactive, provide, computed, h, openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, getCurrentInstance, watch, inject, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, onMounted, mergeProps, Fragment, renderList, createCommentVNode, normalizeProps, createElementVNode, withDirectives, vModelCheckbox, guardReactiveProps, normalizeStyle, unref, getCurrentScope, onScopeDispose, onBeforeUnmount, nextTick, Teleport, withModifiers, vModelSelect, withKeys, vModelText } from 'vue';
 import axios from 'axios';
 
 var accordionProps = {
@@ -59,7 +59,7 @@ var _export_sfc = (sfc, props) => {
   return target;
 };
 
-const _sfc_main$W = defineComponent({
+const _sfc_main$V = defineComponent({
   name: "AccordionHeader",
   emits: ["update:modelValue"],
   props: {
@@ -68,7 +68,7 @@ const _sfc_main$W = defineComponent({
     modelValue: { type: Boolean, default: false }
   }
 });
-function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "accordion-header" }, {
     default: withCtx(() => [
       (openBlock(), createBlock(resolveDynamicComponent(_ctx.toggleTag), {
@@ -86,9 +86,9 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var AccordionHeader = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$T]]);
+var AccordionHeader = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$S]]);
 
-const _sfc_main$V = defineComponent({
+var Collapse = defineComponent({
   name: "Collapse",
   props: {
     tag: { type: String, default: "div" },
@@ -96,80 +96,50 @@ const _sfc_main$V = defineComponent({
     visible: { type: Boolean, default: false },
     class: { type: [Array, String, Object], default: null },
     isNav: { type: Boolean, default: false },
-    horizontal: { type: Boolean, default: false }
+    horizontal: { type: Boolean, default: false },
+    width: { type: [Number, String], default: null }
   },
   emits: ["update:modelValue", "update:visible", "showing", "shown", "hiding", "hidden"],
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
+    const instance = getCurrentInstance();
     const isActive = ref(false);
     const isShow = ref(false);
     const transitioning = ref(false);
     watch(() => props.visible, (value) => isActive.value = value);
     watch(() => props.modelValue, (value) => isActive.value = value);
-    const collapse = ref(null);
-    const getDimension = () => props.horizontal ? "width" : "height";
-    const getDimensionSize = () => getDimension() === "height" ? "scrollHeight" : "scrollWidth";
+    const getDim = () => props.horizontal ? "width" : "height";
+    const getDimSize = () => props.horizontal ? "scrollWidth" : "scrollHeight";
     watch(isActive, (value) => {
       emit("update:modelValue", value);
       emit("update:visible", value);
-      if (value) {
-        transitioning.value = true;
-        emit("showing", true);
-        setTimeout(() => {
-          if (props.horizontal) {
-            collapse.value.style.width = "100%";
-          } else {
-            collapse.value.style[getDimension()] = collapse.value[getDimensionSize()] + "px";
-          }
-          emit("shown", true);
-        }, 0);
-      } else {
-        emit("hiding", true);
-        transitioning.value = true;
-        isShow.value = false;
-        collapse.value.style[getDimension()] = collapse.value[getDimensionSize()] + "px";
-        setTimeout(() => {
-          isShow.value = false;
-          collapse.value.style[getDimension()] = "0px";
-          emit("hidden", true);
-        }, 0);
-      }
+      transitioning.value = true;
+      emit(value ? "showing" : "hiding", true);
+      instance.vnode.el.style[getDim()] = instance.vnode.el[getDimSize()] + "px";
+      setTimeout(() => {
+        instance.vnode.el.style[getDim()] = (value ? instance.vnode.el[getDimSize()] : 0) + "px";
+      }, 0);
     });
-    const classes = computed(() => [
-      {
+    function onTransitionendSelf() {
+      isShow.value = isActive.value;
+      transitioning.value = false;
+      instance.vnode.el.style[getDim()] = "";
+      emit(isActive.value ? "shown" : "hidden", true);
+    }
+    return () => h(props.tag, {
+      onTransitionendSelf,
+      class: {
         "collapse-horizontal": props.horizontal,
         "collapse": !transitioning.value,
         "collapsing": transitioning.value,
         "show": isShow.value
       }
+    }, [
+      props.horizontal ? h("div", {
+        style: { width: props.width + "px" }
+      }, slots.default?.()) : slots.default?.()
     ]);
-    function transitionEnded() {
-      isShow.value = isActive.value;
-      transitioning.value = false;
-      collapse.value.style[getDimension()] = "";
-    }
-    return {
-      show: () => isActive.value = true,
-      hide: () => isActive.value = false,
-      toggle: () => isActive.value = !isActive.value,
-      collapse,
-      classes,
-      transitionEnded
-    };
   }
 });
-function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
-    class: normalizeClass(_ctx.classes),
-    ref: "collapse",
-    onTransitionend: withModifiers(_ctx.transitionEnded, ["self"])
-  }, {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  }, 40, ["class", "onTransitionend"]);
-}
-var Collapse = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$S]]);
 
 const _sfc_main$U = defineComponent({
   name: "AccordionItem",
@@ -42890,7 +42860,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["class"]);
 }
-var Menu = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$w], ["__scopeId", "data-v-7236425d"]]);
+var Menu = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$w], ["__scopeId", "data-v-022fa87b"]]);
 
 var navProps = {
   tag: { type: String, default: "ul" },
