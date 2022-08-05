@@ -66,6 +66,7 @@ export default defineComponent({
             onTransitionend,
             class: {
                 "accordion-collapse": props.isAccordion,
+                "navbar-collapse": props.isNav,
                 "collapse-horizontal": props.horizontal,
                 "collapse": !transitioning.value,
                 "collapsing": transitioning.value,

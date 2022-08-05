@@ -36,8 +36,8 @@
         It is developed by Narayan Adhikary at wovosoft<br>
         wovoui is an impmentation of Bootstrap 5 components in vue 3.
         It is developed by Narayan Adhikary at wovosoft<br>
-
     </Collapse>
+    <div>Next Block</div>
 </template>
 
 <script lang="ts" setup>

@@ -10,18 +10,18 @@ import PanelMenu from "../../src/components/PanelMenu.vue";
 const items = [
     {
         text: "Home",
-        url: "/"
+        href: "#"
     },
     {
-        text: "Bill Payment",
+        text: "Components",
         children: [
             {
-                text: "Electricity",
-                url: "/"
+                text: "Badges",
+                to:{name:'Badges'}
             },
             {
                 text: "Top Up",
-                url: "/"
+                href: "#"
             }
         ]
     },
@@ -30,11 +30,11 @@ const items = [
         children: [
             {
                 text: "Electricity",
-                url: "/"
+                href: "#"
             },
             {
                 text: "Top Up",
-                url: "/"
+                href: "#"
             }
         ]
     },
@@ -43,11 +43,11 @@ const items = [
         children: [
             {
                 text: "Electricity",
-                url: "/"
+                href: "#"
             },
             {
                 text: "Top Up",
-                url: "/"
+                href: "#"
             }
         ]
     },
@@ -56,11 +56,11 @@ const items = [
         children: [
             {
                 text: "Electricity",
-                url: "/"
+                href: "#"
             },
             {
                 text: "Top Up",
-                url: "/"
+                href: "#"
             }
         ]
     },
@@ -69,11 +69,11 @@ const items = [
         children: [
             {
                 text: "Electricity",
-                url: "/"
+                href: "#"
             },
             {
                 text: "Top Up",
-                url: "/"
+                href: "#"
             }
         ]
     },
@@ -82,11 +82,20 @@ const items = [
         children: [
             {
                 text: "Electricity",
-                url: "/"
+                href: "#"
             },
             {
                 text: "Top Up",
-                url: "/"
+                children: [
+                    {
+                        text: "Electricity",
+                        href: "#"
+                    },
+                    {
+                        text: "Top Up",
+                        href: "#"
+                    }
+                ]
             }
         ]
     }

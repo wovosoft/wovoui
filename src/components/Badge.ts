@@ -1,19 +1,19 @@
-import {reactive, defineComponent, PropType, h} from "vue";
-import type {badgePositions} from "../types/badgePositions";
-import type {ColorVariants} from "../types/colorVariants";
+import { reactive, defineComponent, PropType, h } from "vue";
+import type { badgePositions } from "../types/badgePositions";
+import type { ColorVariants } from "../types/colorVariants";
 
 export default defineComponent({
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "span"},
-        variant: {type: String as PropType<ColorVariants>, default: null},
-        textVariant: {type: String as PropType<ColorVariants>, default: null},
-        bgVariant: {type: String as PropType<ColorVariants>, default: null},
-        pill: {type: Boolean as PropType<boolean>, default: false},
-        href: {type: String as PropType<string>, default: null},
-        position: {type: String as PropType<badgePositions>, default: null},
-        content: {type: [String, Number] as PropType<string | number>, default: null}
+        tag: { type: String as PropType<keyof HTMLElementTagNameMap>, default: "span" },
+        variant: { type: String as PropType<ColorVariants>, default: null },
+        textVariant: { type: String as PropType<ColorVariants>, default: null },
+        bgVariant: { type: String as PropType<ColorVariants>, default: null },
+        pill: { type: Boolean as PropType<boolean>, default: false },
+        href: { type: String as PropType<string>, default: null },
+        position: { type: String as PropType<badgePositions>, default: null },
+        content: { type: [String, Number] as PropType<string | number>, default: null }
     },
-    setup(props, {slots}) {
+    setup(props, { slots }) {
         const attributes = reactive({
             href: null,
             target: null
@@ -55,7 +55,7 @@ export default defineComponent({
                     }
                 ]
             },
-            slots.default ? slots.default() : props.content
+            slots.default?.() ?? props.content
         )
     }
 });

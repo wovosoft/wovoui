@@ -46,7 +46,7 @@ export {default as InputGroup} from "./components/InputGroup.vue";
 export {default as InputGroupText} from "./components/InputGroupText.vue";
 export {default as Link} from "./components/Link";
 export {default as ListGroup} from "./components/ListGroup";
-export {default as ListGroupItem} from "./components/ListGroupItem.vue";
+export {default as ListGroupItem} from "./components/ListGroupItem";
 export {default as Modal} from "./components/Modal.vue";
 export {default as ModalBody} from "./components/ModalBody";
 export {default as ModalFooter} from "./components/ModalFooter";
