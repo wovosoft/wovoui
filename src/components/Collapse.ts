@@ -3,7 +3,7 @@ import { defineComponent, getCurrentInstance, h, onBeforeMount, PropType, ref, w
 export default defineComponent({
     name: "Collapse",
     props: {
-        accordion: { type: Boolean as PropType<boolean>, default: false },
+        isAccordion: { type: Boolean as PropType<boolean>, default: false },
         tag: { type: String as PropType<keyof HTMLElementTagNameMap>, default: "div" },
         modelValue: { type: Boolean as PropType<boolean>, default: null },
         visible: { type: Boolean as PropType<boolean>, default: null },
@@ -65,7 +65,7 @@ export default defineComponent({
         return () => h(props.tag, {
             onTransitionend,
             class: {
-                "accordion-collapse": props.accordion,
+                "accordion-collapse": props.isAccordion,
                 "collapse-horizontal": props.horizontal,
                 "collapse": !transitioning.value,
                 "collapsing": transitioning.value,
