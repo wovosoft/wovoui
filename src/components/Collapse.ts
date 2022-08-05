@@ -1,19 +1,20 @@
-import {defineComponent, getCurrentInstance, h, onBeforeMount, PropType, ref, watch} from "vue";
+import { defineComponent, getCurrentInstance, h, onBeforeMount, PropType, ref, watch } from "vue";
 
 export default defineComponent({
     name: "Collapse",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        modelValue: {type: Boolean as PropType<boolean>, default: null},
-        visible: {type: Boolean as PropType<boolean>, default: null},
-        isNav: {type: Boolean as PropType<boolean>, default: false},
-        horizontal: {type: Boolean as PropType<boolean>, default: false},
+        accordion: { type: Boolean as PropType<boolean>, default: false },
+        tag: { type: String as PropType<keyof HTMLElementTagNameMap>, default: "div" },
+        modelValue: { type: Boolean as PropType<boolean>, default: null },
+        visible: { type: Boolean as PropType<boolean>, default: null },
+        isNav: { type: Boolean as PropType<boolean>, default: false },
+        horizontal: { type: Boolean as PropType<boolean>, default: false },
         //must be set when horizontal is true
         //@check the note at https://getbootstrap.com/docs/5.2/components/collapse/#horizontal
-        width: {type: [Number, String] as PropType<number | string>, default: null}
+        width: { type: [Number, String] as PropType<number | string>, default: null }
     },
     emits: ["update:modelValue", "update:visible", "showing", "shown", "hiding", "hidden"],
-    setup(props, {emit, slots, expose}) {
+    setup(props, { emit, slots, expose }) {
         const instance = getCurrentInstance();
 
         const isActive = ref<boolean>(false);
@@ -59,11 +60,12 @@ export default defineComponent({
         const hide = () => isActive.value = false;
         const toggle = () => isActive.value = !isActive.value;
 
-        expose({show, hide, toggle});
+        expose({ show, hide, toggle });
 
         return () => h(props.tag, {
             onTransitionend,
             class: {
+                "accordion-collapse": props.accordion,
                 "collapse-horizontal": props.horizontal,
                 "collapse": !transitioning.value,
                 "collapsing": transitioning.value,
@@ -71,7 +73,7 @@ export default defineComponent({
             }
         }, [
             props.horizontal ? h("div", {
-                style: {width: props.width + "px"}
+                style: { width: props.width + "px" }
             }, slots.default?.()) : slots.default?.()
         ]);
     }
