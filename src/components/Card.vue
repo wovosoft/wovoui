@@ -54,7 +54,7 @@ export default defineComponent({
         bodyBgVariant: {type: String as PropType<ColorVariants>, default: null},
         bodyBorderVariant: {type: String as PropType<ColorVariants>, default: null},
         bodyClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
-        bodyTag: {type: String as PropType<string>, default: "div"},
+        bodyTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         bodyTextVariant: {type: String as PropType<ColorVariants>, default: null},
 
         footer: {type: String as PropType<string>, default: null},
@@ -62,7 +62,7 @@ export default defineComponent({
         footerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         footerTextVariant: {type: String as PropType<ColorVariants>, default: null},
         footerClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
-        footerBorderVariant: {type: String as PropType<string>, default: null},
+        footerBorderVariant: {type: String as PropType<ColorVariants>, default: null},
 
         header: {type: String as PropType<string>, default: null},
         headerBgVariant: {type: String as PropType<ColorVariants>, default: null},
@@ -85,9 +85,9 @@ export default defineComponent({
 
         overlay: {type: Boolean as PropType<boolean>, default: false},
         subTitle: {type: String as PropType<string>, default: null},
-        subTitleTag: {type: String as PropType<string>, default: "h6"},
+        subTitleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
         subTitleTextVariant: {type: String as PropType<string>, default: "muted"},
-        tag: {type: String as PropType<string>, default: "div"},
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
 
         textVariant: {type: String as PropType<ColorVariants>, default: null},
         borderVariant: {type: String as PropType<ColorVariants>, default: null},

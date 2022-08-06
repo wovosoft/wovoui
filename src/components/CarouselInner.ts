@@ -8,6 +8,6 @@ export default defineComponent({
     setup(props, {slots}) {
         return () => h(props.tag, {
             class: ["carousel-inner"]
-        }, slots.default ? slots.default() : null)
+        }, slots.default?.())
     }
 })

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import PanelMenu from "../../src/components/PanelMenu.vue";
+import { PanelMenu } from '../../src'
 
 const items = [
     {
@@ -17,7 +17,7 @@ const items = [
         children: [
             {
                 text: "Badges",
-                to:{name:'Badges'}
+                to: { name: 'Badges' }
             },
             {
                 text: "Top Up",
