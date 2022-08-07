@@ -58,11 +58,18 @@
 import {computed, defineComponent, PropType, ref} from "vue";
 import tableProps from "../shared/tableProps";
 
-import {Table, THead, Th, TBody, Tr, Td} from "./../index";
+// import {Table, THead, TBody, Tr, Th, Td, TFoot} from "../index";
 
+import Table from "./Table";
+import THead from "./THead";
+import TBody from "./TBody";
+import Tr from "./Tr";
+import Th from "./Th";
+import Td from "./Td";
+import TFoot from "./TFoot";
 
 import {isObject, title} from "../shared/utilities.js";
-import {lowerCase} from "lodash/string.js";
+import lowerCase from "lodash/lowerCase.js";
 import orderBy from "lodash/orderBy.js"
 import Icon from "./Icon";
 
@@ -77,7 +84,7 @@ type FieldType = {
 export default defineComponent({
     name: "DataTable",
     emits: ['update:selectedRows'],
-    components: {Icon, Tr, TBody, Th, Td, THead, Table},
+    components: {Icon, Table, THead, TBody, Tr, Th, Td, TFoot},
     props: {
         ...tableProps,
         selectedRows: {type: Array as PropType<any[]>, default: () => ([])},
