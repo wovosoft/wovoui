@@ -44802,7 +44802,7 @@ const PanelMenu = defineComponent({
           onClick: () => setActive(item_index)
         },
         () => [
-          h(Icon, { icon: item.icon ?? "chevron-right" }),
+          item.icon ? h(Icon, { icon: item.icon }) : h(_sfc_main$kz),
           h("span", { class: "mx-2 flex-grow-1" }, item.text),
           item.children ? h(item_index === active.value ? _sfc_main$ky : _sfc_main$kC) : null
         ]

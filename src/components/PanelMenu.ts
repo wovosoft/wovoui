@@ -6,7 +6,7 @@ type MenuItem = {
     icon?: string;
 }
 
-import {ChevronUp, ChevronDown} from "@wovosoft/wovoui-icons";
+import {ChevronUp, ChevronDown, ChevronRight} from "@wovosoft/wovoui-icons";
 import {PropType, ref, watch, defineComponent, h, onBeforeMount} from "vue";
 import Icon from "./Icon";
 
@@ -86,7 +86,7 @@ const PanelMenu = defineComponent({
                     onClick: () => setActive(item_index)
                 },
                 () => [
-                    h(Icon, {icon: item.icon ?? 'chevron-right'}),
+                    item.icon ? h(Icon, {icon: item.icon}) : h(ChevronRight),
                     h("span", {class: "mx-2 flex-grow-1"}, item.text),
                     item.children ? h(item_index === active.value ? ChevronUp : ChevronDown) : null
                 ]

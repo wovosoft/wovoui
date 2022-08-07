@@ -1,1 +1,0 @@
-export type aspectRatios = '1x1' | '4x3' | '16x9' | '21x9' | number
