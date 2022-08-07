@@ -4,3 +4,4 @@ export type colAlignments = 'start' | 'center' | 'end';
 export type justifyContentAlignments = colAlignments | 'around' | 'between' | 'evenly';
 export type colOrders = responsiveNumbers | 'first' | 'last';
 export type responsiveSizes = "sm" | "md" | "lg" | "xl" | "xxl";
+export type modalSizes = "sm" | "lg" | "xl" | null;

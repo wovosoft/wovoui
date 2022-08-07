@@ -75,6 +75,7 @@ import ModalFooter from "./ModalFooter";
 import Button from "./Button";
 import type {modalFullScreen} from "../types/modalFullScreen";
 import type {buttonSizes} from "../types/buttonSizes";
+import {modalSizes} from "../types/responsiveLayoutSizes";
 
 export default defineComponent({
     name: "Modal",
@@ -99,6 +100,7 @@ export default defineComponent({
         headerAttrs: {type: Object as PropType<object>, default: null},
 
         noFooter: {type: Boolean as PropType<boolean>, default: false},
+        footerClass: {type: [Array, String, Object] as PropType<any>, default: null},
 
         //buttons
         okTitle: {type: String as PropType<string>, default: "Ok"},
@@ -114,7 +116,7 @@ export default defineComponent({
 
         scrollable: {type: Boolean as PropType<boolean>, default: false},
         centered: {type: Boolean as PropType<boolean>, default: false},
-        size: {type: String as PropType<buttonSizes>, default: null},
+        size: {type: String as PropType<modalSizes>, default: null},
         fullscreen: {type: [Boolean, String] as PropType<modalFullScreen>, default: false}
     },
     setup(props, {emit}) {
@@ -125,7 +127,7 @@ export default defineComponent({
         }]);
 
         const dialogClass = computed(() => ["modal-dialog", {
-            ["modal-" + props.size]: !!props.size,
+            ["modal-" + props.size]: props.size,
             ["modal-fullscreen" + (typeof props.fullscreen === 'string' ? ("-" + props.fullscreen) : "")]: !!props.fullscreen,
             "modal-dialog-scrollable": props.scrollable,
             "modal-dialog-centered": props.centered

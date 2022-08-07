@@ -24254,6 +24254,7 @@ const _sfc_main$z = defineComponent({
     headerClass: { type: [Array, String, Object], default: null },
     headerAttrs: { type: Object, default: null },
     noFooter: { type: Boolean, default: false },
+    footerClass: { type: [Array, String, Object], default: null },
     okTitle: { type: String, default: "Ok" },
     closeTitle: { type: String, default: "Close" },
     okButtonOptions: { type: Object, default: null },
@@ -24275,7 +24276,7 @@ const _sfc_main$z = defineComponent({
       "fade": props.animation === "fade" || !props.animation
     }]);
     const dialogClass = computed(() => ["modal-dialog", {
-      ["modal-" + props.size]: !!props.size,
+      ["modal-" + props.size]: props.size,
       ["modal-fullscreen" + (typeof props.fullscreen === "string" ? "-" + props.fullscreen : "")]: !!props.fullscreen,
       "modal-dialog-scrollable": props.scrollable,
       "modal-dialog-centered": props.centered
