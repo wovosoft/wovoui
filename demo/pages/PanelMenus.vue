@@ -1,12 +1,15 @@
 <template>
-    <PanelMenu :items="items" class="w-25">
+    <PanelMenu v-model="active" :items="items" class="w-25">
 
     </PanelMenu>
+    Active : {{ active }}
 </template>
 
 <script lang="ts" setup>
-import { PanelMenu } from '../../src'
+import {PanelMenu} from '../../src'
+import {ref} from "vue";
 
+const active = ref(2);
 const items = [
     {
         text: "Home",
@@ -17,7 +20,7 @@ const items = [
         children: [
             {
                 text: "Badges",
-                to: { name: 'Badges' }
+                to: {name: 'Badges'}
             },
             {
                 text: "Top Up",

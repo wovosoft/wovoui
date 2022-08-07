@@ -6,12 +6,12 @@ type MenuItem = {
     icon?: string;
 }
 
-import { ChevronUp, ChevronDown } from "@wovosoft/wovoui-icons";
-import { PropType, ref, watch, defineComponent, h } from "vue";
+import {ChevronUp, ChevronDown} from "@wovosoft/wovoui-icons";
+import {PropType, ref, watch, defineComponent, h, onBeforeMount} from "vue";
 import Icon from "./Icon";
 
-import { Collapse, Button, ListGroup, ListGroupItem } from "../index";
-import { ColorVariants } from "../types/colorVariants";
+import {Collapse, Button, ListGroup, ListGroupItem} from "../index";
+import type {ColorVariants} from "../types/colorVariants";
 
 
 const PanelMenu = defineComponent({
@@ -35,59 +35,72 @@ const PanelMenu = defineComponent({
             default: "light"
         },
     },
-    setup(props, { emit }) {
+    setup(props, {emit}) {
         const active = ref<number>(0);
+
+        /**
+         * Nested modelValue should be implemented
+         * @param index
+         */
+        // const nested=null;
 
         function setActive(index: number) {
             active.value = index === active.value ? -1 : index;
             emit("update:modelValue", index);
         }
 
-        watch(() => props.modelValue, value => setActive(value));
+        watch(() => props.modelValue, value => active.value = value);
 
-        const itemContent = (item, item_index) => {
-            return [
-                h(
-                    Button,
+        onBeforeMount(() => {
+            if (props.modelValue !== null) {
+                active.value = props.modelValue
+            }
+        });
+
+        function collapsibleContent(item, item_index) {
+            if (item.children) {
+                return h(
+                    Collapse,
                     {
-                        href: item.href,
-                        to: item.to,
-                        class: "text-start d-flex",
-                        block: true,
-                        squared: true,
-                        variant: props.triggerVariant,
-                        onClick: () => setActive(item_index)
+                        visible: item_index === active.value
                     },
                     () => [
-                        h(Icon, { icon: item.icon ?? 'chevron-right' }, () => null),
-                        h("span", { class: "mx-2 flex-grow-1" }, item.text),
-                        item.children ? (item_index === active.value ? h(ChevronUp) : h(ChevronDown)) : null
-                    ]
-                ),
-                item.children ? h(Collapse, {
-                    visible: item_index === active.value
-                }, () => h(PanelMenu, {
-                    items: item.children,
-                    triggerVariant: props.menuVariant
-                })) : null
-            ]
+                        h(PanelMenu, {
+                            items: item.children,
+                            triggerVariant: props.menuVariant
+                        })
+                    ]);
+            }
         }
+
+        const itemContent = (item, item_index) => [
+            h(
+                Button,
+                {
+                    href: item.href,
+                    to: item.to,
+                    class: "text-start d-flex",
+                    block: true,
+                    squared: true,
+                    variant: props.triggerVariant,
+                    onClick: () => setActive(item_index)
+                },
+                () => [
+                    h(Icon, {icon: item.icon ?? 'chevron-right'}),
+                    h("span", {class: "mx-2 flex-grow-1"}, item.text),
+                    item.children ? h(item_index === active.value ? ChevronUp : ChevronDown) : null
+                ]
+            ),
+            collapsibleContent(item, item_index)
+        ];
 
         const listItems = () => props.items.map((item, item_index) => h(
             ListGroupItem,
-            {
-                class: "border-0 p-0 m-0",
-                key: item_index
-            },
+            {class: "border-0 p-0 m-0", key: item_index},
             () => itemContent(item, item_index)
         ));
 
-
-        return () => {
-            return h(ListGroup, {
-                class: ["rounded-0"]
-            }, listItems);
-        }
+        return () => h(ListGroup, {class: ["rounded-0"]}, listItems);
     }
 })
 
