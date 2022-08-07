@@ -3,46 +3,51 @@
         <slot name="header">
             <THead>
             <Tr>
-                <Th v-for="(th,th_index) in fields"
-                    @click="applySorting(th)"
-                    :style="{'cursor':th.sortable===true?'pointer':null}"
-                    :key="th_index">
-                    <slot :name="'head('+th.key+')'"
-                          :column="th.key"
-                          :field="th"
-                          :index="th_index"
-                          :label="getLabel(th)"
-                          :sortBy="sorting.sortBy"
-                          :sort="sorting.sort"
-                          :unselectAllRows="unselectAllRows"
-                          :selectAllRows="selectAllRows"
-                          :selectedAllRows="selectedAllRows">
-                        {{ getLabel(th) }}
-                    </slot>
-                    <template v-if="typeof th==='object'&& th.sortable===true">
-                        <Icon :icon="sorting.sortBy===th.key && sorting.sort==='asc'?'sort-down':'sort-up'"/>
-                    </template>
-                </Th>
+                <template v-for="(th,th_index) in fields">
+                    <Th
+                        v-if="th.visible!==false"
+                        @click="applySorting(th)"
+                        :style="{'cursor':th.sortable === true ? 'pointer' : null}"
+                        :key="th_index">
+                        <slot :name="'head('+th.key+')'"
+                              :column="th.key"
+                              :field="th"
+                              :index="th_index"
+                              :label="getLabel(th)"
+                              :sortBy="sorting.sortBy"
+                              :sort="sorting.sort"
+                              :unselectAllRows="unselectAllRows"
+                              :selectAllRows="selectAllRows"
+                              :selectedAllRows="selectedAllRows">
+                            {{ getLabel(th) }}
+                        </slot>
+                        <template v-if="typeof th==='object'&& th.sortable===true">
+                            <Icon :icon="sorting.sortBy===th.key && sorting.sort==='asc'?'sort-down':'sort-up'"/>
+                        </template>
+                    </Th>
+                </template>
             </Tr>
             </THead>
         </slot>
         <TBody>
         <Tr v-for="(row,row_index) in itemsSorted" :key="row_index">
-            <Td v-for="(th,th_index) in fields" :key="th_index">
-                <slot :name="'cell('+getKey(th)+')'"
-                      :item="row"
-                      :index="row_index"
-                      :field="th"
-                      :rowSelected="false"
-                      :detailsShowing="false"
-                      :sortBy="sorting.sortBy"
-                      :sort="sorting.sort"
-                      :selectRow="selectRow"
-                      :selectedRows="selectedRows"
-                      :value="getValue(row,th,th_index)">
-                    {{ getValue(row, th, th_index) }}
-                </slot>
-            </Td>
+            <template v-for="(th,th_index) in fields">
+                <Td :key="th_index" v-if="th.visible!==false">
+                    <slot :name="'cell('+getKey(th)+')'"
+                          :item="row"
+                          :index="row_index"
+                          :field="th"
+                          :rowSelected="false"
+                          :detailsShowing="false"
+                          :sortBy="sorting.sortBy"
+                          :sort="sorting.sort"
+                          :selectRow="selectRow"
+                          :selectedRows="selectedRows"
+                          :value="getValue(row,th,th_index)">
+                        {{ getValue(row, th, th_index) }}
+                    </slot>
+                </Td>
+            </template>
         </Tr>
         </TBody>
         <slot name="footer"></slot>
@@ -51,17 +56,23 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType, ref} from "vue";
-import Table from "./Table";
 import tableProps from "../shared/tableProps";
-import THead from "./THead";
-import Th from "./Th";
-import TBody from "./TBody";
-import Tr from "./Tr";
-import Td from "./Td";
+
+import {Table, THead, Th, TBody, Tr, Td} from "./../index";
+
+
 import {isObject, title} from "../shared/utilities.js";
 import {lowerCase} from "lodash/string.js";
 import orderBy from "lodash/orderBy.js"
 import Icon from "./Icon";
+
+type FieldType = {
+    key: string;
+    label?: string;
+    formatter: (item: object, key?: string) => any;
+    visible?: boolean;
+    sortable?: boolean;
+};
 
 export default defineComponent({
     name: "DataTable",
@@ -71,10 +82,10 @@ export default defineComponent({
         ...tableProps,
         selectedRows: {type: Array as PropType<any[]>, default: () => ([])},
         filter: {type: String as PropType<string>, default: null},
-        fields: {type: Array as PropType<any[]>, default: () => ([])},
+        fields: {type: Array as PropType<FieldType[] | string[]>, default: () => ([])},
         items: {type: [Array, Function] as PropType<any[]>, default: () => ([])}
     },
-    setup(props, context) {
+    setup(props, {slots, expose, emit}) {
         const sorting = ref({
             sortBy: null,
             sort: null
@@ -104,6 +115,7 @@ export default defineComponent({
             }
             return th;
         };
+
         const filterableColumns = computed(() => {
             let cols = [];
             props.fields.forEach(i => {
@@ -168,9 +180,15 @@ export default defineComponent({
             //     selectedRows.value.push(row);
             // }
         };
-        const unselectAllRows = () => context.emit('update:selectedRows', []);
-        const selectAllRows = () => context.emit('update:selectedRows', itemsSorted.value);
+        const unselectAllRows = () => emit('update:selectedRows', []);
+        const selectAllRows = () => emit('update:selectedRows', itemsSorted.value);
         const selectedAllRows = computed(() => itemsSorted.value.length === props.selectedRows.length);
+
+        expose({
+            unselectAllRows,
+            selectAllRows
+        });
+
         return {
             classes,
             otherProps,
