@@ -21790,6 +21790,7 @@ const _sfc_main$z = defineComponent({
     noClose: { type: Boolean, default: false },
     closeBtnWhite: { type: Boolean, default: false },
     noBody: { type: Boolean, default: false },
+    bodyClass: { type: [Array, String, Object], default: null },
     title: { type: String, default: null },
     titleTag: { type: String, default: "h5" },
     titleClass: { type: [Array, String, Object], default: null },
@@ -21996,13 +21997,19 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
             ]),
             _: 3
           }, 16, ["tag", "class"])) : createCommentVNode("", true),
-          !_ctx.noBody ? (openBlock(), createBlock(_component_ModalBody, { key: 1 }, {
+          !_ctx.noBody ? (openBlock(), createBlock(_component_ModalBody, {
+            key: 1,
+            class: normalizeClass(_ctx.bodyClass)
+          }, {
             default: withCtx(() => [
               renderSlot(_ctx.$slots, "default")
             ]),
             _: 3
-          })) : renderSlot(_ctx.$slots, "default", { key: 2 }),
-          !_ctx.noFooter ? (openBlock(), createBlock(_component_ModalFooter, { key: 3 }, {
+          }, 8, ["class"])) : renderSlot(_ctx.$slots, "default", { key: 2 }),
+          !_ctx.noFooter ? (openBlock(), createBlock(_component_ModalFooter, {
+            key: 3,
+            class: normalizeClass(_ctx.footerClass)
+          }, {
             default: withCtx(() => [
               renderSlot(_ctx.$slots, "prepend_buttons"),
               renderSlot(_ctx.$slots, "footer", {}, () => [
@@ -22034,7 +22041,7 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
               renderSlot(_ctx.$slots, "append_buttons")
             ]),
             _: 3
-          })) : createCommentVNode("", true)
+          }, 8, ["class"])) : createCommentVNode("", true)
         ])
       ], 2)
     ], 42, _hoisted_1$i),

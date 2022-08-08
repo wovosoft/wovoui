@@ -29,13 +29,13 @@
                         </template>
                         <ButtonClose :white="closeBtnWhite" v-if="!noClose" @click="close"/>
                     </ModalHeader>
-                    <ModalBody v-if="!noBody">
+                    <ModalBody v-if="!noBody" :class="bodyClass">
                         <slot></slot>
                     </ModalBody>
                     <template v-else>
                         <slot></slot>
                     </template>
-                    <ModalFooter v-if="!noFooter">
+                    <ModalFooter v-if="!noFooter" :class="footerClass">
                         <slot name="prepend_buttons"></slot>
                         <slot name="footer">
                             <Button v-if="!noCloseButton"
@@ -87,6 +87,7 @@ export default defineComponent({
         noClose: {type: Boolean as PropType<boolean>, default: false},
         closeBtnWhite: {type: Boolean as PropType<boolean>, default: false},
         noBody: {type: Boolean as PropType<boolean>, default: false},
+        bodyClass: {type: [Array, String, Object] as PropType<any>, default: null},
 
         title: {type: String as PropType<string>, default: null},
         titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h5"},
