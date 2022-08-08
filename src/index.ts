@@ -59,7 +59,7 @@ export {default as NavbarBrand} from "./components/NavbarBrand";
 export {default as NavbarNav} from "./components/NavbarNav.vue";
 export {default as NavbarToggler} from "./components/NavbarToggler";
 export {default as NavItem} from "./components/NavItem.vue";
-export {default as NavItemDropdown} from "./components/NavItemDropdown.vue";
+export {default as NavItemDropdown} from "./components/NavItemDropdown";
 export {default as NavLink} from "./components/NavLink.vue";
 export {default as OffCanvas} from "./components/OffCanvas.vue";
 export {default as OffCanvasBody} from "./components/OffCanvasBody.vue";

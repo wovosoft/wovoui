@@ -35,6 +35,7 @@
             </slot>
         </Button>
         <DropdownMenu
+            @click="menuItemClicked"
             ref="menu"
             :show="shouldOpen"
             :tag="menuTag"
@@ -49,32 +50,27 @@
 import dropdownProps from "../shared/dropdownProps";
 import Button from "./Button";
 import DropdownMenu from "./DropdownMenu.vue";
-import {computed, defineProps, onMounted, ref, watch} from "vue";
+import {computed, defineProps, ref, watch} from "vue";
 import NavLink from "./NavLink.vue";
-import {onClickOutside} from "@vueuse/core";
 import usePopper from "../shared/usePopper";
+import {onClickOutside} from "@vueuse/core";
 
 const props = defineProps(dropdownProps);
 const shouldOpen = ref<boolean>(false);
 
-const target = ref(null);
-onClickOutside(target, () => shouldOpen.value = false);
+const target = ref<HTMLElement | null>(null);
+const toggle = ref<InstanceType<typeof Button> | null>(null);
+const menu = ref<InstanceType<typeof DropdownMenu> | null>(null);
 
-const toggle = ref(null);
-const menu = ref(null);
 const toggleAriaExpanded = ref<boolean>(false);
 
-const {update} = usePopper(toggle, menu, computed(() => ({
-    placement: props.align ? [props.dir, props.align].join("-") : "bottom-start",
-    modifiers: [
-        {
-            name: 'offset',
-            options: {
-                offset: [0, 5],
-            },
-        },
-    ],
-})), shouldOpen);
+onClickOutside(target, () => shouldOpen.value = false);
+
+const options = computed(() => ({
+    placement: props.align ? [props.dir, props.align].join("-") : "bottom-start"
+}));
+
+const {update} = usePopper(toggle, menu, options, shouldOpen);
 
 watch(shouldOpen, value => toggleAriaExpanded.value = value);
 
@@ -86,5 +82,11 @@ const classes = computed(() => ({
     "dropup": props.dir === "top",
 }));
 
-onMounted(update);
+function menuItemClicked(e) {
+    if (!props.disableInnerClicks && shouldOpen.value) {
+        if (menu.value?.$el?.contains(e.target)) {
+            shouldOpen.value = false;
+        }
+    }
+}
 </script>
