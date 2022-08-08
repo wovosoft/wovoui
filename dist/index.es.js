@@ -21192,7 +21192,7 @@ const _sfc_main$I = /* @__PURE__ */ defineComponent({
     const toggle = ref(null);
     const menu = ref(null);
     const toggleAriaExpanded = ref(false);
-    usePopper(toggle, menu, computed(() => ({
+    const { update } = usePopper(toggle, menu, computed(() => ({
       placement: props.align ? [props.dir, props.align].join("-") : "bottom-start",
       modifiers: [
         {
@@ -21211,6 +21211,7 @@ const _sfc_main$I = /* @__PURE__ */ defineComponent({
       "dropstart": props.dir === "left",
       "dropup": props.dir === "top"
     }));
+    onMounted(update);
     return (_ctx, _cache) => {
       return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
         class: normalizeClass(unref(classes)),

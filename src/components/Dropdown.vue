@@ -49,15 +49,12 @@
 import dropdownProps from "../shared/dropdownProps";
 import Button from "./Button";
 import DropdownMenu from "./DropdownMenu.vue";
-import {computed, defineComponent, defineProps, ref, watch} from "vue";
-import NavItem from "./NavItem.vue";
+import {computed, defineProps, onMounted, ref, watch} from "vue";
 import NavLink from "./NavLink.vue";
 import {onClickOutside} from "@vueuse/core";
 import usePopper from "../shared/usePopper";
 
 const props = defineProps(dropdownProps);
-
-
 const shouldOpen = ref<boolean>(false);
 
 const target = ref(null);
@@ -88,4 +85,6 @@ const classes = computed(() => ({
     "dropstart": props.dir === "left",
     "dropup": props.dir === "top",
 }));
+
+onMounted(update);
 </script>
