@@ -1,6 +1,6 @@
 {
   "name": "@wovosoft/wovoui",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "scripts": {
     "build": "vite build",
     "dev": "vite --config demo-vite.config.ts",
