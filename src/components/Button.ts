@@ -1,30 +1,31 @@
-import type { ColorVariants } from "../types/colorVariants";
+import type {ColorVariants} from "../types/colorVariants";
 
-import { defineComponent, h, PropType, resolveComponent } from "vue";
+import {defineComponent, h, PropType, resolveComponent} from "vue";
 
-import type { buttonSizes } from "../types/buttonSizes";
-import { RouteLocationRaw } from "vue-router";
+import type {buttonSizes} from "../types/buttonSizes";
+import {RouteLocationRaw} from "vue-router";
 
 export default defineComponent({
     props: {
-        tag: { type: String as PropType<keyof HTMLElementTagNameMap>, default: "button" },
-        href: { type: String as PropType<string>, default: null },
-        to: { type: Object as PropType<RouteLocationRaw>, default: null },
-        variant: { type: String as PropType<ColorVariants>, default: () => "secondary" },
-        size: { type: String as PropType<buttonSizes>, default: () => null },
-        type: { type: String as PropType<string>, default: "button" },
-        outline: { type: Boolean as PropType<boolean>, default: false },
-        block: { type: Boolean as PropType<boolean>, default: false },
-        pill: { type: Boolean as PropType<boolean>, default: false },
-        squared: { type: Boolean as PropType<boolean>, default: false },
-        disabled: { type: Boolean as PropType<boolean>, default: false },
-        pressed: { type: Boolean as PropType<boolean>, default: false },
-        noWrap: { type: Boolean as PropType<boolean>, default: false },
-        link: { type: Boolean as PropType<boolean>, default: false },
-        active: { type: Boolean as PropType<boolean>, default: false },
-        activeClass: { type: String as PropType<string>, default: "active" },
+        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "button"},
+        href: {type: String as PropType<string>, default: null},
+        to: {type: Object as PropType<RouteLocationRaw>, default: null},
+        variant: {type: String as PropType<ColorVariants>, default: () => "secondary"},
+        size: {type: String as PropType<buttonSizes>, default: () => null},
+        type: {type: String as PropType<string>, default: "button"},
+        outline: {type: Boolean as PropType<boolean>, default: false},
+        block: {type: Boolean as PropType<boolean>, default: false},
+        pill: {type: Boolean as PropType<boolean>, default: false},
+        squared: {type: Boolean as PropType<boolean>, default: false},
+        disabled: {type: Boolean as PropType<boolean>, default: false},
+        pressed: {type: Boolean as PropType<boolean>, default: false},
+        noWrap: {type: Boolean as PropType<boolean>, default: false},
+        link: {type: Boolean as PropType<boolean>, default: false},
+        active: {type: Boolean as PropType<boolean>, default: false},
+        activeClass: {type: String as PropType<string>, default: "active"},
+        isNuxt: {type: Boolean as PropType<boolean>, default: false}
     },
-    setup(props, { slots }) {
+    setup(props, {slots}) {
         return () => {
             const type = () => {
                 if (props.link || props.href || props.to) {
@@ -44,6 +45,9 @@ export default defineComponent({
                 if (props.href) {
                     return "a";
                 }
+                if (props.isNuxt && props.to) {
+                    return resolveComponent("nuxt-link");
+                }
                 if (props.to) {
                     return resolveComponent("router-link");
                 }
@@ -58,7 +62,7 @@ export default defineComponent({
                     autocomplete: props.pressed ? "off" : null,
                     type: type(),
                     //directly using href on router-link removes generated href by router-link
-                    ...(props.to ? { to: props.to } : { href: props.href }),
+                    ...(props.to ? {to: props.to} : {href: props.href}),
                     class: [
                         "btn",
                         {

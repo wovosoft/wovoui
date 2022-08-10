@@ -563,7 +563,8 @@ var Button = defineComponent({
     noWrap: { type: Boolean, default: false },
     link: { type: Boolean, default: false },
     active: { type: Boolean, default: false },
-    activeClass: { type: String, default: "active" }
+    activeClass: { type: String, default: "active" },
+    isNuxt: { type: Boolean, default: false }
   },
   setup(props, { slots }) {
     return () => {
@@ -582,6 +583,9 @@ var Button = defineComponent({
       const getTag = () => {
         if (props.href) {
           return "a";
+        }
+        if (props.isNuxt && props.to) {
+          return resolveComponent("nuxt-link");
         }
         if (props.to) {
           return resolveComponent("router-link");
@@ -25055,6 +25059,10 @@ const PanelMenu = defineComponent({
     menuVariant: {
       type: String,
       default: "light"
+    },
+    isNuxt: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props, { emit }) {
@@ -25095,6 +25103,7 @@ const PanelMenu = defineComponent({
           block: true,
           squared: true,
           variant: props.triggerVariant,
+          isNuxt: props.isNuxt,
           onClick: () => setActive(item_index)
         },
         () => [

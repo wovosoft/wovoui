@@ -34,6 +34,10 @@ const PanelMenu = defineComponent({
             type: String as PropType<ColorVariants>,
             default: "light"
         },
+        isNuxt: {
+            type: Boolean as PropType<boolean>,
+            default: false
+        }
     },
     setup(props, {emit}) {
         const active = ref<number>(0);
@@ -83,6 +87,7 @@ const PanelMenu = defineComponent({
                     block: true,
                     squared: true,
                     variant: props.triggerVariant,
+                    isNuxt: props.isNuxt,
                     onClick: () => setActive(item_index)
                 },
                 () => [
