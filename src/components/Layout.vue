@@ -1,72 +1,35 @@
 <template>
-    <div class="layout">
-        <OffCanvas
-            v-if="hasSidebarLeft"
-            :header="sidebarHeader"
-            btn-close-white
-            v-model="sidebar"
-            :header-class="['text-light','bg-dark']">
-            <slot name="sidebar-left"></slot>
-        </OffCanvas>
-        <header class="menu position-fixed top-0 end-0 start-0" :style="{zIndex:navbarZIndex}">
-            <slot name="header"
-                  :sidebar="sidebar"
-                  :toggleSidebar="toggleSidebar">
-            </slot>
-        </header>
-        <Container tag="section" style="margin-top: 58px;" fluid>
-            <Row>
-                <Col tag="aside"
-                     v-if="!sidebar && hasSidebarLeft"
-                     :md="3"
-                     :lg="2"
-                     class="d-sm-block d-none bg-light start-0 top-0 overflow-auto bottom-0 p-0 position-fixed wui-sidebar"
-                     :style="{maxWidth:leftSidebarWidth,zIndex: navbarZIndex-1}">
-                    <slot name="sidebar-left"></slot>
-                </Col>
-                <Col tag="main"
-                     role="main"
-                     :md="hasSidebarLeft?9:12"
-                     :lg="hasSidebarLeft?10:12"
-                     class="ms-sm-auto px-md-4">
-                    <slot></slot>
-                </Col>
-            </Row>
-        </Container>
+    <div ref="appBar">
+        <slot name="app_bar"></slot>
+    </div>
+    <div class="d-flex align-items-stretch" :style="{height:'calc(100vh - '+ appBarHeight +'px)'}">
+        <Collapse v-model="sidebarOpened" horizontal :width="230" class="border-end">
+            <slot name="sidebar"></slot>
+        </Collapse>
+        <div class="flex-grow-1 overflow-auto">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
-<script lang="ts">
-import Row from "./Row";
-import Col from "./Col";
-import Container from "./Container";
-import OffCanvas from "./OffCanvas.vue";
-import {computed, defineComponent, PropType, ref} from "vue";
+<script lang="ts" setup>
+import {ref} from "vue";
 
-export default defineComponent({
-    name: "Layout",
-    components: {Container, Col, Row, OffCanvas},
-    props: {
-        sidebarHeader: {type: String as PropType<string>, default: null},
-        height: {type: String as PropType<string>, default: "100vh"},
-        leftSidebarWidth: {type: String as PropType<string>, default: "300px"},
-        navbarZIndex: {type: Number as PropType<number>, default: 100}
-    },
-    setup(props, {slots}) {
-        const sidebar = ref(false);
-        const toggleSidebar = () => sidebar.value = !sidebar.value;
-        return {
-            sidebar,
-            toggleSidebar,
-            hasSidebarLeft: computed(() => !!slots['sidebar-left'])
-        }
-    }
-})
-</script>
-<style lang="scss">
-.wui-sidebar {
-    margin-top: 55px !important;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1) !important;
-    max-height: calc(100vh - 55px) !important;
+import {useElementSize} from "@vueuse/core";
+import Collapse from "./Collapse";
+
+
+const appBar = ref<HTMLElement | null>(null);
+//@ts-ignore
+const {height: appBarHeight} = useElementSize(appBar);
+
+const sidebarOpened = ref<boolean>(true);
+
+function toggle() {
+    sidebarOpened.value = !sidebarOpened.value;
 }
-</style>
+
+defineExpose({
+    toggle
+});
+</script>

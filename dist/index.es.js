@@ -1,4 +1,4 @@
-import { defineComponent, ref, reactive, provide, computed, h, openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, getCurrentInstance, watch, onBeforeMount, inject, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, onMounted, mergeProps, Fragment, renderList, createCommentVNode, normalizeProps, createElementVNode, withDirectives, vModelCheckbox, guardReactiveProps, normalizeStyle, unref, getCurrentScope, onScopeDispose, onBeforeUnmount, nextTick, Teleport, withModifiers, vModelSelect, withKeys, vModelText } from 'vue';
+import { defineComponent, ref, reactive, provide, computed, h, openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, getCurrentInstance, watch, onBeforeMount, inject, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, onMounted, mergeProps, Fragment, renderList, createCommentVNode, normalizeProps, createElementVNode, withDirectives, vModelCheckbox, guardReactiveProps, normalizeStyle, unref, getCurrentScope, onScopeDispose, nextTick, onBeforeUnmount, Teleport, withModifiers, vModelSelect, withKeys, vModelText } from 'vue';
 import axios from 'axios';
 
 var accordionProps = {
@@ -68,7 +68,7 @@ const _sfc_main$T = defineComponent({
     modelValue: { type: Boolean, default: false }
   }
 });
-function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "accordion-header" }, {
     default: withCtx(() => [
       (openBlock(), createBlock(resolveDynamicComponent(_ctx.toggleTag), {
@@ -86,7 +86,7 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var AccordionHeader = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$Q]]);
+var AccordionHeader = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$P]]);
 
 var Collapse = defineComponent({
   name: "Collapse",
@@ -179,7 +179,7 @@ const _sfc_main$S = defineComponent({
   }
 });
 const _hoisted_1$t = { class: "accordion-item" };
-function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_AccordionHeader = resolveComponent("AccordionHeader");
   const _component_AccordionBody = resolveComponent("AccordionBody");
   const _component_Collapse = resolveComponent("Collapse");
@@ -214,7 +214,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["modelValue"])
   ]);
 }
-var AccordionItem = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$P]]);
+var AccordionItem = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$O]]);
 
 var ButtonClose = defineComponent({
   name: "ButtonClose",
@@ -480,7 +480,7 @@ const _sfc_main$R = defineComponent({
   }
 });
 const _hoisted_1$s = ["href"];
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
     default: withCtx(() => [
@@ -502,7 +502,7 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]);
 }
-var BreadcrumbItem = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$O]]);
+var BreadcrumbItem = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$N]]);
 
 const _sfc_main$Q = defineComponent({
   name: "Breadcrumb",
@@ -520,7 +520,7 @@ const _sfc_main$Q = defineComponent({
     };
   }
 });
-function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_BreadcrumbItem = resolveComponent("BreadcrumbItem");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
@@ -544,7 +544,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Breadcrumb = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$N]]);
+var Breadcrumb = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$M]]);
 
 var Button = defineComponent({
   props: {
@@ -930,7 +930,7 @@ const _sfc_main$P = defineComponent({
     };
   }
 });
-function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CardHeader = resolveComponent("CardHeader");
   const _component_CardImg = resolveComponent("CardImg");
   const _component_CardBody = resolveComponent("CardBody");
@@ -984,7 +984,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Card = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$M]]);
+var Card = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$L]]);
 
 var CardGroup = defineComponent({
   name: "CardGroup",
@@ -14341,7 +14341,7 @@ const _sfc_main$O = defineComponent({
   }
 });
 const _hoisted_1$r = ["height", "width"];
-function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", null, [
     createElementVNode("canvas", {
       height: _ctx.height,
@@ -14351,7 +14351,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, _hoisted_1$r)
   ]);
 }
-var Chart = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$L]]);
+var Chart = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$K]]);
 
 const _sfc_main$N = defineComponent({
   name: "Checkbox",
@@ -14437,7 +14437,7 @@ const _hoisted_1$q = ["required", "readonly", "disabled", "name", "value", "id"]
 const _hoisted_2$i = ["for"];
 const _hoisted_3$c = ["required", "readonly", "disabled", "name", "value", "id"];
 const _hoisted_4$4 = ["for"];
-function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.button ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
     withDirectives(createElementVNode("input", mergeProps({
       class: "btn-check",
@@ -14485,7 +14485,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     ], 8, _hoisted_4$4)) : createCommentVNode("", true)
   ], 2));
 }
-var Checkbox = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$K]]);
+var Checkbox = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$J]]);
 
 const _sfc_main$M = defineComponent({
   name: "CheckboxGroup",
@@ -14515,7 +14515,7 @@ const _sfc_main$M = defineComponent({
   }
 });
 const _hoisted_1$p = { role: "group" };
-function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Checkbox = resolveComponent("Checkbox");
   return openBlock(), createElementBlock("div", _hoisted_1$p, [
     (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.options, (option, option_key) => {
@@ -14535,7 +14535,7 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var CheckboxGroup = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$J]]);
+var CheckboxGroup = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$I]]);
 
 const isBoolean = (val) => typeof val === "boolean";
 
@@ -19032,7 +19032,7 @@ const _sfc_main$L = defineComponent({
     };
   }
 });
-function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Icon = resolveComponent("Icon");
   const _component_Th = resolveComponent("Th");
   const _component_Tr = resolveComponent("Tr");
@@ -19124,7 +19124,7 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-var DataTable = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$I]]);
+var DataTable = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$H]]);
 
 const _sfc_main$K = defineComponent({
   name: "Datepicker",
@@ -19141,10 +19141,10 @@ const _sfc_main$K = defineComponent({
     };
   }
 });
-function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   return null;
 }
-var Datepicker = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$H]]);
+var Datepicker = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$G]]);
 
 var dropdownProps = {
   tag: { type: String, default: "div" },
@@ -19184,7 +19184,7 @@ const _sfc_main$J = defineComponent({
     };
   }
 });
-function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
   }, {
@@ -19194,7 +19194,7 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var DropdownMenu = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$G]]);
+var DropdownMenu = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$F]]);
 
 const _sfc_main$I = defineComponent({
   name: "NavLink",
@@ -19222,7 +19222,7 @@ const _sfc_main$I = defineComponent({
     };
   }
 });
-function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return _ctx.to ? (openBlock(), createBlock(_component_router_link, mergeProps({
     key: 0,
@@ -19243,7 +19243,7 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]));
 }
-var NavLink = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$F]]);
+var NavLink = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$E]]);
 
 var top = 'top';
 var bottom = 'bottom';
@@ -21051,6 +21051,15 @@ function tryOnScopeDispose(fn) {
   return false;
 }
 
+function tryOnMounted(fn, sync = true) {
+  if (getCurrentInstance())
+    onMounted(fn);
+  else if (sync)
+    fn();
+  else
+    nextTick(fn);
+}
+
 function unrefElement(elRef) {
   var _a;
   const plain = resolveUnref(elRef);
@@ -21139,10 +21148,78 @@ function onClickOutside(target, handler, options = {}) {
   return stop;
 }
 
+function useSupported(callback, sync = false) {
+  const isSupported = ref();
+  const update = () => isSupported.value = Boolean(callback());
+  update();
+  tryOnMounted(update, sync);
+  return isSupported;
+}
+
 const _global = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 const globalKey = "__vueuse_ssr_handlers__";
 _global[globalKey] = _global[globalKey] || {};
 _global[globalKey];
+
+var __getOwnPropSymbols$e = Object.getOwnPropertySymbols;
+var __hasOwnProp$e = Object.prototype.hasOwnProperty;
+var __propIsEnum$e = Object.prototype.propertyIsEnumerable;
+var __objRest$2 = (source, exclude) => {
+  var target = {};
+  for (var prop in source)
+    if (__hasOwnProp$e.call(source, prop) && exclude.indexOf(prop) < 0)
+      target[prop] = source[prop];
+  if (source != null && __getOwnPropSymbols$e)
+    for (var prop of __getOwnPropSymbols$e(source)) {
+      if (exclude.indexOf(prop) < 0 && __propIsEnum$e.call(source, prop))
+        target[prop] = source[prop];
+    }
+  return target;
+};
+function useResizeObserver(target, callback, options = {}) {
+  const _a = options, { window = defaultWindow } = _a, observerOptions = __objRest$2(_a, ["window"]);
+  let observer;
+  const isSupported = useSupported(() => window && "ResizeObserver" in window);
+  const cleanup = () => {
+    if (observer) {
+      observer.disconnect();
+      observer = void 0;
+    }
+  };
+  const stopWatch = watch(() => unrefElement(target), (el) => {
+    cleanup();
+    if (isSupported.value && window && el) {
+      observer = new ResizeObserver(callback);
+      observer.observe(el, observerOptions);
+    }
+  }, { immediate: true, flush: "post" });
+  const stop = () => {
+    cleanup();
+    stopWatch();
+  };
+  tryOnScopeDispose(stop);
+  return {
+    isSupported,
+    stop
+  };
+}
+
+function useElementSize(target, initialSize = { width: 0, height: 0 }, options = {}) {
+  const width = ref(initialSize.width);
+  const height = ref(initialSize.height);
+  useResizeObserver(target, ([entry]) => {
+    width.value = entry.contentRect.width;
+    height.value = entry.contentRect.height;
+  }, options);
+  watch(() => unrefElement(target), (ele) => {
+    width.value = ele ? initialSize.width : 0;
+    height.value = ele ? initialSize.height : 0;
+  });
+  return {
+    width,
+    height
+  };
+}
 
 var SwipeDirection;
 (function(SwipeDirection2) {
@@ -21306,7 +21383,7 @@ const _sfc_main$G = defineComponent({
   }
 });
 const _hoisted_1$n = { role: "menuitem" };
-function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$n, [
     createElementVNode("button", {
       class: normalizeClass(["dropdown-item", { "active": _ctx.active, "disabled": _ctx.disabled }]),
@@ -21316,7 +21393,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)
   ]);
 }
-var DropdownButton = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$E]]);
+var DropdownButton = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$D]]);
 
 const _sfc_main$F = defineComponent({
   name: "DropdownDivider"
@@ -21330,10 +21407,10 @@ const _hoisted_2$h = /* @__PURE__ */ createElementVNode("hr", {
 const _hoisted_3$b = [
   _hoisted_2$h
 ];
-function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$m, _hoisted_3$b);
 }
-var DropdownDivider = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$D]]);
+var DropdownDivider = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$C]]);
 
 const _sfc_main$E = defineComponent({
   name: "DropdownItem",
@@ -21353,7 +21430,7 @@ const _hoisted_2$g = {
   class: "dropdown-item-text"
 };
 const _hoisted_3$a = ["href"];
-function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$l, [
     _ctx.noItemTag ? renderSlot(_ctx.$slots, "default", {
       key: 0,
@@ -21377,7 +21454,7 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     ], 10, _hoisted_3$a))
   ]);
 }
-var DropdownItem = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$C]]);
+var DropdownItem = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$B]]);
 
 var FormLabel = defineComponent({
   name: "FormLabel",
@@ -21442,7 +21519,7 @@ const _sfc_main$D = defineComponent({
     };
   }
 });
-function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_FormLabel = resolveComponent("FormLabel");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
@@ -21477,7 +21554,7 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var FormGroup = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$B]]);
+var FormGroup = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$A]]);
 
 const _sfc_main$C = defineComponent({
   name: "Figure",
@@ -21493,7 +21570,7 @@ const _hoisted_2$f = {
   key: 1,
   class: "figure-caption"
 };
-function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent("figure"), { class: "figure" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default"),
@@ -21512,7 +21589,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var Figure = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$A]]);
+var Figure = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$z]]);
 
 var Grid = defineComponent({
   name: "Grid",
@@ -21581,7 +21658,7 @@ const _sfc_main$B = defineComponent({
   }
 });
 const _hoisted_1$j = ["type", "value"];
-function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("input", mergeProps({
     type: _ctx.type,
     value: _ctx.modelValue,
@@ -21589,7 +21666,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     class: _ctx.classes
   }, _ctx.attributes), null, 16, _hoisted_1$j);
 }
-var Input = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$z]]);
+var Input = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$y]]);
 
 const _sfc_main$A = defineComponent({
   name: "InputGroupText",
@@ -21597,7 +21674,7 @@ const _sfc_main$A = defineComponent({
     tag: { type: String, default: "span" }
   }
 });
-function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "input-group-text" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
@@ -21605,7 +21682,7 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var InputGroupText = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$y]]);
+var InputGroupText = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$x]]);
 
 var InputGroup_vue_vue_type_style_index_0_lang = '';
 
@@ -21630,7 +21707,7 @@ const _sfc_main$z = defineComponent({
     };
   }
 });
-function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_InputGroupText = resolveComponent("InputGroupText");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
@@ -21658,7 +21735,7 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var InputGroup = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$x]]);
+var InputGroup = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$w]]);
 
 var Link = defineComponent({
   name: "Link",
@@ -21960,7 +22037,7 @@ const _hoisted_3$9 = {
   ref: "backdrop",
   class: "modal-backdrop fade"
 };
-function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ModalTitle = resolveComponent("ModalTitle");
   const _component_ButtonClose = resolveComponent("ButtonClose");
   const _component_ModalHeader = resolveComponent("ModalHeader");
@@ -22060,7 +22137,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     !_ctx.noBackdrop && _ctx.shouldShowBackdrop ? (openBlock(), createElementBlock("div", _hoisted_3$9, null, 512)) : createCommentVNode("", true)
   ]);
 }
-var Modal = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$w]]);
+var Modal = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$v]]);
 
 const _hoisted_1$qQ = ["width", "height", "fill"];
 const _hoisted_2$qQ = /* @__PURE__ */ createElementVNode("path", { d: "M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" }, null, -1);
@@ -23160,7 +23237,7 @@ const _sfc_main$x = defineComponent({
 });
 const _hoisted_1$h = { class: "accordion-header" };
 const _hoisted_2$d = ["href"];
-function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Menu = resolveComponent("Menu", true);
   const _component_AccordionItem = resolveComponent("AccordionItem");
   const _component_ChevronRight = resolveComponent("ChevronRight");
@@ -23218,7 +23295,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["class"]);
 }
-var Menu = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$v], ["__scopeId", "data-v-022fa87b"]]);
+var Menu = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$u], ["__scopeId", "data-v-022fa87b"]]);
 
 var navProps = {
   tag: { type: String, default: "ul" },
@@ -23319,7 +23396,7 @@ const _sfc_main$w = defineComponent({
     };
   }
 });
-function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_NavbarBrand = resolveComponent("NavbarBrand");
   const _component_NavbarToggler = resolveComponent("NavbarToggler");
   const _component_Container = resolveComponent("Container");
@@ -23350,7 +23427,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["fluid"])
   ], 2);
 }
-var Navbar = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$u]]);
+var Navbar = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$t]]);
 
 const _sfc_main$v = defineComponent({
   name: "NavbarNav",
@@ -23370,7 +23447,7 @@ const _sfc_main$v = defineComponent({
     };
   }
 });
-function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Nav = resolveComponent("Nav");
   return openBlock(), createBlock(_component_Nav, mergeProps(_ctx.$props, {
     navs: "",
@@ -23382,7 +23459,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["style"]);
 }
-var NavbarNav = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$t]]);
+var NavbarNav = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$s]]);
 
 const _sfc_main$u = defineComponent({
   name: "NavItem",
@@ -23410,7 +23487,7 @@ const _sfc_main$u = defineComponent({
     };
   }
 });
-function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_NavLink = resolveComponent("NavLink");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
     default: withCtx(() => [
@@ -23432,7 +23509,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]);
 }
-var NavItem = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$s]]);
+var NavItem = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$r]]);
 
 var NavItemDropdown = defineComponent({
   name: "NavItemDropdown",
@@ -23456,7 +23533,7 @@ const _sfc_main$t = defineComponent({
     tag: { type: String, default: "h5" }
   }
 });
-function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-title" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
@@ -23464,7 +23541,7 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var OffCanvasTitle = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$r]]);
+var OffCanvasTitle = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$q]]);
 
 const _sfc_main$s = defineComponent({
   name: "OffCanvasHeader",
@@ -23486,7 +23563,7 @@ const _sfc_main$s = defineComponent({
     };
   }
 });
-function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_OffCanvasTitle = resolveComponent("OffCanvasTitle");
   const _component_ButtonClose = resolveComponent("ButtonClose");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
@@ -23511,7 +23588,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var OffCanvasHeader = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$q]]);
+var OffCanvasHeader = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$p]]);
 
 const _sfc_main$r = defineComponent({
   name: "OffCanvasBody",
@@ -23519,7 +23596,7 @@ const _sfc_main$r = defineComponent({
     tag: { type: String, default: "div" }
   }
 });
-function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-body" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
@@ -23527,7 +23604,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var OffCanvasBody = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$p]]);
+var OffCanvasBody = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$o]]);
 
 const _sfc_main$q = defineComponent({
   name: "OffCanvas",
@@ -23636,7 +23713,7 @@ const _sfc_main$q = defineComponent({
     window.removeEventListener("toggleOffCanvas", this.globalEventListener);
   }
 });
-function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_OffCanvasHeader = resolveComponent("OffCanvasHeader");
   const _component_OffCanvasBody = resolveComponent("OffCanvasBody");
   return openBlock(), createBlock(Teleport, { to: "body" }, [
@@ -23681,7 +23758,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 512)) : createCommentVNode("", true)
   ]);
 }
-var OffCanvas = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$o]]);
+var OffCanvas = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$n]]);
 
 const _sfc_main$p = defineComponent({
   name: "Popover",
@@ -23806,7 +23883,7 @@ const _hoisted_2$c = {
   class: "popover-header"
 };
 const _hoisted_3$8 = { class: "popover-body" };
-function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(Teleport, { to: "body" }, [
     _ctx.shown ? (openBlock(), createElementBlock("div", {
       key: 0,
@@ -23826,7 +23903,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)) : createCommentVNode("", true)
   ]);
 }
-var Popover = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$n]]);
+var Popover = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$m]]);
 
 const _sfc_main$o = defineComponent({
   name: "Radio",
@@ -23853,7 +23930,7 @@ const _sfc_main$o = defineComponent({
 const _hoisted_1$f = { class: "form-check" };
 const _hoisted_2$b = ["name", "id", "value", "checked"];
 const _hoisted_3$7 = ["for"];
-function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$f, [
     createElementVNode("input", {
       class: "form-check-input",
@@ -23872,7 +23949,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     ], 8, _hoisted_3$7)
   ]);
 }
-var Radio = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$m]]);
+var Radio = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$l]]);
 
 const _sfc_main$n = defineComponent({
   name: "Range",
@@ -23891,7 +23968,7 @@ const _sfc_main$n = defineComponent({
   }
 });
 const _hoisted_1$e = ["value", "min", "max", "step"];
-function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("input", {
     value: _ctx.modelValue,
     onInput: _cache[0] || (_cache[0] = (e) => _ctx.$emit("update:modelValue", Number(e.target.value))),
@@ -23902,7 +23979,7 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     class: normalizeClass(_ctx.classes)
   }, null, 42, _hoisted_1$e);
 }
-var Range = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$l]]);
+var Range = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$k]]);
 
 var Rating_vue_vue_type_style_index_0_lang = '';
 
@@ -23933,7 +24010,7 @@ const _sfc_main$m = defineComponent({
   }
 });
 const _hoisted_1$d = { class: "form-rating" };
-function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$d, [
     (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.items, (i) => {
       return openBlock(), createBlock(resolveDynamicComponent(_ctx.value >= i ? "StarFill" : "Star"), {
@@ -23944,7 +24021,7 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     }), 256))
   ]);
 }
-var Rating = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$k]]);
+var Rating = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$j]]);
 
 var Row = defineComponent({
   name: "Row",
@@ -24037,7 +24114,7 @@ const _hoisted_1$c = ["multiple"];
 const _hoisted_2$a = ["label"];
 const _hoisted_3$6 = ["value", "disabled"];
 const _hoisted_4$3 = ["value", "disabled"];
-function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createElementBlock("select", {
     class: normalizeClass(_ctx.classes),
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.model = $event),
@@ -24078,7 +24155,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     [vModelSelect, _ctx.model]
   ]);
 }
-var Select = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$j]]);
+var Select = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$i]]);
 
 var SpinButton_vue_vue_type_style_index_0_lang = '';
 
@@ -24211,14 +24288,14 @@ const _sfc_main$j = defineComponent({
     }
   }
 });
-function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(_ctx.classes)
   }, [
     renderSlot(_ctx.$slots, "default")
   ], 2);
 }
-var Tab = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i]]);
+var Tab = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$h]]);
 
 const _sfc_main$i = defineComponent({
   emits: ["update:modelValue"],
@@ -24277,7 +24354,7 @@ const _hoisted_2$9 = {
   key: 1,
   class: "tab-content"
 };
-function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_NavItem = resolveComponent("NavItem");
   const _component_Nav = resolveComponent("Nav");
   return openBlock(), createElementBlock("div", {
@@ -24323,7 +24400,7 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     ])) : createCommentVNode("", true)
   ], 2);
 }
-var Tabs = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h]]);
+var Tabs = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$g]]);
 
 var Textarea = defineComponent({
   name: "Textarea",
@@ -24447,7 +24524,7 @@ const _hoisted_5 = { class: "text-center border" };
 const _hoisted_6 = { class: "text-center border" };
 const _hoisted_7 = { class: "text-center border" };
 const _hoisted_8 = { class: "text-center border" };
-function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ChevronDoubleLeft = resolveComponent("ChevronDoubleLeft");
   const _component_Button = resolveComponent("Button");
   const _component_Col = resolveComponent("Col");
@@ -24598,7 +24675,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var Calendar = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g]]);
+var Calendar = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$f]]);
 
 var CarouselInner = defineComponent({
   name: "CarouselInner",
@@ -24691,7 +24768,7 @@ const _sfc_main$g = defineComponent({
 const _hoisted_1$8 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Previous", -1);
 const _hoisted_2$7 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Next", -1);
 const _hoisted_3$4 = ["onClick", "aria-current"];
-function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CarouselInner = resolveComponent("CarouselInner");
   const _component_ChevronLeft = resolveComponent("ChevronLeft");
   const _component_ChevronRight = resolveComponent("ChevronRight");
@@ -24754,7 +24831,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Carousel = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f]]);
+var Carousel = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$e]]);
 
 var CarouselCaption = defineComponent({
   name: "CarouselCaption",
@@ -24771,10 +24848,10 @@ var CarouselCaption = defineComponent({
 const _sfc_main$f = defineComponent({
   name: "CarouselControl"
 });
-function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   return null;
 }
-var CarouselControl = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e]]);
+var CarouselControl = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$d]]);
 
 const _sfc_main$e = defineComponent({
   name: "CarouselItem",
@@ -24828,7 +24905,7 @@ const _sfc_main$e = defineComponent({
     }
   }
 });
-function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     onTransitionend: _ctx.transitionEnd
@@ -24839,7 +24916,7 @@ function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 40, ["class", "onTransitionend"]);
 }
-var CarouselItem = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d]]);
+var CarouselItem = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$c]]);
 
 var Tags_vue_vue_type_style_index_0_lang = '';
 
@@ -24898,7 +24975,7 @@ const _sfc_main$d = defineComponent({
 });
 const _hoisted_1$7 = { class: "d-inline-flex flex-grow-1" };
 const _hoisted_2$6 = ["placeholder"];
-function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_X = resolveComponent("X");
   const _component_Badge = resolveComponent("Badge");
   const _component_Button = resolveComponent("Button");
@@ -24957,7 +25034,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["role", "tabindex", "class"]);
 }
-var Tags = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c]]);
+var Tags = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$b]]);
 
 const PanelMenu = defineComponent({
   emits: ["update:modelValue"],
@@ -25065,7 +25142,7 @@ const _sfc_main$c = defineComponent({
     };
   }
 });
-function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     href: _ctx.href,
@@ -25077,7 +25154,7 @@ function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "href", "aria-label"]);
 }
-var PageLink = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b]]);
+var PageLink = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$a]]);
 
 const _sfc_main$b = defineComponent({
   name: "PageItem",
@@ -25104,7 +25181,7 @@ const _sfc_main$b = defineComponent({
     };
   }
 });
-function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PageLink = resolveComponent("PageLink");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
@@ -25126,7 +25203,7 @@ function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var PageItem = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a]]);
+var PageItem = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$9]]);
 
 const _sfc_main$a = defineComponent({
   name: "Pagination",
@@ -25213,7 +25290,7 @@ const _sfc_main$a = defineComponent({
     };
   }
 });
-function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_PageItem = resolveComponent("PageItem");
   const _component_ThreeDots = resolveComponent("ThreeDots");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
@@ -25297,7 +25374,7 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Pagination = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9]]);
+var Pagination = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$8]]);
 
 const _sfc_main$9 = defineComponent({
   name: "ProgressBar",
@@ -25324,7 +25401,7 @@ const _sfc_main$9 = defineComponent({
     };
   }
 });
-function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     role: "progressbar",
@@ -25345,7 +25422,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "style", "aria-valuenow", "aria-valuemin", "aria-valuemax"]);
 }
-var ProgressBar = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8]]);
+var ProgressBar = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$7]]);
 
 var Progress = defineComponent({
   name: "Progress",
@@ -25428,13 +25505,13 @@ const _hoisted_1$6 = /* @__PURE__ */ createElementVNode("span", { class: "visual
 const _hoisted_2$5 = [
   _hoisted_1$6
 ];
-function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(_ctx.classes),
     role: "status"
   }, _hoisted_2$5, 2);
 }
-var Spinner = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7]]);
+var Spinner = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$6]]);
 
 var ToastBody = defineComponent({
   name: "ToastBody",
@@ -25512,7 +25589,7 @@ const _hoisted_3$3 = {
   class: "toast-header"
 };
 const _hoisted_4$1 = { class: "me-auto" };
-function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ButtonClose = resolveComponent("ButtonClose");
   const _component_ToastBody = resolveComponent("ToastBody");
   return openBlock(), createElementBlock(Fragment, null, [
@@ -25573,7 +25650,7 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16)
   ], 64);
 }
-var Toast = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6]]);
+var Toast = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$5]]);
 
 const _sfc_main$6 = defineComponent({
   name: "ToastContainer",
@@ -25601,7 +25678,7 @@ const _sfc_main$6 = defineComponent({
     };
   }
 });
-function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.container ? (openBlock(), createBlock(Teleport, {
     key: 0,
     to: _ctx.container
@@ -25622,7 +25699,7 @@ function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]));
 }
-var ToastContainer = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5]]);
+var ToastContainer = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$4]]);
 
 let popper = null;
 const _sfc_main$5 = defineComponent({
@@ -25724,7 +25801,7 @@ const _hoisted_2$3 = {
   class: "tooltip-inner",
   ref: "inner"
 };
-function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.shouldShow ? (openBlock(), createBlock(Teleport, {
     key: 0,
     to: "body"
@@ -25743,7 +25820,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)
   ])) : createCommentVNode("", true);
 }
-var Tooltip = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4]]);
+var Tooltip = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$3]]);
 
 var Aspect = defineComponent({
   name: "Aspect",
@@ -25801,98 +25878,51 @@ var Vr = defineComponent({
   }
 });
 
-var Layout_vue_vue_type_style_index_0_lang = '';
-
-const _sfc_main$4 = defineComponent({
-  name: "Layout",
-  components: { Container, Col, Row, OffCanvas },
-  props: {
-    sidebarHeader: { type: String, default: null },
-    height: { type: String, default: "100vh" },
-    leftSidebarWidth: { type: String, default: "300px" },
-    navbarZIndex: { type: Number, default: 100 }
-  },
-  setup(props, { slots }) {
-    const sidebar = ref(false);
-    const toggleSidebar = () => sidebar.value = !sidebar.value;
-    return {
-      sidebar,
-      toggleSidebar,
-      hasSidebarLeft: computed(() => !!slots["sidebar-left"])
+const _hoisted_1$3 = { class: "flex-grow-1 overflow-auto" };
+const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+  __name: "Layout",
+  setup(__props, { expose }) {
+    const appBar = ref(null);
+    const { height: appBarHeight } = useElementSize(appBar);
+    const sidebarOpened = ref(true);
+    function toggle() {
+      sidebarOpened.value = !sidebarOpened.value;
+    }
+    expose({
+      toggle
+    });
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock(Fragment, null, [
+        createElementVNode("div", {
+          ref_key: "appBar",
+          ref: appBar
+        }, [
+          renderSlot(_ctx.$slots, "app_bar")
+        ], 512),
+        createElementVNode("div", {
+          class: "d-flex align-items-stretch",
+          style: normalizeStyle({ height: "calc(100vh - " + unref(appBarHeight) + "px)" })
+        }, [
+          createVNode(unref(Collapse), {
+            modelValue: sidebarOpened.value,
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => sidebarOpened.value = $event),
+            horizontal: "",
+            width: 230,
+            class: "border-end"
+          }, {
+            default: withCtx(() => [
+              renderSlot(_ctx.$slots, "sidebar")
+            ]),
+            _: 3
+          }, 8, ["modelValue"]),
+          createElementVNode("div", _hoisted_1$3, [
+            renderSlot(_ctx.$slots, "default")
+          ])
+        ], 4)
+      ], 64);
     };
   }
 });
-const _hoisted_1$3 = { class: "layout" };
-function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_OffCanvas = resolveComponent("OffCanvas");
-  const _component_Col = resolveComponent("Col");
-  const _component_Row = resolveComponent("Row");
-  const _component_Container = resolveComponent("Container");
-  return openBlock(), createElementBlock("div", _hoisted_1$3, [
-    _ctx.hasSidebarLeft ? (openBlock(), createBlock(_component_OffCanvas, {
-      key: 0,
-      header: _ctx.sidebarHeader,
-      "btn-close-white": "",
-      modelValue: _ctx.sidebar,
-      "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.sidebar = $event),
-      "header-class": ["text-light", "bg-dark"]
-    }, {
-      default: withCtx(() => [
-        renderSlot(_ctx.$slots, "sidebar-left")
-      ]),
-      _: 3
-    }, 8, ["header", "modelValue"])) : createCommentVNode("", true),
-    createElementVNode("header", {
-      class: "menu position-fixed top-0 end-0 start-0",
-      style: normalizeStyle({ zIndex: _ctx.navbarZIndex })
-    }, [
-      renderSlot(_ctx.$slots, "header", {
-        sidebar: _ctx.sidebar,
-        toggleSidebar: _ctx.toggleSidebar
-      })
-    ], 4),
-    createVNode(_component_Container, {
-      tag: "section",
-      style: { "margin-top": "58px" },
-      fluid: ""
-    }, {
-      default: withCtx(() => [
-        createVNode(_component_Row, null, {
-          default: withCtx(() => [
-            !_ctx.sidebar && _ctx.hasSidebarLeft ? (openBlock(), createBlock(_component_Col, {
-              key: 0,
-              tag: "aside",
-              md: 3,
-              lg: 2,
-              class: "d-sm-block d-none bg-light start-0 top-0 overflow-auto bottom-0 p-0 position-fixed wui-sidebar",
-              style: normalizeStyle({ maxWidth: _ctx.leftSidebarWidth, zIndex: _ctx.navbarZIndex - 1 })
-            }, {
-              default: withCtx(() => [
-                renderSlot(_ctx.$slots, "sidebar-left")
-              ]),
-              _: 3
-            }, 8, ["style"])) : createCommentVNode("", true),
-            createVNode(_component_Col, {
-              tag: "main",
-              role: "main",
-              md: _ctx.hasSidebarLeft ? 9 : 12,
-              lg: _ctx.hasSidebarLeft ? 10 : 12,
-              class: "ms-sm-auto px-md-4"
-            }, {
-              default: withCtx(() => [
-                renderSlot(_ctx.$slots, "default")
-              ]),
-              _: 3
-            }, 8, ["md", "lg"])
-          ]),
-          _: 3
-        })
-      ]),
-      _: 3
-    })
-  ]);
-}
-var Layout = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3]]);
 
 var RenderColumnVNode = {
   props: {
@@ -44201,4 +44231,4 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 
-export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Chart, Checkbox, CheckboxGroup, Col, Collapse, Column, Container, DataTable, Datepicker, _sfc_main$H as Dropdown, DropdownButton, DropdownDivider, DropdownItem, DropdownMenu, Figure, FormGroup, FormLabel, Grid, GridCol, Icon, Input, InputGroup, InputGroupText, LaravelCrudTable, Layout, Link, ListGroup, ListGroupItem, Menu, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, _sfc_main as Multiselect, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, PanelMenu, Placeholder, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, _sfc_main$k as SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, TypeHead, Vr };
+export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Chart, Checkbox, CheckboxGroup, Col, Collapse, Column, Container, DataTable, Datepicker, _sfc_main$H as Dropdown, DropdownButton, DropdownDivider, DropdownItem, DropdownMenu, Figure, FormGroup, FormLabel, Grid, GridCol, Icon, Input, InputGroup, InputGroupText, LaravelCrudTable, _sfc_main$4 as Layout, Link, ListGroup, ListGroupItem, Menu, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, _sfc_main as Multiselect, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, PanelMenu, Placeholder, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, _sfc_main$k as SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, TypeHead, Vr };
