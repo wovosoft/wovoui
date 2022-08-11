@@ -563,8 +563,7 @@ var Button = defineComponent({
     noWrap: { type: Boolean, default: false },
     link: { type: Boolean, default: false },
     active: { type: Boolean, default: false },
-    activeClass: { type: String, default: "active" },
-    isNuxt: { type: Boolean, default: false }
+    activeClass: { type: String, default: "active" }
   },
   setup(props, { slots }) {
     return () => {
@@ -583,9 +582,6 @@ var Button = defineComponent({
       const getTag = () => {
         if (props.href) {
           return "a";
-        }
-        if (props.isNuxt && props.to) {
-          return resolveComponent("nuxt-link");
         }
         if (props.to) {
           return resolveComponent("router-link");
@@ -14439,7 +14435,7 @@ const _sfc_main$N = defineComponent({
 });
 const _hoisted_1$q = ["required", "readonly", "disabled", "name", "value", "id"];
 const _hoisted_2$i = ["for"];
-const _hoisted_3$c = ["required", "readonly", "disabled", "name", "value", "id"];
+const _hoisted_3$b = ["required", "readonly", "disabled", "name", "value", "id"];
 const _hoisted_4$4 = ["for"];
 function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.button ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
@@ -14477,7 +14473,7 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
       type: "checkbox",
       "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => _ctx.model = $event),
       value: _ctx.value
-    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_3$c), [
+    }, _ctx.inputAttrs, { id: _ctx.identifier }), null, 16, _hoisted_3$b), [
       [vModelCheckbox, _ctx.model]
     ]),
     _ctx.$slots.default ? (openBlock(), createElementBlock("label", {
@@ -21408,17 +21404,18 @@ const _hoisted_2$h = /* @__PURE__ */ createElementVNode("hr", {
   "aria-orientation": "horizontal",
   class: "dropdown-divider"
 }, null, -1);
-const _hoisted_3$b = [
+const _hoisted_3$a = [
   _hoisted_2$h
 ];
 function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("li", _hoisted_1$m, _hoisted_3$b);
+  return openBlock(), createElementBlock("li", _hoisted_1$m, _hoisted_3$a);
 }
 var DropdownDivider = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$C]]);
 
 const _sfc_main$E = defineComponent({
   name: "DropdownItem",
   props: {
+    tag: { type: String, default: "li" },
     href: { type: String, default: "#" },
     to: { type: Object, default: null },
     noItemTag: { type: Boolean, default: false },
@@ -21426,37 +21423,54 @@ const _sfc_main$E = defineComponent({
     disabled: { type: Boolean, default: false },
     isText: { type: Boolean, default: false },
     itemTag: { type: String, default: null }
+  },
+  setup(props) {
+    return {
+      classes: computed(() => ["dropdown-item", { "active": props.active, "disabled": props.disabled }])
+    };
   }
 });
-const _hoisted_1$l = { role: "presentation" };
-const _hoisted_2$g = {
+const _hoisted_1$l = {
   key: 2,
   class: "dropdown-item-text"
 };
-const _hoisted_3$a = ["href"];
+const _hoisted_2$g = ["href"];
 function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("li", _hoisted_1$l, [
-    _ctx.noItemTag ? renderSlot(_ctx.$slots, "default", {
-      key: 0,
-      class: "dropdown-item"
-    }) : _ctx.itemTag ? (openBlock(), createBlock(resolveDynamicComponent(_ctx.itemTag), {
-      key: 1,
-      class: "dropdown-item"
-    }, {
-      default: withCtx(() => [
+  const _component_router_link = resolveComponent("router-link");
+  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { role: "presentation" }, {
+    default: withCtx(() => [
+      _ctx.noItemTag ? renderSlot(_ctx.$slots, "default", {
+        key: 0,
+        class: "dropdown-item"
+      }) : _ctx.itemTag ? (openBlock(), createBlock(resolveDynamicComponent(_ctx.itemTag), {
+        key: 1,
+        class: "dropdown-item"
+      }, {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "default")
+        ]),
+        _: 3
+      })) : _ctx.isText ? (openBlock(), createElementBlock("p", _hoisted_1$l, [
         renderSlot(_ctx.$slots, "default")
-      ]),
-      _: 3
-    })) : _ctx.isText ? (openBlock(), createElementBlock("p", _hoisted_2$g, [
-      renderSlot(_ctx.$slots, "default")
-    ])) : (openBlock(), createElementBlock("a", {
-      key: 3,
-      class: normalizeClass(["dropdown-item", { "active": _ctx.active, "disabled": _ctx.disabled }]),
-      href: _ctx.href
-    }, [
-      renderSlot(_ctx.$slots, "default")
-    ], 10, _hoisted_3$a))
-  ]);
+      ])) : _ctx.to ? (openBlock(), createBlock(_component_router_link, {
+        key: 3,
+        to: _ctx.to,
+        class: normalizeClass(_ctx.classes)
+      }, {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "default")
+        ]),
+        _: 3
+      }, 8, ["to", "class"])) : (openBlock(), createElementBlock("a", {
+        key: 4,
+        class: normalizeClass(_ctx.classes),
+        href: _ctx.href
+      }, [
+        renderSlot(_ctx.$slots, "default")
+      ], 10, _hoisted_2$g))
+    ]),
+    _: 3
+  });
 }
 var DropdownItem = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$B]]);
 
@@ -25059,10 +25073,6 @@ const PanelMenu = defineComponent({
     menuVariant: {
       type: String,
       default: "light"
-    },
-    isNuxt: {
-      type: Boolean,
-      default: false
     }
   },
   setup(props, { emit }) {
@@ -25093,27 +25103,28 @@ const PanelMenu = defineComponent({
         );
       }
     }
-    const itemContent = (item, item_index) => [
-      h(
-        Button,
-        {
-          href: item.href,
-          to: item.to,
-          class: "text-start d-flex",
-          block: true,
-          squared: true,
-          variant: props.triggerVariant,
-          isNuxt: props.isNuxt,
-          onClick: () => setActive(item_index)
-        },
-        () => [
-          item.icon ? h(Icon, { icon: item.icon }) : h(_sfc_main$kz),
-          h("span", { class: "mx-2 flex-grow-1" }, item.text),
-          item.children ? h(item_index === active.value ? _sfc_main$ky : _sfc_main$kC) : null
-        ]
-      ),
-      collapsibleContent(item, item_index)
-    ];
+    const itemContent = (item, item_index) => {
+      return [
+        h(
+          Button,
+          {
+            href: item.href,
+            to: item.to,
+            class: "text-start d-flex",
+            block: true,
+            squared: true,
+            variant: props.triggerVariant,
+            onClick: () => setActive(item_index)
+          },
+          () => [
+            item.icon ? h(Icon, { icon: item.icon }) : h(_sfc_main$kz),
+            h("span", { class: "mx-2 flex-grow-1" }, item.text),
+            item.children ? h(item_index === active.value ? _sfc_main$ky : _sfc_main$kC) : null
+          ]
+        ),
+        collapsibleContent(item, item_index)
+      ];
+    };
     const listItems = () => props.items.map((item, item_index) => h(
       ListGroupItem,
       { class: "border-0 p-0 m-0", key: item_index },

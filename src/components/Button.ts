@@ -23,7 +23,6 @@ export default defineComponent({
         link: {type: Boolean as PropType<boolean>, default: false},
         active: {type: Boolean as PropType<boolean>, default: false},
         activeClass: {type: String as PropType<string>, default: "active"},
-        isNuxt: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props, {slots}) {
         return () => {
@@ -45,9 +44,7 @@ export default defineComponent({
                 if (props.href) {
                     return "a";
                 }
-                if (props.isNuxt && props.to) {
-                    return resolveComponent("nuxt-link");
-                }
+
                 if (props.to) {
                     return resolveComponent("router-link");
                 }

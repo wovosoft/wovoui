@@ -34,10 +34,6 @@ const PanelMenu = defineComponent({
             type: String as PropType<ColorVariants>,
             default: "light"
         },
-        isNuxt: {
-            type: Boolean as PropType<boolean>,
-            default: false
-        }
     },
     setup(props, {emit}) {
         const active = ref<number>(0);
@@ -71,33 +67,34 @@ const PanelMenu = defineComponent({
                     () => [
                         h(PanelMenu, {
                             items: item.children,
-                            triggerVariant: props.menuVariant
+                            triggerVariant: props.menuVariant,
                         })
                     ]);
             }
         }
 
-        const itemContent = (item, item_index) => [
-            h(
-                Button,
-                {
-                    href: item.href,
-                    to: item.to,
-                    class: "text-start d-flex",
-                    block: true,
-                    squared: true,
-                    variant: props.triggerVariant,
-                    isNuxt: props.isNuxt,
-                    onClick: () => setActive(item_index)
-                },
-                () => [
-                    item.icon ? h(Icon, {icon: item.icon}) : h(ChevronRight),
-                    h("span", {class: "mx-2 flex-grow-1"}, item.text),
-                    item.children ? h(item_index === active.value ? ChevronUp : ChevronDown) : null
-                ]
-            ),
-            collapsibleContent(item, item_index)
-        ];
+        const itemContent = (item, item_index) => {
+            return [
+                h(
+                    Button,
+                    {
+                        href: item.href,
+                        to: item.to,
+                        class: "text-start d-flex",
+                        block: true,
+                        squared: true,
+                        variant: props.triggerVariant,
+                        onClick: () => setActive(item_index)
+                    },
+                    () => [
+                        item.icon ? h(Icon, {icon: item.icon}) : h(ChevronRight),
+                        h("span", {class: "mx-2 flex-grow-1"}, item.text),
+                        item.children ? h(item_index === active.value ? ChevronUp : ChevronDown) : null
+                    ]
+                ),
+                collapsibleContent(item, item_index)
+            ];
+        };
 
         const listItems = () => props.items.map((item, item_index) => h(
             ListGroupItem,
