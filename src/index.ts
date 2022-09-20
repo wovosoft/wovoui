@@ -38,6 +38,8 @@ export {default as DropdownMenu} from "./components/DropdownMenu.vue";
 export {default as FormGroup} from "./components/FormGroup.vue";
 export {default as FormLabel} from "./components/FormLabel";
 export {default as Figure} from "./components/Figure.vue";
+export {default as Flex} from "./components/Flex.vue";
+export {default as FlexItem} from "./components/FlexItem.vue";
 export {default as Grid} from "./components/Grid";
 export {default as GridCol} from "./components/GridCol";
 export {default as Icon} from "./components/Icon";
