@@ -1,25 +1,13 @@
-type ColorVariants = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
+import {TextAlign} from "./TextAlign";
 
-type ButtonSizes =
-    | 'sm'
-    | 'lg'
+export type ColorVariants = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
 
-type TrueFalse =
-    | true
-    | false
+export type ButtonSizes = 'sm' | 'lg';
 
-type Binary =
-    | true
-    | false
+export type JustifyAlignment = TextAlign | "between" | "around" | "evenly";
 
-type BinaryString =
-    | Binary
-    | string
+export type ItemAlignment = TextAlign | "baseline" | "stretch";
 
-export {
-    ColorVariants,
-    ButtonSizes,
-    TrueFalse,
-    Binary,
-    BinaryString
-}
+export type AlignContent = TextAlign | "between" | "around" | "stretch";
+
+export type Order = 0 | 1 | 2 | 3 | 4 | 5 | 'first' | 'last';

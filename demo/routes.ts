@@ -7,6 +7,7 @@ import Alerts from "./pages/Alerts.vue";
 import Dropdowns from "./pages/Dropdowns.vue";
 import Collapses from "./pages/Collapses.vue";
 import PanelMenus from "./pages/PanelMenus.vue";
+import FlexPage from "./pages/FlexPage.vue";
 
 export const routes = [
     {
@@ -43,6 +44,11 @@ export const routes = [
         path: "/panel-menus",
         name: "Panel Menus",
         component: PanelMenus
+    },
+    {
+        path: "/display-flex",
+        name: "Display Flex",
+        component: FlexPage
     }
 ]
 
