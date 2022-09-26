@@ -1,6 +1,6 @@
 import type {ColorVariants} from "../types/colorVariants";
 
-import {defineComponent, h, PropType, resolveComponent} from "vue";
+import {computed, defineComponent, getCurrentInstance, h, PropType, resolveComponent} from "vue";
 
 import type {buttonSizes} from "../types/buttonSizes";
 import {RouteLocationRaw} from "vue-router";
@@ -25,6 +25,9 @@ export default defineComponent({
         activeClass: {type: String as PropType<string>, default: "active"},
     },
     setup(props, {slots}) {
+        const isVueRouterInstalled = computed(() => {
+            return !!getCurrentInstance().appContext.config.globalProperties.$router;
+        });
         return () => {
             const type = () => {
                 if (props.link || props.href || props.to) {
@@ -45,7 +48,7 @@ export default defineComponent({
                     return "a";
                 }
 
-                if (props.to) {
+                if (props.to && isVueRouterInstalled.value) {
                     return resolveComponent("router-link");
                 }
                 return props.tag;

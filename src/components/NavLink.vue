@@ -1,8 +1,8 @@
 <template>
-    <template v-if="to">
-        <router-link :to="to" :class="classes" v-bind="linkAttributes">
+    <template v-if="isVueRouterInstalled && to">
+        <component is="router-link" :to="to" :class="classes" v-bind="linkAttributes">
             <slot></slot>
-        </router-link>
+        </component>
     </template>
     <component v-else :is="tag" :class="classes" v-bind="linkAttributes">
         <slot></slot>
@@ -10,8 +10,9 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
+import {computed, defineComponent, getCurrentInstance, PropType} from "vue";
 import type {classTypes} from "../types/classTypes";
+
 
 type linkAttributesType = {
     href?: string,
@@ -30,7 +31,11 @@ export default defineComponent({
         to: {type: Object as PropType<object>, default: null}
     },
     setup(props) {
+        const isVueRouterInstalled = computed(() => {
+            return !!getCurrentInstance().appContext.config.globalProperties.$router;
+        });
         return {
+            isVueRouterInstalled,
             classes: computed<classTypes>(() => ["nav-link", {
                 active: props.active
             }]),
