@@ -1,7 +1,7 @@
 <template>
     <Table v-bind="otherProps">
         <slot name="header">
-            <THead>
+            <THead :class="headClass">
             <Tr>
                 <template v-for="(th,th_index) in fields">
                     <Th
@@ -22,14 +22,15 @@
                             {{ getLabel(th) }}
                         </slot>
                         <template v-if="typeof th==='object'&& th.sortable===true">
-                            <Icon :icon="sorting.sortBy===th.key && sorting.sort==='asc'?'sort-down':'sort-up'"/>
+                            <SortDown v-if="sorting.sortBy===th.key && sorting.sort==='asc'"/>
+                            <SortUp v-else/>
                         </template>
                     </Th>
                 </template>
             </Tr>
             </THead>
         </slot>
-        <TBody>
+        <TBody :class="bodyClass">
         <Tr v-for="(row,row_index) in itemsSorted" :key="row_index">
             <template v-for="(th,th_index) in fields">
                 <Td :key="th_index" v-if="th.visible!==false">
@@ -50,7 +51,9 @@
             </template>
         </Tr>
         </TBody>
+        <TFoot v-if="$slots.footer" :class="footClass">
         <slot name="footer"></slot>
+        </TFoot>
     </Table>
 </template>
 
@@ -72,6 +75,7 @@ import {isObject, title} from "../shared/utilities.js";
 import lowerCase from "lodash/lowerCase.js";
 import orderBy from "lodash/orderBy.js"
 import Icon from "./Icon";
+import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
 
 type FieldType = {
     key: string;
@@ -84,9 +88,12 @@ type FieldType = {
 export default defineComponent({
     name: "DataTable",
     emits: ['update:selectedRows'],
-    components: {Icon, Table, THead, TBody, Tr, Th, Td, TFoot},
+    components: {SortUp, SortDown, Icon, Table, THead, TBody, Tr, Th, Td, TFoot},
     props: {
         ...tableProps,
+        headClass: {type: [Array, String] as PropType<string | string[]>, default: null},
+        bodyClass: {type: [Array, String] as PropType<string | string[]>, default: null},
+        footClass: {type: [Array, String] as PropType<string | string[]>, default: null},
         selectedRows: {type: Array as PropType<any[]>, default: () => ([])},
         filter: {type: String as PropType<string>, default: null},
         fields: {type: Array as PropType<FieldType[] | string[]>, default: () => ([])},

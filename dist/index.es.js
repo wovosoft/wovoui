@@ -1,4 +1,4 @@
-import { defineComponent, ref, reactive, provide, computed, h, openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, getCurrentInstance, watch, onBeforeMount, inject, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, onMounted, mergeProps, Fragment, renderList, createCommentVNode, normalizeProps, createElementVNode, withDirectives, vModelCheckbox, guardReactiveProps, normalizeStyle, unref, getCurrentScope, onScopeDispose, nextTick, onBeforeUnmount, Teleport, withModifiers, vModelSelect, withKeys, vModelText } from 'vue';
+import { defineComponent, ref, reactive, provide, computed, h, openBlock, createBlock, resolveDynamicComponent, withCtx, normalizeClass, renderSlot, getCurrentInstance, watch, onBeforeMount, inject, resolveComponent, createElementBlock, createVNode, createTextVNode, toDisplayString, onMounted, mergeProps, Fragment, renderList, createCommentVNode, normalizeProps, createElementVNode, withDirectives, vModelCheckbox, unref, guardReactiveProps, normalizeStyle, getCurrentScope, onScopeDispose, nextTick, onBeforeUnmount, Teleport, withModifiers, vModelSelect, withKeys, vModelText } from 'vue';
 import axios from 'axios';
 
 var accordionProps = {
@@ -18914,12 +18914,1205 @@ function orderBy(collection, iteratees, orders, guard) {
 
 var orderBy_1 = orderBy;
 
+const _hoisted_1$qQ = ["width", "height", "fill"];
+const _hoisted_2$qQ = /* @__PURE__ */ createElementVNode("path", { d: "M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" }, null, -1);
+const _hoisted_3$qN = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
+}, null, -1);
+const _hoisted_4$ay = [
+  _hoisted_2$qQ,
+  _hoisted_3$qN
+];
+const _sfc_main$qR = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-arrow-repeat",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_4$ay, 10, _hoisted_1$qQ);
+    };
+  }
+});
+const _hoisted_1$kE = ["width", "height", "fill"];
+const _hoisted_2$kE = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+}, null, -1);
+const _hoisted_3$kB = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+}, null, -1);
+const _hoisted_4$88 = [
+  _hoisted_2$kE,
+  _hoisted_3$kB
+];
+const _sfc_main$kF = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-chevron-double-left",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_4$88, 10, _hoisted_1$kE);
+    };
+  }
+});
+const _hoisted_1$kD = ["width", "height", "fill"];
+const _hoisted_2$kD = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"
+}, null, -1);
+const _hoisted_3$kA = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"
+}, null, -1);
+const _hoisted_4$87 = [
+  _hoisted_2$kD,
+  _hoisted_3$kA
+];
+const _sfc_main$kE = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-chevron-double-right",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_4$87, 10, _hoisted_1$kD);
+    };
+  }
+});
+const _hoisted_1$kB = ["width", "height", "fill"];
+const _hoisted_2$kB = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+}, null, -1);
+const _hoisted_3$ky = [
+  _hoisted_2$kB
+];
+const _sfc_main$kC = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-chevron-down",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$ky, 10, _hoisted_1$kB);
+    };
+  }
+});
+const _hoisted_1$kz = ["width", "height", "fill"];
+const _hoisted_2$kz = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+}, null, -1);
+const _hoisted_3$kw = [
+  _hoisted_2$kz
+];
+const _sfc_main$kA = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-chevron-left",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$kw, 10, _hoisted_1$kz);
+    };
+  }
+});
+const _hoisted_1$ky = ["width", "height", "fill"];
+const _hoisted_2$ky = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+}, null, -1);
+const _hoisted_3$kv = [
+  _hoisted_2$ky
+];
+const _sfc_main$kz = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-chevron-right",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$kv, 10, _hoisted_1$ky);
+    };
+  }
+});
+const _hoisted_1$kx = ["width", "height", "fill"];
+const _hoisted_2$kx = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
+}, null, -1);
+const _hoisted_3$ku = [
+  _hoisted_2$kx
+];
+const _sfc_main$ky = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-chevron-up",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$ku, 10, _hoisted_1$kx);
+    };
+  }
+});
+const _hoisted_1$kw = ["width", "height", "fill"];
+const _hoisted_2$kw = /* @__PURE__ */ createElementVNode("circle", {
+  cx: "8",
+  cy: "8",
+  r: "8"
+}, null, -1);
+const _hoisted_3$kt = [
+  _hoisted_2$kw
+];
+const _sfc_main$kx = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-circle-fill",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$kt, 10, _hoisted_1$kw);
+    };
+  }
+});
+const _hoisted_1$ip = ["width", "height", "fill"];
+const _hoisted_2$ip = /* @__PURE__ */ createElementVNode("path", { d: "M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" }, null, -1);
+const _hoisted_3$im = [
+  _hoisted_2$ip
+];
+const _sfc_main$iq = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-dash",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$im, 10, _hoisted_1$ip);
+    };
+  }
+});
+const _hoisted_1$gl = ["width", "height", "fill"];
+const _hoisted_2$gl = /* @__PURE__ */ createElementVNode("path", { d: "M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" }, null, -1);
+const _hoisted_3$gi = /* @__PURE__ */ createElementVNode("path", { d: "M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" }, null, -1);
+const _hoisted_4$6f = [
+  _hoisted_2$gl,
+  _hoisted_3$gi
+];
+const _sfc_main$gm = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-eye",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_4$6f, 10, _hoisted_1$gl);
+    };
+  }
+});
+const _hoisted_1$87 = ["width", "height", "fill"];
+const _hoisted_2$87 = /* @__PURE__ */ createElementVNode("path", { d: "M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" }, null, -1);
+const _hoisted_3$85 = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+}, null, -1);
+const _hoisted_4$3g = [
+  _hoisted_2$87,
+  _hoisted_3$85
+];
+const _sfc_main$88 = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-pencil-square",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_4$3g, 10, _hoisted_1$87);
+    };
+  }
+});
+const _hoisted_1$72 = ["width", "height", "fill"];
+const _hoisted_2$72 = /* @__PURE__ */ createElementVNode("path", { d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" }, null, -1);
+const _hoisted_3$70 = [
+  _hoisted_2$72
+];
+const _sfc_main$73 = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-plus",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$70, 10, _hoisted_1$72);
+    };
+  }
+});
+const _hoisted_1$3_ = ["width", "height", "fill"];
+const _hoisted_2$3_ = /* @__PURE__ */ createElementVNode("path", { d: "M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293V2.5zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" }, null, -1);
+const _hoisted_3$3_ = [
+  _hoisted_2$3_
+];
+const _sfc_main$3$ = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-sort-down",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$3_, 10, _hoisted_1$3_);
+    };
+  }
+});
+const _hoisted_1$3U = ["width", "height", "fill"];
+const _hoisted_2$3U = /* @__PURE__ */ createElementVNode("path", { d: "M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" }, null, -1);
+const _hoisted_3$3U = [
+  _hoisted_2$3U
+];
+const _sfc_main$3V = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-sort-up",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$3U, 10, _hoisted_1$3U);
+    };
+  }
+});
+const _hoisted_1$3H = ["width", "height", "fill"];
+const _hoisted_2$3H = /* @__PURE__ */ createElementVNode("path", { d: "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" }, null, -1);
+const _hoisted_3$3H = [
+  _hoisted_2$3H
+];
+const _sfc_main$3I = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-star-fill",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$3H, 10, _hoisted_1$3H);
+    };
+  }
+});
+const _hoisted_1$3F = ["width", "height", "fill"];
+const _hoisted_2$3F = /* @__PURE__ */ createElementVNode("path", { d: "M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" }, null, -1);
+const _hoisted_3$3F = [
+  _hoisted_2$3F
+];
+const _sfc_main$3G = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-star",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$3F, 10, _hoisted_1$3F);
+    };
+  }
+});
+const _hoisted_1$2n = ["width", "height", "fill"];
+const _hoisted_2$2n = /* @__PURE__ */ createElementVNode("path", { d: "M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" }, null, -1);
+const _hoisted_3$2n = [
+  _hoisted_2$2n
+];
+const _sfc_main$2o = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-three-dots",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$2n, 10, _hoisted_1$2n);
+    };
+  }
+});
+const _hoisted_1$1Z = ["width", "height", "fill"];
+const _hoisted_2$1Z = /* @__PURE__ */ createElementVNode("path", { d: "M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" }, null, -1);
+const _hoisted_3$1Z = /* @__PURE__ */ createElementVNode("path", {
+  "fill-rule": "evenodd",
+  d: "M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+}, null, -1);
+const _hoisted_4$H = [
+  _hoisted_2$1Z,
+  _hoisted_3$1Z
+];
+const _sfc_main$1_ = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-trash",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_4$H, 10, _hoisted_1$1Z);
+    };
+  }
+});
+const _hoisted_1$6$1 = ["width", "height", "fill"];
+const _hoisted_2$6$1 = /* @__PURE__ */ createElementVNode("path", { d: "M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" }, null, -1);
+const _hoisted_3$6$1 = [
+  _hoisted_2$6$1
+];
+const _sfc_main$7$1 = /* @__PURE__ */ defineComponent({
+  props: {
+    width: {
+      type: [Number, String],
+      default: () => 16
+    },
+    height: {
+      type: [Number, String],
+      default: () => 16
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    variant: {
+      type: String,
+      default: null
+    },
+    bgVariant: {
+      type: String,
+      default: null
+    },
+    fill: {
+      type: String,
+      default: () => "currentColor"
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
+    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
+    const classes = computed(() => [
+      "bi bi-x",
+      {
+        ["text-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        "spin-icon": props.spin
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: unref(sizeWidth),
+        height: unref(sizeHeight),
+        fill: __props.fill,
+        class: normalizeClass(unref(classes)),
+        viewBox: "0 0 16 16"
+      }, _hoisted_3$6$1, 10, _hoisted_1$6$1);
+    };
+  }
+});
+
 const _sfc_main$N = defineComponent({
   name: "DataTable",
   emits: ["update:selectedRows"],
-  components: { Icon, Table, THead, TBody, Tr, Th, Td, TFoot },
+  components: { SortUp: _sfc_main$3V, SortDown: _sfc_main$3$, Icon, Table, THead, TBody, Tr, Th, Td, TFoot },
   props: {
     ...tableProps,
+    headClass: { type: [Array, String], default: null },
+    bodyClass: { type: [Array, String], default: null },
+    footClass: { type: [Array, String], default: null },
     selectedRows: { type: Array, default: () => [] },
     filter: { type: String, default: null },
     fields: { type: Array, default: () => [] },
@@ -19036,17 +20229,21 @@ const _sfc_main$N = defineComponent({
   }
 });
 function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_Icon = resolveComponent("Icon");
+  const _component_SortDown = resolveComponent("SortDown");
+  const _component_SortUp = resolveComponent("SortUp");
   const _component_Th = resolveComponent("Th");
   const _component_Tr = resolveComponent("Tr");
   const _component_THead = resolveComponent("THead");
   const _component_Td = resolveComponent("Td");
   const _component_TBody = resolveComponent("TBody");
+  const _component_TFoot = resolveComponent("TFoot");
   const _component_Table = resolveComponent("Table");
   return openBlock(), createBlock(_component_Table, normalizeProps(guardReactiveProps(_ctx.otherProps)), {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "header", {}, () => [
-        createVNode(_component_THead, null, {
+        createVNode(_component_THead, {
+          class: normalizeClass(_ctx.headClass)
+        }, {
           default: withCtx(() => [
             createVNode(_component_Tr, null, {
               default: withCtx(() => [
@@ -19071,10 +20268,9 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
                         }, () => [
                           createTextVNode(toDisplayString(_ctx.getLabel(th)), 1)
                         ]),
-                        typeof th === "object" && th.sortable === true ? (openBlock(), createBlock(_component_Icon, {
-                          key: 0,
-                          icon: _ctx.sorting.sortBy === th.key && _ctx.sorting.sort === "asc" ? "sort-down" : "sort-up"
-                        }, null, 8, ["icon"])) : createCommentVNode("", true)
+                        typeof th === "object" && th.sortable === true ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+                          _ctx.sorting.sortBy === th.key && _ctx.sorting.sort === "asc" ? (openBlock(), createBlock(_component_SortDown, { key: 0 })) : (openBlock(), createBlock(_component_SortUp, { key: 1 }))
+                        ], 64)) : createCommentVNode("", true)
                       ]),
                       _: 2
                     }, 1032, ["onClick", "style"])) : createCommentVNode("", true)
@@ -19085,9 +20281,11 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
             })
           ]),
           _: 3
-        })
+        }, 8, ["class"])
       ]),
-      createVNode(_component_TBody, null, {
+      createVNode(_component_TBody, {
+        class: normalizeClass(_ctx.bodyClass)
+      }, {
         default: withCtx(() => [
           (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.itemsSorted, (row, row_index) => {
             return openBlock(), createBlock(_component_Tr, { key: row_index }, {
@@ -19121,8 +20319,16 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
           }), 128))
         ]),
         _: 3
-      }),
-      renderSlot(_ctx.$slots, "footer")
+      }, 8, ["class"]),
+      _ctx.$slots.footer ? (openBlock(), createBlock(_component_TFoot, {
+        key: 0,
+        class: normalizeClass(_ctx.footClass)
+      }, {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "footer")
+        ]),
+        _: 3
+      }, 8, ["class"])) : createCommentVNode("", true)
     ]),
     _: 3
   }, 16);
@@ -22421,1076 +23627,6 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var Modal = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$v]]);
-
-const _hoisted_1$qQ = ["width", "height", "fill"];
-const _hoisted_2$qQ = /* @__PURE__ */ createElementVNode("path", { d: "M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" }, null, -1);
-const _hoisted_3$qN = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"
-}, null, -1);
-const _hoisted_4$ay = [
-  _hoisted_2$qQ,
-  _hoisted_3$qN
-];
-const _sfc_main$qR = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-arrow-repeat",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_4$ay, 10, _hoisted_1$qQ);
-    };
-  }
-});
-const _hoisted_1$kE = ["width", "height", "fill"];
-const _hoisted_2$kE = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-}, null, -1);
-const _hoisted_3$kB = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-}, null, -1);
-const _hoisted_4$88 = [
-  _hoisted_2$kE,
-  _hoisted_3$kB
-];
-const _sfc_main$kF = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-chevron-double-left",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_4$88, 10, _hoisted_1$kE);
-    };
-  }
-});
-const _hoisted_1$kD = ["width", "height", "fill"];
-const _hoisted_2$kD = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"
-}, null, -1);
-const _hoisted_3$kA = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"
-}, null, -1);
-const _hoisted_4$87 = [
-  _hoisted_2$kD,
-  _hoisted_3$kA
-];
-const _sfc_main$kE = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-chevron-double-right",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_4$87, 10, _hoisted_1$kD);
-    };
-  }
-});
-const _hoisted_1$kB = ["width", "height", "fill"];
-const _hoisted_2$kB = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-}, null, -1);
-const _hoisted_3$ky = [
-  _hoisted_2$kB
-];
-const _sfc_main$kC = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-chevron-down",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$ky, 10, _hoisted_1$kB);
-    };
-  }
-});
-const _hoisted_1$kz = ["width", "height", "fill"];
-const _hoisted_2$kz = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-}, null, -1);
-const _hoisted_3$kw = [
-  _hoisted_2$kz
-];
-const _sfc_main$kA = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-chevron-left",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$kw, 10, _hoisted_1$kz);
-    };
-  }
-});
-const _hoisted_1$ky = ["width", "height", "fill"];
-const _hoisted_2$ky = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-}, null, -1);
-const _hoisted_3$kv = [
-  _hoisted_2$ky
-];
-const _sfc_main$kz = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-chevron-right",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$kv, 10, _hoisted_1$ky);
-    };
-  }
-});
-const _hoisted_1$kx = ["width", "height", "fill"];
-const _hoisted_2$kx = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"
-}, null, -1);
-const _hoisted_3$ku = [
-  _hoisted_2$kx
-];
-const _sfc_main$ky = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-chevron-up",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$ku, 10, _hoisted_1$kx);
-    };
-  }
-});
-const _hoisted_1$kw = ["width", "height", "fill"];
-const _hoisted_2$kw = /* @__PURE__ */ createElementVNode("circle", {
-  cx: "8",
-  cy: "8",
-  r: "8"
-}, null, -1);
-const _hoisted_3$kt = [
-  _hoisted_2$kw
-];
-const _sfc_main$kx = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-circle-fill",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$kt, 10, _hoisted_1$kw);
-    };
-  }
-});
-const _hoisted_1$ip = ["width", "height", "fill"];
-const _hoisted_2$ip = /* @__PURE__ */ createElementVNode("path", { d: "M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" }, null, -1);
-const _hoisted_3$im = [
-  _hoisted_2$ip
-];
-const _sfc_main$iq = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-dash",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$im, 10, _hoisted_1$ip);
-    };
-  }
-});
-const _hoisted_1$gl = ["width", "height", "fill"];
-const _hoisted_2$gl = /* @__PURE__ */ createElementVNode("path", { d: "M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" }, null, -1);
-const _hoisted_3$gi = /* @__PURE__ */ createElementVNode("path", { d: "M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" }, null, -1);
-const _hoisted_4$6f = [
-  _hoisted_2$gl,
-  _hoisted_3$gi
-];
-const _sfc_main$gm = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-eye",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_4$6f, 10, _hoisted_1$gl);
-    };
-  }
-});
-const _hoisted_1$87 = ["width", "height", "fill"];
-const _hoisted_2$87 = /* @__PURE__ */ createElementVNode("path", { d: "M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" }, null, -1);
-const _hoisted_3$85 = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
-}, null, -1);
-const _hoisted_4$3g = [
-  _hoisted_2$87,
-  _hoisted_3$85
-];
-const _sfc_main$88 = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-pencil-square",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_4$3g, 10, _hoisted_1$87);
-    };
-  }
-});
-const _hoisted_1$72 = ["width", "height", "fill"];
-const _hoisted_2$72 = /* @__PURE__ */ createElementVNode("path", { d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" }, null, -1);
-const _hoisted_3$70 = [
-  _hoisted_2$72
-];
-const _sfc_main$73 = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-plus",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$70, 10, _hoisted_1$72);
-    };
-  }
-});
-const _hoisted_1$3H = ["width", "height", "fill"];
-const _hoisted_2$3H = /* @__PURE__ */ createElementVNode("path", { d: "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" }, null, -1);
-const _hoisted_3$3H = [
-  _hoisted_2$3H
-];
-const _sfc_main$3I = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-star-fill",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$3H, 10, _hoisted_1$3H);
-    };
-  }
-});
-const _hoisted_1$3F = ["width", "height", "fill"];
-const _hoisted_2$3F = /* @__PURE__ */ createElementVNode("path", { d: "M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" }, null, -1);
-const _hoisted_3$3F = [
-  _hoisted_2$3F
-];
-const _sfc_main$3G = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-star",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$3F, 10, _hoisted_1$3F);
-    };
-  }
-});
-const _hoisted_1$2n = ["width", "height", "fill"];
-const _hoisted_2$2n = /* @__PURE__ */ createElementVNode("path", { d: "M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" }, null, -1);
-const _hoisted_3$2n = [
-  _hoisted_2$2n
-];
-const _sfc_main$2o = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-three-dots",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$2n, 10, _hoisted_1$2n);
-    };
-  }
-});
-const _hoisted_1$1Z = ["width", "height", "fill"];
-const _hoisted_2$1Z = /* @__PURE__ */ createElementVNode("path", { d: "M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" }, null, -1);
-const _hoisted_3$1Z = /* @__PURE__ */ createElementVNode("path", {
-  "fill-rule": "evenodd",
-  d: "M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-}, null, -1);
-const _hoisted_4$H = [
-  _hoisted_2$1Z,
-  _hoisted_3$1Z
-];
-const _sfc_main$1_ = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-trash",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_4$H, 10, _hoisted_1$1Z);
-    };
-  }
-});
-const _hoisted_1$6$1 = ["width", "height", "fill"];
-const _hoisted_2$6$1 = /* @__PURE__ */ createElementVNode("path", { d: "M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" }, null, -1);
-const _hoisted_3$6$1 = [
-  _hoisted_2$6$1
-];
-const _sfc_main$7$1 = /* @__PURE__ */ defineComponent({
-  props: {
-    width: {
-      type: [Number, String],
-      default: () => 16
-    },
-    height: {
-      type: [Number, String],
-      default: () => 16
-    },
-    size: {
-      type: Number,
-      default: () => 1
-    },
-    variant: {
-      type: String,
-      default: null
-    },
-    bgVariant: {
-      type: String,
-      default: null
-    },
-    fill: {
-      type: String,
-      default: () => "currentColor"
-    },
-    spin: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup(__props) {
-    const props = __props;
-    const sizeWidth = computed(() => Number(props.width) * Number(props.size));
-    const sizeHeight = computed(() => Number(props.height) * Number(props.size));
-    const classes = computed(() => [
-      "bi bi-x",
-      {
-        ["text-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
-        "spin-icon": props.spin
-      }
-    ]);
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: unref(sizeWidth),
-        height: unref(sizeHeight),
-        fill: __props.fill,
-        class: normalizeClass(unref(classes)),
-        viewBox: "0 0 16 16"
-      }, _hoisted_3$6$1, 10, _hoisted_1$6$1);
-    };
-  }
-});
 
 var Menu_vue_vue_type_style_index_0_scoped_true_lang = '';
 
