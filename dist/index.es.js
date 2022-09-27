@@ -21789,7 +21789,7 @@ const _sfc_main$C = /* @__PURE__ */ defineComponent({
   props: {
     tag: { type: String, default: "div" },
     fill: {
-      type: [Boolean, Array],
+      type: [Boolean, Array, String],
       default: null
     },
     grow: {
@@ -21823,7 +21823,10 @@ const _sfc_main$C = /* @__PURE__ */ defineComponent({
           return ["flex-fill"];
         }
         if (Array.isArray(props.fill)) {
-          return props.fill.map((fillOn) => ["flex", fillOn, "fill"].join());
+          return props.fill.map((fillOn) => ["flex", fillOn, "fill"].join("-"));
+        }
+        if (typeof props.fill === "string") {
+          return ["flex-" + props.fill + "-fill"];
         }
         return [];
       }
@@ -21845,10 +21848,19 @@ const _sfc_main$C = /* @__PURE__ */ defineComponent({
         }
         return [];
       }
+      function getOrderClasses() {
+        return ["order", "orderSm", "orderMd", "orderLg", "orderXl", "orderXxl"].map((s) => {
+          if (props[s] !== null) {
+            return s.replace(/[A-Z]/g, (m) => "-" + m.toLowerCase()) + "-" + props[s];
+          }
+          return null;
+        });
+      }
       return [
         getFilledClasses(),
         getGrowClasses(),
-        getShrinkClasses()
+        getShrinkClasses(),
+        getOrderClasses()
       ];
     });
     return (_ctx, _cache) => {

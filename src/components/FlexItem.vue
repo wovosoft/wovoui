@@ -12,7 +12,7 @@ import {Order} from "../types";
 const props = defineProps({
     tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
     fill: {
-        type: [Boolean, Array] as PropType<boolean | responsiveSizes | responsiveSizes[]>,
+        type: [Boolean, Array, String] as PropType<boolean | responsiveSizes | responsiveSizes[]>,
         default: null
     },
     grow: {
@@ -46,8 +46,13 @@ const classes = computed(() => {
         }
 
         if (Array.isArray(props.fill)) {
-            return props.fill.map(fillOn => ["flex", fillOn, "fill"].join());
+            return props.fill.map(fillOn => ["flex", fillOn, "fill"].join('-'));
         }
+
+        if (typeof props.fill === "string") {
+            return ["flex-" + props.fill + '-fill'];
+        }
+
         return [];
     }
 
@@ -86,7 +91,8 @@ const classes = computed(() => {
     return [
         getFilledClasses(),
         getGrowClasses(),
-        getShrinkClasses()
+        getShrinkClasses(),
+        getOrderClasses()
     ];
 });
 </script>
