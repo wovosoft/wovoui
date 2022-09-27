@@ -20104,10 +20104,269 @@ const _sfc_main$7$1 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_main$N = defineComponent({
+const _sfc_main$N = /* @__PURE__ */ defineComponent({
+  __name: "Flex",
+  props: {
+    tag: { type: String, default: "div" },
+    pure: { type: Boolean, default: true },
+    flex: {
+      type: [String, Array],
+      default: null
+    },
+    inline: {
+      type: [Boolean, String, Array],
+      default: false
+    },
+    hDir: { type: String, default: null },
+    vDir: { type: String, default: null },
+    jc: { type: String, default: null },
+    jcOn: {
+      type: [String, Array],
+      default: null
+    },
+    ai: {
+      type: String,
+      default: null
+    },
+    aiOn: {
+      type: [String, Array],
+      default: null
+    },
+    as: {
+      type: String,
+      default: null
+    },
+    asOn: {
+      type: [String, Array],
+      default: null
+    },
+    wrap: {
+      type: [Boolean, String],
+      default: false
+    },
+    wrapOn: {
+      type: [String, Array],
+      default: null
+    },
+    nowrap: {
+      type: [Boolean, String],
+      default: false
+    },
+    nowrapOn: {
+      type: [String, Array],
+      default: null
+    },
+    ac: { type: String, default: null },
+    acSm: { type: String, default: null },
+    acMd: { type: String, default: null },
+    acLg: { type: String, default: null },
+    acXl: { type: String, default: null },
+    acXxl: { type: String, default: null }
+  },
+  setup(__props) {
+    const props = __props;
+    const classes = computed(function() {
+      function getFlexClasses() {
+        if (!props.flex) {
+          return [];
+        }
+        if (Array.isArray(props.flex)) {
+          return props.flex.map((s) => `d-${s}-flex`);
+        }
+        if (typeof props.flex === "string" && props.flex) {
+          return [
+            `d-${props.flex}-flex`
+          ];
+        }
+      }
+      function getInlineClasses() {
+        if (!props.inline) {
+          return [];
+        }
+        if (props.inline === true) {
+          return ["d-inline-flex"];
+        }
+        if (Array.isArray(props.inline)) {
+          return props.inline.map((s) => `d-${s}-inline-flex`);
+        }
+        if (typeof props.inline === "string" && props.inline) {
+          return [
+            `d-${props.inline}-inline-flex`
+          ];
+        }
+      }
+      function responsiveJustifiedContent() {
+        if (typeof props.jcOn === "string" && props.jc) {
+          return ["justify-content", props.jcOn, props.jc].join("-");
+        }
+        if (Array.isArray(props.jcOn) && props.jc) {
+          return props.jcOn.map((dir) => ["justify-content", dir, props.jc].join("-"));
+        }
+        return [];
+      }
+      function responsiveAlignItems() {
+        if (typeof props.aiOn === "string" && props.ai) {
+          return ["align-items", props.aiOn, props.ai].join("-");
+        }
+        if (Array.isArray(props.aiOn) && props.ai) {
+          return props.aiOn.map((dir) => ["align-items", dir, props.ai].join("-"));
+        }
+        return [];
+      }
+      function responsiveAlignSelf() {
+        if (typeof props.aiOn === "string" && props.ai) {
+          return ["align-self", props.aiOn, props.ai].join("-");
+        }
+        if (Array.isArray(props.aiOn) && props.ai) {
+          return props.aiOn.map((dir) => ["align-self", dir, props.ai].join("-"));
+        }
+        return [];
+      }
+      function getWrapClasses(type) {
+        if (!props[type]) {
+          return [];
+        }
+        let reverse = props[type] === "reverse" ? "reverse" : null;
+        if (Array.isArray(props[type + "On"]) && props[type + "On"].length > 0) {
+          return props[type + "On"].map((wrapOn) => [type, wrapOn, reverse].filter((i) => i).join("-"));
+        }
+        return [type + (reverse ? "-reverse" : "")];
+      }
+      function getAlignContentClasses() {
+        return ["ac", "acSm", "acMd", "acLg", "acXl", "acXxl"].map(function(item) {
+          if (props[item]) {
+            return ["align-content", item, props[item]].join("-");
+          }
+          return null;
+        });
+      }
+      return [
+        {
+          "d-flex": props.pure,
+          "flex-row": props.hDir === "ltr",
+          "flex-row-reverse": props.hDir === "rtl",
+          "flex-column": props.vDir === "ttb",
+          "flex-column-reverse": props.vDir === "btt",
+          ["justify-content-" + props.jc]: props.jc && !props.jcOn,
+          ["align-items-" + props.ai]: props.ai && !props.aiOn
+        },
+        getFlexClasses(),
+        getInlineClasses(),
+        responsiveJustifiedContent(),
+        responsiveAlignItems(),
+        responsiveAlignSelf(),
+        getWrapClasses("wrap"),
+        getWrapClasses("nowrap"),
+        getAlignContentClasses()
+      ];
+    });
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(resolveDynamicComponent(__props.tag), {
+        class: normalizeClass(unref(classes))
+      }, {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "default")
+        ]),
+        _: 3
+      }, 8, ["class"]);
+    };
+  }
+});
+
+const _sfc_main$M = /* @__PURE__ */ defineComponent({
+  __name: "FlexItem",
+  props: {
+    tag: { type: String, default: "div" },
+    fill: {
+      type: [Boolean, Array, String],
+      default: false
+    },
+    grow: {
+      type: [Number, Array],
+      default: null
+    },
+    growOn: {
+      type: [String, Array],
+      default: null
+    },
+    shrink: {
+      type: [Number, Array],
+      default: null
+    },
+    shrinkOn: {
+      type: [String, Array],
+      default: null
+    },
+    order: { type: [String, Number], default: null },
+    orderSm: { type: [String, Number], default: null },
+    orderMd: { type: [String, Number], default: null },
+    orderLg: { type: [String, Number], default: null },
+    orderXl: { type: [String, Number], default: null },
+    orderXxl: { type: [String, Number], default: null }
+  },
+  setup(__props) {
+    const props = __props;
+    computed(() => {
+      function getFilledClasses() {
+        if (typeof props.fill === "boolean" && props.fill) {
+          return ["flex-fill"];
+        }
+        if (Array.isArray(props.fill)) {
+          return props.fill.map((fillOn) => ["flex", fillOn, "fill"].join("-"));
+        }
+        if (typeof props.fill === "string") {
+          return ["flex-" + props.fill + "-fill"];
+        }
+        return [];
+      }
+      function getGrowClasses() {
+        if ((props.grow === 1 || props.grow === 0) && !props.growOn) {
+          return ["flex-grow-" + props.grow];
+        }
+        if ((props.grow === 1 || props.grow === 0) && props.growOn && Array.isArray(props.growOn)) {
+          return props.growOn.map((gon) => ["flex-grow", gon, props.grow].join("-"));
+        }
+        return [];
+      }
+      function getShrinkClasses() {
+        if ((props.shrink === 1 || props.shrink === 0) && !props.shrinkOn) {
+          return ["flex-shrink-" + props.shrink];
+        }
+        if ((props.shrink === 1 || props.shrink === 0) && props.shrinkOn && Array.isArray(props.shrinkOn)) {
+          return props.shrinkOn.map((son) => ["flex-shrink", son, props.shrink].join("-"));
+        }
+        return [];
+      }
+      function getOrderClasses() {
+        return ["order", "orderSm", "orderMd", "orderLg", "orderXl", "orderXxl"].map((s) => {
+          if (props[s] !== null) {
+            return s.replace(/[A-Z]/g, (m) => "-" + m.toLowerCase()) + "-" + props[s];
+          }
+          return null;
+        });
+      }
+      return [
+        getFilledClasses(),
+        getGrowClasses(),
+        getShrinkClasses(),
+        getOrderClasses()
+      ];
+    });
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(resolveDynamicComponent(__props.tag), null, {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "default")
+        ]),
+        _: 3
+      });
+    };
+  }
+});
+
+const _sfc_main$L = defineComponent({
   name: "DataTable",
   emits: ["update:selectedRows"],
-  components: { SortUp: _sfc_main$3V, SortDown: _sfc_main$3$, Icon, Table, THead, TBody, Tr, Th, Td, TFoot },
+  components: { FlexItem: _sfc_main$M, Flex: _sfc_main$N, SortUp: _sfc_main$3V, SortDown: _sfc_main$3$, Icon, Table, THead, TBody, Tr, Th, Td, TFoot },
   props: {
     ...tableProps,
     headClass: { type: [Array, String], default: null },
@@ -20229,8 +20488,10 @@ const _sfc_main$N = defineComponent({
   }
 });
 function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_FlexItem = resolveComponent("FlexItem");
   const _component_SortDown = resolveComponent("SortDown");
   const _component_SortUp = resolveComponent("SortUp");
+  const _component_Flex = resolveComponent("Flex");
   const _component_Th = resolveComponent("Th");
   const _component_Tr = resolveComponent("Tr");
   const _component_THead = resolveComponent("THead");
@@ -20255,22 +20516,35 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
                       key: th_index
                     }, {
                       default: withCtx(() => [
-                        renderSlot(_ctx.$slots, "head(" + th.key + ")", {
-                          column: th.key,
-                          field: th,
-                          index: th_index,
-                          label: _ctx.getLabel(th),
-                          sortBy: _ctx.sorting.sortBy,
-                          sort: _ctx.sorting.sort,
-                          unselectAllRows: _ctx.unselectAllRows,
-                          selectAllRows: _ctx.selectAllRows,
-                          selectedAllRows: _ctx.selectedAllRows
-                        }, () => [
-                          createTextVNode(toDisplayString(_ctx.getLabel(th)), 1)
-                        ]),
-                        typeof th === "object" && th.sortable === true ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-                          _ctx.sorting.sortBy === th.key && _ctx.sorting.sort === "asc" ? (openBlock(), createBlock(_component_SortDown, { key: 0 })) : (openBlock(), createBlock(_component_SortUp, { key: 1 }))
-                        ], 64)) : createCommentVNode("", true)
+                        createVNode(_component_Flex, { jc: "between" }, {
+                          default: withCtx(() => [
+                            createVNode(_component_FlexItem, null, {
+                              default: withCtx(() => [
+                                renderSlot(_ctx.$slots, "head(" + th.key + ")", {
+                                  column: th.key,
+                                  field: th,
+                                  index: th_index,
+                                  label: _ctx.getLabel(th),
+                                  sortBy: _ctx.sorting.sortBy,
+                                  sort: _ctx.sorting.sort,
+                                  unselectAllRows: _ctx.unselectAllRows,
+                                  selectAllRows: _ctx.selectAllRows,
+                                  selectedAllRows: _ctx.selectedAllRows
+                                }, () => [
+                                  createTextVNode(toDisplayString(_ctx.getLabel(th)), 1)
+                                ])
+                              ]),
+                              _: 2
+                            }, 1024),
+                            typeof th === "object" && th.sortable === true ? (openBlock(), createBlock(_component_FlexItem, { key: 0 }, {
+                              default: withCtx(() => [
+                                _ctx.sorting.sortBy === th.key && _ctx.sorting.sort === "asc" ? (openBlock(), createBlock(_component_SortDown, { key: 0 })) : (openBlock(), createBlock(_component_SortUp, { key: 1 }))
+                              ]),
+                              _: 2
+                            }, 1024)) : createCommentVNode("", true)
+                          ]),
+                          _: 2
+                        }, 1024)
                       ]),
                       _: 2
                     }, 1032, ["onClick", "style"])) : createCommentVNode("", true)
@@ -20333,9 +20607,9 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-var DataTable = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$G]]);
+var DataTable = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$G]]);
 
-const _sfc_main$M = defineComponent({
+const _sfc_main$K = defineComponent({
   name: "Datepicker",
   props: {
     modelValue: {
@@ -20353,7 +20627,7 @@ const _sfc_main$M = defineComponent({
 function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   return null;
 }
-var Datepicker = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$F]]);
+var Datepicker = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$F]]);
 
 var dropdownProps = {
   tag: { type: String, default: "div" },
@@ -20374,7 +20648,7 @@ var dropdownProps = {
   disableInnerClicks: { type: Boolean, default: false }
 };
 
-const _sfc_main$L = defineComponent({
+const _sfc_main$J = defineComponent({
   name: "DropdownMenu",
   props: {
     tag: { type: String, default: "ul" },
@@ -20403,9 +20677,9 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var DropdownMenu = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$E]]);
+var DropdownMenu = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$E]]);
 
-const _sfc_main$K = defineComponent({
+const _sfc_main$I = defineComponent({
   name: "NavLink",
   props: {
     ariaCurrent: { type: String, default: null },
@@ -20455,7 +20729,7 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]));
 }
-var NavLink = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$D]]);
+var NavLink = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$D]]);
 
 var top = 'top';
 var bottom = 'bottom';
@@ -22481,7 +22755,7 @@ const _hoisted_1$o = {
   key: 0,
   class: "visually-hidden"
 };
-const _sfc_main$J = /* @__PURE__ */ defineComponent({
+const _sfc_main$H = /* @__PURE__ */ defineComponent({
   __name: "Dropdown",
   props: dropdownProps,
   setup(__props) {
@@ -22587,7 +22861,7 @@ const _sfc_main$J = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_main$I = defineComponent({
+const _sfc_main$G = defineComponent({
   name: "DropdownButton",
   props: {
     active: { type: Boolean, default: false },
@@ -22605,9 +22879,9 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)
   ]);
 }
-var DropdownButton = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$C]]);
+var DropdownButton = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$C]]);
 
-const _sfc_main$H = defineComponent({
+const _sfc_main$F = defineComponent({
   name: "DropdownDivider"
 });
 const _hoisted_1$m = { role: "presentation" };
@@ -22622,14 +22896,14 @@ const _hoisted_3$a = [
 function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$m, _hoisted_3$a);
 }
-var DropdownDivider = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$B]]);
+var DropdownDivider = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$B]]);
 
 const _hoisted_1$l = {
   key: 2,
   class: "dropdown-item-text"
 };
 const _hoisted_2$g = ["href"];
-const _sfc_main$G = /* @__PURE__ */ defineComponent({
+const _sfc_main$E = /* @__PURE__ */ defineComponent({
   __name: "DropdownItem",
   props: {
     tag: { type: String, default: "li" },
@@ -22709,7 +22983,7 @@ var FormLabel = defineComponent({
   }
 });
 
-const _sfc_main$F = defineComponent({
+const _sfc_main$D = defineComponent({
   name: "FormGroup",
   components: { FormLabel },
   props: {
@@ -22784,9 +23058,9 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var FormGroup = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$A]]);
+var FormGroup = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$A]]);
 
-const _sfc_main$E = defineComponent({
+const _sfc_main$C = defineComponent({
   name: "Figure",
   props: {
     caption: { type: String, default: null },
@@ -22819,266 +23093,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var Figure = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$z]]);
-
-const _sfc_main$D = /* @__PURE__ */ defineComponent({
-  __name: "Flex",
-  props: {
-    tag: { type: String, default: "div" },
-    pure: { type: Boolean, default: true },
-    flex: {
-      type: [String, Array],
-      default: null
-    },
-    inline: {
-      type: [Boolean, String, Array],
-      default: false
-    },
-    hDir: { type: String, default: null },
-    vDir: { type: String, default: null },
-    jc: { type: String, default: null },
-    jcOn: {
-      type: [String, Array],
-      default: null
-    },
-    ai: {
-      type: String,
-      default: null
-    },
-    aiOn: {
-      type: [String, Array],
-      default: null
-    },
-    as: {
-      type: String,
-      default: null
-    },
-    asOn: {
-      type: [String, Array],
-      default: null
-    },
-    wrap: {
-      type: [Boolean, String],
-      default: false
-    },
-    wrapOn: {
-      type: [String, Array],
-      default: null
-    },
-    nowrap: {
-      type: [Boolean, String],
-      default: false
-    },
-    nowrapOn: {
-      type: [String, Array],
-      default: null
-    },
-    ac: { type: String, default: null },
-    acSm: { type: String, default: null },
-    acMd: { type: String, default: null },
-    acLg: { type: String, default: null },
-    acXl: { type: String, default: null },
-    acXxl: { type: String, default: null }
-  },
-  setup(__props) {
-    const props = __props;
-    const classes = computed(function() {
-      function getFlexClasses() {
-        if (!props.flex) {
-          return [];
-        }
-        if (Array.isArray(props.flex)) {
-          return props.flex.map((s) => `d-${s}-flex`);
-        }
-        if (typeof props.flex === "string" && props.flex) {
-          return [
-            `d-${props.flex}-flex`
-          ];
-        }
-      }
-      function getInlineClasses() {
-        if (!props.inline) {
-          return [];
-        }
-        if (props.inline === true) {
-          return ["d-inline-flex"];
-        }
-        if (Array.isArray(props.inline)) {
-          return props.inline.map((s) => `d-${s}-inline-flex`);
-        }
-        if (typeof props.inline === "string" && props.inline) {
-          return [
-            `d-${props.inline}-inline-flex`
-          ];
-        }
-      }
-      function responsiveJustifiedContent() {
-        if (typeof props.jcOn === "string" && props.jc) {
-          return ["justify-content", props.jcOn, props.jc].join("-");
-        }
-        if (Array.isArray(props.jcOn) && props.jc) {
-          return props.jcOn.map((dir) => ["justify-content", dir, props.jc].join("-"));
-        }
-        return [];
-      }
-      function responsiveAlignItems() {
-        if (typeof props.aiOn === "string" && props.ai) {
-          return ["align-items", props.aiOn, props.ai].join("-");
-        }
-        if (Array.isArray(props.aiOn) && props.ai) {
-          return props.aiOn.map((dir) => ["align-items", dir, props.ai].join("-"));
-        }
-        return [];
-      }
-      function responsiveAlignSelf() {
-        if (typeof props.aiOn === "string" && props.ai) {
-          return ["align-self", props.aiOn, props.ai].join("-");
-        }
-        if (Array.isArray(props.aiOn) && props.ai) {
-          return props.aiOn.map((dir) => ["align-self", dir, props.ai].join("-"));
-        }
-        return [];
-      }
-      function getWrapClasses(type) {
-        if (!props[type]) {
-          return [];
-        }
-        let reverse = props[type] === "reverse" ? "reverse" : null;
-        if (Array.isArray(props[type + "On"]) && props[type + "On"].length > 0) {
-          return props[type + "On"].map((wrapOn) => [type, wrapOn, reverse].filter((i) => i).join("-"));
-        }
-        return [type + (reverse ? "-reverse" : "")];
-      }
-      function getAlignContentClasses() {
-        return ["ac", "acSm", "acMd", "acLg", "acXl", "acXxl"].map(function(item) {
-          if (props[item]) {
-            return ["align-content", item, props[item]].join("-");
-          }
-          return null;
-        });
-      }
-      return [
-        {
-          "d-flex": props.pure,
-          "flex-row": props.hDir === "ltr",
-          "flex-row-reverse": props.hDir === "rtl",
-          "flex-column": props.vDir === "ttb",
-          "flex-column-reverse": props.vDir === "btt",
-          ["justify-content-" + props.jc]: props.jc && !props.jcOn,
-          ["align-items-" + props.ai]: props.ai && !props.aiOn
-        },
-        getFlexClasses(),
-        getInlineClasses(),
-        responsiveJustifiedContent(),
-        responsiveAlignItems(),
-        responsiveAlignSelf(),
-        getWrapClasses("wrap"),
-        getWrapClasses("nowrap"),
-        getAlignContentClasses()
-      ];
-    });
-    return (_ctx, _cache) => {
-      return openBlock(), createBlock(resolveDynamicComponent(__props.tag), {
-        class: normalizeClass(unref(classes))
-      }, {
-        default: withCtx(() => [
-          renderSlot(_ctx.$slots, "default")
-        ]),
-        _: 3
-      }, 8, ["class"]);
-    };
-  }
-});
-
-const _sfc_main$C = /* @__PURE__ */ defineComponent({
-  __name: "FlexItem",
-  props: {
-    tag: { type: String, default: "div" },
-    fill: {
-      type: [Boolean, Array, String],
-      default: null
-    },
-    grow: {
-      type: [Number, Array],
-      default: null
-    },
-    growOn: {
-      type: [String, Array],
-      default: null
-    },
-    shrink: {
-      type: [Number, Array],
-      default: null
-    },
-    shrinkOn: {
-      type: [String, Array],
-      default: null
-    },
-    order: { type: [String, Number], default: null },
-    orderSm: { type: [String, Number], default: null },
-    orderMd: { type: [String, Number], default: null },
-    orderLg: { type: [String, Number], default: null },
-    orderXl: { type: [String, Number], default: null },
-    orderXxl: { type: [String, Number], default: null }
-  },
-  setup(__props) {
-    const props = __props;
-    computed(() => {
-      function getFilledClasses() {
-        if (typeof props.fill === "boolean" && props.fill) {
-          return ["flex-fill"];
-        }
-        if (Array.isArray(props.fill)) {
-          return props.fill.map((fillOn) => ["flex", fillOn, "fill"].join("-"));
-        }
-        if (typeof props.fill === "string") {
-          return ["flex-" + props.fill + "-fill"];
-        }
-        return [];
-      }
-      function getGrowClasses() {
-        if ((props.grow === 1 || props.grow === 0) && !props.growOn) {
-          return ["flex-grow-" + props.grow];
-        }
-        if ((props.grow === 1 || props.grow === 0) && props.growOn && Array.isArray(props.growOn)) {
-          return props.growOn.map((gon) => ["flex-grow", gon, props.grow].join("-"));
-        }
-        return [];
-      }
-      function getShrinkClasses() {
-        if ((props.shrink === 1 || props.shrink === 0) && !props.shrinkOn) {
-          return ["flex-shrink-" + props.shrink];
-        }
-        if ((props.shrink === 1 || props.shrink === 0) && props.shrinkOn && Array.isArray(props.shrinkOn)) {
-          return props.shrinkOn.map((son) => ["flex-shrink", son, props.shrink].join("-"));
-        }
-        return [];
-      }
-      function getOrderClasses() {
-        return ["order", "orderSm", "orderMd", "orderLg", "orderXl", "orderXxl"].map((s) => {
-          if (props[s] !== null) {
-            return s.replace(/[A-Z]/g, (m) => "-" + m.toLowerCase()) + "-" + props[s];
-          }
-          return null;
-        });
-      }
-      return [
-        getFilledClasses(),
-        getGrowClasses(),
-        getShrinkClasses(),
-        getOrderClasses()
-      ];
-    });
-    return (_ctx, _cache) => {
-      return openBlock(), createBlock(resolveDynamicComponent(__props.tag), null, {
-        default: withCtx(() => [
-          renderSlot(_ctx.$slots, "default")
-        ]),
-        _: 3
-      });
-    };
-  }
-});
+var Figure = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$z]]);
 
 var Grid = defineComponent({
   name: "Grid",
@@ -23932,14 +23947,14 @@ var NavItem = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$r
 
 var NavItemDropdown = defineComponent({
   name: "NavItemDropdown",
-  components: { Dropdown: _sfc_main$J },
+  components: { Dropdown: _sfc_main$H },
   props: {
     ...dropdownProps,
     isNav: { type: Boolean, default: true },
     tag: { type: String, default: "li" }
   },
   setup(props, { slots }) {
-    return () => h(_sfc_main$J, {
+    return () => h(_sfc_main$H, {
       class: "nav-item",
       ...props
     }, () => slots.default?.());
@@ -43853,7 +43868,7 @@ const _sfc_main$2 = defineComponent({
     Modal,
     ListGroupItem,
     Checkbox,
-    Dropdown: _sfc_main$J,
+    Dropdown: _sfc_main$H,
     Input,
     ButtonGroup,
     Button,
@@ -44652,4 +44667,4 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 
-export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Chart, Checkbox, CheckboxGroup, Col, Collapse, Column, Container, DataTable, Datepicker, _sfc_main$J as Dropdown, DropdownButton, DropdownDivider, _sfc_main$G as DropdownItem, DropdownMenu, Figure, _sfc_main$D as Flex, _sfc_main$C as FlexItem, FormGroup, FormLabel, Grid, GridCol, Icon, Input, InputGroup, InputGroupText, LaravelCrudTable, _sfc_main$4 as Layout, Link, ListGroup, ListGroupItem, Menu, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, _sfc_main as Multiselect, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, PanelMenu, Placeholder, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, _sfc_main$k as SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, TypeHead, Vr };
+export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Chart, Checkbox, CheckboxGroup, Col, Collapse, Column, Container, DataTable, Datepicker, _sfc_main$H as Dropdown, DropdownButton, DropdownDivider, _sfc_main$E as DropdownItem, DropdownMenu, Figure, _sfc_main$N as Flex, _sfc_main$M as FlexItem, FormGroup, FormLabel, Grid, GridCol, Icon, Input, InputGroup, InputGroupText, LaravelCrudTable, _sfc_main$4 as Layout, Link, ListGroup, ListGroupItem, Menu, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, _sfc_main as Multiselect, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, PanelMenu, Placeholder, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, _sfc_main$k as SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, TypeHead, Vr };

@@ -13,7 +13,7 @@ const props = defineProps({
     tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
     fill: {
         type: [Boolean, Array, String] as PropType<boolean | responsiveSizes | responsiveSizes[]>,
-        default: null
+        default: false
     },
     grow: {
         type: [Number, Array] as PropType<1 | 0>,

@@ -9,22 +9,26 @@
                         @click="applySorting(th)"
                         :style="{'cursor':th.sortable === true ? 'pointer' : null}"
                         :key="th_index">
-                        <slot :name="'head('+th.key+')'"
-                              :column="th.key"
-                              :field="th"
-                              :index="th_index"
-                              :label="getLabel(th)"
-                              :sortBy="sorting.sortBy"
-                              :sort="sorting.sort"
-                              :unselectAllRows="unselectAllRows"
-                              :selectAllRows="selectAllRows"
-                              :selectedAllRows="selectedAllRows">
-                            {{ getLabel(th) }}
-                        </slot>
-                        <template v-if="typeof th==='object'&& th.sortable===true">
-                            <SortDown v-if="sorting.sortBy===th.key && sorting.sort==='asc'"/>
-                            <SortUp v-else/>
-                        </template>
+                        <Flex jc="between">
+                            <FlexItem>
+                                <slot :name="'head('+th.key+')'"
+                                      :column="th.key"
+                                      :field="th"
+                                      :index="th_index"
+                                      :label="getLabel(th)"
+                                      :sortBy="sorting.sortBy"
+                                      :sort="sorting.sort"
+                                      :unselectAllRows="unselectAllRows"
+                                      :selectAllRows="selectAllRows"
+                                      :selectedAllRows="selectedAllRows">
+                                    {{ getLabel(th) }}
+                                </slot>
+                            </FlexItem>
+                            <FlexItem v-if="typeof th==='object'&& th.sortable===true">
+                                <SortDown v-if="sorting.sortBy===th.key && sorting.sort==='asc'"/>
+                                <SortUp v-else/>
+                            </FlexItem>
+                        </Flex>
                     </Th>
                 </template>
             </Tr>
@@ -76,6 +80,8 @@ import lowerCase from "lodash/lowerCase.js";
 import orderBy from "lodash/orderBy.js"
 import Icon from "./Icon";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
+import Flex from "./Flex.vue";
+import FlexItem from "./FlexItem.vue";
 
 type FieldType = {
     key: string;
@@ -88,7 +94,7 @@ type FieldType = {
 export default defineComponent({
     name: "DataTable",
     emits: ['update:selectedRows'],
-    components: {SortUp, SortDown, Icon, Table, THead, TBody, Tr, Th, Td, TFoot},
+    components: {FlexItem, Flex, SortUp, SortDown, Icon, Table, THead, TBody, Tr, Th, Td, TFoot},
     props: {
         ...tableProps,
         headClass: {type: [Array, String] as PropType<string | string[]>, default: null},
