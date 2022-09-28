@@ -5,6 +5,7 @@
             <Tr>
                 <template v-for="(th,th_index) in fields">
                     <Th
+                        :class="th.thClass"
                         v-if="th.visible!==false"
                         @click="applySorting(th)"
                         :style="{'cursor':th.sortable === true ? 'pointer' : null}"
@@ -37,7 +38,7 @@
         <TBody :class="bodyClass">
         <Tr v-for="(row,row_index) in itemsSorted" :key="row_index">
             <template v-for="(th,th_index) in fields">
-                <Td :key="th_index" v-if="th.visible!==false">
+                <Td :key="th_index" v-if="th.visible!==false" ::class="th.tdClass">
                     <slot :name="'cell('+getKey(th)+')'"
                           :item="row"
                           :index="row_index"
@@ -89,6 +90,8 @@ type FieldType = {
     formatter: (item: object, key?: string) => any;
     visible?: boolean;
     sortable?: boolean;
+    thClass?: any;
+    tdClass?: any;
 };
 
 export default defineComponent({

@@ -20466,6 +20466,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                 (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.fields, (th, th_index) => {
                   return openBlock(), createElementBlock(Fragment, null, [
                     th.visible !== false ? (openBlock(), createBlock(_component_Th, {
+                      class: normalizeClass(th.thClass),
                       onClick: ($event) => _ctx.applySorting(th),
                       style: normalizeStyle({ "cursor": th.sortable === true ? "pointer" : null }),
                       key: th_index
@@ -20502,7 +20503,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                         }, 1024)
                       ]),
                       _: 2
-                    }, 1032, ["onClick", "style"])) : createCommentVNode("", true)
+                    }, 1032, ["class", "onClick", "style"])) : createCommentVNode("", true)
                   ], 64);
                 }), 256))
               ]),
@@ -20521,7 +20522,10 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
               default: withCtx(() => [
                 (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.fields, (th, th_index) => {
                   return openBlock(), createElementBlock(Fragment, null, [
-                    th.visible !== false ? (openBlock(), createBlock(_component_Td, { key: th_index }, {
+                    th.visible !== false ? (openBlock(), createBlock(_component_Td, {
+                      key: th_index,
+                      ":class": th.tdClass
+                    }, {
                       default: withCtx(() => [
                         renderSlot(_ctx.$slots, "cell(" + _ctx.getKey(th) + ")", {
                           item: row,
@@ -20539,7 +20543,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                         ])
                       ]),
                       _: 2
-                    }, 1024)) : createCommentVNode("", true)
+                    }, 1032, [":class"])) : createCommentVNode("", true)
                   ], 64);
                 }), 256))
               ]),
