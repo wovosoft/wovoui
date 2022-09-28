@@ -12,4 +12,4 @@ export default defineComponent({
             "href": props.tag === 'a' ? props.href : null
         }, slots.default?.())
     }
-})
+});

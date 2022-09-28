@@ -8,6 +8,12 @@ import Dropdowns from "./pages/Dropdowns.vue";
 import Collapses from "./pages/Collapses.vue";
 import PanelMenus from "./pages/PanelMenus.vue";
 import FlexPage from "./pages/FlexPage.vue";
+import TooltipPage from "./pages/TooltipPage.vue";
+import TablePage from "./pages/TablePage.vue";
+//@ts-ignore
+import PaginationPage from "./pages/PaginationPage.vue"
+import OffCanvasPage from "./pages/OffCanvasPage.vue"
+import FormControlPage from "./pages/FormControlPage.vue"
 
 export const routes = [
     {
@@ -49,6 +55,31 @@ export const routes = [
         path: "/display-flex",
         name: "Display Flex",
         component: FlexPage
+    },
+    {
+        path: "/tooltip",
+        name: "Tooltip",
+        component: TooltipPage
+    },
+    {
+        path: "/table",
+        name: "Table",
+        component: TablePage
+    },
+    {
+        path: "/Pagination",
+        name: "Pagination",
+        component: PaginationPage
+    },
+    {
+        path: "/offcanvas",
+        name: "Offcanvas",
+        component: OffCanvasPage
+    },
+    {
+        path: "/form-controls",
+        name: "Form Control",
+        component: FormControlPage
     }
 ]
 

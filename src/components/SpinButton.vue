@@ -31,14 +31,15 @@
         </template>
     </InputGroup>
 </template>
+
 <script lang="ts" setup>
 import {computed, ref, watch, PropType} from "vue";
 import InputGroup from "./InputGroup.vue";
 import Button from "./Button";
 
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
-import type {ColorVariants} from "../types/colorVariants";
-import type {buttonSizes} from "../types/buttonSizes";
+import type {ColorVariants, ButtonSizes} from "../types";
+
 
 const props = defineProps({
     modelValue: {type: Number as PropType<number>, default: 0},
@@ -46,7 +47,7 @@ const props = defineProps({
     min: {type: Number as PropType<number>, default: 0},
     max: {type: Number as PropType<number>, default: 100},
     buttonVariant: {type: String as PropType<ColorVariants>, default: "secondary"},
-    size: {type: String as PropType<buttonSizes>, default: null},
+    size: {type: String as PropType<ButtonSizes>, default: null},
     formatter: {type: Function as PropType<Function>, default: v => v},
     inline: {type: Boolean as PropType<boolean>, default: false},
     vertical: {type: Boolean as PropType<boolean>, default: false},
@@ -72,10 +73,3 @@ const classes = computed(() => [
     }
 ]);
 </script>
-
-<style>
-.spin-button:focus {
-    box-shadow: 0 0 6px #007bff;
-    border-radius: 4px;
-}
-</style>

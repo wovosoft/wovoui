@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" :class="classes">
+    <component :is="tag" class="offcanvas-header">
         <OffCanvasTitle v-if="$slots.title || title">
             <slot name="title">
                 {{ title }}
@@ -14,29 +14,19 @@
     </component>
 </template>
 
-<script lang="ts">
-import ButtonClose from "./ButtonClose";
-import {computed, defineComponent, PropType} from "vue";
-import OffCanvasTitle from "./OffCanvasTitle.vue";
+<script lang="ts" setup>
+import {PropType} from "vue";
+import {ButtonClose, OffCanvasTitle} from "../index";
 
-export default defineComponent({
-    name: "OffCanvasHeader",
-    emits: ["update:modelValue"],
-    components: {
-        OffCanvasTitle,
-        ButtonClose
-    },
-    props: {
-        modelValue: {type: Boolean as PropType<boolean>, default: false},
-        tag: {type: String as PropType<string>, default: "div"},
-        title: {type: String as PropType<string>, default: null},
-        showClose: {type: Boolean as PropType<boolean>, default: true},
-        btnCloseWhite: {type: Boolean as PropType<boolean>, default: false}
-    },
-    setup(props) {
-        return {
-            classes: computed(() => (["offcanvas-header"]))
-        }
-    }
-})
+defineProps({
+    modelValue: {type: Boolean as PropType<boolean>, default: false},
+    tag: {type: String as PropType<string>, default: "div"},
+    title: {type: String as PropType<string>, default: null},
+    showClose: {type: Boolean as PropType<boolean>, default: true},
+    btnCloseWhite: {type: Boolean as PropType<boolean>, default: false}
+});
+
+defineEmits<{
+    (e: "update:modelValue", value: boolean): void
+}>();
 </script>

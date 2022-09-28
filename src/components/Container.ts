@@ -1,5 +1,5 @@
 import {defineComponent, PropType, h} from "vue";
-import type {responsiveSizes} from "../types/responsiveLayoutSizes";
+import type {responsiveSizes} from "../types";
 
 export default defineComponent({
     name: "Container",

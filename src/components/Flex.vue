@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import {computed, PropType} from "vue";
 import type {AlignContent, ItemAlignment, JustifyAlignment} from "../types";
-import {responsiveSizes} from "../types/responsiveLayoutSizes";
+import {responsiveSizes} from "../types";
 
 
 const props = defineProps({

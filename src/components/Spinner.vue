@@ -6,18 +6,17 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType} from "vue";
-import type {ColorVariants} from "../types/colorVariants";
-import type {buttonSizes} from "../types/buttonSizes";
+import type {ColorVariants, ButtonSizes} from "../types";
+
 
 export default defineComponent({
     name: "Spinner",
     props: {
         grow: {type: Boolean as PropType<boolean>, default: false},
-        size: {type: String as PropType<buttonSizes>, default: null},
+        size: {type: String as PropType<ButtonSizes>, default: null},
         variant: {type: String as PropType<ColorVariants>, default: null}
     },
     setup(props, context) {
-
         return {
             classes: computed(() => [
                 "spinner-" + (props.grow ? 'grow' : 'border'),

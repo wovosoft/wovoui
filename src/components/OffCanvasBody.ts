@@ -1,11 +1,13 @@
 import {defineComponent, h, PropType} from "vue";
 
 export default defineComponent({
-    name: "ModalFooter",
+    name: "OffCanvasBody",
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"}
     },
     setup(props, {slots}) {
-        return () => h(props.tag, {class: "modal-footer"}, slots.default?.());
+        return () => h(props.tag, {
+            class: "offcanvas-body"
+        }, slots.default?.())
     }
-})
+});

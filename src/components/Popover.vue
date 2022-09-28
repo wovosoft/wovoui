@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts">
-import {make, makeBoolean, makeString} from "../shared/properties.js";
 import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {createPopper} from "@popperjs/core";
 

@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType} from "vue";
-import InputGroupText from "./InputGroupText.vue";
+import InputGroupText from "./InputGroupText";
 
 export default defineComponent({
     components: {InputGroupText},

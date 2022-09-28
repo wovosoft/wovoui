@@ -1,9 +1,10 @@
-import {defineComponent, PropType, computed, h} from "vue";
+import {defineComponent, PropType, h} from "vue";
 import type {
     colAlignments,
     ColSizes,
     justifyContentAlignments,
 } from "../types/responsiveLayoutSizes";
+
 import {responsiveNumbers} from "../types/responsiveLayoutSizes";
 
 export default defineComponent({

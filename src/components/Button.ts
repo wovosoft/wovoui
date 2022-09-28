@@ -28,6 +28,7 @@ export default defineComponent({
         const isVueRouterInstalled = computed(() => {
             return !!getCurrentInstance().appContext.config.globalProperties.$router;
         });
+
         return () => {
             const type = () => {
                 if (props.link || props.href || props.to) {

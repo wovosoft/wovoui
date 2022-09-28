@@ -25,13 +25,13 @@
 
 <script lang="ts">
 import {computed, ref, watch, defineComponent, PropType} from "vue";
-import type {buttonSizes} from "../types/buttonSizes";
+import type {ButtonSizes} from "../types";
 
 export default defineComponent({
     emits: ['update:modelValue', 'change'],
     props: {
         multiple: {type: Boolean as PropType<boolean>, default: false},
-        size: {type: String as PropType<buttonSizes>, default: null},
+        size: {type: String as PropType<ButtonSizes>, default: null},
         options: {type: Array as PropType<any[]>, default: () => ([])},
         valueField: {type: [Function, String] as PropType<Function | string>, default: null},
         textField: {type: [Function, String] as PropType<Function | string>, default: null},

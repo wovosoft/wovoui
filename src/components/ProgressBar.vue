@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType} from "vue";
-import type {ColorVariants} from "../types/colorVariants";
+import type {ColorVariants} from "../types";
 
 export default defineComponent({
     name: "ProgressBar",

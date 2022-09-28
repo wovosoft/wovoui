@@ -1,6 +1,6 @@
 import {defineComponent, h, PropType} from "vue";
 import type {responsiveNumbers} from "../types/responsiveLayoutSizes";
-import type {ColorVariants} from "../types/colorVariants";
+import type {ColorVariants} from "../types";
 
 export default defineComponent({
     name: "Placeholder",

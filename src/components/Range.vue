@@ -6,12 +6,12 @@
         :max="max"
         :step="step"
         type="range"
-        :class="classes"
+        class="form-range"
     />
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
+import {defineComponent, PropType} from "vue";
 
 export default defineComponent({
     name: "Range",
@@ -20,13 +20,6 @@ export default defineComponent({
         max: {type: Number as PropType<number>, default: null},
         step: {type: Number as PropType<number>, default: 1},
         modelValue: {type: Number as PropType<number>, default: 0}
-    },
-    setup(props) {
-        return {
-            classes: computed(() => [
-                "form-range"
-            ])
-        }
     }
 })
 </script>

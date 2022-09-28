@@ -1,3 +1,7 @@
+/**
+ * Multiple routers should be support
+ * e.g. vue-router, inertia router, nuxt router etc
+ */
 import {defineComponent, h, PropType} from "vue";
 
 export default defineComponent({

@@ -12,7 +12,7 @@
 <script lang="ts">
 import {computed, defineComponent, PropType, ref} from "vue";
 import {createPopper} from '@popperjs/core';
-import type {tooltipPlacement} from "../types/tooltipPlacement";
+import type {TooltipPlacement} from "../types";
 
 let popper = null;
 export default defineComponent({
@@ -20,11 +20,11 @@ export default defineComponent({
     props: {
         target: {type: String as PropType<string>, default: null, required: true},  //should be id
         content: {type: String as PropType<string>, default: null},
-        placement: {type: String as PropType<tooltipPlacement>, default: 'top'},
+        placement: {type: String as PropType<TooltipPlacement>, default: 'top'},
         opensOn: {type: String as PropType<keyof GlobalEventHandlersEventMap>, default: 'focusin'},
-        ClosesOn: {type: String as PropType<keyof GlobalEventHandlersEventMap>, default: 'focusout'},
+        closesOn: {type: String as PropType<keyof GlobalEventHandlersEventMap>, default: 'focusout'},
     },
-    setup(props, context) {
+    setup(props, {expose}) {
         const shouldShow = ref(false);
         const dir = ref("top");
         const bsDir = (dir) => {
@@ -52,7 +52,9 @@ export default defineComponent({
         const show = () => shouldShow.value = true;
         const hide = () => shouldShow.value = false;
         const toggle = () => shouldShow.value = !shouldShow.value;
-        context.expose({show, hide, toggle});
+        expose({show, hide, toggle});
+
+
 
         return {
             shouldShow,

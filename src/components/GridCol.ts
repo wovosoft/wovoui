@@ -1,15 +1,17 @@
 import {defineComponent, PropType, h} from "vue";
 
+import type {responsiveNumbers} from "../types/responsiveLayoutSizes";
+
 export default defineComponent({
     name: "GridCol",
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        col: {type: [Number, String] as PropType<string | number>, default: null},
-        sm: {type: [Number, String] as PropType<string | number>, default: null},
-        md: {type: [Number, String] as PropType<string | number>, default: null},
-        lg: {type: [Number, String] as PropType<string | number>, default: null},
-        xl: {type: [Number, String] as PropType<string | number>, default: null},
-        start: {type: [Number, String] as PropType<string | number>, default: null},
+        col: {type: [Number, String] as PropType<responsiveNumbers>, default: null},
+        sm: {type: [Number, String] as PropType<responsiveNumbers>, default: null},
+        md: {type: [Number, String] as PropType<responsiveNumbers>, default: null},
+        lg: {type: [Number, String] as PropType<responsiveNumbers>, default: null},
+        xl: {type: [Number, String] as PropType<responsiveNumbers>, default: null},
+        start: {type: [Number, String] as PropType<responsiveNumbers>, default: null},
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

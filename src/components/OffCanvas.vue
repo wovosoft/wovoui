@@ -32,14 +32,15 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType, ref, watch} from "vue";
-import ButtonClose from "./ButtonClose";
 import OffCanvasHeader from "./OffCanvasHeader.vue";
-import OffCanvasBody from "./OffCanvasBody.vue";
-import {ColorVariants} from "../types";
+import OffCanvasBody from "./OffCanvasBody";
+import ButtonClose from "./ButtonClose";
+
+import type {ColorVariants} from "../types";
 
 export default defineComponent({
     name: "OffCanvas",
-    components: {OffCanvasBody, OffCanvasHeader, ButtonClose},
+    components: {ButtonClose, OffCanvasHeader, OffCanvasBody},
     emits: ["update:modelValue", "beforeShow", "beforeHide", "shown", "hidden"],
     props: {
         tabIndex: {type: Number as PropType<number>, default: -1},

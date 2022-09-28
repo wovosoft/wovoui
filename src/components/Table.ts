@@ -6,22 +6,28 @@ export default defineComponent({
     props,
     setup(props, {slots}) {
         return () => {
+
             let wrapperClasses = {
                 "table-responsive": (props.responsive === true),
                 ["table-responsive-" + props.responsive]: (typeof props.responsive === "string" && props.responsive)
             };
-            let classes = ["table", {
-                ["table-" + props.variant]: props.variant,
-                "table-striped": props.striped,
-                "table-hover": props.hover,
-                "table-active": props.active,
-                "table-bordered": props.bordered,
-                ["border-" + props.borderVariant]: !!props.borderVariant,
-                "table-borderless": props.borderless,
-                "table-sm": props.small,
-                ["align-" + props.valign]: !!props.valign,
-                "caption-top": props.captionTop
-            }];
+
+            let classes = [
+                "table",
+                {
+                    ["table-" + props.variant]: props.variant,
+                    "table-striped": props.striped === true,
+                    "table-striped-columns": props.striped === 'columns',
+                    "table-hover": props.hover,
+                    "table-active": props.active,
+                    "table-bordered": props.bordered,
+                    ["border-" + props.borderVariant]: !!props.borderVariant,
+                    "table-borderless": props.borderless,
+                    "table-sm": props.small,
+                    ["align-" + props.align]: !!props.align,
+                    "caption-top": props.captionTop,
+                }
+            ];
 
             const caption = () => {
                 if (slots.caption) {
@@ -36,7 +42,7 @@ export default defineComponent({
                 "table",
                 {class: classes},
                 [caption(), slots.default ? slots.default() : null]
-            )
+            );
 
             return props.responsive ? h("div", {class: wrapperClasses}, [table()]) : table();
         }

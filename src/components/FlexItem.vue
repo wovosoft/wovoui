@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import {computed, PropType} from "vue";
-import {responsiveSizes} from "../types/responsiveLayoutSizes";
+import {responsiveSizes} from "../types";
 import {Order} from "../types";
 
 const props = defineProps({

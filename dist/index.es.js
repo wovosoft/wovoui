@@ -59,7 +59,7 @@ var _export_sfc = (sfc, props) => {
   return target;
 };
 
-const _sfc_main$V = defineComponent({
+const _sfc_main$R = defineComponent({
   name: "AccordionHeader",
   emits: ["update:modelValue"],
   props: {
@@ -68,7 +68,7 @@ const _sfc_main$V = defineComponent({
     modelValue: { type: Boolean, default: false }
   }
 });
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "accordion-header" }, {
     default: withCtx(() => [
       (openBlock(), createBlock(resolveDynamicComponent(_ctx.toggleTag), {
@@ -86,7 +86,7 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var AccordionHeader = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$O]]);
+var AccordionHeader = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$D]]);
 
 var Collapse = defineComponent({
   name: "Collapse",
@@ -154,7 +154,7 @@ var Collapse = defineComponent({
   }
 });
 
-const _sfc_main$U = defineComponent({
+const _sfc_main$Q = defineComponent({
   name: "AccordionItem",
   emits: ["update:modelValue"],
   components: { AccordionHeader, AccordionBody, Collapse },
@@ -179,7 +179,7 @@ const _sfc_main$U = defineComponent({
   }
 });
 const _hoisted_1$t = { class: "accordion-item" };
-function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_AccordionHeader = resolveComponent("AccordionHeader");
   const _component_AccordionBody = resolveComponent("AccordionBody");
   const _component_Collapse = resolveComponent("Collapse");
@@ -214,7 +214,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["modelValue"])
   ]);
 }
-var AccordionItem = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$N]]);
+var AccordionItem = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$C]]);
 
 var ButtonClose = defineComponent({
   name: "ButtonClose",
@@ -445,7 +445,7 @@ var Badge = defineComponent({
   }
 });
 
-const _sfc_main$T = defineComponent({
+const _sfc_main$P = defineComponent({
   name: "BreadcrumbItem",
   props: {
     tag: { type: String, default: "li" },
@@ -480,7 +480,7 @@ const _sfc_main$T = defineComponent({
   }
 });
 const _hoisted_1$s = ["href"];
-function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
     default: withCtx(() => [
@@ -502,9 +502,9 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16, ["class"]);
 }
-var BreadcrumbItem = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$M]]);
+var BreadcrumbItem = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$B]]);
 
-const _sfc_main$S = defineComponent({
+const _sfc_main$O = defineComponent({
   name: "Breadcrumb",
   components: { BreadcrumbItem },
   props: {
@@ -520,7 +520,7 @@ const _sfc_main$S = defineComponent({
     };
   }
 });
-function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_BreadcrumbItem = resolveComponent("BreadcrumbItem");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
@@ -544,7 +544,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Breadcrumb = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$L]]);
+var Breadcrumb = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$A]]);
 
 var Button = defineComponent({
   props: {
@@ -843,7 +843,7 @@ var CardImg = defineComponent({
 
 var Card_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$R = defineComponent({
+const _sfc_main$N = defineComponent({
   name: "Card",
   components: { CardTitle, CardImg, CardFooter, CardBody, CardHeader },
   props: {
@@ -933,7 +933,7 @@ const _sfc_main$R = defineComponent({
     };
   }
 });
-function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CardHeader = resolveComponent("CardHeader");
   const _component_CardImg = resolveComponent("CardImg");
   const _component_CardBody = resolveComponent("CardBody");
@@ -987,7 +987,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Card = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$K]]);
+var Card = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$z]]);
 
 var CardGroup = defineComponent({
   name: "CardGroup",
@@ -14287,7 +14287,7 @@ const registerables = [
 
 Chart$1.register(...registerables);
 
-const _sfc_main$Q = defineComponent({
+const _sfc_main$M = defineComponent({
   props: {
     type: { type: String, default: "bar" },
     data: { type: Object, default: null },
@@ -14344,7 +14344,7 @@ const _sfc_main$Q = defineComponent({
   }
 });
 const _hoisted_1$r = ["height", "width"];
-function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", null, [
     createElementVNode("canvas", {
       height: _ctx.height,
@@ -14354,9 +14354,9 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, _hoisted_1$r)
   ]);
 }
-var Chart = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$J]]);
+var Chart = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$y]]);
 
-const _sfc_main$P = defineComponent({
+const _sfc_main$L = defineComponent({
   name: "Checkbox",
   emits: ["update:modelValue", "checked", "unchecked", "change"],
   props: {
@@ -14440,7 +14440,7 @@ const _hoisted_1$q = ["required", "readonly", "disabled", "name", "value", "id"]
 const _hoisted_2$i = ["for"];
 const _hoisted_3$b = ["required", "readonly", "disabled", "name", "value", "id"];
 const _hoisted_4$4 = ["for"];
-function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   return _ctx.button ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
     withDirectives(createElementVNode("input", mergeProps({
       class: "btn-check",
@@ -14488,9 +14488,9 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     ], 8, _hoisted_4$4)) : createCommentVNode("", true)
   ], 2));
 }
-var Checkbox = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$I]]);
+var Checkbox = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$x]]);
 
-const _sfc_main$O = defineComponent({
+const _sfc_main$K = defineComponent({
   name: "CheckboxGroup",
   components: { Checkbox },
   emits: ["update:modelValue"],
@@ -14518,7 +14518,7 @@ const _sfc_main$O = defineComponent({
   }
 });
 const _hoisted_1$p = { role: "group" };
-function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Checkbox = resolveComponent("Checkbox");
   return openBlock(), createElementBlock("div", _hoisted_1$p, [
     (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.options, (option, option_key) => {
@@ -14538,7 +14538,7 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var CheckboxGroup = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$H]]);
+var CheckboxGroup = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$w]]);
 
 const isBoolean = (val) => typeof val === "boolean";
 
@@ -14612,17 +14612,21 @@ var Container = defineComponent({
   }
 });
 
-var tableProps = {
-  responsive: { type: [String, Boolean], default: false },
+var tableCommonProps = {
   variant: { type: String, default: null },
-  striped: { type: Boolean, default: false },
+  active: { type: Boolean },
+  align: { type: String, default: null }
+};
+
+var tableProps = {
+  ...tableCommonProps,
+  responsive: { type: [String, Boolean], default: false },
+  striped: { type: [Boolean, String], default: false },
   hover: { type: Boolean, default: false },
-  active: { type: Boolean, default: false },
   bordered: { type: Boolean, default: false },
   borderVariant: { type: String, default: null },
   borderless: { type: Boolean, default: false },
   small: { type: Boolean, default: false },
-  valign: { type: String, default: null },
   caption: { type: String, default: null },
   captionTop: { type: Boolean, default: false }
 };
@@ -14636,18 +14640,22 @@ var Table = defineComponent({
         "table-responsive": props2.responsive === true,
         ["table-responsive-" + props2.responsive]: typeof props2.responsive === "string" && props2.responsive
       };
-      let classes = ["table", {
-        ["table-" + props2.variant]: props2.variant,
-        "table-striped": props2.striped,
-        "table-hover": props2.hover,
-        "table-active": props2.active,
-        "table-bordered": props2.bordered,
-        ["border-" + props2.borderVariant]: !!props2.borderVariant,
-        "table-borderless": props2.borderless,
-        "table-sm": props2.small,
-        ["align-" + props2.valign]: !!props2.valign,
-        "caption-top": props2.captionTop
-      }];
+      let classes = [
+        "table",
+        {
+          ["table-" + props2.variant]: props2.variant,
+          "table-striped": props2.striped === true,
+          "table-striped-columns": props2.striped === "columns",
+          "table-hover": props2.hover,
+          "table-active": props2.active,
+          "table-bordered": props2.bordered,
+          ["border-" + props2.borderVariant]: !!props2.borderVariant,
+          "table-borderless": props2.borderless,
+          "table-sm": props2.small,
+          ["align-" + props2.align]: !!props2.align,
+          "caption-top": props2.captionTop
+        }
+      ];
       const caption = () => {
         if (slots.caption) {
           return h("caption", {}, [slots.caption()]);
@@ -14666,114 +14674,61 @@ var Table = defineComponent({
   }
 });
 
+function generateTableChild(tag, props, slots) {
+  return h(tag, {
+    class: {
+      ["table-" + props.variant]: props.variant,
+      "table-active": props.active,
+      ["align-" + props.align]: !!props.align
+    }
+  }, slots.default?.());
+}
+
 var THead = defineComponent({
   name: "THead",
-  props: {
-    variant: { type: String, default: null },
-    active: { type: Boolean, default: false },
-    align: { type: String, default: null }
-  },
+  props: tableCommonProps,
   setup(props, { slots }) {
-    return () => h("thead", {
-      class: {
-        ["table-" + props.variant]: props.variant,
-        "table-active": props.active,
-        ["align-" + props.align]: !!props.align
-      }
-    }, slots.default?.());
+    return () => generateTableChild("thead", props, slots);
   }
 });
 
 var TBody = defineComponent({
   name: "TBody",
-  props: {
-    variant: { type: String, default: null },
-    active: { type: Boolean, default: false },
-    align: { type: String, default: null }
-  },
+  props: tableCommonProps,
   setup(props, { slots }) {
-    return () => h("tbody", {
-      class: {
-        ["table-" + props.variant]: props.variant,
-        "table-active": props.active,
-        ["align-" + props.align]: !!props.align
-      }
-    }, slots.default ? slots.default() : null);
+    return () => generateTableChild("tbody", props, slots);
   }
 });
 
 var Tr = defineComponent({
   name: "Tr",
-  props: {
-    variant: { type: String, default: null },
-    active: { type: Boolean },
-    align: { type: String, default: null }
-  },
+  props: tableCommonProps,
   setup(props, { slots }) {
-    return () => h("tr", {
-      class: {
-        ["table-" + props.variant]: props.variant,
-        "table-active": props.active,
-        ["align-" + props.align]: !!props.align
-      }
-    }, slots.default?.());
+    return () => generateTableChild("tr", props, slots);
   }
 });
 
 var Th = defineComponent({
   name: "Th",
-  props: {
-    variant: { type: String, default: null },
-    active: { type: Boolean, default: false },
-    align: { type: String, default: null }
-  },
+  props: tableCommonProps,
   setup(props, { slots }) {
-    return () => h("th", {
-      scope: "col",
-      class: {
-        ["table-" + props.variant]: props.variant,
-        "table-active": props.active,
-        ["align-" + props.align]: !!props.align
-      }
-    }, slots.default?.());
+    return () => generateTableChild("th", props, slots);
   }
 });
 
 var Td = defineComponent({
   name: "Td",
-  props: {
-    variant: { type: String, default: null },
-    active: { type: Boolean, default: false },
-    align: { type: String, default: null }
-  },
+  props: tableCommonProps,
   setup(props, { slots }) {
-    return () => h("td", {
-      class: {
-        ["table-" + props.variant]: props.variant,
-        "table-active": props.active,
-        ["align-" + props.align]: !!props.align
-      }
-    }, slots.default ? slots.default() : null);
+    return () => generateTableChild("td", props, slots);
   }
 });
 
 var TFoot = defineComponent({
   name: "TFoot",
-  props: {
-    variant: { type: String, default: null },
-    active: { type: Boolean, default: false },
-    align: { type: String, default: null }
-  },
+  props: tableCommonProps,
   setup(props, { slots }) {
-    return () => h("tfoot", {
-      class: [
-        {
-          ["table-" + props.variant]: props.variant,
-          "table-active": props.active,
-          ["align-" + props.align]: !!props.align
-        }
-      ]
-    }, slots.default?.());
+    return () => generateTableChild("tfoot", props, slots);
   }
 });
 
@@ -20104,7 +20059,7 @@ const _sfc_main$7$1 = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_main$N = /* @__PURE__ */ defineComponent({
+const _sfc_main$J = /* @__PURE__ */ defineComponent({
   __name: "Flex",
   props: {
     tag: { type: String, default: "div" },
@@ -20273,7 +20228,7 @@ const _sfc_main$N = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_main$M = /* @__PURE__ */ defineComponent({
+const _sfc_main$I = /* @__PURE__ */ defineComponent({
   __name: "FlexItem",
   props: {
     tag: { type: String, default: "div" },
@@ -20363,10 +20318,10 @@ const _sfc_main$M = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_main$L = defineComponent({
+const _sfc_main$H = defineComponent({
   name: "DataTable",
   emits: ["update:selectedRows"],
-  components: { FlexItem: _sfc_main$M, Flex: _sfc_main$N, SortUp: _sfc_main$3V, SortDown: _sfc_main$3$, Icon, Table, THead, TBody, Tr, Th, Td, TFoot },
+  components: { FlexItem: _sfc_main$I, Flex: _sfc_main$J, SortUp: _sfc_main$3V, SortDown: _sfc_main$3$, Icon, Table, THead, TBody, Tr, Th, Td, TFoot },
   props: {
     ...tableProps,
     headClass: { type: [Array, String], default: null },
@@ -20487,7 +20442,7 @@ const _sfc_main$L = defineComponent({
     };
   }
 });
-function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_FlexItem = resolveComponent("FlexItem");
   const _component_SortDown = resolveComponent("SortDown");
   const _component_SortUp = resolveComponent("SortUp");
@@ -20607,9 +20562,9 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 16);
 }
-var DataTable = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$G]]);
+var DataTable = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$v]]);
 
-const _sfc_main$K = defineComponent({
+const _sfc_main$G = defineComponent({
   name: "Datepicker",
   props: {
     modelValue: {
@@ -20624,10 +20579,10 @@ const _sfc_main$K = defineComponent({
     };
   }
 });
-function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   return null;
 }
-var Datepicker = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$F]]);
+var Datepicker = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$u]]);
 
 var dropdownProps = {
   tag: { type: String, default: "div" },
@@ -20648,7 +20603,7 @@ var dropdownProps = {
   disableInnerClicks: { type: Boolean, default: false }
 };
 
-const _sfc_main$J = defineComponent({
+const _sfc_main$F = defineComponent({
   name: "DropdownMenu",
   props: {
     tag: { type: String, default: "ul" },
@@ -20667,7 +20622,7 @@ const _sfc_main$J = defineComponent({
     };
   }
 });
-function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes)
   }, {
@@ -20677,10 +20632,10 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var DropdownMenu = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$E]]);
+var DropdownMenu = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$t]]);
 
-const _sfc_main$I = defineComponent({
-  name: "NavLink",
+const _sfc_main$E = /* @__PURE__ */ defineComponent({
+  __name: "NavLink",
   props: {
     ariaCurrent: { type: String, default: null },
     active: { type: Boolean, default: false },
@@ -20690,46 +20645,41 @@ const _sfc_main$I = defineComponent({
     tag: { type: String, default: "a" },
     to: { type: Object, default: null }
   },
-  setup(props) {
+  setup(__props) {
+    const props = __props;
     const isVueRouterInstalled = computed(() => {
       return !!getCurrentInstance().appContext.config.globalProperties.$router;
     });
-    return {
-      isVueRouterInstalled,
-      classes: computed(() => ["nav-link", {
-        active: props.active
-      }]),
-      linkAttributes: computed(() => {
-        return {
-          href: props.tag === "a" ? props.href : null,
-          ariaCurrent: props.ariaCurrent,
-          target: props.target === "a" || props.href ? props.target : null
-        };
-      })
+    const classes = computed(() => ["nav-link", {
+      active: props.active
+    }]);
+    const linkAttributes = computed(() => ({
+      href: props.tag === "a" ? props.href : null,
+      ariaCurrent: props.ariaCurrent,
+      target: props.target === "a" || props.href ? props.target : null
+    }));
+    return (_ctx, _cache) => {
+      return unref(isVueRouterInstalled) && __props.to ? (openBlock(), createBlock(resolveDynamicComponent("router-link"), mergeProps({
+        key: 0,
+        to: __props.to,
+        class: unref(classes)
+      }, unref(linkAttributes)), {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "default")
+        ]),
+        _: 3
+      }, 16, ["to", "class"])) : (openBlock(), createBlock(resolveDynamicComponent(__props.tag), mergeProps({
+        key: 1,
+        class: unref(classes)
+      }, unref(linkAttributes)), {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "default")
+        ]),
+        _: 3
+      }, 16, ["class"]));
     };
   }
 });
-function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
-  return _ctx.isVueRouterInstalled && _ctx.to ? (openBlock(), createBlock(resolveDynamicComponent("router-link"), mergeProps({
-    key: 0,
-    to: _ctx.to,
-    class: _ctx.classes
-  }, _ctx.linkAttributes), {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  }, 16, ["to", "class"])) : (openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({
-    key: 1,
-    class: _ctx.classes
-  }, _ctx.linkAttributes), {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  }, 16, ["class"]));
-}
-var NavLink = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$D]]);
 
 var top = 'top';
 var bottom = 'bottom';
@@ -22755,7 +22705,7 @@ const _hoisted_1$o = {
   key: 0,
   class: "visually-hidden"
 };
-const _sfc_main$H = /* @__PURE__ */ defineComponent({
+const _sfc_main$D = /* @__PURE__ */ defineComponent({
   __name: "Dropdown",
   props: dropdownProps,
   setup(__props) {
@@ -22806,7 +22756,7 @@ const _sfc_main$H = /* @__PURE__ */ defineComponent({
             ]),
             _: 3
           }, 8, ["disabled", "variant", "block", "size"])) : createCommentVNode("", true),
-          _ctx.isNav ? (openBlock(), createBlock(NavLink, {
+          _ctx.isNav ? (openBlock(), createBlock(_sfc_main$E, {
             key: 1,
             ref_key: "toggle",
             ref: toggle,
@@ -22861,7 +22811,7 @@ const _sfc_main$H = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_main$G = defineComponent({
+const _sfc_main$C = defineComponent({
   name: "DropdownButton",
   props: {
     active: { type: Boolean, default: false },
@@ -22869,7 +22819,7 @@ const _sfc_main$G = defineComponent({
   }
 });
 const _hoisted_1$n = { role: "menuitem" };
-function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("li", _hoisted_1$n, [
     createElementVNode("button", {
       class: normalizeClass(["dropdown-item", { "active": _ctx.active, "disabled": _ctx.disabled }]),
@@ -22879,13 +22829,12 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)
   ]);
 }
-var DropdownButton = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$C]]);
+var DropdownButton = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$s]]);
 
-const _sfc_main$F = defineComponent({
-  name: "DropdownDivider"
-});
+const _sfc_main$B = {};
+
 const _hoisted_1$m = { role: "presentation" };
-const _hoisted_2$h = /* @__PURE__ */ createElementVNode("hr", {
+const _hoisted_2$h = /*#__PURE__*/createElementVNode("hr", {
   role: "separator",
   "aria-orientation": "horizontal",
   class: "dropdown-divider"
@@ -22893,17 +22842,18 @@ const _hoisted_2$h = /* @__PURE__ */ createElementVNode("hr", {
 const _hoisted_3$a = [
   _hoisted_2$h
 ];
-function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("li", _hoisted_1$m, _hoisted_3$a);
+
+function _sfc_render$r(_ctx, _cache) {
+  return (openBlock(), createElementBlock("li", _hoisted_1$m, _hoisted_3$a))
 }
-var DropdownDivider = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$B]]);
+var DropdownDivider = /*#__PURE__*/_export_sfc(_sfc_main$B, [['render',_sfc_render$r]]);
 
 const _hoisted_1$l = {
   key: 2,
   class: "dropdown-item-text"
 };
 const _hoisted_2$g = ["href"];
-const _sfc_main$E = /* @__PURE__ */ defineComponent({
+const _sfc_main$A = /* @__PURE__ */ defineComponent({
   __name: "DropdownItem",
   props: {
     tag: { type: String, default: "li" },
@@ -22983,7 +22933,7 @@ var FormLabel = defineComponent({
   }
 });
 
-const _sfc_main$D = defineComponent({
+const _sfc_main$z = defineComponent({
   name: "FormGroup",
   components: { FormLabel },
   props: {
@@ -23023,7 +22973,7 @@ const _sfc_main$D = defineComponent({
     };
   }
 });
-function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_FormLabel = resolveComponent("FormLabel");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
@@ -23058,9 +23008,9 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var FormGroup = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$A]]);
+var FormGroup = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$q]]);
 
-const _sfc_main$C = defineComponent({
+const _sfc_main$y = defineComponent({
   name: "Figure",
   props: {
     caption: { type: String, default: null },
@@ -23074,7 +23024,7 @@ const _hoisted_2$f = {
   key: 1,
   class: "figure-caption"
 };
-function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent("figure"), { class: "figure" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default"),
@@ -23093,7 +23043,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var Figure = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$z]]);
+var Figure = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$p]]);
 
 var Grid = defineComponent({
   name: "Grid",
@@ -23132,8 +23082,9 @@ var GridCol = defineComponent({
   }
 });
 
-const _sfc_main$B = defineComponent({
-  emits: ["update:modelValue"],
+const _hoisted_1$j = ["type", "value"];
+const _sfc_main$x = /* @__PURE__ */ defineComponent({
+  __name: "Input",
   props: {
     type: { type: String, default: "text" },
     size: { type: String, default: null },
@@ -23141,56 +23092,52 @@ const _sfc_main$B = defineComponent({
     state: { type: Boolean, default: null },
     modelValue: { type: [Number, String], default: null }
   },
-  setup(props, context) {
-    const attributes = ref({});
-    if (props.state !== null) {
-      attributes.value = {
-        "aria-invalid": props.state === false
-      };
-    }
-    return {
-      attributes,
-      classes: computed(() => ({
-        ["form-control" + (props.plain ? "-plaintext" : "")]: props.type !== "range",
-        "form-range": props.type === "range",
-        "is-valid": props.state === true,
-        "is-invalid": props.state === false,
-        ["form-control-" + props.size]: !!props.size,
-        "form-control-color": props.type === "color"
-      }))
+  emits: ["update:modelValue"],
+  setup(__props, { emit: emits }) {
+    const props = __props;
+    const attributes = computed(() => {
+      let attributes2 = {};
+      if (props.state !== null) {
+        attributes2 = {
+          "aria-invalid": props.state === false
+        };
+      }
+      return attributes2;
+    });
+    const classes = computed(() => ({
+      ["form-control" + (props.plain ? "-plaintext" : "")]: props.type !== "range",
+      "form-range": props.type === "range",
+      "is-valid": props.state === true,
+      "is-invalid": props.state === false,
+      ["form-control-" + props.size]: !!props.size,
+      "form-control-color": props.type === "color"
+    }));
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("input", mergeProps({
+        type: __props.type,
+        value: __props.modelValue,
+        onInput: _cache[0] || (_cache[0] = (e) => _ctx.$emit("update:modelValue", __props.type === "number" ? Number(e.target.value) : e.target.value)),
+        class: unref(classes)
+      }, unref(attributes)), null, 16, _hoisted_1$j);
     };
   }
 });
-const _hoisted_1$j = ["type", "value"];
-function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("input", mergeProps({
-    type: _ctx.type,
-    value: _ctx.modelValue,
-    onInput: _cache[0] || (_cache[0] = (e) => _ctx.$emit("update:modelValue", _ctx.type === "number" ? Number(e.target.value) : e.target.value)),
-    class: _ctx.classes
-  }, _ctx.attributes), null, 16, _hoisted_1$j);
-}
-var Input = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$y]]);
 
-const _sfc_main$A = defineComponent({
+var InputGroupText = defineComponent({
   name: "InputGroupText",
   props: {
     tag: { type: String, default: "span" }
+  },
+  setup(props, { slots }) {
+    return () => h(props.tag, {
+      class: "input-group-text"
+    }, slots.default?.());
   }
 });
-function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "input-group-text" }, {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  });
-}
-var InputGroupText = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$x]]);
 
 var InputGroup_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$z = defineComponent({
+const _sfc_main$w = defineComponent({
   components: { InputGroupText },
   props: {
     tag: { type: String, default: "div" },
@@ -23211,7 +23158,7 @@ const _sfc_main$z = defineComponent({
     };
   }
 });
-function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_InputGroupText = resolveComponent("InputGroupText");
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
@@ -23239,7 +23186,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var InputGroup = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$w]]);
+var InputGroup = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$o]]);
 
 var Link = defineComponent({
   name: "Link",
@@ -23365,15 +23312,11 @@ var ModalFooter = defineComponent({
     tag: { type: String, default: "div" }
   },
   setup(props, { slots }) {
-    return () => h(
-      props.tag,
-      { class: "modal-footer" },
-      slots.default?.()
-    );
+    return () => h(props.tag, { class: "modal-footer" }, slots.default?.());
   }
 });
 
-const _sfc_main$y = defineComponent({
+const _sfc_main$v = defineComponent({
   name: "Modal",
   components: { Button, ModalFooter, ModalTitle, ModalHeader, ModalBody, ButtonClose },
   emits: ["update:modelValue", "close", "ok", "showing", "hiding", "shown", "hidden", "stateChanged"],
@@ -23541,7 +23484,7 @@ const _hoisted_3$9 = {
   ref: "backdrop",
   class: "modal-backdrop fade"
 };
-function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ModalTitle = resolveComponent("ModalTitle");
   const _component_ButtonClose = resolveComponent("ButtonClose");
   const _component_ModalHeader = resolveComponent("ModalHeader");
@@ -23641,11 +23584,11 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     !_ctx.noBackdrop && _ctx.shouldShowBackdrop ? (openBlock(), createElementBlock("div", _hoisted_3$9, null, 512)) : createCommentVNode("", true)
   ]);
 }
-var Modal = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$v]]);
+var Modal = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$n]]);
 
 var Menu_vue_vue_type_style_index_0_scoped_true_lang = '';
 
-const _sfc_main$x = defineComponent({
+const _sfc_main$u = defineComponent({
   name: "Menu",
   components: { AccordionItem, Accordion, ChevronRight: _sfc_main$kz },
   props: {
@@ -23671,7 +23614,7 @@ const _sfc_main$x = defineComponent({
 });
 const _hoisted_1$h = { class: "accordion-header" };
 const _hoisted_2$d = ["href"];
-function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Menu = resolveComponent("Menu", true);
   const _component_AccordionItem = resolveComponent("AccordionItem");
   const _component_ChevronRight = resolveComponent("ChevronRight");
@@ -23729,7 +23672,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["class"]);
 }
-var Menu = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$u], ["__scopeId", "data-v-022fa87b"]]);
+var Menu = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$m], ["__scopeId", "data-v-022fa87b"]]);
 
 var navProps = {
   tag: { type: String, default: "ul" },
@@ -23797,12 +23740,13 @@ var NavbarToggler = defineComponent({
   }
 });
 
-const _sfc_main$w = defineComponent({
-  components: { NavbarToggler, NavbarBrand, Container },
+const _sfc_main$t = /* @__PURE__ */ defineComponent({
+  __name: "Navbar",
   props: {
     brand: { type: String, default: null },
     brandUrl: { type: String, default: "#" },
     fluid: { type: Boolean, default: false },
+    size: { type: String, default: null },
     toggleEnabled: { type: Boolean, default: true },
     variant: { type: String, default: "light" },
     bgVariant: { type: String, default: "light" },
@@ -23810,94 +23754,86 @@ const _sfc_main$w = defineComponent({
     sticky: { type: String, default: null },
     expandsOn: { type: String, default: "lg" }
   },
-  setup(props, context) {
+  setup(__props) {
+    const props = __props;
     const collapsed = ref(false);
-    return {
-      collapsed,
-      toggleNavbar() {
-        collapsed.value = !collapsed.value;
-      },
-      classes: computed(() => [
-        "navbar",
-        {
-          ["navbar-" + props.variant]: props.variant,
-          ["bg-" + props.bgVariant]: props.bgVariant,
-          ["fixed-" + props.fixed]: !!props.fixed,
-          ["sticky-" + props.sticky]: !!props.sticky,
-          ["navbar-expand-" + props.expandsOn]: props.expandsOn
-        }
-      ])
+    function toggleNavbar() {
+      collapsed.value = !collapsed.value;
+    }
+    const classes = computed(() => [
+      "navbar",
+      {
+        ["navbar-" + props.variant]: props.variant,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        ["fixed-" + props.fixed]: !!props.fixed,
+        ["sticky-" + props.sticky]: !!props.sticky,
+        ["navbar-expand-" + props.expandsOn]: props.expandsOn
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("nav", {
+        class: normalizeClass(unref(classes))
+      }, [
+        createVNode(unref(Container), {
+          fluid: __props.fluid,
+          size: __props.size
+        }, {
+          default: withCtx(() => [
+            __props.brand || _ctx.$slots.brand ? renderSlot(_ctx.$slots, "brand", { key: 0 }, () => [
+              createVNode(unref(NavbarBrand), { href: __props.brandUrl }, {
+                default: withCtx(() => [
+                  createTextVNode(toDisplayString(__props.brand), 1)
+                ]),
+                _: 1
+              }, 8, ["href"])
+            ]) : createCommentVNode("", true),
+            __props.toggleEnabled ? (openBlock(), createBlock(unref(NavbarToggler), {
+              key: 1,
+              modelValue: collapsed.value,
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => collapsed.value = $event)
+            }, null, 8, ["modelValue"])) : createCommentVNode("", true),
+            renderSlot(_ctx.$slots, "default", {
+              collapsed: collapsed.value,
+              toggleNavbar
+            })
+          ]),
+          _: 3
+        }, 8, ["fluid", "size"])
+      ], 2);
     };
   }
 });
-function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_NavbarBrand = resolveComponent("NavbarBrand");
-  const _component_NavbarToggler = resolveComponent("NavbarToggler");
-  const _component_Container = resolveComponent("Container");
-  return openBlock(), createElementBlock("nav", {
-    class: normalizeClass(_ctx.classes)
-  }, [
-    createVNode(_component_Container, { fluid: _ctx.fluid }, {
-      default: withCtx(() => [
-        _ctx.brand || _ctx.$slots.brand ? renderSlot(_ctx.$slots, "brand", { key: 0 }, () => [
-          createVNode(_component_NavbarBrand, { href: _ctx.brandUrl }, {
-            default: withCtx(() => [
-              createTextVNode(toDisplayString(_ctx.brand), 1)
-            ]),
-            _: 1
-          }, 8, ["href"])
-        ]) : createCommentVNode("", true),
-        _ctx.toggleEnabled ? (openBlock(), createBlock(_component_NavbarToggler, {
-          key: 1,
-          modelValue: _ctx.collapsed,
-          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.collapsed = $event)
-        }, null, 8, ["modelValue"])) : createCommentVNode("", true),
-        renderSlot(_ctx.$slots, "default", {
-          collapsed: _ctx.collapsed,
-          toggleNavbar: _ctx.toggleNavbar
-        })
-      ]),
-      _: 3
-    }, 8, ["fluid"])
-  ], 2);
-}
-var Navbar = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$t]]);
 
-const _sfc_main$v = defineComponent({
-  name: "NavbarNav",
-  components: { Nav },
+const _sfc_main$s = /* @__PURE__ */ defineComponent({
+  __name: "NavbarNav",
   props: {
     ...navProps,
     scrollHeight: { type: [String, Number], default: null },
     scrollableL: { type: Boolean, default: false }
   },
-  setup(props, context) {
-    return {
-      classes: computed(() => [
-        {
-          "navbar-nav-scroll": props.scrollHeight || props.scrollableL
-        }
-      ])
+  setup(__props) {
+    const props = __props;
+    computed(() => [
+      {
+        "navbar-nav-scroll": props.scrollHeight || props.scrollableL
+      }
+    ]);
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(unref(Nav), {
+        navs: "",
+        style: normalizeStyle({ "--bs-scroll-height": typeof __props.scrollHeight === "number" ? __props.scrollHeight + "px" : __props.scrollHeight })
+      }, {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "default")
+        ]),
+        _: 3
+      }, 8, ["style"]);
     };
   }
 });
-function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_Nav = resolveComponent("Nav");
-  return openBlock(), createBlock(_component_Nav, mergeProps(_ctx.$props, {
-    navs: "",
-    style: { "--bs-scroll-height": typeof _ctx.scrollHeight === "number" ? _ctx.scrollHeight + "px" : _ctx.scrollHeight }
-  }), {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  }, 16, ["style"]);
-}
-var NavbarNav = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$s]]);
 
-const _sfc_main$u = defineComponent({
-  name: "NavItem",
-  components: { NavLink },
+const _sfc_main$r = /* @__PURE__ */ defineComponent({
+  __name: "NavItem",
   props: {
     tag: { type: String, default: "li" },
     linkTag: { type: String, default: "a" },
@@ -23908,82 +23844,49 @@ const _sfc_main$u = defineComponent({
     active: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false }
   },
-  setup(props) {
-    const classes = computed(() => [
-      "nav-item"
-    ]);
-    const attributes = computed(() => {
-      return {};
-    });
-    return {
-      classes,
-      attributes
+  setup(__props) {
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(resolveDynamicComponent(__props.tag), { class: "nav-item" }, {
+        default: withCtx(() => [
+          createVNode(_sfc_main$E, {
+            tag: __props.linkTag,
+            target: __props.target,
+            href: __props.href,
+            to: __props.to,
+            active: __props.active,
+            disabled: __props.disabled,
+            "aria-current": __props.ariaCurrent
+          }, {
+            default: withCtx(() => [
+              renderSlot(_ctx.$slots, "default")
+            ]),
+            _: 3
+          }, 8, ["tag", "target", "href", "to", "active", "disabled", "aria-current"])
+        ]),
+        _: 3
+      });
     };
   }
 });
-function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_NavLink = resolveComponent("NavLink");
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), mergeProps({ class: _ctx.classes }, _ctx.attributes), {
-    default: withCtx(() => [
-      createVNode(_component_NavLink, {
-        tag: _ctx.linkTag,
-        target: _ctx.target,
-        href: _ctx.href,
-        to: _ctx.to,
-        active: _ctx.active,
-        disabled: _ctx.disabled,
-        "aria-current": _ctx.ariaCurrent
-      }, {
-        default: withCtx(() => [
-          renderSlot(_ctx.$slots, "default")
-        ]),
-        _: 3
-      }, 8, ["tag", "target", "href", "to", "active", "disabled", "aria-current"])
-    ]),
-    _: 3
-  }, 16, ["class"]);
-}
-var NavItem = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$r]]);
 
 var NavItemDropdown = defineComponent({
   name: "NavItemDropdown",
-  components: { Dropdown: _sfc_main$H },
+  components: { Dropdown: _sfc_main$D },
   props: {
     ...dropdownProps,
     isNav: { type: Boolean, default: true },
     tag: { type: String, default: "li" }
   },
   setup(props, { slots }) {
-    return () => h(_sfc_main$H, {
+    return () => h(_sfc_main$D, {
       class: "nav-item",
       ...props
     }, () => slots.default?.());
   }
 });
 
-const _sfc_main$t = defineComponent({
-  name: "OffCanvasTitle",
-  props: {
-    tag: { type: String, default: "h5" }
-  }
-});
-function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-title" }, {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  });
-}
-var OffCanvasTitle = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$q]]);
-
-const _sfc_main$s = defineComponent({
-  name: "OffCanvasHeader",
-  emits: ["update:modelValue"],
-  components: {
-    OffCanvasTitle,
-    ButtonClose
-  },
+const _sfc_main$q = /* @__PURE__ */ defineComponent({
+  __name: "OffCanvasHeader",
   props: {
     modelValue: { type: Boolean, default: false },
     tag: { type: String, default: "div" },
@@ -23991,58 +23894,47 @@ const _sfc_main$s = defineComponent({
     showClose: { type: Boolean, default: true },
     btnCloseWhite: { type: Boolean, default: false }
   },
-  setup(props) {
-    return {
-      classes: computed(() => ["offcanvas-header"])
+  emits: ["update:modelValue"],
+  setup(__props) {
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(resolveDynamicComponent(__props.tag), { class: "offcanvas-header" }, {
+        default: withCtx(() => [
+          _ctx.$slots.title || __props.title ? (openBlock(), createBlock(unref(OffCanvasTitle), { key: 0 }, {
+            default: withCtx(() => [
+              renderSlot(_ctx.$slots, "title", {}, () => [
+                createTextVNode(toDisplayString(__props.title), 1)
+              ])
+            ]),
+            _: 3
+          })) : createCommentVNode("", true),
+          renderSlot(_ctx.$slots, "default"),
+          __props.showClose ? (openBlock(), createBlock(unref(ButtonClose), {
+            key: 1,
+            white: __props.btnCloseWhite,
+            onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", false))
+          }, null, 8, ["white"])) : createCommentVNode("", true)
+        ]),
+        _: 3
+      });
     };
   }
 });
-function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_OffCanvasTitle = resolveComponent("OffCanvasTitle");
-  const _component_ButtonClose = resolveComponent("ButtonClose");
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
-    class: normalizeClass(_ctx.classes)
-  }, {
-    default: withCtx(() => [
-      _ctx.$slots.title || _ctx.title ? (openBlock(), createBlock(_component_OffCanvasTitle, { key: 0 }, {
-        default: withCtx(() => [
-          renderSlot(_ctx.$slots, "title", {}, () => [
-            createTextVNode(toDisplayString(_ctx.title), 1)
-          ])
-        ]),
-        _: 3
-      })) : createCommentVNode("", true),
-      renderSlot(_ctx.$slots, "default"),
-      _ctx.showClose ? (openBlock(), createBlock(_component_ButtonClose, {
-        key: 1,
-        white: _ctx.btnCloseWhite,
-        onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:modelValue", false))
-      }, null, 8, ["white"])) : createCommentVNode("", true)
-    ]),
-    _: 3
-  }, 8, ["class"]);
-}
-var OffCanvasHeader = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$p]]);
 
-const _sfc_main$r = defineComponent({
+var OffCanvasBody = defineComponent({
   name: "OffCanvasBody",
   props: {
     tag: { type: String, default: "div" }
+  },
+  setup(props, { slots }) {
+    return () => h(props.tag, {
+      class: "offcanvas-body"
+    }, slots.default?.());
   }
 });
-function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), { class: "offcanvas-body" }, {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  });
-}
-var OffCanvasBody = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$o]]);
 
-const _sfc_main$q = defineComponent({
+const _sfc_main$p = defineComponent({
   name: "OffCanvas",
-  components: { OffCanvasBody, OffCanvasHeader, ButtonClose },
+  components: { ButtonClose, OffCanvasHeader: _sfc_main$q, OffCanvasBody },
   emits: ["update:modelValue", "beforeShow", "beforeHide", "shown", "hidden"],
   props: {
     tabIndex: { type: Number, default: -1 },
@@ -24147,7 +24039,7 @@ const _sfc_main$q = defineComponent({
     window.removeEventListener("toggleOffCanvas", this.globalEventListener);
   }
 });
-function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_OffCanvasHeader = resolveComponent("OffCanvasHeader");
   const _component_OffCanvasBody = resolveComponent("OffCanvasBody");
   return openBlock(), createBlock(Teleport, { to: "body" }, [
@@ -24192,9 +24084,21 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 512)) : createCommentVNode("", true)
   ]);
 }
-var OffCanvas = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$n]]);
+var OffCanvas = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$l]]);
 
-const _sfc_main$p = defineComponent({
+var OffCanvasTitle = defineComponent({
+  name: "OffCanvasTitle",
+  props: {
+    tag: { type: String, default: "h5" }
+  },
+  setup(props, { slots }) {
+    return h(props.tag, {
+      class: "offcanvas-title"
+    }, slots.default?.());
+  }
+});
+
+const _sfc_main$o = defineComponent({
   name: "Popover",
   props: {
     target: { type: String, required: true },
@@ -24317,7 +24221,7 @@ const _hoisted_2$c = {
   class: "popover-header"
 };
 const _hoisted_3$8 = { class: "popover-body" };
-function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(Teleport, { to: "body" }, [
     _ctx.shown ? (openBlock(), createElementBlock("div", {
       key: 0,
@@ -24337,9 +24241,9 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     ], 2)) : createCommentVNode("", true)
   ]);
 }
-var Popover = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$m]]);
+var Popover = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$k]]);
 
-const _sfc_main$o = defineComponent({
+const _sfc_main$n = defineComponent({
   name: "Radio",
   props: {
     name: { type: String, default: null },
@@ -24364,7 +24268,7 @@ const _sfc_main$o = defineComponent({
 const _hoisted_1$f = { class: "form-check" };
 const _hoisted_2$b = ["name", "id", "value", "checked"];
 const _hoisted_3$7 = ["for"];
-function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$f, [
     createElementVNode("input", {
       class: "form-check-input",
@@ -24383,26 +24287,19 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     ], 8, _hoisted_3$7)
   ]);
 }
-var Radio = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$l]]);
+var Radio = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$j]]);
 
-const _sfc_main$n = defineComponent({
+const _sfc_main$m = defineComponent({
   name: "Range",
   props: {
     min: { type: Number, default: null },
     max: { type: Number, default: null },
     step: { type: Number, default: 1 },
     modelValue: { type: Number, default: 0 }
-  },
-  setup(props) {
-    return {
-      classes: computed(() => [
-        "form-range"
-      ])
-    };
   }
 });
 const _hoisted_1$e = ["value", "min", "max", "step"];
-function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("input", {
     value: _ctx.modelValue,
     onInput: _cache[0] || (_cache[0] = (e) => _ctx.$emit("update:modelValue", Number(e.target.value))),
@@ -24410,14 +24307,14 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     max: _ctx.max,
     step: _ctx.step,
     type: "range",
-    class: normalizeClass(_ctx.classes)
-  }, null, 42, _hoisted_1$e);
+    class: "form-range"
+  }, null, 40, _hoisted_1$e);
 }
-var Range = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$k]]);
+var Range = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$i]]);
 
 var Rating_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$m = defineComponent({
+const _sfc_main$l = defineComponent({
   name: "Rating",
   components: { StarFill: _sfc_main$3I, Star: _sfc_main$3G },
   props: {
@@ -24444,7 +24341,7 @@ const _sfc_main$m = defineComponent({
   }
 });
 const _hoisted_1$d = { class: "form-rating" };
-function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$d, [
     (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.items, (i) => {
       return openBlock(), createBlock(resolveDynamicComponent(_ctx.value >= i ? "StarFill" : "Star"), {
@@ -24455,7 +24352,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     }), 256))
   ]);
 }
-var Rating = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$j]]);
+var Rating = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$h]]);
 
 var Row = defineComponent({
   name: "Row",
@@ -24498,7 +24395,7 @@ var Row = defineComponent({
   }
 });
 
-const _sfc_main$l = defineComponent({
+const _sfc_main$k = defineComponent({
   emits: ["update:modelValue", "change"],
   props: {
     multiple: { type: Boolean, default: false },
@@ -24548,7 +24445,7 @@ const _hoisted_1$c = ["multiple"];
 const _hoisted_2$a = ["label"];
 const _hoisted_3$6 = ["value", "disabled"];
 const _hoisted_4$3 = ["value", "disabled"];
-function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createElementBlock("select", {
     class: normalizeClass(_ctx.classes),
     "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => _ctx.model = $event),
@@ -24589,12 +24486,10 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     [vModelSelect, _ctx.model]
   ]);
 }
-var Select = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$i]]);
-
-var SpinButton_vue_vue_type_style_index_0_lang = '';
+var Select = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$g]]);
 
 const _hoisted_1$b = ["aria-valuemin", "aria-valuemax", "aria-valuenow", "aria-valuetext"];
-const _sfc_main$k = /* @__PURE__ */ defineComponent({
+const _sfc_main$j = /* @__PURE__ */ defineComponent({
   __name: "SpinButton",
   props: {
     modelValue: { type: Number, default: 0 },
@@ -24681,7 +24576,7 @@ const _sfc_main$k = /* @__PURE__ */ defineComponent({
   }
 });
 
-const _sfc_main$j = defineComponent({
+const _sfc_main$i = defineComponent({
   emits: ["update:active"],
   props: {
     active: { type: Boolean, default: false },
@@ -24722,18 +24617,18 @@ const _sfc_main$j = defineComponent({
     }
   }
 });
-function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(_ctx.classes)
   }, [
     renderSlot(_ctx.$slots, "default")
   ], 2);
 }
-var Tab = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$h]]);
+var Tab = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$f]]);
 
-const _sfc_main$i = defineComponent({
+const _sfc_main$h = defineComponent({
   emits: ["update:modelValue"],
-  components: { NavItem, Nav },
+  components: { NavItem: _sfc_main$r, Nav },
   props: {
     modelValue: { type: Number, default: 0 },
     card: { type: Boolean, default: false },
@@ -24788,7 +24683,7 @@ const _hoisted_2$9 = {
   key: 1,
   class: "tab-content"
 };
-function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_NavItem = resolveComponent("NavItem");
   const _component_Nav = resolveComponent("Nav");
   return openBlock(), createElementBlock("div", {
@@ -24834,7 +24729,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     ])) : createCommentVNode("", true)
   ], 2);
 }
-var Tabs = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$g]]);
+var Tabs = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$e]]);
 
 var Textarea = defineComponent({
   name: "Textarea",
@@ -24880,7 +24775,7 @@ var localData = localeData.exports;
 
 dayjs.extend(localData);
 dayjs.extend(isToday);
-const _sfc_main$h = defineComponent({
+const _sfc_main$g = defineComponent({
   name: "Calendar",
   components: {
     InputGroup,
@@ -24958,7 +24853,7 @@ const _hoisted_5 = { class: "text-center border" };
 const _hoisted_6 = { class: "text-center border" };
 const _hoisted_7 = { class: "text-center border" };
 const _hoisted_8 = { class: "text-center border" };
-function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ChevronDoubleLeft = resolveComponent("ChevronDoubleLeft");
   const _component_Button = resolveComponent("Button");
   const _component_Col = resolveComponent("Col");
@@ -25109,7 +25004,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var Calendar = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$f]]);
+var Calendar = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$d]]);
 
 var CarouselInner = defineComponent({
   name: "CarouselInner",
@@ -25135,7 +25030,7 @@ var CarouselIndicators = defineComponent({
   }
 });
 
-const _sfc_main$g = defineComponent({
+const _sfc_main$f = defineComponent({
   name: "Carousel",
   components: { ChevronLeft: _sfc_main$kA, ChevronRight: _sfc_main$kz, CarouselInner, CarouselIndicators },
   props: {
@@ -25202,7 +25097,7 @@ const _sfc_main$g = defineComponent({
 const _hoisted_1$8 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Previous", -1);
 const _hoisted_2$7 = /* @__PURE__ */ createElementVNode("span", { class: "visually-hidden" }, "Next", -1);
 const _hoisted_3$4 = ["onClick", "aria-current"];
-function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_CarouselInner = resolveComponent("CarouselInner");
   const _component_ChevronLeft = resolveComponent("ChevronLeft");
   const _component_ChevronRight = resolveComponent("ChevronRight");
@@ -25265,7 +25160,7 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var Carousel = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$e]]);
+var Carousel = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$c]]);
 
 var CarouselCaption = defineComponent({
   name: "CarouselCaption",
@@ -25279,15 +25174,15 @@ var CarouselCaption = defineComponent({
   }
 });
 
-const _sfc_main$f = defineComponent({
+const _sfc_main$e = defineComponent({
   name: "CarouselControl"
 });
-function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   return null;
 }
-var CarouselControl = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$d]]);
+var CarouselControl = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$b]]);
 
-const _sfc_main$e = defineComponent({
+const _sfc_main$d = defineComponent({
   name: "CarouselItem",
   emits: ["slidingStart", "slidingEnd", "update:active"],
   props: {
@@ -25339,7 +25234,7 @@ const _sfc_main$e = defineComponent({
     }
   }
 });
-function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
     class: normalizeClass(_ctx.classes),
     onTransitionend: _ctx.transitionEnd
@@ -25350,11 +25245,11 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 40, ["class", "onTransitionend"]);
 }
-var CarouselItem = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$c]]);
+var CarouselItem = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$a]]);
 
 var Tags_vue_vue_type_style_index_0_lang = '';
 
-const _sfc_main$d = defineComponent({
+const _sfc_main$c = defineComponent({
   name: "Tags",
   components: { Button, Badge, X: _sfc_main$7$1 },
   props: {
@@ -25409,7 +25304,7 @@ const _sfc_main$d = defineComponent({
 });
 const _hoisted_1$7 = { class: "d-inline-flex flex-grow-1" };
 const _hoisted_2$6 = ["placeholder"];
-function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_X = resolveComponent("X");
   const _component_Badge = resolveComponent("Badge");
   const _component_Button = resolveComponent("Button");
@@ -25468,7 +25363,7 @@ function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["role", "tabindex", "class"]);
 }
-var Tags = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$b]]);
+var Tags = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$9]]);
 
 const PanelMenu = defineComponent({
   emits: ["update:modelValue"],
@@ -25550,7 +25445,7 @@ const PanelMenu = defineComponent({
   }
 });
 
-const _sfc_main$c = defineComponent({
+var PageLink = defineComponent({
   name: "PageLink",
   props: {
     tag: { type: String, default: "a" },
@@ -25561,39 +25456,26 @@ const _sfc_main$c = defineComponent({
     nextText: { type: String, default: "&laquo;" },
     ariaLabel: { type: String, default: null }
   },
-  setup(props, context) {
-    return {
-      classes: computed(() => [
-        "page-link"
-      ]),
-      ariaLabelText: computed(() => {
-        if (props.next) {
-          return "Next";
-        }
-        if (props.prev) {
-          return "Previous";
-        }
-        return null;
-      })
+  setup(props, { slots }) {
+    const ariaLabelText = () => {
+      if (props.next) {
+        return "Next";
+      }
+      if (props.prev) {
+        return "Previous";
+      }
+      return null;
     };
+    return () => h(props.tag, {
+      class: "page-link",
+      "aria-label": ariaLabelText(),
+      href: props.href
+    }, slots.default?.());
   }
 });
-function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
-    class: normalizeClass(_ctx.classes),
-    href: _ctx.href,
-    "aria-label": _ctx.ariaLabelText
-  }, {
-    default: withCtx(() => [
-      renderSlot(_ctx.$slots, "default")
-    ]),
-    _: 3
-  }, 8, ["class", "href", "aria-label"]);
-}
-var PageLink = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$a]]);
 
-const _sfc_main$b = defineComponent({
-  name: "PageItem",
+const _sfc_main$b = /* @__PURE__ */ defineComponent({
+  __name: "PageItem",
   props: {
     tag: { type: String, default: "li" },
     linkTag: { type: String, default: "a" },
@@ -25604,46 +25486,44 @@ const _sfc_main$b = defineComponent({
     active: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false }
   },
-  components: { PageLink },
-  setup(props, context) {
-    return {
-      classes: computed(() => [
+  setup(__props) {
+    const props = __props;
+    const classes = computed(
+      () => [
         "page-item",
         {
           "active": props.active,
           "disabled": props.disabled
         }
-      ])
+      ]
+    );
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(resolveDynamicComponent(__props.tag), {
+        class: normalizeClass(unref(classes))
+      }, {
+        default: withCtx(() => [
+          createVNode(unref(PageLink), {
+            href: __props.href,
+            tag: __props.linkTag,
+            prev: __props.prev,
+            next: __props.next,
+            "aria-label": __props.ariaLabel
+          }, {
+            default: withCtx(() => [
+              renderSlot(_ctx.$slots, "default")
+            ]),
+            _: 3
+          }, 8, ["href", "tag", "prev", "next", "aria-label"])
+        ]),
+        _: 3
+      }, 8, ["class"]);
     };
   }
 });
-function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_PageLink = resolveComponent("PageLink");
-  return openBlock(), createBlock(resolveDynamicComponent(_ctx.tag), {
-    class: normalizeClass(_ctx.classes)
-  }, {
-    default: withCtx(() => [
-      createVNode(_component_PageLink, {
-        href: _ctx.href,
-        tag: _ctx.linkTag,
-        prev: _ctx.prev,
-        next: _ctx.next,
-        "aria-label": _ctx.ariaLabel
-      }, {
-        default: withCtx(() => [
-          renderSlot(_ctx.$slots, "default")
-        ]),
-        _: 3
-      }, 8, ["href", "tag", "prev", "next", "aria-label"])
-    ]),
-    _: 3
-  }, 8, ["class"]);
-}
-var PageItem = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$9]]);
 
 const _sfc_main$a = defineComponent({
   name: "Pagination",
-  components: { PageItem, ThreeDots: _sfc_main$2o },
+  components: { PageItem: _sfc_main$b, ThreeDots: _sfc_main$2o },
   emits: ["update:modelValue", "update:currentPage", "change"],
   props: {
     tag: { type: String, default: "ul" },
@@ -26145,9 +26025,9 @@ const _sfc_main$5 = defineComponent({
     content: { type: String, default: null },
     placement: { type: String, default: "top" },
     opensOn: { type: String, default: "focusin" },
-    ClosesOn: { type: String, default: "focusout" }
+    closesOn: { type: String, default: "focusout" }
   },
-  setup(props, context) {
+  setup(props, { expose }) {
     const shouldShow = ref(false);
     const dir = ref("top");
     const bsDir = (dir2) => {
@@ -26174,7 +26054,7 @@ const _sfc_main$5 = defineComponent({
     const show = () => shouldShow.value = true;
     const hide = () => shouldShow.value = false;
     const toggle = () => shouldShow.value = !shouldShow.value;
-    context.expose({ show, hide, toggle });
+    expose({ show, hide, toggle });
     return {
       shouldShow,
       popperOptions,
@@ -43868,8 +43748,8 @@ const _sfc_main$2 = defineComponent({
     Modal,
     ListGroupItem,
     Checkbox,
-    Dropdown: _sfc_main$H,
-    Input,
+    Dropdown: _sfc_main$D,
+    Input: _sfc_main$x,
     ButtonGroup,
     Button,
     Select,
@@ -44297,7 +44177,7 @@ var LaravelCrudTable = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc
 
 const _sfc_main$1 = defineComponent({
   name: "TypeHead",
-  components: { DropdownMenu, Input, Button },
+  components: { DropdownMenu, Input: _sfc_main$x, Button },
   emits: ["update:modelValue", "selected"],
   props: {
     apiUrl: { type: String, default: null },
@@ -44624,7 +44504,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }, {
           default: withCtx(() => [
             createElementVNode("li", _hoisted_1, [
-              createVNode(Input, {
+              createVNode(_sfc_main$x, {
                 placeholder: __props.searchPlaceholder,
                 ref_key: "search",
                 ref: search,
@@ -44667,4 +44547,4 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 
-export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Chart, Checkbox, CheckboxGroup, Col, Collapse, Column, Container, DataTable, Datepicker, _sfc_main$H as Dropdown, DropdownButton, DropdownDivider, _sfc_main$E as DropdownItem, DropdownMenu, Figure, _sfc_main$N as Flex, _sfc_main$M as FlexItem, FormGroup, FormLabel, Grid, GridCol, Icon, Input, InputGroup, InputGroupText, LaravelCrudTable, _sfc_main$4 as Layout, Link, ListGroup, ListGroupItem, Menu, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, _sfc_main as Multiselect, Nav, NavItem, NavItemDropdown, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, OffCanvasHeader, OffCanvasTitle, PageItem, PageLink, Pagination, PanelMenu, Placeholder, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, _sfc_main$k as SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, TypeHead, Vr };
+export { Accordion, AccordionBody, AccordionHeader, AccordionItem, Alert, AlertHeading, AlertLink, Aspect, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonClose, ButtonGroup, ButtonToolbar, Calendar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImg, CardLink, CardSubTitle, CardText, CardTitle, Carousel, CarouselCaption, CarouselControl, CarouselIndicators, CarouselInner, CarouselItem, Chart, Checkbox, CheckboxGroup, Col, Collapse, Column, Container, DataTable, Datepicker, _sfc_main$D as Dropdown, DropdownButton, DropdownDivider, _sfc_main$A as DropdownItem, DropdownMenu, Figure, _sfc_main$J as Flex, _sfc_main$I as FlexItem, FormGroup, FormLabel, Grid, GridCol, Icon, _sfc_main$x as Input, InputGroup, InputGroupText, LaravelCrudTable, _sfc_main$4 as Layout, Link, ListGroup, ListGroupItem, Menu, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle, _sfc_main as Multiselect, Nav, _sfc_main$r as NavItem, NavItemDropdown, _sfc_main$E as NavLink, _sfc_main$t as Navbar, NavbarBrand, _sfc_main$s as NavbarNav, NavbarToggler, OffCanvas, OffCanvasBody, _sfc_main$q as OffCanvasHeader, OffCanvasTitle, _sfc_main$b as PageItem, PageLink, Pagination, PanelMenu, Placeholder, Popover, Progress, ProgressBar, Radio, Range, Rating, Row, Select, _sfc_main$j as SpinButton, Spinner, Stack, TBody, TFoot, THead, Tab, Table, Tabs, Tags, Td, Textarea, Th, Toast, ToastBody, ToastContainer, Tooltip, Tr, TypeHead, Vr };

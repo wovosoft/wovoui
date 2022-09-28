@@ -23,6 +23,7 @@
 <script lang="ts">
 import FormLabel from "./FormLabel";
 import {computed, defineComponent, PropType} from "vue";
+import type {responsiveNumbers} from "../types/responsiveLayoutSizes";
 
 export default defineComponent({
     name: "FormGroup",
@@ -33,14 +34,14 @@ export default defineComponent({
         label: {type: String as PropType<string>, default: null},
         labelFor: {type: String as PropType<string>, default: null},
         horizontal: {type: Boolean as PropType<boolean>, default: false},
-        labelSm: {type: Number as PropType<number>, default: null},
-        labelMd: {type: Number as PropType<number>, default: null},
-        labelLg: {type: Number as PropType<number>, default: null},
-        labelXl: {type: Number as PropType<number>, default: null},
-        contentSm: {type: Number as PropType<number>, default: null},
-        contentMd: {type: Number as PropType<number>, default: null},
-        contentLg: {type: Number as PropType<number>, default: null},
-        contentXl: {type: Number as PropType<number>, default: null},
+        labelSm: {type: Number as PropType<responsiveNumbers>, default: null},
+        labelMd: {type: Number as PropType<responsiveNumbers>, default: null},
+        labelLg: {type: Number as PropType<responsiveNumbers>, default: null},
+        labelXl: {type: Number as PropType<responsiveNumbers>, default: null},
+        contentSm: {type: Number as PropType<responsiveNumbers>, default: null},
+        contentMd: {type: Number as PropType<responsiveNumbers>, default: null},
+        contentLg: {type: Number as PropType<responsiveNumbers>, default: null},
+        contentXl: {type: Number as PropType<responsiveNumbers>, default: null},
         noMarginBottom: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props) {
