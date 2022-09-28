@@ -20524,7 +20524,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                   return openBlock(), createElementBlock(Fragment, null, [
                     th.visible !== false ? (openBlock(), createBlock(_component_Td, {
                       key: th_index,
-                      ":class": th.tdClass
+                      class: normalizeClass(th.tdClass)
                     }, {
                       default: withCtx(() => [
                         renderSlot(_ctx.$slots, "cell(" + _ctx.getKey(th) + ")", {
@@ -20543,7 +20543,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                         ])
                       ]),
                       _: 2
-                    }, 1032, [":class"])) : createCommentVNode("", true)
+                    }, 1032, ["class"])) : createCommentVNode("", true)
                   ], 64);
                 }), 256))
               ]),
