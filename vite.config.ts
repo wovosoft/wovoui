@@ -1,15 +1,11 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
-// import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 
 const path = require("path");
 
+/** @type {import('vite').UserConfig} */
 export default defineConfig({
-    // esbuild: {
-    //     jsxFactory: 'h',
-    //     jsxFragment: 'Fragment'
-    // },
     plugins: [
         vue({}),
         // vueJsx({}),
@@ -25,7 +21,7 @@ export default defineConfig({
         lib: {
             entry: path.resolve(__dirname, 'src/index.ts'),
             name: 'wovoui',
-            fileName: (format) => `index.${format}.js`
+            fileName: (format) => `[name].${format}.mjs`
         },
         rollupOptions: {
             external: [
@@ -33,6 +29,8 @@ export default defineConfig({
                 'axios'
             ],
             output: {
+                // entryFileNames: `[name].[hash].mjs`,
+                // chunkFileNames: `[name].[hash].mjs`,
                 globals: {
                     vue: 'Vue',
                     axios: 'axios'
