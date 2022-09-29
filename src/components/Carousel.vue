@@ -43,6 +43,7 @@ import CarouselIndicators from "./CarouselIndicators";
 import {ChevronLeft, ChevronRight} from "@wovosoft/wovoui-icons";
 
 type directionType = 'left' | 'right' | 'start' | 'end';
+
 export default defineComponent({
     name: "Carousel",
     components: {ChevronLeft, ChevronRight, CarouselInner, CarouselIndicators},

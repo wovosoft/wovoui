@@ -14,6 +14,7 @@ import TablePage from "./pages/TablePage.vue";
 import PaginationPage from "./pages/PaginationPage.vue"
 import OffCanvasPage from "./pages/OffCanvasPage.vue"
 import FormControlPage from "./pages/FormControlPage.vue"
+import CarouselPage from "./pages/CarouselPage.vue"
 
 export const routes = [
     {
@@ -80,6 +81,11 @@ export const routes = [
         path: "/form-controls",
         name: "Form Control",
         component: FormControlPage
+    },
+    {
+        path: "/carousel",
+        name: "Carousel",
+        component: CarouselPage
     }
 ]
 
