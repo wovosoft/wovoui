@@ -1,5 +1,4 @@
-import {TextAlign} from "./TextAlign";
-
+export type TextAlign = 'start' | 'center' | 'end';
 export type ColorVariants = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
 export type JustifyAlignment = TextAlign | "between" | "around" | "evenly";
 export type ItemAlignment = TextAlign | "baseline" | "stretch";

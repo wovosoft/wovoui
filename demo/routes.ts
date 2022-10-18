@@ -15,6 +15,7 @@ import PaginationPage from "./pages/PaginationPage.vue"
 import OffCanvasPage from "./pages/OffCanvasPage.vue"
 import FormControlPage from "./pages/FormControlPage.vue"
 import CarouselPage from "./pages/CarouselPage.vue"
+import TypeHeadPage from "./pages/TypeHeadPage.vue"
 
 export const routes = [
     {
@@ -86,6 +87,11 @@ export const routes = [
         path: "/carousel",
         name: "Carousel",
         component: CarouselPage
+    },
+    {
+        path: "/typehead",
+        name: "Typehead",
+        component: TypeHeadPage
     }
 ]
 

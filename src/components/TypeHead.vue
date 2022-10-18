@@ -1,23 +1,29 @@
 <template>
-    <div ref="root" class="dropdown" @keydown.esc="dropdownShown=false;$refs.toggle?.focus()">
-        <button :class="classes"
-                ref="toggle"
-                type="button"
-                @keydown.down="()=>{if (!dropdownShown) openDropdown() }"
-                @click="openDropdown"
-                :aria-expanded="dropdownShown">
-            <slot name="label" :selectedItem="selectedItem">
-                {{ getLabel(selectedItem) }}
-            </slot>
-        </button>
+    <div :class="classes" class="position-relative" @keyup.esc="onEscPressed" v-on-click-outside="onClickOutside">
+        <InputGroup :size="toggleSize">
+            <slot name="prepend"></slot>
+            <button :class="toggleClasses"
+                    ref="toggle_btn"
+                    type="button"
+                    @click="toggle"
+                    @keyup.down="onMenuOpened"
+                    :aria-expanded="isOpened">
+                <slot name="label" :selectedItem="selectedItem">
+                    {{ getLabel(selectedItem) }}
+                </slot>
+            </button>
+            <slot name="append"></slot>
+        </InputGroup>
         <DropdownMenu
             ref="menu"
             :tag="menuTag"
-            v-model:show="dropdownShown"
+            @opened="onMenuOpened"
             @keydown.up.down="focusItem"
+            v-model:show="isOpened"
             :dark="menuDark"
             :style="{maxHeight:menuHeight}"
-            class="overflow-auto w-100">
+            class="w-100 overflow-auto"
+            :class="menuClass">
             <li class="px-3">
                 <Input :placeholder="searchPlaceholder"
                        ref="search"
@@ -25,10 +31,13 @@
                        tabindex="0"
                        v-model="query"
                        :size="searchSize"
+                       :class="searchClass"
+                       @update:modelValue="fetchItems"
+                       @keyup.up="focusToggleButton"
                 />
             </li>
             <li v-for="(item,item_key) in items" :key="item_key" role="menuitem">
-                <button @click="selected(item)" class="dropdown-item" type="button">
+                <button @click="onSelected(item)" class="dropdown-item" type="button">
                     <slot :option="item">
                         {{ getOption(item) }}
                     </slot>
@@ -38,159 +47,179 @@
     </div>
 </template>
 
-<script lang="ts">
-import {defineComponent, onMounted, onBeforeUnmount, PropType, Ref, ref, watch, computed} from "vue";
-import type {buttonSizes} from "../types/buttonSizes";
-import Button from "./Button";
-import Input from "./Input.vue";
-import DropdownMenu from "./DropdownMenu.vue";
-import type {ColorVariants} from "../types/colorVariants";
-import type {TextAlign} from "../types/TextAlign";
-import {createPopper} from "@popperjs/core";
+<script lang="ts" setup>
+import {computed, nextTick, PropType, ref, Ref, useSlots, watch} from "vue";
+import type {ColorVariants, ButtonSizes, TextAlign} from "../types";
+import {Input, DropdownMenu} from "../index";
+import InputGroup from "./InputGroup.vue";
+import vOnClickOutside from "./../directives/vOnClickOutside";
+import axios from "axios";
+import usePopper from "../shared/usePopper";
 
-export default defineComponent({
-    name: "TypeHead",
-    components: {DropdownMenu, Input, Button},
-    emits: ['update:modelValue', 'selected'],
-    props: {
-        apiUrl: {type: String as PropType<string>, default: null},
-        lazy: {type: Boolean as PropType<boolean>, default: true},
-        getItems: {
-            //sending refs, so that can be modified from outside
-            type: Function as PropType<(items: Ref<unknown>, query: Ref<string | number | null>) => unknown>,
-            required: true
-        },
-        menuHeight: {type: String as PropType<string>, default: "250px"},
-        searchSize: {type: String as PropType<buttonSizes>, default: "sm"},
-        toggleSize: {type: String as PropType<buttonSizes>, default: "sm"},
-        menuDark: {type: Boolean as PropType<boolean>, default: false},
-        menuTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ul"},
-        searchPlaceholder: {type: String as PropType<string>, default: "Search..."},
-        modelValue: {default: null},
-        variant: {type: String as PropType<ColorVariants>, default: "secondary"},
-        textAlign: {type: String as PropType<TextAlign>, default: 'start'},
-        getLabel: {
-            type: Function as PropType<(item: unknown) => unknown>,
-            default: (item: unknown) => item ? item : "Not Selected"
-        },
-        getOption: {
-            type: Function as PropType<(item: unknown) => unknown>,
-            default: (item: unknown) => item
-        }
+const props = defineProps({
+    apiUrl: {
+        type: String as PropType<string>,
+        default: null
     },
-    setup(props, {emit}) {
-        const items = ref<unknown[]>([]);
-        const query = ref<string | number | null>(null);
-        const dropdownShown = ref<boolean>(false);
-
-        const selectedItem = ref<unknown>(props.modelValue);
-
-        /**
-         * This watches changes from outside also
-         */
-        watch(selectedItem, value => emit('update:modelValue', value));
-        watch(() => props.modelValue, value => selectedItem.value = value);
-
-        watch(query, value => {
-            props.getItems(items, query);
-        })
-
-        const root = ref<HTMLElement | null>(null);
-        const search = ref<InstanceType<typeof Input> | null>(null);
-        const toggle = ref<HTMLElement | null>(null);
-        const menu = ref<InstanceType<typeof DropdownMenu> | null>(null);
-
-
-        const outsideClickHandler = (e): void => {
-            /**
-             * If clicked outside of the root, dismiss the dropdown menu
-             */
-            if (dropdownShown.value && !root.value?.contains(e.target)) {
-                dropdownShown.value = false;
-            }
-        }
-
-        watch(dropdownShown, (shown: boolean) => {
-            if (shown) {
-                document.addEventListener("click", outsideClickHandler);
-            } else {
-                document.removeEventListener("click", outsideClickHandler);
-            }
-        });
-
-        const popperOptions = computed(() => ({
-            modifiers: [
-                {
-                    name: 'offset',
-                    options: {
-                        offset: [0, 5],
-                    },
-                },
-            ],
-        }));
-
-        let popperInstance = null;
-        onMounted(() => {
-            if (!props.lazy) {
-                props.getItems(items, query);
-            }
-            popperInstance = createPopper(
-                toggle.value,
-                menu.value?.$el,
-                popperOptions.value
-            )
-        });
-
-        /**
-         * When component is not live, we do not need this event on main document.
-         * So just remove it.
-         */
-        onBeforeUnmount(() => {
-            document.removeEventListener("click", outsideClickHandler);
-        })
-
-        return {
-            query,
-            root,
-            search,
-            toggle,
-            menu,
-
-            dropdownShown,
-            items,
-            selectedItem,
-            focusItem(e) {
-                if (e.code === "ArrowDown" && (e.target.nodeName === "BUTTON" || e.target.nodeName === "INPUT")) {
-                    let nextEL = e.target.parentNode.nextElementSibling;
-                    (nextEL?.querySelector("button") || nextEL?.querySelector("input"))?.focus();
-                } else if (e.code === "ArrowUp" && (e.target.nodeName === "BUTTON" || e.target.nodeName === "INPUT")) {
-                    let prevEl = e.target.parentNode.previousElementSibling;
-                    (prevEl?.querySelector("button") || prevEl?.querySelector("input"))?.focus();
-                }
-            },
-            selected(item: unknown) {
-                selectedItem.value = item;
-                dropdownShown.value = false;
-            },
-            openDropdown() {
-                dropdownShown.value = !dropdownShown.value;
-                if (dropdownShown.value) {
-                    setTimeout(() => {
-                        search.value?.$el.focus();
-                        popperInstance?.update();
-                    }, 0);
-                }
-            },
-            classes: computed(() => ([
-                "form-select",
-                "w-100",
-                {
-                    ["form-select-" + props.toggleSize]: props.toggleSize,
-                    ["text-" + props.textAlign]: props.textAlign
-                }
-            ])),
-            popperOptions
-        }
+    queryKey: {
+        type: String as PropType<string>,
+        default: () => 'query'
+    },
+    getItems: {
+        //sending refs, so that can be modified from outside
+        type: Function as PropType<(items: Ref<unknown>, query: Ref<string | number | null>) => unknown>,
+    },
+    menuHeight: {type: String as PropType<string>, default: "250px"},
+    searchSize: {type: String as PropType<ButtonSizes>, default: "sm"},
+    searchClass: {default: null},
+    toggleSize: {type: String as PropType<ButtonSizes>, default: null},
+    toggleClass: {default: null},
+    menuClass: {default: null},
+    menuDark: {type: Boolean as PropType<boolean>, default: false},
+    menuTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ul"},
+    searchPlaceholder: {type: String as PropType<string>, default: "Search..."},
+    modelValue: {default: null},
+    variant: {type: String as PropType<ColorVariants>, default: "secondary"},
+    textAlign: {type: String as PropType<TextAlign>, default: 'start'},
+    getLabel: {
+        type: Function as PropType<(item: unknown) => unknown>,
+        default: (item: unknown) => item ? item : "Not Selected"
+    },
+    getOption: {
+        type: Function as PropType<(item: unknown) => unknown>,
+        default: (item: unknown) => item
+    },
+    noCloseOnOutsideClick: {
+        type: Boolean as PropType<boolean>, default: false
+    },
+    noCloseOnItemSelect: {
+        type: Boolean as PropType<boolean>, default: false
+    },
+    noCloseOnEscPressed: {
+        type: Boolean as PropType<boolean>, default: false
     }
-})
+});
+
+const emit = defineEmits<{
+    (e: 'update:modelValue', value: any): void
+    (e: 'selected', value: any): void
+    (e: 'onBeforeOpen', value: any): void
+    (e: 'onBeforeClose', value: any): void
+}>();
+
+
+const query = ref<string | number>();
+const items = ref<any[]>([]);
+const toggle_btn = ref<HTMLButtonElement>(null);
+const menu = ref<InstanceType<typeof DropdownMenu>>(null);
+const isOpened = ref<boolean>(false);
+const search = ref<InstanceType<typeof Input> | null>(null);
+
+const {update} = usePopper(toggle_btn, menu, {}, isOpened);
+
+
+function fetchItems() {
+    if (props.apiUrl) {
+        let url = new URL(props.apiUrl);
+        if (query.value) {
+            url.searchParams.set(props.queryKey, query.value.toString());
+        }
+        return axios.get(url.href).then(res => {
+            items.value = res.data;
+            return res.data;
+        }).catch(err => {
+            items.value = [];
+            return [];
+        });
+    } else {
+        props.getItems(items, query);
+    }
+}
+
+const slots = useSlots();
+const toggleClasses = computed(() => {
+    return [
+        "form-select",
+        {
+            ["form-select-" + props.toggleSize]: props.toggleSize,
+            ["text-" + props.textAlign]: props.textAlign,
+            "border-0": slots.append || slots.prepend
+        },
+        props.toggleClass
+    ];
+});
+
+const classes = computed(() => [
+    "dropdown", {
+        "form-control p-0": slots.append || slots.prepend,
+    }
+]);
+
+function onMenuOpened() {
+    nextTick(() => search.value?.$el.focus())
+}
+
+const selectedItem = ref<any>(null)
+
+function onSelected(item) {
+    emit("update:modelValue", item);
+    emit("selected", item);
+    selectedItem.value = item;
+    if (!props.noCloseOnItemSelect) {
+        close();
+    }
+}
+
+function onClickOutside() {
+    if (!props.noCloseOnOutsideClick) {
+        close();
+    }
+}
+
+function onEscPressed() {
+    if (!props.noCloseOnEscPressed) {
+        close();
+    }
+}
+
+watch(() => props.modelValue, value => {
+    selectedItem.value = value;
+});
+
+
+function focusToggleButton() {
+    toggle_btn.value?.focus();
+}
+
+function toggle() {
+    if (isOpened.value) {
+        close();
+    } else {
+        open();
+    }
+}
+
+function open() {
+    emit("onBeforeOpen", selectedItem.value);
+    nextTick(() => {
+        isOpened.value = true;
+        update();
+    });
+}
+
+function close() {
+    emit("onBeforeClose", selectedItem.value);
+    nextTick(() => isOpened.value = false);
+}
+
+function focusItem(e) {
+    if (e.code === "ArrowDown" && (e.target.nodeName === "BUTTON" || e.target.nodeName === "INPUT")) {
+        let nextEL = e.target.parentNode.nextElementSibling;
+        (nextEL?.querySelector("button") || nextEL?.querySelector("input"))?.focus();
+    } else if (e.code === "ArrowUp" && (e.target.nodeName === "BUTTON" || e.target.nodeName === "INPUT")) {
+        let prevEl = e.target.parentNode.previousElementSibling;
+        (prevEl?.querySelector("button") || prevEl?.querySelector("input"))?.focus();
+    }
+}
+
 </script>
