@@ -8,6 +8,7 @@ export type TooltipPlacement = 'top' | 'right' | 'bottom' | 'left' | 'start' | '
 export type {responsiveSizes} from "./responsiveLayoutSizes";
 export type VerticalAlign = 'baseline' | 'top' | 'middle' | 'bottom' | 'text-bottom' | 'text-top';
 export type ButtonSizes = 'sm' | 'lg';
+export type FeedbackTypes = 'valid' | 'invalid';
 
 
 export type HTMLInputTypes =

@@ -40,6 +40,7 @@ export {default as FormLabel} from "./components/FormLabel";
 export {default as Figure} from "./components/Figure.vue";
 export {default as Flex} from "./components/Flex.vue";
 export {default as FlexItem} from "./components/FlexItem.vue";
+export {default as Feedback} from "./components/Feedback.vue";
 export {default as Grid} from "./components/Grid";
 export {default as GridCol} from "./components/GridCol";
 export {default as Icon} from "./components/Icon";
