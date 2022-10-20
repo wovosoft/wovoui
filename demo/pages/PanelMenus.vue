@@ -9,7 +9,7 @@
 import {PanelMenu} from '../../src'
 import {ref} from "vue";
 
-const active = ref(2);
+const active = ref(3);
 const items = [
     {
         text: "Home",

@@ -36,7 +36,7 @@ const PanelMenu = defineComponent({
         },
     },
     setup(props, {emit}) {
-        const active = ref<number>(0);
+        const active = ref<number | null>(null);
 
         /**
          * Nested modelValue should be implemented
@@ -107,22 +107,3 @@ const PanelMenu = defineComponent({
 })
 
 export default PanelMenu;
-
-
-// <template>
-//     <ListGroup class="rounded-0">
-//         <ListGroupItem class="border-0 p-0 m-0" :key="item_index" v-for="(item, item_index) in items">
-//             <Button :href="item.href" :to="item.to" class="text-start d-flex" block squared :variant="triggerVariant"
-//                 @click="setActive(item_index)">
-//                 <Icon :icon="item.icon ?? 'chevron-right'" />
-//                 <span class="mx-2 flex-grow-1">{{ item.text }}</span>
-//                 <template v-if="item.children">
-//                     <component :is="item_index === active ? ChevronUp : ChevronDown" />
-//                 </template>
-//             </Button>
-//             <Collapse :visible="item_index === active" v-if="item.children">
-//                 <PanelMenu :items="item.children" :trigger-variant="menuVariant" />
-//             </Collapse>
-//         </ListGroupItem>
-//     </ListGroup>
-// </template>
