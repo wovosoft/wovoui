@@ -1,5 +1,5 @@
 <template>
-    <PanelMenu v-model="active" :items="items" class="w-25">
+    <PanelMenu v-model="active" :items="items" class="w-25" @itemClicked="handler">
 
     </PanelMenu>
     Active : {{ active }}
@@ -10,10 +10,15 @@ import {PanelMenu} from '../../src'
 import {ref} from "vue";
 
 const active = ref(3);
+
+function handler(item, index) {
+    console.log(item, index)
+}
+
 const items = [
     {
         text: "Home",
-        href: "#"
+        href: "#",
     },
     {
         text: "Components",

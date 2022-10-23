@@ -4,6 +4,7 @@ type MenuItem = {
     href?: string;
     children?: MenuItem[];
     icon?: string;
+    handler?: (item: MenuItem, index: number) => void;
 }
 
 import {ChevronUp, ChevronDown, ChevronRight} from "@wovosoft/wovoui-icons";
@@ -15,7 +16,7 @@ import type {ColorVariants} from "../types/colorVariants";
 
 
 const PanelMenu = defineComponent({
-    emits: ["update:modelValue"],
+    emits: ["update:modelValue", "itemClicked"],
     props: {
         modelValue: {
             type: Number as PropType<number | null>,
@@ -34,6 +35,7 @@ const PanelMenu = defineComponent({
             type: String as PropType<ColorVariants>,
             default: "light"
         },
+
     },
     setup(props, {emit}) {
         const active = ref<number | null>(null);
@@ -84,7 +86,15 @@ const PanelMenu = defineComponent({
                         block: true,
                         squared: true,
                         variant: props.triggerVariant,
-                        onClick: () => setActive(item_index)
+                        onClick: () => {
+                            setActive(item_index);
+
+                            emit("itemClicked", {item, item_index});
+
+                            if (typeof item.handler === "function") {
+                                item.handler(item, item_index);
+                            }
+                        }
                     },
                     () => [
                         item.icon ? h(Icon, {icon: item.icon}) : h(ChevronRight),
