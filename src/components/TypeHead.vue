@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, nextTick, PropType, ref, Ref, useSlots, watch} from "vue";
+import {computed, nextTick, onMounted, PropType, ref, Ref, useSlots, watch} from "vue";
 import type {ColorVariants, ButtonSizes, TextAlign} from "../types";
 import {Input, DropdownMenu} from "../index";
 import InputGroup from "./InputGroup.vue";
@@ -181,6 +181,12 @@ function onEscPressed() {
         close();
     }
 }
+
+onMounted(() => {
+    if (props.modelValue) {
+        selectedItem.value = props.modelValue;
+    }
+});
 
 watch(() => props.modelValue, value => {
     selectedItem.value = value;
