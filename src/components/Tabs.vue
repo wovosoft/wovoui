@@ -10,7 +10,7 @@
                  :justified="justified"
                  :align="align"
                  :vertical="vertical"
-                 :class="{'card-header-pills':pills}">
+                 :class="{'card-header-pills':pills,'card-header-tabs':card}">
                 <NavItem
                     role="presentation"
                     v-for="(tab,tab_index) in tabsMap"
