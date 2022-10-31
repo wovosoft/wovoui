@@ -97,6 +97,12 @@ const props = defineProps({
     },
     noCloseOnEscPressed: {
         type: Boolean as PropType<boolean>, default: false
+    },
+    clearItemsOnSelect: {
+        type: Boolean as PropType<boolean>, default: false
+    },
+    preload: {
+        type: Boolean as PropType<boolean>, default: false
     }
 });
 
@@ -168,6 +174,9 @@ function onSelected(item) {
     if (!props.noCloseOnItemSelect) {
         close();
     }
+    if (props.clearItemsOnSelect) {
+        items.value = [];
+    }
 }
 
 function onClickOutside() {
@@ -185,6 +194,9 @@ function onEscPressed() {
 onMounted(() => {
     if (props.modelValue) {
         selectedItem.value = props.modelValue;
+    }
+    if (props.preload) {
+        fetchItems();
     }
 });
 

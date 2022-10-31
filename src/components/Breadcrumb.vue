@@ -14,24 +14,15 @@
     </component>
 </template>
 
-<script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
+<script lang="ts" setup>
+import {computed, PropType} from "vue";
 import BreadcrumbItem from "./BreadcrumbItem.vue";
 
-export default defineComponent({
-    name: "Breadcrumb",
-    components: {BreadcrumbItem},
-    props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ol"},
-        items: {type: Array as PropType<any[]>, default: () => []},
-        divider: {type: String as PropType<string>, default: null}
-    },
-    setup(props) {
-        return {
-            classes: computed(() => [
-                "breadcrumb"
-            ])
-        }
-    }
-})
+const props = defineProps({
+    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ol"},
+    items: {type: Array as PropType<any[]>, default: () => []},
+    divider: {type: String as PropType<string>, default: null}
+});
+
+const classes = computed(() => ["breadcrumb"]);
 </script>

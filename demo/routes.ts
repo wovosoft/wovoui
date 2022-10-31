@@ -10,6 +10,7 @@ import PanelMenus from "./pages/PanelMenus.vue";
 import FlexPage from "./pages/FlexPage.vue";
 import TooltipPage from "./pages/TooltipPage.vue";
 import TablePage from "./pages/TablePage.vue";
+import FormCheckboxes from "./pages/Checkboxes.vue";
 //@ts-ignore
 import PaginationPage from "./pages/PaginationPage.vue"
 import OffCanvasPage from "./pages/OffCanvasPage.vue"
@@ -82,6 +83,11 @@ export const routes = [
         path: "/form-controls",
         name: "Form Control",
         component: FormControlPage
+    },
+    {
+        path: "/form-checkboxes",
+        name: "Form Checkboxes",
+        component: FormCheckboxes
     },
     {
         path: "/carousel",

@@ -14,38 +14,33 @@
     </div>
 </template>
 
-<script lang="ts">
-import {defineComponent, inject, PropType, Ref, ref, watch} from "vue";
+<script lang="ts" setup>
+import {inject, PropType, Ref, ref, watch} from "vue";
 import AccordionHeader from "./AccordionHeader.vue";
 import AccordionBody from "./AccordionBody";
 import Collapse from "./Collapse.js";
 import type {setActiveItem as setActiveItemType, registerItem as registerItemType} from "../types/AccordionTypings";
 
-export default defineComponent({
-    name: "AccordionItem",
-    emits: ['update:modelValue'],
-    components: {AccordionHeader, AccordionBody, Collapse},
-    props: {
-        header: {type: String as PropType<string>, default: null},
-        modelValue: {type: Boolean as PropType<boolean>, default: false},
-        bodyClass: {type: [Array, Object, String] as PropType<any>, default: null}
-    },
-    setup(props, {}) {
-        const visible: Ref<boolean> = ref(props.modelValue);
-        const registerItem = inject<registerItemType>('registerItem');
+const props = defineProps({
+    header: {type: String as PropType<string>, default: null},
+    modelValue: {type: Boolean as PropType<boolean>, default: false},
+    bodyClass: {type: [Array, Object, String] as PropType<any>, default: null}
+});
 
-        registerItem(visible);
+const emit = defineEmits<{
+    (e: 'update:modelValue', value: unknown)
+}>();
 
-        const setActiveItem = inject<setActiveItemType>("setActiveItem");
+const visible: Ref<boolean> = ref(props.modelValue);
+const registerItem = inject<registerItemType>('registerItem');
 
-        watch(visible, value => {
-            if (value) {
-                setActiveItem(visible);
-            }
-        });
-        return {
-            visible
-        }
+registerItem(visible);
+
+const setActiveItem = inject<setActiveItemType>("setActiveItem");
+
+watch(visible, value => {
+    if (value) {
+        setActiveItem(visible);
     }
-})
+});
 </script>
