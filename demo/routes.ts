@@ -11,6 +11,7 @@ import FlexPage from "./pages/FlexPage.vue";
 import TooltipPage from "./pages/TooltipPage.vue";
 import TablePage from "./pages/TablePage.vue";
 import FormCheckboxes from "./pages/Checkboxes.vue";
+import ModalPage from "./pages/ModalPage.vue";
 //@ts-ignore
 import PaginationPage from "./pages/PaginationPage.vue"
 import OffCanvasPage from "./pages/OffCanvasPage.vue"
@@ -98,7 +99,12 @@ export const routes = [
         path: "/typehead",
         name: "Typehead",
         component: TypeHeadPage
-    }
+    },
+    {
+        path: "/modal-page",
+        name: "ModalPage",
+        component: ModalPage
+    },
 ]
 
 

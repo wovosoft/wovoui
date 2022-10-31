@@ -1,13 +1,14 @@
 <template>
     <teleport to="body">
         <div ref="modal"
+             @keyup.esc="onEsc"
              @transitionend="transitionEnded"
              :class="classes"
              tabindex="-1"
              :aria-hidden="shown"
              :role="shown?'dialog':null">
             <div :class="dialogClass">
-                <div class="modal-content">
+                <div class="modal-content" ref="modalContent">
                     <ModalHeader
                         v-if="!noHeader && ($slots.header || header || title)"
                         :tag="headerTag"
@@ -110,6 +111,8 @@ export default defineComponent({
         closeButtonOptions: {type: Object as PropType<object>, default: null},
         noOkButton: {type: Boolean as PropType<boolean>, default: false},
         noCloseButton: {type: Boolean as PropType<boolean>, default: false},
+        noCloseOnBackdrop: {type: Boolean as PropType<boolean>, default: false},
+        noCloseOnEsc: {type: Boolean as PropType<boolean>, default: false},
 
         static: {type: Boolean as PropType<boolean>, default: false},
         noBackdrop: {type: Boolean as PropType<boolean>, default: false},
@@ -135,6 +138,7 @@ export default defineComponent({
         }]);
         watch(() => props.modelValue, (value) => shown.value = value);
         watch(shown, value => emit('update:modelValue', value));
+
         const toggleState = (value?: boolean) => {
             if (value) {
                 emit("showing", true);
@@ -180,7 +184,17 @@ export default defineComponent({
         }
     },
     methods: {
+        onEsc(e) {
+            if (!this.noCloseOnEsc) {
+                this.hide();
+            }
+        },
         transitionEnded(e) {
+            //without focusing the main modal element, esc event doesn't work.
+            //so when it is shown, lets focus the element
+            if (this.shown) {
+                this.$refs.modal.focus()
+            }
             if (this.$refs.modal.classList.contains("modal-static")) {
                 this.$refs.modal.classList.remove("modal-static");
                 this.$refs.modal.style.overflowY = "";
@@ -191,7 +205,7 @@ export default defineComponent({
                 if (this.static) {
                     this.$refs.modal.classList.add("modal-static");
                     this.$refs.modal.style.overflowY = "hidden";
-                } else {
+                } else if (!this.noCloseOnBackdrop) {
                     this.hide();
                 }
             }

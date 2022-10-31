@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import Checkbox from "./Checkbox.vue";
-import {ref, PropType, Ref} from "vue";
+import {PropType} from "vue";
 
 const props = defineProps({
     modelValue: {default: null},
