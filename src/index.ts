@@ -55,6 +55,7 @@ export {default as ModalBody} from "./components/ModalBody";
 export {default as ModalFooter} from "./components/ModalFooter";
 export {default as ModalHeader} from "./components/ModalHeader";
 export {default as ModalTitle} from "./components/ModalTitle";
+export {default as ModalDialog} from "./components/ModalDialog.vue";
 export {default as Menu} from "./components/Menu.vue";
 export {default as Nav} from "./components/Nav";
 export {default as Navbar} from "./components/Navbar.vue";

@@ -5,7 +5,16 @@ export type ItemAlignment = TextAlign | "baseline" | "stretch";
 export type AlignContent = TextAlign | "between" | "around" | "stretch";
 export type Order = 0 | 1 | 2 | 3 | 4 | 5 | 'first' | 'last';
 export type TooltipPlacement = 'top' | 'right' | 'bottom' | 'left' | 'start' | 'end';
-export type {responsiveSizes} from "./responsiveLayoutSizes";
+export type {
+    responsiveNumbers,
+    ColSizes,
+    colAlignments,
+    justifyContentAlignments,
+    colOrders,
+    responsiveSizes,
+    modalSizes
+} from "./responsiveLayoutSizes";
+export type modalFullScreen = true | false | 'sm-down' | 'md-down' | 'lg-down' | 'xl-down' | 'xxl-down'
 export type VerticalAlign = 'baseline' | 'top' | 'middle' | 'bottom' | 'text-bottom' | 'text-top';
 export type ButtonSizes = 'sm' | 'lg';
 export type FeedbackTypes = 'valid' | 'invalid';

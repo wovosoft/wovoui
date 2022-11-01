@@ -5,4 +5,4 @@ export default defineComponent({
     setup(props) {
         return () => h("div", {class: ["vr"]})
     }
-})
+});
