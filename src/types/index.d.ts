@@ -18,7 +18,7 @@ export type modalFullScreen = true | false | 'sm-down' | 'md-down' | 'lg-down' |
 export type VerticalAlign = 'baseline' | 'top' | 'middle' | 'bottom' | 'text-bottom' | 'text-top';
 export type ButtonSizes = 'sm' | 'lg';
 export type FeedbackTypes = 'valid' | 'invalid';
-
+export type BadgePositions = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
 
 export type HTMLInputTypes =
     "button"

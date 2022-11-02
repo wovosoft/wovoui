@@ -1,9 +1,10 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
+import {makeString} from "../composables/useProps";
 
 export default defineComponent({
     name: "AlertLink",
     props: {
-        href: {type: String as PropType<string>, default: "#"}
+        href: makeString('#')
     },
     setup(props, {slots}) {
         return () => h("a",

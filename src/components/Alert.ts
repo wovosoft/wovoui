@@ -1,21 +1,21 @@
-import {defineComponent, PropType, ref, h, onMounted, watch} from "vue";
-import type {ColorVariants} from "../types/colorVariants";
+import {defineComponent, ref, h, onMounted, watch} from "vue";
 import ButtonClose from "./ButtonClose";
 import Icon from "./Icon";
+import {makeBoolean, makeNumber, makeString, makeTag, makeVariant} from "../composables/useProps";
 
 export default defineComponent({
     name: "Alert",
     emits: ["update:modelValue", "update:show"],
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        variant: {type: String as PropType<ColorVariants>, default: "primary"},
-        dismissible: {type: Boolean as PropType<boolean>, default: false},
-        countdown: {type: Number as PropType<number>, default: 3},
-        modelValue: {type: Boolean as PropType<boolean | null>, default: null},
-        show: {type: Boolean as PropType<boolean>, default: false},
-        fade: {type: Boolean as PropType<boolean>, default: false},
-        closeBtnWhite: {type: Boolean as PropType<boolean>, default: false},
-        icon: {type: String as PropType<string>, default: null}
+        tag: makeTag("div"),
+        variant: makeVariant("primary"),
+        dismissible: makeBoolean(false),
+        countdown: makeNumber(3),
+        modelValue: makeBoolean(null),
+        show: makeBoolean(false),
+        fade: makeBoolean(false),
+        closeBtnWhite: makeBoolean(false),
+        icon: makeString()
     },
     setup(props, {slots, expose, emit}) {
         const visible = ref<boolean>(false);

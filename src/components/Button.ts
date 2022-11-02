@@ -1,28 +1,28 @@
-import type {ColorVariants} from "../types/colorVariants";
-
 import {computed, defineComponent, getCurrentInstance, h, PropType, resolveComponent} from "vue";
 
-import type {buttonSizes} from "../types/buttonSizes";
+import type {ButtonSizes} from "../types";
 import {RouteLocationRaw} from "vue-router";
+import {makeBoolean, makeProp, makeSize, makeString, makeVariant} from "../composables/useProps";
+
 
 export default defineComponent({
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "button"},
-        href: {type: String as PropType<string>, default: null},
-        to: {type: Object as PropType<RouteLocationRaw>, default: null},
-        variant: {type: String as PropType<ColorVariants>, default: () => "secondary"},
-        size: {type: String as PropType<buttonSizes>, default: () => null},
-        type: {type: String as PropType<string>, default: "button"},
-        outline: {type: Boolean as PropType<boolean>, default: false},
-        block: {type: Boolean as PropType<boolean>, default: false},
-        pill: {type: Boolean as PropType<boolean>, default: false},
-        squared: {type: Boolean as PropType<boolean>, default: false},
-        disabled: {type: Boolean as PropType<boolean>, default: false},
-        pressed: {type: Boolean as PropType<boolean>, default: false},
-        noWrap: {type: Boolean as PropType<boolean>, default: false},
-        link: {type: Boolean as PropType<boolean>, default: false},
-        active: {type: Boolean as PropType<boolean>, default: false},
-        activeClass: {type: String as PropType<string>, default: "active"},
+        tag: makeProp<HTMLElementTagNameMap | string>("button", String),
+        href: makeString(null),
+        to: makeProp<RouteLocationRaw>(null, Object),
+        variant: makeVariant('secondary'),
+        size: makeSize<ButtonSizes>(null),
+        type: makeProp<'button' | 'submit'>("button", String),
+        outline: makeBoolean(false),
+        block: makeBoolean(false),
+        pill: makeBoolean(false),
+        squared: makeBoolean(false),
+        disabled: makeBoolean(false),
+        pressed: makeBoolean(false),
+        noWrap: makeBoolean(false),
+        link: makeBoolean(false),
+        active: makeBoolean(false),
+        activeClass: makeString("active"),
     },
     setup(props, {slots}) {
         const isVueRouterInstalled = computed(() => {
@@ -55,7 +55,9 @@ export default defineComponent({
                 return props.tag;
             }
 
+
             return h(
+                // @ts-ignore
                 getTag(),
                 {
                     disabled: props.disabled,

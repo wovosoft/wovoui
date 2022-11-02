@@ -1,9 +1,10 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
+import {makeTag} from "../composables/useProps";
 
 export default defineComponent({
     name: "AlertHeading",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"}
+        tag: makeTag("h4")
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

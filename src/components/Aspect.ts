@@ -1,11 +1,11 @@
-import {computed, defineComponent, h, PropType} from "vue";
-import type {aspectRatios} from "../types/aspectRatios";
+import {computed, defineComponent, h} from "vue";
+import {makeProp, makeTag} from "../composables/useProps";
 
 export default defineComponent({
     name: "Aspect",
     props: {
-        tag: {type: String as PropType<string>, default: "div"},
-        ratio: {type: [String, Number] as PropType<aspectRatios>, default: "16x9"}
+        tag: makeTag("div"),
+        ratio: makeProp<string | number>("16x9", [String, Number])
     },
     setup(props, {slots}) {
         const classes = computed(() => [

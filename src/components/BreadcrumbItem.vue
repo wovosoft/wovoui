@@ -18,22 +18,23 @@
 
 <script lang="ts">
 import {computed, defineComponent, getCurrentInstance, PropType} from "vue";
+import {makeBoolean, makeProp, makeString, makeTag} from "../composables/useProps";
 
 export default defineComponent({
     name: "BreadcrumbItem",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
-        active: {type: Boolean as PropType<boolean>, default: false},
-        activeClass: {type: String as PropType<string>, default: "active"},
-        append: {type: Boolean as PropType<boolean>, default: false},
-        ariaCurrent: {type: String as PropType<string>, default: "location"},
-        disabled: {type: Boolean as PropType<boolean>, default: false},
-        exact: {type: Boolean as PropType<boolean>, default: false},
+        tag: makeTag("li"),
+        active: makeBoolean(false),
+        activeClass: makeString("active"),
+        append: makeBoolean(false),
+        ariaCurrent: makeString("location"),
+        disabled: makeBoolean(false),
+        exact: makeBoolean(false),
         rel: {type: String as PropType<string>, default: null},
-        replace: {type: Boolean as PropType<boolean>, default: false},
-        target: {type: String as PropType<string>, default: "_self"},
-        to: {type: [Object, String] as PropType<object | string>, default: null},
-        href: {type: String as PropType<string>, default: null}
+        replace: makeBoolean(false),
+        target: makeString("_self"),
+        to: makeProp<object | string>(null, [Object, String]),
+        href: makeString("#")
     },
     setup(props, context) {
         const attributes = computed(() => {

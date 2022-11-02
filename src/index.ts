@@ -117,4 +117,3 @@ export {default as TypeHead} from "./components/TypeHead.vue";
 export {default as Multiselect} from "./components/Multiselect.vue";
 
 
-

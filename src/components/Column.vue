@@ -41,7 +41,7 @@ import Button from "./Button";
 import {Eye, PencilSquare, Trash} from "@wovosoft/wovoui-icons";
 
 import type {ColorVariants} from "../types/colorVariants";
-import type {buttonSizes} from "../types/buttonSizes";
+import type {ButtonSizes} from "../types";
 import type {classTypes} from "../types/classTypes";
 
 export default defineComponent({
@@ -59,7 +59,7 @@ export default defineComponent({
          * When true, it shows default CRUD Buttons
          */
         actions: {type: Boolean as PropType<boolean>, default: false},
-        actionsSize: {type: String as PropType<buttonSizes>, default: "sm"},
+        actionsSize: {type: String as PropType<ButtonSizes>, default: "sm"},
         viewVariant: {type: String as PropType<ColorVariants>, default: "primary"},
         editVariant: {type: String as PropType<ColorVariants>, default: "dark"},
         destroyVariant: {type: String as PropType<ColorVariants>, default: "danger"},

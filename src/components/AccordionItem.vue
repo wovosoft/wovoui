@@ -15,16 +15,17 @@
 </template>
 
 <script lang="ts" setup>
-import {inject, PropType, Ref, ref, watch} from "vue";
+import {inject, Ref, ref, watch} from "vue";
 import AccordionHeader from "./AccordionHeader.vue";
 import AccordionBody from "./AccordionBody";
-import Collapse from "./Collapse.js";
+import Collapse from "./Collapse";
 import type {setActiveItem as setActiveItemType, registerItem as registerItemType} from "../types/AccordionTypings";
+import {makeBoolean, makeClass, makeString} from "../composables/useProps";
 
 const props = defineProps({
-    header: {type: String as PropType<string>, default: null},
-    modelValue: {type: Boolean as PropType<boolean>, default: false},
-    bodyClass: {type: [Array, Object, String] as PropType<any>, default: null}
+    header: makeString(),
+    modelValue: makeBoolean(false),
+    bodyClass: makeClass()
 });
 
 const emit = defineEmits<{

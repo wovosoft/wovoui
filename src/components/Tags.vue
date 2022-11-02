@@ -30,7 +30,7 @@ import {X} from "@wovosoft/wovoui-icons";
 import Badge from "./Badge";
 import Button from "./Button";
 import type {ColorVariants} from "../types/colorVariants";
-import type {buttonSizes} from "../types/buttonSizes";
+import type {ButtonSizes} from "../types";
 
 export default defineComponent({
     name: "Tags",
@@ -45,7 +45,7 @@ export default defineComponent({
         separator: {type: Array as PropType<any[]>, default: () => ([])},
         tagPills: {type: Boolean as PropType<boolean>, default: false},
         tagVariant: {type: String as PropType<ColorVariants>, default: "secondary"},
-        addButtonSize: {type: String as PropType<buttonSizes>, default: "sm"},
+        addButtonSize: {type: String as PropType<ButtonSizes>, default: "sm"},
         addButtonText: {type: String as PropType<string>, default: "Add"},
         noAddOnEnter: {type: Boolean as PropType<boolean>, default: false}
     },

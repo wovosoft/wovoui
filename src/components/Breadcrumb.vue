@@ -15,13 +15,14 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType} from "vue";
+import {computed} from "vue";
 import BreadcrumbItem from "./BreadcrumbItem.vue";
+import {makeProp, makeString, makeTag} from "../composables/useProps";
 
 const props = defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ol"},
-    items: {type: Array as PropType<any[]>, default: () => []},
-    divider: {type: String as PropType<string>, default: null}
+    tag: makeTag("ol"),
+    items: makeProp<any[]>([], Array),
+    divider: makeString()
 });
 
 const classes = computed(() => ["breadcrumb"]);

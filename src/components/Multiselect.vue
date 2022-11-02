@@ -55,7 +55,7 @@ import {Trash} from "@wovosoft/wovoui-icons";
 import Button from "./Button";
 import DropdownMenu from "./DropdownMenu.vue";
 import Input from "./Input.vue";
-import type {buttonSizes} from "../types/buttonSizes";
+import type {ButtonSizes} from "../types";
 import InputGroup from "./InputGroup.vue";
 
 const emit = defineEmits(["update:query", "update:modelValue", 'selectedOption']);
@@ -65,8 +65,8 @@ const props = defineProps({
         type: Function as PropType<(items: Ref<unknown[]>, filter: string | null) => unknown>,
         required: true
     },
-    searchSize: {type: String as PropType<buttonSizes>, default: "sm"},
-    toggleSize: {type: String as PropType<buttonSizes>, default: "sm"},
+    searchSize: {type: String as PropType<ButtonSizes>, default: "sm"},
+    toggleSize: {type: String as PropType<ButtonSizes>, default: "sm"},
     searchPlaceholder: {type: String as PropType<string>, default: "Search..."},
     loading: {type: Boolean as PropType<boolean>, default: false},
     modelValue: {type: Array as PropType<unknown[]>, default: () => ([])},

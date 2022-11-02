@@ -1,8 +1,8 @@
-import {PropType} from "vue";
+import {makeBoolean, makeNumber, makeTag} from "../composables/useProps";
 
 export default {
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-    modelValue: {type: Number as PropType<number>, default: null},
-    flush: {type: Boolean as PropType<boolean>, default: false},
-    alwaysOpen: {type: Boolean as PropType<boolean>, default: false}
+    tag: makeTag("div"),
+    modelValue: makeNumber(null),
+    flush: makeBoolean(false),
+    alwaysOpen: makeBoolean(false)
 }

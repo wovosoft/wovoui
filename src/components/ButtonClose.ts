@@ -1,10 +1,10 @@
 import {defineComponent, h, PropType} from "vue";
-import type {buttonSizes} from "../types/buttonSizes";
+import type {ButtonSizes} from "../types";
 
 export default defineComponent({
     name: "ButtonClose",
     props: {
-        size: {type: String as PropType<buttonSizes>, default: null},
+        size: {type: String as PropType<ButtonSizes>, default: null},
         white: {type: Boolean as PropType<boolean>, default: () => false},
         ariaLabel: {type: String as PropType<string>, default: "Close"},
         disabled: {type: Boolean as PropType<boolean>, default: false}

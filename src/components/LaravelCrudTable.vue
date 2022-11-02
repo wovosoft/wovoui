@@ -177,7 +177,7 @@ import {Plus, Trash, ArrowRepeat} from "@wovosoft/wovoui-icons";
 import tableProps from "../shared/tableProps";
 
 
-import type {buttonSizes} from "../types/buttonSizes";
+import type {ButtonSizes} from "../types";
 import type {ColorVariants} from "../types/colorVariants";
 import type {classTypes} from "../types/classTypes";
 
@@ -212,7 +212,7 @@ export default defineComponent({
         fields: {type: Array as PropType<string[] | FieldType[] | null>, default: () => ([])},
         pager: {type: Array as PropType<number[]>, default: () => [5, 10, 15, 20, 30, 50, 70, 100, 150, 200, 300, 500]},
         searchPlaceholder: {type: String as PropType<string>, default: "Search..."},
-        searchSize: {type: String as PropType<buttonSizes>, default: "sm"},
+        searchSize: {type: String as PropType<ButtonSizes>, default: "sm"},
         ...tableProps,
         headVariant: {type: String as PropType<ColorVariants>, default: null},
         headClass: {type: [String, Object, Array] as PropType<classTypes>, default: null},

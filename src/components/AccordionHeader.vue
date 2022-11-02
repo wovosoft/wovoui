@@ -13,15 +13,16 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from "vue";
+import {defineComponent} from "vue";
+import {makeBoolean, makeTag} from "../composables/useProps";
 
 export default defineComponent({
     name: "AccordionHeader",
     emits: ['update:modelValue'],
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h2"},
-        toggleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "button"},
-        modelValue: {type: Boolean as PropType<boolean>, default: false}
+        tag: makeTag("h2"),
+        toggleTag: makeTag("button"),
+        modelValue: makeBoolean(false)
     }
 })
 </script>

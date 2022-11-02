@@ -22,7 +22,7 @@
             <Td>@fat</Td>
         </Tr>
         <Tr>
-            <Th scope="row">3</Th>
+            <Th scope="row" >3</Th>
             <Td colspan="2">Larry The Bird</Td>
             <Td>@twitter</Td>
         </Tr>
@@ -33,5 +33,4 @@
 
 <script lang="ts" setup>
 import {Tr, Table, THead, TBody, Td, Th} from "../../src"
-
 </script>
