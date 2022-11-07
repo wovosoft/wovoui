@@ -12,7 +12,7 @@
                         :key="th_index">
                         <Flex jc="between">
                             <FlexItem>
-                                <slot :name="'head('+th.key+')'"
+                                <slot :name="`head(${th.key})`"
                                       :column="th.key"
                                       :field="th"
                                       :index="th_index"
@@ -25,7 +25,7 @@
                                     {{ getLabel(th) }}
                                 </slot>
                             </FlexItem>
-                            <FlexItem v-if="typeof th==='object'&& th.sortable===true">
+                            <FlexItem v-if="typeof th==='object' && th.sortable===true">
                                 <SortDown v-if="sorting.sortBy===th.key && sorting.sort==='asc'"/>
                                 <SortUp v-else/>
                             </FlexItem>
@@ -39,7 +39,7 @@
         <Tr v-for="(row,row_index) in itemsSorted" :key="row_index">
             <template v-for="(th,th_index) in fields">
                 <Td :key="th_index" v-if="th.visible!==false" :class="th.tdClass">
-                    <slot :name="'cell('+getKey(th)+')'"
+                    <slot :name="`cell(${getKey(th)})`"
                           :item="row"
                           :index="row_index"
                           :field="th"

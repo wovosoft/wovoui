@@ -23,6 +23,7 @@ export default defineComponent({
         link: makeBoolean(false),
         active: makeBoolean(false),
         activeClass: makeString("active"),
+        noStyle: {type: Boolean as PropType<boolean>, default: false}
     },
     setup(props, {slots}) {
         const isVueRouterInstalled = computed(() => {
@@ -66,7 +67,7 @@ export default defineComponent({
                     type: type(),
                     //directly using href on router-link removes generated href by router-link
                     ...(props.to ? {to: props.to} : {href: props.href}),
-                    class: [
+                    class: !props.noStyle ? [
                         "btn",
                         {
                             disabled: props.disabled && props.tag === "a",
@@ -78,7 +79,7 @@ export default defineComponent({
                             [props.activeClass]: props.pressed || props.active,
                             "text-nowrap": props.noWrap,
                         },
-                    ],
+                    ] : [],
                     role: props.tag === "a" ? "button" : null,
                 },
                 props.to ? slots.default : slots.default?.()

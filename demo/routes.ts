@@ -12,6 +12,7 @@ import TooltipPage from "./pages/TooltipPage.vue";
 import TablePage from "./pages/TablePage.vue";
 import FormCheckboxes from "./pages/Checkboxes.vue";
 import ModalPage from "./pages/ModalPage.vue";
+import DatatablePage from "./pages/DatatablePage.vue";
 //@ts-ignore
 import PaginationPage from "./pages/PaginationPage.vue"
 import OffCanvasPage from "./pages/OffCanvasPage.vue"
@@ -104,6 +105,11 @@ export const routes = [
         path: "/modal-page",
         name: "ModalPage",
         component: ModalPage
+    },
+    {
+        path: "/datatable-page",
+        name: "DatatablePage",
+        component: DatatablePage
     },
 ]
 

@@ -1,15 +1,16 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
-
 const path = require("path");
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
+
     plugins: [
         vue({}),
+    
         // vueJsx({}),
-        dts({include: ["src/**/*"]})
+        dts({include: ["src/**/*"],skipDiagnostics: false, logDiagnostics: true})
     ],
     server: {
         watch: {
@@ -17,12 +18,17 @@ export default defineConfig({
         }
     },
     build: {
+        sourcemap: true,
+        // Leave minification up to applications.
+        minify: false,
         target: 'esnext',
         lib: {
             entry: path.resolve(__dirname, 'src/index.ts'),
             name: 'wovoui',
+            // fileName: "index",
             fileName: (format) => `[name].${format}.mjs`
         },
+       
         rollupOptions: {
             external: [
                 'vue',

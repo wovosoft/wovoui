@@ -8,7 +8,6 @@ declare type SetAction<S> = S | ((prev: S) => S);
 export default function (reference, target, options, shouldUpdate: Ref<boolean>) {
     const popper = ref(null);
 
-
     const initialOptions = {
         placement: "bottom-start",
         modifiers: [
@@ -19,7 +18,7 @@ export default function (reference, target, options, shouldUpdate: Ref<boolean>)
                 },
             },
         ],
-    }
+    };
 
     onMounted(() => {
         popper.value = createPopper(

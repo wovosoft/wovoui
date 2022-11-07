@@ -1,8 +1,8 @@
 import {PropType} from "vue";
-import {ButtonSizes, ColorVariants} from "../types";
+import type {ColorVariants} from "../types";
 
-export const makeProp = <TypescriptType>(initial: TypescriptType, VueType: Function | Function[]) => ({
-    type: VueType as PropType<TypescriptType>,
+export const makeProp = <TT>(initial: TT = null, VT: Function | Function[]) => ({
+    type: VT as PropType<TT>,
     default: initial
 });
 

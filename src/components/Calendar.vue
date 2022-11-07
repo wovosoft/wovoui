@@ -165,6 +165,7 @@ export default defineComponent({
                 }
                 return weeks.filter((w) => !!w.length).map((w) => w);
             });
+
         return {
             theDate,
             theWeeks,

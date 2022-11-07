@@ -26,8 +26,8 @@
 </template>
 
 <script lang="ts" setup>
-// import { Button } from "./../../src/index";
-import {Button, ButtonGroup} from "./../../dist";
+import { Button } from "./../../src/index";
+// import {NavLink} from "./../../dist";
 
 import {colors, sizesOf} from "../assets";
 import ButtonClose from "../../src/components/ButtonClose";
