@@ -109,9 +109,7 @@ export {default as Tooltip} from "./components/Tooltip.vue";
 export {default as Aspect} from "./components/Aspect";
 export {default as Stack} from "./components/Stack";
 export {default as Vr} from "./components/Vr";
-
 export {default as Layout} from "./components/Layout.vue";
-export {default as LaravelCrudTable} from "./components/LaravelCrudTable.vue";
 export {default as Column} from "./components/Column.vue";
 export {default as TypeHead} from "./components/TypeHead.vue";
 export {default as Multiselect} from "./components/Multiselect.vue";
