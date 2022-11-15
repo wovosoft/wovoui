@@ -1,5 +1,6 @@
 <template>
     <Button @click="open=!open">Toggle</Button>
+    {{open}}
     <OffCanvas v-model="open" header="Offcanvas">
         Offcanvas Page
         <Card>

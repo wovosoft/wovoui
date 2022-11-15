@@ -2,15 +2,14 @@
     <teleport to="body">
         <component
             :is="tag"
-            ref="theCanvas"
-            @transitionend.self="transitionEnded"
+            role="dialog"
+            :ariaModal="shown"
             :class="classes"
-            :tabindex="tabIndex"
-            :aria-labelledby="ariaLabelledby">
+            v-bind="$attrs">
             <OffCanvasHeader
                 :style="headerStyle"
                 :class="headerClass"
-                v-model="shown"
+                @update:modelValue="toggle"
                 v-if="$slots.header||header"
                 :btn-close-white="btnCloseWhite"
                 :title="title">
@@ -18,136 +17,136 @@
                     {{ header }}
                 </slot>
             </OffCanvasHeader>
-            <OffCanvasBody>
+            <OffCanvasBody :style="bodyStyle" :class="bodyClass">
                 <slot></slot>
             </OffCanvasBody>
         </component>
-        <div v-if="showBackdrop && backdrop"
-             @click="shown=false"
-             ref="backdrop"
+        <div v-if="activeBackdrop && backdrop"
+             @click="hide()"
+             :style="backdropStyle"
              class="offcanvas-backdrop fade"
+             :class="{show : showBackdrop, ...backdropClass}"
         />
     </teleport>
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, ref, watch} from "vue";
+import {ref} from "vue";
+
+const isShowing = ref<boolean>(false);  //for 'showing' class
+const isHiding = ref<boolean>(false);   //for 'hiding' class
+const isShown = ref<boolean>(false);    //for 'show' class
+</script>
+
+<script lang="ts" setup>
+//constants
+import {OFFCANVAS_TRANSITION_DURATION} from "../composables/useTransition";
+import {computed, PropType, ref, watch} from "vue";
 import OffCanvasHeader from "./OffCanvasHeader.vue";
 import OffCanvasBody from "./OffCanvasBody";
-import ButtonClose from "./ButtonClose";
 
-import type {ColorVariants} from "../types";
+import type {ColorVariants, TooltipPlacement} from "../types";
 
-export default defineComponent({
-    name: "OffCanvas",
-    components: {ButtonClose, OffCanvasHeader, OffCanvasBody},
-    emits: ["update:modelValue", "beforeShow", "beforeHide", "shown", "hidden"],
-    props: {
-        tabIndex: {type: Number as PropType<number>, default: -1},
-        id: {type: String as PropType<string>, default: null},
-        ariaLabelledby: {type: String as PropType<string>, default: null},
-        modelValue: {type: Boolean as PropType<boolean>, default: false},
-        placement: {type: String as PropType<'start' | 'left' | 'end' | 'right' | 'top' | 'bottom'>, default: 'start'},
-        header: {type: String as PropType<string>, default: null},
-        headerClass: {type: [Array, Object, String] as PropType<any>, default: null},
-        headerStyle: {type: [Object, String] as PropType<object | string>, default: null},
-        title: {type: String as PropType<string>, default: null},
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        backdrop: {type: Boolean as PropType<boolean>, default: true},
-        enableBodyScroll: {type: Boolean as PropType<boolean>, default: true},
-        bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
-        textVariant: {type: String as PropType<ColorVariants>, default: 'dark'},
-        btnCloseWhite: {type: Boolean as PropType<boolean>, default: false}
-    },
-    setup(props) {
-        const shown = ref(false);
-        const showBackdrop = ref(false);
-        watch(shown, value => {
-            if (value && !props.enableBodyScroll) {
-                document.body.style.overflow = "hidden";
-                document.body.style.paddingRight = "17px";
-            } else {
-                document.body.style.overflow = "";
-                document.body.style.paddingRight = "";
-            }
-        });
-        watch(() => props.modelValue, value => shown.value = value);
-        return {
-            shown,
-            showBackdrop,
-            classes: computed(() => {
-                let placement = null;
-                if (props.placement === "left" || props.placement === "start") {
-                    placement = "start";
-                } else if (props.placement === "right" || props.placement === "end") {
-                    placement = "end"
-                } else {
-                    placement = props.placement;
-                }
 
-                return [
-                    "offcanvas",
-                    {
-                        "show": shown.value,
-                        ["offcanvas-" + placement]: !!placement,
-                        ["bg-" + props.bgVariant]: props.bgVariant,
-                        ["text-" + props.textVariant]: props.textVariant,
-                    }
-                ]
-            })
-        }
-    },
-    watch: {
-        shown(value) {
-            this.$emit('update:modelValue', value);
-            if (value) {
-                this.showBackdrop = true;
-                this.$nextTick(function () {
-                    this.$emit("beforeShow", value);
-                    this.$refs.backdrop?.classList.add("show");
-                    this.$refs.theCanvas.style.visibility = "visible";
-                    // this.$refs.theCanvas.classList.add("show");
-                })
+const props = defineProps({
+    modelValue: {type: Boolean as PropType<boolean>, default: false},
+    placement: {type: String as PropType<TooltipPlacement>, default: 'start'},
+    header: {type: String as PropType<string>, default: null},
+    headerClass: {type: [Array, Object, String] as PropType<any>, default: null},
+    bodyClass: {type: [Array, Object, String] as PropType<any>, default: null},
+    backdropClass: {type: [Array, Object, String] as PropType<any>, default: null},
+    headerStyle: {type: [Object, String] as PropType<object | string>, default: null},
+    bodyStyle: {type: [Object, String] as PropType<object | string>, default: null},
+    backdropStyle: {type: [Object, String] as PropType<object | string>, default: null},
+    title: {type: String as PropType<string>, default: null},
+    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "aside"},
+    backdrop: {type: Boolean as PropType<boolean>, default: true},
+    enableBodyScroll: {type: Boolean as PropType<boolean>, default: false},
+    bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
+    textVariant: {type: String as PropType<ColorVariants>, default: 'dark'},
+    btnCloseWhite: {type: Boolean as PropType<boolean>, default: false},
+    scrollbarPadding: {type: String as PropType<string>, default: "17px"}
+});
 
-            } else {
-                // this.$refs.theCanvas.classList.remove("show");
-                this.$refs.backdrop?.classList.remove("show");
-                this.$emit("beforeHide", value);
-            }
-        }
-    },
-    methods: {
-        transitionEnded() {
-            if (!this.shown) {
-                this.$refs.theCanvas.style.visibility = "hidden";
-                this.showBackdrop = false;
-                this.$emit("hidden", this.shown);
-            } else {
-                this.$emit("shown", this.shown);
-            }
-        },
-        globalEventListener(e) {
-            if (e.detail === this.id && this.id) {
-                this.shown = !this.shown;
-            }
-        },
-        //for parental access, eg by $refs
-        show() {
-            this.shown = true;
-        },
-        hide() {
-            this.shown = false;
-        },
-        toggle() {
-            this.shown = !this.shown;
-        }
-    },
-    mounted() {
-        this.transitionEnded();
-        window.addEventListener("toggleOffCanvas", this.globalEventListener);
-    },
-    beforeUnmount() {
-        window.removeEventListener("toggleOffCanvas", this.globalEventListener);
+const emit = defineEmits<{
+    (e: "update:modelValue", value: boolean): void;
+    (e: "beforeShow", value: boolean): void;
+    (e: "beforeHide", value: boolean): void;
+    (e: "shown", value: boolean): void;
+    (e: "hidden", value: boolean): void;
+}>();
+
+
+//data refs
+const shown = ref<boolean>(false);
+const activeBackdrop = ref<boolean>(false);
+const showBackdrop = ref<boolean>(false);    //for 'show' class of backdrop element
+
+//watchers
+watch(() => props.modelValue, value => shown.value = value);
+watch(shown, value => {
+    value ? show() : hide();
+});
+
+//for parental access, e.g. by $refs
+const show = () => {
+    activeBackdrop.value = true;
+    showBackdrop.value = true;
+    isShowing.value = true;
+
+    if (!props.enableBodyScroll) {
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight = props.scrollbarPadding;
     }
-})
+
+    setTimeout(() => {
+        isShowing.value = false;
+        isShown.value = true;
+    }, OFFCANVAS_TRANSITION_DURATION);
+};
+
+const hide = () => {
+    if (!props.enableBodyScroll) {
+        document.body.style.overflow = "";
+        document.body.style.paddingRight = "";
+    }
+
+    isHiding.value = true;
+    showBackdrop.value = false;
+
+    setTimeout(() => {
+        activeBackdrop.value = false;
+        isHiding.value = false;
+        isShown.value = false;
+
+
+        emit("hidden", true);
+        emit("update:modelValue", false);
+    }, OFFCANVAS_TRANSITION_DURATION)
+};
+
+const toggle = () => shown.value ? hide() : show();
+
+//expose show, hide, toggle methods to be used in refs
+defineExpose({show, hide, toggle});
+
+//computed
+const classes = computed(() => {
+    //converts start/left ==> start, right/end == end wrt. bootstrap >=5.5.5
+    let placement = ['start', 'left'].includes(props.placement) ? "start"
+        : ["right", "end"].includes(props.placement) ? "end" : props.placement;
+
+    return [
+        "offcanvas",
+        {
+            showing: isShowing.value,
+            hiding: isHiding.value,
+            show: isShown.value,
+            ["offcanvas-" + placement]: !!placement,
+            ["bg-" + props.bgVariant]: props.bgVariant,
+            ["text-" + props.textVariant]: props.textVariant,
+        }
+    ]
+});
+
 </script>

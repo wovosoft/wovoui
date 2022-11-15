@@ -1,0 +1,1 @@
+export const OFFCANVAS_TRANSITION_DURATION = 300;   //0.3s
