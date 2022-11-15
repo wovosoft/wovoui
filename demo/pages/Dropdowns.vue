@@ -16,5 +16,5 @@ import {ref} from "vue";
 
 const placement=ref('left')
 import {Dropdown, DropdownItem, DropdownDivider} from "../../src";
-import Select from "../../src/components/Select.vue";
+import Select from "../../src/components/Form/Select.vue";
 </script>

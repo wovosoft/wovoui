@@ -11,10 +11,10 @@
 </template>
 
 <script lang="ts" setup>
-import OffCanvas from "../../src/components/OffCanvas.vue";
+import OffCanvas from "../../src/components/Offcanvas/Offcanvas.vue";
 import {ref} from "vue";
 import {Button} from "../../src";
-import Card from "../../src/components/Card.vue";
+import Card from "../../src/components/Card/Card.vue";
 
 const open = ref(false)
 </script>

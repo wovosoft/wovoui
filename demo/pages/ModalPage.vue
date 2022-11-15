@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts" setup>
-import Modal from "../../src/components/Modal.vue";
+import Modal from "../../src/components/Modal/Modal.vue";
 import {ref} from "vue";
 import {Button, Container} from "../../src";
 import vVr from "../../src/directives/vVr";

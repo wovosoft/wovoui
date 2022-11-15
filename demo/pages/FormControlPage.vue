@@ -36,8 +36,8 @@
 
 import {Input} from "../../src";
 import {ref} from "vue";
-import FormGroup from "../../src/components/FormGroup.vue";
-import Feedback from "../../src/components/Feedback.vue";
+import FormGroup from "../../src/components/Form/FormGroup.vue";
+import Feedback from "../../src/components/Form/Feedback.vue";
 
 const model = ref();
 </script>

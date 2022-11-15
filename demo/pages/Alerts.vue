@@ -16,10 +16,10 @@
 </template>
 
 <script lang="ts" setup>
-import Alert from "../../src/components/Alert";
-import Container from "../../src/components/Container";
+import Alert from "../../src/components/Alert/Alert";
+import Container from "../../src/components/Layout/Container";
 import {ref} from "vue";
-import Button from "../../src/components/Button";
+import Button from "../../src/components/Button/Button";
 import {colors} from "../assets";
 
 const a1 = ref<boolean>(true);

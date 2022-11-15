@@ -30,5 +30,5 @@ import { Button } from "./../../src/index";
 // import {NavLink} from "./../../dist";
 
 import {colors, sizesOf} from "../assets";
-import ButtonClose from "../../src/components/ButtonClose";
+import ButtonClose from "../../src/components/Button/ButtonClose";
 </script>

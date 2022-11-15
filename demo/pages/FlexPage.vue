@@ -8,5 +8,5 @@
 
 <script lang="ts" setup>
 
-import Flex from "../../src/components/Flex.vue";
+import Flex from "../../src/components/Layout/Flex.vue";
 </script>

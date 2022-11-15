@@ -66,8 +66,8 @@
 
 import {Button, Checkbox, CheckboxGroup} from "../../src/index";
 import {reactive, ref} from "vue";
-import Row from "../../src/components/Row";
-import Col from "../../src/components/Col";
+import Row from "../../src/components/Layout/Row";
+import Col from "../../src/components/Layout/Col";
 
 const dvalue = reactive({
     checked: 'Checked',

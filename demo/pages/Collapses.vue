@@ -42,9 +42,9 @@
 
 <script lang="ts" setup>
 
-import Collapse from "../../src/components/Collapse.js";
+import Collapse from "../../src/components/Accordion/Collapse.js";
 import {ref} from "vue";
-import Button from "../../src/components/Button";
+import Button from "../../src/components/Button/Button";
 
 const showDefault = ref(false);
 const showHorizontal = ref(true);

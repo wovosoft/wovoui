@@ -63,7 +63,7 @@
 
 <script lang="ts" setup>
 
-import TypeHead from "../../src/components/TypeHead.vue";
+import TypeHead from "../../src/components/Form/TypeHead.vue";
 import {Button, Container} from "../../src";
 import {ref} from "vue";
 

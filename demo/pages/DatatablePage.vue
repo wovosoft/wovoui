@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 import {Datepicker} from "../../src";
-import FormGroup from "../../src/components/FormGroup.vue";
+import FormGroup from "../../src/components/Form/FormGroup.vue";
 import {ref} from "vue";
 
 const currentDate = ref()

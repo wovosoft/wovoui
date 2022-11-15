@@ -13,6 +13,8 @@ import TablePage from "./pages/TablePage.vue";
 import FormCheckboxes from "./pages/Checkboxes.vue";
 import ModalPage from "./pages/ModalPage.vue";
 import DatatablePage from "./pages/DatatablePage.vue";
+import AccordionPage from "./pages/AccordionPage.vue";
+import CardPage from "./pages/CardPage.vue";
 //@ts-ignore
 import PaginationPage from "./pages/PaginationPage.vue"
 import OffCanvasPage from "./pages/OffCanvasPage.vue"
@@ -30,6 +32,11 @@ export const routes = [
         path: "/buttons",
         name: "Buttons",
         component: Buttons
+    },
+    {
+        path: "/accordions",
+        name: "Accordions",
+        component: AccordionPage
     },
     {
         path: "/badges",
@@ -50,6 +57,11 @@ export const routes = [
         path: "/collapses",
         name: "Collapse",
         component: Collapses
+    },
+    {
+        path: "/cards",
+        name: "Cards",
+        component: CardPage
     },
     {
         path: "/panel-menus",
@@ -110,6 +122,11 @@ export const routes = [
         path: "/datatable-page",
         name: "DatatablePage",
         component: DatatablePage
+    },
+    {
+        path: "/Native",
+        name: "Native",
+        component: () => import("./pages/Native.vue")
     },
 ]
 

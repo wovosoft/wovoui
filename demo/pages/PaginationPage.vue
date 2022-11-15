@@ -9,6 +9,6 @@
 
 <script lang="ts" setup>
 
-import Pagination from "../../src/components/Pagination.vue";
-import PageItem from "../../src/components/PageItem.vue";
+import Pagination from "../../src/components/Navigation/Pagination.vue";
+import PageItem from "../../src/components/Navigation/PageItem.vue";
 </script>
