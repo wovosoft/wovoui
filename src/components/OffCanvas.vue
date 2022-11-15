@@ -70,8 +70,8 @@ const props = defineProps({
 
 const emit = defineEmits<{
     (e: "update:modelValue", value: boolean): void;
-    (e: "beforeShow", value: boolean): void;
-    (e: "beforeHide", value: boolean): void;
+    (e: "showing", value: boolean): void;
+    (e: "hiding", value: boolean): void;
     (e: "shown", value: boolean): void;
     (e: "hidden", value: boolean): void;
 }>();
@@ -84,11 +84,9 @@ const showBackdrop = ref<boolean>(false);    //for 'show' class of backdrop elem
 
 //watchers
 watch(() => props.modelValue, value => shown.value = value);
-watch(shown, value => {
-    value ? show() : hide();
-});
+//watcher for transition
+watch(shown, value => value ? show() : hide());
 
-//for parental access, e.g. by $refs
 const show = () => {
     activeBackdrop.value = true;
     showBackdrop.value = true;
@@ -99,9 +97,13 @@ const show = () => {
         document.body.style.paddingRight = props.scrollbarPadding;
     }
 
+    emit("update:modelValue", true);
+    emit("showing", true);
+
     setTimeout(() => {
         isShowing.value = false;
         isShown.value = true;
+        emit("shown", true);
     }, OFFCANVAS_TRANSITION_DURATION);
 };
 
@@ -114,21 +116,29 @@ const hide = () => {
     isHiding.value = true;
     showBackdrop.value = false;
 
+    emit("update:modelValue", false);
+    emit("hiding", true);
+
+
     setTimeout(() => {
         activeBackdrop.value = false;
         isHiding.value = false;
         isShown.value = false;
-
-
         emit("hidden", true);
-        emit("update:modelValue", false);
     }, OFFCANVAS_TRANSITION_DURATION)
 };
 
-const toggle = () => shown.value ? hide() : show();
+//main job is done by watcher
+const toggle = () => shown.value = !shown.value;
 
 //expose show, hide, toggle methods to be used in refs
-defineExpose({show, hide, toggle});
+//direct access to show/hide/toggle methods will trigger animation twitch, so changing shown object
+//and watch the transition
+defineExpose({
+    show: () => shown.value = true,
+    hide: () => shown.value = false,
+    toggle
+});
 
 //computed
 const classes = computed(() => {
