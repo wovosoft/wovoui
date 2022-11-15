@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, getCurrentInstance} from "vue";
+import {computed, getCurrentInstance, PropType} from "vue";
 import type {classTypes} from "../types/classTypes";
 import {RouteRecordRaw} from "vue-router";
 
@@ -21,25 +21,14 @@ type linkAttributesType = {
     target?: string
 }
 
-interface NavLinkProps {
-    ariaCurrent?: string | null;
-    active?: boolean;
-    disabled?: boolean;
-    href?: string | null;
-    target?: string | null;
-    tag?: keyof HTMLElementTagNameMap;
-    to?: RouteRecordRaw;
-}
-
-
-const props = withDefaults(defineProps<NavLinkProps>(), {
-    ariaCurrent: null,
-    active: false,
-    disabled: false,
-    href: null,
-    target: null,
-    tag: "a",
-    to: null
+const props = defineProps({
+    ariaCurrent: {type: [String, null] as PropType<string | null>, default: null},
+    active: {type: Boolean as PropType<boolean>, default: false},
+    disabled: {type: Boolean as PropType<boolean>, default: false},
+    href: {type: String as PropType<string>, default: null},
+    target: {type: String as PropType<string>, default: null},
+    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
+    to: {type: Object as PropType<RouteRecordRaw>, default: null},
 });
 
 const isVueRouterInstalled = computed(() => {

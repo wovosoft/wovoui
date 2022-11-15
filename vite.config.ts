@@ -1,4 +1,4 @@
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 const path = require("path");
@@ -8,9 +8,13 @@ export default defineConfig({
 
     plugins: [
         vue({}),
-    
+
         // vueJsx({}),
-        dts({include: ["src/**/*"],skipDiagnostics: false, logDiagnostics: true})
+        dts({
+            include: ["src/**/*"],
+            // skipDiagnostics: false,
+            // logDiagnostics: true
+        })
     ],
     server: {
         watch: {
@@ -28,7 +32,7 @@ export default defineConfig({
             // fileName: "index",
             fileName: (format) => `[name].${format}.mjs`
         },
-       
+
         rollupOptions: {
             external: [
                 'vue',
