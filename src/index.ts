@@ -117,3 +117,4 @@ export {default as Multiselect} from "./components/Form/Multiselect.vue";
 
 //native components
 export {default as NativeCollapse} from "./components/Native/NativeCollapse.vue";
+export {default as NativeDialog} from "./components/Native/NativeDialog.vue";
