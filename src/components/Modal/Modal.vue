@@ -74,7 +74,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, ref, watch, nextTick, PropType, onBeforeUnmount, onMounted, onBeforeMount} from "vue";
+import {computed, ref, watch, nextTick, PropType, onBeforeUnmount, onBeforeMount} from "vue";
 import {
     ModalHeader, ModalBody, ModalTitle, ModalFooter, ButtonClose, Button,
     ModalDialog

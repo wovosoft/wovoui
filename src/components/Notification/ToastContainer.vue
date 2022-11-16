@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType} from "vue";
-import {toastPlacements} from "../../types/toastPlacements";
+import type {toastPlacements} from "../../types/toastPlacements";
 
 export default defineComponent({
     name: "ToastContainer",

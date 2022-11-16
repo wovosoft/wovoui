@@ -2,6 +2,7 @@
     <teleport to="body">
         <component
             :is="tag"
+            ref="theElement"
             role="dialog"
             :ariaModal="shown"
             :class="classes"
@@ -30,14 +31,13 @@
     </teleport>
 </template>
 
-
 <script lang="ts" setup>
-
 const isShowing = ref<boolean>(false);  //for 'showing' class
 const isHiding = ref<boolean>(false);   //for 'hiding' class
 const isShown = ref<boolean>(false);    //for 'show' class
+
 //constants
-import {OFFCANVAS_TRANSITION_DURATION} from "../../composables/useTransition";
+import {getTransitionDurationFromElement} from "../../composables/useTransition";
 import {computed, PropType, ref, watch} from "vue";
 import OffCanvasHeader from "./OffcanvasHeader.vue";
 import OffCanvasBody from "./OffcanvasBody";
@@ -73,7 +73,6 @@ const emit = defineEmits<{
     (e: "hidden", value: boolean): void;
 }>();
 
-
 //data refs
 const shown = ref<boolean>(false);              //inner state
 const activeBackdrop = ref<boolean>(false);     //should backdrop be generated
@@ -85,6 +84,7 @@ watch(() => props.modelValue, value => shown.value = value);
 //watcher for transition
 watch(shown, value => value ? show() : hide());
 
+const theElement = ref<HTMLElement>()
 const show = () => {
     activeBackdrop.value = true;
     showBackdrop.value = true;
@@ -102,7 +102,7 @@ const show = () => {
         isShowing.value = false;
         isShown.value = true;
         emit("shown", true);
-    }, OFFCANVAS_TRANSITION_DURATION);
+    }, getTransitionDurationFromElement(theElement.value));
 };
 
 const hide = () => {
@@ -123,7 +123,7 @@ const hide = () => {
         isHiding.value = false;
         isShown.value = false;
         emit("hidden", true);
-    }, OFFCANVAS_TRANSITION_DURATION)
+    }, getTransitionDurationFromElement(theElement.value))
 };
 
 //main job is done by watcher
