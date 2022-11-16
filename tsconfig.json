@@ -8,7 +8,7 @@
     "moduleResolution": "node",
     "allowJs": true,
     "declaration": true,
-    "declarationDir": "dist/src",
+    "declarationDir": "dist",
     "emitDeclarationOnly": true,
     "outDir": "dist",
     "declarationMap": true,

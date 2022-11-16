@@ -104,7 +104,7 @@ export default defineComponent({
                         ]
                     },
                     [
-                        props.icon ? h(Icon, {icon: props.icon}) : null,
+                        props.icon ? h(() => Icon, {icon: props.icon}) : null,
                         getContent(),
                         props.dismissible ? h(ButtonClose, {
                             onClick: () => applyVisibility(false),

@@ -1,6 +1,7 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
+
 const path = require("path");
 
 /** @type {import('vite').UserConfig} */
@@ -12,8 +13,7 @@ export default defineConfig({
         // vueJsx({}),
         dts({
             include: ["src/**/*"],
-            // skipDiagnostics: false,
-            // logDiagnostics: true
+            exclude: ["node_modules/**/*"]
         })
     ],
     server: {
@@ -23,8 +23,6 @@ export default defineConfig({
     },
     build: {
         sourcemap: true,
-        // Leave minification up to applications.
-        minify: false,
         target: 'esnext',
         lib: {
             entry: path.resolve(__dirname, 'src/index.ts'),

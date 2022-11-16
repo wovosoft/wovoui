@@ -14,8 +14,8 @@ export default defineComponent({
     components: {DropdownHeader},
     props: {
         header: {type: String as PropType<string>, default: null},
-        headerTag: {type: String as PropType<string>, default: "h6"},
-        headerWrapper: {type: String as PropType<string>, default: "li"},
+        headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
+        headerWrapper: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
     }
 })
 </script>

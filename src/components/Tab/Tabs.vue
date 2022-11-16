@@ -161,8 +161,8 @@ watch(active, index => {
     //certain tabs. But if there are multiple, we do the following actions to perform everything properly
     //without any risk
     tabsMap.value
-        .filter((tab: InstanceType<typeof Tab>) => tab.visible)
-        .forEach((tab: InstanceType<typeof Tab>) => {
+        .filter(tab => tab.visible)
+        .forEach(tab => {
             tab.updateVisibility(false);
         });
     //show target tab
