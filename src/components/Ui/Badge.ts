@@ -4,15 +4,61 @@ import {
     makeBoolean, makeProp, makeString, makeTag, makeVariant
 } from "../../composables/useProps";
 
+/**
+ * @link https://getbootstrap.com/docs/5.2/components/badge/
+ */
 export default defineComponent({
     props: {
+        /**
+         * Wrapper Tag
+         * @default span
+         */
         tag: makeTag('span'),
+
+        /**
+         * Color Variants
+         * Uses Bootstrap supported text-bg-*variant classes
+         * @link https://getbootstrap.com/docs/5.2/components/badge/#background-colors
+         */
         variant: makeVariant(null),
+
+        /**
+         * Text Color Variants
+         * Uses Bootstrap supported text-*variant classes
+         * @link https://getbootstrap.com/docs/5.2/utilities/colors/#how-it-works
+         */
         textVariant: makeVariant(null),
+
+        /**
+         * Background Color Variants
+         * Uses Bootstrap Supported bg-*variant classes
+         * @link https://getbootstrap.com/docs/5.2/utilities/background/
+         */
         bgVariant: makeVariant(null),
+
+        /**
+         * Generates Pill Badges
+         * @default false
+         * @link https://getbootstrap.com/docs/5.2/components/badge/#pill-badges
+         */
         pill: makeBoolean(false),
+
+        /**
+         * When provided, the badge will be an anchor link
+         */
         href: makeString(),
+
+        /**
+         * Sets position of the badge wrt. its parent,
+         * parent element should have positioned relative
+         * @supported 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
+         * @link https://getbootstrap.com/docs/5.2/components/badge/#positioned
+         */
         position: makeProp<BadgePositions>(null, String),
+
+        /**
+         * Default content for default slot
+         */
         content: makeProp<string | number>(null, [String, Number])
     },
     setup(props, {slots}) {
@@ -34,7 +80,10 @@ export default defineComponent({
                 }
             }
 
-            //added in 5.2
+            /**
+             * Added in BS 5.2.0
+             * @link https://getbootstrap.com/docs/5.2/components/badge/#background-colors
+             */
             return {
                 ['text-bg-' + props.variant]: !!props.variant
             }

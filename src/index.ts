@@ -106,7 +106,7 @@ export {default as Toast} from "./components/Notification/Toast.vue";
 export {default as ToastBody} from "./components/Notification/ToastBody";
 export {default as ToastContainer} from "./components/Notification/ToastContainer.vue";
 export {default as Tooltip} from "./components/Notification/Tooltip.vue";
-export {default as Aspect} from "./components/Ui/Aspect";
+export {default as Aspect} from "./components/Ui/Aspect.vue";
 export {default as Stack} from "./components/Layout/Stack";
 export {default as Vr} from "./components/Ui/Vr";
 export {default as Layout} from "./components/Layout/Layout.vue";

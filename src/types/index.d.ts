@@ -5,6 +5,7 @@ export type ItemAlignment = TextAlign | "baseline" | "stretch";
 export type AlignContent = TextAlign | "between" | "around" | "stretch";
 export type Order = 0 | 1 | 2 | 3 | 4 | 5 | 'first' | 'last';
 export type TooltipPlacement = 'top' | 'right' | 'bottom' | 'left' | 'start' | 'end';
+export type AspectRatios = '1x1' | '4x3' | '16x9' | '21x9';
 export type {
     responsiveNumbers,
     ColSizes,
@@ -17,6 +18,7 @@ export type {
 export type modalFullScreen = true | false | 'sm-down' | 'md-down' | 'lg-down' | 'xl-down' | 'xxl-down'
 export type VerticalAlign = 'baseline' | 'top' | 'middle' | 'bottom' | 'text-bottom' | 'text-top';
 export type ButtonSizes = 'sm' | 'lg';
+export type PlaceholderSizes = ButtonSizes | 'xs';
 export type FeedbackTypes = 'valid' | 'invalid';
 export type BadgePositions = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
 

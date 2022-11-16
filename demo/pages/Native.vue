@@ -13,7 +13,7 @@
             Native Dialog Content
         </NativeDialog>
         <h1>Native Progress</h1>
-        <NativeProgress :max="100" :value="45"/>
+        <NativeProgress class="w-100" :max="100" :value="45"/>
     </Container>
 </template>
 

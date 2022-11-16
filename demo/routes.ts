@@ -128,6 +128,16 @@ export const routes = [
         name: "Native",
         component: () => import("./pages/Native.vue")
     },
+    {
+        path: "/random",
+        name: "Random",
+        component: () => import("./pages/RandomPage.vue")
+    },
+    {
+        path: "/tabs-page",
+        name: "Tabs",
+        component: () => import("./pages/TabsPage.vue")
+    },
 ]
 
 

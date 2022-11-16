@@ -1,89 +1,216 @@
 <template>
     <div :class="classes">
-        <div class="tab-content" v-if="end">
-            <slot></slot>
-        </div>
-        <div :class="{'card-header':card}">
+        <TabContent v-if="end" :class="contentClass">
+            <slot/>
+        </TabContent>
+        <div :class="{'card-header':card, ...headerClass}">
             <Nav :tabs="true"
                  :pills="pills"
                  :fill="fill"
                  :justified="justified"
                  :align="align"
                  :vertical="vertical"
+                 tag="div"
                  :class="{'card-header-pills':pills,'card-header-tabs':card}">
-                <NavItem
-                    role="presentation"
+                <NavLink
+                    role="tab"
                     v-for="(tab,tab_index) in tabsMap"
                     :key="tab_index"
-                    tag="li"
                     :active="tab.visible"
+                    :aria-selected="tab.states.ariaSelected"
+                    :tabindex="tab.states.tabindex"
                     @click="active=tab_index"
-                    link-tag="button">
+                    tag="button">
                     {{ tab.title }}
-                </NavItem>
+                </NavLink>
             </Nav>
         </div>
-        <div class="tab-content" v-if="!end">
-            <slot></slot>
-        </div>
+
+        <TabContent v-if="!end" :class="contentClass">
+            <slot/>
+        </TabContent>
     </div>
 </template>
-<script lang="ts">
-import {ref, watch, provide, computed, defineComponent, PropType} from "vue";
-import Nav from "../Navigation/Nav";
-import NavItem from "../Navigation/NavItem.vue";
 
-export default defineComponent({
-    emits: ['update:modelValue'],
-    components: {NavItem, Nav},
-    props: {
-        modelValue: {type: Number as PropType<number>, default: 0},
-        card: {type: Boolean as PropType<boolean>, default: false},
-        pills: {type: Boolean as PropType<boolean>, default: false},
-        fill: {type: Boolean as PropType<boolean>, default: false},
-        justified: {type: Boolean as PropType<boolean>, default: false},
-        align: {type: String as PropType<'center' | 'end'>, default: null},
-        end: {type: Boolean as PropType<boolean>, default: false},
-        vertical: {type: Boolean as PropType<boolean>, default: false}
-    },
-    setup(props, context) {
-        const tabsMap = ref([]);
+<script lang="ts" setup>
+/**
+ * When child Tab Component has active prop , and Tabs component has modelValue,
+ * modelValue will have higher priority.
+ *
+ * TODO: #tabs-end, #empty slots needed to be implemented
+ * @link https://bootstrap-vue.org/docs/components/tabs#dynamic-tabs--tabs-end-slot
+ */
 
-        provide('registerTab', (tab) => {
-            let index = tabsMap.value.indexOf(tab);
-            if (index < 0) {
-                tabsMap.value.push(tab);
-            } else {
-                tabsMap.value[index] = tab;
-            }
-        });
-        provide('unregisterTab', (tab) => {
-            let index = tabsMap.value.indexOf(tab);
-            if (index > -1) {
-                tabsMap.value.splice(index, 1);
-            }
-        });
-        const active = ref(props.modelValue);
 
-        watch(() => props.modelValue, value => active.value = value);
-        watch(active, value => {
-            context.emit('update:modelValue', value);
-            tabsMap.value.filter((tab) => tab.visible).forEach(tab => tab.visible = false);
-            tabsMap.value[value].updateVisible(true)
-            // tabsMap.value.forEach((tab, index) => tab.updateVisible(value === index));
-        });
+import {computed, onMounted, PropType, provide, Ref, ref, watch} from "vue";
 
-        return {
-            tabsMap,
-            classes: computed(() => {
-                return {
-                    card: props.card,
-                    'd-flex': props.vertical,
-                    'align-items-start': props.vertical
-                }
-            }),
-            active
-        }
+/**
+ * Only Type is needed
+ */
+import type {Tab} from "../../index";
+import {Nav} from "../../index";
+import TabContent from "./TabContent.vue";
+import NavLink from "../Navigation/NavLink.vue";
+
+const props = defineProps({
+    /**
+     * Index of Active Tab
+     * @supported 0 to length of tabs
+     */
+    modelValue: {type: Number as PropType<number>, default: null},
+
+    /**
+     * @description defines if the tabs should be styled as card
+     * @type boolean
+     * @default false
+     * @link https://getbootstrap.com/docs/5.2/components/card/#navigation
+     */
+    card: {type: Boolean as PropType<boolean>, default: false},
+
+    /**
+     * @description defines if the tabs should be styled as pilled
+     * @type boolean
+     * @default false
+     * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#pills
+     */
+    pills: {type: Boolean as PropType<boolean>, default: false},
+
+    /**
+     * @description defines if the tabs should fill the whole available width
+     * @type boolean
+     * @default false
+     * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#fill-and-justify
+     */
+    fill: {type: Boolean as PropType<boolean>, default: false},
+
+    /**
+     * @description defines if the tabs should be justified
+     * @type boolean
+     * @default false
+     * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#fill-and-justify
+     */
+    justified: {type: Boolean as PropType<boolean>, default: false},
+
+    /**
+     * @description Defines tabs links alignment
+     * @default null
+     */
+    align: {type: String as PropType<'center' | 'end'>, default: null},
+
+    /**
+     * @description Defines if Tab Menus should be at before or after the content area
+     * This feature is not supported by bootstrap yet.
+     * So, rendering Menus at the end of the content, won't style it properly.
+     * In case when value is true, proper styling actions should be taken.
+     * @type boolean
+     * @default false
+     */
+    end: {type: Boolean as PropType<boolean>, default: false},
+
+    /**
+     * @description Defines if menu should be vertical or not.
+     * When card is enabled, styling doesn't work properly.
+     * @type boolean
+     * @default false
+     */
+    vertical: {type: Boolean as PropType<boolean>, default: false},
+
+    /**
+     * @type any
+     * @default null
+     * @description Tab Header Classes
+     */
+    headerClass: {default: null},
+
+    /**
+     * @type any
+     * @default null
+     * @description Tab Content Classes
+     */
+    contentClass: {default: null}
+});
+
+const emit = defineEmits<{
+    (e: 'update:modelValue', value: number): void
+}>();
+
+
+const active = ref<number>();
+onMounted(() => {
+    if (props.modelValue !== null) {
+        active.value = props.modelValue;
+    } else if (tabsMap.value.length > 0) {
+        active.value = tabsMap.value.findIndex(i => i.visible);
     }
-})
+});
+
+/**
+ * Watchers
+ */
+
+watch(() => props.modelValue, value => {
+    if (value !== active.value) {
+        active.value = value;
+    }
+});
+
+watch(active, index => {
+    emit('update:modelValue', index);
+
+    //find visible tabs and then hide. Theoretically, there should have only one visible tab in a
+    //certain tabs. But if there are multiple, we do the following actions to perform everything properly
+    //without any risk
+    tabsMap.value
+        .filter((tab: InstanceType<typeof Tab>) => tab.visible)
+        .forEach((tab: InstanceType<typeof Tab>) => {
+            tab.updateVisibility(false);
+        });
+    //show target tab
+    tabsMap.value[index].updateVisibility(true);
+});
+
+const classes = computed(() => ({
+    card: props.card,
+    'd-flex': props.vertical,
+    'align-items-start': props.vertical
+}));
+
+
+type TabMapItem = {
+    uid: number;
+    updateVisibility: (state: boolean) => void,
+    title: string;
+    visible: boolean;
+    states?: Ref<{
+        ariaSelected: boolean;
+        tabindex: number | null;
+    }>
+}
+
+/**
+ * Records of subscribed child tabs
+ */
+const tabsMap = ref<TabMapItem[]>([]);
+
+/**
+ * Provide Method to Child method to be subscribed as tab
+ */
+provide('registerTab', (tab) => tabsMap.value.push(tab));
+
+/**
+ * Provide Method to Child method to be unsubscribed as tab
+ */
+provide('unregisterTab', (uid: number) => {
+    let index = tabsMap.value.findIndex(t => t.uid === uid);
+    if (index > -1) {
+        tabsMap.value.splice(index, 1);
+    }
+});
+
+/**
+ * Usually the card prop should be constant in most scenario,
+ * but sometimes, it might be different, so computed value is
+ * a better approach.
+ */
+provide("isCardTabs", computed(() => props.card))
 </script>
