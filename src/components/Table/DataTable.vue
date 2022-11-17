@@ -5,13 +5,13 @@
             <Tr>
                 <template v-for="(th,th_index) in fields">
                     <Th
-                        :class="th.thClass"
+                        :class="!th.sortable?th.thClass:null"
                         v-if="th.visible!==false"
                         @click="applySorting(th)"
                         :style="{'cursor':th.sortable === true ? 'pointer' : null}"
                         :key="th_index">
                         <Flex jc="between">
-                            <FlexItem>
+                            <FlexItem :class="th.sortable?th.thClass:null">
                                 <slot :name="`head(${th.key})`"
                                       :column="th.key"
                                       :field="th"
