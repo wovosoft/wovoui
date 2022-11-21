@@ -37,6 +37,8 @@
   "module": "./dist/index.es.mjs",
   "exports": {
     "./src/index": "./src/index.mjs",
+    "./src/types/": "./src/types/",
+    "./dist/types/": "./src/dist/",
     "./dist/style": "./dist/style.css",
     ".": {
       "import": "./dist/index.es.mjs",
