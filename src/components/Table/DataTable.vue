@@ -9,7 +9,7 @@
                         @click="applySorting(th)"
                         :style="{'cursor':th.sortable === true ? 'pointer' : null}"
                         :key="th_index">
-                        <Flex jc="between">
+                        <Flex>
                             <FlexItem class="flex-grow-1" :class="th.thClass">
                                 <slot :name="`head(${th.key})`"
                                       :column="th.key"
