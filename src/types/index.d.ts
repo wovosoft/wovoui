@@ -5,6 +5,15 @@ export type ItemAlignment = TextAlign | "baseline" | "stretch";
 export type AlignContent = TextAlign | "between" | "around" | "stretch";
 export type Order = 0 | 1 | 2 | 3 | 4 | 5 | 'first' | 'last';
 export type TooltipPlacement = 'top' | 'right' | 'bottom' | 'left' | 'start' | 'end';
+export declare type VariationPlacement =
+    "top-start"
+    | "top-end"
+    | "bottom-start"
+    | "bottom-end"
+    | "right-start"
+    | "right-end"
+    | "left-start"
+    | "left-end";
 export type AspectRatios = '1x1' | '4x3' | '16x9' | '21x9';
 export type responsiveNumbers = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type ColSizes = responsiveNumbers | null | boolean | 'auto';
