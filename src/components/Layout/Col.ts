@@ -6,7 +6,7 @@ import type {
     ColSizes,
     justifyContentAlignments,
     responsiveNumbers
-} from "../../types/responsiveLayoutSizes";
+} from "../../types";
 
 
 export default defineComponent({

@@ -3,9 +3,9 @@ import type {
     colAlignments,
     ColSizes,
     justifyContentAlignments,
-} from "../../types/responsiveLayoutSizes";
+} from "../../types";
 
-import {responsiveNumbers} from "../../types/responsiveLayoutSizes";
+import {responsiveNumbers} from "../../types";
 
 export default defineComponent({
     name: "Row",

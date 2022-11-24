@@ -1,5 +1,5 @@
 import {defineComponent, PropType, h} from "vue";
-import type {responsiveNumbers} from "../../types/responsiveLayoutSizes";
+import type {responsiveNumbers} from "../../types";
 
 export default defineComponent({
     name: "FormLabel",

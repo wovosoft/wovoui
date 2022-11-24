@@ -138,6 +138,11 @@ export const routes = [
         name: "Tabs",
         component: () => import("./pages/TabsPage.vue")
     },
+    {
+        path: "/toast-page",
+        name: "Toasts",
+        component: () => import("./pages/ToastPage.vue")
+    },
 ]
 
 
