@@ -32,20 +32,18 @@ export default defineComponent({
     setup(props) {
         const shown = ref(false);
         watch(() => props.modelValue, value => shown.value = value);
-        const bsDir = (placement) => {
-            if (['auto', 'auto-start', 'auto-end', 'top', 'top-start', 'top-end'].includes(placement)) {
-                return "top";
-            } else if (['bottom', 'bottom-start', 'bottom-end'].includes(placement)) {
-                return "bottom";
-            } else if (['right', 'right-start', 'right-end'].includes(placement)) {
-                return "end";
-            } else if (['left', 'left-start', 'left-end'].includes(placement)) {
-                return "start";
-            }
-            return "top";
-        }
+        const bsDir = (placement) => (placement.startsWith('auto') || placement.startsWith('top'))
+            ? "top"
+            : (placement.startsWith('bottom'))
+                ? "bottom"
+                : (placement.startsWith('right'))
+                    ? "end"
+                    : (placement.startsWith('left'))
+                        ? "start"
+                        : placement;
+
         const dir = ref("top");
-        dir.value = bsDir(props.placement);
+
         const classes = computed(() => {
             return [
                 "popover",
@@ -64,11 +62,7 @@ export default defineComponent({
             enabled: true,
             phase: 'main',
             fn({state}) {
-                // console.log(state.placement)
                 dir.value = bsDir(state.placement)
-                // if (state.placement === 'top') {
-                //     console.log('Popper is on the top');
-                // }
             },
         };
         const popperOptions = computed(() => ({
