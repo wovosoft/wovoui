@@ -6,3 +6,4 @@ dist-ssr
 .vscode
 dist
 storybook-static
+dist-demo
