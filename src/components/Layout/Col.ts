@@ -1,5 +1,5 @@
 import {isBoolean} from "../../shared/properties.js";
-import {computed, defineComponent, h, PropType} from "vue";
+import {defineComponent, h, PropType} from "vue";
 import type {
     colAlignments,
     colOrders,
@@ -33,30 +33,31 @@ export default defineComponent({
         gy: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
     },
     setup(props, {slots}) {
-        const classes = computed(() => ({
-            "col": !(props.sm || props.md || props.lg || props.xl || props.col),
-            ["col-" + props.col]: props.col,
-            ["col-sm-" + props.sm]: props.sm && !isBoolean(props.sm),
-            ["col-md-" + props.md]: props.md && !isBoolean(props.md),
-            ["col-lg-" + props.lg]: props.lg && !isBoolean(props.lg),
-            ["col-xl-" + props.xl]: props.xl && !isBoolean(props.xl),
-            "col-sm": props.sm && isBoolean(props.sm),
-            "col-md": props.md && isBoolean(props.md),
-            "col-lg": props.lg && isBoolean(props.lg),
-            "col-xl": props.xl && isBoolean(props.xl),
-            ["align-self-" + props.alignSelf]: props.alignSelf,
-            ["justify-content-" + props.justifyContent]: props.justifyContent,
-            ["order-" + props.order]: props.order,
-            ["offset-sm-" + props.offsetSm]: props.offsetSm,
-            ["offset-md-" + props.offsetMd]: props.offsetMd,
-            ["offset-lg-" + props.offsetLg]: props.offsetLg,
-            ["offset-xl-" + props.offsetXl]: props.offsetXl,
-            ["gx-" + props.gx]: props.gx,
-            ["gy-" + props.gy]: props.gy,
-        }));
         return () => h(
             props.tag,
-            {class: classes.value},
+            {
+                class: ({
+                    "col": !(props.sm || props.md || props.lg || props.xl || props.col),
+                    ["col-" + props.col]: props.col,
+                    ["col-sm-" + props.sm]: props.sm && !isBoolean(props.sm),
+                    ["col-md-" + props.md]: props.md && !isBoolean(props.md),
+                    ["col-lg-" + props.lg]: props.lg && !isBoolean(props.lg),
+                    ["col-xl-" + props.xl]: props.xl && !isBoolean(props.xl),
+                    "col-sm": props.sm && isBoolean(props.sm),
+                    "col-md": props.md && isBoolean(props.md),
+                    "col-lg": props.lg && isBoolean(props.lg),
+                    "col-xl": props.xl && isBoolean(props.xl),
+                    ["align-self-" + props.alignSelf]: props.alignSelf,
+                    ["justify-content-" + props.justifyContent]: props.justifyContent,
+                    ["order-" + props.order]: props.order,
+                    ["offset-sm-" + props.offsetSm]: props.offsetSm,
+                    ["offset-md-" + props.offsetMd]: props.offsetMd,
+                    ["offset-lg-" + props.offsetLg]: props.offsetLg,
+                    ["offset-xl-" + props.offsetXl]: props.offsetXl,
+                    ["gx-" + props.gx]: props.gx,
+                    ["gy-" + props.gy]: props.gy,
+                })
+            },
             slots.default?.()
         )
     }

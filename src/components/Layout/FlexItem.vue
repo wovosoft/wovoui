@@ -16,7 +16,7 @@ const props = defineProps({
         default: false
     },
     grow: {
-        type: [Number, Array] as PropType<1 | 0>,
+        type: Boolean as PropType<boolean>,
         default: null
     },
     growOn: {
@@ -24,7 +24,7 @@ const props = defineProps({
         default: null
     },
     shrink: {
-        type: [Number, Array] as PropType<1 | 0>,
+        type: Boolean as PropType<boolean>,
         default: null
     },
     shrinkOn: {
@@ -39,60 +39,60 @@ const props = defineProps({
     orderXxl: {type: [String, Number] as PropType<Order>, default: null},
 });
 
-const classes = computed(() => {
-    function getFilledClasses(): string[] {
-        if (typeof props.fill === "boolean" && props.fill) {
-            return ["flex-fill"];
-        }
+const classes = computed(() => [
+    getFilledClasses(),
+    getGrowClasses(),
+    getShrinkClasses(),
+    getOrderClasses()
+]);
 
-        if (Array.isArray(props.fill)) {
-            return props.fill.map(fillOn => ["flex", fillOn, "fill"].join('-'));
-        }
-
-        if (typeof props.fill === "string") {
-            return ["flex-" + props.fill + '-fill'];
-        }
-
-        return [];
+function getFilledClasses(): string[] {
+    if (typeof props.fill === "boolean" && props.fill) {
+        return ["flex-fill"];
     }
 
-    function getGrowClasses(): string[] {
-        if ((props.grow === 1 || props.grow === 0) && !props.growOn) {
-            return ["flex-grow-" + props.grow];
-        }
-
-        if ((props.grow === 1 || props.grow === 0) && props.growOn && Array.isArray(props.growOn)) {
-            return props.growOn.map(gon => ["flex-grow", gon, props.grow].join("-"));
-        }
-        return [];
+    if (Array.isArray(props.fill)) {
+        return props.fill.map(fillOn => ["flex", fillOn, "fill"].join('-'));
     }
 
-    function getShrinkClasses(): string[] {
-        if ((props.shrink === 1 || props.shrink === 0) && !props.shrinkOn) {
-            return ["flex-shrink-" + props.shrink];
-        }
-
-        if ((props.shrink === 1 || props.shrink === 0) && props.shrinkOn && Array.isArray(props.shrinkOn)) {
-            return props.shrinkOn.map(son => ["flex-shrink", son, props.shrink].join("-"));
-        }
-        return [];
+    if (typeof props.fill === "string") {
+        return ["flex-" + props.fill + '-fill'];
     }
 
-    function getOrderClasses() {
-        return ['order', 'orderSm', 'orderMd', 'orderLg', 'orderXl', 'orderXxl']
-            .map((s) => {
-                if (props[s] !== null) {
-                    return s.replace(/[A-Z]/g, m => "-" + m.toLowerCase()) + '-' + props[s];
-                }
-                return null;
-            });
+    return [];
+}
+
+function getGrowClasses(): string[] {
+    if (props.grow !== null && !props.growOn) {
+        //Number(boolean) converts to number
+        return ["flex-grow-" + Number(props.grow)];
     }
 
-    return [
-        getFilledClasses(),
-        getGrowClasses(),
-        getShrinkClasses(),
-        getOrderClasses()
-    ];
-});
+    if (props.grow !== null && props.growOn && Array.isArray(props.growOn)) {
+        return props.growOn.map(gon => ["flex-grow", gon, Number(props.grow)].join("-"));
+    }
+    return [];
+}
+
+function getShrinkClasses(): string[] {
+    if (props.shrink !== null && !props.shrinkOn) {
+        return ["flex-shrink-" + Number(props.shrink)];
+    }
+
+    if (props.shrink !== null && props.shrinkOn && Array.isArray(props.shrinkOn)) {
+        return props.shrinkOn.map(son => ["flex-shrink", son, Number(props.shrink)].join("-"));
+    }
+    return [];
+}
+
+function getOrderClasses() {
+    return ['order', 'orderSm', 'orderMd', 'orderLg', 'orderXl', 'orderXxl']
+        .map((s) => {
+            if (props[s] !== null) {
+                return s.replace(/[A-Z]/g, m => "-" + m.toLowerCase()) + '-' + props[s];
+            }
+            return null;
+        })
+        ?.filter(i => !!i);
+}
 </script>

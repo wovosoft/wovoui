@@ -36,8 +36,14 @@ export default function (reference, target, options, shouldUpdate: Ref<boolean>)
 
     onBeforeUnmount(destroy);
 
-    watch(() => options, (value: SetAction<Partial<OptionsGeneric<any>>>) => popper.value?.setOptions(value));
-    watch(shouldUpdate, (value) => popper.value?.update());
+    watch(
+        options,
+        (value: SetAction<Partial<OptionsGeneric<any>>>) => popper.value?.setOptions(value)
+    );
+    watch(
+        shouldUpdate,
+        (value) => popper.value?.update()
+    );
 
     return {
         popper,

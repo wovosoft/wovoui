@@ -6,14 +6,11 @@
     </component>
 </template>
 
-<script lang="ts">
-import {defineComponent, PropType} from "vue";
+<script lang="ts" setup>
+import {PropType} from "vue";
 
-export default defineComponent({
-    name: "DropdownHeader",
-    props: {
-        wrapper: {type: String as PropType<string>, default: "li"},
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
-    }
+defineProps({
+    wrapper: {type: String as PropType<string>, default: "li"},
+    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
 })
 </script>

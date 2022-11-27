@@ -1,10 +1,9 @@
-import Dropdown from "../Dropdown/Dropdown.vue";
+import {Dropdown} from "../../";
 import dropdownProps from "../../shared/dropdownProps";
 import {defineComponent, h, PropType} from "vue";
 
 export default defineComponent({
     name: "NavItemDropdown",
-    components: {Dropdown},
     props: {
         ...dropdownProps,
         isNav: {type: Boolean as PropType<boolean>, default: true},

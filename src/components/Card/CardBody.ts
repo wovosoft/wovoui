@@ -1,9 +1,7 @@
 import {defineComponent, h, PropType} from "vue";
-import CardTitle from "./CardTitle";
-import CardSubTitle from "./CardSubTitle";
+import {CardTitle, CardSubTitle} from "../..";
 
-import type {ColorVariants} from "../../types/colorVariants";
-import type {textVariants} from "../../types/textVariants";
+import type {ColorVariants,TextVariants} from "../../types";
 
 export default defineComponent({
     name: "CardBody",
@@ -16,7 +14,7 @@ export default defineComponent({
         overlay: {type: Boolean as PropType<boolean>, default: false},
         subTitle: {type: String as PropType<string>, default: null},
         subTitleTag: {type: String as PropType<string>, default: "h6"},
-        subTitleTextVariant: {type: String as PropType<ColorVariants | textVariants>, default: "muted"},
+        subTitleTextVariant: {type: String as PropType<ColorVariants | TextVariants>, default: "muted"},
         title: {type: String as PropType<string>, default: null},
         titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"}
     },

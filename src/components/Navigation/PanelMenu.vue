@@ -34,7 +34,7 @@
 <script lang="ts" setup>
 import {onBeforeMount, PropType, ref, watch} from "vue";
 import type {ColorVariants} from "../../types";
-import {Button, Collapse, Icon, ListGroup, ListGroupItem} from "../../index";
+import {Button, Collapse, Icon, ListGroup, ListGroupItem} from "../..";
 import {ChevronDown, ChevronRight, ChevronUp} from "@wovosoft/wovoui-icons";
 
 type MenuItem = {
@@ -74,6 +74,7 @@ const props = defineProps({
         default: false
     }
 });
+
 const active = ref<null | number>(null);
 
 function setActive(index: number) {

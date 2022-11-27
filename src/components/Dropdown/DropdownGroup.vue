@@ -5,17 +5,13 @@
     <slot></slot>
 </template>
 
-<script lang="ts">
-import {defineComponent, PropType} from "vue";
+<script lang="ts" setup>
+import {PropType} from "vue";
 import DropdownHeader from "./DropdownHeader.vue";
 
-export default defineComponent({
-    name: "DropdownGroup",
-    components: {DropdownHeader},
-    props: {
-        header: {type: String as PropType<string>, default: null},
-        headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
-        headerWrapper: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
-    }
-})
+defineProps({
+    header: {type: String as PropType<string>, default: null},
+    headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
+    headerWrapper: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
+});
 </script>

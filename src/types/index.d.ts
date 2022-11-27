@@ -1,4 +1,16 @@
+import type {Placement} from "@popperjs/core";
+
 export type TextAlign = 'start' | 'center' | 'end';
+export type TextVariants =
+    'muted'
+    | 'white-50'
+    | 'black-50'
+    | 'white'
+    | 'opacity-75'
+    | 'opacity-50'
+    | 'opacity-20'
+    | 'black';
+
 export type ColorVariants = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
 export type JustifyAlignment = TextAlign | "between" | "around" | "evenly";
 export type ItemAlignment = TextAlign | "baseline" | "stretch";
@@ -37,3 +49,19 @@ export type HTMLInputTypes = "button" | "checkbox" | "color" | "date"
 export type ToastPlacements =
     'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center'
     | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
+export type dropdownDirections = "right" | "left" | "top" | null;
+export type dropdownAlignments =
+    | "start"
+    | "end"
+    | "sm-start"
+    | "sm-end"
+    | "md-start"
+    | "md-end"
+    | "lg-start"
+    | "lg-end"
+    | "xl-start"
+    | "xl-end"
+    | "xxl-start"
+    | "xxl-end"
+    | Placement;
+

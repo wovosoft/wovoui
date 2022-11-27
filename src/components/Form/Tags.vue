@@ -29,8 +29,7 @@ import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {X} from "@wovosoft/wovoui-icons";
 import Badge from "../Ui/Badge";
 import Button from "../Button/Button";
-import type {ColorVariants} from "../../types/colorVariants";
-import type {ButtonSizes} from "../../types";
+import type {ColorVariants, ButtonSizes} from "../../types";
 
 export default defineComponent({
     name: "Tags",

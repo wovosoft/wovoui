@@ -14,31 +14,26 @@
     </component>
 </template>
 
-<script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
-import InputGroupText from "./InputGroupText";
+<script lang="ts" setup>
+import {computed, PropType} from "vue";
+import {InputGroupText} from "../..";
+import type {ButtonSizes} from "../../types";
 
-export default defineComponent({
-    components: {InputGroupText},
-    props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        size: {type: String as PropType<string>, default: null},
-        prepend: {type: String as PropType<string>, default: null},
-        append: {type: String as PropType<string>, default: null},
-        noWrap: {type: Boolean as PropType<boolean>, default: false}
-    },
-    setup(props) {
-        return {
-            classes: computed(() => [
-                "input-group",
-                {
-                    ["input-group-" + props.size]: !!props.size,
-                    "flex-nowrap": props.noWrap
-                }
-            ])
-        }
+const props = defineProps({
+    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+    size: {type: String as PropType<ButtonSizes>, default: null},
+    prepend: {type: String as PropType<string>, default: null},
+    append: {type: String as PropType<string>, default: null},
+    noWrap: {type: Boolean as PropType<boolean>, default: false}
+});
+
+const classes = computed(() => [
+    "input-group",
+    {
+        ["input-group-" + props.size]: !!props.size,
+        "flex-nowrap": props.noWrap
     }
-})
+]);
 </script>
 <style>
 .input-group .form-range.form-control {

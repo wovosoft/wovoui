@@ -5,6 +5,7 @@
              @keyup.esc="onEsc"
              :id="id"
              :class="classes"
+             :style="classStates.modalStyle"
              tabindex="-1"
              :aria-hidden="!shown"
              :aria-modal="shown"
@@ -67,23 +68,22 @@
             </ModalDialog>
         </div>
         <div v-if="!noBackdrop && showBackdrop"
-             ref="backdrop"
+             :style="classStates.backdropStyle"
+             :class="{show:classStates.backdropShow}"
              class="modal-backdrop fade"
         />
     </teleport>
 </template>
 
 <script lang="ts" setup>
-import {computed, ref, watch, nextTick, PropType, onBeforeUnmount, onBeforeMount} from "vue";
+import {computed, ref, watch, nextTick, PropType, onBeforeUnmount, onBeforeMount, reactive} from "vue";
 import {
-    ModalHeader, ModalBody, ModalTitle, ModalFooter, ButtonClose, Button,
-    ModalDialog
-} from "../../index";
+    ModalHeader, ModalBody, ModalTitle, ModalFooter, ButtonClose, Button, ModalDialog
+} from "../../";
 import {modalCount} from "../../composables/useHelpers";
 import type {modalFullScreen, ButtonSizes, modalSizes, ColorVariants} from "../../types";
 import vOnClickOutside from "../../directives/vOnClickOutside";
 import {EVENT_TRIGGER_HIDE_NAME, EVENT_TRIGGER_SHOW_NAME} from "../../composables/useModal";
-
 
 const emit = defineEmits<{
     (e: "update:modelValue", value: boolean): void;
@@ -129,7 +129,6 @@ const props = defineProps({
         default: null
     },
 
-
     noFooter: {type: Boolean as PropType<boolean>, default: false},
     footerClass: {type: [Array, String, Object] as PropType<any>, default: null},
     footerVariant: {
@@ -171,13 +170,22 @@ const props = defineProps({
 const TRANSITION_TIME = 150;
 const showBackdrop = ref<boolean>(false);
 const shown = ref<boolean>(props.modelValue);
+
+const classStates = reactive({
+    modalStatic: false,
+    modalShow: false,
+    backdropShow: false,
+    modalStyle: {},
+    backdropStyle: {},
+});
+
 const classes = computed(() => ["modal", {
     "fade": props.animation === "fade" || !props.animation,
+    "modal-static": classStates.modalStatic,
+    "show": classStates.modalShow
 }]);
 
-
-const modal = ref<HTMLElement>(null)
-const backdrop = ref<HTMLElement>(null);
+const modal = ref<HTMLElement>(null);
 
 const isMountable = ref<boolean>(false);
 const shouldMount = computed<boolean>(() => !props.lazy || isMountable.value);
@@ -185,15 +193,20 @@ const shouldMount = computed<boolean>(() => !props.lazy || isMountable.value);
 const show = () => setState(true);
 const hide = () => setState(false);
 const toggle = () => setState(!shown.value);
-
-watch(() => props.modelValue, setState);
-watch(shown, startAnimation);
-
 defineExpose({
     show,
     hide,
     toggle,
 });
+
+watch(() => props.modelValue, value => {
+    if (value !== shown.value) {
+        setState(value);
+    }
+});
+
+watch(shown, startAnimation);
+
 
 function onClose(e) {
     emit('close', true);
@@ -209,7 +222,6 @@ function onOk(e) {
     }
 }
 
-
 function onEsc(e) {
     if (!props.noCloseOnEsc && !e.defaultPrevented) {
         hide();
@@ -220,12 +232,13 @@ function onEsc(e) {
 function clickOutside(e) {
     if (shown.value && modal.value.isSameNode(e.target)) {
         if (props.static) {
-            modal.value.classList.add("modal-static");
-            modal.value.style.overflowY = "hidden";
-            setTimeout(() => {
-                if (modal.value.classList.contains("modal-static")) {
-                    modal.value.classList.remove("modal-static");
-                    modal.value.style.overflowY = "";
+            classStates.modalStatic = true;
+            classStates.modalStyle['overflowY'] = "hidden";
+
+            setTimeout(function () {
+                if (classStates.modalStatic) {
+                    classStates.modalStatic = false;
+                    classStates.modalStyle['overflowY'] = "";
                 }
             }, TRANSITION_TIME * 2)
         } else if (!props.noCloseOnBackdrop) {
@@ -242,7 +255,7 @@ function setState(isShowing: boolean) {
 
     if (isShowing) {
         emit("showing", true);
-    } else if (props.modelValue !== isShowing) {
+    } else {
         emit("hiding", true);
     }
 
@@ -255,6 +268,17 @@ function setState(isShowing: boolean) {
     });
 }
 
+function setBodyAttrs() {
+    document.body.classList.add("modal-open");
+    document.body.style.paddingRight = "17px";
+    document.body.style.overflow = "hidden";
+}
+
+function resetBodyAttrs() {
+    document.body.classList.remove("modal-open");
+    document.body.style.paddingRight = "";
+    document.body.style.overflow = "";
+}
 
 function startAnimation(isShown: boolean) {
     if (isShown) {
@@ -262,34 +286,28 @@ function startAnimation(isShown: boolean) {
 
         let count = modalCount(true);
         if (count > 1) {
-            modal.value.style.zIndex = (1155 * count).toString();
-            setTimeout(() => backdrop.value.style.zIndex = (1155 * count - 105).toString(), 0);
+            classStates.modalStyle['zIndex'] = (1155 * count).toString();
+            setTimeout(() => classStates.backdropStyle['zIndex'] = (1155 * count - 105).toString(), 0);
         }
 
         showBackdrop.value = true;
-
         setTimeout(() => {
-            document.body.classList.add("modal-open");
-            document.body.style.paddingRight = "17px";
-            document.body.style.overflow = "hidden";
-            backdrop.value.classList.add('show');
-            modal.value.style.display = "block";
+            setBodyAttrs();
+            classStates.backdropShow = true;
+            classStates.modalStyle['display'] = "block";
         }, 0);
 
         setTimeout(afterModalIsShown, TRANSITION_TIME);
     } else {
-        // document.removeEventListener("click", clickOutside);
-        modal.value.style.zIndex = "";
-        backdrop.value.style.zIndex = "";
+        classStates.modalStyle['zIndex'] = "";
+        classStates.backdropStyle["zIndex"] = "";
 
         let count = modalCount(false);
         if (count < 1) {
-            document.body.classList.remove("modal-open");
-            document.body.style.paddingRight = "";
-            document.body.style.overflow = "";
+            resetBodyAttrs();
         }
         //add show class to modal first, this will add hiding transition
-        modal.value.classList.remove("show");
+        classStates.modalShow = false;
 
         setTimeout(afterModalIsHidden, TRANSITION_TIME);
     }
@@ -303,17 +321,16 @@ function afterModalIsShown() {
         modal.value?.focus();
     }
 
-
-    modal.value.classList.add("show");
+    classStates.modalShow = true;
     emit("shown", true);
     emit('update:modelValue', true);
 }
 
 function afterModalIsHidden() {
     //MODAL HIDDEN: after transition completed, hide the modal which takes TRANSITION_TIME ms.
-    modal.value.style.display = "none";
+    classStates.modalStyle["display"] = "none";
     //add hiding transition to backdrop
-    backdrop.value.classList.remove('show');
+    classStates.backdropShow = false;
 
     //after backdrop hiding transition, it can be removed
     setTimeout(() => {

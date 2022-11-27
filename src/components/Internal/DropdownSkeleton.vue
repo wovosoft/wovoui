@@ -17,15 +17,20 @@
 import {computed, PropType, Ref, ref, watch} from "vue";
 import usePopper from "../../shared/usePopper";
 import {onClickOutside} from "@vueuse/core";
+import {DropdownMenu} from "../../index";
 
 const props = defineProps({
     tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
     toggleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
-    menuTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
+    menuTag: {
+        type: [String, Object] as PropType<keyof HTMLElementTagNameMap | InstanceType<typeof DropdownMenu>>,
+        default: 'div'
+    },
     menuClass: {default: null},
     toggleClass: {default: null},
     activatorClass: {default: 'show'},
-    modelValue: {type: Boolean as PropType<boolean>, default: false}
+    modelValue: {type: Boolean as PropType<boolean>, default: false},
+    popperOptions: {default: null}
 });
 
 const isShown = ref<boolean>(false);
@@ -46,7 +51,7 @@ const emit = defineEmits<{
 function toggleMenu() {
     isShown.value = !isShown.value;
     emit("toggleMenu", isShown);
-    emit("update:modelValue", isShown.value);
+    emit("update:modelValue", !isShown.value);
 }
 
 const getMenuClass = computed(() => [
@@ -59,7 +64,14 @@ const getMenuClass = computed(() => [
 const target = ref<HTMLElement | null>(null);
 const toggle = ref<HTMLElement | null>(null);
 const menu = ref<HTMLElement | null>(null);
-const {update} = usePopper(toggle, menu, null, isShown);
+const theOptions = ref(props.popperOptions);
+const {update, popper} = usePopper(toggle, menu, theOptions, isShown);
+
+watch(
+    () => props.popperOptions,
+    value => theOptions.value = value
+);
+
 
 function show() {
     //this should update isShown when initialized

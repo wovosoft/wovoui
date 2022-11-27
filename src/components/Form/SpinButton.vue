@@ -34,12 +34,9 @@
 
 <script lang="ts" setup>
 import {computed, ref, watch, PropType} from "vue";
-import InputGroup from "./InputGroup.vue";
-import Button from "../Button/Button";
-
+import {InputGroup, Button} from "../..";
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
 import type {ColorVariants, ButtonSizes} from "../../types";
-
 
 const props = defineProps({
     modelValue: {type: Number as PropType<number>, default: 0},

@@ -1,7 +1,7 @@
 import {PropType} from "vue";
-import type {ColorVariants} from "../types/colorVariants";
-import type {dropdownAlignments} from "../types/dropdownAlignments";
-import type {dropdownDirections} from "../types/dropdownDirections";
+import type {ColorVariants} from "../types";
+import type {dropdownAlignments} from "../types";
+import type {dropdownDirections} from "../types";
 import type {ButtonSizes} from "../types";
 
 

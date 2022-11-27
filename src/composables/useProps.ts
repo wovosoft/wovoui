@@ -12,9 +12,12 @@ export const makeVariant = (initial: ColorVariants = 'secondary') =>
 export const makeSize = <T>(initial: T = null) => makeProp<T>(initial, String);
 
 export const makeBoolean = (initial: boolean = false) => ({
-    type: Boolean as PropType<boolean>,
+    type: Boolean,
     default: () => initial
-});
+}) as {
+    type: PropType<boolean>,
+    default: () => typeof initial
+};
 
 export const makeString = (initial: string = null) => ({
     type: String as PropType<string>,
@@ -22,9 +25,12 @@ export const makeString = (initial: string = null) => ({
 });
 
 export const makeTag = (initial: keyof HTMLElementTagNameMap = "div") => ({
-    type: String as PropType<keyof HTMLElementTagNameMap>,
+    type: String,
     default: () => initial
-});
+}) as {
+    type: PropType<keyof HTMLElementTagNameMap>,
+    default: () => typeof initial
+};
 
 export const makeNumber = (initial: number = null) => ({
     type: Number as PropType<number>,

@@ -1,6 +1,7 @@
 <template>
-    <teleport :to="container" v-if="container && shouldGenerate">
+    <SafeTeleport :to="container">
         <div
+            v-if="shouldGenerate"
             ref="element"
             v-bind="$attrs"
             :class="classes"
@@ -18,37 +19,22 @@
             </ToastBody>
             <slot v-else></slot>
         </div>
-    </teleport>
-
-    <div
-        v-else-if="!container && shouldGenerate "
-        ref="element"
-        v-bind="$attrs"
-        :class="classes"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true">
-        <div class="toast-header" v-if="$slots.header || header">
-            <slot name="header">
-                <strong class="me-auto">{{ header }}</strong>
-            </slot>
-            <ButtonClose v-if="!noCloseButton" @click="visible = false"/>
-        </div>
-        <ToastBody :class="bodyClass" v-if="!noBody">
-            <slot></slot>
-        </ToastBody>
-        <slot v-else></slot>
-    </div>
+    </SafeTeleport>
 </template>
+
+<script lang="ts">
+export default {
+    inheritAttrs: false
+}
+</script>
 
 <script lang="ts" setup>
 
 import {computed, onBeforeUnmount, PropType, ref, watch} from "vue";
-
-import {ButtonClose, ToastBody} from "../../../src";
-
+import {ButtonClose, ToastBody} from "../../";
 import type {ColorVariants} from "../../types";
 import {getTransitionDurationFromElement} from "../../composables/useTransition";
+import SafeTeleport from "../Internal/SafeTeleport.vue";
 
 
 const props = defineProps({
@@ -107,7 +93,7 @@ const props = defineProps({
     /**
      * teleporting to a different location
      */
-    container: {type: String as PropType<string | keyof HTMLElementTagNameMap>, default: null},
+    container: {type: String as PropType<keyof HTMLElementTagNameMap>, default: null},
 
     /**
      * Auto Hide timeout value in seconds.

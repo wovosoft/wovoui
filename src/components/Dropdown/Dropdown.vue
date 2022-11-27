@@ -1,78 +1,93 @@
 <template>
-    <component :is="tag" :class="classes" ref="target">
-        <Button
-            v-if="split"
-            :disabled="disabled"
-            :variant="splitVariant"
-            :block="block"
-            :size="size">
-            <slot name="button-content">
+    <DropdownSkeleton
+        :show="isMenuOpened"
+        :menu-tag="DropdownMenu"
+        :menu-class="menuClass"
+        :dark="menuDark"
+        :popper-options="popperOptions"
+        v-model="isMenuOpened"
+        :class="classes">
+        <template #toggle="{toggleMenu}">
+            <Button
+                v-if="split"
+                :disabled="disabled"
+                :variant="splitVariant"
+                :block="block"
+                :size="size">
+                <slot name="button-content">
+                    {{ text }}
+                </slot>
+            </Button>
+            <NavLink v-if="isNav"
+                     ref="toggle"
+                     class="dropdown-toggle"
+                     role="button"
+                     @click="toggleMenu()">
                 {{ text }}
-            </slot>
-        </Button>
-        <NavLink v-if="isNav"
-                 ref="toggle"
-                 class="dropdown-toggle"
-                 role="button"
-                 @click="shouldOpen=!shouldOpen">
-            {{ text }}
-        </NavLink>
-        <Button
-            v-else
-            ref="toggle"
-            :tag="toggleTag"
-            :block="block"
-            :disabled="disabled"
-            :variant="variant"
-            :size="size"
-            class="dropdown-toggle"
-            :class="{'show':shouldOpen,'dropdown-toggle-split':split}"
-            @click="shouldOpen=!shouldOpen"
-            :aria-expanded="toggleAriaExpanded">
-            <slot name="button-content">
-                <span class="visually-hidden" v-if="split">Toggle Dropdown</span>
-                <template v-else>{{ text }}</template>
-            </slot>
-        </Button>
-        <DropdownMenu
-            @click="menuItemClicked"
-            ref="menu"
-            :show="shouldOpen"
-            :tag="menuTag"
-            :class="menuClass"
-            :dark="menuDark">
-            <slot></slot>
-        </DropdownMenu>
-    </component>
+            </NavLink>
+            <Button
+                v-else
+                ref="toggle"
+                :tag="toggleTag"
+                :block="block"
+                :disabled="disabled"
+                :variant="variant"
+                :size="size"
+                class="dropdown-toggle"
+                :class="{'show':isMenuOpened,'dropdown-toggle-split':split}"
+                @click="toggleMenu()"
+                :aria-expanded="isMenuOpened">
+                <slot name="button-content">
+                    <span class="visually-hidden" v-if="split">Toggle Dropdown</span>
+                    <template v-else>{{ text }}</template>
+                </slot>
+            </Button>
+        </template>
+        <slot></slot>
+    </DropdownSkeleton>
 </template>
-
 <script lang="ts" setup>
-import dropdownProps from "../../shared/dropdownProps";
-import Button from "../Button/Button";
-import DropdownMenu from "./DropdownMenu.vue";
-import {computed, defineProps, ref, watch} from "vue";
-import NavLink from "../Navigation/NavLink.vue";
-import usePopper from "../../shared/usePopper";
-import {onClickOutside} from "@vueuse/core";
 
-const props = defineProps(dropdownProps);
-const shouldOpen = ref<boolean>(false);
+import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
+import {computed, ref} from "vue";
 
-const target = ref<HTMLElement | null>(null);
-const toggle = ref<InstanceType<typeof Button> | null>(null);
-const menu = ref<InstanceType<typeof DropdownMenu> | null>(null);
+import {Button, NavLink, DropdownMenu} from "../..";
+import type {ButtonSizes, dropdownAlignments, dropdownDirections, ColorVariants} from "../../types";
 
-const toggleAriaExpanded = ref<boolean>(false);
+type DropdownType = {
+    tag?: keyof HTMLElementTagNameMap,
+    menuTag?: keyof HTMLElementTagNameMap,
+    toggleTag?: keyof HTMLElementTagNameMap,
+    size?: ButtonSizes | null,
+    text?: string | null,
+    variant?: ColorVariants,
+    splitVariant?: ColorVariants,
+    block?: boolean,
+    disabled?: boolean,
+    /**
+     * left,right,up, down=null (default)
+     */
+    dir: dropdownDirections | null,
+    align?: dropdownAlignments,
+    menuDark?: boolean,
+    menuClass?: string | object | any[] | null,
 
-onClickOutside(target, () => shouldOpen.value = false);
+    split?: boolean,
+    isNav?: boolean,
+    disableInnerClicks?: boolean,
+}
 
-const options = computed(() => ({
-    placement: props.align ? [props.dir, props.align].join("-") : "bottom-start"
-}));
+const props = withDefaults(defineProps<DropdownType>(), {
+    tag: "div",
+    menuTag: "ul",
+    toggleTag: "button",
+    variant: "secondary",
+    splitVariant: "secondary",
+    align: "start",
+});
 
-const {update} = usePopper(toggle, menu, options, shouldOpen);
+const isMenuOpened = ref<boolean>(false);
 
-watch(shouldOpen, value => toggleAriaExpanded.value = value);
 
 const classes = computed(() => ({
     "btn-group": !props.block && !props.isNav,
@@ -82,11 +97,7 @@ const classes = computed(() => ({
     "dropup": props.dir === "top",
 }));
 
-function menuItemClicked(e) {
-    if (!props.disableInnerClicks && shouldOpen.value) {
-        if (menu.value?.$el?.contains(e.target)) {
-            shouldOpen.value = false;
-        }
-    }
-}
+const popperOptions = computed(() => ({
+    placement: props.align ? [props.dir, props.align].join("-") : "bottom-start"
+}));
 </script>

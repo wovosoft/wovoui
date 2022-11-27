@@ -9,14 +9,11 @@
     </li>
 </template>
 
-<script lang="ts">
-import {defineComponent, PropType} from "vue";
+<script lang="ts" setup>
+import {PropType} from "vue";
 
-export default defineComponent({
-    name: "DropdownButton",
-    props: {
-        active: {type: Boolean as PropType<boolean>, default: false},
-        disabled: {type: Boolean as PropType<boolean>, default: false},
-    }
-})
+defineProps({
+    active: {type: Boolean as PropType<boolean>, default: false},
+    disabled: {type: Boolean as PropType<boolean>, default: false},
+});
 </script>

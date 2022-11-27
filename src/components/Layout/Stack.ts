@@ -16,6 +16,6 @@ export default defineComponent({
                     ["gap-" + props.gap]: props.gap
                 }
             ]
-        }, slots.default ? slots.default() : null)
+        }, slots?.default())
     }
 })

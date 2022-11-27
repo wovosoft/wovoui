@@ -143,6 +143,21 @@ export const routes = [
         name: "Toasts",
         component: () => import("./pages/ToastPage.vue")
     },
+    {
+        path: "/progress-page",
+        name: "Progress Bar",
+        component: () => import("./pages/ProgressbarPage.vue")
+    },
+    {
+        path: "/datepicker-page",
+        name: "Datepicker",
+        component: () => import("./pages/DatePickerPage.vue")
+    },
+    {
+        path: "/calendar-page",
+        name: "Calendar",
+        component: () => import("./pages/CalendarPage.vue")
+    },
 ]
 
 

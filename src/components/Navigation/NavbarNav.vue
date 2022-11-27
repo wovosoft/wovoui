@@ -13,12 +13,12 @@ import {computed, PropType} from "vue";
 const props = defineProps({
     ...navProps,
     scrollHeight: {type: [String, Number] as PropType<string | number>, default: null},
-    scrollableL: {type: Boolean as PropType<boolean>, default: false}
+    scrollable: {type: Boolean as PropType<boolean>, default: false}
 });
 
 const classes = computed(() => [
     {
-        "navbar-nav-scroll": props.scrollHeight || props.scrollableL
+        "navbar-nav-scroll": props.scrollHeight || props.scrollable
     }
 ]);
 </script>

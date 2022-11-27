@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import {computed, PropType} from "vue";
-import PageLink from "./PageLink";
+import {PageLink} from "../..";
 
 const props = defineProps({
     tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},

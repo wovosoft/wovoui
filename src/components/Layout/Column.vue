@@ -40,8 +40,7 @@ import ButtonGroup from "../Button/ButtonGroup";
 import Button from "../Button/Button";
 import {Eye, PencilSquare, Trash} from "@wovosoft/wovoui-icons";
 
-import type {ColorVariants} from "../../types/colorVariants";
-import type {ButtonSizes} from "../../types";
+import type {ColorVariants,ButtonSizes} from "../../types";
 import type {classTypes} from "../../types/classTypes";
 
 export default defineComponent({

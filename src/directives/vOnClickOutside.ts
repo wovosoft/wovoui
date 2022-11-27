@@ -5,7 +5,7 @@ export default {
         handler = (e) => {
             if (!el?.contains(e.target)) {
                 if (typeof binding.value === "function") {
-                    binding.value(e);
+                    binding.value(e, el);
                 }
             }
         }

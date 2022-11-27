@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Navbar brand="Navbar Brand">
+        <Navbar brand="Navbar Brand" sticky="top">
             <template #default="{ collapsed }">
                 <Collapse is-nav :visible="collapsed">
                     <Nav class="me-auto mb-2 mb-lg-0" navs>

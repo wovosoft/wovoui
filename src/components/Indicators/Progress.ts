@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import ProgressBar from "./ProgressBar.vue";
+import {ProgressBar} from "../..";
 import type {ColorVariants} from "../../types";
 
 export default defineComponent({

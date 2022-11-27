@@ -13,6 +13,7 @@ import {computed, PropType} from "vue";
 import type {ButtonSizes, HTMLInputTypes} from "../../types";
 
 const props = defineProps({
+    //some actions vary based on type so considering at as a prop
     type: {type: String as PropType<HTMLInputTypes>, default: "text"},
     size: {type: String as PropType<ButtonSizes>, default: null},
     plain: {type: Boolean as PropType<boolean>, default: false},

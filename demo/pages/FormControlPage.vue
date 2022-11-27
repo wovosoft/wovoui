@@ -29,15 +29,40 @@
 
         <div class="mt-3">{{ model }}</div>
 
+        <Row>
+            <Col>
+                <h3 class="mt-3">Radio</h3>
+                <Radio v-for="r in ['one','two','three','four','five','six','seven','eight']"
+                       :value="r" v-model="radio">
+                    {{ r }}
+                </Radio>
+                Radio Value : {{ radio }}
+            </Col>
+            <Col>
+                <h3 class="mt-3">Radio</h3>
+                <Radio v-for="r in ['one','two','three','four','five','six','seven','eight']"
+                       :value="r" v-model="radio">
+                    {{ r }}
+                </Radio>
+                Radio Value : {{ radio }}
+            </Col>
+        </Row>
+        <h3>Range</h3>
+        <Range/>
+
+        <h3>Rating</h3>
+        <Rating :max="5"/>
     </div>
 </template>
 
 <script lang="ts" setup>
 
-import {Input} from "../../src";
+import {
+    Input, Radio, FormGroup, Feedback,
+    Range, Rating, Col, Row
+} from "../../src";
 import {ref} from "vue";
-import FormGroup from "../../src/components/Form/FormGroup.vue";
-import Feedback from "../../src/components/Form/Feedback.vue";
 
 const model = ref();
+const radio = ref('three');
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" :class="classes">
+    <component :is="tag" class="breadcrumb">
         <template v-if="items && Array.isArray(items) && items.length">
             <BreadcrumbItem
                 v-for="(item,item_key) in items"
@@ -15,8 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed} from "vue";
-import BreadcrumbItem from "./BreadcrumbItem.vue";
+import {BreadcrumbItem} from "../..";
 import {makeProp, makeString, makeTag} from "../../composables/useProps";
 
 const props = defineProps({
@@ -24,6 +23,4 @@ const props = defineProps({
     items: makeProp<any[]>([], Array),
     divider: makeString()
 });
-
-const classes = computed(() => ["breadcrumb"]);
 </script>

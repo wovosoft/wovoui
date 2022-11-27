@@ -50,8 +50,7 @@
 <script lang="ts" setup>
 import {computed, nextTick, onMounted, PropType, ref, Ref, useSlots, watch} from "vue";
 import type {ColorVariants, ButtonSizes, TextAlign} from "../../types";
-import {Input, DropdownMenu} from "../../index";
-import InputGroup from "./InputGroup.vue";
+import {Input, DropdownMenu, InputGroup} from "../../";
 import vOnClickOutside from "../../directives/vOnClickOutside";
 import axios from "axios";
 import usePopper from "../../shared/usePopper";
@@ -138,7 +137,7 @@ function fetchItems() {
             return [];
         });
     } else {
-        props.getItems(items, query);
+        return props.getItems(items, query);
     }
 }
 

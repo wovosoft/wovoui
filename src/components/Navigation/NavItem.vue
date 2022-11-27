@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
 import {PropType} from "vue";
-import NavLink from "./NavLink.vue";
+import {NavLink} from "./../..";
 
 defineProps({
     tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},

@@ -1,5 +1,5 @@
 <template>
-    <nav :class="classes">
+    <nav :class="classes" role="navigation">
         <Container :fluid="fluid" :size="size">
             <template v-if="brand || $slots.brand">
                 <slot name="brand">
@@ -17,16 +17,13 @@
     </nav>
 </template>
 <script lang="ts" setup>
-import {computed, PropType, Ref, ref} from "vue";
-
-import Container from "../Layout/Container";
-import NavbarBrand from "./NavbarBrand";
-import NavbarToggler from "./NavbarToggler";
+import {computed, PropType, ref} from "vue";
+import {Container, NavbarBrand, NavbarToggler} from "../..";
 import type {ColorVariants, responsiveSizes} from "../../types";
 
 const props = defineProps({
     brand: {type: String as PropType<string>, default: null},
-    brandUrl: {type: String as PropType<string | object>, default: '#'},
+    brandUrl: {type: String as PropType<string>, default: '#'},
     fluid: {type: Boolean as PropType<boolean>, default: false},
     size: {type: String as PropType<responsiveSizes>, default: null},
     toggleEnabled: {type: Boolean as PropType<boolean>, default: true},
@@ -34,10 +31,10 @@ const props = defineProps({
     bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
     fixed: {type: String as PropType<'top' | 'bottom'>, default: null},
     sticky: {type: String as PropType<'top' | 'bottom'>, default: null},
-    expandsOn: {type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | 'xxl'>, default: 'lg'}
+    expandsOn: {type: String as PropType<responsiveSizes | responsiveSizes[]>, default: 'lg'},
 });
 
-const collapsed: Ref<boolean> = ref(false);
+const collapsed = ref<boolean>(false);
 
 function toggleNavbar() {
     collapsed.value = !collapsed.value;
@@ -50,7 +47,8 @@ const classes = computed(() => [
         ["bg-" + props.bgVariant]: props.bgVariant,
         ["fixed-" + props.fixed]: !!props.fixed,
         ["sticky-" + props.sticky]: !!props.sticky,
-        ["navbar-expand-" + props.expandsOn]: props.expandsOn
-    }
+    },
+    ...(Array.isArray(props.expandsOn) ? props.expandsOn : [props.expandsOn])
+        .map(screen => "navbar-expand-" + screen)
 ])
 </script>

@@ -51,7 +51,6 @@
 import Modal from "../../src/components/Modal/Modal.vue";
 import {ref} from "vue";
 import {Button, Container} from "../../src";
-import vVr from "../../src/directives/vVr";
 import vModal from "../../src/directives/vModal"
 
 const modal_nested = ref(false)

@@ -3,9 +3,8 @@ import type {
     colAlignments,
     ColSizes,
     justifyContentAlignments,
+    responsiveNumbers
 } from "../../types";
-
-import {responsiveNumbers} from "../../types";
 
 export default defineComponent({
     name: "Row",
@@ -46,6 +45,6 @@ export default defineComponent({
                 ["gx-" + props.gx]: props.gx,
                 ["gy-" + props.gy]: props.gy,
             }]
-        }, slots.default ? slots.default() : null)
+        }, slots?.default())
     }
 })

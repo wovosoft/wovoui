@@ -25,10 +25,9 @@
 </template>
 
 <script lang="ts" setup>
-import FormLabel from "./FormLabel";
 import {computed, defineComponent, h, PropType} from "vue";
 import type {responsiveNumbers} from "../../types";
-import Feedback from "./Feedback.vue";
+import {Feedback, FormLabel} from "../../";
 
 const FeedbackMessages = defineComponent({
     setup() {

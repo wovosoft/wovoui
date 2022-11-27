@@ -4,28 +4,21 @@
     </div>
 </template>
 
-<script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
+<script lang="ts" setup>
+import {computed, PropType} from "vue";
 import type {ColorVariants, ButtonSizes} from "../../types";
 
+const props = defineProps({
+    grow: {type: Boolean as PropType<boolean>, default: false},
+    size: {type: String as PropType<ButtonSizes>, default: null},
+    variant: {type: String as PropType<ColorVariants>, default: null}
+});
 
-export default defineComponent({
-    name: "Spinner",
-    props: {
-        grow: {type: Boolean as PropType<boolean>, default: false},
-        size: {type: String as PropType<ButtonSizes>, default: null},
-        variant: {type: String as PropType<ColorVariants>, default: null}
-    },
-    setup(props, context) {
-        return {
-            classes: computed(() => [
-                "spinner-" + (props.grow ? 'grow' : 'border'),
-                {
-                    ["spinner-" + (props.grow ? 'grow' : 'border') + "-" + props.size]: props.size,
-                    ["text-" + props.variant]: props.variant
-                }
-            ])
-        }
+const classes = computed(() => [
+    "spinner-" + (props.grow ? 'grow' : 'border'),
+    {
+        ["spinner-" + (props.grow ? 'grow' : 'border') + "-" + props.size]: props.size,
+        ["text-" + props.variant]: props.variant
     }
-})
+]);
 </script>

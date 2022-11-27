@@ -73,10 +73,7 @@ export default defineComponent({
                     name: 'offset',
                     enabled: true,
                     options: {
-                        offset: (d) => {
-                            // console.log(d)
-                            return [0, 10]
-                        },
+                        offset: (d) => [0, 10],
                     },
                 },
             ],

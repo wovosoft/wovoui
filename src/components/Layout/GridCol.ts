@@ -23,6 +23,6 @@ export default defineComponent({
                 ["g-col-lg-" + props.lg]: props.lg,
                 ["g-col-xl-" + props.xl]: props.xl,
             }
-        }, slots.default ? slots.default() : null)
+        }, slots?.default())
     }
 })

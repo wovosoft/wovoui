@@ -35,111 +35,99 @@
     </component>
 </template>
 
-<script lang="ts">
-import CardHeader from "./CardHeader";
-import {computed, defineComponent, PropType} from "vue";
-import CardBody from "./CardBody";
-import CardFooter from "./CardFooter";
-import CardImg from "./CardImg";
-import type {ColorVariants} from "../../types/colorVariants";
-import CardTitle from "./CardTitle";
+<script lang="ts" setup>
+import {CardHeader, CardBody, CardFooter, CardImg} from "../..";
+import {computed, PropType} from "vue";
+import type {ColorVariants} from "../../types";
 
-export default defineComponent({
-    name: "Card",
-    components: {CardTitle, CardImg, CardFooter, CardBody, CardHeader},
-    props: {
-        align: {type: String as PropType<string>, default: null},
-        bgVariant: {type: String as PropType<ColorVariants>, default: null},
+const props = defineProps({
+    align: {type: String as PropType<string>, default: null},
+    bgVariant: {type: String as PropType<ColorVariants>, default: null},
 
-        bodyBgVariant: {type: String as PropType<ColorVariants>, default: null},
-        bodyBorderVariant: {type: String as PropType<ColorVariants>, default: null},
-        bodyClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
-        bodyTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        bodyTextVariant: {type: String as PropType<ColorVariants>, default: null},
+    bodyBgVariant: {type: String as PropType<ColorVariants>, default: null},
+    bodyBorderVariant: {type: String as PropType<ColorVariants>, default: null},
+    bodyClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
+    bodyTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+    bodyTextVariant: {type: String as PropType<ColorVariants>, default: null},
 
-        footer: {type: String as PropType<string>, default: null},
-        footerBgVariant: {type: String as PropType<ColorVariants>, default: null},
-        footerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        footerTextVariant: {type: String as PropType<ColorVariants>, default: null},
-        footerClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
-        footerBorderVariant: {type: String as PropType<ColorVariants>, default: null},
+    footer: {type: String as PropType<string>, default: null},
+    footerBgVariant: {type: String as PropType<ColorVariants>, default: null},
+    footerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+    footerTextVariant: {type: String as PropType<ColorVariants>, default: null},
+    footerClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
+    footerBorderVariant: {type: String as PropType<ColorVariants>, default: null},
 
-        header: {type: String as PropType<string>, default: null},
-        headerBgVariant: {type: String as PropType<ColorVariants>, default: null},
-        headerBorderVariant: {type: String as PropType<ColorVariants>, default: null},
-        headerClass: {type: [Array, String, Object] as PropType<Array<any> | string | object>, default: null},
-        headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        headerTextVariant: {type: String as PropType<ColorVariants>, default: null},
+    header: {type: String as PropType<string>, default: null},
+    headerBgVariant: {type: String as PropType<ColorVariants>, default: null},
+    headerBorderVariant: {type: String as PropType<ColorVariants>, default: null},
+    headerClass: {type: [Array, String, Object] as PropType<Array<any> | string | object>, default: null},
+    headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+    headerTextVariant: {type: String as PropType<ColorVariants>, default: null},
 
-        imgAlt: {type: String as PropType<string>, default: null},
-        imgBottom: {type: Boolean as PropType<boolean>, default: false},
-        imgEnd: {type: Boolean as PropType<boolean>, default: false},
-        imgLeft: {type: Boolean as PropType<boolean>, default: false},
-        imgRight: {type: Boolean as PropType<boolean>, default: false},
-        imgStart: {type: Boolean as PropType<boolean>, default: false},
-        imgTop: {type: Boolean as PropType<boolean>, default: false},
-        imgSrc: {type: String as PropType<string>, default: null},
-        imgWidth: {type: String as PropType<string>, default: null},
-        imgHeight: {type: String as PropType<string>, default: null},
-        noBody: {type: Boolean as PropType<boolean>, default: false},
+    imgAlt: {type: String as PropType<string>, default: null},
+    imgBottom: {type: Boolean as PropType<boolean>, default: false},
+    imgEnd: {type: Boolean as PropType<boolean>, default: false},
+    imgLeft: {type: Boolean as PropType<boolean>, default: false},
+    imgRight: {type: Boolean as PropType<boolean>, default: false},
+    imgStart: {type: Boolean as PropType<boolean>, default: false},
+    imgTop: {type: Boolean as PropType<boolean>, default: false},
+    imgSrc: {type: String as PropType<string>, default: null},
+    imgWidth: {type: String as PropType<string>, default: null},
+    imgHeight: {type: String as PropType<string>, default: null},
+    noBody: {type: Boolean as PropType<boolean>, default: false},
 
-        overlay: {type: Boolean as PropType<boolean>, default: false},
-        subTitle: {type: String as PropType<string>, default: null},
-        subTitleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
-        subTitleTextVariant: {type: String as PropType<string>, default: "muted"},
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+    overlay: {type: Boolean as PropType<boolean>, default: false},
+    subTitle: {type: String as PropType<string>, default: null},
+    subTitleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
+    subTitleTextVariant: {type: String as PropType<string>, default: "muted"},
+    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
 
-        textVariant: {type: String as PropType<ColorVariants>, default: null},
-        borderVariant: {type: String as PropType<ColorVariants>, default: null},
-        title: {type: String as PropType<string>, default: null},
-        titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"},
-    },
-    setup(props) {
-        const classes = computed(() => [
-            "card",
-            {
-                "flex-row": props.imgLeft || props.imgStart,
-                "flex-row-reverse": props.imgRight || props.imgEnd,
-                ["bg-" + props.bgVariant]: props.bgVariant,
-                ["text-" + props.textVariant]: props.textVariant,
-                ["border-" + props.borderVariant]: props.borderVariant
-            }
-        ]);
-        const cardImageBindings = computed(() => ({
-            alt: props.imgAlt,
-            bottom: props.imgBottom,
-            end: props.imgEnd,
-            left: props.imgLeft,
-            right: props.imgRight,
-            start: props.imgStart,
-            top: props.imgTop,
-            src: props.imgSrc,
-            width: props.imgWidth,
-            height: props.imgHeight,
-            class: {
-                "card-img": props.overlay
-            }
-        }));
-        const cardBodyBindings = computed(() => ({
-            tag: props.bodyTag,
-            variant: props.bodyBgVariant,
-            borderVariant: props.bodyBorderVariant,
-            textVariant: props.bodyTextVariant,
-            overlay: props.overlay,
-            title: props.title,
-            titleTag: props.titleTag,
-            class: props.bodyClass,
-            subTitle: props.subTitle,
-            subTitleTag: props.subTitleTag,
-            subTitleTextVariant: props.subTitleTextVariant
-        }));
-        return {
-            classes,
-            cardImageBindings,
-            cardBodyBindings
-        }
+    textVariant: {type: String as PropType<ColorVariants>, default: null},
+    borderVariant: {type: String as PropType<ColorVariants>, default: null},
+    title: {type: String as PropType<string>, default: null},
+    titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"},
+});
+
+const classes = computed(() => [
+    "card",
+    {
+        "flex-row": props.imgLeft || props.imgStart,
+        "flex-row-reverse": props.imgRight || props.imgEnd,
+        ["bg-" + props.bgVariant]: props.bgVariant,
+        ["text-" + props.textVariant]: props.textVariant,
+        ["border-" + props.borderVariant]: props.borderVariant
     }
-})
+]);
+
+const cardImageBindings = computed(() => ({
+    alt: props.imgAlt,
+    bottom: props.imgBottom,
+    end: props.imgEnd,
+    left: props.imgLeft,
+    right: props.imgRight,
+    start: props.imgStart,
+    top: props.imgTop,
+    src: props.imgSrc,
+    width: props.imgWidth,
+    height: props.imgHeight,
+    class: {
+        "card-img": props.overlay
+    }
+}));
+
+const cardBodyBindings = computed(() => ({
+    tag: props.bodyTag,
+    variant: props.bodyBgVariant,
+    borderVariant: props.bodyBorderVariant,
+    textVariant: props.bodyTextVariant,
+    overlay: props.overlay,
+    title: props.title,
+    titleTag: props.titleTag,
+    class: props.bodyClass,
+    subTitle: props.subTitle,
+    subTitleTag: props.subTitleTag,
+    subTitleTextVariant: props.subTitleTextVariant
+}));
 </script>
 <style>
 @media (min-width: 576px) {

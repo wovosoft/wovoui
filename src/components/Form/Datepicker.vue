@@ -72,14 +72,11 @@
 <script lang="ts" setup>
 import {computed, onMounted, PropType, ref, watch} from "vue";
 import {DateItemInterface, dateMatrix, dayNames} from "../../composables/useDates";
-import {Button} from "../../index";
-import DropdownSkeleton from "../Dropdown/DropdownSkeleton.vue";
-import {ButtonSizes} from "../../types";
+import {Button, Flex, FlexItem, Table} from "../../";
+import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
+import type {ButtonSizes} from "../../types";
 import dayjs, {Dayjs} from "dayjs";
-import Flex from "../Layout/Flex.vue";
-import FlexItem from "../Layout/FlexItem.vue";
 import {ChevronDoubleLeft, ChevronDoubleRight, ChevronLeft, ChevronRight, CircleFill} from "@wovosoft/wovoui-icons";
-import Table from "../Table/Table";
 
 const props = defineProps({
     size: {type: String as PropType<ButtonSizes>},
