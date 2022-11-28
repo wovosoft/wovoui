@@ -21,7 +21,18 @@ import {
 import {getTransitionDurationFromElement} from "../../composables/useTransition";
 
 const props = defineProps({
+    /**
+     * @description Active Tab
+     * @type boolean
+     * @default false
+     */
     active: {type: Boolean as PropType<boolean>, default: false},
+
+    /**
+     * @description Tab Menu Title
+     * @type string
+     * @default null
+     */
     title: {type: String as PropType<string>, default: null}
 });
 
@@ -44,7 +55,6 @@ watch(visible, value => {
          */
         states.active = true;
         states.ariaSelected = true;
-        ``
         states.tabindex = null;
 
         setTimeout(
@@ -112,6 +122,4 @@ const classes = computed(() => [
         "card-body": isCardTabs.value
     }
 ]);
-
-
 </script>

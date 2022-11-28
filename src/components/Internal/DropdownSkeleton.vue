@@ -1,23 +1,29 @@
 <template>
-    <component :is="tag" ref="target">
-        <component :is="toggleTag" :class="toggleClass" ref="toggle" @click="toggleMenu" style="cursor: pointer;">
+    <component :is="tag" v-on-click-outside="hide">
+        <component :is="toggleTag" :class="toggleClass" ref="toggle" @click="toggleClickedInternally"
+                   style="cursor: pointer;">
             <slot name="toggle"
                   :toggleMenu="toggleMenu"
                   :isShown="isShown"
             />
         </component>
         <!--Menu-->
-        <component :is="menuTag" :class="getMenuClass" ref="menu">
+        <component :is="menuTag"
+                   @keydown.esc="onEsc"
+                   :class="getMenuClass"
+                   ref="menu"
+                   :tabindex="isShown?1:null">
             <slot/>
         </component>
     </component>
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType, Ref, ref, watch} from "vue";
+import {computed, nextTick, PropType, Ref, ref, useSlots, watch} from "vue";
 import usePopper from "../../shared/usePopper";
-import {onClickOutside} from "@vueuse/core";
-import {DropdownMenu} from "../../index";
+import {vOnClickOutside} from "../../directives";
+import type {DropdownMenu} from "../../index";
+import {unrefElement} from "@vueuse/core";
 
 const props = defineProps({
     tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
@@ -30,29 +36,18 @@ const props = defineProps({
     toggleClass: {default: null},
     activatorClass: {default: 'show'},
     modelValue: {type: Boolean as PropType<boolean>, default: false},
-    popperOptions: {default: null}
+    popperOptions: {default: null},
+    noCloseOnEsc: {type: Boolean as PropType<boolean>, default: false},
 });
-
-const isShown = ref<boolean>(false);
-watch(() => props.modelValue, value => {
-    if (value) {
-        show();
-    } else {
-        hide();
-    }
-});
-
 
 const emit = defineEmits<{
     (e: 'toggleMenu', value: Ref<boolean>): void;
     (e: 'update:modelValue', value: boolean): void;
 }>();
 
-function toggleMenu() {
-    isShown.value = !isShown.value;
-    emit("toggleMenu", isShown);
-    emit("update:modelValue", !isShown.value);
-}
+const isShown = ref<boolean>(false);
+watch(() => props.modelValue, value => (value ? show : hide)());
+
 
 const getMenuClass = computed(() => [
     props.menuClass, {
@@ -60,26 +55,24 @@ const getMenuClass = computed(() => [
     }
 ]);
 
-
-const target = ref<HTMLElement | null>(null);
 const toggle = ref<HTMLElement | null>(null);
 const menu = ref<HTMLElement | null>(null);
 const theOptions = ref(props.popperOptions);
-const {update, popper} = usePopper(toggle, menu, theOptions, isShown);
+const {setOptions} = usePopper(toggle, menu, theOptions, isShown);
 
-watch(
-    () => props.popperOptions,
-    value => theOptions.value = value
-);
+watch(() => props.popperOptions, options => setOptions(options));
 
+const mayBeTriEl = ref();
 
 function show() {
-    //this should update isShown when initialized
-    emit('update:modelValue', true);
+    mayBeTriEl.value = document.activeElement;
     //condition prevents double setting value
     if (isShown.value != true) {
         isShown.value = true;
     }
+    //this should update isShown when initialized
+    emit('update:modelValue', true);
+    nextTick(() => unrefElement(menu.value)?.focus())
 }
 
 function hide() {
@@ -89,10 +82,31 @@ function hide() {
     if (isShown.value != false) {
         isShown.value = false;
     }
+    mayBeTriEl.value?.focus();
+    mayBeTriEl.value = null;
 }
 
-onClickOutside(target, () => {
-    hide();
-    update();
-});
+
+function toggleMenu() {
+    (isShown.value ? hide : show)()
+    emit("toggleMenu", isShown);
+}
+
+const slots = useSlots();
+
+/**
+ * The slots[toggle] outer content should call toggleMenu.
+ * When slots[toggle] is not provided, only then this method should call toggleMenu
+ */
+function toggleClickedInternally() {
+    if (!slots.toggle) {
+        toggleMenu();
+    }
+}
+
+function onEsc(e) {
+    if (!props.noCloseOnEsc && !e.defaultPrevented) {
+        hide();
+    }
+}
 </script>

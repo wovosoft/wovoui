@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import {ColorVariants} from "../../types";
+import type {ColorVariants} from "../../types";
 
 export default defineComponent({
     name: "ModalBody",

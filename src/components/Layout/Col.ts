@@ -1,11 +1,14 @@
-import {isBoolean} from "../../shared/properties.js";
+function isBoolean(compare: unknown) {
+    return typeof compare === "boolean";
+}
+
 import {defineComponent, h, PropType} from "vue";
 import type {
-    colAlignments,
-    colOrders,
+    ColAlignments,
+    ColOrders,
     ColSizes,
-    justifyContentAlignments,
-    responsiveNumbers
+    JustifyContentAlignments,
+    ResponsiveNumbers
 } from "../../types";
 
 
@@ -18,19 +21,19 @@ export default defineComponent({
         md: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
         lg: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
         xl: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
-        alignSelf: {type: String as PropType<colAlignments>, default: null},
+        alignSelf: {type: String as PropType<ColAlignments>, default: null},
         justifyContent: {
-            type: String as PropType<justifyContentAlignments>,
+            type: String as PropType<JustifyContentAlignments>,
             default: null
         },
-        order: {type: [Number, String] as PropType<colOrders>, default: null},
-        offsetSm: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
-        offsetMd: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
-        offsetLg: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
-        offsetXl: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
+        order: {type: [Number, String] as PropType<ColOrders>, default: null},
+        offsetSm: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
+        offsetMd: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
+        offsetLg: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
+        offsetXl: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
         //gutters
-        gx: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
-        gy: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
+        gx: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
+        gy: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
     },
     setup(props, {slots}) {
         return () => h(

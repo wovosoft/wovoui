@@ -1,9 +1,9 @@
 import {defineComponent, PropType, h} from "vue";
 import type {
-    colAlignments,
+    ColAlignments,
     ColSizes,
-    justifyContentAlignments,
-    responsiveNumbers
+    JustifyContentAlignments,
+    ResponsiveNumbers
 } from "../../types";
 
 export default defineComponent({
@@ -15,8 +15,8 @@ export default defineComponent({
         md: {type: [Number, Boolean] as PropType<ColSizes>, default: null},
         lg: {type: [Number, Boolean] as PropType<ColSizes>, default: null},
         xl: {type: [Number, Boolean] as PropType<ColSizes>, default: null},
-        alignItems: {type: String as PropType<colAlignments>, default: null},
-        justifyContent: {type: String as PropType<justifyContentAlignments>, default: null},
+        alignItems: {type: String as PropType<ColAlignments>, default: null},
+        justifyContent: {type: String as PropType<JustifyContentAlignments>, default: null},
         //gutter
         g: {type: [Number, String] as PropType<ColSizes>, default: null},
         gSm: {type: [Number, String] as PropType<ColSizes>, default: null},
@@ -24,8 +24,8 @@ export default defineComponent({
         gLg: {type: [Number, String] as PropType<ColSizes>, default: null},
         gXl: {type: [Number, String] as PropType<ColSizes>, default: null},
         //gutters
-        gx: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
-        gy: {type: [Number, String] as PropType<0 | responsiveNumbers>, default: null},
+        gx: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
+        gy: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

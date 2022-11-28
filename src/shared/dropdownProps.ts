@@ -1,7 +1,7 @@
 import {PropType} from "vue";
 import type {ColorVariants} from "../types";
-import type {dropdownAlignments} from "../types";
-import type {dropdownDirections} from "../types";
+import type {DropdownAlignments} from "../types";
+import type {DropdownDirections} from "../types";
 import type {ButtonSizes} from "../types";
 
 
@@ -18,8 +18,8 @@ export default {
     /**
      * left,right,up, down=null (default)
      */
-    dir: {type: String as PropType<dropdownDirections>, default: "bottom"},
-    align: {type: String as PropType<dropdownAlignments>, default: "start"},
+    dir: {type: String as PropType<DropdownDirections>, default: "bottom"},
+    align: {type: String as PropType<DropdownAlignments>, default: "start"},
     menuDark: {type: Boolean as PropType<boolean>, default: false},
     menuClass: {type: [String, Array, Object] as PropType<string | object | any[]>, default: () => ([])},
 

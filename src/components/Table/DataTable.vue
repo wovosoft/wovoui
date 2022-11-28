@@ -64,24 +64,25 @@
 <script lang="ts">
 import {computed, defineComponent, PropType, ref} from "vue";
 import tableProps from "../../shared/tableProps";
-
-// import {Table, THead, TBody, Tr, Th, Td, TFoot} from "../index";
-
-import Table from "./Table";
-import THead from "./THead";
-import TBody from "./TBody";
-import Tr from "./Tr";
-import Th from "./Th";
-import Td from "./Td";
-import TFoot from "./TFoot";
-
-import {isObject, title} from "../../shared/utilities.js";
-import lowerCase from "lodash/lowerCase.js";
-import orderBy from "lodash/orderBy.js"
+/**
+ * Minimized import throws following error:
+ * Uncaught ReferenceError: Cannot access 'Td' before initialization
+ * I DON'T KNOW WHY
+ */
+import FlexItem from "../Layout/FlexItem.js"
+import Flex from "../Layout/Flex.js"
+import Table from "./../Table/Table"
+import THead from "./../Table/THead"
+import TBody from "./../Table/TBody"
+import Tr from "./../Table/Tr"
+import Th from "./../Table/Th"
+import Td from "./../Table/Td"
+import TFoot from "./../Table/TFoot"
 import Icon from "../Ui/Icon";
+
+import {isObject, orderBy, title} from "../../shared/utilities";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
-import Flex from "../Layout/Flex.vue";
-import FlexItem from "../Layout/FlexItem.vue";
+
 
 type FieldType = {
     key: string;
@@ -166,7 +167,7 @@ export default defineComponent({
             if (isObject(th)) {
                 return th.key;
             } else if (typeof th === "string") {
-                return lowerCase(th);
+                return th.toLowerCase();
             }
             return th;
         };

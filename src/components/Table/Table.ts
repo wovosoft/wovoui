@@ -6,7 +6,6 @@ export default defineComponent({
     props,
     setup(props, {slots}) {
         return () => {
-
             let wrapperClasses = {
                 "table-responsive": (props.responsive === true),
                 ["table-responsive-" + props.responsive]: (typeof props.responsive === "string" && props.responsive)
@@ -30,6 +29,12 @@ export default defineComponent({
             ];
 
             const caption = () => {
+                /**
+                 * When SLOTS (caption) is available render it ,
+                 * else render PROPS (caption)
+                 *
+                 * SLOTS has higher priorities than props
+                 */
                 if (slots.caption) {
                     return h("caption", {}, [slots.caption()])
                 } else if (props.caption) {
@@ -41,7 +46,7 @@ export default defineComponent({
             const table = () => h(
                 "table",
                 {class: classes},
-                [caption(), slots.default ? slots.default() : null]
+                [caption(), slots?.default()]
             );
 
             return props.responsive ? h("div", {class: wrapperClasses}, [table()]) : table();

@@ -1,14 +1,14 @@
 import {defineComponent, PropType, h} from "vue";
-import type {responsiveNumbers} from "../../types";
+import type {ResponsiveNumbers} from "../../types";
 
 export default defineComponent({
     name: "FormLabel",
     props: {
         horizontal: {type: Boolean as PropType<boolean>, default: false},
-        sm: {type: Number as PropType<responsiveNumbers>, default: null},
-        md: {type: Number as PropType<responsiveNumbers>, default: null},
-        lg: {type: Number as PropType<responsiveNumbers>, default: null},
-        xl: {type: Number as PropType<responsiveNumbers>, default: null},
+        sm: {type: Number as PropType<ResponsiveNumbers>, default: null},
+        md: {type: Number as PropType<ResponsiveNumbers>, default: null},
+        lg: {type: Number as PropType<ResponsiveNumbers>, default: null},
+        xl: {type: Number as PropType<ResponsiveNumbers>, default: null},
     },
     setup(props, {slots}) {
         return () => h("label", {

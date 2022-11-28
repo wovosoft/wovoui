@@ -27,7 +27,7 @@ import {ref} from "vue";
 const fill = ref<boolean>(false)
 const grow = ref<boolean>(false)
 const shrink = ref<boolean>(false)
-import Flex from "../../src/components/Layout/Flex.vue";
-import FlexItem from "../../src/components/Layout/FlexItem.vue";
+import Flex from "../../src/components/Layout/Flex.js";
+import FlexItem from "../../src/components/Layout/FlexItem.js";
 import Checkbox from "../../src/components/Form/Checkbox.vue";
 </script>

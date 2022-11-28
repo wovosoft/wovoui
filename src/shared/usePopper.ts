@@ -1,12 +1,12 @@
 import {onBeforeUnmount, onMounted, ref, watch, unref, Ref} from "vue";
-import {createPopper} from "@popperjs/core";
+import {createPopper, Instance as PopperInstance} from "@popperjs/core";
 import {unrefElement} from "@vueuse/core";
 import type {OptionsGeneric} from "@popperjs/core/lib/types";
 
 declare type SetAction<S> = S | ((prev: S) => S);
 
 export default function (reference, target, options, shouldUpdate: Ref<boolean>) {
-    const popper = ref(null);
+    const popper = ref<PopperInstance>(null);
 
     const initialOptions = {
         placement: "bottom-start",
@@ -33,21 +33,26 @@ export default function (reference, target, options, shouldUpdate: Ref<boolean>)
         popper.value?.destroy();
         popper.value = undefined;
     };
+    const setOptions = (options) => {
+        popper.value?.setOptions(options).then(() => {
+            popper.value.update();
+        });
+    }
 
     onBeforeUnmount(destroy);
-
     watch(
         options,
-        (value: SetAction<Partial<OptionsGeneric<any>>>) => popper.value?.setOptions(value)
+        (value: SetAction<Partial<OptionsGeneric<any>>>) => {
+            popper.value?.setOptions(value);
+        },
+        {immediate: true}
     );
-    watch(
-        shouldUpdate,
-        (value) => popper.value?.update()
-    );
+    watch(shouldUpdate, update);
 
     return {
         popper,
         update,
-        destroy
+        destroy,
+        setOptions
     };
 }

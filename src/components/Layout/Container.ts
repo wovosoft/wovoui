@@ -1,12 +1,12 @@
 import {defineComponent, PropType, h} from "vue";
-import type {responsiveSizes} from "../../types";
+import type {ResponsiveSizes} from "../../types";
 
 export default defineComponent({
     name: "Container",
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
         fluid: {type: Boolean as PropType<boolean>, default: false},
-        size: {type: String as PropType<responsiveSizes>, default: null}
+        size: {type: String as PropType<ResponsiveSizes>, default: null}
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

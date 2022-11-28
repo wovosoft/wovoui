@@ -81,7 +81,7 @@ import {
     ModalHeader, ModalBody, ModalTitle, ModalFooter, ButtonClose, Button, ModalDialog
 } from "../../";
 import {modalCount} from "../../composables/useHelpers";
-import type {modalFullScreen, ButtonSizes, modalSizes, ColorVariants} from "../../types";
+import type {ModalFullScreen, ButtonSizes, ModalSizes, ColorVariants} from "../../types";
 import vOnClickOutside from "../../directives/vOnClickOutside";
 import {EVENT_TRIGGER_HIDE_NAME, EVENT_TRIGGER_SHOW_NAME} from "../../composables/useModal";
 
@@ -163,13 +163,15 @@ const props = defineProps({
     //modal dialog props
     scrollable: {type: Boolean as PropType<boolean>, default: false},
     centered: {type: Boolean as PropType<boolean>, default: false},
-    size: {type: String as PropType<modalSizes>, default: null},
-    fullscreen: {type: [Boolean, String] as PropType<modalFullScreen>, default: false}
+    size: {type: String as PropType<ModalSizes>, default: null},
+    fullscreen: {type: [Boolean, String] as PropType<ModalFullScreen>, default: false}
 });
 
 const TRANSITION_TIME = 150;
 const showBackdrop = ref<boolean>(false);
 const shown = ref<boolean>(props.modelValue);
+//May be triggering element
+const mayBeTriEl = ref<Element | HTMLElement>(null);
 
 const classStates = reactive({
     modalStatic: false,
@@ -255,6 +257,8 @@ function setState(isShowing: boolean) {
 
     if (isShowing) {
         emit("showing", true);
+        //keep last focus element
+        mayBeTriEl.value = document.activeElement;
     } else {
         emit("hiding", true);
     }
@@ -339,6 +343,10 @@ function afterModalIsHidden() {
         emit("hidden", true);
         emit('update:modelValue', false);
         isMountable.value = false;
+        //@ts-ignore
+        mayBeTriEl.value?.focus();
+        //release memory: last focused element is no longer needed to be tracked
+        mayBeTriEl.value = null;
     }, TRANSITION_TIME);
 }
 

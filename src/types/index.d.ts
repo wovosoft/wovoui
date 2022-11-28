@@ -27,14 +27,14 @@ export declare type VariationPlacement =
     | "left-start"
     | "left-end";
 export type AspectRatios = '1x1' | '4x3' | '16x9' | '21x9';
-export type responsiveNumbers = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-export type ColSizes = responsiveNumbers | null | boolean | 'auto';
-export type colAlignments = 'start' | 'center' | 'end';
-export type justifyContentAlignments = colAlignments | 'around' | 'between' | 'evenly';
-export type colOrders = responsiveNumbers | 'first' | 'last';
-export type responsiveSizes = "sm" | "md" | "lg" | "xl" | "xxl";
-export type modalSizes = "sm" | "lg" | "xl" | null;
-export type modalFullScreen = boolean | 'sm-down' | 'md-down' | 'lg-down' | 'xl-down' | 'xxl-down'
+export type ResponsiveNumbers = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type ColSizes = ResponsiveNumbers | null | boolean | 'auto';
+export type ColAlignments = 'start' | 'center' | 'end';
+export type JustifyContentAlignments = ColAlignments | 'around' | 'between' | 'evenly';
+export type ColOrders = ResponsiveNumbers | 'first' | 'last';
+export type ResponsiveSizes = "sm" | "md" | "lg" | "xl" | "xxl";
+export type ModalSizes = "sm" | "lg" | "xl" | null;
+export type ModalFullScreen = boolean | 'sm-down' | 'md-down' | 'lg-down' | 'xl-down' | 'xxl-down'
 export type VerticalAlign = 'baseline' | 'top' | 'middle' | 'bottom' | 'text-bottom' | 'text-top';
 export type ButtonSizes = 'sm' | 'lg';
 export type PlaceholderSizes = ButtonSizes | 'xs';
@@ -49,8 +49,8 @@ export type HTMLInputTypes = "button" | "checkbox" | "color" | "date"
 export type ToastPlacements =
     'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center'
     | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
-export type dropdownDirections = "right" | "left" | "top" | null;
-export type dropdownAlignments =
+export type DropdownDirections = "right" | "left" | "top" | null;
+export type DropdownAlignments =
     | "start"
     | "end"
     | "sm-start"

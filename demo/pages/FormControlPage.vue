@@ -48,7 +48,8 @@
             </Col>
         </Row>
         <h3>Range</h3>
-        <Range/>
+        <Range v-model="range"/>
+        {{ range }}
 
         <h3>Rating</h3>
         <Rating :max="5"/>
@@ -63,6 +64,7 @@ import {
 } from "../../src";
 import {ref} from "vue";
 
-const model = ref();
+const model = ref(123);
+const range = ref(65);
 const radio = ref('three');
 </script>

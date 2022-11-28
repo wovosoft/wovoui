@@ -18,16 +18,16 @@ export default defineComponent({
         width: {type: Number as PropType<number>, default: null},
     },
     setup(props, {expose}) {
-        const root: Ref<HTMLCanvasElement> = ref(null)
-        const chart: Ref<Chart> = ref(null);
-        const init: Function = (): Chart => {
-                return new Chart(root.value, {
-                    type: props.type,
-                    data: props.data,
-                    options: props.options
-                });
-            }
-        ;
+        const root = ref<HTMLCanvasElement>(null)
+        const chart = ref<Chart>(null);
+        const init = (): Chart => {
+            return new Chart(root.value, {
+                type: props.type,
+                data: props.data,
+                options: props.options
+            });
+        };
+
         onMounted(() => {
             chart.value = init();
         });

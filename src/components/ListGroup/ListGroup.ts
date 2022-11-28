@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import type {responsiveSizes} from "../../types";
+import type {ResponsiveSizes} from "../../types";
 
 export default defineComponent({
     name: "ListGroup",
@@ -8,7 +8,7 @@ export default defineComponent({
         flush: {type: Boolean as PropType<boolean>, default: false},
         numbered: {type: Boolean as PropType<boolean>, default: false},
         horizontal: {
-            type: [Boolean, String] as PropType<boolean | responsiveSizes>,
+            type: [Boolean, String] as PropType<boolean | ResponsiveSizes>,
             default: false
         },
     },

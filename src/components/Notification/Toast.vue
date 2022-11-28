@@ -1,5 +1,5 @@
 <template>
-    <SafeTeleport :to="container">
+    <SafeTeleport :to="to||container">
         <div
             v-if="shouldGenerate"
             ref="element"
@@ -14,10 +14,9 @@
                 </slot>
                 <ButtonClose v-if="!noCloseButton" @click="visible = false"/>
             </div>
-            <ToastBody :class="bodyClass" v-if="!noBody">
-                <slot></slot>
-            </ToastBody>
-            <slot v-else></slot>
+            <SafeComponent :component="ToastBody" :model-value="!noBody">
+                <slot/>
+            </SafeComponent>
         </div>
     </SafeTeleport>
 </template>
@@ -34,7 +33,9 @@ import {computed, onBeforeUnmount, PropType, ref, watch} from "vue";
 import {ButtonClose, ToastBody} from "../../";
 import type {ColorVariants} from "../../types";
 import {getTransitionDurationFromElement} from "../../composables/useTransition";
-import SafeTeleport from "../Internal/SafeTeleport.vue";
+import SafeTeleport from "../Internal/SafeTeleport";
+import {RendererElement} from "@vue/runtime-core";
+import SafeComponent from "../Internal/SafeComponent";
 
 
 const props = defineProps({
@@ -92,8 +93,21 @@ const props = defineProps({
 
     /**
      * teleporting to a different location
+     *
      */
-    container: {type: String as PropType<keyof HTMLElementTagNameMap>, default: null},
+    to: {
+        type: [String, Object] as PropType<string | RendererElement | null | undefined>,
+        default: null
+    },
+
+    /**
+     * @description props {to} should be used in lieu of container props
+     * @deprecated will be removed in next version
+     */
+    container: {
+        type: [String, Object] as PropType<string | RendererElement | null | undefined>,
+        default: null
+    },
 
     /**
      * Auto Hide timeout value in seconds.

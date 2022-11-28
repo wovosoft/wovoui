@@ -11,10 +11,10 @@ export default defineConfig({
         vue({}),
 
         // vueJsx({}),
-        dts({
-            include: ["src/**/*"],
-            exclude: ["node_modules/**/*"]
-        })
+        // dts({
+        //     include: ["src/**/*"],
+        //     exclude: ["node_modules/**/*"]
+        // })
     ],
     server: {
         watch: {

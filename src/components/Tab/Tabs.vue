@@ -43,14 +43,7 @@
 
 
 import {computed, onMounted, PropType, provide, Ref, ref, watch} from "vue";
-
-/**
- * Only Type is needed
- */
-import type {Tab} from "../../index";
-import {Nav} from "../../index";
-import TabContent from "./TabContent.vue";
-import NavLink from "../Navigation/NavLink.vue";
+import {Nav, NavLink, TabContent} from "../../";
 
 const props = defineProps({
     /**

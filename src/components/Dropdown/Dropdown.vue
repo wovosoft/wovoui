@@ -49,10 +49,10 @@
 <script lang="ts" setup>
 
 import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
-import {computed, ref} from "vue";
+import {computed, ref, watchEffect} from "vue";
 
 import {Button, NavLink, DropdownMenu} from "../..";
-import type {ButtonSizes, dropdownAlignments, dropdownDirections, ColorVariants} from "../../types";
+import type {ButtonSizes, DropdownAlignments, DropdownDirections, ColorVariants} from "../../types";
 
 type DropdownType = {
     tag?: keyof HTMLElementTagNameMap,
@@ -67,8 +67,8 @@ type DropdownType = {
     /**
      * left,right,up, down=null (default)
      */
-    dir: dropdownDirections | null,
-    align?: dropdownAlignments,
+    dir?: DropdownDirections | null,
+    align?: DropdownAlignments,
     menuDark?: boolean,
     menuClass?: string | object | any[] | null,
 
@@ -88,7 +88,6 @@ const props = withDefaults(defineProps<DropdownType>(), {
 
 const isMenuOpened = ref<boolean>(false);
 
-
 const classes = computed(() => ({
     "btn-group": !props.block && !props.isNav,
     "dropdown": props.block || props.isNav,
@@ -97,7 +96,8 @@ const classes = computed(() => ({
     "dropup": props.dir === "top",
 }));
 
-const popperOptions = computed(() => ({
+const popperOptions = computed(() =>({
     placement: props.align ? [props.dir, props.align].join("-") : "bottom-start"
 }));
+
 </script>

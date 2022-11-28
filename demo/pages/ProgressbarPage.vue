@@ -4,7 +4,9 @@
         <Progress class="mb-2" :value="25"/>
         <Progress class="mb-2" :value="75"/>
         <Progress class="mb-2" :value="60"/>
-        <Progress class="mb-2" :value="90"/>
+        <Progress class="mb-2" :value="90">
+            <ProgressBar>Hi</ProgressBar>
+        </Progress>
     </Container>
 </template>
 

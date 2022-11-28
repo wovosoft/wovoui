@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import type {responsiveNumbers, ColorVariants, PlaceholderSizes} from "../../types";
+import type {ResponsiveNumbers, ColorVariants, PlaceholderSizes} from "../../types";
 
 /**
  * @description Placeholder Component
@@ -55,7 +55,7 @@ export default defineComponent({
          * @description Sets placeholder width with bootstrap supported responsive layout sizes
          * @default null
          */
-        col: {type: [Number, String] as PropType<responsiveNumbers>, default: null},
+        col: {type: [Number, String] as PropType<ResponsiveNumbers>, default: null},
 
         /**
          * @description Sets Background Color Variants

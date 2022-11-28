@@ -2,12 +2,14 @@
     <teleport to="body">
         <component
             :is="tag"
+            @keyup.esc.self="onEsc"
             ref="theElement"
             role="dialog"
             :ariaModal="shown"
             :class="classes"
+            :tabindex="shown?-1:null"
             v-bind="$attrs">
-            <OffCanvasHeader
+            <OffcanvasHeader
                 :style="headerStyle"
                 :class="headerClass"
                 v-model="shown"
@@ -17,10 +19,10 @@
                 <slot name="header">
                     {{ header }}
                 </slot>
-            </OffCanvasHeader>
-            <OffCanvasBody :style="bodyStyle" :class="bodyClass">
+            </OffcanvasHeader>
+            <OffcanvasBody :style="bodyStyle" :class="bodyClass">
                 <slot></slot>
-            </OffCanvasBody>
+            </OffcanvasBody>
         </component>
         <div v-if="activeBackdrop && backdrop"
              @click="hide()"
@@ -39,11 +41,9 @@ const isShown = ref<boolean>(false);    //for 'show' class
 //constants
 import {getTransitionDurationFromElement} from "../../composables/useTransition";
 import {computed, PropType, ref, watch} from "vue";
-import OffCanvasHeader from "./OffcanvasHeader.vue";
-import OffCanvasBody from "./OffcanvasBody";
+import {OffcanvasHeader, OffcanvasBody} from "../..";
 
 import type {ColorVariants, TooltipPlacement} from "../../types";
-
 
 const props = defineProps({
     modelValue: {type: Boolean as PropType<boolean>, default: false},
@@ -62,7 +62,8 @@ const props = defineProps({
     bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
     textVariant: {type: String as PropType<ColorVariants>, default: 'dark'},
     btnCloseWhite: {type: Boolean as PropType<boolean>, default: false},
-    scrollbarPadding: {type: String as PropType<string>, default: "17px"}
+    scrollbarPadding: {type: String as PropType<string>, default: "17px"},
+    noCloseOnEsc: {type: Boolean as PropType<boolean>, default: false}
 });
 
 const emit = defineEmits<{
@@ -84,8 +85,12 @@ watch(() => props.modelValue, value => shown.value = value);
 //watcher for transition
 watch(shown, value => value ? show() : hide());
 
-const theElement = ref<HTMLElement>()
+const theElement = ref<HTMLElement>();
+//May Be Triggering Element of the Offcanvas element
+const mayBeTriEl = ref<Element | HTMLElement>();
 const show = () => {
+    mayBeTriEl.value = document.activeElement;
+
     activeBackdrop.value = true;
     showBackdrop.value = true;
     isShowing.value = true;
@@ -102,6 +107,10 @@ const show = () => {
         isShowing.value = false;
         isShown.value = true;
         emit("shown", true);
+        //try focusing the main element
+        //in order to focus the div element, it needs to have tabindex property set
+        //it is set at template
+        theElement.value?.focus();
     }, getTransitionDurationFromElement(theElement.value));
 };
 
@@ -123,7 +132,13 @@ const hide = () => {
         isHiding.value = false;
         isShown.value = false;
         emit("hidden", true);
-    }, getTransitionDurationFromElement(theElement.value))
+        //@ts-ignore
+        //focus back to the last active element
+        //technically this is the triggering element of the offcanvas component
+        mayBeTriEl.value?.focus();
+        //release the memory
+        mayBeTriEl.value = null;
+    }, getTransitionDurationFromElement(theElement.value));
 };
 
 //main job is done by watcher
@@ -140,7 +155,7 @@ defineExpose({
 
 //computed
 const classes = computed(() => {
-    //converts start/left ==> start, right/end == end wrt. bootstrap >=5.5.5
+    //converts start/left ==> start, right/end == end wrt. bootstrap >=5.5.2
     let placement = ['start', 'left'].includes(props.placement) ? "start"
         : ["right", "end"].includes(props.placement) ? "end" : props.placement;
 
@@ -157,4 +172,9 @@ const classes = computed(() => {
     ]
 });
 
+function onEsc(e) {
+    if (!props.noCloseOnEsc && !e.defaultPrevented) {
+        hide();
+    }
+}
 </script>

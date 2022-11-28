@@ -26,7 +26,7 @@
 
 <script lang="ts" setup>
 import {computed, defineComponent, h, PropType} from "vue";
-import type {responsiveNumbers} from "../../types";
+import type {ResponsiveNumbers} from "../../types";
 import {Feedback, FormLabel} from "../../";
 
 const FeedbackMessages = defineComponent({
@@ -49,14 +49,14 @@ const props = defineProps({
     label: {type: String as PropType<string>, default: null},
     labelFor: {type: String as PropType<string>, default: null},
     horizontal: {type: Boolean as PropType<boolean>, default: false},
-    labelSm: {type: Number as PropType<responsiveNumbers>, default: null},
-    labelMd: {type: Number as PropType<responsiveNumbers>, default: null},
-    labelLg: {type: Number as PropType<responsiveNumbers>, default: null},
-    labelXl: {type: Number as PropType<responsiveNumbers>, default: null},
-    contentSm: {type: Number as PropType<responsiveNumbers>, default: null},
-    contentMd: {type: Number as PropType<responsiveNumbers>, default: null},
-    contentLg: {type: Number as PropType<responsiveNumbers>, default: null},
-    contentXl: {type: Number as PropType<responsiveNumbers>, default: null},
+    labelSm: {type: Number as PropType<ResponsiveNumbers>, default: null},
+    labelMd: {type: Number as PropType<ResponsiveNumbers>, default: null},
+    labelLg: {type: Number as PropType<ResponsiveNumbers>, default: null},
+    labelXl: {type: Number as PropType<ResponsiveNumbers>, default: null},
+    contentSm: {type: Number as PropType<ResponsiveNumbers>, default: null},
+    contentMd: {type: Number as PropType<ResponsiveNumbers>, default: null},
+    contentLg: {type: Number as PropType<ResponsiveNumbers>, default: null},
+    contentXl: {type: Number as PropType<ResponsiveNumbers>, default: null},
     noMarginBottom: {type: Boolean as PropType<boolean>, default: false},
     //form control feedback messages
     validFeedback: {type: String as PropType<string>, default: null},

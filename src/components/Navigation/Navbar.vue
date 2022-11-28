@@ -19,19 +19,19 @@
 <script lang="ts" setup>
 import {computed, PropType, ref} from "vue";
 import {Container, NavbarBrand, NavbarToggler} from "../..";
-import type {ColorVariants, responsiveSizes} from "../../types";
+import type {ColorVariants, ResponsiveSizes} from "../../types";
 
 const props = defineProps({
     brand: {type: String as PropType<string>, default: null},
     brandUrl: {type: String as PropType<string>, default: '#'},
     fluid: {type: Boolean as PropType<boolean>, default: false},
-    size: {type: String as PropType<responsiveSizes>, default: null},
+    size: {type: String as PropType<ResponsiveSizes>, default: null},
     toggleEnabled: {type: Boolean as PropType<boolean>, default: true},
     variant: {type: String as PropType<'dark' | 'light'>, default: 'light'},
     bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
     fixed: {type: String as PropType<'top' | 'bottom'>, default: null},
     sticky: {type: String as PropType<'top' | 'bottom'>, default: null},
-    expandsOn: {type: String as PropType<responsiveSizes | responsiveSizes[]>, default: 'lg'},
+    expandsOn: {type: String as PropType<ResponsiveSizes | ResponsiveSizes[]>, default: 'lg'},
 });
 
 const collapsed = ref<boolean>(false);

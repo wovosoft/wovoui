@@ -9,13 +9,11 @@ export default defineComponent({
     },
     setup(props, {slots}) {
         return () => h(props.tag, {
-            class: [
-                {
-                    "vstack": props.vertical,
-                    "hstack": !props.vertical,
-                    ["gap-" + props.gap]: props.gap
-                }
-            ]
+            class: {
+                "vstack": props.vertical,
+                "hstack": !props.vertical,
+                ["gap-" + props.gap]: props.gap
+            }
         }, slots?.default())
     }
 })
