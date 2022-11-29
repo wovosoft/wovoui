@@ -40,8 +40,7 @@ import ButtonGroup from "../Button/ButtonGroup";
 import Button from "../Button/Button";
 import {Eye, PencilSquare, Trash} from "@wovosoft/wovoui-icons";
 
-import type {ColorVariants,ButtonSizes} from "../../types";
-import type {classTypes} from "../../types/classTypes";
+import type {ColorVariants,ButtonSizes,ClassTypes} from "../../types";
 
 export default defineComponent({
     name: "Column",
@@ -67,8 +66,8 @@ export default defineComponent({
         /**
          * classes prop for th and td.
          */
-        thClass: {type: [String, Object, Array] as PropType<classTypes>, default: null},
-        tdClass: {type: [String, Object, Array] as PropType<classTypes>, default: null},
+        thClass: {type: [String, Object, Array] as PropType<ClassTypes>, default: null},
+        tdClass: {type: [String, Object, Array] as PropType<ClassTypes>, default: null},
         formatter: {type: Function as PropType<(item: Ref<object>) => unknown>, default: null}
     },
     setup(props) {

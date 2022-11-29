@@ -7,7 +7,7 @@ import {makeBoolean, makeProp, makeSize, makeString, makeVariant} from "../../co
 
 export default defineComponent({
     props: {
-        tag: makeProp<HTMLElementTagNameMap | string>("button", String),
+        tag: makeProp<keyof HTMLElementTagNameMap | string>("button", String),
         href: makeString(null),
         to: makeProp<RouteLocationRaw>(null, Object),
         variant: makeVariant('secondary'),

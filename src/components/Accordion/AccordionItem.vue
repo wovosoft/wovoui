@@ -22,7 +22,7 @@ import Collapse from "./Collapse";
 import type {
     setActiveItem as setActiveItemType,
     registerItem as registerItemType
-} from "../../types/AccordionTypings";
+} from "../../types";
 import {makeBoolean, makeClass, makeString} from "../../composables/useProps";
 
 const props = defineProps({

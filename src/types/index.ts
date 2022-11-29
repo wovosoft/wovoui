@@ -1,5 +1,6 @@
 import type {Placement} from "@popperjs/core";
 import type {Icons} from "@wovosoft/wovoui-icons/src/types";
+import {Ref} from "vue";
 
 export type TextAlign = 'start' | 'center' | 'end';
 export type TextVariants =
@@ -66,6 +67,8 @@ export type DropdownAlignments =
     | "xxl-end"
     | Placement;
 
+export type ClassTypes = string | string[] | object | object[];
+
 export interface MenuItem {
     text: string;
     to?: object;
@@ -74,6 +77,10 @@ export interface MenuItem {
     icon?: Icons;
     handler?: (item: MenuItem, index: number) => void;
 }
+
+
+export type setActiveItem = (item: Ref<boolean>) => void
+export type registerItem = (item: Ref<boolean>) => void
 
 export * from "./../index";
 
