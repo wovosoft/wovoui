@@ -6,19 +6,20 @@
 
 import {defineComponent, h, PropType} from "vue";
 import type {AlignContent, ResponsiveSizes, ItemAlignment, JustifyAlignment} from "../../types";
+import {makeBoolean, makeTag} from "../../composables/useProps";
 
 export default defineComponent({
     props: {
         /**
          * HTML Tag
          */
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+        tag: makeTag("div"),
 
         /**
          * When it is set to false the default d-flex class won't be added.
          * By default, it is true
          */
-        pure: {type: Boolean as PropType<boolean>, default: true},
+        pure: makeBoolean(true),
 
         /**
          * Responsive Flex classes sm|md|lg|xl|xxl

@@ -26,15 +26,16 @@
 <script lang="ts" setup>
 import {computed, ref, watch, PropType} from "vue";
 import type {ButtonSizes} from "../../types";
+import {makeBoolean, makeProp, makeSize, makeString} from "../../composables/useProps";
 
 const props = defineProps({
-    multiple: {type: Boolean as PropType<boolean>, default: false},
-    size: {type: String as PropType<ButtonSizes>, default: null},
+    multiple: makeBoolean(false),
+    size: makeSize<ButtonSizes>(null),
     options: {type: Array as PropType<any[]>, default: () => ([])},
-    valueField: {type: [Function, String] as PropType<Function | string>, default: null},
-    textField: {type: [Function, String] as PropType<Function | string>, default: null},
-    disabledField: {type: String as PropType<string>, default: "disabled"},
-    labelField: {type: String as PropType<string>, default: "label"},
+    valueField: makeProp<(str: any) => any | string>(null, [Function, String]),
+    textField: makeProp<(str: any) => any | string>(null, [Function, String]),
+    disabledField: makeString("disabled"),
+    labelField: makeString("label"),
     modelValue: {default: null}
 });
 

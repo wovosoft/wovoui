@@ -20,14 +20,15 @@
 
 <script lang="ts" setup>
 import {computed, nextTick, PropType, Ref, ref, useSlots, watch} from "vue";
-import usePopper from "../../shared/usePopper";
+import usePopper from "../../composables/usePopper";
 import {vOnClickOutside} from "../../directives";
 import type {DropdownMenu} from "../../index";
 import {unrefElement} from "@vueuse/core";
+import {makeBoolean, makeTag} from "../../composables/useProps";
 
 const props = defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
-    toggleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
+    tag: makeTag("div"),
+    toggleTag: makeTag("div"),
     menuTag: {
         type: [String, Object] as PropType<keyof HTMLElementTagNameMap | InstanceType<typeof DropdownMenu>>,
         default: 'div'
@@ -35,9 +36,9 @@ const props = defineProps({
     menuClass: {default: null},
     toggleClass: {default: null},
     activatorClass: {default: 'show'},
-    modelValue: {type: Boolean as PropType<boolean>, default: false},
+    modelValue: makeBoolean(false),
     popperOptions: {default: null},
-    noCloseOnEsc: {type: Boolean as PropType<boolean>, default: false},
+    noCloseOnEsc: makeBoolean(false),
 });
 
 const emit = defineEmits<{

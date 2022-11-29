@@ -20,22 +20,23 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, getCurrentInstance, PropType} from "vue";
+import {computed, getCurrentInstance} from "vue";
 import {RouteRecordRaw} from "vue-router";
+import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useProps";
 
 const isVueRouterInstalled = computed(() => {
     return !!getCurrentInstance().appContext.config.globalProperties.$router;
 });
 
 const props = defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
-    href: {type: String as PropType<string>, default: "#"},
-    to: {type: Object as PropType<RouteRecordRaw>, default: null},
-    noItemTag: {type: Boolean as PropType<boolean>, default: false},
-    active: {type: Boolean as PropType<boolean>, default: false},
-    disabled: {type: Boolean as PropType<boolean>, default: false},
-    isText: {type: Boolean as PropType<boolean>, default: false},
-    itemTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: null}
+    tag: makeTag("li"),
+    href: makeString("#"),
+    to: makeProp<RouteRecordRaw>(null, Object),
+    noItemTag: makeBoolean(false),
+    active: makeBoolean(false),
+    disabled: makeBoolean(false),
+    isText: makeBoolean(false),
+    itemTag: makeTag(null)
 })
 
 const classes = computed(() => ['dropdown-item', {'active': props.active, 'disabled': props.disabled}]);

@@ -28,7 +28,7 @@ const props = defineProps({
     ariaCurrent: makeString("location"),
     disabled: makeBoolean(false),
     exact: makeBoolean(false),
-    rel: {type: String as PropType<string>, default: null},
+    rel: makeString(),
     replace: makeBoolean(false),
     target: makeString("_self"),
     to: makeProp<object | string>(null, [Object, String]),

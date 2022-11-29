@@ -1,13 +1,14 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
 import type {ButtonSizes} from "../../types";
+import {makeBoolean, makeSize, makeString} from "../../composables/useProps";
 
 export default defineComponent({
     name: "ButtonClose",
     props: {
-        size: {type: String as PropType<ButtonSizes>, default: null},
-        white: {type: Boolean as PropType<boolean>, default: () => false},
-        ariaLabel: {type: String as PropType<string>, default: "Close"},
-        disabled: {type: Boolean as PropType<boolean>, default: false}
+        size: makeSize<ButtonSizes>(null),
+        white: makeBoolean(false),
+        ariaLabel: makeString("Close"),
+        disabled: makeBoolean(false)
     },
     setup(props) {
         return () => h(

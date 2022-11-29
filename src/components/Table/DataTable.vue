@@ -82,6 +82,7 @@ import Icon from "../Ui/Icon";
 
 import {isObject, orderBy, title} from "../../shared/utilities";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
+import {makeString} from "../../composables/useProps";
 
 
 type FieldType = {
@@ -104,11 +105,11 @@ export default defineComponent({
         bodyClass: {type: [Array, String] as PropType<string | string[]>, default: null},
         footClass: {type: [Array, String] as PropType<string | string[]>, default: null},
         selectedRows: {type: Array as PropType<any[]>, default: () => ([])},
-        filter: {type: String as PropType<string>, default: null},
+        filter: makeString(),
         fields: {type: Array as PropType<FieldType[] | string[]>, default: () => ([])},
         items: {type: [Array, Function] as PropType<any[]>, default: () => ([])}
     },
-    setup(props, {slots, expose, emit}) {
+    setup(props, { expose, emit}) {
         const sorting = ref({
             sortBy: null,
             sort: null

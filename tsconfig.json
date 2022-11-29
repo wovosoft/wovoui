@@ -13,7 +13,7 @@
     "outDir": "dist",
     "declarationMap": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
   },
   "include": [
     "src/**/*"

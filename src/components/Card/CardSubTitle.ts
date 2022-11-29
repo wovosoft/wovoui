@@ -1,12 +1,12 @@
-import {defineComponent, PropType, h} from "vue";
-import type {ColorVariants,TextVariants} from "../../types";
+import {defineComponent, h} from "vue";
+import {makeString, makeTag, makeTextVariant} from "../../composables/useProps";
 
 export default defineComponent({
     name: "CardSubTitle",
     props: {
-        title: {type: String as PropType<string>, default: null},
-        tag: {type: String as PropType<string>, default: "h6"},
-        textVariant: {type: String as PropType<ColorVariants | TextVariants>, default: "muted"}
+        title: makeString(),
+        tag: makeTag("h6"),
+        textVariant: makeTextVariant("muted")
     },
     setup(props, {slots}) {
         return () => h(props.tag, {
@@ -16,6 +16,6 @@ export default defineComponent({
                     ["text-" + props.textVariant]: !!props.textVariant
                 }
             ]
-        }, slots.default?.())
+        }, slots?.default?.());
     }
 })

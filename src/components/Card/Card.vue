@@ -37,55 +37,54 @@
 
 <script lang="ts" setup>
 import {CardHeader, CardBody, CardFooter, CardImg} from "../..";
-import {computed, PropType} from "vue";
-import type {ColorVariants} from "../../types";
+import {computed} from "vue";
+import {makeClass, makeString, makeTag, makeVariant, makeBoolean, makeTextVariant} from "../../composables/useProps";
 
 const props = defineProps({
-    align: {type: String as PropType<string>, default: null},
-    bgVariant: {type: String as PropType<ColorVariants>, default: null},
+    align: makeString(null),
+    bgVariant: makeVariant(null),
+    bodyBgVariant: makeVariant(null),
+    bodyBorderVariant: makeVariant(null),
+    bodyClass: makeClass(null),
+    bodyTag: makeTag("div"),
+    bodyTextVariant: makeVariant(null),
 
-    bodyBgVariant: {type: String as PropType<ColorVariants>, default: null},
-    bodyBorderVariant: {type: String as PropType<ColorVariants>, default: null},
-    bodyClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
-    bodyTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-    bodyTextVariant: {type: String as PropType<ColorVariants>, default: null},
+    footer: makeString(null),
+    footerBgVariant: makeVariant(null),
+    footerTag: makeTag("div"),
+    footerTextVariant: makeTextVariant(null),
+    footerClass: makeClass(null),
+    footerBorderVariant: makeVariant(null),
 
-    footer: {type: String as PropType<string>, default: null},
-    footerBgVariant: {type: String as PropType<ColorVariants>, default: null},
-    footerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-    footerTextVariant: {type: String as PropType<ColorVariants>, default: null},
-    footerClass: {type: [String, Array] as PropType<string | Array<any>>, default: null},
-    footerBorderVariant: {type: String as PropType<ColorVariants>, default: null},
+    header: makeString(null),
+    headerBgVariant: makeVariant(null),
+    headerBorderVariant: makeVariant(null),
+    headerClass: makeClass(null),
+    headerTag: makeTag("div"),
+    headerTextVariant: makeTextVariant(null),
 
-    header: {type: String as PropType<string>, default: null},
-    headerBgVariant: {type: String as PropType<ColorVariants>, default: null},
-    headerBorderVariant: {type: String as PropType<ColorVariants>, default: null},
-    headerClass: {type: [Array, String, Object] as PropType<Array<any> | string | object>, default: null},
-    headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-    headerTextVariant: {type: String as PropType<ColorVariants>, default: null},
+    imgAlt: makeString(null),
+    imgBottom: makeBoolean(false),
+    imgEnd: makeBoolean(false),
+    imgLeft: makeBoolean(false),
+    imgRight: makeBoolean(false),
+    imgStart: makeBoolean(false),
+    imgTop: makeBoolean(false),
+    imgSrc: makeString(null),
+    imgWidth: makeString(null),
+    imgHeight: makeString(null),
+    noBody: makeBoolean(false),
 
-    imgAlt: {type: String as PropType<string>, default: null},
-    imgBottom: {type: Boolean as PropType<boolean>, default: false},
-    imgEnd: {type: Boolean as PropType<boolean>, default: false},
-    imgLeft: {type: Boolean as PropType<boolean>, default: false},
-    imgRight: {type: Boolean as PropType<boolean>, default: false},
-    imgStart: {type: Boolean as PropType<boolean>, default: false},
-    imgTop: {type: Boolean as PropType<boolean>, default: false},
-    imgSrc: {type: String as PropType<string>, default: null},
-    imgWidth: {type: String as PropType<string>, default: null},
-    imgHeight: {type: String as PropType<string>, default: null},
-    noBody: {type: Boolean as PropType<boolean>, default: false},
+    overlay: makeBoolean(false),
+    subTitle: makeString(null),
+    subTitleTag: makeTag("h6"),
+    subTitleTextVariant: makeTextVariant("muted"),
+    tag: makeTag("div"),
 
-    overlay: {type: Boolean as PropType<boolean>, default: false},
-    subTitle: {type: String as PropType<string>, default: null},
-    subTitleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
-    subTitleTextVariant: {type: String as PropType<string>, default: "muted"},
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-
-    textVariant: {type: String as PropType<ColorVariants>, default: null},
-    borderVariant: {type: String as PropType<ColorVariants>, default: null},
-    title: {type: String as PropType<string>, default: null},
-    titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"},
+    textVariant: makeTextVariant(null),
+    borderVariant: makeVariant(null),
+    title: makeString(null),
+    titleTag: makeTag("h4"),
 });
 
 const classes = computed(() => [

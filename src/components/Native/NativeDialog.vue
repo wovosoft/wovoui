@@ -15,10 +15,11 @@
 import {PropType, ref, watch} from "vue";
 import ModalHeader from "../Modal/ModalHeader";
 import ButtonClose from "../Button/ButtonClose";
+import {makeBoolean} from "../../composables/useProps";
 
 const props = defineProps({
     header: String as PropType<string>,
-    modelValue: {type: Boolean as PropType<boolean>, default: false}
+    modelValue: makeBoolean(false)
 });
 
 const emit = defineEmits<{

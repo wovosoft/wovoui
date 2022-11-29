@@ -28,6 +28,7 @@
 import {computed, defineComponent, h, PropType} from "vue";
 import type {ResponsiveNumbers} from "../../types";
 import {Feedback, FormLabel} from "../../";
+import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useProps";
 
 const FeedbackMessages = defineComponent({
     setup() {
@@ -44,23 +45,23 @@ const FeedbackMessages = defineComponent({
 });
 
 const props = defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-    floating: {type: Boolean as PropType<boolean>, default: false},
-    label: {type: String as PropType<string>, default: null},
-    labelFor: {type: String as PropType<string>, default: null},
-    horizontal: {type: Boolean as PropType<boolean>, default: false},
-    labelSm: {type: Number as PropType<ResponsiveNumbers>, default: null},
-    labelMd: {type: Number as PropType<ResponsiveNumbers>, default: null},
-    labelLg: {type: Number as PropType<ResponsiveNumbers>, default: null},
-    labelXl: {type: Number as PropType<ResponsiveNumbers>, default: null},
-    contentSm: {type: Number as PropType<ResponsiveNumbers>, default: null},
-    contentMd: {type: Number as PropType<ResponsiveNumbers>, default: null},
-    contentLg: {type: Number as PropType<ResponsiveNumbers>, default: null},
-    contentXl: {type: Number as PropType<ResponsiveNumbers>, default: null},
-    noMarginBottom: {type: Boolean as PropType<boolean>, default: false},
+    tag: makeTag("div"),
+    floating: makeBoolean(false),
+    label: makeString(),
+    labelFor: makeString(),
+    horizontal: makeBoolean(false),
+    labelSm: makeProp<ResponsiveNumbers>(null, Number),
+    labelMd: makeProp<ResponsiveNumbers>(null, Number),
+    labelLg: makeProp<ResponsiveNumbers>(null, Number),
+    labelXl: makeProp<ResponsiveNumbers>(null, Number),
+    contentSm: makeProp<ResponsiveNumbers>(null, Number),
+    contentMd: makeProp<ResponsiveNumbers>(null, Number),
+    contentLg: makeProp<ResponsiveNumbers>(null, Number),
+    contentXl: makeProp<ResponsiveNumbers>(null, Number),
+    noMarginBottom: makeBoolean(false),
     //form control feedback messages
-    validFeedback: {type: String as PropType<string>, default: null},
-    invalidFeedback: {type: String as PropType<string>, default: null},
+    validFeedback: makeString(),
+    invalidFeedback: makeString(),
 });
 
 const classes = computed(() => ([

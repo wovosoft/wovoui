@@ -44,13 +44,14 @@
 
 import {computed, onMounted, PropType, provide, Ref, ref, watch} from "vue";
 import {Nav, NavLink, TabContent} from "../../";
+import {makeBoolean, makeNumber} from "../../composables/useProps";
 
 const props = defineProps({
     /**
      * Index of Active Tab
      * @supported 0 to length of tabs
      */
-    modelValue: {type: Number as PropType<number>, default: null},
+    modelValue: makeNumber(null),
 
     /**
      * @description defines if the tabs should be styled as card
@@ -58,7 +59,7 @@ const props = defineProps({
      * @default false
      * @link https://getbootstrap.com/docs/5.2/components/card/#navigation
      */
-    card: {type: Boolean as PropType<boolean>, default: false},
+    card: makeBoolean(false),
 
     /**
      * @description defines if the tabs should be styled as pilled
@@ -66,7 +67,7 @@ const props = defineProps({
      * @default false
      * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#pills
      */
-    pills: {type: Boolean as PropType<boolean>, default: false},
+    pills: makeBoolean(false),
 
     /**
      * @description defines if the tabs should fill the whole available width
@@ -74,7 +75,7 @@ const props = defineProps({
      * @default false
      * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#fill-and-justify
      */
-    fill: {type: Boolean as PropType<boolean>, default: false},
+    fill: makeBoolean(false),
 
     /**
      * @description defines if the tabs should be justified
@@ -82,7 +83,7 @@ const props = defineProps({
      * @default false
      * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#fill-and-justify
      */
-    justified: {type: Boolean as PropType<boolean>, default: false},
+    justified: makeBoolean(false),
 
     /**
      * @description Defines tabs links alignment
@@ -98,7 +99,7 @@ const props = defineProps({
      * @type boolean
      * @default false
      */
-    end: {type: Boolean as PropType<boolean>, default: false},
+    end: makeBoolean(false),
 
     /**
      * @description Defines if menu should be vertical or not.
@@ -106,7 +107,7 @@ const props = defineProps({
      * @type boolean
      * @default false
      */
-    vertical: {type: Boolean as PropType<boolean>, default: false},
+    vertical: makeBoolean(false),
 
     /**
      * @type any

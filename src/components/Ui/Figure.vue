@@ -13,27 +13,28 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType} from "vue";
+
+import {makeBoolean, makeString} from "../../composables/useProps";
 
 defineProps({
     /**
      * Figure Caption
      */
-    caption: {type: String as PropType<string>, default: null},
+    caption: makeString(),
 
     /**
      * Figure Image URL
      */
-    imgUrl: {type: String as PropType<string>, default: null},
+    imgUrl: makeString(),
 
     /**
      * Defines if figure should be fluid or not
      */
-    imgFluid: {type: Boolean as PropType<boolean>, default: false},
+    imgFluid: makeBoolean(false),
 
     /**
      * Alternative value for figure image
      */
-    imgAlt: {type: String as PropType<string>, default: null}
+    imgAlt: makeString()
 });
 </script>

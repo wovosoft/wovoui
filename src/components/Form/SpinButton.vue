@@ -16,7 +16,7 @@
             :aria-valuemin="min"
             :aria-valuemax="max"
             :aria-valuenow="model"
-            :aria-valuetext="model"
+            :aria-valuetext="model.toString()"
             :class="{['form-control-'+size]:size}"
             class="form-control text-center">
             {{ formatter(model) }}
@@ -36,18 +36,19 @@
 import {computed, ref, watch, PropType} from "vue";
 import {InputGroup, Button} from "../..";
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
-import type {ColorVariants, ButtonSizes} from "../../types";
+import type {ButtonSizes} from "../../types";
+import {makeBoolean, makeNumber, makeSize, makeVariant} from "../../composables/useProps";
 
 const props = defineProps({
-    modelValue: {type: Number as PropType<number>, default: 0},
-    step: {type: Number as PropType<number>, default: 1},
-    min: {type: Number as PropType<number>, default: 0},
-    max: {type: Number as PropType<number>, default: 100},
-    buttonVariant: {type: String as PropType<ColorVariants>, default: "secondary"},
-    size: {type: String as PropType<ButtonSizes>, default: null},
+    modelValue: makeNumber(0),
+    step: makeNumber(1),
+    min: makeNumber(0),
+    max: makeNumber(100),
+    buttonVariant: makeVariant("secondary"),
+    size: makeSize<ButtonSizes>(null),
     formatter: {type: Function as PropType<Function>, default: v => v},
-    inline: {type: Boolean as PropType<boolean>, default: false},
-    vertical: {type: Boolean as PropType<boolean>, default: false},
+    inline: makeBoolean(false),
+    vertical: makeBoolean(false),
 });
 
 const emit = defineEmits(["update:modelValue"]);

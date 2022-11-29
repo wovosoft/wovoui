@@ -84,6 +84,7 @@ import {modalCount} from "../../composables/useHelpers";
 import type {ModalFullScreen, ButtonSizes, ModalSizes, ColorVariants} from "../../types";
 import vOnClickOutside from "../../directives/vOnClickOutside";
 import {EVENT_TRIGGER_HIDE_NAME, EVENT_TRIGGER_SHOW_NAME} from "../../composables/useModal";
+import {makeBoolean, makeSize, makeString, makeTag} from "../../composables/useProps";
 
 const emit = defineEmits<{
     (e: "update:modelValue", value: boolean): void;
@@ -97,15 +98,15 @@ const emit = defineEmits<{
 }>();
 
 const props = defineProps({
-    id: {type: String as PropType<string>, default: null},
+    id: makeString(),
     animation: {type: String as PropType<string>, default: "fade"},
-    shrink: {type: Boolean as PropType<boolean>, default: false},
+    shrink: makeBoolean(false),
     //null refers to initial value
-    modelValue: {type: Boolean as PropType<boolean>, default: null},
-    noClose: {type: Boolean as PropType<boolean>, default: false},
-    closeBtnWhite: {type: Boolean as PropType<boolean>, default: false},
-    noBody: {type: Boolean as PropType<boolean>, default: false},
-    lazy: {type: Boolean as PropType<boolean>, default: false},
+    modelValue: makeBoolean(null),
+    noClose: makeBoolean(false),
+    closeBtnWhite: makeBoolean(false),
+    noBody: makeBoolean(false),
+    lazy: makeBoolean(false),
     bodyClass: {type: [Array, String, Object] as PropType<any>, default: null},
     bodyVariant: {
         type: String as PropType<ColorVariants>,
@@ -113,15 +114,15 @@ const props = defineProps({
     },
     contentClass: {type: [Array, String, Object] as PropType<any>, default: null},
 
-    title: {type: String as PropType<string>, default: null},
+    title: makeString(),
     titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h5"},
     titleClass: {type: [Array, String, Object] as PropType<string | object | any[]>, default: null},
     titleAttrs: {type: Object as PropType<object>, default: null},
 
     //header props
-    noHeader: {type: Boolean as PropType<boolean>, default: false},
-    header: {type: String as PropType<string>, default: null},
-    headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+    noHeader: makeBoolean(false),
+    header: makeString(),
+    headerTag: makeTag("div"),
     headerClass: {type: [Array, String, Object] as PropType<any>, default: null},
     headerAttrs: {type: Object as PropType<object>, default: null},
     headerVariant: {
@@ -129,7 +130,7 @@ const props = defineProps({
         default: null
     },
 
-    noFooter: {type: Boolean as PropType<boolean>, default: false},
+    noFooter: makeBoolean(false),
     footerClass: {type: [Array, String, Object] as PropType<any>, default: null},
     footerVariant: {
         type: String as PropType<ColorVariants>,
@@ -151,18 +152,18 @@ const props = defineProps({
             variant: 'secondary'
         })
     },
-    noOkButton: {type: Boolean as PropType<boolean>, default: false},
-    noCloseButton: {type: Boolean as PropType<boolean>, default: false},
-    noCloseOnBackdrop: {type: Boolean as PropType<boolean>, default: false},
-    noCloseOnEsc: {type: Boolean as PropType<boolean>, default: false},
+    noOkButton: makeBoolean(false),
+    noCloseButton: makeBoolean(false),
+    noCloseOnBackdrop: makeBoolean(false),
+    noCloseOnEsc: makeBoolean(false),
 
-    static: {type: Boolean as PropType<boolean>, default: false},
-    noBackdrop: {type: Boolean as PropType<boolean>, default: false},
-    buttonSize: {type: String as PropType<ButtonSizes>, default: null},
+    static: makeBoolean(false),
+    noBackdrop: makeBoolean(false),
+    buttonSize: makeSize<ButtonSizes>(null),
 
     //modal dialog props
-    scrollable: {type: Boolean as PropType<boolean>, default: false},
-    centered: {type: Boolean as PropType<boolean>, default: false},
+    scrollable: makeBoolean(false),
+    centered: makeBoolean(false),
     size: {type: String as PropType<ModalSizes>, default: null},
     fullscreen: {type: [Boolean, String] as PropType<ModalFullScreen>, default: false}
 });

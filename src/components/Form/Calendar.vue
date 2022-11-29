@@ -111,6 +111,7 @@ import {
     ChevronDoubleRight,
     ChevronDoubleLeft
 } from "@wovosoft/wovoui-icons";
+import {makeBoolean, makeProp, makeString} from "../../composables/useProps";
 
 export default defineComponent({
     name: "Calendar",
@@ -126,18 +127,18 @@ export default defineComponent({
         Row
     },
     props: {
-        modelValue: {type: [String, Object] as PropType<DateType>, default: null},
+        modelValue: makeProp<DateType>(null, [String, Object]),
         //output format: https://day.js.org/docs/en/display/format#docsNav
-        format: {type: String as PropType<string>, default: "YYYY-MM-DD"},
+        format: makeString("YYYY-MM-DD"),
         //https://day.js.org/docs/en/plugin/locale-data#docsNav
         /**
          * Week Days can be 'min','short','regular'(full name)
          */
-        weekdayType: {type: String as PropType<string>, default: "short"},
-        monthSelectorEnabled: {type: Boolean as PropType<boolean>, default: true},
+        weekdayType: makeString("short"),
+        monthSelectorEnabled: makeBoolean(true),
         //https://day.js.org/docs/en/get-set/day
         // startOfWeek: makeNumber(1),
-        activeClass: {type: String as PropType<string>, default: "active"}
+        activeClass: makeString("active")
     },
     setup(props, context) {
         const theDate: Ref<Dayjs> = ref(props.modelValue ? dayjs(props.modelValue) : dayjs());

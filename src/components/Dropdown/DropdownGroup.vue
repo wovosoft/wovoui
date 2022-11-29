@@ -6,12 +6,12 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType} from "vue";
 import DropdownHeader from "./DropdownHeader.vue";
+import {makeString, makeTag} from "../../composables/useProps";
 
 defineProps({
-    header: {type: String as PropType<string>, default: null},
-    headerTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
-    headerWrapper: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
+    header: makeString(),
+    headerTag: makeTag("h6"),
+    headerWrapper: makeTag("li")
 });
 </script>

@@ -9,10 +9,11 @@ import {defineComponent, h} from "vue";
 
 import {PropType} from "vue";
 import type {ResponsiveSizes, Order} from "../../types";
+import {makeTag} from "../../composables/useProps";
 
 export default defineComponent({
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+        tag: makeTag("div"),
         fill: {
             type: [Boolean, Array, String] as PropType<boolean | ResponsiveSizes | ResponsiveSizes[]>,
             default: false

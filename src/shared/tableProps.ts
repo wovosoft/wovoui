@@ -1,8 +1,9 @@
 //used in DataTable and Table components
 
 import {PropType} from "vue";
-import type {ColorVariants, ResponsiveSizes} from "../types";
+import type {ResponsiveSizes} from "../types";
 import tableCommonProps from "./tableCommonProps";
+import {makeBoolean, makeString, makeVariant} from "../composables/useProps";
 
 export default {
     ...tableCommonProps,
@@ -19,35 +20,35 @@ export default {
     /**
      * Makes table hoverable
      */
-    hover: {type: Boolean as PropType<boolean>, default: false},
+    hover: makeBoolean(false),
 
     /**
      * Makes table bordered
      */
-    bordered: {type: Boolean as PropType<boolean>, default: false},
+    bordered: makeBoolean(false),
 
     /**
      * Sets table border variant
      */
-    borderVariant: {type: String as PropType<ColorVariants>, default: null},
+    borderVariant: makeVariant(null),
 
     /**
      * Removes table borders
      */
-    borderless: {type: Boolean as PropType<boolean>, default: false},
+    borderless: makeBoolean(false),
 
     /**
      * Makes table shrink, smaller
      */
-    small: {type: Boolean as PropType<boolean>, default: false},
+    small: makeBoolean(false),
 
     /**
      * Sets table caption
      */
-    caption: {type: String as PropType<string>, default: null},
+    caption: makeString(),
 
     /**
      * Places table caption at top
      */
-    captionTop: {type: Boolean as PropType<boolean>, default: false}
+    captionTop: makeBoolean(false)
 }

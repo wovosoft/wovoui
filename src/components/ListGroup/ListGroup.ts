@@ -1,12 +1,13 @@
 import {defineComponent, h, PropType} from "vue";
 import type {ResponsiveSizes} from "../../types";
+import {makeBoolean} from "../../composables/useProps";
 
 export default defineComponent({
     name: "ListGroup",
     props: {
         tag: {type: String as PropType<string>, default: "ul"},
-        flush: {type: Boolean as PropType<boolean>, default: false},
-        numbered: {type: Boolean as PropType<boolean>, default: false},
+        flush: makeBoolean(false),
+        numbered: makeBoolean(false),
         horizontal: {
             type: [Boolean, String] as PropType<boolean | ResponsiveSizes>,
             default: false

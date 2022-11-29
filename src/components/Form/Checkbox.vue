@@ -17,49 +17,26 @@
 <script lang="ts" setup>
 import {computed, onMounted, PropType, ref, watch} from "vue";
 import {uid} from "../../composables/useHelpers";
+import {makeBoolean, makeProp, makeString} from "../../composables/useProps";
 
 const props = defineProps({
-    switch: {
-        type: Boolean as PropType<boolean>,
-        default: false
-    },
-    inline: {
-        type: Boolean as PropType<boolean>,
-        default: false
-    },
-    reverse: {
-        type: Boolean as PropType<boolean>,
-        default: false
-    },
-    disabled: {
-        type: Boolean as PropType<boolean>,
-        default: false
-    },
+    switch: makeBoolean(false),
+    inline: makeBoolean(false),
+    reverse: makeBoolean(false),
+    disabled: makeBoolean(false),
     modelValue: {
         type: [String, Number, Boolean, Object, Array] as PropType<unknown>,
         default: null
     },
-    value: {
-        type: [String, Number, Boolean, Object, Array] as PropType<unknown>,
-        default: true
-    },
+    value: makeProp<unknown>(true, [String, Number, Boolean, Object, Array]),
     //not implemented yet
     // indeterminateValue: {
     //     default: null
     // },
-    uncheckedValue: {
-        type: [String, Number, Boolean, Object, Array] as PropType<unknown>,
-        default: false
-    },
-    id: {
-        type: String as PropType<string>,
-        default: null
-    },
+    uncheckedValue: makeProp<unknown>(false, [String, Number, Boolean, Object, Array]),
+    id: makeString(),
     //sometimes checking might be done by object keys. in that case this function can be used
-    checkBy: {
-        type: Function as PropType<(value, model) => boolean>,
-        default: null
-    }
+    checkBy: makeProp<(value, model) => boolean>(null, Function)
 });
 
 const emit = defineEmits<{

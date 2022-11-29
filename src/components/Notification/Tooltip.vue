@@ -18,10 +18,11 @@
 import {computed, nextTick, onBeforeUnmount, onBeforeUpdate, onMounted, PropType, ref} from "vue";
 import type {TooltipPlacement, VariationPlacement} from "../../types";
 import {createPopper} from "@popperjs/core";
+import {makeString} from "../../composables/useProps";
 
 const props = defineProps({
     target: {type: String as PropType<string>, default: null, required: true},  //should be id
-    content: {type: String as PropType<string>, default: null},
+    content: makeString(),
     placement: {type: String as PropType<VariationPlacement>, default: 'top'},
     opensOn: {type: String as PropType<keyof GlobalEventHandlersEventMap>, default: 'mouseenter'},
     closesOn: {type: String as PropType<keyof GlobalEventHandlersEventMap>, default: 'mouseleave'},

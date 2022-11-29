@@ -11,15 +11,15 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, ref, watch, PropType} from "vue";
+import {computed, ref, watch} from "vue";
 import {StarFill, Star} from "@wovosoft/wovoui-icons";
-import type {ColorVariants} from "../../types";
+import {makeNumber, makeVariant} from "../../composables/useProps";
 
 const props = defineProps({
-    min: {type: Number as PropType<number>, default: 1},
-    max: {type: Number as PropType<number>, default: 5},
-    modelValue: {type: Number as PropType<number>, default: 1},
-    variant: {type: String as PropType<ColorVariants>, default: null}
+    min: makeNumber(1),
+    max: makeNumber(5),
+    modelValue: makeNumber(1),
+    variant: makeVariant(null)
 });
 
 const emit = defineEmits<{

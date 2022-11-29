@@ -5,7 +5,8 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, inject, PropType, Ref, ref, watch} from "vue";
+import {computed, defineComponent, inject, Ref, ref, watch} from "vue";
+import {makeBoolean, makeString, makeTag} from "../../composables/useProps";
 
 type registerItemType = (visible: Ref<boolean>) => void;
 
@@ -13,9 +14,9 @@ export default defineComponent({
     name: "CarouselItem",
     emits: ['slidingStart', 'slidingEnd', 'update:active'],
     props: {
-        tag: {type: String as PropType<string>, default: "div"},
-        active: {type: Boolean as PropType<boolean>, default: false},
-        activeClass: {type: String as PropType<string>, default: "active"},
+        tag: makeTag("div"),
+        active: makeBoolean(false),
+        activeClass: makeString("active"),
     },
     setup(props, context) {
         const visible = ref(props.active);

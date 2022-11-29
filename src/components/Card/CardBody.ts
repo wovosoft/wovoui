@@ -1,22 +1,23 @@
 import {defineComponent, h, PropType} from "vue";
 import {CardTitle, CardSubTitle} from "../..";
 
-import type {ColorVariants,TextVariants} from "../../types";
+import type {ColorVariants, TextVariants} from "../../types";
+import {makeBoolean, makeString, makeTag, makeTextVariant, makeVariant} from "../../composables/useProps";
 
 export default defineComponent({
     name: "CardBody",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        content: {type: String as PropType<string>, default: null},
-        variant: {type: String as PropType<ColorVariants>, default: null},
-        borderVariant: {type: String as PropType<ColorVariants>, default: null},
-        textVariant: {type: String as PropType<ColorVariants>, default: null},
-        overlay: {type: Boolean as PropType<boolean>, default: false},
-        subTitle: {type: String as PropType<string>, default: null},
-        subTitleTag: {type: String as PropType<string>, default: "h6"},
-        subTitleTextVariant: {type: String as PropType<ColorVariants | TextVariants>, default: "muted"},
-        title: {type: String as PropType<string>, default: null},
-        titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h4"}
+        tag: makeTag("div"),
+        content: makeString(null),
+        variant: makeVariant(null),
+        borderVariant: makeVariant(null),
+        textVariant: makeTextVariant(null),
+        overlay: makeBoolean(false),
+        subTitle: makeString(),
+        subTitleTag: makeTag("h6"),
+        subTitleTextVariant: makeTextVariant("muted"),
+        title: makeString(),
+        titleTag: makeTag("h4")
     },
     setup(props, {slots}) {
         const title = () => {

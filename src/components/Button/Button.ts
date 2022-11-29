@@ -1,4 +1,4 @@
-import {computed, defineComponent, getCurrentInstance, h, PropType, resolveComponent} from "vue";
+import {computed, defineComponent, getCurrentInstance, h, resolveComponent} from "vue";
 
 import type {ButtonSizes} from "../../types";
 import {RouteLocationRaw} from "vue-router";
@@ -23,7 +23,7 @@ export default defineComponent({
         link: makeBoolean(false),
         active: makeBoolean(false),
         activeClass: makeString("active"),
-        noStyle: {type: Boolean as PropType<boolean>, default: false}
+        noStyle: makeBoolean(false)
     },
     setup(props, {slots}) {
         const isVueRouterInstalled = computed(() => {
@@ -58,7 +58,6 @@ export default defineComponent({
 
 
             return h(
-                // @ts-ignore
                 getTag(),
                 {
                     disabled: props.disabled,

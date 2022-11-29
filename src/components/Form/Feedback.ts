@@ -8,12 +8,13 @@
 
 import {defineComponent, h, PropType} from "vue";
 import type {FeedbackTypes} from "../../types";
+import {makeString, makeTag} from "../../composables/useProps";
 
 export default defineComponent({
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
+        tag: makeTag("div"),
         type: {type: String as PropType<FeedbackTypes>, default: 'valid'},
-        message: {type: String as PropType<string>, default: null},
+        message: makeString(),
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

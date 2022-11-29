@@ -77,10 +77,11 @@ import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
 import type {ButtonSizes} from "../../types";
 import dayjs, {Dayjs} from "dayjs";
 import {ChevronDoubleLeft, ChevronDoubleRight, ChevronLeft, ChevronRight, CircleFill} from "@wovosoft/wovoui-icons";
+import {makeSize, makeString} from "../../composables/useProps";
 
 const props = defineProps({
-    size: {type: String as PropType<ButtonSizes>},
-    format: {type: String as PropType<string>, default: null},
+    size: makeSize<ButtonSizes>(null),
+    format: makeString(),
     modelValue: {
         type: [String, Object] as PropType<string | Date | Dayjs>,
         default: null

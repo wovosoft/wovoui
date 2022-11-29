@@ -12,10 +12,11 @@
 <script lang="ts" setup>
 import {computed, PropType} from "vue";
 import type {ToastPlacements} from "../../types";
+import {makeTag} from "../../composables/useProps";
 
 
 const props = defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+    tag: makeTag("div"),
     placement: {type: String as PropType<ToastPlacements>, default: null},
     container: {type: String as PropType<string | keyof HTMLElementTagNameMap>, default: null}
 });

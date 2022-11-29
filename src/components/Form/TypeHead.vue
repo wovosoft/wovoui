@@ -53,7 +53,8 @@ import type {ColorVariants, ButtonSizes, TextAlign} from "../../types";
 import {Input, DropdownMenu, InputGroup} from "../../";
 import vOnClickOutside from "../../directives/vOnClickOutside";
 import axios from "axios";
-import usePopper from "../../shared/usePopper";
+import usePopper from "../../composables/usePopper";
+import {makeBoolean, makeSize, makeTag, makeVariant} from "../../composables/useProps";
 
 const props = defineProps({
     apiUrl: {
@@ -69,16 +70,16 @@ const props = defineProps({
         type: Function as PropType<(items: Ref<unknown>, query: Ref<string | number | null>) => unknown>,
     },
     menuHeight: {type: String as PropType<string>, default: "250px"},
-    searchSize: {type: String as PropType<ButtonSizes>, default: "sm"},
+    searchSize: makeSize<ButtonSizes>("sm"),
     searchClass: {default: null},
-    toggleSize: {type: String as PropType<ButtonSizes>, default: null},
+    toggleSize: makeSize<ButtonSizes>(null),
     toggleClass: {default: null},
     menuClass: {default: null},
-    menuDark: {type: Boolean as PropType<boolean>, default: false},
-    menuTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ul"},
+    menuDark: makeBoolean(false),
+    menuTag: makeTag("ul"),
     searchPlaceholder: {type: String as PropType<string>, default: "Search..."},
     modelValue: {default: null},
-    variant: {type: String as PropType<ColorVariants>, default: "secondary"},
+    variant: makeVariant("secondary"),
     textAlign: {type: String as PropType<TextAlign>, default: 'start'},
     getLabel: {
         type: Function as PropType<(item: unknown) => unknown>,
@@ -88,21 +89,11 @@ const props = defineProps({
         type: Function as PropType<(item: unknown) => unknown>,
         default: (item: unknown) => item
     },
-    noCloseOnOutsideClick: {
-        type: Boolean as PropType<boolean>, default: false
-    },
-    noCloseOnItemSelect: {
-        type: Boolean as PropType<boolean>, default: false
-    },
-    noCloseOnEscPressed: {
-        type: Boolean as PropType<boolean>, default: false
-    },
-    clearItemsOnSelect: {
-        type: Boolean as PropType<boolean>, default: false
-    },
-    preload: {
-        type: Boolean as PropType<boolean>, default: false
-    }
+    noCloseOnOutsideClick: makeBoolean(false),
+    noCloseOnItemSelect: makeBoolean(false),
+    noCloseOnEscPressed: makeBoolean(false),
+    clearItemsOnSelect: makeBoolean(false),
+    preload: makeBoolean(false)
 });
 
 const emit = defineEmits<{

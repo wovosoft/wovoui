@@ -18,13 +18,14 @@
 import {computed, PropType} from "vue";
 import {InputGroupText} from "../..";
 import type {ButtonSizes} from "../../types";
+import {makeBoolean, makeSize, makeString, makeTag} from "../../composables/useProps";
 
 const props = defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-    size: {type: String as PropType<ButtonSizes>, default: null},
-    prepend: {type: String as PropType<string>, default: null},
-    append: {type: String as PropType<string>, default: null},
-    noWrap: {type: Boolean as PropType<boolean>, default: false}
+    tag: makeTag("div"),
+    size: makeSize<ButtonSizes>(null),
+    prepend: makeString(),
+    append: makeString(),
+    noWrap: makeBoolean(false)
 });
 
 const classes = computed(() => [

@@ -19,6 +19,7 @@ import {
     onBeforeUnmount, reactive
 } from "vue";
 import {getTransitionDurationFromElement} from "../../composables/useTransition";
+import {makeBoolean, makeString} from "../../composables/useProps";
 
 const props = defineProps({
     /**
@@ -26,14 +27,14 @@ const props = defineProps({
      * @type boolean
      * @default false
      */
-    active: {type: Boolean as PropType<boolean>, default: false},
+    active: makeBoolean(false),
 
     /**
      * @description Tab Menu Title
      * @type string
      * @default null
      */
-    title: {type: String as PropType<string>, default: null}
+    title: makeString()
 });
 
 const emit = defineEmits<{

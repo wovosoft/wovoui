@@ -40,7 +40,8 @@ import ButtonGroup from "../Button/ButtonGroup";
 import Button from "../Button/Button";
 import {Eye, PencilSquare, Trash} from "@wovosoft/wovoui-icons";
 
-import type {ColorVariants,ButtonSizes,ClassTypes} from "../../types";
+import type {ButtonSizes, ClassTypes} from "../../types";
+import {makeBoolean, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
 
 export default defineComponent({
     name: "Column",
@@ -49,18 +50,18 @@ export default defineComponent({
         Eye, PencilSquare, Trash
     },
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "td"},
-        field: {type: String as PropType<string>, default: null},
-        label: {type: String as PropType<string>, default: null},
-        visible: {type: Boolean as PropType<boolean>, default: true},
+        tag: makeTag("td"),
+        field: makeString(),
+        label: makeString(),
+        visible: makeBoolean(true),
         /**
          * When true, it shows default CRUD Buttons
          */
-        actions: {type: Boolean as PropType<boolean>, default: false},
-        actionsSize: {type: String as PropType<ButtonSizes>, default: "sm"},
-        viewVariant: {type: String as PropType<ColorVariants>, default: "primary"},
-        editVariant: {type: String as PropType<ColorVariants>, default: "dark"},
-        destroyVariant: {type: String as PropType<ColorVariants>, default: "danger"},
+        actions: makeBoolean(false),
+        actionsSize: makeSize<ButtonSizes>("sm"),
+        viewVariant: makeVariant("primary"),
+        editVariant: makeVariant("dark"),
+        destroyVariant: makeVariant("danger"),
         actionsAlignment: {type: String as PropType<'start' | 'center' | 'end'>, default: 'end'},
 
         /**

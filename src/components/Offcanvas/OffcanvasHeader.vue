@@ -17,13 +17,14 @@
 <script lang="ts" setup>
 import {PropType} from "vue";
 import {ButtonClose, OffcanvasTitle} from "../../index";
+import {makeBoolean, makeString} from "../../composables/useProps";
 
 defineProps({
-    modelValue: {type: Boolean as PropType<boolean>, default: false},
+    modelValue: makeBoolean(false),
     tag: {type: String as PropType<string>, default: "header"},
-    title: {type: String as PropType<string>, default: null},
-    showClose: {type: Boolean as PropType<boolean>, default: true},
-    btnCloseWhite: {type: Boolean as PropType<boolean>, default: false}
+    title: makeString(),
+    showClose: makeBoolean(true),
+    btnCloseWhite: makeBoolean(false)
 });
 
 defineEmits<{

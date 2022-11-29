@@ -33,6 +33,7 @@ import Accordion from "../Accordion/Accordion";
 import AccordionItem from "../Accordion/AccordionItem.vue";
 import {ChevronRight} from "@wovosoft/wovoui-icons";
 import accordionProps from "../../shared/accordionProps";
+import {makeBoolean} from "../../composables/useProps";
 
 type itemType = {
     title?: string,
@@ -47,7 +48,7 @@ export default defineComponent({
     props: {
         ...accordionProps,
         items: {type: Array as PropType<itemType[]>, default: () => ([])},
-        child: {type: Boolean as PropType<boolean>, default: false},
+        child: makeBoolean(false),
         ps: {type: Number as PropType<number>, default: 10}
     },
     setup(props, {slots}) {

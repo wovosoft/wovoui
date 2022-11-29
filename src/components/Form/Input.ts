@@ -1,15 +1,16 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
 import type {ButtonSizes, HTMLInputTypes} from "../../types";
+import {makeBoolean, makeProp, makeSize} from "../../composables/useProps";
 
 export default defineComponent({
     emits: ["update:modelValue"],
     props: {
         //some actions vary based on type so considering at as a prop
-        type: {type: String as PropType<HTMLInputTypes>, default: "text"},
-        size: {type: String as PropType<ButtonSizes>, default: null},
-        plain: {type: Boolean as PropType<boolean>, default: false},
-        state: {type: Boolean as PropType<boolean>, default: null},
-        modelValue: {type: [Number, String] as PropType<number | string>, default: null}
+        type: makeProp<HTMLInputTypes>('text', String),
+        size: makeSize<ButtonSizes>(null),
+        plain: makeBoolean(false),
+        state: makeBoolean(null),
+        modelValue: makeProp<number | string>(null, [Number, String])
     },
     setup(props, {emit}) {
         return () => h("input", {

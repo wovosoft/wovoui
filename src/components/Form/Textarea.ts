@@ -1,12 +1,13 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
 import type {ButtonSizes} from "../../types";
+import {makeSize, makeString} from "../../composables/useProps";
 
 export default defineComponent({
     name: "Textarea",
     emits: ["update:modelValue"],
     props: {
-        size: {type: String as PropType<ButtonSizes>, default: null},
-        modelValue: {type: String as PropType<string>, default: null}
+        size: makeSize<ButtonSizes>(null),
+        modelValue: makeString()
     },
     setup(props, {emit}) {
         return () => h("textarea", {

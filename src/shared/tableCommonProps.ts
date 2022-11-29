@@ -1,19 +1,19 @@
-import type {PropType} from "vue";
-import type {ColorVariants, VerticalAlign} from "../types";
+import type {VerticalAlign} from "../types";
+import {makeBoolean, makeProp, makeVariant} from "../composables/useProps";
 
 export default {
     /**
      * Sets table variant
      */
-    variant: {type: String as PropType<ColorVariants>, default: null},
+    variant: makeVariant(null),
 
     /**
      * Sets table status active
      */
-    active: {type: Boolean as PropType<boolean>, default: false},
+    active: makeBoolean(false),
 
     /**
      * Table alignment
      */
-    align: {type: String as PropType<VerticalAlign>, default: null},
+    align: makeProp<VerticalAlign>(null, String),
 }

@@ -1,15 +1,16 @@
 import {defineComponent, h, PropType} from "vue";
+import {makeBoolean, makeString} from "../../composables/useProps";
 
 export default defineComponent({
     name: "PageLink",
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
-        href: {type: String as PropType<string>, default: "#"},
-        prev: {type: Boolean as PropType<boolean>, default: false},
-        next: {type: Boolean as PropType<boolean>, default: false},
+        href: makeString("#"),
+        prev: makeBoolean(false),
+        next: makeBoolean(false),
         prevText: {type: String as PropType<string>, default: '&laquo;'},
         nextText: {type: String as PropType<string>, default: '&laquo;'},
-        ariaLabel: {type: String as PropType<string>, default: null}
+        ariaLabel: makeString()
     },
     setup(props, {slots}) {
         const ariaLabelText = () => {

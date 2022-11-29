@@ -1,13 +1,13 @@
-import {PropType} from "vue";
+import {makeBoolean, makeString, makeTag} from "../composables/useProps";
 
 export default {
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ul"},
-    align: {type: String as PropType<string>, default: null},
-    vertical: {type: Boolean as PropType<boolean>, default: false},
-    pills: {type: Boolean as PropType<boolean>, default: false},
-    fill: {type: Boolean as PropType<boolean>, default: false},
-    justified: {type: Boolean as PropType<boolean>, default: false},
-    small: {type: Boolean as PropType<boolean>, default: false},
-    tabs: {type: Boolean as PropType<boolean>, default: false},
-    navs: {type: Boolean as PropType<boolean>, default: false}
+    tag: makeTag("ul"),
+    align: makeString(),
+    vertical: makeBoolean(false),
+    pills: makeBoolean(false),
+    fill: makeBoolean(false),
+    justified: makeBoolean(false),
+    small: makeBoolean(false),
+    tabs: makeBoolean(false),
+    navs: makeBoolean(false)
 }

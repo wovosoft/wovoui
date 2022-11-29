@@ -34,36 +34,39 @@
 </template>
 
 <script lang="ts" setup>
-const isShowing = ref<boolean>(false);  //for 'showing' class
-const isHiding = ref<boolean>(false);   //for 'hiding' class
-const isShown = ref<boolean>(false);    //for 'show' class
-
+import type {ColorVariants, TooltipPlacement} from "../../types";
+import {makeBoolean, makeString} from "../../composables/useProps";
 //constants
 import {getTransitionDurationFromElement} from "../../composables/useTransition";
 import {computed, PropType, ref, watch} from "vue";
 import {OffcanvasHeader, OffcanvasBody} from "../..";
 
-import type {ColorVariants, TooltipPlacement} from "../../types";
+
+const isShowing = ref<boolean>(false);  //for 'showing' class
+const isHiding = ref<boolean>(false);   //for 'hiding' class
+const isShown = ref<boolean>(false);    //for 'show' class
+
+
 
 const props = defineProps({
-    modelValue: {type: Boolean as PropType<boolean>, default: false},
+    modelValue: makeBoolean(false),
     placement: {type: String as PropType<TooltipPlacement>, default: 'start'},
-    header: {type: String as PropType<string>, default: null},
+    header: makeString(),
     headerClass: {type: [Array, Object, String] as PropType<any>, default: null},
     bodyClass: {type: [Array, Object, String] as PropType<any>, default: null},
     backdropClass: {type: [Array, Object, String] as PropType<any>, default: null},
     headerStyle: {type: [Object, String] as PropType<object | string>, default: null},
     bodyStyle: {type: [Object, String] as PropType<object | string>, default: null},
     backdropStyle: {type: [Object, String] as PropType<object | string>, default: null},
-    title: {type: String as PropType<string>, default: null},
+    title: makeString(),
     tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "aside"},
-    backdrop: {type: Boolean as PropType<boolean>, default: true},
-    enableBodyScroll: {type: Boolean as PropType<boolean>, default: false},
+    backdrop: makeBoolean(true),
+    enableBodyScroll: makeBoolean(false),
     bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
     textVariant: {type: String as PropType<ColorVariants>, default: 'dark'},
-    btnCloseWhite: {type: Boolean as PropType<boolean>, default: false},
+    btnCloseWhite: makeBoolean(false),
     scrollbarPadding: {type: String as PropType<string>, default: "17px"},
-    noCloseOnEsc: {type: Boolean as PropType<boolean>, default: false}
+    noCloseOnEsc: makeBoolean(false)
 });
 
 const emit = defineEmits<{

@@ -31,11 +31,11 @@ export default {
 
 import {computed, onBeforeUnmount, PropType, ref, watch} from "vue";
 import {ButtonClose, ToastBody} from "../../";
-import type {ColorVariants} from "../../types";
 import {getTransitionDurationFromElement} from "../../composables/useTransition";
 import SafeTeleport from "../Internal/SafeTeleport";
 import {RendererElement} from "@vue/runtime-core";
 import SafeComponent from "../Internal/SafeComponent";
+import {makeBoolean, makeString, makeVariant} from "../../composables/useProps";
 
 
 const props = defineProps({
@@ -46,37 +46,37 @@ const props = defineProps({
      *
      * TODO: needs further investigation if this approach is okay or not.
      */
-    lazy: {type: Boolean as PropType<boolean>, default: false},
+    lazy: makeBoolean(false),
 
     /**
      * Visibility State
      */
-    show: {type: Boolean as PropType<boolean>, default: null},
+    show: makeBoolean(null),
 
     /**
      * Fade Class
      */
-    fade: {type: Boolean as PropType<boolean>, default: true},
+    fade: makeBoolean(true),
 
     /**
      * Visibility State
      */
-    modelValue: {type: Boolean as PropType<boolean>, default: null},
+    modelValue: makeBoolean(null),
 
     /**
      * Toast Header
      */
-    header: {type: String as PropType<string>, default: null},
+    header: makeString(),
 
     /**
      * Toggling body
      */
-    noBody: {type: Boolean as PropType<boolean>, default: false},
+    noBody: makeBoolean(false),
 
     /**
      * Toggling close button
      */
-    noCloseButton: {type: Boolean as PropType<boolean>, default: false},
+    noCloseButton: makeBoolean(false),
 
     /**
      * Toast Body Classes
@@ -89,7 +89,7 @@ const props = defineProps({
     /**
      * Color Variants
      */
-    variant: {type: String as PropType<ColorVariants>, default: null},
+    variant: makeVariant(null),
 
     /**
      * teleporting to a different location

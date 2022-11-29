@@ -4,10 +4,10 @@
     </component>
 </template>
 <script lang="ts" setup>
-import {PropType} from "vue";
+import {makeTag} from "../../composables/useProps";
 
 defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"}
+    tag: makeTag("div")
 });
 
 </script>

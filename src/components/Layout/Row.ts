@@ -5,27 +5,28 @@ import type {
     JustifyContentAlignments,
     ResponsiveNumbers
 } from "../../types";
+import {makeProp, makeTag} from "../../composables/useProps";
 
 export default defineComponent({
     name: "Row",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        cols: {type: [String, Number] as PropType<ColSizes>, default: null},
-        sm: {type: [Number, Boolean] as PropType<ColSizes>, default: null},
-        md: {type: [Number, Boolean] as PropType<ColSizes>, default: null},
-        lg: {type: [Number, Boolean] as PropType<ColSizes>, default: null},
-        xl: {type: [Number, Boolean] as PropType<ColSizes>, default: null},
+        tag: makeTag("div"),
+        cols: makeProp<ColSizes>(null, [Number, Boolean]),
+        sm: makeProp<ColSizes>(null, [Number, Boolean]),
+        md: makeProp<ColSizes>(null, [Number, Boolean]),
+        lg: makeProp<ColSizes>(null, [Number, Boolean]),
+        xl: makeProp<ColSizes>(null, [Number, Boolean]),
         alignItems: {type: String as PropType<ColAlignments>, default: null},
         justifyContent: {type: String as PropType<JustifyContentAlignments>, default: null},
         //gutter
-        g: {type: [Number, String] as PropType<ColSizes>, default: null},
-        gSm: {type: [Number, String] as PropType<ColSizes>, default: null},
-        gMd: {type: [Number, String] as PropType<ColSizes>, default: null},
-        gLg: {type: [Number, String] as PropType<ColSizes>, default: null},
-        gXl: {type: [Number, String] as PropType<ColSizes>, default: null},
+        g: makeProp<ColSizes>(null, [Number, String]),
+        gSm: makeProp<ColSizes>(null, [Number, String]),
+        gMd: makeProp<ColSizes>(null, [Number, String]),
+        gLg: makeProp<ColSizes>(null, [Number, String]),
+        gXl: makeProp<ColSizes>(null, [Number, String]),
         //gutters
-        gx: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
-        gy: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
+        gx: makeProp<0 | ResponsiveNumbers>(null, [Number, String]),
+        gy: makeProp<0 | ResponsiveNumbers>(null, [Number, String]),
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

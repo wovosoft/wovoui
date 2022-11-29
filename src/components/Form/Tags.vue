@@ -29,24 +29,25 @@ import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {X} from "@wovosoft/wovoui-icons";
 import Badge from "../Ui/Badge";
 import Button from "../Button/Button";
-import type {ColorVariants, ButtonSizes} from "../../types";
+import type {ButtonSizes} from "../../types";
+import {makeBoolean, makeRole, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
 
 export default defineComponent({
     name: "Tags",
     components: {Button, Badge, X},
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ul"},
-        role: {type: String as PropType<string>, default: "group"},
+        tag: makeTag("ul"),
+        role: makeRole("group"),
         tabindex: {type: [Number, String] as PropType<number | string>, default: -1},
-        placeholder: {type: String as PropType<string>, default: 'Add Tag'},
+        placeholder: makeString('Add Tag'),
         modelValue: {type: Array as PropType<any[]>, default: () => ([])},
-        removeOnDelete: {type: Boolean as PropType<boolean>, default: false},
+        removeOnDelete: makeBoolean(false),
         separator: {type: Array as PropType<any[]>, default: () => ([])},
-        tagPills: {type: Boolean as PropType<boolean>, default: false},
-        tagVariant: {type: String as PropType<ColorVariants>, default: "secondary"},
-        addButtonSize: {type: String as PropType<ButtonSizes>, default: "sm"},
+        tagPills: makeBoolean(false),
+        tagVariant: makeVariant("secondary"),
+        addButtonSize: makeSize<ButtonSizes>("sm"),
         addButtonText: {type: String as PropType<string>, default: "Add"},
-        noAddOnEnter: {type: Boolean as PropType<boolean>, default: false}
+        noAddOnEnter: makeBoolean(false)
     },
     setup(props, context) {
         const model = ref(props.modelValue || []);

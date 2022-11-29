@@ -1,10 +1,11 @@
 import {defineComponent, h, PropType} from "vue";
+import {makeString} from "../../composables/useProps";
 
 export default defineComponent({
     name: "NavbarBrand",
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
-        href: {type: String as PropType<string>, default: "#"},
+        href: makeString("#"),
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

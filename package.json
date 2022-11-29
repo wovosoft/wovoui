@@ -3,7 +3,8 @@
   "version": "0.4.27",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && npm run generate:types",
+    "build:only": "vite build",
     "dev": "vite --config demo-vite.config.ts",
     "build:demo": "vite build --config demo-vite.config.ts",
     "serve": "vite preview",

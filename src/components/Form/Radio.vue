@@ -24,12 +24,13 @@ export default {
 
 <script lang="ts" setup>
 //https://gist.github.com/Jonarod/8553d88b1b0d1e1898ff1b5c951b00cc
-import {computed, PropType} from "vue";
+import {computed} from "vue";
 import {uid} from "../../composables/useHelpers";
+import {makeString} from "../../composables/useProps";
 
 const props = defineProps({
-    name: {type: String as PropType<string>, default: null},
-    id: {type: String as PropType<string>, default: null},
+    name: makeString(),
+    id: makeString(),
     modelValue: {default: null},
     value: {default: null},
     wrapperAttrs: {default: null},

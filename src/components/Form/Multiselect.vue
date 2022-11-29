@@ -57,6 +57,7 @@ import DropdownMenu from "../Dropdown/DropdownMenu.vue";
 import Input from "./Input.js";
 import type {ButtonSizes} from "../../types";
 import InputGroup from "./InputGroup.vue";
+import {makeBoolean, makeSize, makeString} from "../../composables/useProps";
 
 const emit = defineEmits(["update:query", "update:modelValue", 'selectedOption']);
 
@@ -65,13 +66,13 @@ const props = defineProps({
         type: Function as PropType<(items: Ref<unknown[]>, filter: string | null) => unknown>,
         required: true
     },
-    searchSize: {type: String as PropType<ButtonSizes>, default: "sm"},
-    toggleSize: {type: String as PropType<ButtonSizes>, default: "sm"},
-    searchPlaceholder: {type: String as PropType<string>, default: "Search..."},
-    loading: {type: Boolean as PropType<boolean>, default: false},
+    searchSize: makeSize<ButtonSizes>("sm"),
+    toggleSize: makeSize<ButtonSizes>("sm"),
+    searchPlaceholder: makeString("Search..."),
+    loading: makeBoolean(false),
     modelValue: {type: Array as PropType<unknown[]>, default: () => ([])},
-    resetTitle: {type: String as PropType<string>, default: null},
-    disableReset: {type: Boolean as PropType<boolean>, default: false}
+    resetTitle: makeString(),
+    disableReset: makeBoolean(false)
 });
 
 const model = ref<any[]>(props.modelValue);

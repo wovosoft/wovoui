@@ -1,22 +1,21 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
+import {makeBoolean, makeString} from "../../composables/useProps";
 
 export default defineComponent({
     name: "CardImg",
     props: {
-        src: {type: String as PropType<string>, default: null},
-        alt: {type: String as PropType<string>, default: null},
-        overlay: {type: Boolean as PropType<boolean>, default: false},
-        bottom: {type: Boolean as PropType<boolean>, default: false},
-        end: {type: Boolean as PropType<boolean>, default: false},
-        left: {type: Boolean as PropType<boolean>, default: false},
-        right: {type: Boolean as PropType<boolean>, default: false},
-        start: {type: Boolean as PropType<boolean>, default: false},
-        top: {type: Boolean as PropType<boolean>, default: false}
+        src: makeString(),
+        alt: makeString(),
+        overlay: makeBoolean(false),
+        bottom: makeBoolean(false),
+        end: makeBoolean(false),
+        left: makeBoolean(false),
+        right: makeBoolean(false),
+        start: makeBoolean(false),
+        top: makeBoolean(false)
     },
-    setup(props, context) {
-        return () => h(
-            "img",
-            {
+    setup(props) {
+        return () => h("img", {
                 src: props.src,
                 alt: props.alt,
                 class: {

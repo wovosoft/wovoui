@@ -1,5 +1,6 @@
 import {defineComponent, h, PropType} from "vue";
 import type {ResponsiveNumbers, ColorVariants, PlaceholderSizes} from "../../types";
+import {makeBoolean, makeProp, makeTag, makeVariant} from "../../composables/useProps";
 
 /**
  * @description Placeholder Component
@@ -13,7 +14,7 @@ export default defineComponent({
          * @type string
          * @default div
          */
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+        tag: makeTag("div"),
 
         /**
          * @description Placeholder Animation
@@ -21,7 +22,7 @@ export default defineComponent({
          * @default false
          * @link https://getbootstrap.com/docs/5.2/components/placeholders/#animation
          */
-        glow: {type: Boolean as PropType<boolean>, default: false},
+        glow: makeBoolean(false),
 
         /**
          * @description Placeholder Animation
@@ -29,7 +30,7 @@ export default defineComponent({
          * @default false
          * @link https://getbootstrap.com/docs/5.2/components/placeholders/#animation
          */
-        wave: {type: Boolean as PropType<boolean>, default: false},
+        wave: makeBoolean(false),
 
         /**
          * @description Placeholder Animation. Props glow or wave can be used.
@@ -55,7 +56,7 @@ export default defineComponent({
          * @description Sets placeholder width with bootstrap supported responsive layout sizes
          * @default null
          */
-        col: {type: [Number, String] as PropType<ResponsiveNumbers>, default: null},
+        col: makeProp<ResponsiveNumbers>(null, [Number, String]),
 
         /**
          * @description Sets Background Color Variants
@@ -63,7 +64,7 @@ export default defineComponent({
          * @default null
          * @link https://getbootstrap.com/docs/5.2/components/placeholders/#color
          */
-        variant: {type: String as PropType<ColorVariants>, default: null}
+        variant: makeVariant(null)
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

@@ -1,11 +1,12 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
+import {makeBoolean, makeString, makeTag} from "../../composables/useProps";
 
 export default defineComponent({
     name: "ButtonToolbar",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        role: {type: String as PropType<string>, default: "toolbar"},
-        justified: {type: Boolean as PropType<boolean>, default: false}
+        tag: makeTag("div"),
+        role: makeString("toolbar"),
+        justified: makeBoolean(false)
     },
     setup(props, {slots}) {
         return () => h(
@@ -19,7 +20,7 @@ export default defineComponent({
                     }
                 ]
             },
-            slots.default?.()
+            slots?.default?.()
         )
     }
 })

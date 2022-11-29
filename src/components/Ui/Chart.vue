@@ -1,12 +1,13 @@
 <template>
     <div>
-        <canvas :height="height" :width="width" ref="root" width="400" height="400" role="img"></canvas>
+        <canvas :height="height" :width="width" ref="root" role="img"></canvas>
     </div>
 </template>
 
 <script lang="ts">
-import {ref, onMounted, defineComponent, PropType, Ref, watch} from 'vue'
+import {ref, onMounted, defineComponent, PropType, watch} from 'vue'
 import Chart, {ChartData, ChartOptions, ChartType, DefaultDataPoint} from 'chart.js/auto';
+import {makeNumber} from "../../composables/useProps";
 
 type updateModes = 'active' | 'hide' | 'reset' | 'resize' | 'show' | undefined | 'none';
 export default defineComponent({
@@ -14,8 +15,8 @@ export default defineComponent({
         type: {type: String as PropType<ChartType>, default: "bar"},
         data: {type: Object as PropType<ChartData<ChartType, DefaultDataPoint<ChartType>, unknown>>, default: null},
         options: {type: Object as PropType<ChartOptions>, default: null},
-        height: {type: Number as PropType<number>, default: null},
-        width: {type: Number as PropType<number>, default: null},
+        height: makeNumber(null),
+        width: makeNumber(null),
     },
     setup(props, {expose}) {
         const root = ref<HTMLCanvasElement>(null)
@@ -29,6 +30,7 @@ export default defineComponent({
         };
 
         onMounted(() => {
+            //@ts-ignore
             chart.value = init();
         });
 
@@ -59,6 +61,7 @@ export default defineComponent({
 
         watch(() => props.type, (type) => {
             chart.value.destroy();
+            //@ts-ignore
             chart.value = init();
         });
         watch(() => props.data, (type) => update());

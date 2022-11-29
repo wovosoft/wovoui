@@ -10,10 +10,10 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType} from "vue";
+import {makeBoolean} from "../../composables/useProps";
 
-defineProps({
-    active: {type: Boolean as PropType<boolean>, default: false},
-    disabled: {type: Boolean as PropType<boolean>, default: false},
+const props = defineProps({
+    active: makeBoolean(false),
+    disabled: makeBoolean(false),
 });
 </script>

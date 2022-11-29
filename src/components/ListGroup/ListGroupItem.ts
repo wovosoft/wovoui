@@ -1,18 +1,19 @@
-import { defineComponent, h, PropType, resolveComponent } from "vue";
-import type { ColorVariants } from "../../types";
+import {defineComponent, h, resolveComponent} from "vue";
+import {makeBoolean, makeProp, makeString, makeTag, makeVariant} from "../../composables/useProps";
+import type {RouteLocationRaw} from "vue-router";
 
 export default defineComponent({
     name: "ListGroupItem",
     props: {
-        tag: { type: String as PropType<string>, default: "li" },
-        active: { type: Boolean as PropType<boolean>, default: false },
-        disabled: { type: Boolean as PropType<boolean>, default: false },
-        href: { type: String as PropType<string>, default: null },
-        to: { default: () => null },
-        button: { type: Boolean as PropType<boolean>, default: false },
-        variant: { type: String as PropType<ColorVariants>, default: null }
+        tag: makeTag("li"),
+        active: makeBoolean(false),
+        disabled: makeBoolean(false),
+        href: makeString(null),
+        to: makeProp<RouteLocationRaw>(null, Object),
+        button: makeBoolean(false),
+        variant: makeVariant(null)
     },
-    setup(props, { slots }) {
+    setup(props, {slots}) {
         const getTag = () => {
             if (props.to) {
                 return resolveComponent("router-link");

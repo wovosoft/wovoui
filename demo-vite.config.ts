@@ -1,12 +1,12 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-const path = require("path");
+import {resolve} from "path";
 
 export default defineConfig({
-    resolve:{
-        alias:{
-            "@":path.resolve(__dirname,"/demo")
+    resolve: {
+        alias: {
+            "@": resolve(__dirname, "/demo")
         }
     },
     plugins: [
@@ -21,7 +21,7 @@ export default defineConfig({
         target: 'esnext',
         outDir: "dist-demo",
         lib: {
-            entry: path.resolve(__dirname, 'demo/index.ts'),
+            entry: resolve(__dirname, 'demo/index.ts'),
             name: 'wovoui',
             fileName: (format) => `index.${format}.js`
         },

@@ -1,15 +1,15 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
 import type {ButtonSizes} from "../../types";
-import {makeSize} from "../../composables/useProps";
+import {makeBoolean, makeSize, makeString, makeTag} from "../../composables/useProps";
 
 export default defineComponent({
     name: 'ButtonGroup',
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        ariaLabel: {type: String as PropType<string>, default: "Button Group"},
+        tag: makeTag("div"),
+        ariaLabel: makeString("Button Group"),
         size: makeSize<ButtonSizes>(null),
-        vertical: {type: Boolean as PropType<boolean>, default: false},
-        role: {type: String as PropType<string>, default: "group"}
+        vertical: makeBoolean(false),
+        role: makeString("group")
     },
     setup(props, {slots}) {
         return () => h(

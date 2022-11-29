@@ -9,16 +9,17 @@
 <script lang="ts" setup>
 import {computed, PropType} from "vue";
 import {PageLink} from "../..";
+import {makeBoolean, makeString, makeTag} from "../../composables/useProps";
 
 const props = defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
+    tag: makeTag("li"),
     linkTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
-    href: {type: String as PropType<string>, default: "#"},
-    prev: {type: Boolean as PropType<boolean>, default: false},
-    next: {type: Boolean as PropType<boolean>, default: false},
-    ariaLabel: {type: String as PropType<string>, default: null},
-    active: {type: Boolean as PropType<boolean>, default: false},
-    disabled: {type: Boolean as PropType<boolean>, default: false},
+    href: makeString("#"),
+    prev: makeBoolean(false),
+    next: makeBoolean(false),
+    ariaLabel: makeString(),
+    active: makeBoolean(false),
+    disabled: makeBoolean(false),
 });
 
 const classes = computed(() => [

@@ -1,14 +1,15 @@
 import {defineComponent, PropType, h} from "vue";
 import type {ResponsiveNumbers} from "../../types";
+import {makeBoolean, makeProp} from "../../composables/useProps";
 
 export default defineComponent({
     name: "FormLabel",
     props: {
-        horizontal: {type: Boolean as PropType<boolean>, default: false},
-        sm: {type: Number as PropType<ResponsiveNumbers>, default: null},
-        md: {type: Number as PropType<ResponsiveNumbers>, default: null},
-        lg: {type: Number as PropType<ResponsiveNumbers>, default: null},
-        xl: {type: Number as PropType<ResponsiveNumbers>, default: null},
+        horizontal: makeBoolean(false),
+        sm: makeProp<ResponsiveNumbers>(null, Number),
+        md: makeProp<ResponsiveNumbers>(null, Number),
+        lg: makeProp<ResponsiveNumbers>(null, Number),
+        xl: makeProp<ResponsiveNumbers>(null, Number),
     },
     setup(props, {slots}) {
         return () => h("label", {
@@ -20,6 +21,6 @@ export default defineComponent({
                 ["col-lg-" + props.lg]: props.horizontal && props.lg,
                 ["col-xl-" + props.xl]: props.horizontal && props.xl,
             }
-        }, slots.default ? slots.default() : null)
+        }, slots?.default?.());
     }
 })

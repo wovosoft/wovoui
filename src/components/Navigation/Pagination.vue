@@ -51,6 +51,7 @@ import {computed, defineComponent, PropType, ref, watch} from "vue";
 import PageItem from "./PageItem.vue";
 import {ThreeDots} from "@wovosoft/wovoui-icons";
 import type {ButtonSizes} from "../../types";
+import {makeNumber, makeSize} from "../../composables/useProps";
 
 export default defineComponent({
     name: "Pagination",
@@ -58,13 +59,13 @@ export default defineComponent({
     emits: ["update:modelValue", "update:currentPage","change"],
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'ul'},
-        modelValue: {type: Number as PropType<number>, default: 1},
+        modelValue: makeNumber(1),
 
-        totalRows: {type: Number as PropType<number>, default: 0},
+        totalRows: makeNumber(0),
         perPage: {type: Number as PropType<number>, default: 15},
-        currentPage: {type: Number as PropType<number>, default: 1},
+        currentPage: makeNumber(1),
 
-        size: {type: String as PropType<ButtonSizes>, default: null},
+        size: makeSize<ButtonSizes>(null),
         align: {type: String as PropType<'center' | 'end' | 'right' | null>, default: null},
 
         firstColPageCount: {type: Number as PropType<number>, default: 3},

@@ -1,13 +1,14 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
+import {makeTag} from "../../composables/useProps";
 
 export default defineComponent({
     name: "CardText",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "p"}
+        tag: makeTag("p")
     },
     setup(props, {slots}) {
         return () => h(props.tag, {
             class: ["card-text"]
-        }, slots.default?.())
+        }, slots?.default?.())
     }
 })

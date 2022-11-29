@@ -4,15 +4,16 @@
 //     </div>
 // </template>
 
-import {defineComponent, h, PropType} from "vue";
-import type {ColorVariants, ButtonSizes} from "../../types";
+import {defineComponent, h} from "vue";
+import type {ButtonSizes} from "../../types";
+import {makeBoolean, makeSize, makeVariant} from "../../composables/useProps";
 
 
 export default defineComponent({
     props: {
-        grow: {type: Boolean as PropType<boolean>, default: false},
-        size: {type: String as PropType<ButtonSizes>, default: null},
-        variant: {type: String as PropType<ColorVariants>, default: null}
+        grow: makeBoolean(false),
+        size: makeSize<ButtonSizes>(null),
+        variant: makeVariant(null)
     },
     setup(props) {
         return () => h("div", {

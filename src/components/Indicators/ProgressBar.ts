@@ -1,17 +1,17 @@
-import {defineComponent, h, PropType} from "vue";
-import type {ColorVariants} from "../../types";
+import {defineComponent, h} from "vue";
+import {makeBoolean, makeNumber, makeTag, makeVariant} from "../../composables/useProps";
 
 
 export default defineComponent({
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        value: {type: Number as PropType<number>, default: 0},
-        min: {type: Number as PropType<number>, default: 0},
-        max: {type: Number as PropType<number>, default: 100},
-        showValue: {type: Boolean as PropType<boolean>, default: true},
-        striped: {type: Boolean as PropType<boolean>, default: false},
-        animated: {type: Boolean as PropType<boolean>, default: false},
-        variant: {type: String as PropType<ColorVariants>}
+        tag: makeTag("div"),
+        value: makeNumber(0),
+        min: makeNumber(0),
+        max: makeNumber(100),
+        showValue: makeBoolean(true),
+        striped: makeBoolean(false),
+        animated: makeBoolean(false),
+        variant: makeVariant()
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

@@ -1,17 +1,12 @@
-import {defineComponent, h, PropType} from "vue";
-import type {ColorVariants} from "../../types";
+import {defineComponent, h} from "vue";
+import {makeBoolean, makeTag, makeVariant} from "../../composables/useProps";
 
 export default defineComponent({
     name: "ModalFooter",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        variant: {
-            type: String as PropType<ColorVariants>
-        },
-        shrink: {
-            type: Boolean as PropType<boolean>,
-            default: false
-        }
+        tag: makeTag("div"),
+        variant: makeVariant(null),
+        shrink: makeBoolean(false)
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

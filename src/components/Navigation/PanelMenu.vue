@@ -36,6 +36,7 @@ import {onBeforeMount, PropType, ref, watch} from "vue";
 import type {ColorVariants, MenuItem} from "../../types";
 import {Button, Collapse, Icon, ListGroup, ListGroupItem} from "../..";
 import {ChevronDown, ChevronRight, ChevronUp} from "@wovosoft/wovoui-icons";
+import {makeBoolean} from "../../composables/useProps";
 
 
 const emit = defineEmits<{
@@ -61,10 +62,7 @@ const props = defineProps({
         type: String as PropType<ColorVariants>,
         default: "light"
     },
-    itemClickPrevent: {
-        type: Boolean as PropType<boolean>,
-        default: false
-    }
+    itemClickPrevent: makeBoolean(false)
 });
 
 const active = ref<null | number>(null);

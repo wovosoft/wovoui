@@ -1,13 +1,11 @@
 import {defineComponent, h, PropType} from "vue";
-import type {ColorVariants} from "../../types";
+import {makeTag, makeVariant} from "../../composables/useProps";
 
 export default defineComponent({
     name: "ModalHeader",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        variant: {
-            type: String as PropType<ColorVariants>
-        },
+        tag: makeTag("div"),
+        variant: makeVariant(null),
         shrink: {
             type: Boolean as PropType<boolean>,
             default: false

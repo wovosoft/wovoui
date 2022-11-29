@@ -1,3 +1,5 @@
+import {makeProp, makeTag} from "../../composables/useProps";
+
 function isBoolean(compare: unknown) {
     return typeof compare === "boolean";
 }
@@ -15,25 +17,25 @@ import type {
 export default defineComponent({
     name: "Col",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
+        tag: makeTag("div"),
         col: {type: [String, Number] as PropType<string | ColSizes>, default: null},
-        sm: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
-        md: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
-        lg: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
-        xl: {type: [String, Number, Boolean] as PropType<string | ColSizes>, default: null},
+        sm: makeProp<string | ColSizes>(null, [String, Number, Boolean]),
+        md: makeProp<string | ColSizes>(null, [String, Number, Boolean]),
+        lg: makeProp<string | ColSizes>(null, [String, Number, Boolean]),
+        xl: makeProp<string | ColSizes>(null, [String, Number, Boolean]),
         alignSelf: {type: String as PropType<ColAlignments>, default: null},
         justifyContent: {
             type: String as PropType<JustifyContentAlignments>,
             default: null
         },
         order: {type: [Number, String] as PropType<ColOrders>, default: null},
-        offsetSm: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
-        offsetMd: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
-        offsetLg: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
-        offsetXl: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
+        offsetSm: makeProp<0 | ResponsiveNumbers>(null, [Number, String]),
+        offsetMd: makeProp<0 | ResponsiveNumbers>(null, [Number, String]),
+        offsetLg: makeProp<0 | ResponsiveNumbers>(null, [Number, String]),
+        offsetXl: makeProp<0 | ResponsiveNumbers>(null, [Number, String]),
         //gutters
-        gx: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
-        gy: {type: [Number, String] as PropType<0 | ResponsiveNumbers>, default: null},
+        gx: makeProp<0 | ResponsiveNumbers>(null, [Number, String]),
+        gy: makeProp<0 | ResponsiveNumbers>(null, [Number, String]),
     },
     setup(props, {slots}) {
         return () => h(

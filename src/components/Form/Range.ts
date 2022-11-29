@@ -1,14 +1,15 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
+import {makeNumber} from "../../composables/useProps";
 
 export default defineComponent({
     emits: {
         "update:modelValue": (value: number) => true
     },
     props: {
-        min: {type: Number as PropType<number>, default: null},
-        max: {type: Number as PropType<number>, default: null},
-        step: {type: Number as PropType<number>, default: 1},
-        modelValue: {type: Number as PropType<number>, default: 0}
+        min: makeNumber(null),
+        max: makeNumber(null),
+        step: makeNumber(1),
+        modelValue: makeNumber(0)
     },
     setup(props, {emit}) {
         return () => h("input", {

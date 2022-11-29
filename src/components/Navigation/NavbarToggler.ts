@@ -1,10 +1,11 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
+import {makeBoolean} from "../../composables/useProps";
 
 export default defineComponent({
     name: "NavbarToggler",
     emits: ['update:modelValue'],
     props: {
-        modelValue: {type: Boolean as PropType<boolean>, default: false}
+        modelValue: makeBoolean(false)
     },
     setup(props, {emit, slots}) {
         return () => h("button", {

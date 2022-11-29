@@ -1,20 +1,20 @@
 import {defineComponent, h, PropType} from "vue";
 import {ProgressBar} from "../..";
-import type {ColorVariants} from "../../types";
+import {makeBoolean, makeNumber, makeTag, makeVariant} from "../../composables/useProps";
 
 export default defineComponent({
     name: "Progress",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
-        barTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'div'},
-        value: {type: Number as PropType<number>, default: 0},
-        min: {type: Number as PropType<number>, default: 0},
-        max: {type: Number as PropType<number>, default: 100},
-        showValue: {type: Boolean as PropType<boolean>, default: true},
-        striped: {type: Boolean as PropType<boolean>, default: false},
-        animated: {type: Boolean as PropType<boolean>, default: false},
+        tag: makeTag("div"),
+        barTag: makeTag("div"),
+        value: makeNumber(0),
+        min: makeNumber(0),
+        max: makeNumber(100),
+        showValue: makeBoolean(true),
+        striped: makeBoolean(false),
+        animated: makeBoolean(false),
         height: {type: [String, Number] as PropType<string | number>, default: null},
-        variant: {type: String as PropType<ColorVariants>}
+        variant: makeVariant()
     },
     setup(props, {slots}) {
         const getChildren = () => {

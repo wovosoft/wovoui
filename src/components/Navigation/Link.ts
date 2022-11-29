@@ -3,11 +3,12 @@
  * e.g. vue-router, inertia router, nuxt router etc
  */
 import {defineComponent, h, PropType} from "vue";
+import {makeString} from "../../composables/useProps";
 
 export default defineComponent({
     name: "Link",
     props: {
-        href: {type: String as PropType<string>, default: "#"},
+        href: makeString("#"),
         target: {type: String as PropType<string>, default: "_self"}
     },
     setup(props, {slots}) {

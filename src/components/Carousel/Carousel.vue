@@ -37,25 +37,26 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, provide, Ref, ref} from "vue";
-import CarouselInner from "./CarouselInner";
-import CarouselIndicators from "./CarouselIndicators";
+import {computed, defineComponent, provide, Ref, ref} from "vue";
 import {ChevronLeft, ChevronRight} from "@wovosoft/wovoui-icons";
+import {makeBoolean, makeNumber, makeProp, makeTag} from "../../composables/useProps";
+import CarouselInner from "./CarouselInner"
+import CarouselIndicators from "./CarouselIndicators"
 
 type directionType = 'left' | 'right' | 'start' | 'end';
 
 export default defineComponent({
     name: "Carousel",
-    components: {ChevronLeft, ChevronRight, CarouselInner, CarouselIndicators},
+    components: {ChevronLeft, ChevronRight, CarouselIndicators, CarouselInner},
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        slide: {type: Boolean as PropType<boolean>, default: true},
-        controlsEnabled: {type: Boolean as PropType<boolean>, default: true},
-        indicatorsEnabled: {type: Boolean as PropType<boolean>, default: true},
-        fade: {type: Boolean as PropType<boolean>, default: false},
-        dark: {type: Boolean as PropType<boolean>, default: false},
-        intervals: {type: Number as PropType<number>, default: 0},  //in seconds
-        direction: {type: String as PropType<'next' | 'prev'>, default: 'next'},    //default auto direction
+        tag: makeTag("div"),
+        slide: makeBoolean(true),
+        controlsEnabled: makeBoolean(true),
+        indicatorsEnabled: makeBoolean(true),
+        fade: makeBoolean(false),
+        dark: makeBoolean(false),
+        intervals: makeNumber(0),  //in seconds
+        direction: makeProp<'next' | 'prev'>("next", String)
         // modelValue: makeNumber(null)
     },
 

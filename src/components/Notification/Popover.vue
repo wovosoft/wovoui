@@ -17,14 +17,15 @@
 <script lang="ts">
 import {computed, ref, watch, defineComponent, PropType} from "vue";
 import {createPopper} from "@popperjs/core";
+import {makeBoolean, makeString} from "../../composables/useProps";
 
 export default defineComponent({
     name: "Popover",
     props: {
         //specific id
         target: {type: String as PropType<string>, required: true},
-        header: {type: String as PropType<string>, default: null},
-        modelValue: {type: Boolean as PropType<boolean>, default: false},
+        header: makeString(),
+        modelValue: makeBoolean(false),
         //https://popper.js.org/docs/v2/constructors/#options
         placement: {type: String as PropType<string>, default: "top"},
         triggers: {type: String as PropType<keyof HTMLElementEventMap>, default: "click"}

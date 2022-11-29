@@ -49,7 +49,7 @@
 <script lang="ts" setup>
 
 import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
-import {computed, ref, watchEffect} from "vue";
+import {computed, ref} from "vue";
 
 import {Button, NavLink, DropdownMenu} from "../..";
 import type {ButtonSizes, DropdownAlignments, DropdownDirections, ColorVariants} from "../../types";

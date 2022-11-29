@@ -14,17 +14,18 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType} from "vue";
 import {NavLink} from "./../..";
+import {RouteRecordRaw} from "vue-router";
+import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useProps";
 
 defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "li"},
-    linkTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
-    ariaCurrent: {type: String as PropType<string>, default: null},
-    href: {type: String as PropType<string>, default: "#"},
-    to: {type: Object as PropType<object>, default: null},
-    target: {type: String as PropType<string>, default: null},
-    active: {type: Boolean as PropType<boolean>, default: false},
-    disabled: {type: Boolean as PropType<boolean>, default: false},
+    tag: makeTag("li"),
+    linkTag: makeTag("a"),
+    ariaCurrent: makeString(),
+    href: makeString("#"),
+    to: makeProp<RouteRecordRaw>(null, Object),
+    target: makeString(),
+    active: makeBoolean(false),
+    disabled: makeBoolean(false),
 });
 </script>

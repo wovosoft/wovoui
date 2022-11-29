@@ -20,13 +20,14 @@
 import {computed, PropType, ref} from "vue";
 import {Container, NavbarBrand, NavbarToggler} from "../..";
 import type {ColorVariants, ResponsiveSizes} from "../../types";
+import {makeBoolean, makeString} from "../../composables/useProps";
 
 const props = defineProps({
-    brand: {type: String as PropType<string>, default: null},
+    brand: makeString(),
     brandUrl: {type: String as PropType<string>, default: '#'},
-    fluid: {type: Boolean as PropType<boolean>, default: false},
+    fluid: makeBoolean(false),
     size: {type: String as PropType<ResponsiveSizes>, default: null},
-    toggleEnabled: {type: Boolean as PropType<boolean>, default: true},
+    toggleEnabled: makeBoolean(true),
     variant: {type: String as PropType<'dark' | 'light'>, default: 'light'},
     bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
     fixed: {type: String as PropType<'top' | 'bottom'>, default: null},

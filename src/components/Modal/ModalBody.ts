@@ -1,13 +1,11 @@
-import {defineComponent, h, PropType} from "vue";
-import type {ColorVariants} from "../../types";
+import {defineComponent, h} from "vue";
+import {makeTag, makeVariant} from "../../composables/useProps";
 
 export default defineComponent({
     name: "ModalBody",
     props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"},
-        variant: {
-            type: String as PropType<ColorVariants>
-        }
+        tag: makeTag("div"),
+        variant: makeVariant(null)
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

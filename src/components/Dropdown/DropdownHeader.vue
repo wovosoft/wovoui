@@ -7,10 +7,10 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType} from "vue";
+import {makeTag} from "../../composables/useProps";
 
 defineProps({
-    wrapper: {type: String as PropType<string>, default: "li"},
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h6"},
+    wrapper: makeTag("li"),
+    tag: makeTag("h6"),
 })
 </script>

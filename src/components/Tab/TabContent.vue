@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType} from "vue";
+import {makeTag} from "../../composables/useProps";
 
 defineProps({
     /**
@@ -13,6 +13,6 @@ defineProps({
      * @type String
      * @default div
      */
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "div"}
+    tag: makeTag("div")
 });
 </script>

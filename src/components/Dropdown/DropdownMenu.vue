@@ -5,12 +5,13 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType, watch} from "vue";
+import {computed, watch} from "vue";
+import {makeBoolean, makeTag} from "../../composables/useProps";
 
 const props = defineProps({
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "ul"},
-    dark: {type: Boolean as PropType<boolean>, default: false},
-    show: {type: Boolean as PropType<boolean>, default: false}
+    tag: makeTag("ul"),
+    dark: makeBoolean(false),
+    show: makeBoolean(false)
 });
 
 const classes = computed(() => ([
