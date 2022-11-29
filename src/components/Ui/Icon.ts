@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import {Icons} from "@wovosoft/wovoui-icons/src/types";
+import type {Icons} from "@wovosoft/wovoui-icons/src/types";
 
 /**
  * This component doesn't generate SVGs.

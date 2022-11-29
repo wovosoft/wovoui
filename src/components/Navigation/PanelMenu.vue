@@ -11,7 +11,7 @@
                     squared
                     :variant="triggerVariant"
                     @click.prevent="itemClicked($event,item,item_index)">
-                <Icon v-if="item.icon" :icon="item.icon"/>
+                <Icon v-if="item.icon" :icon="item['icon']"/>
                 <ChevronRight v-else/>
                 <span class="mx-2 flex-grow-1" v-text="item.text"/>
                 <template v-if="item.children && item.children.length>0">
@@ -33,18 +33,10 @@
 
 <script lang="ts" setup>
 import {onBeforeMount, PropType, ref, watch} from "vue";
-import type {ColorVariants} from "../../types";
+import type {ColorVariants, MenuItem} from "../../types";
 import {Button, Collapse, Icon, ListGroup, ListGroupItem} from "../..";
 import {ChevronDown, ChevronRight, ChevronUp} from "@wovosoft/wovoui-icons";
 
-type MenuItem = {
-    text: string;
-    to?: object;
-    href?: string;
-    children?: MenuItem[];
-    icon?: string;
-    handler?: (item: MenuItem, index: number) => void;
-}
 
 const emit = defineEmits<{
     (e: 'itemClicked', value: MenuItem): void

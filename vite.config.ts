@@ -2,7 +2,7 @@ import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 
-const path = require("path");
+import {resolve} from "path";
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
@@ -25,7 +25,7 @@ export default defineConfig({
         sourcemap: true,
         target: 'esnext',
         lib: {
-            entry: path.resolve(__dirname, 'src/index.ts'),
+            entry: resolve(__dirname, 'src/index.ts'),
             name: 'wovoui',
             // fileName: "index",
             fileName: (format) => `[name].${format}.mjs`

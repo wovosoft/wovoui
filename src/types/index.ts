@@ -1,4 +1,5 @@
 import type {Placement} from "@popperjs/core";
+import type {Icons} from "@wovosoft/wovoui-icons/src/types";
 
 export type TextAlign = 'start' | 'center' | 'end';
 export type TextVariants =
@@ -65,3 +66,25 @@ export type DropdownAlignments =
     | "xxl-end"
     | Placement;
 
+export interface MenuItem {
+    text: string;
+    to?: object;
+    href?: string;
+    children?: MenuItem[];
+    icon?: Icons;
+    handler?: (item: MenuItem, index: number) => void;
+}
+
+export * from "./../index";
+
+declare module "vue" {
+    // tells Vue about a custom global property/method
+    interface ComponentCustomProperties {
+
+    }
+
+    // tells Vue about a custom component registered globally in the plugin
+    interface GlobalComponents {
+
+    }
+}
