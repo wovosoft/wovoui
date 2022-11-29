@@ -1,6 +1,6 @@
 {
   "name": "@wovosoft/wovoui",
-  "version": "0.4.27",
+  "version": "0.4.28",
   "type": "module",
   "scripts": {
     "build": "vite build && npm run generate:types",
