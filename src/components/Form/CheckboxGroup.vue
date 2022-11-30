@@ -7,7 +7,7 @@
             :switch="$props.switch"
             :reverse="reverse"
             :disabled="option.disabled===true"
-            v-model="modelValue"
+            @update:modelValue="v=>$emit('update:modelValue',v)"
             :value="valueField?option[valueField]:option">
             {{ textField ? option[textField] : option }}
         </Checkbox>
