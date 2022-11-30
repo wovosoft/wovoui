@@ -2,12 +2,12 @@ import {computed, defineComponent, getCurrentInstance, h, resolveComponent} from
 
 import type {ButtonSizes} from "../../types";
 import {RouteLocationRaw} from "vue-router";
-import {makeBoolean, makeProp, makeSize, makeString, makeVariant} from "../../composables/useProps";
+import {makeBoolean, makeProp, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
 
 
 export default defineComponent({
     props: {
-        tag: makeProp<keyof HTMLElementTagNameMap | string>("button", String),
+        tag: makeTag("button"),
         href: makeString(null),
         to: makeProp<RouteLocationRaw>(null, Object),
         variant: makeVariant('secondary'),

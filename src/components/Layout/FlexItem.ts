@@ -6,7 +6,6 @@
 
 
 import {defineComponent, h} from "vue";
-
 import {PropType} from "vue";
 import type {ResponsiveSizes, Order} from "../../types";
 import {makeTag} from "../../composables/useProps";

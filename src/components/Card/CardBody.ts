@@ -1,8 +1,8 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
 import {CardTitle, CardSubTitle} from "../..";
 
-import type {ColorVariants, TextVariants} from "../../types";
 import {makeBoolean, makeString, makeTag, makeTextVariant, makeVariant} from "../../composables/useProps";
+import {getBinaryClasses} from "../../composables/useClasses";
 
 export default defineComponent({
     name: "CardBody",
@@ -20,31 +20,33 @@ export default defineComponent({
         titleTag: makeTag("h4")
     },
     setup(props, {slots}) {
-        const title = () => {
-            return (slots.title || props.title) ? h(CardTitle, {
-                tag: props.titleTag,
-                content: props.title,
-            }, slots.title?.() || (() => props.title)) : null;
-        }
-        const subTitle = () => {
-            return (props.subTitle || slots.subTitle) ? h(CardSubTitle, {
-                tag: props.subTitleTag,
-                textVariant: props.subTitleTextVariant
-            }, slots.subTitle?.() || (() => props.subTitle)) : null;
-        }
+        const title = () => (slots.title || props.title) ? h(CardTitle, {
+            tag: props.titleTag,
+            content: props.title,
+        }, slots.title?.() || (() => props.title)) : null;
+
+        const subTitle = () => (props.subTitle || slots.subTitle) ? h(CardSubTitle, {
+            tag: props.subTitleTag,
+            textVariant: props.subTitleTextVariant
+        }, slots.subTitle?.() || (() => props.subTitle)) : null;
+
         return () => h(props.tag, {
-                class: {
-                    "card-body": !props.overlay,
-                    "card-img-overlay": props.overlay,
-                    ["bg-" + props.variant]: !!props.variant,
-                    ["text-" + props.textVariant]: !!props.textVariant,
-                    ["border-" + props.borderVariant]: !!props.borderVariant,
-                }
+                class: [
+                    {
+                        "card-body": !props.overlay,
+                        "card-img-overlay": props.overlay,
+                    },
+                    getBinaryClasses({
+                        bg: props.variant,
+                        text: props.textVariant,
+                        border: props.borderVariant
+                    })
+                ]
             },
             [
                 title(),
                 subTitle(),
-                slots.default?.()
+                slots?.default?.()
             ]
         )
     }

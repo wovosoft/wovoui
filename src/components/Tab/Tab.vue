@@ -12,7 +12,6 @@ import {
     computed,
     ref,
     watch,
-    PropType,
     inject,
     onMounted,
     getCurrentInstance,

@@ -46,8 +46,6 @@ const isShowing = ref<boolean>(false);  //for 'showing' class
 const isHiding = ref<boolean>(false);   //for 'hiding' class
 const isShown = ref<boolean>(false);    //for 'show' class
 
-
-
 const props = defineProps({
     modelValue: makeBoolean(false),
     placement: {type: String as PropType<TooltipPlacement>, default: 'start'},

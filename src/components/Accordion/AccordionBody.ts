@@ -10,7 +10,7 @@ export default defineComponent({
         return () => h(
             props.tag,
             {class: ['accordion-body']},
-            slots.default ? slots.default() : null
+            slots?.default?.()
         )
     }
 })

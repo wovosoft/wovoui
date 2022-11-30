@@ -1,9 +1,4 @@
 import {makeProp, makeTag} from "../../composables/useProps";
-
-function isBoolean(compare: unknown) {
-    return typeof compare === "boolean";
-}
-
 import {defineComponent, h, PropType} from "vue";
 import type {
     ColAlignments,
@@ -13,6 +8,9 @@ import type {
     ResponsiveNumbers
 } from "../../types";
 
+function isBoolean(compare: unknown) {
+    return typeof compare === "boolean";
+}
 
 export default defineComponent({
     name: "Col",

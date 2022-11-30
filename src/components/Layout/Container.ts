@@ -1,4 +1,4 @@
-import {defineComponent, PropType, h} from "vue";
+import {defineComponent, h} from "vue";
 import type {ResponsiveSizes} from "../../types";
 import {makeBoolean, makeSize, makeTag} from "../../composables/useProps";
 

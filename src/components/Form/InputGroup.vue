@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType} from "vue";
+import {computed} from "vue";
 import {InputGroupText} from "../..";
 import type {ButtonSizes} from "../../types";
 import {makeBoolean, makeSize, makeString, makeTag} from "../../composables/useProps";

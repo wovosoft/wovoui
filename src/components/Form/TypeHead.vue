@@ -49,7 +49,7 @@
 
 <script lang="ts" setup>
 import {computed, nextTick, onMounted, PropType, ref, Ref, useSlots, watch} from "vue";
-import type {ColorVariants, ButtonSizes, TextAlign} from "../../types";
+import type {ButtonSizes, TextAlign} from "../../types";
 import {Input, DropdownMenu, InputGroup} from "../../";
 import vOnClickOutside from "../../directives/vOnClickOutside";
 import axios from "axios";

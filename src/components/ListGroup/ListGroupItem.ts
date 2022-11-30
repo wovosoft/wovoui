@@ -25,30 +25,23 @@ export default defineComponent({
                 return "button";
             }
             return props.tag;
-        }
+        };
 
         return () => {
-            const classes = [
-                "list-group-item",
-                {
-                    "active": props.active,
-                    "disabled": props.disabled,
-                    "list-group-item-action": props.button || getTag() === 'a',
-                    ["list-group-item-" + props.variant]: !!props.variant
-                }
-            ];
-
-            const attributes = {
-                'aria-current': props.active,
-                'aria-disabled': props.disabled
-            };
-
-
             return h(getTag(), {
+                ariaCurrent: props.active,
+                ariaDisabled: props.disabled,
                 href: props.href,
                 to: props.to,
-                class: classes,
-                ...attributes
+                class: [
+                    "list-group-item",
+                    {
+                        "active": props.active,
+                        "disabled": props.disabled,
+                        "list-group-item-action": props.button || getTag() === 'a',
+                        ["list-group-item-" + props.variant]: !!props.variant
+                    }
+                ],
             }, props.to ? slots.default : slots?.default())
         };
     }

@@ -1,5 +1,6 @@
 import {defineComponent, h} from "vue";
 import {makeString, makeTag, makeTextVariant, makeVariant} from "../../composables/useProps";
+import {getBinaryClasses} from "../../composables/useClasses";
 
 export default defineComponent({
     name: "CardHeader",
@@ -14,11 +15,11 @@ export default defineComponent({
         return () => h(props.tag, {
             class: [
                 "card-header",
-                {
-                    ["bg-" + props.variant]: !!props.variant,
-                    ["text-" + props.textVariant]: !!props.textVariant,
-                    ["border-" + props.borderVariant]: !!props.borderVariant,
-                }
+                getBinaryClasses({
+                    bg: props.variant,
+                    text: props.textVariant,
+                    border: props.borderVariant
+                })
             ]
         }, slots?.default?.());
     }

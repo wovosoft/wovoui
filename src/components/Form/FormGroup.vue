@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, defineComponent, h, PropType} from "vue";
+import {computed, defineComponent, h} from "vue";
 import type {ResponsiveNumbers} from "../../types";
 import {Feedback, FormLabel} from "../../";
 import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useProps";

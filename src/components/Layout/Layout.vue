@@ -14,10 +14,8 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
-
 import {useElementSize} from "@vueuse/core";
 import Collapse from "../Accordion/Collapse";
-
 
 const appBar = ref<HTMLElement | null>(null);
 //@ts-ignore

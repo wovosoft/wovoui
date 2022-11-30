@@ -7,7 +7,7 @@ export default defineComponent({
     props: {
         modelValue: makeBoolean(false)
     },
-    setup(props, {emit, slots}) {
+    setup(props, {emit}) {
         return () => h("button", {
             class: "navbar-toggler",
             type: "button",

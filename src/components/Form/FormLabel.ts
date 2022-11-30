@@ -1,4 +1,4 @@
-import {defineComponent, PropType, h} from "vue";
+import {defineComponent, h} from "vue";
 import type {ResponsiveNumbers} from "../../types";
 import {makeBoolean, makeProp} from "../../composables/useProps";
 

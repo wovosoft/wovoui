@@ -44,8 +44,8 @@ function toggleNavbar() {
 const classes = computed(() => [
     "navbar",
     {
-        ["navbar-" + props.variant]: props.variant,
-        ["bg-" + props.bgVariant]: props.bgVariant,
+        ["navbar-" + props.variant]: !!props.variant,
+        ["bg-" + props.bgVariant]: !!props.bgVariant,
         ["fixed-" + props.fixed]: !!props.fixed,
         ["sticky-" + props.sticky]: !!props.sticky,
     },

@@ -1,5 +1,6 @@
 import {defineComponent, h, reactive, ref, provide, computed, Ref} from "vue";
 import accordionProps from "../../shared/accordionProps";
+import {getBinaryClasses} from "../../composables/useClasses";
 
 export default defineComponent({
     name: "Accordion",
@@ -23,11 +24,17 @@ export default defineComponent({
             openAll: () => items.forEach(i => i.value = true),
             collapseAll: () => items.forEach(i => i.value = false)
         });
-        const classes = computed(() => ['accordion', {'accordion-flush': props.flush}]);
+
         return () => h(
             props.tag,
-            {class: classes.value},
-            slots.default ? slots.default() : null
+            {
+                class: [
+                    'accordion', getBinaryClasses({
+                        accordionFlush: props.flush
+                    })
+                ]
+            },
+            slots?.default?.()
         )
     }
 })

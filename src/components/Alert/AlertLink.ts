@@ -9,7 +9,7 @@ export default defineComponent({
     setup(props, {slots}) {
         return () => h("a",
             {class: ["alert-link"], href: props.href},
-            slots.default?.()
+            slots?.default?.()
         )
     }
 });

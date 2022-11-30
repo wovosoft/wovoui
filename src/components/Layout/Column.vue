@@ -39,7 +39,6 @@ import {defineComponent, inject, PropType, Ref} from "vue";
 import ButtonGroup from "../Button/ButtonGroup";
 import Button from "../Button/Button";
 import {Eye, PencilSquare, Trash} from "@wovosoft/wovoui-icons";
-
 import type {ButtonSizes, ClassTypes} from "../../types";
 import {makeBoolean, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
 

@@ -1,5 +1,6 @@
 import {defineComponent, h} from "vue";
 import {makeString, makeTag, makeTextVariant} from "../../composables/useProps";
+import {getBinaryClasses} from "../../composables/useClasses";
 
 export default defineComponent({
     name: "CardSubTitle",
@@ -12,9 +13,9 @@ export default defineComponent({
         return () => h(props.tag, {
             class: [
                 "card-subtitle",
-                {
-                    ["text-" + props.textVariant]: !!props.textVariant
-                }
+                getBinaryClasses({
+                    text: props.textVariant,
+                })
             ]
         }, slots?.default?.());
     }

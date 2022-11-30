@@ -1,4 +1,4 @@
-import {defineComponent, h, PropType} from "vue";
+import {defineComponent, h} from "vue";
 import {makeTag} from "../../composables/useProps";
 
 export default defineComponent({

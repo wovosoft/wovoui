@@ -1,6 +1,7 @@
 import {defineComponent, h, PropType} from "vue";
-import type {ResponsiveNumbers, ColorVariants, PlaceholderSizes} from "../../types";
+import type {ResponsiveNumbers, PlaceholderSizes} from "../../types";
 import {makeBoolean, makeProp, makeTag, makeVariant} from "../../composables/useProps";
+import {getBinaryClasses} from "../../composables/useClasses";
 
 /**
  * @description Placeholder Component
@@ -68,14 +69,17 @@ export default defineComponent({
     },
     setup(props, {slots}) {
         return () => h(props.tag, {
-            class: ["placeholder", {
-                "placeholder-glow": props.glow,
-                "placeholder-wave": props.wave,
-                ["placeholder-" + props.animation]: !!props.animation,
-                ["placeholder-" + props.size]: !!props.size,
-                ["col-" + props.col]: !!props.col,
-                ["bg-" + props.variant]: props.variant
-            }]
+            class: [
+                "placeholder",
+                getBinaryClasses({
+                    placeholderGlow: props.glow,
+                    placeholderWave: props.wave,
+                    placeholderAnimation: props.animation,
+                    placeholderSize: props.size,
+                    bg: props.variant,
+                    col: props.col,
+                })
+            ]
         }, slots.default?.())
     }
 })

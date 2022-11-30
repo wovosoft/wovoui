@@ -54,7 +54,7 @@ import {nextTick, onBeforeUnmount, PropType, Ref, ref, watch} from "vue";
 import {Trash} from "@wovosoft/wovoui-icons";
 import Button from "../Button/Button";
 import DropdownMenu from "../Dropdown/DropdownMenu.vue";
-import Input from "./Input.js";
+import Input from "./Input";
 import type {ButtonSizes} from "../../types";
 import InputGroup from "./InputGroup.vue";
 import {makeBoolean, makeSize, makeString} from "../../composables/useProps";
@@ -76,9 +76,11 @@ const props = defineProps({
 });
 
 const model = ref<any[]>(props.modelValue);
+
 watch(model, value => {
     emit('update:modelValue', value);
 });
+
 watch(() => props.modelValue, value => {
     model.value = value;
 });
@@ -123,6 +125,7 @@ const clickOutsideHandler = (e: Event): void => {
         opened.value = false;
     }
 };
+
 /**
  * Before unmounting component, detaching the outside click handler
  */
@@ -145,7 +148,8 @@ const navigateItem = (e) => {
     if (element) {
         (element.querySelector("label") || element.querySelector("input"))?.focus();
     }
-}
+};
+
 const itemClicked = (e, item) => {
     if (model.value.includes(item)) {
         let index = model.value.indexOf(item);

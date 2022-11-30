@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, getCurrentInstance, PropType} from "vue";
+import {computed, getCurrentInstance} from "vue";
 import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useProps";
 
 const props = defineProps({

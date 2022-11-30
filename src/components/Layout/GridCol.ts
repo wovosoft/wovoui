@@ -1,5 +1,4 @@
 import {defineComponent, h} from "vue";
-
 import type {ResponsiveNumbers} from "../../types";
 import {makeProp, makeTag} from "../../composables/useProps";
 

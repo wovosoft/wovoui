@@ -90,20 +90,14 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, Ref, ref, watch} from "vue";
+import {computed, defineComponent, Ref, ref, watch} from "vue";
 import dayjs, {Dayjs} from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
-
-dayjs.extend(localData);
-dayjs.extend(isToday);
-
 import Row from "../Layout/Row";
 import Col from "../Layout/Col";
 import Button from "../Button/Button";
 import InputGroup from "./InputGroup.vue";
-
-type DateType = string | number | Date | Dayjs | null | undefined;
 import {
     ChevronLeft,
     ChevronRight,
@@ -112,6 +106,11 @@ import {
     ChevronDoubleLeft
 } from "@wovosoft/wovoui-icons";
 import {makeBoolean, makeProp, makeString} from "../../composables/useProps";
+
+dayjs.extend(localData);
+dayjs.extend(isToday);
+
+type DateType = string | number | Date | Dayjs | null | undefined;
 
 export default defineComponent({
     name: "Calendar",
