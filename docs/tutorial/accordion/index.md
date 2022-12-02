@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import AccordionBasic from "./../../samples/accordions/Basic.vue";
-import AccordionFlush from "./../../samples/accordions/Flush.vue";
-import AlwaysOpen from "./../../samples/accordions/AlwaysOpen.vue";
-import Group from "./../../samples/accordions/Group.vue";
+import ExampleBasic from "../../../samples/accordions/Basic.vue";
+import AccordionFlush from "../../../samples/accordions/Flush.vue";
+import AlwaysOpen from "../../../samples/accordions/AlwaysOpen.vue";
+import Group from "../../../samples/accordions/Group.vue";
 </script>
 
 # Accordion
@@ -18,9 +18,10 @@ Click the accordions below to expand/collapse the accordion content.
 
 ::: raw
 <Sample>
-<AccordionBasic/>
+<ExampleBasic/>
 </Sample>
 :::
+
 
 ## Flush
 
@@ -33,8 +34,7 @@ accordions `edge-to-edge` with their parent container.
 <Sample><AccordionFlush/></Sample>
 :::
 
-
-## Always open
+# Always open
 
 Add prop `always-open` to the accordion itself to stay open its child items.
 

@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import {ref, onMounted, defineComponent, PropType, watch} from 'vue'
-import Chart, {ChartData, ChartOptions, ChartType, DefaultDataPoint} from 'chart.js/auto';
+import Chart, {ChartData, ChartOptions, ChartType, DefaultDataPoint} from 'chart.js/auto/auto.js';
 import {makeNumber} from "../../composables/useProps";
 
 type updateModes = 'active' | 'hide' | 'reset' | 'resize' | 'show' | undefined | 'none';
