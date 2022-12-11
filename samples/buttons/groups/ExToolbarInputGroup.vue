@@ -20,6 +20,6 @@
 <script lang="ts" setup>
 import {
     ButtonGroup, Button, ButtonToolbar,
-    InputGroup, InputGroupText
+    InputGroup, InputGroupText, Input
 } from "../../../src";
 </script>

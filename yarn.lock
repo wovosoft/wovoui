@@ -375,6 +375,20 @@
   dependencies:
     "vue" "^3.2.25"
 
+"@wovosoft/wovoui@^0.4.30":
+  "integrity" "sha512-zWCsGkG7VgAK9eqoxc8J2Tkk9XcmOl35BK4g2Xuy7SVHNU8AeteiH+j9ybPngu387mTXV2h5gQVivKXrVIdinw=="
+  "resolved" "https://registry.npmjs.org/@wovosoft/wovoui/-/wovoui-0.4.30.tgz"
+  "version" "0.4.30"
+  dependencies:
+    "@popperjs/core" "^2.11.6"
+    "@vueuse/components" "^9.6.0"
+    "@vueuse/core" "^9.6.0"
+    "@wovosoft/wovoui-icons" "^1.1.4"
+    "bootstrap" "^5.2.3"
+    "dayjs" "^1.11.6"
+    "vue" "^3.2.45"
+    "vue-router" "^4.1.6"
+
 "algoliasearch@^4.0.0", "algoliasearch@>= 4.9.1 < 6":
   "integrity" "sha512-ngbEQonGEmf8dyEh5f+uOIihv4176dgbuOZspiuhmTTBRBuzWu3KCGHre6uHj5YyuC7pNvQGzB6ZNJyZi0z+Sg=="
   "resolved" "https://registry.npmjs.org/algoliasearch/-/algoliasearch-4.14.2.tgz"
@@ -451,7 +465,7 @@
   dependencies:
     "fill-range" "^7.0.1"
 
-"chart.js@^3.7.1":
+"chart.js@^3.7.1", "chart.js@^3.9.1":
   "integrity" "sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w=="
   "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-3.9.1.tgz"
   "version" "3.9.1"
