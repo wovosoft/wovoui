@@ -17,13 +17,13 @@
 <script lang="ts" setup>
 import {Checkbox} from "../..";
 import {PropType} from "vue";
-import {makeBoolean} from "../../composables/useProps";
+import {makeBoolean, makeString} from "../../composables/useProps";
 
 const props = defineProps({
     modelValue: {default: null},
     options: {type: Array as PropType<any>, default: () => ([])},
-    textField: {type: String as PropType<string>, default: () => null},
-    valueField: {type: String as PropType<string>, default: () => null},
+    textField: makeString(null),
+    valueField: makeString(null),
     inline: makeBoolean(false),
     switch: makeBoolean(false),
     reverse: makeBoolean(false),

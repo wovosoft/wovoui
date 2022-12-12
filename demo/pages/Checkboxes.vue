@@ -3,14 +3,12 @@
         <Checkbox
             v-model="dmodel"
             :value="dvalue.checked"
-            unchecked-value="Unchecked"
-        >
+            unchecked-value="Unchecked">
             Checkbox With Unchecked Value
         </Checkbox>
         <Checkbox
             v-model="dmodel"
-            :value="dvalue.checked"
-        >
+            :value="dvalue.checked">
             Checkbox Without Unchecked Value
         </Checkbox>
         {{ dmodel }}

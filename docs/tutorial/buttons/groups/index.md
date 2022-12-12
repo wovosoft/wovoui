@@ -24,11 +24,7 @@ You can also make similar result by following way without using `outline` prop.
 
 ## Basic checkbox toggle button group
 
-<div class="bootstrap">
-<WButtonGroup aria-label="Basic checkbox toggle button group">
-    <WCheckbox button v-for="x in 5">Checkbox {{ x }}</WCheckbox> 
-</WButtonGroup>
-</div>
+<Sample><ExBasicWithToggleButton/></Sample>
 
 ## Button toolbar
 
@@ -93,5 +89,6 @@ import ExSizing from "../../../../samples/buttons/groups/ExSizing.vue";
 import ExToolbar from "../../../../samples/buttons/groups/ExToolbar.vue";
 import ExToolbarInputGroup from "../../../../samples/buttons/groups/ExToolbarInputGroup.vue";
 import ExVertical from "../../../../samples/buttons/groups/ExVertical.vue";
+import ExBasicWithToggleButton from "../../../../samples/buttons/groups/ExBasicWithToggleButton.vue";
 import Properties from "../../../../samples/buttons/groups/Properties.vue";
 </script>
