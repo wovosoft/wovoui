@@ -36,8 +36,7 @@
 
 <script lang="ts">
 import {defineComponent, inject, PropType, Ref} from "vue";
-import ButtonGroup from "../Button/ButtonGroup";
-import Button from "../Button/Button";
+import {ButtonGroup, Button} from "../..";
 import {Eye, PencilSquare, Trash} from "@wovosoft/wovoui-icons";
 import type {ButtonSizes, ClassTypes} from "../../types";
 import {makeBoolean, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
@@ -70,7 +69,7 @@ export default defineComponent({
         tdClass: {type: [String, Object, Array] as PropType<ClassTypes>, default: null},
         formatter: {type: Function as PropType<(item: Ref<object>) => unknown>, default: null}
     },
-    setup(props) {
+    setup() {
         const currentItem = inject('currentItem') as Ref<object>;
         return {
             item: inject('item') as Object,

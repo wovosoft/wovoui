@@ -10,7 +10,7 @@ export {default as BreadcrumbItem} from "./components/Breadcrumb/BreadcrumbItem.
 export {default as Breadcrumb} from "./components/Breadcrumb/Breadcrumb.vue";
 export {default as Button} from "./components/Button/Button";
 export {default as ButtonClose} from "./components/Button/ButtonClose";
-export {default as ButtonGroup} from "./components/Button/ButtonGroup";
+export {default as ButtonGroup} from "./components/Button/ButtonGroup.vue";
 export {default as ButtonToolbar} from "./components/Button/ButtonToolbar";
 export {default as Card} from "./components/Card/Card.vue";
 export {default as CardBody} from "./components/Card/CardBody";
