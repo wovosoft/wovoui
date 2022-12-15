@@ -54,22 +54,16 @@ import {Input, DropdownMenu, InputGroup} from "../../";
 import vOnClickOutside from "../../directives/vOnClickOutside";
 import axios from "axios";
 import usePopper from "../../composables/usePopper";
-import {makeBoolean, makeSize, makeTag, makeVariant} from "../../composables/useProps";
+import {makeBoolean, makeProp, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
 
 const props = defineProps({
-    apiUrl: {
-        type: String as PropType<string>,
-        default: null
-    },
-    queryKey: {
-        type: String as PropType<string>,
-        default: () => 'query'
-    },
+    apiUrl: makeString(null),
+    queryKey: makeString('query'),
     getItems: {
         //sending refs, so that can be modified from outside
         type: Function as PropType<(items: Ref<unknown>, query: Ref<string | number | null>) => unknown>,
     },
-    menuHeight: {type: String as PropType<string>, default: "250px"},
+    menuHeight: makeString("250px"),
     searchSize: makeSize<ButtonSizes>("sm"),
     searchClass: {default: null},
     toggleSize: makeSize<ButtonSizes>(null),
@@ -77,10 +71,10 @@ const props = defineProps({
     menuClass: {default: null},
     menuDark: makeBoolean(false),
     menuTag: makeTag("ul"),
-    searchPlaceholder: {type: String as PropType<string>, default: "Search..."},
+    searchPlaceholder: makeString("Search..."),
     modelValue: {default: null},
     variant: makeVariant("secondary"),
-    textAlign: {type: String as PropType<TextAlign>, default: 'start'},
+    textAlign: makeProp<TextAlign>('start', String),
     getLabel: {
         type: Function as PropType<(item: unknown) => unknown>,
         default: (item: unknown) => item ? item : "Not Selected"
@@ -111,7 +105,7 @@ const menu = ref<InstanceType<typeof DropdownMenu>>(null);
 const isOpened = ref<boolean>(false);
 const search = ref<InstanceType<typeof Input> | null>(null);
 
-const {update} = usePopper(toggle_btn, menu, {}, isOpened);
+const {update} = usePopper(toggle_btn, menu, ref({}), isOpened);
 
 
 function fetchItems() {
@@ -133,17 +127,15 @@ function fetchItems() {
 }
 
 const slots = useSlots();
-const toggleClasses = computed(() => {
-    return [
-        "form-select",
-        {
-            ["form-select-" + props.toggleSize]: props.toggleSize,
-            ["text-" + props.textAlign]: props.textAlign,
-            "border-0": slots.append || slots.prepend
-        },
-        props.toggleClass
-    ];
-});
+const toggleClasses = computed(() => [
+    "form-select",
+    {
+        ["form-select-" + props.toggleSize]: props.toggleSize,
+        ["text-" + props.textAlign]: props.textAlign,
+        "border-0": slots.append || slots.prepend
+    },
+    props.toggleClass
+]);
 
 const classes = computed(() => [
     "dropdown", {
