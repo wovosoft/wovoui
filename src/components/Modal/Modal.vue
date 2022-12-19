@@ -59,6 +59,7 @@
                                     v-bind="okButtonOptions"
                                     :size="shrink ? 'sm' : buttonSize"
                                     @click="onOk">
+                                <Spinner :size="shrink ? 'sm' : buttonSize" v-if="loading"/>
                                 {{ okTitle }}
                             </Button>
                         </slot>
@@ -84,7 +85,8 @@ import {modalCount} from "../../composables/useHelpers";
 import type {ModalFullScreen, ButtonSizes, ModalSizes, ColorVariants} from "../../types";
 import vOnClickOutside from "../../directives/vOnClickOutside";
 import {EVENT_TRIGGER_HIDE_NAME, EVENT_TRIGGER_SHOW_NAME} from "../../composables/useModal";
-import {makeBoolean, makeSize, makeString, makeTag} from "../../composables/useProps";
+import {makeBoolean, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
+import Spinner from "../Indicators/Spinner";
 
 const emit = defineEmits<{
     (e: "update:modelValue", value: boolean): void;
@@ -99,8 +101,9 @@ const emit = defineEmits<{
 
 const props = defineProps({
     id: makeString(),
-    animation: {type: String as PropType<string>, default: "fade"},
+    animation: makeString("fade"),
     shrink: makeBoolean(false),
+    loading: makeBoolean(false),
     //null refers to initial value
     modelValue: makeBoolean(null),
     noClose: makeBoolean(false),
@@ -125,21 +128,15 @@ const props = defineProps({
     headerTag: makeTag("div"),
     headerClass: {type: [Array, String, Object] as PropType<any>, default: null},
     headerAttrs: {type: Object as PropType<object>, default: null},
-    headerVariant: {
-        type: String as PropType<ColorVariants>,
-        default: null
-    },
+    headerVariant: makeVariant(null),
 
     noFooter: makeBoolean(false),
     footerClass: {type: [Array, String, Object] as PropType<any>, default: null},
-    footerVariant: {
-        type: String as PropType<ColorVariants>,
-        default: null
-    },
+    footerVariant: makeVariant(null),
 
     //buttons
-    okTitle: {type: String as PropType<string>, default: "Ok"},
-    closeTitle: {type: String as PropType<string>, default: "Close"},
+    okTitle: makeString("Ok"),
+    closeTitle: makeString("Close"),
     okButtonOptions: {
         type: Object as PropType<object>,
         default: () => ({

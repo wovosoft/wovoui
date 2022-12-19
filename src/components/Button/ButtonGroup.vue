@@ -26,6 +26,7 @@ const classes = computed(() => ({
 </script>
 
 <style lang="scss">
+//https://stackoverflow.com/questions/34450586/justify-buttons-with-bootstrap-v4/39119031#39119031
 .btn-group-justified {
     display: flex;
     width: 100%;
