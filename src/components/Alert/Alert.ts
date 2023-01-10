@@ -2,7 +2,7 @@ import {Component, defineComponent, h, isVNode, onMounted, PropType, reactive, r
 import {makeBoolean, makeNumber, makeString, makeTag, makeVariant} from "../../composables/useProps";
 import Icon from "../Ui/Icon";
 import ButtonClose from "../Button/ButtonClose";
-import {Icons} from "@wovosoft/wovoui-icons/src/types";
+import {Icons} from "@wovosoft/wovoui-icons/dist/types";
 
 function getContent(props, slots) {
     if (props.icon) {
