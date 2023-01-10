@@ -372,27 +372,12 @@
   dependencies:
     vue-demi "*"
 
-"@wovosoft/wovoui-icons@^1.1.4", "@wovosoft/wovoui-icons@^1.1.8":
+"@wovosoft/wovoui-icons@^1.1.8":
   version "1.1.8"
   resolved "https://registry.npmjs.org/@wovosoft/wovoui-icons/-/wovoui-icons-1.1.8.tgz"
   integrity sha512-9W4QfHGCpLIUqDvw3UzY/ONx3UUJind0exV+Wyn/hcA+vG7YyRNaJvqYUI73bgj33mpgcI1pXNdfwgVvLrFHHQ==
   dependencies:
     vue "^3.2.45"
-
-"@wovosoft/wovoui@^0.4.30":
-  version "0.4.34"
-  resolved "https://registry.npmjs.org/@wovosoft/wovoui/-/wovoui-0.4.34.tgz"
-  integrity sha512-x0+/SSSvONCJI9SisaAkq3cMIchstV74OBFQ3RNB9SOGweJFsKGfp/6AGWpv8srBygiwpsrkS6Y0M2sTp+OjTQ==
-  dependencies:
-    "@popperjs/core" "^2.11.6"
-    "@vueuse/components" "^9.6.0"
-    "@vueuse/core" "^9.6.0"
-    "@wovosoft/wovoui" "^0.4.30"
-    "@wovosoft/wovoui-icons" "^1.1.4"
-    bootstrap "^5.2.3"
-    dayjs "^1.11.6"
-    vue "^3.2.45"
-    vue-router "^4.1.6"
 
 algoliasearch@^4.0.0, "algoliasearch@>= 4.9.1 < 6":
   version "4.14.3"
