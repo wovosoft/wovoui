@@ -77,13 +77,12 @@ export default defineComponent({
             addTag,
             backspacePressed,
             classes: computed(() => [
-                "wui-tags",
                 "d-flex",
                 "flex-wrap",
                 "ps-1",
                 "pe-1",
                 "pb-1",
-                "pt-0"
+                "pt-0",
             ])
         }
     }
