@@ -1,6 +1,6 @@
 {
   "name": "@wovosoft/wovoui",
-  "version": "0.4.35",
+  "version": "0.4.36",
   "type": "module",
   "scripts": {
     "build": "vite build && npm run generate:types",
@@ -17,8 +17,7 @@
     "@popperjs/core": "^2.11.6",
     "@vueuse/components": "^9.6.0",
     "@vueuse/core": "^9.6.0",
-    "@wovosoft/wovoui": "^0.4.30",
-    "@wovosoft/wovoui-icons": "^1.1.4",
+    "@wovosoft/wovoui-icons": "^1.1.8",
     "bootstrap": "^5.2.3",
     "dayjs": "^1.11.6",
     "vue": "^3.2.45",

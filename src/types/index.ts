@@ -1,5 +1,5 @@
 import type {Placement} from "@popperjs/core";
-import type {Icons} from "@wovosoft/wovoui-icons/src/types";
+import type {Icons} from "@wovosoft/wovoui-icons/dist/types";
 import {Ref} from "vue";
 
 export type TextAlign = 'start' | 'center' | 'end';
