@@ -51,7 +51,7 @@ export type HTMLInputTypes = "button" | "checkbox" | "color" | "date"
 export type ToastPlacements =
     'top-left' | 'top-center' | 'top-right' | 'middle-left' | 'middle-center'
     | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
-export type DropdownDirections = "right" | "left" | "top" | null;
+export type DropdownDirections = "right" | "left" | "top" | "bottom" | null;
 export type DropdownAlignments =
     | "start"
     | "end"

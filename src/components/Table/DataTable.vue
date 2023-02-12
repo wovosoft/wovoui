@@ -37,7 +37,7 @@
         <TBody :class="bodyClass">
         <Tr v-for="(row,row_index) in itemsSorted" :key="row_index">
             <template v-for="(th,th_index) in fields">
-                <Td :key="th_index" v-if="th.visible!==false" :class="th.tdClass">
+                <Td :key="th_index" v-if="th['visible']!==false" :class="th.tdClass">
                     <slot :name="`cell(${getKey(th)})`"
                           :item="row"
                           :index="row_index"

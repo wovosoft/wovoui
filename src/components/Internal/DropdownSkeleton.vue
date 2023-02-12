@@ -1,113 +1,38 @@
 <template>
-    <component :is="tag" v-on-click-outside="hide">
-        <component :is="toggleTag" :class="toggleClass" ref="toggle" @click="toggleClickedInternally"
-                   style="cursor: pointer;">
-            <slot name="toggle"
-                  :toggleMenu="toggleMenu"
-                  :isShown="isShown"
-            />
-        </component>
-        <!--Menu-->
-        <component :is="menuTag"
-                   @keydown.esc="onEsc"
-                   :class="getMenuClass"
-                   ref="menu"
-                   :tabindex="isShown?1:null">
-            <slot/>
-        </component>
+    <component :is="tag" v-on-click-outside="onClickOutside">
+        <slot name="toggle" :onclickToggle="onclickToggle"></slot>
+        <slot></slot>
     </component>
 </template>
-
 <script lang="ts" setup>
-import {computed, nextTick, PropType, Ref, ref, useSlots, watch} from "vue";
-import usePopper from "../../composables/usePopper";
+import {computed, PropType, watch} from "vue";
 import {vOnClickOutside} from "../../directives";
-import type {DropdownMenu} from "../../index";
-import {unrefElement} from "@vueuse/core";
-import {makeBoolean, makeTag} from "../../composables/useProps";
 
 const props = defineProps({
-    tag: makeTag("div"),
-    toggleTag: makeTag("div"),
-    menuTag: {
-        type: [String, Object] as PropType<keyof HTMLElementTagNameMap | InstanceType<typeof DropdownMenu>>,
+    tag: {
+        type: String as PropType<keyof HTMLElementTagNameMap>,
         default: 'div'
     },
-    menuClass: {default: null},
-    toggleClass: {default: null},
-    activatorClass: {default: 'show'},
-    modelValue: makeBoolean(false),
-    popperOptions: {default: null},
-    noCloseOnEsc: makeBoolean(false),
+    modelValue: {
+        type: Boolean as PropType<boolean>,
+        default: false
+    },
+    popperOptions: {default: null}
 });
 
 const emit = defineEmits<{
-    (e: 'toggleMenu', value: Ref<boolean>): void;
-    (e: 'update:modelValue', value: boolean): void;
+    (e: 'update:modelValue', value: boolean): void
 }>();
 
-const isShown = ref<boolean>(false);
-watch(() => props.modelValue, value => (value ? show : hide)());
 
-
-const getMenuClass = computed(() => [
-    props.menuClass, {
-        [props.activatorClass]: isShown.value
-    }
-]);
-
-const toggle = ref<HTMLElement | null>(null);
-const menu = ref<HTMLElement | null>(null);
-const theOptions = ref(props.popperOptions);
-const {setOptions} = usePopper(toggle, menu, theOptions, isShown);
-
-watch(() => props.popperOptions, options => setOptions(options));
-
-const mayBeTriEl = ref();
-
-function show() {
-    mayBeTriEl.value = document.activeElement;
-    //condition prevents double setting value
-    if (isShown.value != true) {
-        isShown.value = true;
-    }
-    //this should update isShown when initialized
-    emit('update:modelValue', true);
-    nextTick(() => unrefElement(menu.value)?.focus())
-}
-
-function hide() {
-    //this should update isShown when initialized
-    emit('update:modelValue', false);
-    //condition prevents double setting value
-    if (isShown.value != false) {
-        isShown.value = false;
-    }
-    mayBeTriEl.value?.focus();
-    mayBeTriEl.value = null;
-}
-
-
-function toggleMenu() {
-    (isShown.value ? hide : show)()
-    emit("toggleMenu", isShown);
-}
-
-const slots = useSlots();
-
-/**
- * The slots[toggle] outer content should call toggleMenu.
- * When slots[toggle] is not provided, only then this method should call toggleMenu
- */
-function toggleClickedInternally() {
-    if (!slots.toggle) {
-        toggleMenu();
+function onClickOutside(e) {
+    if (props.modelValue) {
+        emit('update:modelValue', !props.modelValue);
     }
 }
 
-function onEsc(e) {
-    if (!props.noCloseOnEsc && !e.defaultPrevented) {
-        hide();
-    }
+function onclickToggle() {
+    emit('update:modelValue', !props.modelValue);
 }
+
 </script>

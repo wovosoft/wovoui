@@ -1,13 +1,10 @@
 <template>
     <DropdownSkeleton
-        :show="isMenuOpened"
-        :menu-tag="DropdownMenu"
-        :menu-class="menuClass"
-        :dark="menuDark"
-        :popper-options="popperOptions"
         v-model="isMenuOpened"
-        :class="classes">
-        <template #toggle="{toggleMenu}">
+        :class="classes"
+        ref="skeleton"
+        :popper-options="popperOptions">
+        <template #toggle="{onclickToggle}">
             <Button
                 v-if="split"
                 :disabled="disabled"
@@ -21,8 +18,9 @@
             <NavLink v-if="isNav"
                      ref="toggle"
                      class="dropdown-toggle"
+                     :class="{show:isMenuOpened}"
                      role="button"
-                     @click="toggleMenu()">
+                     @click="onclickToggle">
                 {{ text }}
             </NavLink>
             <Button
@@ -35,7 +33,7 @@
                 :size="size"
                 class="dropdown-toggle"
                 :class="{'show':isMenuOpened,'dropdown-toggle-split':split}"
-                @click="toggleMenu()"
+                @click="onclickToggle"
                 :aria-expanded="isMenuOpened">
                 <slot name="button-content">
                     <span class="visually-hidden" v-if="split">Toggle Dropdown</span>
@@ -43,16 +41,20 @@
                 </slot>
             </Button>
         </template>
-        <slot></slot>
+        <DropdownMenu ref="menu" :show="isMenuOpened">
+            <slot/>
+        </DropdownMenu>
     </DropdownSkeleton>
 </template>
 <script lang="ts" setup>
 
 import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
-import {computed, ref} from "vue";
-
-import {Button, NavLink, DropdownMenu} from "../..";
-import type {ButtonSizes, DropdownAlignments, DropdownDirections, ColorVariants} from "../../types";
+import DropdownMenu from "./DropdownMenu.vue";
+import {Button} from "../../index";
+import {computed, ref, watch} from "vue";
+import {ButtonSizes, ColorVariants, DropdownAlignments, DropdownDirections} from "../../types";
+import usePopper from "../../composables/usePopper";
+import NavLink from "../Navigation/NavLink.vue";
 
 type DropdownType = {
     tag?: keyof HTMLElementTagNameMap,
@@ -84,6 +86,7 @@ const props = withDefaults(defineProps<DropdownType>(), {
     variant: "secondary",
     splitVariant: "secondary",
     align: "start",
+    dir: "bottom"
 });
 
 const isMenuOpened = ref<boolean>(false);
@@ -96,8 +99,15 @@ const classes = computed(() => ({
     "dropup": props.dir === "top",
 }));
 
-const popperOptions = computed(() =>({
+const popperOptions = computed(() => ({
     placement: props.align ? [props.dir, props.align].join("-") : "bottom-start"
 }));
 
+const skeleton = ref<InstanceType<typeof DropdownSkeleton> | null>(null);
+const toggle = ref<InstanceType<typeof Button> | null>(null);
+const menu = ref<InstanceType<typeof DropdownMenu> | null>(null);
+
+const {setOptions} = usePopper(toggle, menu, popperOptions, isMenuOpened);
+
+watch(() => popperOptions, options => setOptions(options));
 </script>
