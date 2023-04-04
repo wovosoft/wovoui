@@ -21,10 +21,9 @@
             @keydown.up.down="focusItem"
             v-model:show="isOpened"
             :dark="menuDark"
-            :style="{maxHeight:menuHeight}"
             class="w-100 overflow-auto"
             :class="menuClass">
-            <li class="px-3">
+            <div class="px-3">
                 <Input :placeholder="searchPlaceholder"
                        ref="search"
                        type="search"
@@ -35,14 +34,16 @@
                        @update:modelValue="fetchItems"
                        @keyup.up="focusToggleButton"
                 />
-            </li>
-            <li v-for="(item,item_key) in items" :key="item_key" role="menuitem">
-                <button @click="onSelected(item)" class="dropdown-item" type="button">
-                    <slot :option="item">
-                        {{ getOption(item) }}
-                    </slot>
-                </button>
-            </li>
+            </div>
+            <div :style="{maxHeight:menuHeight}" class="overflow-auto">
+                <div v-for="(item,item_key) in items" :key="item_key" role="menuitem">
+                    <button @click="onSelected(item)" class="dropdown-item" type="button">
+                        <slot :option="item">
+                            {{ getOption(item) }}
+                        </slot>
+                    </button>
+                </div>
+            </div>
         </DropdownMenu>
     </div>
 </template>
@@ -70,7 +71,7 @@ const props = defineProps({
     toggleClass: {default: null},
     menuClass: {default: null},
     menuDark: makeBoolean(false),
-    menuTag: makeTag("ul"),
+    menuTag: makeTag("div"),
     searchPlaceholder: makeString("Search..."),
     modelValue: {default: null},
     variant: makeVariant("secondary"),
