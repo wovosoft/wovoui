@@ -1,16 +1,16 @@
 <template>
     <DropdownSkeleton
-        v-model="isMenuOpened"
-        :class="classes"
-        ref="skeleton"
-        :popper-options="popperOptions">
+            v-model="isMenuOpened"
+            :class="classes"
+            ref="skeleton"
+            :popper-options="popperOptions">
         <template #toggle="{onclickToggle}">
             <Button
-                v-if="split"
-                :disabled="disabled"
-                :variant="splitVariant"
-                :block="block"
-                :size="size">
+                    v-if="split"
+                    :disabled="disabled"
+                    :variant="splitVariant"
+                    :block="block"
+                    :size="size">
                 <slot name="button-content">
                     {{ text }}
                 </slot>
@@ -24,17 +24,17 @@
                 {{ text }}
             </NavLink>
             <Button
-                v-else
-                ref="toggle"
-                :tag="toggleTag"
-                :block="block"
-                :disabled="disabled"
-                :variant="variant"
-                :size="size"
-                class="dropdown-toggle"
-                :class="{'show':isMenuOpened,'dropdown-toggle-split':split}"
-                @click="onclickToggle"
-                :aria-expanded="isMenuOpened">
+                    v-else
+                    ref="toggle"
+                    :tag="toggleTag"
+                    :block="block"
+                    :disabled="disabled"
+                    :variant="variant"
+                    :size="size"
+                    class="dropdown-toggle"
+                    :class="{'show':isMenuOpened,'dropdown-toggle-split':split}"
+                    @click="onclickToggle"
+                    :aria-expanded="isMenuOpened">
                 <slot name="button-content">
                     <span class="visually-hidden" v-if="split">Toggle Dropdown</span>
                     <template v-else>{{ text }}</template>
@@ -51,7 +51,7 @@
 import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
 import DropdownMenu from "./DropdownMenu.vue";
 import {Button} from "../../index";
-import {computed, ref, watch} from "vue";
+import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
 import {ButtonSizes, ColorVariants, DropdownAlignments, DropdownDirections} from "../../types";
 import usePopper from "../../composables/usePopper";
 import NavLink from "../Navigation/NavLink.vue";
@@ -110,4 +110,18 @@ const menu = ref<InstanceType<typeof DropdownMenu> | null>(null);
 const {setOptions} = usePopper(toggle, menu, popperOptions, isMenuOpened);
 
 watch(() => popperOptions, options => setOptions(options));
+
+function DdItemHandler(e) {
+    if (e.target?.classList.contains('dropdown-item')) {
+        isMenuOpened.value = false;
+    }
+}
+
+onMounted(() => {
+    skeleton.value.$el?.addEventListener("click", DdItemHandler)
+});
+
+onBeforeUnmount(() => {
+    skeleton.value.$el?.removeEventListener("click", DdItemHandler)
+});
 </script>
