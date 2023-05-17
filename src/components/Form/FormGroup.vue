@@ -32,7 +32,7 @@ import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useP
 
 const FeedbackMessages = defineComponent({
     setup() {
-        if (!(props.validFeedback || props.invalidFeedback)) {
+        if ((!props.validFeedback && !props.invalidFeedback)) {
             return () => null;
         }
         return () => [
