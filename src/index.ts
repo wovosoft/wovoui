@@ -71,6 +71,7 @@ export {default as OffcanvasHeader} from "./components/Offcanvas/OffcanvasHeader
 export {default as OffcanvasTitle} from "./components/Offcanvas/OffcanvasTitle";
 export {default as Popover} from "./components/Notification/Popover.vue";
 export {default as Radio} from "./components/Form/Radio.vue";
+export {default as RadioGroup} from "./components/Form/RadioGroup.vue";
 export {default as Range} from "./components/Form/Range";
 export {default as Rating} from "./components/Form/Rating.vue";
 export {default as Row} from "./components/Layout/Row";
