@@ -1,5 +1,5 @@
 <template>
-    <div class="form-check" v-bind="wrapperAttrs">
+    <div class="form-check" :class="{'form-check-inline':inline}" v-bind="wrapperAttrs">
         <input
             v-bind="$attrs"
             class="form-check-input"
@@ -24,7 +24,7 @@ export default {
 
 <script lang="ts" setup>
 //https://gist.github.com/Jonarod/8553d88b1b0d1e1898ff1b5c951b00cc
-import {computed} from "vue";
+import {computed, PropType} from "vue";
 import {uid} from "../../composables/useHelpers";
 import {makeString} from "../../composables/useProps";
 
@@ -35,6 +35,10 @@ const props = defineProps({
     value: {default: null},
     wrapperAttrs: {default: null},
     labelAttrs: {default: null},
+    inline: {
+        type: Boolean as PropType<boolean>,
+        default: false
+    }
 });
 
 const identifier = computed(() => props.id ?? "wbv-radio-" + uid());
