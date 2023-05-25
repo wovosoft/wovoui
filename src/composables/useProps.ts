@@ -16,7 +16,7 @@ export const makeSize = <T>(initial: T = null) => makeProp<T>(initial, String);
 
 export const makeBoolean = (initial: boolean = false) => ({
     type: Boolean as PropType<boolean>,
-    default: (): typeof initial => initial
+    default: (): boolean => initial
 });
 
 export const makeString = (initial: string = null) => ({

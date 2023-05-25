@@ -7,6 +7,7 @@
             :inline="inline"
             :disabled="option.disabled===true"
             v-model="model"
+            :required="required || option?.required"
             :value="valueField?option[valueField]:option">
             {{ textField ? option[textField] : option }}
         </Radio>
@@ -15,7 +16,7 @@
 
 <script lang="ts" setup>
 import {computed, PropType, ref} from "vue";
-import {makeString} from "../../composables/useProps";
+import {makeBoolean, makeString} from "../../composables/useProps";
 import Radio from "./Radio.vue";
 import {uid} from "../../composables/useHelpers";
 
@@ -24,11 +25,9 @@ const props = defineProps({
     options: {type: Array as PropType<any>, default: () => ([])},
     textField: makeString(null),
     valueField: makeString(null),
-    inline: {
-        type: Boolean as PropType<boolean>,
-        default: false
-    },
-    name: makeString(null)
+    inline: makeBoolean(false),
+    name: makeString(null),
+    required: makeBoolean(false)
 });
 
 const theName = computed(() => props.name || "radio-group-" + uid());
