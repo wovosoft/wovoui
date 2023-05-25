@@ -21,6 +21,7 @@
             @keydown.up.down="focusItem"
             v-model:show="isOpened"
             :dark="menuDark"
+            v-bind="menuAttrs"
             class="w-100 overflow-auto"
             :class="menuClass">
             <div class="px-3">
@@ -70,6 +71,7 @@ const props = defineProps({
     toggleSize: makeSize<ButtonSizes>(null),
     toggleClass: {default: null},
     menuClass: {default: null},
+    menuAttrs: {default: null, type: Object as PropType<any>},
     menuDark: makeBoolean(false),
     menuTag: makeTag("div"),
     searchPlaceholder: makeString("Search..."),
@@ -88,7 +90,7 @@ const props = defineProps({
     noCloseOnItemSelect: makeBoolean(false),
     noCloseOnEscPressed: makeBoolean(false),
     clearItemsOnSelect: makeBoolean(false),
-    preload: makeBoolean(false)
+    preload: makeBoolean(false),
 });
 
 const emit = defineEmits<{
