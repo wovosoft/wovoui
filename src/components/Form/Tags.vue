@@ -10,7 +10,8 @@
             <X class="hover:bg-bright" @click="model.splice(tag_key,1)"/>
         </Badge>
         <li class="d-inline-flex flex-grow-1">
-            <input
+            <Input
+                :size="addButtonSize"
                 class="wui-tags-input w-100"
                 :placeholder="placeholder"
                 v-model.trim="inputText"
@@ -31,10 +32,11 @@ import Badge from "../Ui/Badge";
 import Button from "../Button/Button";
 import type {ButtonSizes} from "../../types";
 import {makeBoolean, makeRole, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
+import {Input} from "../../types";
 
 export default defineComponent({
     name: "Tags",
-    components: {Button, Badge, X},
+    components: {Input, Button, Badge, X},
     props: {
         tag: makeTag("ul"),
         role: makeRole("group"),
