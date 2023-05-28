@@ -1,15 +1,17 @@
 <template>
     <teleport to="body">
-        <div ref="modal"
-             v-if="shouldMount"
-             @keyup.esc="onEsc"
-             :id="id"
-             :class="classes"
-             :style="classStates.modalStyle"
-             tabindex="-1"
-             :aria-hidden="!shown"
-             :aria-modal="shown"
-             :role="shown?'dialog':null">
+        <component
+            :is="tag"
+            ref="modal"
+            v-if="shouldMount"
+            @keyup.esc="onEsc"
+            :id="id"
+            :class="classes"
+            :style="classStates.modalStyle"
+            tabindex="-1"
+            :aria-hidden="!shown"
+            :aria-modal="shown"
+            :role="shown?'dialog':null">
             <ModalDialog :size="size" :centered="centered" :scrollable="scrollable" :fullscreen="fullscreen">
                 <div class="modal-content"
                      v-on-click-outside="clickOutside"
@@ -67,7 +69,7 @@
                     </ModalFooter>
                 </div>
             </ModalDialog>
-        </div>
+        </component>
         <div v-if="!noBackdrop && showBackdrop"
              :style="classStates.backdropStyle"
              :class="{show:classStates.backdropShow}"
@@ -101,6 +103,7 @@ const emit = defineEmits<{
 
 const props = defineProps({
     id: makeString(),
+    tag: makeTag("div"),
     animation: makeString("fade"),
     shrink: makeBoolean(false),
     loading: makeBoolean(false),

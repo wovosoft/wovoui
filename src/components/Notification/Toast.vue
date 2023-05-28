@@ -153,7 +153,9 @@ watch(() => props.modelValue, value => {
 let timer = null;
 
 function setTimer() {
-    timer = setTimeout(() => visible.value = false, props.timeout * 1000);
+    timer = setTimeout(() => {
+        visible.value = false;
+    }, props.timeout * 1000);
 }
 
 function clearTimer() {
@@ -185,7 +187,6 @@ watch(visible, (value) => {
             } else {
                 setTimer();
             }
-
         }, getTransitionDurationFromElement(element.value));
     } else {
         emit("hiding", true);
