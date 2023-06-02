@@ -9,24 +9,16 @@ export default defineConfig({
     build: {
         sourcemap: true,
         target: 'modules',
-        cssCodeSplit: true,
+        // cssCodeSplit: true,
         lib: {
             // Could also be a dictionary or array of multiple entry points
-            entry: [
-                resolve(__dirname, 'src/index.ts'),
-                resolve(__dirname, 'src/composables/index.ts'),
-                resolve(__dirname, 'src/directives/index.ts'),
-                resolve(__dirname, 'src/shared/index.ts'),
-            ],
+            entry: {
+                index: resolve(__dirname, 'src/index.ts'),
+                composables: resolve(__dirname, 'src/composables/index.ts'),
+                directives: resolve(__dirname, 'src/directives/index.ts'),
+                shared: resolve(__dirname, 'src/shared/index.ts'),
+            },
             name: 'wovoui',
-            // the proper extensions will be added
-            fileName: 'index',
-            // fileName: (format, entryName: string) => {
-            //     if (format === 'es') {
-            //         return `${entryName}.js`
-            //     }
-            //     return `${entryName}.${format}`
-            // },
             formats: ["es", "cjs"],
         },
         rollupOptions: {

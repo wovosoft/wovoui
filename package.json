@@ -22,16 +22,16 @@
         "./dist/style.css": "./dist/style.css",
         "./types": "./dist/types/index.d.ts",
         "./composables": {
-            "import": "./dist/index2.js",
-            "require": "./dist/index2.cjs"
+            "import": "./dist/composables.js",
+            "require": "./dist/composables.cjs"
         },
         "./directives": {
-            "import": "./dist/index3.js",
-            "require": "./dist/index3.cjs"
+            "import": "./dist/directives.js",
+            "require": "./dist/directives.cjs"
         },
         "./shared": {
-            "import": "./dist/index4.js",
-            "require": "./dist/index4.cjs"
+            "import": "./dist/shared.js",
+            "require": "./dist/shared.cjs"
         }
     },
     "peerDependencies": {
