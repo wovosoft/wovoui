@@ -8,14 +8,26 @@ export default defineConfig({
     plugins: [vue()],
     build: {
         sourcemap: true,
-        // target: 'esnext',
+        target: 'modules',
+        cssCodeSplit: true,
         lib: {
             // Could also be a dictionary or array of multiple entry points
-            entry: resolve(__dirname, 'src/index.ts'),
+            entry: [
+                resolve(__dirname, 'src/index.ts'),
+                resolve(__dirname, 'src/composables/index.ts'),
+                resolve(__dirname, 'src/directives/index.ts'),
+                resolve(__dirname, 'src/shared/index.ts'),
+            ],
             name: 'wovoui',
             // the proper extensions will be added
             fileName: 'index',
-            formats: ["es", "cjs", "umd"],
+            // fileName: (format, entryName: string) => {
+            //     if (format === 'es') {
+            //         return `${entryName}.js`
+            //     }
+            //     return `${entryName}.${format}`
+            // },
+            formats: ["es", "cjs"],
         },
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled
@@ -30,9 +42,9 @@ export default defineConfig({
             },
         },
     },
-    resolve:{
-        alias:{
-            '@' : resolve(__dirname, './src')
+    resolve: {
+        alias: {
+            '@': resolve(__dirname, './src')
         },
     },
 })
