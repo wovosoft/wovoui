@@ -50,6 +50,7 @@
         "vue": "^3.3.0"
     },
     "devDependencies": {
+        "@types/lodash": "^4.14.195",
         "@types/node": "^20.2.5",
         "@vitejs/plugin-vue": "^4.1.0",
         "sass": "^1.62.1",

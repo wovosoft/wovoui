@@ -1,18 +1,20 @@
-let handler = null;
+let handler: (e: any) => void;
 
 // @ts-ignore
+
 export default {
-    mounted(el, binding) {
+    // @ts-ignore
+    mounted(el: HTMLElement, {value}) {
         handler = (e) => {
             if (!el?.contains(e.target)) {
-                if (typeof binding.value === "function") {
-                    binding.value(e, el);
+                if (typeof value === "function") {
+                    value(e, el);
                 }
             }
         }
         document.addEventListener("click", handler);
     },
-    beforeUnmount(el, binding) {
+    beforeUnmount() {
         document.removeEventListener("click", handler);
     }
 }

@@ -1,4 +1,4 @@
-import {makeBoolean, makeString, makeTag} from "../composables/useProps";
+import {makeBoolean, makeString, makeTag} from "@/composables";
 
 export default {
     tag: makeTag("ul"),

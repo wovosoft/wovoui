@@ -1,4 +1,6 @@
 import startCase from "lodash/startCase";
+import {PropType} from "vue";
+import {ColorVariants} from "@/types";
 
 function toLower(str: string) {
     return str.toLowerCase();
@@ -7,19 +9,19 @@ function toLower(str: string) {
 export const useBg = () => {
     return {
         prop: {
-            type: String,
+            type: String as PropType<string>,
             default: null
         },
-        variant: (value) => "bg-" + value
+        variant: (value: ColorVariants) => "bg-" + value
     }
 }
 export const useOpacity = () => {
     return {
         prop: {
-            type: [String, Number],
+            type: [String, Number] as PropType<number | string>,
             default: null
         },
-        variant: (value) => "bg-opacity-" + value
+        variant: (value: number | string) => "bg-opacity-" + value
     }
 }
 export const useText = () => {

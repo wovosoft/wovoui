@@ -1,11 +1,11 @@
-import type {VerticalAlign} from "../types";
-import {makeBoolean, makeProp, makeVariant} from "../composables/useProps";
+import type {VerticalAlign} from "@/types";
+import {makeBoolean, makeProp, makeVariant} from "@/composables";
 
 export default {
     /**
      * Sets table variant
      */
-    variant: makeVariant(null),
+    variant: makeVariant(),
 
     /**
      * Sets table status active

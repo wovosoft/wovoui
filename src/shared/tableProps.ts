@@ -1,9 +1,9 @@
 //used in DataTable and Table components
 
 import {PropType} from "vue";
-import type {ResponsiveSizes} from "../types";
+import type {ResponsiveSizes} from "@/types";
 import tableCommonProps from "./tableCommonProps";
-import {makeBoolean, makeString, makeVariant} from "../composables/useProps";
+import {makeBoolean, makeString, makeVariant} from "@/composables";
 
 export default {
     ...tableCommonProps,
@@ -30,7 +30,7 @@ export default {
     /**
      * Sets table border variant
      */
-    borderVariant: makeVariant(null),
+    borderVariant: makeVariant(),
 
     /**
      * Removes table borders

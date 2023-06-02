@@ -1,9 +1,9 @@
 import {PropType} from "vue";
-import type {ColorVariants} from "../types";
-import type {DropdownAlignments} from "../types";
-import type {DropdownDirections} from "../types";
-import type {ButtonSizes} from "../types";
-import {makeBoolean, makeSize, makeString, makeTag} from "../composables/useProps";
+import type {ColorVariants} from "@/types";
+import type {DropdownAlignments} from "@/types";
+import type {DropdownDirections} from "@/types";
+import type {ButtonSizes} from "@/types";
+import {makeBoolean, makeSize, makeString, makeTag} from "@/composables";
 
 
 export default {
