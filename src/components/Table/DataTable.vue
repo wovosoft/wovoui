@@ -74,9 +74,9 @@ import Th from "./../Table/Th"
 import Td from "./../Table/Td"
 import TFoot from "./../Table/TFoot"
 
-import {isObject, orderBy, title} from "../../shared/utilities";
+import {isObject, orderBy, title} from "@/shared";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
-import {makeString, makeVariant} from "../../composables/useProps";
+import {makeString, makeVariant} from "@/composables";
 
 
 type FieldType = {

@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts" setup>
-import {BreadcrumbItem} from "../..";
-import {makeProp, makeString, makeTag} from "@/composables/useProps";
+import {BreadcrumbItem} from "@/";
+import {makeProp, makeString, makeTag} from "@/composables";
 import {computed} from "vue";
 
 const props = defineProps({

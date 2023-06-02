@@ -38,7 +38,7 @@
 <script lang="ts" setup>
 import {CardHeader, CardBody, CardFooter, CardImg} from "../..";
 import {computed} from "vue";
-import {makeClass, makeString, makeTag, makeVariant, makeBoolean, makeTextVariant} from "../../composables/useProps";
+import {makeClass, makeString, makeTag, makeVariant, makeBoolean, makeTextVariant} from "@/composables";
 
 const props = defineProps({
     align: makeString(null),

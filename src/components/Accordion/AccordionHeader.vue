@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import {makeBoolean, makeTag} from "../../composables/useProps";
+import {makeBoolean, makeTag} from "@/composables";
 
 export default defineComponent({
     name: "AccordionHeader",

@@ -1,6 +1,6 @@
 import {defineComponent, h} from "vue";
-import type {ButtonSizes} from "../../types";
-import {makeBoolean, makeSize, makeString} from "../../composables/useProps";
+import type {ButtonSizes} from "@/types";
+import {makeBoolean, makeSize, makeString} from "@/composables";
 
 export default defineComponent({
     name: "ButtonClose",

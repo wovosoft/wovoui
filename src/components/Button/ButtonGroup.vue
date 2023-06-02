@@ -6,7 +6,7 @@
 <script lang="ts" setup>
 import {computed, provide} from "vue";
 import type {ButtonSizes} from "@/types";
-import {makeBoolean, makeSize, makeString, makeTag} from "@/composables/useProps";
+import {makeBoolean, makeSize, makeString, makeTag} from "@/composables";
 
 const props = defineProps({
     tag: makeTag("div"),

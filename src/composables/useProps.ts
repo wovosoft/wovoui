@@ -6,10 +6,10 @@ export const makeProp = <TT>(initial: TT | null = null, VT: Function | Function[
     default: () => initial
 });
 
-export const makeVariant = (initial: ColorVariants = 'secondary') =>
+export const makeVariant = (initial: ColorVariants | null = null) =>
     makeProp<ColorVariants>(initial, String)
 
-export const makeTextVariant = (initial?: TextVariants) =>
+export const makeTextVariant = (initial: TextVariants | null) =>
     makeProp<TextVariants>(initial, String)
 
 export const makeSize = <T>(initial: T | null = null) => makeProp<T>(initial, String);
