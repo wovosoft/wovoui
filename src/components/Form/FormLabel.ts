@@ -1,6 +1,6 @@
 import {defineComponent, h} from "vue";
-import type {ResponsiveNumbers} from "../../types";
-import {makeBoolean, makeProp} from "../../composables/useProps";
+import type {ResponsiveNumbers} from "@/types";
+import {makeBoolean, makeProp} from "@/composables/useProps";
 
 export default defineComponent({
     name: "FormLabel",

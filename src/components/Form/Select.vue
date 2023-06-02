@@ -24,9 +24,9 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, ref, watch, PropType} from "vue";
-import type {ButtonSizes} from "../../types";
-import {makeBoolean, makeProp, makeSize, makeString} from "../../composables/useProps";
+import {computed, PropType, useModel} from "vue";
+import type {ButtonSizes} from "@/types";
+import {makeBoolean, makeProp, makeSize, makeString} from "@/composables/useProps";
 
 const props = defineProps({
     multiple: makeBoolean(false),
@@ -39,21 +39,7 @@ const props = defineProps({
     modelValue: {default: null}
 });
 
-const emit = defineEmits<{
-    (e: "update:modelValue", value: any): void
-    (e: "change", value: any): void
-}>();
-
-const model = ref<unknown>(null);
-watch(() => props.modelValue, value => model.value = value);
-watch(model, (val) => {
-    emit('update:modelValue', val);
-    emit('change', val);
-});
-if (props.modelValue !== null) {
-    model.value = props.modelValue;
-}
-
+const model = useModel(props, 'modelValue');
 
 const getEntity = (o, k) => {
     if (typeof props[k] === "string" || props[k] === null) {

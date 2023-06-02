@@ -18,7 +18,7 @@
 
 <script lang="ts" setup>
 import {computed, getCurrentInstance} from "vue";
-import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useProps";
+import {makeBoolean, makeProp, makeString, makeTag} from "@/composables/useProps";
 
 const props = defineProps({
     tag: makeTag("li"),
@@ -40,7 +40,7 @@ const attributes = computed(() => {
         ariaCurrent: props.ariaCurrent
     }
 });
-const isRouterInstalled = computed(() => !!getCurrentInstance().appContext.config.globalProperties.$router);
+const isRouterInstalled = computed(() => !!getCurrentInstance()?.appContext.config.globalProperties.$router);
 const classes = computed(() => [
     "breadcrumb-item",
     {

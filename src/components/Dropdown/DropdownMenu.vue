@@ -6,13 +6,14 @@
 
 <script lang="ts" setup>
 import {computed, watch} from "vue";
-import {makeBoolean, makeTag} from "../../composables/useProps";
+import {makeBoolean, makeTag} from "@/composables/useProps";
 
 const props = defineProps({
     tag: makeTag("ul"),
     dark: makeBoolean(false),
     show: makeBoolean(false)
 });
+
 
 const classes = computed(() => ([
     "dropdown-menu",

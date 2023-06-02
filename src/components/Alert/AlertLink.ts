@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import {makeString} from "../../composables/useProps";
+import {makeString} from "@/composables/useProps";
 
 export default defineComponent({
     name: "AlertLink",

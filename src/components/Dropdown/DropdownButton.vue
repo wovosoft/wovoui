@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import {makeBoolean} from "../../composables/useProps";
+import {makeBoolean} from "@/composables/useProps";
 
 const props = defineProps({
     active: makeBoolean(false),

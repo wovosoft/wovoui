@@ -7,12 +7,6 @@
         <p class="dropdown-item-text" v-else-if="isText">
             <slot></slot>
         </p>
-        <template v-else-if="isVueRouterInstalled && to">
-            <component is="router-link" :to="to" :class="classes">
-                <slot></slot>
-            </component>
-        </template>
-
         <a v-else :class="classes" :href="href">
             <slot></slot>
         </a>
@@ -22,11 +16,7 @@
 <script lang="ts" setup>
 import {computed, getCurrentInstance} from "vue";
 import {RouteRecordRaw} from "vue-router";
-import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useProps";
-
-const isVueRouterInstalled = computed(() => {
-    return !!getCurrentInstance().appContext.config.globalProperties.$router;
-});
+import {makeBoolean, makeProp, makeString, makeTag} from "@/composables/useProps";
 
 const props = defineProps({
     tag: makeTag("li"),
@@ -36,7 +26,7 @@ const props = defineProps({
     active: makeBoolean(false),
     disabled: makeBoolean(false),
     isText: makeBoolean(false),
-    itemTag: makeTag(null)
+    itemTag: makeTag()
 })
 
 const classes = computed(() => ['dropdown-item', {'active': props.active, 'disabled': props.disabled}]);

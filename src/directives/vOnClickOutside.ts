@@ -1,5 +1,6 @@
 let handler = null;
 
+// @ts-ignore
 export default {
     mounted(el, binding) {
         handler = (e) => {

@@ -1,17 +1,35 @@
 {
-  "name": "@wovosoft/wovoui",
+  "name": "wovoui",
+  "private": true,
   "version": "0.4.52",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "vite build && npm run generate:types",
-    "build:only": "vite build",
-    "dev": "vite --config demo-vite.config.ts",
-    "build:demo": "vite build --config demo-vite.config.ts",
-    "serve": "vite preview",
     "generate:types": "vue-tsc --declaration --emitDeclarationOnly --outdir ./dist",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "preview": "vite preview"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    },
+    "./src/index": "./src/index.js",
+    "./dist/style.css": "./dist/style.css",
+    "./types": "./dist/types/index.d.ts",
+    "./composables": "./dist/composables/index.js",
+    "./directives": "./dist/directives/index.js",
+    "./shared": "./dist/shared/index.js"
+  },
+  "peerDependencies": {
+    "axios": "*",
+    "chart.js": "^4.3.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -19,55 +37,18 @@
     "@vueuse/core": "^10.1.2",
     "@wovosoft/wovoui-icons": "^1.1.9",
     "bootstrap": "^5.3.0",
-    "dayjs": "^1.11.7",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.2"
+    "bootstrap-icons": "^1.10.5",
+    "dayjs": "^1.11.8",
+    "lodash": "^4.17.21",
+    "vue": "^3.3.0"
   },
   "devDependencies": {
-    "@babel/types": "^7.22.4",
     "@types/node": "^20.2.5",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "lodash": "^4.17.21",
+    "@vitejs/plugin-vue": "^4.1.0",
     "sass": "^1.62.1",
-    "typescript": "^5.0.4",
-    "vite": "^4.3.5",
-    "vitepress": "^1.0.0-alpha.75",
-    "vue-tsc": "^1.6.5"
-  },
-  "description": "Bootstrap 5 and Vue 3 Utility Components",
-  "files": [
-    "dist"
-  ],
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.umd.mjs",
-  "module": "./dist/index.es.mjs",
-  "exports": {
-    "./src/index": "./src/index.mjs",
-    "./dist/style.css": "./dist/style.css",
-    "./types": "./dist/types/index.d.ts",
-    ".": {
-      "import": "./dist/index.es.mjs",
-      "require": "./dist/index.umd.mjs"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wovosoft/wovoui.git"
-  },
-  "keywords": [
-    "Bootstrap 5",
-    "Vue 3",
-    "Design",
-    "Libray"
-  ],
-  "author": "Narayan Adhikary",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wovosoft/wovoui/issues"
-  },
-  "homepage": "https://github.com/wovosoft/wovoui#readme",
-  "peerDependencies": {
-    "axios": "*",
-    "chart.js": "^3.9.1"
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vue-router": "^4.2.2",
+    "vue-tsc": "^1.4.2"
   }
 }

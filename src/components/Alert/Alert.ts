@@ -1,9 +1,10 @@
-import {Component, defineComponent, h, isVNode, onMounted, PropType, reactive, ref, watch} from "vue";
-import {makeBoolean, makeNumber, makeString, makeTag, makeVariant} from "../../composables/useProps";
+import {Component, defineComponent, h, onMounted, PropType, reactive, ref, watch} from "vue";
+import {makeBoolean, makeNumber, makeString, makeTag, makeVariant} from "@/composables/useProps";
 import Icon from "../Ui/Icon";
 import ButtonClose from "../Button/ButtonClose";
 import {Icons} from "@wovosoft/wovoui-icons/dist/types";
 
+// @ts-ignore
 function getContent(props, slots) {
     if (props.icon) {
         return h('div',
@@ -20,6 +21,7 @@ function getContent(props, slots) {
     ];
 }
 
+// @ts-ignore
 function getIcon(props) {
     if (props.icon) {
         if (typeof props.icon === "string") {
@@ -32,6 +34,7 @@ function getIcon(props) {
     return null;
 }
 
+// @ts-ignore
 function getButton(props, state) {
     return props.dismissible ? h(ButtonClose, {
         onClick: () => state.value = false,
@@ -77,7 +80,7 @@ export default defineComponent({
             applyState(state.value)
         });
 
-        const timeout = ref(null);
+        const timeout = ref<number | null>(null);
 
         /**
          * isVisible is updated state.
@@ -93,7 +96,7 @@ export default defineComponent({
                 if (props.timeout) {
                     timeout.value = setTimeout(
                         () => state.value = false,
-                        props.timeout * 1000 / props.timeoutStep
+                        props.timeout * 1000 / Number(props.timeoutStep)
                     );
                 }
             } else {

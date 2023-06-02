@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {makeString} from "../../composables/useProps";
+import {makeString} from "@/composables/useProps";
 import Feedback from "./Feedback";
 
 defineOptions({
     inheritAttrs: false
 });
 
-const {valid, invalid} = defineProps({
+defineProps({
     valid: makeString(),
     invalid: makeString()
 });

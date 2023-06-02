@@ -15,10 +15,10 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType, ref} from "vue";
-import {makeBoolean, makeString} from "../../composables/useProps";
+import {computed, PropType, useModel} from "vue";
+import {makeBoolean, makeString} from "@/composables/useProps";
 import Radio from "./Radio.vue";
-import {uid} from "../../composables/useHelpers";
+import {uid} from "@/composables/useHelpers";
 
 const props = defineProps({
     modelValue: {default: null},
@@ -31,14 +31,5 @@ const props = defineProps({
 });
 
 const theName = computed(() => props.name || "radio-group-" + uid());
-const emit = defineEmits<{
-    (e: 'update:modelValue', value: any)
-}>();
-
-const model = computed({
-    get: () => props.modelValue,
-    set: (value) => {
-        emit('update:modelValue', value);
-    }
-});
+const model = useModel(props, 'modelValue');
 </script>

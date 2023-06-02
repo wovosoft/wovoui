@@ -7,8 +7,7 @@
             :name="name"
             :id="identifier"
             :value="value"
-            :checked="isChecked"
-            @change="$emit('update:modelValue',value)"
+            v-model="model"
         />
         <label v-bind="labelAttrs" class="form-check-label" :for="identifier">
             <slot></slot>
@@ -16,17 +15,15 @@
     </div>
 </template>
 
-<script lang="ts">
-export default {
-    inheritAttrs: false
-}
-</script>
-
 <script lang="ts" setup>
 //https://gist.github.com/Jonarod/8553d88b1b0d1e1898ff1b5c951b00cc
-import {computed, PropType} from "vue";
-import {uid} from "../../composables/useHelpers";
-import {makeString} from "../../composables/useProps";
+import {computed, PropType, useModel} from "vue";
+import {uid} from "@/composables/useHelpers";
+import {makeBoolean, makeString} from "@/composables/useProps";
+
+defineOptions({
+    inheritAttrs: false
+});
 
 const props = defineProps({
     name: makeString(),
@@ -35,12 +32,9 @@ const props = defineProps({
     value: {default: null},
     wrapperAttrs: {default: null},
     labelAttrs: {default: null},
-    inline: {
-        type: Boolean as PropType<boolean>,
-        default: false
-    }
+    inline: makeBoolean(false)
 });
 
+const model = useModel(props, 'modelValue');
 const identifier = computed(() => props.id ?? "wbv-radio-" + uid());
-const isChecked = computed(() => props.modelValue === props.value);
 </script>

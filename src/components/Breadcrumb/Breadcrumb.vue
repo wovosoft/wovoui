@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" class="breadcrumb">
+    <component :is="tag" class="breadcrumb" :style="{'--bs-breadcrumb-divider': getDivider}">
         <template v-if="items && Array.isArray(items) && items.length">
             <BreadcrumbItem
                 v-for="(item,item_key) in items"
@@ -16,11 +16,14 @@
 
 <script lang="ts" setup>
 import {BreadcrumbItem} from "../..";
-import {makeProp, makeString, makeTag} from "../../composables/useProps";
+import {makeProp, makeString, makeTag} from "@/composables/useProps";
+import {computed} from "vue";
 
 const props = defineProps({
     tag: makeTag("ol"),
     items: makeProp<any[]>([], Array),
     divider: makeString()
 });
+
+const getDivider = computed(() => props.divider ? "'" + props.divider + "'" : null)
 </script>

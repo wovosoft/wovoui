@@ -23,7 +23,7 @@ import type {
     setActiveItem as setActiveItemType,
     registerItem as registerItemType
 } from "../../types";
-import {makeBoolean, makeClass, makeString} from "../../composables/useProps";
+import {makeBoolean, makeClass, makeString} from "@/composables/useProps";
 
 const props = defineProps({
     header: makeString(),

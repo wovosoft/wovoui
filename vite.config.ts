@@ -1,49 +1,39 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
-
-import {resolve} from "path";
+// vite.config.js
+import {resolve} from 'path'
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
-    plugins: [
-        vue({}),
-    ],
-    resolve: {
-        alias: {
-            "@": resolve(__dirname, "/src")
-        }
-    },
-    server: {
-        watch: {
-            usePolling: true
-        }
-    },
+    plugins: [vue()],
     build: {
         sourcemap: true,
-        target: 'esnext',
+        // target: 'esnext',
         lib: {
+            // Could also be a dictionary or array of multiple entry points
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'wovoui',
-            // fileName: "index",
-            fileName: (format) => `[name].${format}.mjs`
+            // the proper extensions will be added
+            fileName: 'index',
+            formats: ["es", "cjs", "umd"],
         },
-
         rollupOptions: {
-            external: [
-                'vue',
-                'axios'
-            ],
+            // make sure to externalize deps that shouldn't be bundled
+            // into your library
+            external: ['vue'],
             output: {
-                // entryFileNames: `[name].[hash].mjs`,
-                // chunkFileNames: `[name].[hash].mjs`,
+                // Provide global variables to use in the UMD build
+                // for externalized deps
                 globals: {
                     vue: 'Vue',
-                    axios: 'axios'
                 },
-                // Since we publish our ./src folder, there's no point
-                // in bloating sourcemaps with another copy of it.
-                sourcemapExcludeSources: true,
-            }
-        }
-    }
-});
+            },
+        },
+    },
+    resolve:{
+        alias:{
+            '@' : resolve(__dirname, './src')
+        },
+    },
+})
+

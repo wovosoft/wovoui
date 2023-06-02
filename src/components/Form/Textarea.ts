@@ -1,6 +1,6 @@
 import {defineComponent, h} from "vue";
-import type {ButtonSizes} from "../../types";
-import {makeSize, makeString} from "../../composables/useProps";
+import type {ButtonSizes} from "@/types";
+import {makeSize, makeString} from "@/composables/useProps";
 
 export default defineComponent({
     name: "Textarea",
@@ -11,7 +11,7 @@ export default defineComponent({
     },
     setup(props, {emit}) {
         return () => h("textarea", {
-            onInput: (e) => emit('update:modelValue', e.target.value),
+            onInput: (e: Event) => emit('update:modelValue', (e.target as HTMLInputElement)?.value),
             value: props.modelValue,
             class: ["form-control", {
                 ["form-control-" + props.size]: !!props.size

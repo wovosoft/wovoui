@@ -1,9 +1,9 @@
 <template>
     <div class="form-rating">
         <component
-            :is="value>=i?StarFill:Star"
+            :is="model>=i?StarFill:Star"
             v-for="i in items"
-            @click="value=i"
+            @click="model=i"
             :variant="variant"
             class="me-1 wu-rating"
         />
@@ -11,25 +11,23 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, ref, watch} from "vue";
+import {computed} from "vue";
 import {StarFill, Star} from "@wovosoft/wovoui-icons";
-import {makeNumber, makeVariant} from "../../composables/useProps";
+import {makeNumber, makeVariant} from "@/composables/useProps";
+import {useStateModel} from "@/composables/useHelpers";
 
 const props = defineProps({
     min: makeNumber(1),
     max: makeNumber(5),
     modelValue: makeNumber(1),
-    variant: makeVariant(null)
+    variant: makeVariant()
 });
 
 const emit = defineEmits<{
     (e: 'update:modelValue', value: number): void
 }>();
 
-const value = ref<number>(props.modelValue);
-watch(value, v => emit('update:modelValue', v));
-watch(() => props.modelValue, v => value.value = v);
-
+const model = useStateModel(props, 'modelValue');
 const items = computed(() => [...Array(props.max)].map((_, i) => i + 1));
 </script>
 

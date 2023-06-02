@@ -4,9 +4,9 @@
     </component>
 </template>
 <script lang="ts" setup>
-import {computed} from "vue";
-import type {ButtonSizes} from "../../types";
-import {makeBoolean, makeSize, makeString, makeTag} from "../../composables/useProps";
+import {computed, provide} from "vue";
+import type {ButtonSizes} from "@/types";
+import {makeBoolean, makeSize, makeString, makeTag} from "@/composables/useProps";
 
 const props = defineProps({
     tag: makeTag("div"),
@@ -14,6 +14,7 @@ const props = defineProps({
     size: makeSize<ButtonSizes>(null),
     vertical: makeBoolean(false),
     justified: makeBoolean(false),
+    outline: makeBoolean(false),
     role: makeString("group")
 });
 
@@ -23,6 +24,8 @@ const classes = computed(() => ({
     ["btn-group-" + props.size]: props.size,
     "btn-group-justified": props.justified
 }));
+
+provide<boolean>('outline', !!props.outline);
 </script>
 
 <style lang="scss">

@@ -1,6 +1,6 @@
-import {defineComponent, h, reactive, ref, provide, computed, Ref} from "vue";
-import accordionProps from "../../shared/accordionProps";
-import {getBinaryClasses} from "../../composables/useClasses";
+import {defineComponent, h, reactive, ref, provide,  Ref} from "vue";
+import accordionProps from "@/shared/accordionProps";
+import {getBinaryClasses} from "@/composables/useClasses";
 
 export default defineComponent({
     name: "Accordion",

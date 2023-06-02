@@ -17,8 +17,8 @@
 <script lang="ts" setup>
 import {computed} from "vue";
 import {InputGroupText} from "../..";
-import type {ButtonSizes} from "../../types";
-import {makeBoolean, makeSize, makeString, makeTag} from "../../composables/useProps";
+import type {ButtonSizes} from "@/types";
+import {makeBoolean, makeSize, makeString, makeTag} from "@/composables/useProps";
 
 const props = defineProps({
     tag: makeTag("div"),

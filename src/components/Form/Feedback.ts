@@ -1,14 +1,6 @@
-// <template>
-//     <component :is="tag" :class="{[type + '-feedback']: type}">
-//         <slot>
-//             {{ message }}
-//         </slot>
-//     </component>
-// </template>
-
 import {defineComponent, h, PropType} from "vue";
-import type {FeedbackTypes} from "../../types";
-import {makeString, makeTag} from "../../composables/useProps";
+import type {FeedbackTypes} from "@/types";
+import {makeString, makeTag} from "@/composables/useProps";
 
 export default defineComponent({
     props: {

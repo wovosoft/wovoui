@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import DropdownHeader from "./DropdownHeader.vue";
-import {makeString, makeTag} from "../../composables/useProps";
+import {makeString, makeTag} from "@/composables/useProps";
 
 defineProps({
     header: makeString(),

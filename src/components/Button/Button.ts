@@ -1,15 +1,12 @@
-import {computed, defineComponent, getCurrentInstance, h, resolveComponent} from "vue";
-
-import type {ButtonSizes} from "../../types";
-import {RouteLocationRaw} from "vue-router";
-import {makeBoolean, makeProp, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
+import {defineComponent, h, inject} from "vue";
+import type {ButtonSizes} from "@/types";
+import {makeBoolean, makeProp, makeSize, makeString, makeTag, makeVariant} from "@/composables/useProps";
 
 
 export default defineComponent({
     props: {
         tag: makeTag("button"),
         href: makeString(null),
-        to: makeProp<RouteLocationRaw>(null, Object),
         variant: makeVariant('secondary'),
         size: makeSize<ButtonSizes>(null),
         type: makeProp<'button' | 'submit'>("button", String),
@@ -26,35 +23,26 @@ export default defineComponent({
         noStyle: makeBoolean(false)
     },
     setup(props, {slots}) {
-        const isVueRouterInstalled = computed(() => {
-            return !!getCurrentInstance().appContext.config.globalProperties.$router;
-        });
+        //data comes from ButtonGroup
+        const isGroupOutlined = inject<boolean>('outline', false);
+
 
         return () => {
             const type = () => {
-                if (props.link || props.href || props.to) {
+                if (getTag() !== 'button') {
                     return null;
                 }
                 if (props.type) {
                     return props.type;
                 }
-                if (props.tag === "button" && !props.type) {
+                if (getTag() === "button" && !props.type) {
                     return "button";
                 }
 
                 return props.type;
             };
 
-            const getTag = () => {
-                if (props.href) {
-                    return "a";
-                }
-
-                if (props.to && isVueRouterInstalled.value) {
-                    return resolveComponent("router-link");
-                }
-                return props.tag;
-            }
+            const getTag = () => props.href ? "a" : props.tag;
 
 
             return h(
@@ -64,13 +52,11 @@ export default defineComponent({
                     ariaPressed: props.pressed,
                     autocomplete: props.pressed ? "off" : null,
                     type: type(),
-                    //directly using href on router-link removes generated href by router-link
-                    ...(props.to ? {to: props.to} : {href: props.href}),
                     class: !props.noStyle ? [
                         "btn",
                         {
                             disabled: props.disabled && props.tag === "a",
-                            ["btn-" + (props.outline ? "outline-" : "") + props.variant]: !!props.variant,
+                            ["btn-" + ((props.outline || isGroupOutlined) ? "outline-" : "") + props.variant]: !!props.variant,
                             ["btn-" + props.size]: !!props.size,
                             "w-100": props.block,
                             "rounded-pill": props.pill,
@@ -81,7 +67,7 @@ export default defineComponent({
                     ] : [],
                     role: props.tag === "a" ? "button" : null,
                 },
-                props.to ? slots.default : slots.default?.()
+                slots.default?.()
             );
         }
     },

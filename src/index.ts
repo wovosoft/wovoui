@@ -22,7 +22,7 @@ export {default as CardLink} from "./components/Card/CardLink";
 export {default as CardSubTitle} from "./components/Card/CardSubTitle";
 export {default as CardText} from "./components/Card/CardText"
 export {default as CardTitle} from "./components/Card/CardTitle";
-export {default as Chart} from "./components/Ui/Chart.vue";
+// export {default as Chart} from "./components/Ui/Chart.vue";
 export {default as Checkbox} from "./components/Form/Checkbox.vue";
 export {default as CheckboxGroup} from "./components/Form/CheckboxGroup.vue";
 export {default as Col} from "./components/Layout/Col";
@@ -72,7 +72,7 @@ export {default as OffcanvasTitle} from "./components/Offcanvas/OffcanvasTitle";
 export {default as Popover} from "./components/Notification/Popover.vue";
 export {default as Radio} from "./components/Form/Radio.vue";
 export {default as RadioGroup} from "./components/Form/RadioGroup.vue";
-export {default as Range} from "./components/Form/Range";
+export {default as Range} from "./components/Form/Range.vue";
 export {default as Rating} from "./components/Form/Rating.vue";
 export {default as Row} from "./components/Layout/Row";
 export {default as Select} from "./components/Form/Select.vue";

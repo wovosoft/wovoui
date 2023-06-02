@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import {makeTag} from "../../composables/useProps";
+import {makeTag} from "@/composables/useProps";
 
 defineProps({
     wrapper: makeTag("li"),

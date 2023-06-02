@@ -3,28 +3,63 @@
     "types": [
       "vite/client"
     ],
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
     "allowJs": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    /* Bundler mode */
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "importHelpers": true,
     "declaration": true,
     "declarationDir": "dist",
     "emitDeclarationOnly": true,
     "outDir": "dist",
     "declarationMap": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
     "baseUrl": ".",
+    "rootDirs": [
+      "src"
+    ],
+    "typeRoots": [
+      "src/types"
+    ],
     "paths": {
-      "@": [
+      "@/*": [
         "src/*"
       ]
-    }
+    },
+    //    "noEmit": true,
+    "jsx": "preserve",
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src/**/*"
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "public"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
   ]
 }
