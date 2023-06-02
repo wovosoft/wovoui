@@ -54,7 +54,7 @@ import {nextTick, onBeforeUnmount, PropType, Ref, ref, watch} from "vue";
 import {Trash} from "@wovosoft/wovoui-icons";
 import Button from "../Button/Button";
 import DropdownMenu from "../Dropdown/DropdownMenu.vue";
-import Input from "./Input";
+import Input from "./Input.vue";
 import type {ButtonSizes} from "../../types";
 import InputGroup from "./InputGroup.vue";
 import {makeBoolean, makeSize, makeString} from "../../composables/useProps";

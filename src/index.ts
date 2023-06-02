@@ -44,7 +44,7 @@ export {default as Feedback} from "./components/Form/Feedback";
 export {default as Grid} from "./components/Layout/Grid";
 export {default as GridCol} from "./components/Layout/GridCol";
 export {default as Icon} from "./components/Ui/Icon";
-export {default as Input} from "./components/Form/Input";
+export {default as Input} from "./components/Form/Input.vue";
 export {default as InputGroup} from "./components/Form/InputGroup.vue";
 export {default as InputGroupText} from "./components/Form/InputGroupText";
 export {default as Link} from "./components/Navigation/Link";

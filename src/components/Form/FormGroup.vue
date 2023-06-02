@@ -1,7 +1,9 @@
 <template>
     <component :is="tag" :class="classes" role="group">
-        <slot v-if="floating && !horizontal"></slot>
-        <FeedbackMessages/>
+        <template v-if="floating && !horizontal">
+            <slot></slot>
+            <FeedbackMessages :invalid="invalidFeedback" :valid="validFeedback"/>
+        </template>
 
         <FormLabel
             v-if="label || $slots.label"
@@ -15,36 +17,28 @@
                 {{ label }}
             </slot>
         </FormLabel>
-        <slot v-if="!floating && !horizontal"></slot>
-        <FeedbackMessages/>
-        <div v-if="horizontal" :class="contentClasses">
+
+        <template v-if="!floating && !horizontal">
             <slot></slot>
-            <FeedbackMessages/>
+            <FeedbackMessages :invalid="invalidFeedback" :valid="validFeedback"/>
+        </template>
+
+        <div v-else-if="horizontal" :class="contentClasses">
+            <slot></slot>
+            <FeedbackMessages :invalid="invalidFeedback" :valid="validFeedback"/>
         </div>
     </component>
 </template>
 
+
 <script lang="ts" setup>
-import {computed, defineComponent, h} from "vue";
+import {computed} from "vue";
 import type {ResponsiveNumbers} from "../../types";
-import {Feedback, FormLabel} from "../../";
+import {FormLabel} from "../../";
 import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useProps";
+import FeedbackMessages from "./FeedbackMessages.vue";
 
-const FeedbackMessages = defineComponent({
-    setup() {
-        if ((!props.validFeedback && !props.invalidFeedback)) {
-            return () => null;
-        }
-        return () => [
-            //valid feedback
-            (props.validFeedback) ? h(Feedback, {type: 'valid', message: props.validFeedback}) : null,
-            //invalid feedback
-            (props.invalidFeedback) ? h(Feedback, {type: 'invalid', message: props.invalidFeedback}) : null,
-        ]
-    }
-});
-
-const props = defineProps({
+const {validFeedback, invalidFeedback, ...props} = defineProps({
     tag: makeTag("div"),
     floating: makeBoolean(false),
     label: makeString(),

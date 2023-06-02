@@ -1,5 +1,15 @@
 <template>
     <div>
+        <h4>Form Group</h4>
+        <FormGroup
+            label="This is label"
+            floating
+            :valid-feedback="messages.valid"
+            :invalid-feedback="messages.invalid">
+            <Input :state="true" v-model="messages.valid"/>
+        </FormGroup>
+
+
         <h3>Default</h3>
         <Input v-model="model" placeholder="Default Input"/>
 
@@ -59,12 +69,16 @@
 <script lang="ts" setup>
 
 import {
-    Input, Radio, FormGroup, Feedback,
-    Range, Rating, Col, Row
+    Input, Radio, FormGroup, Feedback, Rating, Col, Row, Range
 } from "../../src";
-import {ref} from "vue";
+import {reactive, ref} from "vue";
 
 const model = ref(123);
 const range = ref(65);
 const radio = ref('three');
+
+const messages = reactive({
+    valid: "Valid Message",
+    invalid: "Invalid Message"
+});
 </script>

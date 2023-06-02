@@ -88,6 +88,6 @@ export const isObject = (obj) => typeof obj === "object" && !Array.isArray(obj);
 export const isArray = (arr) => Array.isArray(arr);
 export const title = (str) => startCase(toLower(str));
 
-export function orderBy(items: object[] | string[], key: string, order: boolean = false) {
+export function orderBy(items: object[] | string[], key: string, order: 'asc' | 'desc') {
     return items.sort((a, b) => a[key].localeCompare(b[key]));
 }

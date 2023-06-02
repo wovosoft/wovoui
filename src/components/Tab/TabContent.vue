@@ -8,11 +8,6 @@
 import {makeTag} from "../../composables/useProps";
 
 defineProps({
-    /**
-     * @description Element Tag Name
-     * @type String
-     * @default div
-     */
     tag: makeTag("div")
 });
 </script>

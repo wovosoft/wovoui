@@ -21,18 +21,7 @@ import {getTransitionDurationFromElement} from "../../composables/useTransition"
 import {makeBoolean, makeString} from "../../composables/useProps";
 
 const props = defineProps({
-    /**
-     * @description Active Tab
-     * @type boolean
-     * @default false
-     */
     active: makeBoolean(false),
-
-    /**
-     * @description Tab Menu Title
-     * @type string
-     * @default null
-     */
     title: makeString()
 });
 
