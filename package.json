@@ -1,7 +1,7 @@
 {
   "name": "wovoui",
   "private": true,
-  "version": "0.4.52",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
