@@ -1,13 +1,6 @@
-// <template>
-//     <div :class="classes" role="status">
-//         <span class="visually-hidden">Loading...</span>
-//     </div>
-// </template>
-
 import {defineComponent, h} from "vue";
-import type {ButtonSizes} from "../../types";
-import {makeBoolean, makeSize, makeVariant} from "../../composables/useProps";
-
+import type {ButtonSizes} from "@/types";
+import {makeBoolean, makeSize, makeVariant} from "@/composables";
 
 export default defineComponent({
     props: {

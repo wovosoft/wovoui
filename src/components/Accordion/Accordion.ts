@@ -1,4 +1,4 @@
-import {defineComponent, h, reactive, ref, provide,  Ref} from "vue";
+import {defineComponent, h, provide, reactive, ref, Ref} from "vue";
 import accordionProps from "@/shared/accordionProps";
 import {getBinaryClasses} from "@/composables/useClasses";
 

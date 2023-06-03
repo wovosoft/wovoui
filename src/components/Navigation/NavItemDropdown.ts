@@ -1,7 +1,7 @@
 import {Dropdown} from "../../";
 import dropdownProps from "../../shared/dropdownProps";
 import {defineComponent, h} from "vue";
-import {makeBoolean, makeTag} from "../../composables/useProps";
+import {makeBoolean, makeTag} from "@/composables";
 
 export default defineComponent({
     name: "NavItemDropdown",

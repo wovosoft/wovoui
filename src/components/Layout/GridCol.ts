@@ -1,6 +1,6 @@
 import {defineComponent, h} from "vue";
-import type {ResponsiveNumbers} from "../../types";
-import {makeProp, makeTag} from "../../composables/useProps";
+import type {ResponsiveNumbers} from "@/types";
+import {makeProp, makeTag} from "@/composables";
 
 export default defineComponent({
     name: "GridCol",

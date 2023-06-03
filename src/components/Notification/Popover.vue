@@ -15,9 +15,9 @@
 </template>
 
 <script lang="ts">
-import {computed, ref, watch, defineComponent, PropType} from "vue";
+import {computed, defineComponent, PropType, ref, watch} from "vue";
 import {createPopper} from "@popperjs/core";
-import {makeBoolean, makeString} from "../../composables/useProps";
+import {makeBoolean, makeString} from "@/composables";
 
 export default defineComponent({
     name: "Popover",

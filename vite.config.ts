@@ -1,7 +1,12 @@
+//https://raulmelo.dev/en/blog/build-javascript-library-with-multiple-entry-points-using-vite-3
+
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 // vite.config.js
 import {resolve} from 'path'
+
+import entry_points from "./entry_points";
+
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
@@ -12,12 +17,7 @@ export default defineConfig({
         // cssCodeSplit: true,
         lib: {
             // Could also be a dictionary or array of multiple entry points
-            entry: {
-                index: resolve(__dirname, 'src/index.ts'),
-                composables: resolve(__dirname, 'src/composables/index.ts'),
-                directives: resolve(__dirname, 'src/directives/index.ts'),
-                shared: resolve(__dirname, 'src/shared/index.ts'),
-            },
+            entry: entry_points,
             name: 'wovoui',
             formats: ["es", "cjs"],
         },

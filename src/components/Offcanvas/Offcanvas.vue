@@ -34,12 +34,12 @@
 </template>
 
 <script lang="ts" setup>
-import type {ColorVariants, TooltipPlacement} from "../../types";
-import {makeBoolean, makeString} from "../../composables/useProps";
+import type {ColorVariants, TooltipPlacement} from "@/types";
+import {makeBoolean, makeString} from "@/composables";
 //constants
-import {getTransitionDurationFromElement} from "../../composables/useTransition";
+import {getTransitionDurationFromElement} from "@/composables";
 import {computed, PropType, ref, watch} from "vue";
-import {OffcanvasHeader, OffcanvasBody} from "../..";
+import {OffcanvasBody, OffcanvasHeader} from "@/components";
 
 
 const isShowing = ref<boolean>(false);  //for 'showing' class
@@ -91,19 +91,19 @@ const theElement = ref<HTMLElement>();
 const mayBeTriEl = ref<Element | HTMLElement>();
 const show = () => {
     mayBeTriEl.value = document.activeElement;
-
+    
     activeBackdrop.value = true;
     showBackdrop.value = true;
     isShowing.value = true;
-
+    
     if (!props.enableBodyScroll) {
         document.body.style.overflow = "hidden";
         document.body.style.paddingRight = props.scrollbarPadding;
     }
-
+    
     emit("update:modelValue", true);
     emit("showing", true);
-
+    
     setTimeout(() => {
         isShowing.value = false;
         isShown.value = true;
@@ -120,14 +120,14 @@ const hide = () => {
         document.body.style.overflow = "";
         document.body.style.paddingRight = "";
     }
-
+    
     isHiding.value = true;
     showBackdrop.value = false;
-
+    
     emit("update:modelValue", false);
     emit("hiding", true);
-
-
+    
+    
     setTimeout(() => {
         activeBackdrop.value = false;
         isHiding.value = false;
@@ -159,7 +159,7 @@ const classes = computed(() => {
     //converts start/left ==> start, right/end == end wrt. bootstrap >=5.5.2
     let placement = ['start', 'left'].includes(props.placement) ? "start"
         : ["right", "end"].includes(props.placement) ? "end" : props.placement;
-
+    
     return [
         "offcanvas",
         {

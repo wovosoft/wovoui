@@ -7,25 +7,24 @@
                     <Th
                         v-if="isVisible(th)"
                         @click="applySorting(th)"
-                        :style="{'cursor':(typeof th ==='string' || th.sortable === true) ? 'pointer' : null}"
+                        class="d-flex"
+                        :style="{'cursor':(typeof th ==='string' || th?.['sortable'] === true) ? 'pointer' : null}"
                         :key="th_index">
-                        <Flex>
-                            <FlexItem class="flex-grow-1" :class="typeof th ==='string' ? null:th.thClass">
-                                <slot :name="`head(${typeof th ==='string' ? th : th.key})`"
-                                      :column="getKey(th)"
-                                      :field="th"
-                                      :index="th_index"
-                                      :label="getLabel(th)"
-                                      :sortBy="sorting.sortBy"
-                                      :sort="sorting.sort">
-                                    {{ getLabel(th) }}
-                                </slot>
-                            </FlexItem>
-                            <FlexItem v-if="typeof th==='object' && th.sortable===true">
-                                <SortDown v-if="sorting.sortBy===th.key && sorting.sort==='asc'"/>
-                                <SortUp v-else/>
-                            </FlexItem>
-                        </Flex>
+                        <FlexItem class="flex-grow-1" :class="typeof th ==='string' ? null:th?.['thClass']">
+                            <slot :name="`head(${getKey(th)})`"
+                                  :column="getKey(th)"
+                                  :field="th"
+                                  :index="th_index"
+                                  :label="getLabel(th)"
+                                  :sortBy="sorting.sortBy"
+                                  :sort="sorting.sort">
+                                {{ getLabel(th) }}
+                            </slot>
+                        </FlexItem>
+                        <FlexItem v-if="typeof th==='object' && th?.['sortable']===true">
+                            <SortDown v-if="sorting.sortBy===th?.['key'] && sorting.sort==='asc'"/>
+                            <SortUp v-else/>
+                        </FlexItem>
                     </Th>
                 </template>
             </Tr>
@@ -34,7 +33,7 @@
         <TBody :class="bodyClass" :variant="bodyVariant">
         <Tr v-for="(row,row_index) in itemsSorted" :key="row_index">
             <template v-for="(th,th_index) in fields">
-                <Td :key="th_index" v-if="isVisible(th)" :class="typeof th==='object'?th.tdClass:null">
+                <Td :key="th_index" v-if="isVisible(th)" :class="typeof th==='object'?th['tdClass']:null">
                     <slot :name="`cell(${getKey(th)})`"
                           :item="row"
                           :index="row_index"
@@ -64,8 +63,7 @@ import tableProps from "../../shared/tableProps";
  * Uncaught ReferenceError: Cannot access 'Td' before initialization
  * I DON'T KNOW WHY
  */
-import FlexItem from "../Layout/FlexItem.js"
-import Flex from "../Layout/Flex.js"
+import FlexItem from "../Layout/FlexItem"
 import Table from "./../Table/Table"
 import THead from "./../Table/THead"
 import TBody from "./../Table/TBody"
@@ -147,8 +145,8 @@ const {
 } = props;
 
 const sorting = ref<{
-    sortBy: string,
-    sort: 'asc' | 'desc'
+    sortBy: string | null,
+    sort: 'asc' | 'desc' | null
 }>({
     sortBy: null,
     sort: null
@@ -181,6 +179,10 @@ const getLabel = (th) => {
 
 const filterableColumns = computed(() => {
     let cols = [];
+    if (!Array.isArray(props.fields)) {
+        return cols;
+    }
+
     props.fields.forEach(i => {
         if (typeof i === "string") {
             cols.push(i);
@@ -194,6 +196,7 @@ const filterableColumns = computed(() => {
 
 const itemsSorted = computed(() => {
     if (sorting.value.sortBy) {
+        //@ts-ignore
         return orderBy(props.items, sorting.value.sortBy, sorting.value.sort);
     }
     if (Array.isArray(props.items)) {

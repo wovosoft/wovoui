@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 //https://gist.github.com/Jonarod/8553d88b1b0d1e1898ff1b5c951b00cc
-import {computed, PropType, useModel} from "vue";
+import {computed, useModel} from "vue";
 import {uid} from "@/composables/useHelpers";
 import {makeBoolean, makeString} from "@/composables/useProps";
 

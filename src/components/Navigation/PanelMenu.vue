@@ -33,10 +33,10 @@
 
 <script lang="ts" setup>
 import {onBeforeMount, PropType, ref, watch} from "vue";
-import type {ColorVariants, MenuItem} from "../../types";
-import {Button, Collapse, Icon, ListGroup, ListGroupItem} from "../..";
+import type {ColorVariants, MenuItem} from "@/types";
+import {Button, Collapse, Icon, ListGroup, ListGroupItem} from "@/components";
 import {ChevronDown, ChevronRight, ChevronUp} from "@wovosoft/wovoui-icons";
-import {makeBoolean} from "../../composables/useProps";
+import {makeBoolean} from "@/composables";
 
 
 const emit = defineEmits<{

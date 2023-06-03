@@ -33,7 +33,7 @@ import Accordion from "../Accordion/Accordion";
 import AccordionItem from "../Accordion/AccordionItem.vue";
 import {ChevronRight} from "@wovosoft/wovoui-icons";
 import accordionProps from "../../shared/accordionProps";
-import {makeBoolean} from "../../composables/useProps";
+import {makeBoolean} from "@/composables";
 
 type itemType = {
     title?: string,

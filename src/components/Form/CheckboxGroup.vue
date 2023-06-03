@@ -15,9 +15,9 @@
 </template>
 
 <script lang="ts" setup>
-import {Checkbox} from "../..";
+import Checkbox from "./Checkbox.vue";
 import {PropType} from "vue";
-import {makeBoolean, makeString} from "../../composables/useProps";
+import {makeBoolean, makeString} from "@/composables";
 
 const props = defineProps({
     modelValue: {default: null},

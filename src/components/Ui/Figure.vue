@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 
-import {makeBoolean, makeString} from "../../composables/useProps";
+import {makeBoolean, makeString} from "@/composables";
 
 defineProps({
     /**

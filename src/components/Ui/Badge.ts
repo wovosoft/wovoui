@@ -1,8 +1,6 @@
-import {reactive, defineComponent, h} from "vue";
-import type {BadgePositions} from "../../types";
-import {
-    makeBoolean, makeProp, makeString, makeTag, makeVariant
-} from "../../composables/useProps";
+import {defineComponent, h, reactive} from "vue";
+import type {BadgePositions} from "@/types";
+import {makeBoolean, makeProp, makeString, makeTag, makeVariant} from "@/composables";
 
 /**
  * @link https://getbootstrap.com/docs/5.2/components/badge/
@@ -62,7 +60,7 @@ export default defineComponent({
         content: makeProp<string | number>(null, [String, Number])
     },
     setup(props, {slots}) {
-        const attributes = reactive({
+        const attributes = reactive<{ href: string | null, target: string | null }>({
             href: null,
             target: null
         });

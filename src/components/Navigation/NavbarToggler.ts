@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import {makeBoolean} from "../../composables/useProps";
+import {makeBoolean} from "@/composables";
 
 export default defineComponent({
     name: "NavbarToggler",

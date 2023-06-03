@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import {makeBoolean, makeString} from "../../composables/useProps";
+import {makeBoolean, makeString} from "@/composables";
 
 export default defineComponent({
     name: "PageLink",

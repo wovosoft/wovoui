@@ -11,9 +11,9 @@
 
 <script lang="ts" setup>
 import {computed, getCurrentInstance, PropType} from "vue";
-import type {ClassTypes} from "../../types";
+import type {ClassTypes} from "@/types";
 import {RouteRecordRaw} from "vue-router";
-import {makeBoolean, makeString} from "../../composables/useProps";
+import {makeBoolean, makeString} from "@/composables";
 
 
 type linkAttributesType = {

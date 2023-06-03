@@ -16,7 +16,7 @@
 <script lang="ts" setup>
 import {NavLink} from "./../..";
 import {RouteRecordRaw} from "vue-router";
-import {makeBoolean, makeProp, makeString, makeTag} from "../../composables/useProps";
+import {makeBoolean, makeProp, makeString, makeTag} from "@/composables";
 
 defineProps({
     tag: makeTag("li"),

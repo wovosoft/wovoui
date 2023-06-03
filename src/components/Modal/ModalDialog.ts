@@ -1,6 +1,6 @@
 import {defineComponent, h, PropType} from "vue";
-import type {ModalSizes, ModalFullScreen} from "../../types";
-import {makeBoolean, makeSize, makeTag} from "../../composables/useProps";
+import type {ModalFullScreen, ModalSizes} from "@/types";
+import {makeBoolean, makeSize, makeTag} from "@/composables";
 
 export default defineComponent({
     props: {
@@ -18,6 +18,6 @@ export default defineComponent({
                 "modal-dialog-scrollable": props.scrollable,
                 "modal-dialog-centered": props.centered
             }],
-        }, slots?.default())
+        }, slots?.default?.())
     }
 })

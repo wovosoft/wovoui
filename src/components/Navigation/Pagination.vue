@@ -3,8 +3,8 @@
         <slot v-if="$slots.default"></slot>
         <template v-else-if="pageCount<=(firstColPageCount + centerColPageCount + lastColPageCount)">
             <PageItem v-for="page in pageCount"
-                      @click.prevent="state=page"
-                      :active="state===page">
+                      :active="state===page"
+                      @click.prevent="state=page">
                 {{ page }}
             </PageItem>
         </template>
@@ -12,20 +12,20 @@
             <template v-if="firstBlock.length>0">
                 <template v-for="page in firstBlock">
                     <PageItem v-if="page<=pageCount"
-                              @click.prevent="state=page"
-                              :active="state===page">
+                              :active="state===page"
+                              @click.prevent="state=page">
                         {{ page }}
                     </PageItem>
                 </template>
-                <PageItem disabled v-if="centerBlock.length>0">
+                <PageItem v-if="centerBlock.length>0" disabled>
                     <ThreeDots/>
                 </PageItem>
             </template>
             <template v-if="pageCount > firstColPageCount">
                 <template v-for="page in centerBlock">
                     <PageItem v-if="page<=pageCount && !lastBlock.includes(page) && !firstBlock.includes(page)"
-                              @click.prevent="state=page"
-                              :active="state===page">
+                              :active="state===page"
+                              @click.prevent="state=page">
                         {{ page }}
                     </PageItem>
                 </template>
@@ -36,8 +36,8 @@
                 </PageItem>
                 <template v-for="page in lastBlock">
                     <PageItem v-if="page<=pageCount"
-                              @click.prevent="state=page"
-                              :active="state===page">
+                              :active="state===page"
+                              @click.prevent="state=page">
                         {{ page }}
                     </PageItem>
                 </template>
@@ -50,24 +50,24 @@
 import {computed, defineComponent, PropType, ref, watch} from "vue";
 import PageItem from "./PageItem.vue";
 import {ThreeDots} from "@wovosoft/wovoui-icons";
-import type {ButtonSizes} from "../../types";
-import {makeNumber, makeSize} from "../../composables/useProps";
+import type {ButtonSizes} from "@/types";
+import {makeNumber, makeSize} from "@/composables";
 
 export default defineComponent({
     name: "Pagination",
     components: {PageItem, ThreeDots},
-    emits: ["update:modelValue", "update:currentPage","change"],
+    emits: ["update:modelValue", "update:currentPage", "change"],
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'ul'},
         modelValue: makeNumber(1),
-
+        
         totalRows: makeNumber(0),
         perPage: {type: Number as PropType<number>, default: 15},
         currentPage: makeNumber(1),
-
+        
         size: makeSize<ButtonSizes>(null),
         align: {type: String as PropType<'center' | 'end' | 'right' | null>, default: null},
-
+        
         firstColPageCount: {type: Number as PropType<number>, default: 3},
         centerColPageCount: {type: Number as PropType<number>, default: 3},
         lastColPageCount: {type: Number as PropType<number>, default: 3},
@@ -80,17 +80,17 @@ export default defineComponent({
             context.emit('update:currentPage', page);
             context.emit('change', page);
         });
-
+        
         watch(() => props.currentPage, page => state.value = page);
         watch(() => props.modelValue, page => state.value = page);
-
+        
         const pageCount = computed(() => {
             if (Number(props.perPage)) {
                 return Math.ceil(Number(props.totalRows) / Number(props.perPage))
             }
             return 0;
         });
-
+        
         const firstBlock = computed(() => {
             if (pageCount.value < props.firstColPageCount) {
                 return [...Array(pageCount.value).keys()].map(i => i + 1)
@@ -113,14 +113,14 @@ export default defineComponent({
             if (state.value > props.firstColPageCount && state.value < (pageCount.value - props.lastColPageCount)) {
                 for (let x = 0; x < props.centerColPageCount; x++) {
                     if (props.centerColPageCount % 2 === 0) {
-
+                    
                     }
                     items.push(x - 1);
                 }
             }
             return items.map(i => i + state.value);
         });
-
+        
         const lastBlock = computed(() => {
             if (pageCount.value >= (props.firstColPageCount + props.centerColPageCount)) {
                 let items = [];

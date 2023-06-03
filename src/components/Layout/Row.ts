@@ -1,11 +1,6 @@
-import {defineComponent, PropType, h} from "vue";
-import type {
-    ColAlignments,
-    ColSizes,
-    JustifyContentAlignments,
-    ResponsiveNumbers
-} from "../../types";
-import {makeProp, makeTag} from "../../composables/useProps";
+import {defineComponent, h, PropType} from "vue";
+import type {ColAlignments, ColSizes, JustifyContentAlignments, ResponsiveNumbers} from "@/types";
+import {makeProp, makeTag} from "@/composables";
 
 export default defineComponent({
     name: "Row",

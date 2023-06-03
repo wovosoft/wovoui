@@ -1,6 +1,6 @@
 import {defineComponent, h} from "vue";
-import type {ResponsiveSizes} from "../../types";
-import {makeBoolean, makeSize, makeTag} from "../../composables/useProps";
+import type {ResponsiveSizes} from "@/types";
+import {makeBoolean, makeSize, makeTag} from "@/composables";
 
 export default defineComponent({
     name: "Container",

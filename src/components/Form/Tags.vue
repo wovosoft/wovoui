@@ -29,11 +29,11 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, ref, watch, defineComponent, PropType} from "vue";
+import {computed, PropType, ref, watch} from "vue";
 import {X} from "@wovosoft/wovoui-icons";
 import type {ButtonSizes} from "@/types";
-import {makeBoolean, makeRole, makeSize, makeString, makeTag, makeVariant} from "@/composables/useProps";
-import {Input, Button, Badge} from "@/";
+import {makeBoolean, makeRole, makeSize, makeString, makeTag, makeVariant} from "@/composables";
+import {Badge, Button, Input} from "@/";
 
 const props = defineProps({
     tag: makeTag("ul"),

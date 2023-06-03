@@ -26,9 +26,9 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
-
-const placement = ref('left')
-import {Dropdown, DropdownItem, DropdownDivider, Button} from "@/";
+import {Button, Dropdown, DropdownDivider, DropdownItem} from "@/";
 import Select from "@/components/Form/Select.vue";
 import ButtonGroup from "@/components/Button/ButtonGroup.vue";
+
+const placement = ref('left')
 </script>

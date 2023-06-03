@@ -50,11 +50,11 @@
 
 import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
 import DropdownMenu from "./DropdownMenu.vue";
-import {Button} from "../../index";
+import {Button} from "@/components/Button";
 import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
 import {ButtonSizes, ColorVariants, DropdownAlignments, DropdownDirections} from "@/types";
-import usePopper from "../../composables/usePopper";
-import NavLink from "../Navigation/NavLink.vue";
+import usePopper from "@/composables/usePopper";
+import NavLink from "@/components/Navigation/NavLink.vue";
 
 type DropdownType = {
     tag?: keyof HTMLElementTagNameMap,
@@ -73,7 +73,7 @@ type DropdownType = {
     align?: DropdownAlignments,
     menuDark?: boolean,
     menuClass?: string | object | any[] | null,
-
+    
     split?: boolean,
     isNav?: boolean,
     disableInnerClicks?: boolean,

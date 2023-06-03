@@ -25,7 +25,7 @@
 <script lang="ts" setup>
 import {colors} from "@/demo/assets";
 
-import {Container, Alert, Button} from "@/";
+import {Alert, Button, Container} from "@/";
 import {reactive} from "vue";
 
 const shows = reactive({});

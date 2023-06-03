@@ -5,8 +5,8 @@
     </component>
 </template>
 <script lang="ts" setup>
-import {computed, PropType, watch} from "vue";
-import {vOnClickOutside} from "../../directives";
+import {PropType} from "vue";
+import {vOnClickOutside} from "@/directives";
 
 const props = defineProps({
     tag: {

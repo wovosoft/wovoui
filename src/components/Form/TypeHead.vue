@@ -51,12 +51,12 @@
 
 <script lang="ts" setup>
 import {computed, nextTick, onMounted, PropType, ref, Ref, useSlots, watch} from "vue";
-import type {ButtonSizes, TextAlign} from "../../types";
-import {Input, DropdownMenu, InputGroup} from "../../";
-import vOnClickOutside from "../../directives/vOnClickOutside";
+import type {ButtonSizes, TextAlign} from "@/types";
+import {DropdownMenu, Input, InputGroup} from "@/";
+import {vOnClickOutside} from "@/directives";
 import axios from "axios";
-import usePopper from "../../composables/usePopper";
-import {makeBoolean, makeProp, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
+import usePopper from "@/composables/usePopper";
+import {makeBoolean, makeProp, makeSize, makeString, makeTag, makeVariant} from "@/composables";
 
 const props = defineProps({
     apiUrl: makeString(null),

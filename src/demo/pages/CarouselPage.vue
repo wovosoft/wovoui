@@ -31,5 +31,5 @@
 </template>
 
 <script lang="ts" setup>
-import {Carousel, CarouselItem, CarouselCaption} from "@/";
+import {Carousel, CarouselCaption, CarouselItem} from "@/";
 </script>

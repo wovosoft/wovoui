@@ -39,7 +39,7 @@
 <script lang="ts">
 import {computed, defineComponent, provide, Ref, ref} from "vue";
 import {ChevronLeft, ChevronRight} from "@wovosoft/wovoui-icons";
-import {makeBoolean, makeNumber, makeProp, makeTag} from "../../composables/useProps";
+import {makeBoolean, makeNumber, makeProp, makeTag} from "@/composables";
 import CarouselInner from "./CarouselInner"
 import CarouselIndicators from "./CarouselIndicators"
 

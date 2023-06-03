@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import {makeBoolean, makeTag, makeVariant} from "../../composables/useProps";
+import {makeBoolean, makeTag, makeVariant} from "@/composables";
 
 export default defineComponent({
     name: "ModalFooter",

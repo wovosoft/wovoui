@@ -19,10 +19,7 @@ import {inject, Ref, ref, watch} from "vue";
 import AccordionHeader from "./AccordionHeader.vue";
 import AccordionBody from "./AccordionBody";
 import Collapse from "./Collapse";
-import type {
-    setActiveItem as setActiveItemType,
-    registerItem as registerItemType
-} from "../../types";
+import type {registerItem as registerItemType, setActiveItem as setActiveItemType} from "../../types";
 import {makeBoolean, makeClass, makeString} from "@/composables/useProps";
 
 const props = defineProps({

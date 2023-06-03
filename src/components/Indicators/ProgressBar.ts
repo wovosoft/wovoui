@@ -1,6 +1,5 @@
 import {defineComponent, h} from "vue";
-import {makeBoolean, makeNumber, makeTag, makeVariant} from "../../composables/useProps";
-
+import {makeBoolean, makeNumber, makeTag, makeVariant} from "@/composables";
 
 export default defineComponent({
     props: {

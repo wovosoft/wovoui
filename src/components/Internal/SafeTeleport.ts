@@ -1,5 +1,4 @@
-import {defineComponent, h, Teleport} from "vue";
-import {PropType} from "vue";
+import {defineComponent, h, PropType, Teleport} from "vue";
 import {RendererElement} from "@vue/runtime-core";
 
 /**

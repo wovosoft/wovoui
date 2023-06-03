@@ -98,14 +98,8 @@ import Row from "../Layout/Row";
 import Col from "../Layout/Col";
 import Button from "../Button/Button";
 import InputGroup from "./InputGroup.vue";
-import {
-    ChevronLeft,
-    ChevronRight,
-    CircleFill,
-    ChevronDoubleRight,
-    ChevronDoubleLeft
-} from "@wovosoft/wovoui-icons";
-import {makeBoolean, makeProp, makeString} from "../../composables/useProps";
+import {ChevronDoubleLeft, ChevronDoubleRight, ChevronLeft, ChevronRight, CircleFill} from "@wovosoft/wovoui-icons";
+import {makeBoolean, makeProp, makeString} from "@/composables";
 
 dayjs.extend(localData);
 dayjs.extend(isToday);

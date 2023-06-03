@@ -1,7 +1,6 @@
 import {defineComponent, h, PropType} from "vue";
-import type {ResponsiveNumbers, PlaceholderSizes} from "../../types";
-import {makeBoolean, makeProp, makeTag, makeVariant} from "../../composables/useProps";
-import {getBinaryClasses} from "../../composables/useClasses";
+import type {PlaceholderSizes, ResponsiveNumbers} from "@/types";
+import {getBinaryClasses, makeBoolean, makeProp, makeTag, makeVariant} from "@/composables";
 
 /**
  * @description Placeholder Component

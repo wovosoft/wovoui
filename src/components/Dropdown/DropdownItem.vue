@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, getCurrentInstance} from "vue";
+import {computed} from "vue";
 import {RouteRecordRaw} from "vue-router";
 import {makeBoolean, makeProp, makeString, makeTag} from "@/composables/useProps";
 

@@ -11,5 +11,5 @@
 </template>
 
 <script lang="ts" setup>
-import {ProgressBar, Progress, Container} from "@/";
+import {Container, Progress, ProgressBar} from "@/";
 </script>

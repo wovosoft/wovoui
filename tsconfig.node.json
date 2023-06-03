@@ -6,5 +6,8 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "entry_points.ts",
+    "vite.config.ts"
+  ]
 }

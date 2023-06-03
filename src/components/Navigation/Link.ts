@@ -3,7 +3,7 @@
  * e.g. vue-router, inertia router, nuxt router etc
  */
 import {defineComponent, h, PropType} from "vue";
-import {makeString} from "../../composables/useProps";
+import {makeString} from "@/composables";
 
 export default defineComponent({
     name: "Link",

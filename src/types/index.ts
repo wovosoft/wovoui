@@ -82,7 +82,7 @@ export interface MenuItem {
 export type setActiveItem = (item: Ref<boolean>) => void
 export type registerItem = (item: Ref<boolean>) => void
 
-export * from "./../index";
+export * from "@/index";
 
 declare module "vue" {
     // tells Vue about a custom global property/method

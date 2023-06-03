@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, inject, Ref, ref, watch} from "vue";
-import {makeBoolean, makeString, makeTag} from "../../composables/useProps";
+import {makeBoolean, makeString, makeTag} from "@/composables";
 
 type registerItemType = (visible: Ref<boolean>) => void;
 

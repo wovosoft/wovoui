@@ -16,8 +16,8 @@
 
 <script lang="ts" setup>
 import {PropType} from "vue";
-import {ButtonClose, OffcanvasTitle} from "../../index";
-import {makeBoolean, makeString} from "../../composables/useProps";
+import {ButtonClose, OffcanvasTitle} from "@/components";
+import {makeBoolean, makeString} from "@/composables";
 
 defineProps({
     modelValue: makeBoolean(false),

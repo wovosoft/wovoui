@@ -1,6 +1,6 @@
 import {defineComponent, h} from "vue";
-import {makeString, makeTag, makeTextVariant} from "../../composables/useProps";
-import {getBinaryClasses} from "../../composables/useClasses";
+import {getBinaryClasses, makeString, makeTag, makeTextVariant} from "@/composables";
+
 
 export default defineComponent({
     name: "CardSubTitle",

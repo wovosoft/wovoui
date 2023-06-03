@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
-import {ref, onMounted, defineComponent, PropType, watch} from 'vue'
+import {defineComponent, onMounted, PropType, ref, watch} from 'vue'
 import Chart, {ChartData, ChartOptions, ChartType, DefaultDataPoint} from 'chart.js/auto/auto.js';
-import {makeNumber} from "../../composables/useProps";
+import {makeNumber} from "@/composables";
 
 type updateModes = 'active' | 'hide' | 'reset' | 'resize' | 'show' | undefined | 'none';
 export default defineComponent({

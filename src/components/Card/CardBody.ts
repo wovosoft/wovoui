@@ -1,8 +1,8 @@
 import {defineComponent, h} from "vue";
-import {CardTitle, CardSubTitle} from "../..";
+import CardSubTitle from "@/components/Card/CardSubTitle";
+import CardTitle from "@/components/Card/CardTitle";
 
-import {makeBoolean, makeString, makeTag, makeTextVariant, makeVariant} from "../../composables/useProps";
-import {getBinaryClasses} from "../../composables/useClasses";
+import {getBinaryClasses, makeBoolean, makeString, makeTag, makeTextVariant, makeVariant} from "@/composables";
 
 export default defineComponent({
     name: "CardBody",

@@ -32,5 +32,5 @@
 </template>
 
 <script lang="ts" setup>
-import {Tr, Table, THead, TBody, Td, Th} from "@/"
+import {Table, TBody, Td, Th, THead, Tr} from "@/"
 </script>

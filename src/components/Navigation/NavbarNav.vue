@@ -9,7 +9,7 @@
 import Nav from "./Nav";
 import navProps from "../../shared/navProps";
 import {computed, PropType} from "vue";
-import {makeBoolean} from "../../composables/useProps";
+import {makeBoolean} from "@/composables";
 
 const props = defineProps({
     ...navProps,

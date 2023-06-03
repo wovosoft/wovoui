@@ -8,5 +8,5 @@
 </template>
 
 <script lang="ts" setup>
-import {Tooltip, Button} from "@/";
+import {Button, Tooltip} from "@/";
 </script>

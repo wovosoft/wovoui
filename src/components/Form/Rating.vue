@@ -12,7 +12,7 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
-import {StarFill, Star} from "@wovosoft/wovoui-icons";
+import {Star, StarFill} from "@wovosoft/wovoui-icons";
 import {makeNumber, makeVariant} from "@/composables/useProps";
 import {useStateModel} from "@/composables/useHelpers";
 

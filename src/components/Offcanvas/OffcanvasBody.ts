@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import {makeTag} from "../../composables/useProps";
+import {makeTag} from "@/composables";
 
 export default defineComponent({
     name: "OffCanvasBody",

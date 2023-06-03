@@ -1,12 +1,6 @@
-import {makeProp, makeTag} from "../../composables/useProps";
+import {makeProp, makeTag} from "@/composables";
 import {defineComponent, h, PropType} from "vue";
-import type {
-    ColAlignments,
-    ColOrders,
-    ColSizes,
-    JustifyContentAlignments,
-    ResponsiveNumbers
-} from "../../types";
+import type {ColAlignments, ColOrders, ColSizes, JustifyContentAlignments, ResponsiveNumbers} from "@/types";
 
 function isBoolean(compare: unknown) {
     return typeof compare === "boolean";

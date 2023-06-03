@@ -1,6 +1,5 @@
 import {defineComponent, h} from "vue";
-import {makeString, makeTag, makeTextVariant, makeVariant} from "../../composables/useProps";
-import {getBinaryClasses} from "../../composables/useClasses";
+import {getBinaryClasses, makeString, makeTag, makeTextVariant, makeVariant} from "@/composables";
 
 export default defineComponent({
     name: "CardFooter",

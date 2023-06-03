@@ -36,10 +36,10 @@
 
 <script lang="ts">
 import {defineComponent, inject, PropType, Ref} from "vue";
-import {ButtonGroup, Button} from "../..";
+import {Button, ButtonGroup} from "@/components";
 import {Eye, PencilSquare, Trash} from "@wovosoft/wovoui-icons";
-import type {ButtonSizes, ClassTypes} from "../../types";
-import {makeBoolean, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
+import type {ButtonSizes, ClassTypes} from "@/types";
+import {makeBoolean, makeSize, makeString, makeTag, makeVariant} from "@/composables";
 
 export default defineComponent({
     name: "Column",
@@ -61,7 +61,7 @@ export default defineComponent({
         editVariant: makeVariant("dark"),
         destroyVariant: makeVariant("danger"),
         actionsAlignment: {type: String as PropType<'start' | 'center' | 'end'>, default: 'end'},
-
+        
         /**
          * classes prop for th and td.
          */

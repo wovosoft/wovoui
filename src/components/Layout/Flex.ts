@@ -1,12 +1,6 @@
-// <!--<template>-->
-// <!--    <component :is="tag" :class="classes">-->
-// <!--        <slot></slot>-->
-// <!--    </component>-->
-// <!--</template>-->
-
 import {defineComponent, h, PropType} from "vue";
-import type {AlignContent, ResponsiveSizes, ItemAlignment, JustifyAlignment} from "../../types";
-import {makeBoolean, makeTag} from "../../composables/useProps";
+import type {AlignContent, ItemAlignment, JustifyAlignment, ResponsiveSizes} from "@/types";
+import {makeBoolean, makeTag} from "@/composables";
 
 export default defineComponent({
     props: {

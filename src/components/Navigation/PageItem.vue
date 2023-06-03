@@ -9,7 +9,7 @@
 <script lang="ts" setup>
 import {computed, PropType} from "vue";
 import {PageLink} from "../..";
-import {makeBoolean, makeString, makeTag} from "../../composables/useProps";
+import {makeBoolean, makeString, makeTag} from "@/composables";
 
 const props = defineProps({
     tag: makeTag("li"),

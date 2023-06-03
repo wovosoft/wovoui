@@ -1,5 +1,5 @@
 import {defineComponent, h, resolveComponent} from "vue";
-import {makeBoolean, makeProp, makeString, makeTag, makeVariant} from "../../composables/useProps";
+import {makeBoolean, makeProp, makeString, makeTag, makeVariant} from "@/composables";
 import type {RouteLocationRaw} from "vue-router";
 
 export default defineComponent({
@@ -42,7 +42,7 @@ export default defineComponent({
                         ["list-group-item-" + props.variant]: !!props.variant
                     }
                 ],
-            }, props.to ? slots.default : slots?.default())
+            }, props.to ? slots.default : slots?.default?.())
         };
     }
 })

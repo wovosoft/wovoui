@@ -71,13 +71,12 @@
 
 <script lang="ts" setup>
 import {computed, onMounted, PropType, ref, watch} from "vue";
-import {DateItemInterface, dateMatrix, dayNames} from "../../composables/useDates";
-import {Button, Flex, FlexItem, Table} from "../../";
+import {DateItemInterface, dateMatrix, dayNames, makeSize, makeString} from "@/composables";
+import {Button, Flex, FlexItem, Table} from "@/";
 import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
-import type {ButtonSizes} from "../../types";
+import type {ButtonSizes} from "@/types";
 import dayjs, {Dayjs} from "dayjs";
 import {ChevronDoubleLeft, ChevronDoubleRight, ChevronLeft, ChevronRight, CircleFill} from "@wovosoft/wovoui-icons";
-import {makeSize, makeString} from "../../composables/useProps";
 
 const props = defineProps({
     size: makeSize<ButtonSizes>(null),
@@ -142,7 +141,7 @@ function selectDate(date: DateItemInterface | { data: Date }) {
     } else {
         emit("update:modelValue", date.data);
     }
-
+    
     isMenuOpened.value = false;
 }
 </script>

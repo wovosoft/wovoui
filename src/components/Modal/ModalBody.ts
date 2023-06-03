@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import {makeTag, makeVariant} from "../../composables/useProps";
+import {makeTag, makeVariant} from "@/composables";
 
 export default defineComponent({
     name: "ModalBody",

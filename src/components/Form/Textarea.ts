@@ -1,6 +1,6 @@
 import {defineComponent, h} from "vue";
 import type {ButtonSizes} from "@/types";
-import {makeSize, makeString} from "@/composables/useProps";
+import {makeSize, makeString} from "@/composables";
 
 export default defineComponent({
     name: "Textarea",

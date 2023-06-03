@@ -16,9 +16,9 @@
  */
 
 import {computed, nextTick, onBeforeUnmount, onBeforeUpdate, onMounted, PropType, ref} from "vue";
-import type {TooltipPlacement, VariationPlacement} from "../../types";
+import type {TooltipPlacement, VariationPlacement} from "@/types";
 import {createPopper} from "@popperjs/core";
-import {makeString} from "../../composables/useProps";
+import {makeString} from "@/composables";
 
 const props = defineProps({
     target: {type: String as PropType<string>, default: null, required: true},  //should be id

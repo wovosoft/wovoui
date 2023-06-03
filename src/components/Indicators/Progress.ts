@@ -1,6 +1,6 @@
 import {defineComponent, h, PropType} from "vue";
-import {ProgressBar} from "../..";
-import {makeBoolean, makeNumber, makeTag, makeVariant} from "../../composables/useProps";
+import {ProgressBar} from "@/components";
+import {makeBoolean, makeNumber, makeTag, makeVariant} from "@/composables";
 
 export default defineComponent({
     name: "Progress",

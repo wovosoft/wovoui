@@ -17,8 +17,8 @@
  */
 
 import {computed} from "vue";
-import {makeProp, makeTag} from "../../composables/useProps";
-import type {AspectRatios} from "../../types";
+import {makeProp, makeTag} from "@/composables";
+import type {AspectRatios} from "@/types";
 
 /**
  * This component is generated based on bootstrap helpers.

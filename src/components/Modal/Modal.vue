@@ -79,15 +79,20 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, ref, watch, nextTick, PropType, onBeforeUnmount, onBeforeMount, reactive} from "vue";
+import {computed, nextTick, onBeforeMount, onBeforeUnmount, PropType, reactive, ref, watch} from "vue";
+import {Button, ButtonClose, ModalBody, ModalDialog, ModalFooter, ModalHeader, ModalTitle} from "../../";
 import {
-    ModalHeader, ModalBody, ModalTitle, ModalFooter, ButtonClose, Button, ModalDialog
-} from "../../";
-import {modalCount} from "../../composables/useHelpers";
-import type {ModalFullScreen, ButtonSizes, ModalSizes, ColorVariants} from "../../types";
+    EVENT_TRIGGER_HIDE_NAME,
+    EVENT_TRIGGER_SHOW_NAME,
+    makeBoolean,
+    makeSize,
+    makeString,
+    makeTag,
+    makeVariant,
+    modalCount
+} from "@/composables";
+import type {ButtonSizes, ColorVariants, ModalFullScreen, ModalSizes} from "@/types";
 import vOnClickOutside from "../../directives/vOnClickOutside";
-import {EVENT_TRIGGER_HIDE_NAME, EVENT_TRIGGER_SHOW_NAME} from "../../composables/useModal";
-import {makeBoolean, makeSize, makeString, makeTag, makeVariant} from "../../composables/useProps";
 import Spinner from "../Indicators/Spinner";
 
 const emit = defineEmits<{
@@ -119,12 +124,12 @@ const props = defineProps({
         default: null
     },
     contentClass: {type: [Array, String, Object] as PropType<any>, default: null},
-
+    
     title: makeString(),
     titleTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "h5"},
     titleClass: {type: [Array, String, Object] as PropType<string | object | any[]>, default: null},
     titleAttrs: {type: Object as PropType<object>, default: null},
-
+    
     //header props
     noHeader: makeBoolean(false),
     header: makeString(),
@@ -132,11 +137,11 @@ const props = defineProps({
     headerClass: {type: [Array, String, Object] as PropType<any>, default: null},
     headerAttrs: {type: Object as PropType<object>, default: null},
     headerVariant: makeVariant(null),
-
+    
     noFooter: makeBoolean(false),
     footerClass: {type: [Array, String, Object] as PropType<any>, default: null},
     footerVariant: makeVariant(null),
-
+    
     //buttons
     okTitle: makeString("Ok"),
     closeTitle: makeString("Close"),
@@ -156,11 +161,11 @@ const props = defineProps({
     noCloseButton: makeBoolean(false),
     noCloseOnBackdrop: makeBoolean(false),
     noCloseOnEsc: makeBoolean(false),
-
+    
     static: makeBoolean(false),
     noBackdrop: makeBoolean(false),
     buttonSize: makeSize<ButtonSizes>(null),
-
+    
     //modal dialog props
     scrollable: makeBoolean(false),
     centered: makeBoolean(false),
@@ -237,7 +242,7 @@ function clickOutside(e) {
         if (props.static) {
             classStates.modalStatic = true;
             classStates.modalStyle['overflowY'] = "hidden";
-
+            
             setTimeout(function () {
                 if (classStates.modalStatic) {
                     classStates.modalStatic = false;
@@ -255,7 +260,7 @@ function setState(isShowing: boolean) {
     /**
      * before updating visibility state, emit showing/hiding event
      */
-
+    
     if (isShowing) {
         emit("showing", true);
         //keep last focus element
@@ -263,7 +268,7 @@ function setState(isShowing: boolean) {
     } else {
         emit("hiding", true);
     }
-
+    
     nextTick(() => {
         /**
          * Events emitted, now update state
@@ -288,32 +293,32 @@ function resetBodyAttrs() {
 function startAnimation(isShown: boolean) {
     if (isShown) {
         isMountable.value = true;
-
+        
         let count = modalCount(true);
         if (count > 1) {
             classStates.modalStyle['zIndex'] = (1155 * count).toString();
             setTimeout(() => classStates.backdropStyle['zIndex'] = (1155 * count - 105).toString(), 0);
         }
-
+        
         showBackdrop.value = true;
         setTimeout(() => {
             setBodyAttrs();
             classStates.backdropShow = true;
             classStates.modalStyle['display'] = "block";
         }, 0);
-
+        
         setTimeout(afterModalIsShown, TRANSITION_TIME);
     } else {
         classStates.modalStyle['zIndex'] = "";
         classStates.backdropStyle["zIndex"] = "";
-
+        
         let count = modalCount(false);
         if (count < 1) {
             resetBodyAttrs();
         }
         //add show class to modal first, this will add hiding transition
         classStates.modalShow = false;
-
+        
         setTimeout(afterModalIsHidden, TRANSITION_TIME);
     }
 }
@@ -325,7 +330,7 @@ function afterModalIsShown() {
     if (shown.value) {
         modal.value?.focus();
     }
-
+    
     classStates.modalShow = true;
     emit("shown", true);
     emit('update:modelValue', true);
@@ -336,7 +341,7 @@ function afterModalIsHidden() {
     classStates.modalStyle["display"] = "none";
     //add hiding transition to backdrop
     classStates.backdropShow = false;
-
+    
     //after backdrop hiding transition, it can be removed
     setTimeout(() => {
         //Backdrop Hidden:

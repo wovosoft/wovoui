@@ -26,9 +26,7 @@
 
 <script lang="ts" setup>
 import {Container} from "@/";
-import Spinner from "@/components/Indicators/Spinner";
 import RadioGroup from "@/components/Form/RadioGroup.vue";
-import Radio from "@/components/Form/Radio.vue";
 import {ref} from "vue";
 
 const rg = ref('hello')

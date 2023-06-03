@@ -17,8 +17,7 @@
 
 <script lang="ts" setup>
 import {computed, ref, watch} from "vue";
-import {uid} from "../../composables/useHelpers";
-import {makeBoolean, makeProp, makeString} from "../../composables/useProps";
+import {makeBoolean, makeProp, makeString, uid} from "@/composables";
 
 const props = defineProps({
     switch: makeBoolean(false),

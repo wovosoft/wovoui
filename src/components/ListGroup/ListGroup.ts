@@ -1,6 +1,6 @@
 import {defineComponent, h, PropType} from "vue";
-import type {ResponsiveSizes} from "../../types";
-import {makeBoolean} from "../../composables/useProps";
+import type {ResponsiveSizes} from "@/types";
+import {makeBoolean} from "@/composables";
 
 export default defineComponent({
     name: "ListGroup",

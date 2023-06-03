@@ -23,11 +23,11 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
+import Flex from "@/components/Layout/Flex.js";
+import FlexItem from "@/components/Layout/FlexItem.js";
+import Checkbox from "@/components/Form/Checkbox.vue";
 
 const fill = ref<boolean>(false)
 const grow = ref<boolean>(false)
 const shrink = ref<boolean>(false)
-import Flex from "@/components/Layout/Flex.js";
-import FlexItem from "@/components/Layout/FlexItem.js";
-import Checkbox from "@/components/Form/Checkbox.vue";
 </script>

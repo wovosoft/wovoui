@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import {makeString} from "../../composables/useProps";
+import {makeString} from "@/composables";
 
 export default defineComponent({
     name: "NavbarBrand",

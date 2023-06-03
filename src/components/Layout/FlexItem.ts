@@ -5,10 +5,9 @@
 // </template>
 
 
-import {defineComponent, h} from "vue";
-import {PropType} from "vue";
-import type {ResponsiveSizes, Order} from "../../types";
-import {makeTag} from "../../composables/useProps";
+import {defineComponent, h, PropType} from "vue";
+import type {Order, ResponsiveSizes} from "@/types";
+import {makeTag} from "@/composables";
 
 export default defineComponent({
     props: {

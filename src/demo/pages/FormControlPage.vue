@@ -74,9 +74,7 @@
 
 <script lang="ts" setup>
 
-import {
-  Input, Radio, FormGroup, Feedback, Rating, Col, Row, Range
-} from "@/";
+import {Col, Feedback, FormGroup, Input, Radio, Rating, Row} from "@/";
 import {reactive, ref} from "vue";
 import SpinButton from "@/components/Form/SpinButton.vue";
 import Tags from "@/components/Form/Tags.vue";

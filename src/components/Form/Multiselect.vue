@@ -52,12 +52,9 @@
 <script lang="ts" setup>
 import {nextTick, onBeforeUnmount, PropType, Ref, ref, watch} from "vue";
 import {Trash} from "@wovosoft/wovoui-icons";
-import Button from "../Button/Button";
-import DropdownMenu from "../Dropdown/DropdownMenu.vue";
-import Input from "./Input.vue";
-import type {ButtonSizes} from "../../types";
-import InputGroup from "./InputGroup.vue";
-import {makeBoolean, makeSize, makeString} from "../../composables/useProps";
+import {Button, DropdownMenu, Input, InputGroup} from "@/";
+import type {ButtonSizes} from "@/types";
+import {makeBoolean, makeSize, makeString} from "@/composables";
 
 const emit = defineEmits(["update:query", "update:modelValue", 'selectedOption']);
 
@@ -144,7 +141,7 @@ const navigateItem = (e) => {
     } else if (e.code === "ArrowUp" && (e.target.nodeName === "LABEL" || e.target.nodeName === "INPUT")) {
         element = e.target.parentNode.previousElementSibling;
     }
-
+    
     if (element) {
         (element.querySelector("label") || element.querySelector("input"))?.focus();
     }

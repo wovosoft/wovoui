@@ -8,17 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import {
-    computed,
-    ref,
-    watch,
-    inject,
-    onMounted,
-    getCurrentInstance,
-    onBeforeUnmount, reactive
-} from "vue";
-import {getTransitionDurationFromElement} from "../../composables/useTransition";
-import {makeBoolean, makeString} from "../../composables/useProps";
+import {computed, getCurrentInstance, inject, onBeforeUnmount, onMounted, reactive, ref, watch} from "vue";
+import {getTransitionDurationFromElement, makeBoolean, makeString} from "@/composables";
 
 const props = defineProps({
     active: makeBoolean(false),
