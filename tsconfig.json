@@ -36,7 +36,8 @@
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "src/*",
+        "dist/*"
       ]
     },
     //    "noEmit": true,
