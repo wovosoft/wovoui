@@ -4,13 +4,14 @@ import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 // vite.config.js
 import {resolve} from 'path'
-
 import entry_points from "./entry_points";
 
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
-    plugins: [vue()],
+    plugins: [
+        vue()
+    ],
     build: {
         sourcemap: true,
         target: 'modules',
