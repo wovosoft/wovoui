@@ -22,7 +22,7 @@ const theList = {
     "components/Carousel/index": 'src/components/Carousel/index.ts',
     "components/Dropdown/index": 'src/components/Dropdown/index.ts',
     "components/Form/index": 'src/components/Form/index.ts',
-    "components/Indicators/index": 'src/Indicators/components/index.ts',
+    "components/Indicators/index": 'src/components/Indicators/index.ts',
     "components/Layout/index": 'src/components/Layout/index.ts',
     "components/ListGroup/index": 'src/components/ListGroup/index.ts',
     "components/Modal/index": 'src/components/Modal/index.ts',
@@ -52,7 +52,7 @@ export default {\n${content}}`
 function generateJsonExports() {
     let content = {
         "./dist/style.css": "./dist/style.css",
-        "./types": "./dist/types/index.d.ts"
+        "./types": "./types/index.d.ts"
     };
 
     Object.keys(theList).forEach((key) => {
@@ -64,7 +64,8 @@ function generateJsonExports() {
         }
         content[first_key] = {
             "import": `./dist/${key}.js`,
-            "require": `./dist/${key}.cjs`
+            "require": `./dist/${key}.cjs`,
+            "types": `./types/${key}.d.ts`,
         };
     });
 

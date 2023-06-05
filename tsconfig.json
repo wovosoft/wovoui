@@ -22,7 +22,7 @@
     "sourceMap": true,
     "importHelpers": true,
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "types",
     "emitDeclarationOnly": true,
     "outDir": "dist",
     "declarationMap": true,
@@ -32,21 +32,21 @@
       "src"
     ],
     "typeRoots": [
-      "src/types"
+      "types"
     ],
     "paths": {
       "@/*": [
         "./*",
-        "dist/*"
+        "./types"
       ]
     },
-    //    "noEmit": true,
     "jsx": "preserve",
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "noEmitOnError": false
   },
   "include": [
     "src/**/*.ts",
