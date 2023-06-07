@@ -10,7 +10,7 @@ import entry_points from "./entry_points";
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
     plugins: [
-        vue()
+        vue(),
     ],
     build: {
         sourcemap: true,
@@ -40,5 +40,6 @@ export default defineConfig({
             '@': resolve(__dirname, './src')
         },
     },
+
 })
 

@@ -1,4 +1,4 @@
-import {makeBoolean, makeNumber, makeTag} from "@/composables";
+import {makeBoolean, makeNumber, makeTag} from "../composables";
 
 export default {
     tag: makeTag("div"),

@@ -22,7 +22,7 @@
     "sourceMap": true,
     "importHelpers": true,
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": "dist",
     "emitDeclarationOnly": true,
     "outDir": "dist",
     "declarationMap": true,
@@ -30,8 +30,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./src/*",
-//        "./types"
+        "src/*"
       ]
     },
     "jsx": "preserve",
