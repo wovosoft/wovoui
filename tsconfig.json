@@ -22,7 +22,7 @@
     "sourceMap": true,
     "importHelpers": true,
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "dist/types",
     "emitDeclarationOnly": true,
     "outDir": "dist",
     "declarationMap": true,
@@ -30,7 +30,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     },
     "jsx": "preserve",
@@ -49,7 +49,9 @@
   ],
   "exclude": [
     "node_modules",
-    "public"
+    "public",
+    "src/App.vue",
+    "src/demo"
   ],
   "references": [
     {

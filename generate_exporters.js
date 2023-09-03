@@ -52,7 +52,7 @@ export default {\n${content}}`
 function generateJsonExports() {
     let content = {
         "./dist/style.css": "./dist/style.css",
-        "./types": "./types/index.d.ts"
+        "./types": "./dist/types/index.d.ts"
     };
 
     Object.keys(theList).forEach((key) => {
@@ -65,7 +65,7 @@ function generateJsonExports() {
         content[first_key] = {
             "import": `./dist/${key}.js`,
             "require": `./dist/${key}.cjs`,
-            "types": `./types/${key}.d.ts`,
+            "types": `./dist/types/${key}.d.ts`,
         };
     });
 
