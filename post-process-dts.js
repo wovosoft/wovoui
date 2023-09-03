@@ -15,16 +15,19 @@ console.log('Aliases replaced with relative paths.');
 // Function to replace @/ with relative paths based on depth
 function replaceAliasWithRelativePaths(fileList) {
     fileList.forEach((fileInfo) => {
-        const { depth, path: filePath } = fileInfo;
-        const relativePath = Array.from({ length: depth }, () => '..').join('/'); // Generate relative path based on depth
+        const {depth, path: filePath} = fileInfo;
+        let relativePath = Array.from({length: depth}, () => '..').join('/'); // Generate relative path based on depth
+
+        relativePath = "./" + relativePath + "/";
+
         const fileContents = fs.readFileSync(filePath, 'utf-8');
-        const updatedContents = fileContents.replace(/import\s+\*\s+as\s+_sapper_\s+from\s+'@\/sapper\/server';/g, `import * as _sapper_ from '${relativePath}'`);
-        fs.writeFileSync(filePath, updatedContents);
+        const updatedContents = fileContents.replace(/@\//g, relativePath);
+        fs.writeFileSync(path.resolve(filePath), updatedContents);
     });
 }
 
 
-function getAllDTSFiles(dirPath, prevFiles = [], depth = 0) {
+function getAllDTSFiles(dirPath, prevFiles = [], depth = -1) {
     const files = fs.readdirSync(dirPath);
 
     let fileList = prevFiles || [];
@@ -38,7 +41,7 @@ function getAllDTSFiles(dirPath, prevFiles = [], depth = 0) {
         } else if (stats.isFile() && filePath.endsWith(".d.ts")) {
             fileList.push({
                 depth,
-                filePath
+                path: filePath
             });
         }
     });
