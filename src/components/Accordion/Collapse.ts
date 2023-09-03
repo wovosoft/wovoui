@@ -1,5 +1,5 @@
 import {defineComponent, getCurrentInstance, h, onBeforeMount, ref, watch} from "vue";
-import {makeBoolean, makeProp, makeTag} from "@/composables";
+import {makeBoolean, makeProp, makeTag} from "./../../composables";
 
 export default defineComponent({
     name: "Collapse",

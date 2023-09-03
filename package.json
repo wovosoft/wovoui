@@ -4,7 +4,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build && vue-tsc --emitDeclarationOnly",
+        "build": "vite build && vue-tsc",
         "preview": "vite preview"
     },
     "files": [
@@ -35,7 +35,6 @@
         "@types/node": "^20.5.9",
         "@vitejs/plugin-vue": "^4.3.4",
         "sass": "^1.66.1",
-        "typescipt": "^1.0.0",
         "typescript": "^5.1.3",
         "vite": "^4.4.9",
         "vue-router": "^4.2.4",

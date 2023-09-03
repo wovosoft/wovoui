@@ -1,7 +1,7 @@
 //used in DataTable and Table components
 
 import {PropType} from "vue";
-import type {ResponsiveSizes} from "@/types";
+import type {ResponsiveSizes} from "./../index.ts";
 import tableCommonProps from "./tableCommonProps";
 import {makeBoolean, makeString, makeVariant} from "@/composables";
 
