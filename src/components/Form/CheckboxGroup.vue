@@ -19,7 +19,7 @@ import Checkbox from "./Checkbox.vue";
 import {PropType} from "vue";
 import {makeBoolean, makeString} from "@/composables";
 
-const props = defineProps({
+defineProps({
     modelValue: {default: null},
     options: {type: Array as PropType<any>, default: () => ([])},
     textField: makeString(null),

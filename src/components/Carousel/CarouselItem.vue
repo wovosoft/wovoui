@@ -22,7 +22,8 @@ export default defineComponent({
         const visible = ref(props.active);
         watch(() => props.active, v => visible.value = v);
         watch(visible, (v) => context.emit("update:active", v));
-        const registerItem: registerItemType = inject('registerItem');
+        const registerItem = inject('registerItem') as registerItemType;
+
         registerItem(visible);
 
         return {

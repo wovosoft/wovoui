@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import {computed, PropType, useModel} from "vue";
 import {makeBoolean, makeString} from "@/composables/useProps";
-import Radio from "./Radio.vue";
+import {Radio} from "@/components";
 import {uid} from "@/composables/useHelpers";
 
 const props = defineProps({

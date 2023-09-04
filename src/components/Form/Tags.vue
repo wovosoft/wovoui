@@ -31,9 +31,9 @@
 <script lang="ts" setup>
 import {computed, PropType, ref, watch} from "vue";
 import {X} from "@wovosoft/wovoui-icons";
-import type {ButtonSizes} from "@/types";
+import type {ButtonSizes} from "@/index";
 import {makeBoolean, makeRole, makeSize, makeString, makeTag, makeVariant} from "@/composables";
-import {Badge, Button, Input} from "@/";
+import {Badge, Button, Input} from "@/components";
 
 const props = defineProps({
     tag: makeTag("ul"),

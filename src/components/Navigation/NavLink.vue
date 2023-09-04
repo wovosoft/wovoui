@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import {computed, getCurrentInstance, PropType} from "vue";
-import type {ClassTypes} from "@/types";
+import type {ClassTypes} from "@/index";
 import {RouteRecordRaw} from "vue-router";
 import {makeBoolean, makeString} from "@/composables";
 
@@ -33,7 +33,7 @@ const props = defineProps({
 });
 
 const isVueRouterInstalled = computed(() => {
-    return !!getCurrentInstance().appContext.config.globalProperties.$router;
+    return !!getCurrentInstance()?.appContext.config.globalProperties.$router;
 });
 
 const classes = computed<ClassTypes>(() => ["nav-link", {

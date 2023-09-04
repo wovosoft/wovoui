@@ -15,11 +15,16 @@
 </template>
 
 <script lang="ts" setup>
-import {inject, Ref, ref, watch} from "vue";
+import {inject, ref, watch} from "vue";
 import AccordionHeader from "./AccordionHeader.vue";
 import AccordionBody from "./AccordionBody";
 import Collapse from "./Collapse";
-import type {registerItem as registerItemType, setActiveItem as setActiveItemType} from "../../types";
+import type {
+    registerItem as registerItemType,
+    setActiveItem as setActiveItemType,
+    AccordionItemStateType
+} from "@/index";
+
 import {makeBoolean, makeClass, makeString} from "@/composables/useProps";
 
 const props = defineProps({
@@ -28,16 +33,13 @@ const props = defineProps({
     bodyClass: makeClass()
 });
 
-const emit = defineEmits<{
-    (e: 'update:modelValue', value: unknown)
-}>();
 
-const visible: Ref<boolean> = ref(props.modelValue);
-const registerItem = inject<registerItemType>('registerItem');
+const visible: AccordionItemStateType = ref(props.modelValue);
+const registerItem = inject('registerItem') as registerItemType;
 
 registerItem(visible);
 
-const setActiveItem = inject<setActiveItemType>("setActiveItem");
+const setActiveItem = inject("setActiveItem") as setActiveItemType;
 
 watch(visible, value => {
     if (value) {

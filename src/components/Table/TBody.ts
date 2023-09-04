@@ -1,6 +1,5 @@
 import {defineComponent} from "vue";
-import tableCommonProps from "../../shared/tableCommonProps";
-import generateTableChild from "../../shared/generateTableChild";
+import {tableCommonProps, generateTableChild} from "@/shared";
 
 export default defineComponent({
     name: "TBody",

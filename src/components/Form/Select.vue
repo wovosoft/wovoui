@@ -2,7 +2,7 @@
     <select :class="classes" v-model="model" :multiple="multiple">
         <slot name="first"></slot>
         <slot></slot>
-        <template v-for="(o,ok) in options" :key="ok">
+        <template v-for="(o) in options">
             <optgroup :label="o[labelField]" v-if="o.hasOwnProperty('options')">
                 <option v-for="(gi,gi_key) in o.options"
                         :key="gi_key"
@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import {computed, PropType, useModel} from "vue";
-import type {ButtonSizes} from "@/types";
+import type {ButtonSizes} from "@/index";
 import {makeBoolean, makeProp, makeSize, makeString} from "@/composables/useProps";
 
 const props = defineProps({

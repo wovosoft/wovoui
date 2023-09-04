@@ -58,7 +58,7 @@
 
 <script lang="ts" setup>
 import {computed, PropType, ref} from "vue";
-import tableProps from "../../shared/tableProps";
+import tableProps from "@/shared/tableProps";
 /**
  * Minimized import throws following error:
  * Uncaught ReferenceError: Cannot access 'Td' before initialization
@@ -99,7 +99,11 @@ function isVisible(field: FieldType | string): boolean {
 }
 
 
-const getValue = (row, th, th_index) => {
+const getValue = (
+    row: { [key: string]: any },
+    th: string | number | object,
+    th_index: number
+) => {
     let key = getKey(th);
     if (isObject(th)) {
         if (th.hasOwnProperty('formatter')) {
@@ -112,7 +116,7 @@ const getValue = (row, th, th_index) => {
     return row[th_index];
 };
 
-const getKey = (th) => {
+const getKey = (th: string | { key: any }) => {
     if (isObject(th)) {
         return th.key;
     } else if (typeof th === "string") {
@@ -199,7 +203,7 @@ const filterableColumns = computed(() => {
 const itemsSorted = computed(() => {
     if (sorting.value.sortBy) {
         //@ts-ignore
-        return orderBy(props.items, sorting.value.sortBy, sorting.value.sort);
+        return orderBy(props.items, sorting.value.sortBy);
     }
     if (Array.isArray(props.items)) {
         if (filterableColumns.value.length && props.filter) {
@@ -217,10 +221,4 @@ const itemsSorted = computed(() => {
     //do something else for Promises and Functions
     return props.items;
 });
-
-const clearSorting = () => {
-    sorting.value.sortBy = null;
-    sorting.value.sort = null;
-}
-
 </script>

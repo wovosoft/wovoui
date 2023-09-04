@@ -16,7 +16,7 @@
  */
 
 import {computed, nextTick, onBeforeUnmount, onBeforeUpdate, onMounted, PropType, ref} from "vue";
-import type {TooltipPlacement, VariationPlacement} from "@/types";
+import type {TooltipPlacement, VariationPlacement} from "@/index";
 import {createPopper} from "@popperjs/core";
 import {makeString} from "@/composables";
 

@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import {makeBoolean} from "@/composables";
 
-const props = defineProps({
+defineProps({
     active: makeBoolean(false),
     disabled: makeBoolean(false),
 });

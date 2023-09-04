@@ -1,5 +1,6 @@
 <template>
     <Nav navs
+         :class="classes"
          :style="{'--bs-scroll-height':(typeof scrollHeight==='number'?scrollHeight+'px':scrollHeight)}">
         <slot></slot>
     </Nav>
@@ -7,7 +8,7 @@
 
 <script lang="ts" setup>
 import Nav from "./Nav";
-import navProps from "../../shared/navProps";
+import navProps from "@/shared/navProps";
 import {computed, PropType} from "vue";
 import {makeBoolean} from "@/composables";
 

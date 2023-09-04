@@ -18,7 +18,7 @@
 
 import {computed} from "vue";
 import {makeProp, makeTag} from "@/composables";
-import type {AspectRatios} from "@/types";
+import type {AspectRatios} from "@/index";
 
 /**
  * This component is generated based on bootstrap helpers.
@@ -49,7 +49,7 @@ const props = defineProps({
 });
 
 const styles = computed(() => {
-    if (typeof props.ratio === "number" || !isNaN(Number(props.ratio))) {
+    if (!isNaN(Number(props.ratio))) {
         return {
             "--bs-aspect-ratio": props.ratio ? (props.ratio + "%") : null
         }

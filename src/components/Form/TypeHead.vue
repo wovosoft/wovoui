@@ -51,8 +51,8 @@
 
 <script lang="ts" setup>
 import {computed, nextTick, onMounted, PropType, ref, Ref, useSlots, watch} from "vue";
-import type {ButtonSizes, TextAlign} from "@/types";
-import {DropdownMenu, Input, InputGroup} from "@/";
+import type {ButtonSizes, TextAlign} from "@/index";
+import {DropdownMenu, Input, InputGroup} from "@/components";
 import {vOnClickOutside} from "@/directives";
 import axios from "axios";
 import usePopper from "@/composables/usePopper";

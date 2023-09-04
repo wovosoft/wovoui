@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {makeBoolean, makeProp, makeSize} from "@/composables/useProps";
-import type {ButtonSizes, HTMLInputTypes} from "@/types";
+import type {ButtonSizes, HTMLInputTypes} from "@/index";
 import {computed, useModel} from "vue";
 
 const props = defineProps({

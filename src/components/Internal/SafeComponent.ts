@@ -1,4 +1,4 @@
-import {Component, defineComponent, h, PropType} from "vue";
+import {defineComponent, h, PropType} from "vue";
 
 /**
  * Conditional Render
@@ -8,7 +8,7 @@ import {Component, defineComponent, h, PropType} from "vue";
 export default defineComponent({
     props: {
         component: {
-            type: [String, Object] as PropType<Component | keyof HTMLElementTagNameMap | string>,
+            type: [String, Object] as PropType<string | object>,
             default: "div"
         },
         modelValue: {
@@ -21,9 +21,9 @@ export default defineComponent({
             if (props.modelValue) {
                 return h(props.component, {
                     ...attrs
-                }, (typeof props.component === "string") ? slots?.default() : slots?.default);
+                }, (typeof props.component === "string") ? slots?.default?.() : slots?.default);
             }
-            return slots?.default();
+            return slots?.default?.();
         };
     }
 })

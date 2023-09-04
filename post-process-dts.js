@@ -16,9 +16,8 @@ console.log('Aliases replaced with relative paths.');
 function replaceAliasWithRelativePaths(fileList) {
     fileList.forEach((fileInfo) => {
         const {depth, path: filePath} = fileInfo;
-        let relativePath = Array.from({length: depth}, () => '..').join('/'); // Generate relative path based on depth
-
-        relativePath = "./" + relativePath + "/";
+        // Generate relative path based on depth
+        const relativePath = "./" + Array.from({length: depth}, () => '..').join('/') + "/";
 
         const fileContents = fs.readFileSync(filePath, 'utf-8');
         const updatedContents = fileContents.replace(/@\//g, relativePath);

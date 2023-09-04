@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import type {ModalFullScreen, ModalSizes} from "@/types";
+import type {ModalFullScreen, ModalSizes} from "@/index";
 import {makeBoolean, makeSize, makeTag} from "@/composables";
 
 export default defineComponent({

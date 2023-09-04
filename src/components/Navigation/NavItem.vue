@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import {NavLink} from "./../..";
+import {NavLink} from "@/components/Navigation";
 import {RouteRecordRaw} from "vue-router";
 import {makeBoolean, makeProp, makeString, makeTag} from "@/composables";
 

@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import type {ResponsiveNumbers} from "@/types";
+import type {ResponsiveNumbers} from "@/index";
 import {makeBoolean, makeProp} from "@/composables/useProps";
 
 export default defineComponent({

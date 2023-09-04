@@ -1,11 +1,11 @@
 //custom events: assigned to body
 
-import {EVENT_TRIGGER_SHOW_NAME} from "../composables/useModal";
+import {EVENT_TRIGGER_SHOW_NAME} from "@/composables";
 
-let showHandler = null;
+let showHandler: () => void;
 
 export default {
-    mounted(el, binding, vNode) {
+    mounted(el: HTMLElement, binding: any) {
         showHandler = () => {
             if (typeof binding.value === "string") {
                 document.dispatchEvent(new CustomEvent(EVENT_TRIGGER_SHOW_NAME, {
@@ -16,7 +16,7 @@ export default {
         };
         el.addEventListener("click", showHandler, false);
     },
-    beforeUnmount(el) {
+    beforeUnmount(el: HTMLElement) {
         el.removeEventListener("click", showHandler);
     }
 }

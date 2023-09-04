@@ -50,7 +50,7 @@
 import {computed, defineComponent, PropType, ref, watch} from "vue";
 import PageItem from "./PageItem.vue";
 import {ThreeDots} from "@wovosoft/wovoui-icons";
-import type {ButtonSizes} from "@/types";
+import type {ButtonSizes} from "@/index";
 import {makeNumber, makeSize} from "@/composables";
 
 export default defineComponent({

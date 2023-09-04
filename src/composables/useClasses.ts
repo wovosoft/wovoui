@@ -1,4 +1,4 @@
-import type {ColorVariants, PlaceholderSizes, ResponsiveNumbers, TextVariants} from "./../index";
+import type {ColorVariants, PlaceholderSizes, ResponsiveNumbers, TextVariants} from "@/index";
 
 export type VariantProp = {
     bg?: ColorVariants;

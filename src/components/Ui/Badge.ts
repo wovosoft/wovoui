@@ -1,5 +1,5 @@
 import {defineComponent, h, reactive} from "vue";
-import type {BadgePositions} from "@/types";
+import type {BadgePositions} from "@/index";
 import {makeBoolean, makeProp, makeString, makeTag, makeVariant} from "@/composables";
 
 /**

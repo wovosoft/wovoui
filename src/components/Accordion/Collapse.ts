@@ -33,9 +33,14 @@ export default defineComponent({
             emit("update:visible", value);
             transitioning.value = true;
             emit(value ? "showing" : "hiding", true);
-            instance.vnode.el.style[getDim()] = instance.vnode.el[getDimSize()] + "px";
+            if (instance?.vnode?.el) {
+                instance.vnode.el.style[getDim()] = instance.vnode.el[getDimSize()] + "px";
+            }
+
             setTimeout(() => {
-                instance.vnode.el.style[getDim()] = (value ? instance.vnode.el[getDimSize()] : 0) + "px";
+                if (instance?.vnode?.el) {
+                    instance.vnode.el.style[getDim()] = (value ? instance.vnode.el[getDimSize()] : 0) + "px";
+                }
             }, 0);
         });
 
@@ -54,7 +59,9 @@ export default defineComponent({
             isShow.value = isActive.value;
             transitioning.value = false;
             emit(isActive.value ? "shown" : "hidden", true);
-            instance.vnode.el.style[getDim()] = "";
+            if (instance?.vnode?.el) {
+                instance.vnode.el.style[getDim()] = "";
+            }
         }
 
         const show = () => isActive.value = true;

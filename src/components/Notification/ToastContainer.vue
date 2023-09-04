@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import {computed, PropType} from "vue";
-import type {ToastPlacements} from "@/types";
+import type {ToastPlacements} from "@/index";
 import {makeTag} from "@/composables";
 
 

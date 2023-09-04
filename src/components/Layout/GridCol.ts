@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import type {ResponsiveNumbers} from "@/types";
+import type {ResponsiveNumbers} from "@/index";
 import {makeProp, makeTag} from "@/composables";
 
 export default defineComponent({
@@ -23,6 +23,6 @@ export default defineComponent({
                 ["g-col-lg-" + props.lg]: props.lg,
                 ["g-col-xl-" + props.xl]: props.xl,
             }
-        }, slots?.default())
+        }, slots?.default?.())
     }
 })

@@ -23,7 +23,7 @@ const props = defineProps({
     variant: makeVariant()
 });
 
-const emit = defineEmits<{
+defineEmits<{
     (e: 'update:modelValue', value: number): void
 }>();
 

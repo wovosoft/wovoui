@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import type {ResponsiveSizes} from "@/types";
+import type {ResponsiveSizes} from "@/index";
 import {makeBoolean} from "@/composables";
 
 export default defineComponent({

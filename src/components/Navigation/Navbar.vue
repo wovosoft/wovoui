@@ -19,7 +19,7 @@
 <script lang="ts" setup>
 import {computed, PropType, ref} from "vue";
 import {Container, NavbarBrand, NavbarToggler} from "@/components";
-import type {ColorVariants, ResponsiveSizes} from "@/types";
+import type {ColorVariants, ResponsiveSizes} from "@/index";
 import {makeBoolean, makeString} from "@/composables";
 
 const props = defineProps({

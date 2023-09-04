@@ -52,8 +52,8 @@
 <script lang="ts" setup>
 import {nextTick, onBeforeUnmount, PropType, Ref, ref, watch} from "vue";
 import {Trash} from "@wovosoft/wovoui-icons";
-import {Button, DropdownMenu, Input, InputGroup} from "@/";
-import type {ButtonSizes} from "@/types";
+import {Button, DropdownMenu, Input, InputGroup} from "@/components";
+import type {ButtonSizes} from "@/index";
 import {makeBoolean, makeSize, makeString} from "@/composables";
 
 const emit = defineEmits(["update:query", "update:modelValue", 'selectedOption']);

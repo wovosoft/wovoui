@@ -72,9 +72,9 @@
 <script lang="ts" setup>
 import {computed, onMounted, PropType, ref, watch} from "vue";
 import {DateItemInterface, dateMatrix, dayNames, makeSize, makeString} from "@/composables";
-import {Button, Flex, FlexItem, Table} from "@/";
+import {Button, Flex, FlexItem, Table} from "@/index";
 import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
-import type {ButtonSizes} from "@/types";
+import type {ButtonSizes} from "@/index";
 import dayjs, {Dayjs} from "dayjs";
 import {ChevronDoubleLeft, ChevronDoubleRight, ChevronLeft, ChevronRight, CircleFill} from "@wovosoft/wovoui-icons";
 
@@ -92,7 +92,7 @@ const emit = defineEmits<{
     (e: 'update:modelValue', value: Date | string): void
 }>();
 
-const currentMonth = ref<Dayjs>(null);
+const currentMonth = ref<Dayjs | null>(null);
 const isMenuOpened = ref<boolean>(false);
 
 onMounted(() => {
@@ -103,7 +103,7 @@ onMounted(() => {
     }
 });
 
-watch(() => props.modelValue, value => {
+watch(() => props.modelValue, (value: any) => {
     currentMonth.value = dayjs(props.modelValue);
 });
 
@@ -141,7 +141,7 @@ function selectDate(date: DateItemInterface | { data: Date }) {
     } else {
         emit("update:modelValue", date.data);
     }
-    
+
     isMenuOpened.value = false;
 }
 </script>

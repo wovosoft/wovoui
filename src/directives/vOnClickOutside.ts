@@ -1,7 +1,4 @@
 let handler: (e: any) => void;
-
-// @ts-ignore
-
 export default {
     // @ts-ignore
     mounted(el: HTMLElement, {value}) {

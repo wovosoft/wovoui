@@ -6,7 +6,7 @@
 
 
 import {defineComponent, h, PropType} from "vue";
-import type {Order, ResponsiveSizes} from "@/types";
+import type {Order, ResponsiveSizes} from "@/index";
 import {makeTag} from "@/composables";
 
 export default defineComponent({
@@ -83,7 +83,7 @@ export default defineComponent({
         function getOrderClasses() {
             return ['order', 'orderSm', 'orderMd', 'orderLg', 'orderXl', 'orderXxl']
                 .map((s) => {
-                    if (props[s] !== null) {
+                    if (props?.[s] !== null) {
                         return s.replace(/[A-Z]/g, m => "-" + m.toLowerCase()) + '-' + props[s];
                     }
                     return null;
@@ -98,6 +98,6 @@ export default defineComponent({
                 getShrinkClasses(),
                 getOrderClasses()
             ]
-        }, slots?.default())
+        }, slots?.default?.())
     }
 });

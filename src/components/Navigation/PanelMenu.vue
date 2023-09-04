@@ -33,7 +33,7 @@
 
 <script lang="ts" setup>
 import {onBeforeMount, PropType, ref, watch} from "vue";
-import type {ColorVariants, MenuItem} from "@/types";
+import type {ColorVariants, MenuItem} from "@/index";
 import {Button, Collapse, Icon, ListGroup, ListGroupItem} from "@/components";
 import {ChevronDown, ChevronRight, ChevronUp} from "@wovosoft/wovoui-icons";
 import {makeBoolean} from "@/composables";
@@ -41,7 +41,7 @@ import {makeBoolean} from "@/composables";
 
 const emit = defineEmits<{
     (e: 'itemClicked', value: MenuItem): void
-    (e: 'update:modelValue', value: number | null)
+    (e: 'update:modelValue', value: number | null): void
 }>();
 
 const props = defineProps({

@@ -25,7 +25,7 @@
                 </NavLink>
             </Nav>
         </div>
-        
+
         <TabContent v-if="!end" :class="contentClass">
             <slot/>
         </TabContent>
@@ -52,41 +52,41 @@ const props = defineProps({
      * @supported 0 to length of tabs
      */
     modelValue: makeNumber(null),
-    
+
     /**
      * @description defines if the tabs should be styled as card
      * @default false
      * @link https://getbootstrap.com/docs/5.2/components/card/#navigation
      */
     card: makeBoolean(false),
-    
+
     /**
      * @description defines if the tabs should be styled as pilled
      * @default false
      * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#pills
      */
     pills: makeBoolean(false),
-    
+
     /**
      * @description defines if the tabs should fill the whole available width
      * @default false
      * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#fill-and-justify
      */
     fill: makeBoolean(false),
-    
+
     /**
      * @description defines if the tabs should be justified
      * @default false
      * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#fill-and-justify
      */
     justified: makeBoolean(false),
-    
+
     /**
      * @description Defines tabs links alignment
      * @default null
      */
     align: {type: String as PropType<'center' | 'end'>, default: null},
-    
+
     /**
      * @description Defines if Tab Menus should be at before or after the content area
      * This feature is not supported by bootstrap yet.
@@ -95,21 +95,21 @@ const props = defineProps({
      * @default false
      */
     end: makeBoolean(false),
-    
+
     /**
      * @description Defines if menu should be vertical or not.
      * When card is enabled, styling doesn't work properly.
      * @default false
      */
     vertical: makeBoolean(false),
-    
+
     /**
      * @type any
      * @default null
      * @description Tab Header Classes
      */
     headerClass: {default: null},
-    
+
     /**
      * @type any
      * @default null
@@ -119,11 +119,11 @@ const props = defineProps({
 });
 
 const emit = defineEmits<{
-    (e: 'update:modelValue', value: number): void
+    (e: 'update:modelValue', value: number | null | undefined): void
 }>();
 
 
-const active = ref<number>();
+const active = ref<number | null>();
 onMounted(() => {
     if (props.modelValue !== null) {
         active.value = props.modelValue;
@@ -142,9 +142,9 @@ watch(() => props.modelValue, value => {
     }
 });
 
-watch(active, index => {
+watch(active, (index: number | null | undefined) => {
     emit('update:modelValue', index);
-    
+
     //find visible tabs and then hide. Theoretically, there should have only one visible tab in a
     //certain tabs. But if there are multiple, we do the following actions to perform everything properly
     //without any risk
@@ -183,7 +183,7 @@ const tabsMap = ref<TabMapItem[]>([]);
 /**
  * Provide Method to Child method to be subscribed as tab
  */
-provide('registerTab', (tab) => tabsMap.value.push(tab));
+provide('registerTab', (tab: TabMapItem) => tabsMap.value.push(tab));
 
 /**
  * Provide Method to Child method to be unsubscribed as tab

@@ -1,4 +1,4 @@
-import type {VerticalAlign} from "@/types";
+import type {VerticalAlign} from "@/index";
 import {makeBoolean, makeProp, makeVariant} from "@/composables";
 
 export default {

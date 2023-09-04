@@ -1,7 +1,7 @@
 <template>
     <h3>Flex Page</h3>
     <Checkbox v-model="fill">Fill {{ fill }}</Checkbox>
-    <Flex>
+    <Flex jc="between">
         <FlexItem class="border p-3" :fill="fill">FLEX ITEM ONE</FlexItem>
         <FlexItem class="border p-3">FLEX ITEM TWO</FlexItem>
     </Flex>
@@ -23,8 +23,8 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
-import Flex from "@/components/Layout/Flex.js";
-import FlexItem from "@/components/Layout/FlexItem.js";
+import Flex from "@/components/Layout/Flex";
+import FlexItem from "@/components/Layout/FlexItem";
 import Checkbox from "@/components/Form/Checkbox.vue";
 
 const fill = ref<boolean>(false)

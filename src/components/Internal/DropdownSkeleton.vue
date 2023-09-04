@@ -7,6 +7,7 @@
 <script lang="ts" setup>
 import {PropType} from "vue";
 import {vOnClickOutside} from "@/directives";
+import type {PopperOptionsType} from "@/index";
 
 const props = defineProps({
     tag: {
@@ -17,7 +18,10 @@ const props = defineProps({
         type: Boolean as PropType<boolean>,
         default: false
     },
-    popperOptions: {default: null}
+    popperOptions: {
+        type: Object as PropType<PopperOptionsType>,
+        default: null
+    }
 });
 
 const emit = defineEmits<{
@@ -25,7 +29,7 @@ const emit = defineEmits<{
 }>();
 
 
-function onClickOutside(e) {
+function onClickOutside() {
     if (props.modelValue) {
         emit('update:modelValue', !props.modelValue);
     }

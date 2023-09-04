@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import type {ButtonSizes} from "@/types";
+import type {ButtonSizes} from "@/index";
 import {makeBoolean, makeSize, makeVariant} from "@/composables";
 
 export default defineComponent({

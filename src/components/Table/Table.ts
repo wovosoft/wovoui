@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import props from "../../shared/tableProps";
+import props from "@/shared/tableProps";
 
 export default defineComponent({
     name: "Table",

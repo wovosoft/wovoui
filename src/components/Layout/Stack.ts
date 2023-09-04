@@ -15,6 +15,6 @@ export default defineComponent({
                 "hstack": !props.vertical,
                 ["gap-" + props.gap]: props.gap
             }
-        }, slots?.default())
+        }, slots?.default?.())
     }
 })

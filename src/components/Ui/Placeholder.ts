@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import type {PlaceholderSizes, ResponsiveNumbers} from "@/types";
+import type {PlaceholderSizes, ResponsiveNumbers} from "@/index";
 import {getBinaryClasses, makeBoolean, makeProp, makeTag, makeVariant} from "@/composables";
 
 /**

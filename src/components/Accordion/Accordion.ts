@@ -1,28 +1,33 @@
-import {defineComponent, h, provide, reactive, ref, Ref} from "vue";
-import accordionProps from "./../../shared/accordionProps";
-import {getBinaryClasses} from "./../../composables/useClasses";
+import {defineComponent, h, provide, reactive, ref} from "vue";
+import accordionProps from "@/shared/accordionProps";
+import {getBinaryClasses} from "@/composables/useClasses";
+
+import {AccordionItemStateType} from "@/index";
 
 export default defineComponent({
     name: "Accordion",
     emits: ['update:modelValue'],
     props: accordionProps,
     setup(props, {expose, slots, emit}) {
-        const activeItem = ref<boolean | null>(null);
-        const items = reactive([]);
+        const activeItem = ref<AccordionItemStateType>();
+        const items: AccordionItemStateType[] = reactive([]);
 
-        provide("registerItem", (item) => items.push(item));
-        provide("setActiveItem", (item) => {
+        provide("registerItem", (item: AccordionItemStateType) => items.push(item));
+
+        provide("setActiveItem", (item: AccordionItemStateType): void => {
             activeItem.value = item;
             emit('update:modelValue', items.indexOf(item));
+
             if (!props.alwaysOpen) {
-                items.filter(i => i !== item).forEach(i => i.value = false);
+                items.filter((i: AccordionItemStateType): boolean => i !== item)
+                    .forEach((i: AccordionItemStateType): boolean => i.value = false);
             }
         });
 
         expose({
-            toggleAll: () => items.forEach(i => i.value = !i.value),
-            openAll: () => items.forEach(i => i.value = true),
-            collapseAll: () => items.forEach(i => i.value = false)
+            toggleAll: () => items.forEach((i: AccordionItemStateType): boolean => i.value = !i.value),
+            openAll: () => items.forEach((i: AccordionItemStateType): boolean => i.value = true),
+            collapseAll: () => items.forEach((i: AccordionItemStateType): boolean => i.value = false)
         });
 
         return () => h(

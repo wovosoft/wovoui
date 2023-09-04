@@ -1,6 +1,7 @@
 import type {Placement} from "@popperjs/core";
 import type {Icons} from "@wovosoft/wovoui-icons/dist/types";
 import {Ref} from "vue";
+import {Modifier, OptionsGeneric} from "@popperjs/core/lib/types";
 
 export type TextAlign = 'start' | 'center' | 'end';
 export type TextVariants =
@@ -78,8 +79,11 @@ export interface MenuItem {
     handler?: (item: MenuItem, index: number) => void;
 }
 
-export type setActiveItem = (item: Ref<boolean>) => void
-export type registerItem = (item: Ref<boolean>) => void
+export type PopperOptionsType = Partial<OptionsGeneric<Partial<Modifier<any, any>>>>;
+
+export type AccordionItemStateType = Ref<boolean | undefined>;
+export type setActiveItem = (item: AccordionItemStateType) => void
+export type registerItem = (item: AccordionItemStateType) => void
 
 export * from "./components";
 export * from "./composables";

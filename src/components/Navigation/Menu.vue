@@ -51,7 +51,7 @@ export default defineComponent({
         child: makeBoolean(false),
         ps: {type: Number as PropType<number>, default: 10}
     },
-    setup(props, {slots}) {
+    setup(props) {
         return {
             style: computed(() => {
                 if (props.child) {

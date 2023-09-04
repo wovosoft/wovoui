@@ -33,7 +33,7 @@ export default defineComponent({
     setup(props) {
         const shown = ref(false);
         watch(() => props.modelValue, value => shown.value = value);
-        const bsDir = (placement) => (placement.startsWith('auto') || placement.startsWith('top'))
+        const bsDir = (placement: string) => (placement.startsWith('auto') || placement.startsWith('top'))
             ? "top"
             : (placement.startsWith('bottom'))
                 ? "bottom"
@@ -55,9 +55,11 @@ export default defineComponent({
                 }
             ]
         });
+
         const events = computed(() => {
             return typeof props.triggers === "string" ? [props.triggers] : props.triggers;
         });
+
         const topLogger = {
             name: 'topLogger',
             enabled: true,
@@ -66,6 +68,7 @@ export default defineComponent({
                 dir.value = bsDir(state.placement)
             },
         };
+
         const popperOptions = computed(() => ({
             placement: ['auto', 'auto-start', 'auto-end'].includes(props.placement) ? 'top' : props.placement,
             modifiers: [
@@ -103,7 +106,7 @@ export default defineComponent({
         }
     },
     mounted() {
-        let target = document.getElementById(this.target);
+        let target = document.getElementById(this.target) as HTMLElement;
         let the = this;
         target.addEventListener(this.triggers, () => the.shown = !the.shown);
     },
@@ -125,6 +128,7 @@ export default defineComponent({
         },
         clickOutside(e) {
             let isTarget = document.getElementById(this.target).isSameNode(e.target);
+
             let isFromPopover = this.$refs.popover && (this.$refs.popover.isSameNode(e.target) || this.$refs.popover.contains(e.target));
             if (this.shown && !isTarget && !isFromPopover) {
                 this.shown = false;

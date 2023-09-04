@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import type {FeedbackTypes} from "@/types";
+import type {FeedbackTypes} from "@/index";
 import {makeString, makeTag} from "@/composables/useProps";
 
 export default defineComponent({

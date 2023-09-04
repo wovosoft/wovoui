@@ -52,7 +52,7 @@ import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
 import DropdownMenu from "./DropdownMenu.vue";
 import {Button} from "@/components/Button";
 import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
-import {ButtonSizes, ColorVariants, DropdownAlignments, DropdownDirections} from "@/types";
+import {ButtonSizes, ColorVariants, DropdownAlignments, DropdownDirections, PopperOptionsType} from "@/index";
 import usePopper from "@/composables/usePopper";
 import NavLink from "@/components/Navigation/NavLink.vue";
 
@@ -60,7 +60,7 @@ type DropdownType = {
     tag?: keyof HTMLElementTagNameMap,
     menuTag?: keyof HTMLElementTagNameMap,
     toggleTag?: keyof HTMLElementTagNameMap,
-    size?: ButtonSizes | null,
+    size?: ButtonSizes,
     text?: string | null,
     variant?: ColorVariants,
     splitVariant?: ColorVariants,
@@ -73,7 +73,7 @@ type DropdownType = {
     align?: DropdownAlignments,
     menuDark?: boolean,
     menuClass?: string | object | any[] | null,
-    
+
     split?: boolean,
     isNav?: boolean,
     disableInnerClicks?: boolean,
@@ -99,9 +99,10 @@ const classes = computed(() => ({
     "dropup": props.dir === "top",
 }));
 
+
 const popperOptions = computed(() => ({
     placement: props.align ? [props.dir, props.align].join("-") : "bottom-start"
-}));
+})) as PopperOptionsType;
 
 const skeleton = ref<InstanceType<typeof DropdownSkeleton> | null>(null);
 const toggle = ref<InstanceType<typeof Button> | null>(null);
@@ -111,7 +112,7 @@ const {setOptions} = usePopper(toggle, menu, popperOptions, isMenuOpened);
 
 watch(() => popperOptions, options => setOptions(options));
 
-function DdItemHandler(e) {
+function DdItemHandler(e: Event & { target: HTMLElement }) {
     if (e.target?.classList.contains('dropdown-item')) {
         isMenuOpened.value = false;
     }

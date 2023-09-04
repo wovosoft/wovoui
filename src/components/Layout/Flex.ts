@@ -1,6 +1,7 @@
 import {defineComponent, h, PropType} from "vue";
-import type {AlignContent, ItemAlignment, JustifyAlignment, ResponsiveSizes} from "@/types";
+import type {AlignContent, ItemAlignment, JustifyAlignment, ResponsiveSizes} from "@/index";
 import {makeBoolean, makeTag} from "@/composables";
+import {join} from "lodash";
 
 export default defineComponent({
     props: {
@@ -101,106 +102,65 @@ export default defineComponent({
          * Align Content
          */
         ac: {type: String as PropType<AlignContent>, default: null},
-        acSm: {type: String as PropType<AlignContent>, default: null},
-        acMd: {type: String as PropType<AlignContent>, default: null},
-        acLg: {type: String as PropType<AlignContent>, default: null},
-        acXl: {type: String as PropType<AlignContent>, default: null},
-        acXxl: {type: String as PropType<AlignContent>, default: null},
+        acOn: {
+            type: [String, Array] as PropType<ResponsiveSizes | ResponsiveSizes[]>,
+            default: null
+        },
     },
     setup(props, {slots}) {
-        function getFlexClasses(): string[] {
-            if (!props.flex) {
+        function getFlexClasses(type: 'flex' | 'inline') {
+            if (!props[type] || !['flex', 'inline'].includes(type)) {
                 return [];
             }
 
-            if (Array.isArray(props.flex)) {
-                return props.flex.map(s => `d-${s}-flex`)
-            }
-            if (typeof props.flex === 'string' && props.flex) {
-                return [
-                    `d-${props.flex}-flex`
-                ];
-            }
-        }
-
-        function getInlineClasses(): string[] {
-            if (!props.inline) {
-                return [];
-            }
-            if (props.inline === true) {
+            if (type === 'inline' && props.inline === true) {
                 return ["d-inline-flex"];
             }
 
-            if (Array.isArray(props.inline)) {
-                return props.inline.map(s => `d-${s}-inline-flex`)
+            const flexType = type === 'inline' ? type : null;
+            const flexValues = type === 'flex' ? props.flex : props.inline;
+
+            if (Array.isArray(flexValues)) {
+                return flexValues.map((screen: ResponsiveSizes) => join(['d', screen, flexType, 'flex'], '-'))
             }
-            if (typeof props.inline === 'string' && props.inline) {
+
+            if (typeof props[type] === 'string' && props[type]) {
                 return [
-                    `d-${props.inline}-inline-flex`
+                    join(['d', flexType, 'flex'], '-')
                 ];
             }
         }
 
-        function responsiveJustifiedContent() {
+
+        function responsiveClasses(resOn: ResponsiveSizes | ResponsiveSizes[], res: JustifyAlignment | ItemAlignment, resFor: string) {
             //Note: When props.jcOn exists props.jc must be provided
-            if (typeof props.jcOn === "string" && props.jc) {
-                return ["justify-content", props.jcOn, props.jc].join("-");
+            if (typeof resOn === "string" && res) {
+                return [resFor, resOn, res].join("-");
             }
-            if (Array.isArray(props.jcOn) && props.jc) {
-                return props.jcOn.map(dir => ["justify-content", dir, props.jc].join("-"));
-            }
-
-            return [];
-        }
-
-        function responsiveAlignItems() {
-            //Note: When props.aiOn exists props.ai must be provided
-            if (typeof props.aiOn === "string" && props.ai) {
-                return ["align-items", props.aiOn, props.ai].join("-");
-            }
-
-            if (Array.isArray(props.aiOn) && props.ai) {
-                return props.aiOn.map(dir => ["align-items", dir, props.ai].join("-"));
+            if (Array.isArray(resOn) && res) {
+                return resOn.map((dir: ResponsiveSizes) => [resFor, dir, res].join("-"));
             }
 
             return [];
         }
 
-        function responsiveAlignSelf() {
-            //Note: When props.asOn exists props.as must be provided
-            if (typeof props.aiOn === "string" && props.ai) {
-                return ["align-self", props.aiOn, props.ai].join("-");
-            }
-
-            if (Array.isArray(props.aiOn) && props.ai) {
-                return props.aiOn.map(dir => ["align-self", dir, props.ai].join("-"));
-            }
-
-            return [];
-        }
 
         function getWrapClasses(type: 'wrap' | 'nowrap'): string[] {
-            if (!props[type]) {
+            if (!props[type] || !['wrap', 'nowrap'].includes(type)) {
                 return [];
             }
 
-            let reverse = props[type] === 'reverse' ? 'reverse' : null;
+            const reverse = props[type] === 'reverse' ? 'reverse' : null;
 
-            if (Array.isArray(props[type + "On"]) && props[type + "On"].length > 0) {
-                return props[type + "On"].map(wrapOn => [type, wrapOn, reverse].filter(i => i).join("-"));
+            const targetArray = type === 'wrap' ? props.wrapOn : props.nowrapOn;
+
+            if (Array.isArray(targetArray) && targetArray.length > 0) {
+                return targetArray.map(on => [type, on, reverse].filter(i => i).join("-"));
             }
 
             return [type + (reverse ? "-reverse" : "")];
         }
 
-        function getAlignContentClasses() {
-            return ['ac', 'acSm', 'acMd', 'acLg', 'acXl', 'acXxl'].map(function (item) {
-                if (props[item]) {
-                    return ["align-content", item, props[item]].join("-");
-                }
-                return null;
-            });
-        }
 
         return () => h(props.tag, {
             class: [
@@ -222,15 +182,15 @@ export default defineComponent({
                      */
                     ["align-items-" + props.ai]: props.ai && !props.aiOn,
                 },
-                getFlexClasses(),
-                getInlineClasses(),
-                responsiveJustifiedContent(),
-                responsiveAlignItems(),
-                responsiveAlignSelf(),
+                getFlexClasses('flex'),
+                getFlexClasses('inline'),
+                responsiveClasses(props.jcOn, props.jc, 'justify-content'),
+                responsiveClasses(props.aiOn, props.ai, 'align-items'),
+                responsiveClasses(props.asOn, props.as, 'align-self'),
+                responsiveClasses(props.acOn, props.ac, 'align-content'),
                 getWrapClasses('wrap'),     //wrap classes
                 getWrapClasses('nowrap'),   //nowrap classes
-                getAlignContentClasses(),
             ]
-        }, slots?.default())
+        }, slots?.default?.())
     }
 });

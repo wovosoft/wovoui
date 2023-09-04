@@ -34,9 +34,9 @@
 
 <script lang="ts" setup>
 import {computed, PropType} from "vue";
-import {Button, InputGroup} from "@/";
+import {Button, InputGroup} from "@/components";
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
-import type {ButtonSizes} from "@/types";
+import type {ButtonSizes} from "@/index";
 import {makeBoolean, makeNumber, makeSize, makeVariant, useStateModel} from "@/composables";
 
 const props = defineProps({

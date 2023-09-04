@@ -1,6 +1,6 @@
-import {h, PropType, provide, VNode} from "vue";
+import {defineComponent, h, PropType, provide, VNode} from "vue";
 
-export default {
+export default defineComponent({
     props: {
         node: {default: null, type: Object as PropType<VNode>},
         item: {type: Object as PropType<object>, default: null},
@@ -9,4 +9,4 @@ export default {
         provide('item', props.item);
         return () => h(props.node)
     }
-}
+})

@@ -1,6 +1,6 @@
 import startCase from "lodash/startCase";
 import {PropType} from "vue";
-import {ColorVariants} from "@/types";
+import {ColorVariants} from "@/index";
 
 function toLower(str: string) {
     return str.toLowerCase();
@@ -86,10 +86,10 @@ export const toggleCollapse = (container, shown, dim = "height", /*shouldRenderH
         setTimeout(() => container.style[dim] = "0px", 0);
     }
 }
-export const isObject = (obj) => typeof obj === "object" && !Array.isArray(obj);
-export const isArray = (arr) => Array.isArray(arr);
-export const title = (str) => startCase(toLower(str));
+export const isObject = (obj: any) => typeof obj === "object" && !Array.isArray(obj);
+export const isArray = (arr: any) => Array.isArray(arr);
+export const title = (str: string) => startCase(toLower(str));
 
-export function orderBy(items: object[] | string[], key: string, order: 'asc' | 'desc') {
+export function orderBy(items: object[] | string[], key: string) {
     return items.sort((a, b) => a[key].localeCompare(b[key]));
 }

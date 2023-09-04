@@ -2,7 +2,6 @@ import {defineComponent, h, inject} from "vue";
 import type {ButtonSizes} from "@/index";
 import {makeBoolean, makeProp, makeSize, makeString, makeTag, makeVariant} from "@/composables/useProps";
 
-
 export default defineComponent({
     props: {
         tag: makeTag("button"),

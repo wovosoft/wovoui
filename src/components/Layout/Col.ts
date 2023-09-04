@@ -1,6 +1,6 @@
 import {makeProp, makeTag} from "@/composables";
 import {defineComponent, h, PropType} from "vue";
-import type {ColAlignments, ColOrders, ColSizes, JustifyContentAlignments, ResponsiveNumbers} from "@/types";
+import type {ColAlignments, ColOrders, ColSizes, JustifyContentAlignments, ResponsiveNumbers} from "@/index";
 
 function isBoolean(compare: unknown) {
     return typeof compare === "boolean";

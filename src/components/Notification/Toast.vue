@@ -24,11 +24,11 @@
 <script lang="ts" setup>
 
 import {computed, onBeforeUnmount, PropType, ref, watch} from "vue";
-import {ButtonClose, ToastBody} from "../../";
+import {ButtonClose, ToastBody} from "@/components";
 import {getTransitionDurationFromElement} from "@/composables";
 import SafeTeleport from "../Internal/SafeTeleport";
 import {RendererElement} from "@vue/runtime-core";
-import SafeComponent from "../Internal/SafeComponent";
+import SafeComponent from "@/components/Internal/SafeComponent";
 import {makeBoolean, makeString, makeVariant} from "@/composables";
 
 defineOptions({
@@ -45,37 +45,37 @@ const props = defineProps({
      * TODO: needs further investigation if this approach is okay or not.
      */
     lazy: makeBoolean(false),
-    
+
     /**
      * Visibility State
      */
     show: makeBoolean(null),
-    
+
     /**
      * Fade Class
      */
     fade: makeBoolean(true),
-    
+
     /**
      * Visibility State
      */
     modelValue: makeBoolean(null),
-    
+
     /**
      * Toast Header
      */
     header: makeString(),
-    
+
     /**
      * Toggling body
      */
     noBody: makeBoolean(false),
-    
+
     /**
      * Toggling close button
      */
     noCloseButton: makeBoolean(false),
-    
+
     /**
      * Toast Body Classes
      */
@@ -83,12 +83,12 @@ const props = defineProps({
         type: [Array, String, Object] as PropType<string | object>,
         default: null,
     },
-    
+
     /**
      * Color Variants
      */
     variant: makeVariant(null),
-    
+
     /**
      * teleporting to a different location
      *
@@ -97,7 +97,7 @@ const props = defineProps({
         type: [String, Object] as PropType<string | RendererElement | null | undefined>,
         default: null
     },
-    
+
     /**
      * @description props {to} should be used in lieu of container props
      * @deprecated will be removed in next version
@@ -106,7 +106,7 @@ const props = defineProps({
         type: [String, Object] as PropType<string | RendererElement | null | undefined>,
         default: null
     },
-    
+
     /**
      * Auto Hide timeout value in seconds.
      * When time value is set to 0|null|undefined,
@@ -120,7 +120,7 @@ const props = defineProps({
 const emit = defineEmits<{
     (e: "update:show", value: boolean): void
     (e: "update:modelValue", value: boolean): void
-    
+
     (e: "shown", value: boolean): void
     (e: "hidden", value: boolean): void
     (e: "showing", value: boolean): void
@@ -178,7 +178,7 @@ watch(visible, (value) => {
             emit("update:modelValue", true);
             emit("update:show", true);
             emit("shown", true);
-            
+
             //when auto hide is disabled.
             if (props.timeout <= 0 || !props.timeout) {
                 clearTimer();

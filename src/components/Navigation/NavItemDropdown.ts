@@ -1,5 +1,5 @@
-import {Dropdown} from "../../";
-import dropdownProps from "../../shared/dropdownProps";
+import {Dropdown} from "@/components/Dropdown";
+import dropdownProps from "@/shared/dropdownProps";
 import {defineComponent, h} from "vue";
 import {makeBoolean, makeTag} from "@/composables";
 

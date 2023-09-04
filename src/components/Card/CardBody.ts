@@ -16,7 +16,7 @@ export default defineComponent({
         subTitle: makeString(),
         subTitleTag: makeTag("h6"),
         subTitleTextVariant: makeTextVariant("muted"),
-        title: makeString(),
+        title: makeString(null),
         titleTag: makeTag("h4")
     },
     setup(props, {slots}) {

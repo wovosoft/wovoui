@@ -1,5 +1,5 @@
 export default {
-    mounted(el, binding: boolean) {
+    mounted(el: HTMLElement, binding: boolean) {
         if (binding) {
             el.classList.add("vr");
         } else {

@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import type {ColorVariants, TooltipPlacement} from "@/types";
+import type {ColorVariants, TooltipPlacement} from "@/index";
 import {makeBoolean, makeString} from "@/composables";
 //constants
 import {getTransitionDurationFromElement} from "@/composables";

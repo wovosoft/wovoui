@@ -91,7 +91,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, Ref, ref, watch} from "vue";
-import dayjs, {Dayjs} from "dayjs";
+import dayjs, {Dayjs, ManipulateType, UnitType} from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
 import Row from "../Layout/Row";
@@ -148,7 +148,7 @@ export default defineComponent({
 
 
         const theWeeks = computed(() => {
-                const weeks = [];
+                const weeks = <any>[];
                 let weekday = theDate.value.startOf('month').day();
                 for (let date = 1; date <= theDate.value.daysInMonth(); date++) {
                     if (weekday === 0 || weeks.length === 0) {
@@ -157,32 +157,32 @@ export default defineComponent({
                     weeks[weeks.length - 1].push(date);
                     weekday = (weekday + 1) % 7;
                 }
-                return weeks.filter((w) => !!w.length).map((w) => w);
+                return weeks.filter((w: any[]) => !!w.length).map((w: any) => w);
             });
 
         return {
             theDate,
             theWeeks,
-            setMonth(e) {
+            setMonth(e: Event & { target: HTMLInputElement }) {
                 const date = dayjs(e.target.value);
                 theDate.value = dayjs(theDate.value)
                     .set('year', date.year())
                     .set('month', date.month())
             },
             showMonthSelector: ref(false),
-            add: (type, value = 1) => theDate.value = dayjs(theDate.value).add(value, type),
-            subtract: (type, value = 1) => theDate.value = dayjs(theDate.value).subtract(value, type),
+            add: (type: ManipulateType, value = 1) => theDate.value = dayjs(theDate.value).add(value, type),
+            subtract: (type: ManipulateType, value = 1) => theDate.value = dayjs(theDate.value).subtract(value, type),
             setToday: () => {
                 theDate.value = dayjs();
                 context.emit('update:modelValue', theDate.value.format(props.format));
             },
-            selectDate(day) {
+            selectDate(day: UnitType) {
                 theDate.value = dayjs(theDate.value).set('date', Number(day));
                 //only when clicked, emit modelValue
                 context.emit('update:modelValue', theDate.value.format(props.format));
             },
-            isToday: (day) => dayjs(theDate.value.format('YYYY-MM') + '-' + day).isToday(),
-            isSameDay(day) {
+            isToday: (day: number) => dayjs(theDate.value.format('YYYY-MM') + '-' + day).isToday(),
+            isSameDay(day: string) {
                 if (!props.modelValue) {
                     return false;
                 }

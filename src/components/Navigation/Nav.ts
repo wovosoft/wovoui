@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import navProps from "../../shared/navProps";
+import navProps from "@/shared/navProps";
 
 export default defineComponent({
     name: "Nav",

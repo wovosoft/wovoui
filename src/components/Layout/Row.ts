@@ -1,5 +1,5 @@
 import {defineComponent, h, PropType} from "vue";
-import type {ColAlignments, ColSizes, JustifyContentAlignments, ResponsiveNumbers} from "@/types";
+import type {ColAlignments, ColSizes, JustifyContentAlignments, ResponsiveNumbers} from "@/index";
 import {makeProp, makeTag} from "@/composables";
 
 export default defineComponent({
@@ -41,6 +41,6 @@ export default defineComponent({
                 ["gx-" + props.gx]: props.gx,
                 ["gy-" + props.gy]: props.gy,
             }]
-        }, slots?.default())
+        }, slots?.default?.())
     }
 })

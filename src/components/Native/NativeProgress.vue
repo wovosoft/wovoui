@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import {PropType} from "vue";
 
-const props = defineProps({
+defineProps({
     value: [String, Number] as PropType<string | number>,
     max: [String, Number] as PropType<string | number>,
 });

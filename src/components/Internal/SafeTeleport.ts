@@ -1,4 +1,4 @@
-import {defineComponent, h, PropType, Teleport} from "vue";
+import {defineComponent, h, PropType} from "vue";
 import {RendererElement} from "@vue/runtime-core";
 
 /**
@@ -17,12 +17,12 @@ export default defineComponent({
     setup(props, {slots}) {
         return () => {
             if (props.to) {
-                return h(Teleport, {
+                return h("teleport", {
                     to: props.to,
                     disabled: props.disabled
-                }, slots?.default())
+                }, slots?.default?.())
             }
-            return slots?.default();
+            return slots?.default?.();
         }
     }
 });
