@@ -10,14 +10,14 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType} from "vue";
+import {PropType, StyleValue} from "vue";
 
-const props = defineProps({
+defineProps({
     summary: String as PropType<string>,
     details: String as PropType<string>,
     detailsClass: {default: null},
     summaryClass: {default: null},
-    detailsStyle: {default: null},
-    summaryStyle: {default: null},
+    detailsStyle: {default: null, type: Object as PropType<StyleValue>},
+    summaryStyle: {default: null, type: Object as PropType<StyleValue>},
 });
 </script>

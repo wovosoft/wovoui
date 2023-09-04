@@ -29,10 +29,10 @@
 
 <script lang="ts">
 import {computed, defineComponent, PropType} from "vue";
-import Accordion from "../Accordion/Accordion";
-import AccordionItem from "../Accordion/AccordionItem.vue";
+import Accordion from "@/components/Accordion/Accordion";
+import AccordionItem from "@/components/Accordion/AccordionItem.vue";
 import {ChevronRight} from "@wovosoft/wovoui-icons";
-import accordionProps from "../../shared/accordionProps";
+import accordionProps from "@/shared/accordionProps";
 import {makeBoolean} from "@/composables";
 
 type itemType = {
@@ -62,7 +62,7 @@ export default defineComponent({
                         // paddingLeft: props.ps + "px"
                     }
                 }
-                return null;
+                return;
             })
         }
     }

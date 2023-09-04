@@ -43,7 +43,7 @@
 
 
 import {computed, onMounted, PropType, provide, Ref, ref, watch} from "vue";
-import {Nav, NavLink, TabContent} from "@/components";
+import {Nav, NavLink, TabContent, TabMapItem} from "@/components";
 import {makeBoolean, makeNumber} from "@/composables";
 
 const props = defineProps({
@@ -163,17 +163,6 @@ const classes = computed(() => ({
     'align-items-start': props.vertical
 }));
 
-
-type TabMapItem = {
-    uid: number;
-    updateVisibility: (state: boolean) => void,
-    title: string;
-    visible: boolean;
-    states?: Ref<{
-        ariaSelected: boolean;
-        tabindex: number | null;
-    }>
-}
 
 /**
  * Records of subscribed child tabs

@@ -12,14 +12,14 @@
             </slot>
         </CardHeader>
         <CardImg v-if="imgSrc && !imgBottom" v-bind="cardImageBindings"/>
-        
-        <CardBody v-if="!noBody" v-bind="cardBodyBindings" :title="title" :title-tag="titleTag">
+
+        <CardBody v-if="!noBody" v-bind="cardBodyBindings">
             <slot></slot>
         </CardBody>
         <template v-else>
             <slot></slot>
         </template>
-        
+
         <CardImg v-if="imgSrc && imgBottom" v-bind="cardImageBindings"/>
         <CardFooter
             v-if="$slots.footer || footer"
@@ -47,22 +47,22 @@ const props = defineProps({
     bodyBorderVariant: makeVariant(null),
     bodyClass: makeClass(null),
     bodyTag: makeTag("div"),
-    bodyTextVariant: makeVariant(null),
-    
+    bodyTextVariant: makeTextVariant(null),
+
     footer: makeString(null),
     footerBgVariant: makeVariant(null),
     footerTag: makeTag("div"),
     footerTextVariant: makeTextVariant(null),
     footerClass: makeClass(null),
     footerBorderVariant: makeVariant(null),
-    
+
     header: makeString(null),
     headerBgVariant: makeVariant(null),
     headerBorderVariant: makeVariant(null),
     headerClass: makeClass(null),
     headerTag: makeTag("div"),
     headerTextVariant: makeTextVariant(null),
-    
+
     imgAlt: makeString(null),
     imgBottom: makeBoolean(false),
     imgEnd: makeBoolean(false),
@@ -74,13 +74,13 @@ const props = defineProps({
     imgWidth: makeString(null),
     imgHeight: makeString(null),
     noBody: makeBoolean(false),
-    
+
     overlay: makeBoolean(false),
     subTitle: makeString(null),
     subTitleTag: makeTag("h6"),
     subTitleTextVariant: makeTextVariant("muted"),
     tag: makeTag("div"),
-    
+
     textVariant: makeTextVariant(null),
     borderVariant: makeVariant(null),
     title: makeString(null),
@@ -134,18 +134,18 @@ const cardBodyBindings = computed(() => ({
         display: flex;
         flex-flow: row wrap;
     }
-    
+
     .card-deck .card {
         flex: 1 0 0;
         margin-right: 15px;
         margin-bottom: 0;
         margin-left: 15px
     }
-    
+
     .card-deck .card:first-child {
         margin-left: 0;
     }
-    
+
     .card-deck .card:last-child {
         margin-right: 0;
     }
@@ -167,7 +167,7 @@ const cardBodyBindings = computed(() => ({
         orphans: 1;
         widows: 1
     }
-    
+
     .card-columns .card {
         display: inline-block;
         width: 100%

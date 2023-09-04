@@ -108,6 +108,7 @@ const skeleton = ref<InstanceType<typeof DropdownSkeleton> | null>(null);
 const toggle = ref<InstanceType<typeof Button> | null>(null);
 const menu = ref<InstanceType<typeof DropdownMenu> | null>(null);
 
+//@ts-ignore
 const {setOptions} = usePopper(toggle, menu, popperOptions, isMenuOpened);
 
 watch(() => popperOptions, options => setOptions(options));

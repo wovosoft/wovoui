@@ -1,46 +1,9 @@
 import {Component, defineComponent, h, onMounted, PropType, reactive, ref, watch} from "vue";
 import {makeBoolean, makeNumber, makeString, makeTag, makeVariant} from "@/composables/useProps";
-import Icon from "../Ui/Icon";
-import ButtonClose from "../Button/ButtonClose";
+import Icon from "@/components/Ui/Icon";
+import ButtonClose from "@/components/Button/ButtonClose";
 import {Icons} from "@wovosoft/wovoui-icons/dist/types";
 
-// @ts-ignore
-function getContent(props, slots) {
-    if (props.icon) {
-        return h('div',
-            {class: ["flex-shrink-0"]},
-            [
-                slots?.heading?.() || props.heading,
-                slots.default?.()
-            ]
-        );
-    }
-    return [
-        slots?.heading?.() || props.heading,
-        slots?.default?.()
-    ];
-}
-
-// @ts-ignore
-function getIcon(props) {
-    if (props.icon) {
-        if (typeof props.icon === "string") {
-            return h(() => Icon, {icon: props.icon});
-        }
-        return h(props.icon, {
-            class: "me-2 flex-shrink-0"
-        });
-    }
-    return null;
-}
-
-// @ts-ignore
-function getButton(props, state) {
-    return props.dismissible ? h(ButtonClose, {
-        onClick: () => state.value = false,
-        white: props.closeBtnWhite
-    }) : null
-}
 
 export default defineComponent({
     name: "Alert",
@@ -119,17 +82,45 @@ export default defineComponent({
             }
         }
 
-        function show() {
-            state.value = true;
+        const show = () => state.value = true;
+        const hide = () => state.value = false;
+        const toggle = () => state.value ? hide() : show()
+
+        const getContent = () => {
+            if (props.icon) {
+                return h('div',
+                    {class: ["flex-shrink-0"]},
+                    [
+                        slots?.heading?.() || props.heading,
+                        slots.default?.()
+                    ]
+                );
+            }
+            return [
+                slots?.heading?.() || props.heading,
+                slots?.default?.()
+            ];
         }
 
-        function hide() {
-            state.value = false;
+
+        const getIcon = () => {
+            if (props.icon) {
+                if (typeof props.icon === "string") {
+                    return h(() => Icon, {icon: props.icon});
+                }
+                return h(props.icon, {
+                    class: "me-2 flex-shrink-0"
+                });
+            }
+            return null;
         }
 
-        function toggle() {
-            state.value ? hide() : show();
-        }
+
+        const getButton = () => props.dismissible
+            ? h(ButtonClose, {
+                onClick: () => state.value = false,
+                white: props.closeBtnWhite
+            }) : null;
 
         expose({show, hide, toggle});
 
@@ -146,9 +137,9 @@ export default defineComponent({
                 }
             ]
         }, [
-            getIcon(props),
-            getContent(props, slots),
-            getButton(props, state)
+            getIcon(),
+            getContent(),
+            getButton()
         ]) : null
     }
 });

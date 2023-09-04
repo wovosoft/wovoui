@@ -1,17 +1,17 @@
 import {defineComponent, h} from "vue";
-import type {ResponsiveNumbers} from "@/index";
-import {makeProp, makeTag} from "@/composables";
+import {makeTag} from "@/composables";
+import {makeResponsiveNumbers} from "@/index";
 
 export default defineComponent({
     name: "GridCol",
     props: {
         tag: makeTag("div"),
-        col: makeProp<ResponsiveNumbers>(null, [Number, String]),
-        sm: makeProp<ResponsiveNumbers>(null, [Number, String]),
-        md: makeProp<ResponsiveNumbers>(null, [Number, String]),
-        lg: makeProp<ResponsiveNumbers>(null, [Number, String]),
-        xl: makeProp<ResponsiveNumbers>(null, [Number, String]),
-        start: makeProp<ResponsiveNumbers>(null, [Number, String]),
+        col: makeResponsiveNumbers(),
+        sm: makeResponsiveNumbers(),
+        md: makeResponsiveNumbers(),
+        lg: makeResponsiveNumbers(),
+        xl: makeResponsiveNumbers(),
+        start: makeResponsiveNumbers(),
     },
     setup(props, {slots}) {
         return () => h(props.tag, {

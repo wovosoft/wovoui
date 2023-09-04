@@ -38,7 +38,7 @@ import type {ColorVariants, TooltipPlacement} from "@/index";
 import {makeBoolean, makeString} from "@/composables";
 //constants
 import {getTransitionDurationFromElement} from "@/composables";
-import {computed, PropType, ref, watch} from "vue";
+import {computed, PropType, ref, StyleValue, watch} from "vue";
 import {OffcanvasBody, OffcanvasHeader} from "@/components";
 
 
@@ -55,7 +55,7 @@ const props = defineProps({
     backdropClass: {type: [Array, Object, String] as PropType<any>, default: null},
     headerStyle: {type: [Object, String] as PropType<object | string>, default: null},
     bodyStyle: {type: [Object, String] as PropType<object | string>, default: null},
-    backdropStyle: {type: [Object, String] as PropType<object | string>, default: null},
+    backdropStyle: {type: [Object, Array] as PropType<StyleValue>, default: null},
     title: makeString(),
     tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "aside"},
     backdrop: makeBoolean(true),
@@ -86,24 +86,28 @@ watch(() => props.modelValue, value => shown.value = value);
 //watcher for transition
 watch(shown, value => value ? show() : hide());
 
-const theElement = ref<HTMLElement>();
+const theElement = ref<HTMLElement | null>();
 //May Be Triggering Element of the Offcanvas element
-const mayBeTriEl = ref<Element | HTMLElement>();
+const mayBeTriEl = ref<Element | null>(null);
 const show = () => {
+    if (!theElement?.value) {
+        return;
+    }
+
     mayBeTriEl.value = document.activeElement;
-    
+
     activeBackdrop.value = true;
     showBackdrop.value = true;
     isShowing.value = true;
-    
+
     if (!props.enableBodyScroll) {
         document.body.style.overflow = "hidden";
         document.body.style.paddingRight = props.scrollbarPadding;
     }
-    
+
     emit("update:modelValue", true);
     emit("showing", true);
-    
+
     setTimeout(() => {
         isShowing.value = false;
         isShown.value = true;
@@ -116,18 +120,22 @@ const show = () => {
 };
 
 const hide = () => {
+    if (!theElement?.value) {
+        return;
+    }
+
     if (!props.enableBodyScroll) {
         document.body.style.overflow = "";
         document.body.style.paddingRight = "";
     }
-    
+
     isHiding.value = true;
     showBackdrop.value = false;
-    
+
     emit("update:modelValue", false);
     emit("hiding", true);
-    
-    
+
+
     setTimeout(() => {
         activeBackdrop.value = false;
         isHiding.value = false;
@@ -159,7 +167,7 @@ const classes = computed(() => {
     //converts start/left ==> start, right/end == end wrt. bootstrap >=5.5.2
     let placement = ['start', 'left'].includes(props.placement) ? "start"
         : ["right", "end"].includes(props.placement) ? "end" : props.placement;
-    
+
     return [
         "offcanvas",
         {
@@ -173,7 +181,7 @@ const classes = computed(() => {
     ]
 });
 
-function onEsc(e) {
+function onEsc(e: Event) {
     if (!props.noCloseOnEsc && !e.defaultPrevented) {
         hide();
     }

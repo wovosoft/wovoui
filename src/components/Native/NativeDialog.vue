@@ -39,13 +39,9 @@ watch(open, value => {
 
 const theDialog = ref<HTMLDialogElement>();
 
-function show() {
-    theDialog.value?.showModal();
-}
+const show = () => theDialog.value?.showModal();
 
-function hide() {
-    theDialog.value?.close();
-}
+const hide = () => theDialog.value?.close();
 
 defineExpose({
     show, hide

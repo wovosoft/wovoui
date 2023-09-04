@@ -10,6 +10,7 @@
 <script lang="ts" setup>
 import {computed, getCurrentInstance, inject, onBeforeUnmount, onMounted, reactive, ref, watch} from "vue";
 import {getTransitionDurationFromElement, makeBoolean, makeString} from "@/composables";
+import {registerTabType, unregisterTabType} from "./index";
 
 const props = defineProps({
     active: makeBoolean(false),
@@ -24,10 +25,14 @@ const emit = defineEmits<{
  * This state is handled by parent Component Tabs.
  * Which is done by updateVisibility method.
  */
-const visible = ref(props.active);
+const visible = ref<boolean>(props.active);
 const theRoot = ref<HTMLElement>();
 
 watch(visible, value => {
+    if (!theRoot?.value) {
+        return;
+    }
+
     emit("update:active", value);
     if (value) {
         /**
@@ -58,13 +63,13 @@ watch(visible, value => {
 });
 
 //injections
-const registerTab = inject<(tab) => void>('registerTab');
-const unregisterTab = inject<(tab) => void>('unregisterTab');
+const registerTab = inject('registerTab') as registerTabType;
+const unregisterTab = inject('unregisterTab') as unregisterTabType;
 //when parent Tabs component has card prop set to true
 const isCardTabs = inject('isCardTabs') as { value: boolean };
 
 //provided to parent
-const updateVisibility = (value) => visible.value = value;
+const updateVisibility = (value: boolean) => visible.value = value;
 
 //subscribe to parent tabs
 onMounted(() => {
@@ -74,21 +79,26 @@ onMounted(() => {
     states.tabindex = props.active ? null : -1;
 
     registerTab({
-        uid: getCurrentInstance().uid,
+        uid: getCurrentInstance()?.uid,
         updateVisibility,
         title: props.title,
-        visible,
-        states
+        visible: visible.value,
+        states: states
     });
 });
 
 //unsubscribe from parent tabs
-onBeforeUnmount(() => unregisterTab(getCurrentInstance().uid));
+onBeforeUnmount(() => unregisterTab(getCurrentInstance()?.uid));
 
 /**
  * Tab Class states
  */
-const states = reactive({
+const states = reactive<{
+    active: boolean,
+    show: boolean,
+    ariaSelected: boolean | null,
+    tabindex: number | null
+}>({
     active: false,
     show: false,
     ariaSelected: null,

@@ -148,7 +148,7 @@ watch(() => props.modelValue, value => {
     }
 });
 
-let timer = null;
+let timer: number | null = null;
 
 function setTimer() {
     timer = setTimeout(() => {
@@ -165,9 +165,13 @@ function clearTimer() {
 
 onBeforeUnmount(clearTimer);
 
-const element = ref<HTMLDivElement>(null);
+const element = ref<HTMLElement>();
 
 watch(visible, (value) => {
+    if (!element?.value) {
+        return;
+    }
+
     if (value) {
         //when showing
         // shouldGenerate.value=!props.lazy || (visible.value && props.lazy);

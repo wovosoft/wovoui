@@ -13,7 +13,7 @@ export default defineComponent({
         borderVariant: makeVariant(null),
         textVariant: makeTextVariant(null),
         overlay: makeBoolean(false),
-        subTitle: makeString(),
+        subTitle: makeString(null),
         subTitleTag: makeTag("h6"),
         subTitleTextVariant: makeTextVariant("muted"),
         title: makeString(null),

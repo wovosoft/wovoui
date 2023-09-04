@@ -2,7 +2,7 @@
     <div ref="appBar">
         <slot name="app_bar"></slot>
     </div>
-    <div class="d-flex align-items-stretch" :style="{height:'calc(100vh - '+ appBarHeight +'px)'}">
+    <div class="d-flex align-items-stretch" :style="{height:'calc(100vh - '+ elementSize.height +'px)'}">
         <Collapse v-model="sidebarOpened" horizontal :width="230" class="border-end">
             <slot name="sidebar"></slot>
         </Collapse>
@@ -18,8 +18,7 @@ import {useElementSize} from "@vueuse/core";
 import {Collapse} from "@/components/Accordion";
 
 const appBar = ref<HTMLElement | null>(null);
-//@ts-ignore
-const {height: appBarHeight} = useElementSize(appBar);
+const elementSize = useElementSize(appBar);
 
 const sidebarOpened = ref<boolean>(true);
 

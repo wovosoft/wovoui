@@ -60,67 +60,73 @@ export default defineComponent({
     props: {
         tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'ul'},
         modelValue: makeNumber(1),
-        
+
         totalRows: makeNumber(0),
         perPage: {type: Number as PropType<number>, default: 15},
         currentPage: makeNumber(1),
-        
+
         size: makeSize<ButtonSizes>(null),
         align: {type: String as PropType<'center' | 'end' | 'right' | null>, default: null},
-        
+
         firstColPageCount: {type: Number as PropType<number>, default: 3},
         centerColPageCount: {type: Number as PropType<number>, default: 3},
         lastColPageCount: {type: Number as PropType<number>, default: 3},
     },
     setup(props, context) {
         //internal state, needed when props.currentPage not defined in calling component.
-        const state = ref(props.currentPage);
-        watch(state, page => {
+        const currentState = ref<number | null>(props.currentPage);
+
+        watch(currentState, page => {
             context.emit('update:modelValue', page);
             context.emit('update:currentPage', page);
             context.emit('change', page);
         });
-        
-        watch(() => props.currentPage, page => state.value = page);
-        watch(() => props.modelValue, page => state.value = page);
-        
+
+        watch(() => props.currentPage, page => currentState.value = page);
+        watch(() => props.modelValue, page => currentState.value = page);
+
         const pageCount = computed(() => {
             if (Number(props.perPage)) {
                 return Math.ceil(Number(props.totalRows) / Number(props.perPage))
             }
             return 0;
         });
-        
+
         const firstBlock = computed(() => {
             if (pageCount.value < props.firstColPageCount) {
                 return [...Array(pageCount.value).keys()].map(i => i + 1)
             }
-            if (state.value > props.firstColPageCount) {
+
+            if (Number(currentState.value) > props.firstColPageCount) {
                 return [...Array(props.firstColPageCount).keys()].map(i => i + 1);
             }
-            if (state.value <= props.firstColPageCount) {
+
+            if (Number(currentState.value) <= props.firstColPageCount) {
                 let count = pageCount.value - lastBlock.value.length;
                 if (count > props.firstColPageCount) {
                     count = props.firstColPageCount;
                 }
                 return [...Array(count).keys()].map(i => i + 1);
             }
+
+
             return [];
         });
+
         const centerBlock = computed(() => {
             let items = [];
             // let half = Math.round(props.centerColPageCount / 2);
-            if (state.value > props.firstColPageCount && state.value < (pageCount.value - props.lastColPageCount)) {
+            if (Number(currentState.value) > props.firstColPageCount && Number(currentState.value) < (pageCount.value - props.lastColPageCount)) {
                 for (let x = 0; x < props.centerColPageCount; x++) {
                     if (props.centerColPageCount % 2 === 0) {
-                    
+
                     }
                     items.push(x - 1);
                 }
             }
-            return items.map(i => i + state.value);
+            return items.map(i => i + Number(currentState.value));
         });
-        
+
         const lastBlock = computed(() => {
             if (pageCount.value >= (props.firstColPageCount + props.centerColPageCount)) {
                 let items = [];
@@ -131,7 +137,7 @@ export default defineComponent({
             }
             return [];
         });
-        const setPage = (page) => state.value = page;
+        const setPage = (page: number) => currentState.value = page;
         return {
             firstBlock,
             centerBlock,
@@ -143,7 +149,7 @@ export default defineComponent({
                 }
             ]),
             pageCount,
-            state,
+            state: currentState,
             setPage
         }
     }

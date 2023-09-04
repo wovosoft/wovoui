@@ -15,11 +15,10 @@ import type {ClassTypes} from "@/index";
 import {RouteRecordRaw} from "vue-router";
 import {makeBoolean, makeString} from "@/composables";
 
-
 type linkAttributesType = {
-    href?: string,
-    ariaCurrent?: string,
-    target?: string
+    href?: string | null,
+    ariaCurrent?: string | null,
+    target?: string | null
 }
 
 const props = defineProps({

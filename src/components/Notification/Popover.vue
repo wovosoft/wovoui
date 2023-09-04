@@ -18,6 +18,7 @@
 import {computed, defineComponent, PropType, ref, watch} from "vue";
 import {createPopper} from "@popperjs/core";
 import {makeBoolean, makeString} from "@/composables";
+import {Modifier} from "@popperjs/core/lib/types";
 
 export default defineComponent({
     name: "Popover",
@@ -57,27 +58,26 @@ export default defineComponent({
         });
 
         const events = computed(() => {
-            return typeof props.triggers === "string" ? [props.triggers] : props.triggers;
+            return [props.triggers];
         });
 
-        const topLogger = {
-            name: 'topLogger',
-            enabled: true,
-            phase: 'main',
-            fn({state}) {
-                dir.value = bsDir(state.placement)
-            },
-        };
 
         const popperOptions = computed(() => ({
             placement: ['auto', 'auto-start', 'auto-end'].includes(props.placement) ? 'top' : props.placement,
-            modifiers: [
-                topLogger,
+            modifiers: <Modifier<any, any>[]>[
+                {
+                    name: 'topLogger',
+                    enabled: true,
+                    phase: 'main',
+                    fn({state}) {
+                        dir.value = bsDir(state.placement)
+                    },
+                },
                 {
                     name: 'offset',
                     enabled: true,
                     options: {
-                        offset: (d) => [0, 10],
+                        offset: () => [0, 10],
                     },
                 },
             ],
@@ -115,7 +115,7 @@ export default defineComponent({
     },
     methods: {
         destroyPopper() {
-            this.popper.destroy();
+            this.popper?.destroy();
         },
         initPopper() {
             let target = document.getElementById(this.target);
@@ -126,10 +126,10 @@ export default defineComponent({
                 this.popperOptions
             );
         },
-        clickOutside(e) {
-            let isTarget = document.getElementById(this.target).isSameNode(e.target);
-
-            let isFromPopover = this.$refs.popover && (this.$refs.popover.isSameNode(e.target) || this.$refs.popover.contains(e.target));
+        clickOutside(e: Event & { target: HTMLElement }) {
+            let isTarget = (document.getElementById(this.target) as HTMLElement).isSameNode(e.target);
+            const popover = this.$refs.popover as HTMLElement;
+            let isFromPopover = popover && (popover.isSameNode(e.target) || popover.contains(e.target));
             if (this.shown && !isTarget && !isFromPopover) {
                 this.shown = false;
                 document.removeEventListener("click", this.clickOutside);

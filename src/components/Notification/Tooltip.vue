@@ -17,7 +17,7 @@
 
 import {computed, nextTick, onBeforeUnmount, onBeforeUpdate, onMounted, PropType, ref} from "vue";
 import type {TooltipPlacement, VariationPlacement} from "@/index";
-import {createPopper} from "@popperjs/core";
+import {createPopper, Instance} from "@popperjs/core";
 import {makeString} from "@/composables";
 
 const props = defineProps({
@@ -34,8 +34,8 @@ const shouldShow = ref<boolean>(false);
  * Popperjs Integration
  * do not use usePopper composable
  */
-const popper = ref(null);
-const tooltipDir = ref<TooltipPlacement>();
+const popper = ref<Instance | null>();
+const tooltipDir = ref<TooltipPlacement | string>();
 
 /**
  * Runs on nextTick, because this should run after both elements are available.
@@ -45,7 +45,7 @@ const tooltipDir = ref<TooltipPlacement>();
  * But point to be noted, this approach will consume memory for the popper instance.
  * @param isShowing
  */
-function initializePopper(isShowing) {
+function initializePopper(isShowing: boolean) {
     const target = targetElement();
     if (isShowing && target && element.value) {
         popper.value = createPopper(
@@ -59,7 +59,6 @@ function initializePopper(isShowing) {
                         enabled: true,
                         phase: 'main',
                         fn({state}) {
-                            //@ts-ignore
                             tooltipDir.value = state.placement.startsWith('right')
                                 ? 'end'
                                 : state.placement.startsWith('left')

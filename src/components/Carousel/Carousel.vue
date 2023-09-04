@@ -60,7 +60,7 @@ export default defineComponent({
         // modelValue: makeNumber(null)
     },
 
-    setup(props, context) {
+    setup(props) {
         const slides: Ref<Ref<boolean>[]> = ref([]);
         provide('registerItem', item => slides.value.push(item));
 

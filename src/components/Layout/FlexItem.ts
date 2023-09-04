@@ -1,10 +1,3 @@
-// <template>
-//     <component :is="tag" :class="classes">
-//         <slot></slot>
-//     </component>
-// </template>
-
-
 import {defineComponent, h, PropType} from "vue";
 import type {Order, ResponsiveSizes} from "@/index";
 import {makeTag} from "@/composables";
@@ -46,43 +39,37 @@ export default defineComponent({
                 return ["flex-fill"];
             }
 
-            if (Array.isArray(props.fill)) {
-                return props.fill.map(fillOn => ["flex", fillOn, "fill"].join('-'));
-            }
-
             if (typeof props.fill === "string") {
                 return ["flex-" + props.fill + '-fill'];
             }
 
+            if (Array.isArray(props.fill)) {
+                return props.fill.map(fillOn => ["flex", fillOn, "fill"].join('-'));
+            }
+
             return [];
         }
 
-        function getGrowClasses(): string[] {
-            if (props.grow !== null && !props.growOn) {
-                //Number(boolean) converts to number
-                return ["flex-grow-" + Number(props.grow)];
+        function getResizingClasses(type: 'grow' | 'shrink' | 'fill'): string | string[] {
+            if (!['grow', 'shrink'].includes(type)) {
+                return [];
+            }
+            const resizesOn = type === 'grow' ? props.growOn : props.shrinkOn;
+
+            if (props[type] !== null && !resizesOn) {
+                return ["flex", type, Number(props.grow)].join('-');
             }
 
-            if (props.grow !== null && props.growOn && Array.isArray(props.growOn)) {
-                return props.growOn.map(gon => ["flex-grow", gon, Number(props.grow)].join("-"));
-            }
-            return [];
-        }
-
-        function getShrinkClasses(): string[] {
-            if (props.shrink !== null && !props.shrinkOn) {
-                return ["flex-shrink-" + Number(props.shrink)];
-            }
-
-            if (props.shrink !== null && props.shrinkOn && Array.isArray(props.shrinkOn)) {
-                return props.shrinkOn.map(son => ["flex-shrink", son, Number(props.shrink)].join("-"));
+            if (props[type] !== null && resizesOn && Array.isArray(resizesOn)) {
+                return resizesOn.map(ron => ["flex", type, ron, Number(props.grow)].join("-"));
             }
             return [];
         }
 
         function getOrderClasses() {
-            return ['order', 'orderSm', 'orderMd', 'orderLg', 'orderXl', 'orderXxl']
-                .map((s) => {
+            const orders = ['order', 'orderSm', 'orderMd', 'orderLg', 'orderXl', 'orderXxl'] as const;
+            return orders
+                .map((s: typeof orders[number]): string | null => {
                     if (props?.[s] !== null) {
                         return s.replace(/[A-Z]/g, m => "-" + m.toLowerCase()) + '-' + props[s];
                     }
@@ -94,8 +81,8 @@ export default defineComponent({
         return () => h(props.tag, {
             class: [
                 getFilledClasses(),
-                getGrowClasses(),
-                getShrinkClasses(),
+                getResizingClasses('grow'),
+                getResizingClasses('shrink'),
                 getOrderClasses()
             ]
         }, slots?.default?.())
