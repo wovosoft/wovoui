@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 import type {Placement} from "@popperjs/core";
 import type {Icons} from "@wovosoft/wovoui-icons/dist/types";
 import {Ref} from "vue";
@@ -43,6 +45,18 @@ export type ButtonSizes = 'sm' | 'lg';
 export type PlaceholderSizes = ButtonSizes | 'xs';
 export type FeedbackTypes = 'valid' | 'invalid';
 export type BadgePositions = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+export type BorderRadius = 'pill' | 'top' | 'bottom' | 'start' | 'end' | 'circle';
+export type Displays =
+    'inline'
+    | 'inline-block'
+    | 'block'
+    | 'grid'
+    | 'inline-grid'
+    | 'table'
+    | 'table-cell'
+    | 'table-row'
+    | 'flex'
+    | 'inline-flex';
 
 export type HTMLInputTypes = "button" | "checkbox" | "color" | "date"
     | "datetime-local" | "email" | "file" | "hidden" | "image" | "month"

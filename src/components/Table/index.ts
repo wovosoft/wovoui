@@ -6,3 +6,4 @@ export {default as TFoot} from "./TFoot";
 export {default as THead} from "./THead";
 export {default as Tr} from "./Tr";
 export {default as DataTable} from "./DataTable.vue";
+export {default as DataTableNext} from "./DataTableNext.vue";

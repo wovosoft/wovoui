@@ -4,7 +4,7 @@ import duration from "dayjs/plugin/duration";
 dayjs.extend(duration);
 
 function fixZero(num: number): string {
-    return ((num < 10) ? `0${num}` : num).toString();
+    return num.toString().padStart(2, '0');
 }
 
 export interface DateItemInterface {
@@ -18,8 +18,7 @@ export interface DateItemInterface {
     inNextMonth: boolean;
 }
 
-
-function dateFormat(d, runningDate: Dayjs, monthDate: Dayjs): DateItemInterface {
+function dateFormat(d: number, runningDate: Dayjs, monthDate: Dayjs): DateItemInterface {
     //date object at d (day)
     let currentDate = dayjs(runningDate.format('YYYY-MM-' + fixZero(d)));
 
@@ -33,14 +32,14 @@ function dateFormat(d, runningDate: Dayjs, monthDate: Dayjs): DateItemInterface 
         weekday: currentDate.day(),                                 //day in week
         date: currentDate.format('YYYY-MM-' + fixZero(d)),  //formatted date in yyyy-mm-dd
         data: currentDate.toDate(),                                 //full Date (javascript) object
-        isToday: currentDate.isToday(),                             //determines if the day is tooday
+        isToday: currentDate.isToday(),                             //determines if the day is today
         inRefMonth,
         inPrevMonth,
         inNextMonth
     }
 }
 
-export function dateMatrix(date: Dayjs | string = null): DateItemInterface[][] {
+export function dateMatrix(date: Dayjs | string | null = null): DateItemInterface[][] {
     let theDate;
     if (!date) {
         theDate = dayjs();

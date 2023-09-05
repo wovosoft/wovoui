@@ -1,32 +1,48 @@
 <template>
     <div class="mt-5">
-        <FormGroup label="Select Date">
-            <Datepicker
-                format="DD-MM-YYYY"
-                size="sm"
-                v-model="currentDate"
-            />
-        </FormGroup>
-        {{ currentDate }}
+        <DataTableNext
+            bordered
+            :fields="fields"
+            :items="TypedUsers">
+            <template #cell(name)="{item}">
+                {{ item.name }}
+            </template>
+        </DataTableNext>
     </div>
 </template>
 
 <script lang="ts" setup>
-import {Datepicker} from "@/";
-import FormGroup from "@/components/Form/FormGroup.vue";
-import {ref} from "vue";
+import {DataTableNext} from "@/components/Table";
 
-const currentDate = ref()
+type Item = {
+    "name": string
+    "phone": string
+    "email": string
+    "address": string
+    "postalZip": string
+    "region": string
+    "country": string
+    "text": string
+    "numberrange": number,
+    "currency": string
+    "date": string
+}
 
-const items = new Array(10).fill({}).map((e, i) => {
-    return {
-        idx: i,
-        name: 'Name - ' + i
-    }
-});
+import users from "@/demo/assets/data.json?json";
+
+const TypedUsers: Item[] = users;
 
 const fields = [
-    {key: 'idx'},
-    {key: 'name'}
+    {key: "name"},
+    {key: "phone"},
+    {key: "email"},
+    {key: "address"},
+    {key: "postalZip"},
+    {key: "region"},
+    {key: "country"},
+    // {key: "text"},
+    {key: "numberrange"},
+    {key: "currency"},
+    {key: "date"},
 ];
 </script>

@@ -61,18 +61,18 @@ export default defineComponent({
         editVariant: makeVariant("dark"),
         destroyVariant: makeVariant("danger"),
         actionsAlignment: {type: String as PropType<'start' | 'center' | 'end'>, default: 'end'},
-        
+
         /**
          * classes prop for th and td.
          */
         thClass: {type: [String, Object, Array] as PropType<ClassTypes>, default: null},
         tdClass: {type: [String, Object, Array] as PropType<ClassTypes>, default: null},
-        formatter: {type: Function as PropType<(item: Ref<object>) => unknown>, default: null}
+        formatter: {type: Function as PropType<(item: { [key: string]: any }) => unknown>, default: null}
     },
     setup() {
         const currentItem = inject('currentItem') as Ref<object>;
         return {
-            item: inject('item') as Object,
+            item: inject('item') as { [key: string]: any },
             showViewModal: inject('showViewModal') as Ref<boolean>,
             showCreateUpdateModal: inject('showCreateUpdateModal') as Ref<boolean>,
             processDelete: inject("processDelete") as (item: object) => void,

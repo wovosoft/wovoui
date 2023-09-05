@@ -41,6 +41,9 @@ import {computed} from "vue";
 import {makeBoolean, makeClass, makeString, makeTag, makeTextVariant, makeVariant} from "@/composables";
 
 const props = defineProps({
+    tag: makeTag("div"),
+    noBody: makeBoolean(false),
+
     align: makeString(null),
     bgVariant: makeVariant(null),
     bodyBgVariant: makeVariant(null),
@@ -73,13 +76,11 @@ const props = defineProps({
     imgSrc: makeString(null),
     imgWidth: makeString(null),
     imgHeight: makeString(null),
-    noBody: makeBoolean(false),
 
     overlay: makeBoolean(false),
     subTitle: makeString(null),
     subTitleTag: makeTag("h6"),
     subTitleTextVariant: makeTextVariant("muted"),
-    tag: makeTag("div"),
 
     textVariant: makeTextVariant(null),
     borderVariant: makeVariant(null),

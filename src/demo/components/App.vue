@@ -25,7 +25,7 @@
                 <TheSidebar/>
             </div>
             <div class="flex-grow-1">
-                <Container>
+                <Container fluid>
                     <router-view></router-view>
                 </Container>
             </div>

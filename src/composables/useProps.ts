@@ -30,7 +30,7 @@ export const makeResponsiveNumbers = (initial: ResponsiveNumbers | null = null) 
 
 export const makeTag = (initial: keyof HTMLElementTagNameMap = "div") => ({
     type: String as PropType<typeof initial>,
-    default: (): typeof initial => initial
+    default: (): keyof HTMLElementTagNameMap => initial
 });
 
 export const makeNumber = (initial: number | null = null) => ({

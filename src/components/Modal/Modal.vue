@@ -79,7 +79,17 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, nextTick, onBeforeMount, onBeforeUnmount, PropType, reactive, ref, watch} from "vue";
+import {
+    computed,
+    CSSProperties,
+    nextTick,
+    onBeforeMount,
+    onBeforeUnmount,
+    PropType,
+    reactive,
+    ref,
+    watch
+} from "vue";
 import {Button, ButtonClose, ModalBody, ModalDialog, ModalFooter, ModalHeader, ModalTitle} from "@/components";
 import {
     EVENT_TRIGGER_HIDE_NAME,
@@ -177,9 +187,15 @@ const TRANSITION_TIME = 150;
 const showBackdrop = ref<boolean>(false);
 const shown = ref<boolean>(props.modelValue);
 //May be triggering element
-const mayBeTriEl = ref<Element | HTMLElement>(null);
+const mayBeTriEl = ref<Element | HTMLElement | null>(null);
 
-const classStates = reactive({
+const classStates = reactive<{
+    modalStatic: boolean,
+    modalShow: boolean,
+    backdropShow: boolean,
+    modalStyle: CSSProperties,
+    backdropStyle: CSSProperties,
+}>({
     modalStatic: false,
     modalShow: false,
     backdropShow: false,
@@ -193,7 +209,7 @@ const classes = computed(() => ["modal", {
     "show": classStates.modalShow
 }]);
 
-const modal = ref<HTMLElement>(null);
+const modal = ref<HTMLElement | null>(null);
 
 const isMountable = ref<boolean>(false);
 const shouldMount = computed<boolean>(() => !props.lazy || isMountable.value);
@@ -216,29 +232,29 @@ watch(() => props.modelValue, value => {
 watch(shown, startAnimation);
 
 
-function onClose(e) {
+function onClose(e: Event) {
     emit('close', true);
     if (!e.defaultPrevented) {
         hide();
     }
 }
 
-function onOk(e) {
-    emit('ok', e);
+function onOk(e: Event) {
+    emit('ok', true);
     if (!e.defaultPrevented) {
         hide();
     }
 }
 
-function onEsc(e) {
+function onEsc(e: Event) {
     if (!props.noCloseOnEsc && !e.defaultPrevented) {
         hide();
     }
 }
 
 
-function clickOutside(e) {
-    if (shown.value && modal.value.isSameNode(e.target)) {
+function clickOutside(e: Event & { target: HTMLElement }) {
+    if (shown.value && modal.value?.isSameNode(e.target)) {
         if (props.static) {
             classStates.modalStatic = true;
             classStates.modalStyle['overflowY'] = "hidden";
@@ -246,7 +262,7 @@ function clickOutside(e) {
             setTimeout(function () {
                 if (classStates.modalStatic) {
                     classStates.modalStatic = false;
-                    classStates.modalStyle['overflowY'] = "";
+                    classStates.modalStyle['overflowY'] = undefined;
                 }
             }, TRANSITION_TIME * 2)
         } else if (!props.noCloseOnBackdrop) {
@@ -374,12 +390,16 @@ function globalHideHandler(e: CustomEvent) {
 }
 
 onBeforeMount(() => {
+    //@ts-ignore
     document.addEventListener(EVENT_TRIGGER_SHOW_NAME, globalShowHandler);
+    //@ts-ignore
     document.addEventListener(EVENT_TRIGGER_HIDE_NAME, globalHideHandler);
 });
 
 onBeforeUnmount(() => {
+    //@ts-ignore
     document.removeEventListener(EVENT_TRIGGER_SHOW_NAME, globalShowHandler);
+    //@ts-ignore
     document.removeEventListener(EVENT_TRIGGER_HIDE_NAME, globalHideHandler);
 });
 </script>

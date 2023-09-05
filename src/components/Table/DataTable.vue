@@ -59,80 +59,21 @@
 <script lang="ts" setup>
 import {computed, PropType, ref} from "vue";
 import tableProps from "@/shared/tableProps";
-/**
- * Minimized import throws following error:
- * Uncaught ReferenceError: Cannot access 'Td' before initialization
- * I DON'T KNOW WHY
- */
-import FlexItem from "../Layout/FlexItem"
-import Table from "./../Table/Table"
-import THead from "./../Table/THead"
-import TBody from "./../Table/TBody"
-import Tr from "./../Table/Tr"
-import Th from "./../Table/Th"
-import Td from "./../Table/Td"
-import TFoot from "./../Table/TFoot"
-
+import {Table, THead, TBody, Tr, Th, Td, TFoot} from "@/components/Table"
+import {Flex, FlexItem,} from "@/components/Layout"
 import {isObject, orderBy, title} from "@/shared";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
 import {makeString, makeVariant} from "@/composables";
-import Flex from "@/components/Layout/Flex";
-
-
-type FieldType = {
-    key: string;
-    label?: string;
-    formatter?: (item: object, key?: string) => any;
-    visible?: boolean;
-    sortable?: boolean;
-    thClass?: any;
-    tdClass?: any;
-};
-
-
-function isVisible(field: FieldType | string): boolean {
-    if (typeof field === 'string') {
-        return true;
-    }
-    //only when visible is false it should be false, and true otherwise
-    return field.visible !== false;
-}
-
-
-const getValue = (
-    row: { [key: string]: any },
-    th: string | number | object,
-    th_index: number
-) => {
-    let key = getKey(th);
-    if (isObject(th)) {
-        if (th.hasOwnProperty('formatter')) {
-            return th.formatter(row, key);
-        }
-        return row[key];
-    } else if (typeof th === "string") {
-        return row[key];
-    }
-    return row[th_index];
-};
-
-const getKey = (th: string | { key: any }) => {
-    if (isObject(th)) {
-        return th.key;
-    } else if (typeof th === "string") {
-        return th.toLowerCase();
-    }
-    return th;
-};
+import {ClassTypes} from "@/index.ts";
 
 const props = defineProps({
     ...tableProps,
-    headClass: {type: [Array, String] as PropType<string | string[]>, default: null},
-    bodyClass: {type: [Array, String] as PropType<string | string[]>, default: null},
-    footClass: {type: [Array, String] as PropType<string | string[]>, default: null},
+    headClass: {type: [Array, String, Object] as PropType<ClassTypes>, default: null},
+    bodyClass: {type: [Array, String, Object] as PropType<ClassTypes>, default: null},
+    footClass: {type: [Array, String, Object] as PropType<ClassTypes>, default: null},
     filter: makeString(),
     fields: {type: Array as PropType<FieldType[] | string[]>, default: () => ([])},
-    items: {type: [Array, Function] as PropType<any[]>, default: () => ([])},
+    items: {type: [Array, Function] as PropType<ItemType[]>, default: () => ([])},
     headVariant: makeVariant(null),
     bodyVariant: makeVariant(null),
     footVariant: makeVariant(null)
@@ -150,14 +91,68 @@ const {
     ...otherProps
 } = props;
 
+interface ItemType {
+    [key: string]: any
+}
+
+interface FieldType {
+    key: string;
+    label?: string;
+    formatter?: (item: object, key?: string) => any;
+    visible?: boolean;
+    sortable?: boolean;
+    thClass?: ClassTypes;
+    tdClass?: ClassTypes;
+}
+
+type TableHeadType = string | {
+    key?: string;
+    label?: string;
+    formatter?: (row: any, key: any) => any;
+    sortable?: boolean;
+}
+
+function isVisible(field: FieldType | string): boolean {
+    if (typeof field === 'string') {
+        return true;
+    }
+    //only when visible is false it should be false, and true otherwise
+    return field.visible !== false;
+}
+
+
+const getValue = (row: ItemType, th: TableHeadType, th_index: number) => {
+    let key = getKey(th);
+
+    if (typeof th === 'object' && !Array.isArray(th) && th?.formatter) {
+        if (th.hasOwnProperty('formatter')) {
+            return th.formatter(row, key);
+        }
+        return row[key];
+    } else if (typeof th === "string") {
+        return row[key];
+    }
+    return row[th_index];
+};
+
+const getKey = (th: TableHeadType | string): string => {
+    if (typeof th === 'object' && !Array.isArray(th) && th?.key) {
+        return th.key;
+    } else if (typeof th === "string") {
+        return th.toLowerCase();
+    }
+    //@ts-ignore
+    return th;
+};
+
 const sorting = ref<{
-    sortBy: string | null,
+    sortBy?: string | null,
     sort: 'asc' | 'desc' | null
 }>({
     sortBy: null,
     sort: null
 });
-const applySorting = (th) => {
+const applySorting = (th: TableHeadType) => {
     if (typeof th === "object" && th.sortable === true) {
         //when already sorted, key should be available
         if (sorting.value.sortBy === th.key) {
@@ -170,7 +165,7 @@ const applySorting = (th) => {
 };
 
 
-const getLabel = (th) => {
+const getLabel = (th: TableHeadType) => {
     if (isObject(th)) {
         if (th.hasOwnProperty('label')) {
             return th.label;
@@ -184,7 +179,7 @@ const getLabel = (th) => {
 };
 
 const filterableColumns = computed(() => {
-    let cols = [];
+    let cols: any[] = [];
     if (!Array.isArray(props.fields)) {
         return cols;
     }
@@ -202,9 +197,9 @@ const filterableColumns = computed(() => {
 
 const itemsSorted = computed(() => {
     if (sorting.value.sortBy) {
-        //@ts-ignore
         return orderBy(props.items, sorting.value.sortBy);
     }
+
     if (Array.isArray(props.items)) {
         if (filterableColumns.value.length && props.filter) {
             return props.items.filter(row => {

@@ -1,6 +1,6 @@
 import startCase from "lodash/startCase";
 import {PropType} from "vue";
-import {ColorVariants} from "@/index";
+import {BorderRadius, ColorVariants, Displays} from "@/index";
 
 function toLower(str: string) {
     return str.toLowerCase();
@@ -27,19 +27,19 @@ export const useOpacity = () => {
 export const useText = () => {
     return {
         prop: {
-            type: String,
+            type: String as PropType<ColorVariants | null>,
             default: null
         },
-        variant: (value) => "text-" + value
+        variant: (value: ColorVariants) => "text-" + value
     }
 }
 export const useBorder = () => {
     return {
         prop: {
-            type: [String, Number],
+            type: [String, Number] as PropType<BorderRadius>,
             default: null
         },
-        variant: (value) => "border" + (value ? ("-" + value) : "")
+        variant: (value: BorderRadius) => "border" + (value ? ("-" + value) : "")
     }
 }
 export const useRounded = () => {
@@ -48,19 +48,19 @@ export const useRounded = () => {
             type: [String, Number],
             default: null
         },
-        variant: (value) => "rounded" + (value ? ("-" + value) : "")
+        variant: (value: '0' | 'circle') => "rounded" + (value ? ("-" + value) : "")
     }
 }
 export const useDisplay = () => {
     return {
         prop: {
-            type: String,
+            type: String as PropType<Displays>,
             default: null
         },
-        variant: (value) => "d-" + value
+        variant: (value: Displays) => "d-" + value
     }
 }
-export const collapseTransitionEnd = (e, showing, dim = "height", /*shouldRenderHandler*/) => {
+export const collapseTransitionEnd = (e: Event & { target: HTMLElement }, showing: boolean, dim: 'height' | 'width' = "height", /*shouldRenderHandler*/) => {
     e.target.classList.remove("collapsing");
     e.target.classList.add("collapse")
     if (showing) {
@@ -71,7 +71,7 @@ export const collapseTransitionEnd = (e, showing, dim = "height", /*shouldRender
     }
     e.target.style[dim] = "";
 }
-export const toggleCollapse = (container, shown, dim = "height", /*shouldRenderHandler*/) => {
+export const toggleCollapse = (container: HTMLElement, shown: boolean, dim: 'height' | 'width' = "height", /*shouldRenderHandler*/) => {
     // shouldRenderHandler(true);
     container.style.height = "auto"
     let dimension = container[dim === "height" ? "clientHeight" : "clientWidth"] + "px"
@@ -86,10 +86,10 @@ export const toggleCollapse = (container, shown, dim = "height", /*shouldRenderH
         setTimeout(() => container.style[dim] = "0px", 0);
     }
 }
-export const isObject = (obj: any) => typeof obj === "object" && !Array.isArray(obj);
-export const isArray = (arr: any) => Array.isArray(arr);
-export const title = (str: string) => startCase(toLower(str));
+export const isObject = (obj: any): boolean => typeof obj === "object" && !Array.isArray(obj);
+export const isArray = (arr: any): boolean => Array.isArray(arr);
+export const title = (str: string): string => startCase(toLower(str));
 
-export function orderBy(items: object[] | string[], key: string) {
-    return items.sort((a, b) => a[key].localeCompare(b[key]));
+export function orderBy(items: Record<string, any>[], key: string) {
+    return items.sort((a: Record<string, any>, b: Record<string, any>) => a[key].localeCompare(b[key]));
 }
