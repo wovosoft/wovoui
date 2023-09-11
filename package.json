@@ -8,9 +8,7 @@
         "preview": "vite preview"
     },
     "files": [
-        "dist",
-        "tsconfig.json",
-        "tsconfig.node.json"
+        "dist"
     ],
     "types": "./dist/types/index.d.ts",
     "main": "./dist/index.cjs",
@@ -21,6 +19,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
+        "@types/bootstrap": "^5.2.6",
         "@vueuse/components": "^10.4.1",
         "@vueuse/core": "^10.4.1",
         "@wovosoft/wovoui-icons": "^1.1.9",

@@ -42,7 +42,7 @@ const emit = defineEmits<{
 const theId = computed(() => props.id || "wbv-" + uid());
 const model = ref<unknown>(props.modelValue);
 
-function onChange(e) {
+function onChange() {
     emit("update:modelValue", model.value);
 }
 
