@@ -33,30 +33,11 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
-import type {ResponsiveNumbers} from "@/index";
 import {FormLabel} from "@/components";
-import {makeBoolean, makeProp, makeString, makeTag} from "@/composables";
 import FeedbackMessages from "./FeedbackMessages.vue";
+import {FormGroupProps} from "@/components/Form/useProps";
 
-const {validFeedback, invalidFeedback, ...props} = defineProps({
-    tag: makeTag("div"),
-    floating: makeBoolean(false),
-    label: makeString(),
-    labelFor: makeString(),
-    horizontal: makeBoolean(false),
-    labelSm: makeProp<ResponsiveNumbers>(null, Number),
-    labelMd: makeProp<ResponsiveNumbers>(null, Number),
-    labelLg: makeProp<ResponsiveNumbers>(null, Number),
-    labelXl: makeProp<ResponsiveNumbers>(null, Number),
-    contentSm: makeProp<ResponsiveNumbers>(null, Number),
-    contentMd: makeProp<ResponsiveNumbers>(null, Number),
-    contentLg: makeProp<ResponsiveNumbers>(null, Number),
-    contentXl: makeProp<ResponsiveNumbers>(null, Number),
-    noMarginBottom: makeBoolean(false),
-    //form control feedback messages
-    validFeedback: makeString(),
-    invalidFeedback: makeString(),
-});
+const {validFeedback, invalidFeedback, ...props} = defineProps(FormGroupProps);
 
 const classes = computed(() => ([
     "form-group", //does nothing, added so that can be queried by css/js

@@ -11,7 +11,8 @@ import {makeBoolean, makeTag} from "@/composables/useProps";
 const props = defineProps({
     tag: makeTag("ul"),
     dark: makeBoolean(false),
-    show: makeBoolean(false)
+    show: makeBoolean(false),
+    block: makeBoolean(false)
 });
 
 
@@ -20,6 +21,7 @@ const classes = computed(() => ([
     {
         'dropdown-menu-dark': props.dark,
         'show': props.show,
+        'w-100': props.block
     }
 ]));
 
