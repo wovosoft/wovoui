@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import {Dropdown} from "bootstrap";
-import {Input} from "@/components";
-import {onBeforeUnmount, onMounted, PropType, ref, useModel} from "vue";
-import vOnClickOutside from "@/directives/vOnClickOutside";
-import DropdownMenu from "@/components/Dropdown/DropdownMenu.vue";
+import {Input, DropdownMenu} from "@/components";
+import {computed, onBeforeUnmount, onMounted, PropType, ref, useModel} from "vue";
 
 const props = defineProps({
     modelValue: {
@@ -19,53 +17,107 @@ const props = defineProps({
     }
 });
 
+const emit = defineEmits<{
+    'update:modelValue': [id: any],
+    show: [id: Event],
+    hide: [id: Event],
+    shown: [id: Event],
+    hidden: [id: Event],
+}>();
+
+const eventHandlers = {
+    'show.bs.dropdown': (e: Event) => emit('show', e),
+    'shown.bs.dropdown': (e: Event) => {
+        emit('shown', e);
+        isOpened.value = true;
+    },
+    'hide.bs.dropdown': (e: Event) => emit('hide', e),
+    'hidden.bs.dropdown': (e: Event) => {
+        emit('hidden', e);
+        isOpened.value = false;
+    }
+};
+
 const model = useModel(props, 'modelValue');
 
-const filterEl = ref<InstanceType<typeof Input>>();
 const dropdownEl = ref<HTMLDivElement>();
+const filterEl = ref<InstanceType<typeof Input>>();
+const theMenu = ref<InstanceType<typeof DropdownMenu>>();
 
-const dd = () => Dropdown.getOrCreateInstance(dropdownEl.value);
-onMounted(dd);
-onBeforeUnmount(() => dd().dispose());
+
+//@ts-ignore
+const ddInstance = () => Dropdown.getOrCreateInstance(filterEl.value?.$el);
+
+onMounted(() => {
+    ddInstance();
+    //listen for events
+    // @ts-ignore
+    Object.keys(eventHandlers).forEach((key: keyof typeof eventHandlers) => {
+        dropdownEl.value?.addEventListener(key, eventHandlers[key])
+    });
+});
+
+onBeforeUnmount(() => {
+    ddInstance().dispose();
+    // @ts-ignore
+    Object.keys(eventHandlers).forEach((key: keyof typeof eventHandlers) => {
+        dropdownEl.value?.removeEventListener(key, eventHandlers[key])
+    })
+});
+
 const searchOptions = (e: Event & { target: HTMLInputElement }) => {
+    if (!isOpened.value) {
+        ddInstance()?.show();
+    }
     console.log(e.target.value)
 };
 
-const isShown = ref<boolean>(false);
-const theMenu = ref<InstanceType<typeof DropdownMenu>>();
-const show = () => {
-    dd()?.show();
-    isShown.value = true;
-};
 
-const hide = () => {
-    dd()?.hide();
-    isShown.value = false;
-};
-
-const toggle = () => isShown.value ? hide() : show();
 const selectOption = (op: string) => {
     model.value = op;
+    filterEl.value?.$el?.focus();
     hide();
 };
 
+
+const isOpened = ref<boolean>(false);
+
+const show = () => ddInstance()?.show();
+
+const hide = () => ddInstance()?.hide();
+
+const toggle = () => ddInstance()?.toggle();
+
+defineExpose({
+    show, hide, toggle, isOpened
+});
+
+const keyDownFilter = () => {
+    theMenu.value?.$el?.querySelector('.dropdown-item')?.focus();
+};
+
+const filteredOptions = computed(() => {
+    return props.options?.filter((op: string) => op.toLocaleLowerCase().includes((model.value || '')?.toLocaleString()))
+});
 </script>
 
 <template>
-    <div class="dropdown" ref="dropdownEl" v-on-click-outside="()=>hide()">
+    <div class="dropdown" ref="dropdownEl">
         <Input
+            v-bind="$attrs"
             v-model="model"
             ref="filterEl"
-            @click="toggle"
+            class="dropdown-toggle"
+            data-bs-toggle="dropdown"
+            @keydown.down.prevent="keyDownFilter"
             @input="searchOptions"
         />
         <DropdownMenu ref="theMenu" block :style="{maxHeight:maxHeight,overflow:'auto'}" tabindex="0">
-            <button v-for="op in options"
-                    @click="selectOption(op)"
-                    type="button"
-                    class="dropdown-item">
-                {{ op }}
-            </button>
+            <li v-for="op in filteredOptions">
+                <a href="#" @click.prevent="selectOption(op)" class="dropdown-item">
+                    {{ op }}
+                </a>
+            </li>
         </DropdownMenu>
     </div>
 </template>

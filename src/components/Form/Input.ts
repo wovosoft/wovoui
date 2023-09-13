@@ -1,5 +1,5 @@
 import {defineComponent, h} from "vue";
-import {InputProps} from "@/components/Form/useProps";
+import {InputProps} from "@/components/Form/useFormHelpers";
 
 export default defineComponent({
     name: 'Input',

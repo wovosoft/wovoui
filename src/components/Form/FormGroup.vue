@@ -35,9 +35,15 @@
 import {computed} from "vue";
 import {FormLabel} from "@/components";
 import FeedbackMessages from "./FeedbackMessages.vue";
-import {FormGroupProps} from "@/components/Form/useProps";
+import {FormGroupPropsInterface} from "@/components/Form/useFormHelpers.ts";
 
-const {validFeedback, invalidFeedback, ...props} = defineProps(FormGroupProps);
+
+const {validFeedback, invalidFeedback, ...props} = withDefaults(defineProps<FormGroupPropsInterface>(), {
+    tag: "div",
+    floating: false,
+    horizontal: false,
+    noMarginBottom: false,
+});
 
 const classes = computed(() => ([
     "form-group", //does nothing, added so that can be queried by css/js
