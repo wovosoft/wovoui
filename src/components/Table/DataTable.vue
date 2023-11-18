@@ -18,7 +18,7 @@
                                       :label="getLabel(th)"
                                       :sortBy="sorting.sortBy"
                                       :sort="sorting.sort">
-                                    {{ getLabel(th) }}
+                                    <RenderVNode :content="getLabel(th)"/>
                                 </slot>
                             </FlexItem>
                             <FlexItem v-if="typeof th==='object' && th?.['sortable']===true">
@@ -44,7 +44,7 @@
                           :sortBy="sorting.sortBy"
                           :sort="sorting.sort"
                           :value="getValue(row,th,th_index)">
-                        {{ getValue(row, th, th_index) }}
+                        <RenderVNode :content="getValue(row, th, th_index)"/>
                     </slot>
                 </Td>
             </template>
@@ -65,6 +65,7 @@ import {isObject, orderBy, title} from "@/shared";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
 import {makeString, makeVariant} from "@/composables";
 import {ClassTypes} from "@/index.ts";
+import RenderVNode from "@/components/Internal/RenderVNode.vue";
 
 const props = defineProps({
     ...tableProps,

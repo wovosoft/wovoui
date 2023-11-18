@@ -9,7 +9,7 @@ export type TabMapItem = {
     uid?: number | string;
     updateVisibility?: (state: boolean) => void,
     title?: string;
-    visible?: boolean;
+    // visible?: boolean;
     states?: {
         active: boolean;
         show: boolean;

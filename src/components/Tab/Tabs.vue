@@ -16,12 +16,12 @@
                     role="tab"
                     v-for="(tab,tab_index) in tabsMap"
                     :key="tab_index"
-                    :active="tab.visible"
+                    :active="tab.states?.active"
                     :aria-selected="tab.states.ariaSelected"
                     :tabindex="tab.states.tabindex"
-                    @click="active=tab_index"
+                    @click="showTab(tab_index)"
                     tag="button">
-                    {{ tab.title }}
+                    {{tab.title}}
                 </NavLink>
             </Nav>
         </div>
@@ -42,7 +42,7 @@
  */
 
 
-import {computed, onMounted, PropType, provide, Ref, ref, watch} from "vue";
+import {computed, onMounted, PropType, provide, ref, watch} from "vue";
 import {Nav, NavLink, TabContent, TabMapItem} from "@/components";
 import {makeBoolean, makeNumber} from "@/composables";
 
@@ -126,7 +126,7 @@ const emit = defineEmits<{
 const active = ref<number | null>();
 onMounted(() => {
     if (props.modelValue !== null) {
-        active.value = props.modelValue;
+        active.value = props.modelValue || 0;
     } else if (tabsMap.value.length > 0) {
         active.value = tabsMap.value.findIndex(i => i.visible);
     }
@@ -142,20 +142,23 @@ watch(() => props.modelValue, value => {
     }
 });
 
-watch(active, (index: number | null | undefined) => {
+watch(active, showTab);
+
+function showTab(index: number | null | undefined) {
     emit('update:modelValue', index);
 
-    //find visible tabs and then hide. Theoretically, there should have only one visible tab in a
-    //certain tabs. But if there are multiple, we do the following actions to perform everything properly
-    //without any risk
+    // Find visible tabs and then hide. Theoretically, there should have only one visible tab in a
+    // certain tabs. But if there are multiple tab items,
+    // we do the following actions to perform everything properly
+    // without any risk
     tabsMap.value
-        .filter(tab => tab.visible)
+        .filter(tab => tab.states?.active)
         .forEach(tab => {
             tab.updateVisibility(false);
         });
     //show target tab
     tabsMap.value[index].updateVisibility(true);
-});
+}
 
 const classes = computed(() => ({
     card: props.card,
@@ -185,7 +188,7 @@ provide('unregisterTab', (uid: number) => {
 });
 
 /**
- * Usually the card prop should be constant in most scenario,
+ * Usually, the card prop should be constant in most scenario,
  * but sometimes, it might be different, so computed value is
  * a better approach.
  */

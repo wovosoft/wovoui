@@ -20,7 +20,6 @@ import Tab from "@/components/Tab/Tab.vue";
 import {Container} from "@/";
 import SpinButton from "@/components/Form/SpinButton.vue";
 
-const ratio = ref<string>('21x9');
 const tabIndex = ref<number>(2);
 
 </script>

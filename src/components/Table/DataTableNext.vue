@@ -3,6 +3,7 @@ import {PropType} from "vue";
 import {ClassTypes, makeVariant, title} from "@/index";
 import tableProps from "@/shared/tableProps";
 import {Table, THead, TBody, TFoot, Tr, Th, Td} from "@/components/Table";
+import RenderVNode from "@/components/Internal/RenderVNode.vue";
 
 interface FieldType {
     key: string;
@@ -80,7 +81,7 @@ const getValue = (row: ItemType, field: FieldType | string): any => {
                       :field="field"
                       :index="field_key"
                       :label="getLabel(field)">
-                    {{ getLabel(field) }}
+                    <RenderVNode :content="getLabel(field)"/>
                 </slot>
             </Th>
         </Tr>
@@ -93,7 +94,7 @@ const getValue = (row: ItemType, field: FieldType | string): any => {
                       :index="field_key"
                       :field="field"
                       :value="getValue(row,field)">
-                    {{ getValue(row, field) }}
+                    <RenderVNode :content="getValue(row, field)"/>
                 </slot>
             </Td>
         </Tr>

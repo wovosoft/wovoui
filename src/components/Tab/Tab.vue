@@ -62,34 +62,6 @@ watch(visible, value => {
     }
 });
 
-//injections
-const registerTab = inject('registerTab') as registerTabType;
-const unregisterTab = inject('unregisterTab') as unregisterTabType;
-//when parent Tabs component has card prop set to true
-const isCardTabs = inject('isCardTabs') as { value: boolean };
-
-//provided to parent
-const updateVisibility = (value: boolean) => visible.value = value;
-
-//subscribe to parent tabs
-onMounted(() => {
-    states.active = props.active;
-    states.show = props.active;
-    states.ariaSelected = props.active;
-    states.tabindex = props.active ? null : -1;
-
-    registerTab({
-        uid: getCurrentInstance()?.uid,
-        updateVisibility,
-        title: props.title,
-        visible: visible.value,
-        states: states
-    });
-});
-
-//unsubscribe from parent tabs
-onBeforeUnmount(() => unregisterTab(getCurrentInstance()?.uid));
-
 /**
  * Tab Class states
  */
@@ -99,10 +71,10 @@ const states = reactive<{
     ariaSelected: boolean | null,
     tabindex: number | null
 }>({
-    active: false,
-    show: false,
-    ariaSelected: null,
-    tabindex: null,
+    active: props.active,
+    show: props.active,
+    ariaSelected: props.active,
+    tabindex: props.active ? null : -1,
 });
 
 const classes = computed(() => [
@@ -112,4 +84,23 @@ const classes = computed(() => [
         "card-body": isCardTabs.value
     }
 ]);
+
+
+//injections
+const registerTab = inject('registerTab') as registerTabType;
+const unregisterTab = inject('unregisterTab') as unregisterTabType;
+
+//when parent Tabs component has card prop set to true
+const isCardTabs = inject('isCardTabs') as { value: boolean };
+
+registerTab({
+    uid: getCurrentInstance()?.uid,
+    updateVisibility: (value: boolean) => visible.value = value,
+    title: props.title,
+    states: states
+});
+
+//unsubscribe from parent tabs
+onBeforeUnmount(() => unregisterTab(getCurrentInstance()?.uid));
+
 </script>
