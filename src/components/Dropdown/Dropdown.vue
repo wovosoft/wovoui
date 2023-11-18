@@ -52,34 +52,12 @@ import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
 import DropdownMenu from "./DropdownMenu.vue";
 import {Button} from "@/components/Button";
 import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
-import {ButtonSizes, ColorVariants, DropdownAlignments, DropdownDirections, PopperOptionsType} from "@/index";
+import {PopperOptionsType} from "@/index";
 import usePopper from "@/composables/usePopper";
 import NavLink from "@/components/Navigation/NavLink.vue";
+import {DropdownPropsInterface} from "@/components/Dropdown/useDropdown.ts";
 
-type DropdownType = {
-    tag?: keyof HTMLElementTagNameMap,
-    menuTag?: keyof HTMLElementTagNameMap,
-    toggleTag?: keyof HTMLElementTagNameMap,
-    size?: ButtonSizes,
-    text?: string | null,
-    variant?: ColorVariants,
-    splitVariant?: ColorVariants,
-    block?: boolean,
-    disabled?: boolean,
-    /**
-     * left,right,up, down=null (default)
-     */
-    dir?: DropdownDirections | null,
-    align?: DropdownAlignments,
-    menuDark?: boolean,
-    menuClass?: string | object | any[] | null,
-
-    split?: boolean,
-    isNav?: boolean,
-    disableInnerClicks?: boolean,
-}
-
-const props = withDefaults(defineProps<DropdownType>(), {
+const props = withDefaults(defineProps<DropdownPropsInterface>(), {
     tag: "div",
     menuTag: "ul",
     toggleTag: "button",

@@ -10,10 +10,10 @@
 </template>
 
 <script lang="ts" setup>
-import {makeBoolean} from "@/composables";
+import type {DropdownButtonPropsInterface} from "@/components/Dropdown/useDropdown";
 
-defineProps({
-    active: makeBoolean(false),
-    disabled: makeBoolean(false),
-});
+withDefaults(defineProps<DropdownButtonPropsInterface>(), {
+    active: false,
+    disabled: false
+})
 </script>

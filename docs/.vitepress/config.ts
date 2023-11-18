@@ -1,10 +1,34 @@
-import {defineConfig} from "vitepress";
-import sidebar from "./sidebar";
+import {defineConfig} from 'vitepress'
 
+// https://vitepress.dev/reference/site-config
 export default defineConfig({
     title: "wovoui",
-    description: "Bootstrap 5 and Vue 3 design library",
+    description: "Bootstrap Vue Library",
     themeConfig: {
-        sidebar
-    },
+        // https://vitepress.dev/reference/default-theme-config
+        nav: [
+            {text: 'Home', link: '/'},
+            {text: 'Examples', link: '/markdown-examples'}
+        ],
+
+        sidebar: [
+            {
+                text: 'Guide',
+                items: [
+                    {text: 'Buttons', link: '/guide/buttons/'}
+                ]
+            },
+            {
+                text: 'Examples',
+                items: [
+                    {text: 'Markdown Examples', link: '/markdown-examples'},
+                    {text: 'Runtime API Examples', link: '/api-examples'}
+                ]
+            }
+        ],
+
+        socialLinks: [
+            {icon: 'github', link: 'https://github.com/vuejs/vitepress'}
+        ]
+    }
 })

@@ -6,12 +6,11 @@
 </template>
 
 <script lang="ts" setup>
-import DropdownHeader from "./DropdownHeader.vue";
-import {makeString, makeTag} from "@/composables/useProps";
+import {DropdownHeader} from "./index";
+import type {DropdownGroupPropsInterface} from "@/components/Dropdown/useDropdown";
 
-defineProps({
-    header: makeString(),
-    headerTag: makeTag("h6"),
-    headerWrapper: makeTag("li")
-});
+withDefaults(defineProps<DropdownGroupPropsInterface>(), {
+    headerTag: 'h6',
+    headerWrapper: 'li'
+})
 </script>

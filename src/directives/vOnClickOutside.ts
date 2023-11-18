@@ -1,26 +1,9 @@
-// let handler: (e: any) => void;
-// export default {
-//     // @ts-ignore
-//     mounted(el: HTMLElement, {value}) {
-//         handler = (e) => {
-//             if (!el?.contains(e.target)) {
-//                 if (typeof value === "function") {
-//                     value(e, el);
-//                 }
-//             }
-//         }
-//         document.addEventListener("click", handler);
-//     },
-//     beforeUnmount() {
-//         document.removeEventListener("click", handler);
-//     }
-// }
 export default {
-    beforeMount(el, binding) {
+    beforeMount(el: HTMLElement & { _clickOutside: any }, binding: { value: any }) {
         // Define a click event handler
-        const handleClickOutside = (event) => {
+        const handleClickOutside = (event: any) => {
             if (!el.contains(event.target) && el !== event.target) {
-                binding.value(); // Call the provided callback function
+                binding.value?.(); // Call the provided callback function
             }
         };
 
@@ -30,7 +13,7 @@ export default {
         // Store the event handler on the element for later removal
         el._clickOutside = handleClickOutside;
     },
-    unmounted(el) {
+    unmounted(el: HTMLElement & { _clickOutside: any }) {
         // Remove the event listener when the directive is unmounted
         document.removeEventListener('click', el._clickOutside);
     },

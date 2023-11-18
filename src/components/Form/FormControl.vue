@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import {FormGroup, Input} from "@/components/Form";
-import {computed, PropType, useModel} from "vue";
-import {FormGroupProps, InputProps} from "@/components/Form/useProps.ts";
+import {computed, useModel} from "vue";
+import {FormGroupPropsInterface, InputPropsInterface} from "@/components/Form/useFormHelpers";
 
-const props = defineProps({
-    ...FormGroupProps,
-    ...InputProps,
-    modelValue: [String, Number] as PropType<string | number>,
-});
+
+const props = withDefaults(defineProps<InputPropsInterface & FormGroupPropsInterface & {
+    modelValue: string | number
+}>(), {
+    type: 'text',
+    plain: false,
+    tag: "div",
+    floating: false,
+    horizontal: false,
+    noMarginBottom: false,
+})
+
 
 const model = useModel(props, 'modelValue');
 
