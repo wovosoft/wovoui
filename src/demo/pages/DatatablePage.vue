@@ -1,18 +1,18 @@
 <template>
     <div class="mt-5">
-        <DataTableNext
+        <DataTable
             bordered
             :fields="fields"
             :items="TypedUsers">
-            <template #cell(name)="{item}">
-                {{ item.name }}
+            <template #cell(name)="row">
+                {{ row.item.name }}
             </template>
-        </DataTableNext>
+        </DataTable>
     </div>
 </template>
 
 <script lang="ts" setup>
-import {DataTableNext} from "@/components/Table";
+import {DataTable} from "@/components/Table";
 
 type Item = {
     "name": string
