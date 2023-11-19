@@ -3,7 +3,7 @@ export default {
         // Define a click event handler
         const handleClickOutside = (event: any) => {
             if (!el.contains(event.target) && el !== event.target) {
-                binding.value?.(); // Call the provided callback function
+                binding.value?.(event); // Call the provided callback function
             }
         };
 

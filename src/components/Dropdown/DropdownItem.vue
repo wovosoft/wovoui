@@ -14,9 +14,9 @@
 </template>
 
 <script lang="ts" setup>
-import {computed} from "vue";
-import {RouteRecordRaw} from "vue-router";
-import {makeBoolean, makeProp, makeString, makeTag} from "@/composables/useProps";
+import { computed } from "vue";
+import { RouteRecordRaw } from "vue-router";
+import { makeBoolean, makeProp, makeString, makeTag } from "@/composables/useProps";
 
 const props = defineProps({
     tag: makeTag("li"),
@@ -29,5 +29,5 @@ const props = defineProps({
     itemTag: makeTag()
 })
 
-const classes = computed(() => ['dropdown-item', {'active': props.active, 'disabled': props.disabled}]);
+const classes = computed(() => ['dropdown-item', { 'active': props.active, 'disabled': props.disabled }]);
 </script>

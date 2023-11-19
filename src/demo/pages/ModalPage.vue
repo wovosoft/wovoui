@@ -56,7 +56,7 @@ import vModal from "@/directives/vModal"
 const modal_nested = ref(false)
 
 function testEvent(name) {
-    console.log(name);
+    console.log("OK Event: "+name);
 }
 
 

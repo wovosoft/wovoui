@@ -1,20 +1,15 @@
 <template>
     <div class="form-rating">
-        <component
-            :is="model>=i?StarFill:Star"
-            v-for="i in items"
-            @click="model=i"
-            :variant="variant"
-            class="me-1 wu-rating"
-        />
+        <component :is="model>=i?StarFill:Star" v-for="i in items" @click="model = i" :variant="variant"
+            class="me-1 wu-rating" />
     </div>
 </template>
 
 <script lang="ts" setup>
-import {computed} from "vue";
-import {Star, StarFill} from "@wovosoft/wovoui-icons";
-import {makeNumber, makeVariant} from "@/composables/useProps";
-import {useStateModel} from "@/composables/useHelpers";
+import { computed } from "vue";
+import { Star, StarFill } from "@wovosoft/wovoui-icons";
+import { makeNumber, makeVariant } from "@/composables/useProps";
+import { useStateModel } from "@/composables/useHelpers";
 
 const props = defineProps({
     min: makeNumber(1),
