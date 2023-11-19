@@ -65,7 +65,7 @@ import {Flex, FlexItem,} from "@/components/Layout"
 import {isObject, orderBy, title} from "@/shared";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
 import {makeString, makeVariant} from "@/composables";
-import {ClassTypes} from "@/index.ts";
+import {ClassTypes} from "@/index";
 import RenderVNode from "@/components/Internal/RenderVNode.vue";
 
 const props = defineProps({

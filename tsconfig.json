@@ -1,9 +1,9 @@
+//https://vuejs.org/guide/typescript/overview.html#configuring-tsconfig-json
 {
     "compilerOptions": {
         "types": [
             "vite/client"
         ],
-        "allowJs": true,
         "target": "ES2020",
         "useDefineForClassFields": true,
         "module": "ESNext",
@@ -14,10 +14,24 @@
         ],
         "skipLibCheck": true,
         /* Bundler mode */
-        "moduleResolution": "node",
-        "allowImportingTsExtensions": true,
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": false,
         "resolveJsonModule": true,
         "isolatedModules": true,
+        //        "noEmit": true,
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        },
+        "jsx": "preserve",
+        /* Linting */
+        //        "strict": true,
+        //        "noUnusedLocals": true,
+        //        "noUnusedParameters": true,
+        //        "noFallthroughCasesInSwitch": true,
+        /* wovoui configs */
+        "allowJs": true,
         "esModuleInterop": true,
         "sourceMap": true,
         "importHelpers": true,
@@ -28,17 +42,6 @@
         "declarationMap": true,
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
-        "paths": {
-            "@/*": [
-                "./src/*"
-            ]
-        },
-        "jsx": "preserve",
-        /* Linting */
-        "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true,
         "noEmitOnError": false
     },
     "include": [
@@ -51,7 +54,9 @@
         "node_modules",
         "public",
         "src/App.vue",
-        "src/demo"
+        "src/pages",
+        "src/demo.ts",
+        "src/routes.ts"
     ],
     "references": [
         {
