@@ -1,4 +1,4 @@
-import {ColorVariants} from "@wovosoft/wovoui-icons/dist/types";
+import {ColorVariants} from "@/index";
 
 export const colors: ColorVariants[] = ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"];
 

@@ -35,7 +35,7 @@
 import {computed} from "vue";
 import {FormLabel} from "@/components";
 import FeedbackMessages from "./FeedbackMessages.vue";
-import {FormGroupPropsInterface} from "@/components/Form/useFormHelpers.ts";
+import {FormGroupPropsInterface} from "@/components/Form/useFormHelpers";
 
 
 const {validFeedback, invalidFeedback, ...props} = withDefaults(defineProps<FormGroupPropsInterface>(), {

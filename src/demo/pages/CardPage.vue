@@ -17,5 +17,5 @@
 </template>
 
 <script lang="ts" setup>
-import {Button, Card, CardText, Container} from "@/";
+import {Button, Card, CardText, Container} from "@/index";
 </script>

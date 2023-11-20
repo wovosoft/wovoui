@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {Badge, Button} from '@/';
+import {Badge, Button} from '@/index';
 import {colors} from "../assets";
 </script>
 

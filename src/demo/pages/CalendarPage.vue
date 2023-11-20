@@ -4,5 +4,5 @@
 </template>
 
 <script lang="ts" setup>
-import {Calendar} from "@/";
+import {Calendar} from "@/index";
 </script>

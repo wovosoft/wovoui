@@ -55,7 +55,7 @@ import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
 import {PopperOptionsType} from "@/index";
 import usePopper from "@/composables/usePopper";
 import NavLink from "@/components/Navigation/NavLink.vue";
-import {DropdownPropsInterface} from "@/components/Dropdown/useDropdown.ts";
+import {DropdownPropsInterface} from "@/components/Dropdown/useDropdown";
 
 const props = withDefaults(defineProps<DropdownPropsInterface>(), {
     tag: "div",

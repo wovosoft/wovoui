@@ -170,7 +170,7 @@ const applySorting = (th: TableHeadType) => {
 
 
 const getLabel = (th: TableHeadType) => {
-	if (isObject(th)) {
+	if (typeof th === 'object' && !Array.isArray(th)) {
 		if (th.hasOwnProperty('label')) {
 			return th.label;
 		} else if (th.hasOwnProperty('key')) {

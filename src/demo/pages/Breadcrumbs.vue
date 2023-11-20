@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import {Container} from "@/index.ts";
+import {Container} from "@/index";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb.vue";
 import BreadcrumbItem from "@/components/Breadcrumb/BreadcrumbItem.vue";
 </script>

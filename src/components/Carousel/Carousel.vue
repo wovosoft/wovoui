@@ -27,7 +27,7 @@
                 :key="indicator_index"
                 data-bs-target
                 type="button"
-                @click="changeSlide(indicator,indicator_index,currentIndex)"
+                @click="changeSlide(indicator,indicator_index,currentIndex())"
                 :class="{active:indicator.value}"
                 :aria-current="indicator.value"
                 aria-label="Slide 1">

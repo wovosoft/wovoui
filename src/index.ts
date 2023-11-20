@@ -1,7 +1,7 @@
 // noinspection DuplicatedCode
 
 import type {Placement} from "@popperjs/core";
-import type {Icons} from "@wovosoft/wovoui-icons/dist/types";
+import type {Icons} from "@wovosoft/wovoui-icons";
 import {Ref} from "vue";
 import {Modifier, OptionsGeneric} from "@popperjs/core/lib/types";
 

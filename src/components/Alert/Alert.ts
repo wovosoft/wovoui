@@ -1,8 +1,8 @@
 import {Component, defineComponent, h, onMounted, PropType, reactive, ref, watch} from "vue";
 import {makeBoolean, makeNumber, makeString, makeTag, makeVariant} from "@/composables/useProps";
 import Icon from "@/components/Ui/Icon";
-import ButtonClose from "@/components/Button/ButtonClose";
-import {Icons} from "@wovosoft/wovoui-icons/dist/types";
+import {ButtonClose} from "@/components";
+import {Icons} from "@wovosoft/wovoui-icons";
 
 
 export default defineComponent({

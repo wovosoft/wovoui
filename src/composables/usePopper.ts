@@ -6,7 +6,7 @@ import {PopperOptionsType} from "@/index";
 declare type SetAction<S> = S | ((prev: S) => S);
 
 
-export default function (reference: MaybeElement, target: MaybeElement, options: Ref<PopperOptionsType>, shouldUpdate: Ref<boolean>) {
+export default function (reference: any, target: any, options: Ref<PopperOptionsType>, shouldUpdate: Ref<boolean>) {
     const popper = ref<PopperInstance>();
 
     const initialOptions: PopperOptionsType = {

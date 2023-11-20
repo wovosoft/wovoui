@@ -27,7 +27,7 @@
         "jsx": "preserve",
         /* Linting */
         //        "strict": true,
-        //        "noUnusedLocals": true,
+        //                "noUnusedLocals": true,
         //        "noUnusedParameters": true,
         //        "noFallthroughCasesInSwitch": true,
         /* wovoui configs */
@@ -51,12 +51,12 @@
         "src/**/*.vue"
     ],
     "exclude": [
+        "docs",
+        "samples",
         "node_modules",
         "public",
         "src/App.vue",
-        "src/pages",
-        "src/demo.ts",
-        "src/routes.ts"
+        "src/demo"
     ],
     "references": [
         {

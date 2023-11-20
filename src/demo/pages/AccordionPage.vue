@@ -38,5 +38,5 @@
 </template>
 
 <script lang="ts" setup>
-import {Accordion, AccordionItem, Container} from "@/";
+import {Accordion, AccordionItem, Container} from "@/index";
 </script>
