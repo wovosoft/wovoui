@@ -37,31 +37,31 @@
             <Input v-model="model" :state="true" size="lg" placeholder="Default Input"/>
         </FormGroup>
 
-        <div class="mt-3">{{ model }}</div>
+        <div class="mt-3">{{model}}</div>
 
         <Row>
             <Col>
                 <h3 class="mt-3">Radio</h3>
                 <Radio v-for="r in ['one','two','three','four','five','six','seven','eight']"
                        :value="r" v-model="radio">
-                    {{ r }}
+                    {{r}}
                 </Radio>
-                Radio Value : {{ radio }}
+                Radio Value : {{radio}}
             </Col>
             <Col>
                 <h3 class="mt-3">Radio</h3>
                 <Radio v-for="r in ['one','two','three','four','five','six','seven','eight']"
                        :value="r" v-model="radio">
-                    {{ r }}
+                    {{r}}
                 </Radio>
-                Radio Value : {{ radio }}
+                Radio Value : {{radio}}
             </Col>
         </Row>
         <h3>Range</h3>
         <Range v-model="range"/>
-        {{ range }}
+        {{range}}
 
-        <h3>Rating {{ rate }}</h3>
+        <h3>Rating {{rate}}</h3>
         <Rating v-model="rate" :max="5"/>
 
         <h3>Spin Button</h3>
@@ -72,6 +72,20 @@
 
         <h3 class="mt-5">Form Control</h3>
         <FormControl label="Form Control" v-model="model"/>
+
+        <h3 class="mt-5">Form Select</h3>
+
+        <Select
+            text-field="text"
+            value-field="value"
+            multiple
+            v-model="multipleSelect"
+            :options="Array.from({length: 10}, (_, i) => ({text:`Text ${i}`,value:`Value ${i}`}))">
+
+        </Select>
+
+        Result: {{multipleSelect}}
+
 
         <h3 class="mt-5">Autocomplete</h3>
         <Autocomplete
@@ -89,13 +103,14 @@ import {
 } from "@/components";
 
 import {reactive, ref} from "vue";
+import Select from "@/components/Form/Select.vue";
 
 
 const model = ref(123);
 const range = ref(65);
 const rate = ref(3);
 const radio = ref('three');
-
+const multipleSelect=ref([]);
 const messages = reactive({
     valid: "Valid Message",
     invalid: "Invalid Message"

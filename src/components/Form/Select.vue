@@ -1,5 +1,22 @@
 <template>
-    <select :class="classes" v-model="model" :multiple="multiple">
+    <Dropdown v-if="multiple"
+              class="form-control p-0 border-0"
+              :toggle-props="{outline:true}"
+              :text="model.length ? model.join(', ') : placeholder"
+              :menu-props="{style:{'max-height':scrollHeight,overflow:'auto'},class:'w-100'}">
+        <li v-for="o in options" role="presentation">
+            <div class="dropdown-item">
+                <Checkbox v-model="model"
+                          :value="getEntity(o,'valueField')"
+                          :disabled="isDisabledOption(o)">
+                    <slot name="text">
+                        {{getEntity(o, 'textField')}}
+                    </slot>
+                </Checkbox>
+            </div>
+        </li>
+    </Dropdown>
+    <select :class="classes" v-model="model" v-else>
         <slot name="first"></slot>
         <slot></slot>
         <template v-for="(o) in options">
@@ -9,13 +26,13 @@
                         :value="getEntity(gi,'valueField')"
                         :disabled="isDisabledOption(gi)">
                     <slot name="text">
-                        {{ getEntity(gi, 'textField') }}
+                        {{getEntity(gi, 'textField')}}
                     </slot>
                 </option>
             </optgroup>
             <option v-else :value="getEntity(o,'valueField')" :disabled="isDisabledOption(o)">
                 <slot name="text">
-                    {{ getEntity(o, 'textField') }}
+                    {{getEntity(o, 'textField')}}
                 </slot>
             </option>
         </template>
@@ -24,19 +41,18 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType, useModel} from "vue";
-import type {ButtonSizes} from "@/index";
-import {makeBoolean, makeProp, makeSize, makeString} from "@/composables/useProps";
+import {computed, useModel} from "vue";
+import type {SelectProps} from "@/index";
+import Dropdown from "@/components/Dropdown/Dropdown.vue";
+import Checkbox from "@/components/Form/Checkbox.vue";
 
-const props = defineProps({
-    multiple: makeBoolean(false),
-    size: makeSize<ButtonSizes>(null),
-    options: {type: Array as PropType<any[]>, default: () => ([])},
-    valueField: makeProp<(str: any) => any | string>(null, [Function, String]),
-    textField: makeProp<(str: any) => any | string>(null, [Function, String]),
-    disabledField: makeString("disabled"),
-    labelField: makeString("label"),
-    modelValue: {default: null}
+const props = withDefaults(defineProps<SelectProps>(), {
+    options: [],
+    disabledField: "disabled",
+    labelField: "label",
+    modelValue: null,
+    placeholder: 'Not Selected',
+    scrollHeight: '250px',
 });
 
 const model = useModel(props, 'modelValue');

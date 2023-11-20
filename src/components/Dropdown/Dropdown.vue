@@ -12,19 +12,21 @@
                 :block="block"
                 :size="size">
                 <slot name="button-content">
-                    {{ text }}
+                    {{text}}
                 </slot>
             </Button>
             <NavLink v-if="isNav"
                      ref="toggle"
                      class="dropdown-toggle"
+                     v-bind="{...toggleProps}"
                      :class="{show:isMenuOpened}"
                      role="button"
                      @click="onclickToggle">
-                {{ text }}
+                {{text}}
             </NavLink>
             <Button
                 v-else
+                v-bind="{...toggleProps}"
                 ref="toggle"
                 :tag="toggleTag"
                 :block="block"
@@ -37,11 +39,11 @@
                 :aria-expanded="isMenuOpened">
                 <slot name="button-content">
                     <span class="visually-hidden" v-if="split">Toggle Dropdown</span>
-                    <template v-else>{{ text }}</template>
+                    <template v-else>{{text}}</template>
                 </slot>
             </Button>
         </template>
-        <DropdownMenu ref="menu" :show="isMenuOpened">
+        <DropdownMenu ref="menu" :show="isMenuOpened" v-bind="menuProps">
             <slot/>
         </DropdownMenu>
     </DropdownSkeleton>
@@ -64,7 +66,7 @@ const props = withDefaults(defineProps<DropdownPropsInterface>(), {
     variant: "secondary",
     splitVariant: "secondary",
     align: "start",
-    dir: "bottom"
+    dir: "bottom",
 });
 
 const isMenuOpened = ref<boolean>(false);

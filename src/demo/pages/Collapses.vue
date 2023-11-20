@@ -44,7 +44,7 @@
 
 import Collapse from "@/components/Accordion/Collapse.js";
 import {ref} from "vue";
-import Button from "@/components/Button/Button";
+import {Button} from "@/components";
 
 const showDefault = ref(false);
 const showHorizontal = ref(true);
