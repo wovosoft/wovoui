@@ -44,8 +44,8 @@
 					      :sortBy="sorting.sortBy"
 					      :sort="sorting.sort"
 					      :value="getValue(row,th,th_index)">
-						{{ getValue(row, th, th_index) }}
-						<!--                        <RenderVNode :content="getValue(row, th, th_index)"/>-->
+						<!--						{{ getValue(row, th, th_index) }}-->
+						<RenderVNode :content="getValue(row, th, th_index)"/>
 					</slot>
 				</Td>
 			</template>
