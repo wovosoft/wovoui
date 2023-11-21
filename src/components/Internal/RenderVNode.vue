@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import {isVNode} from "vue";
+import {createTextVNode, isVNode} from "vue";
 
 defineProps(['content']);
+
+defineOptions({
+	inheritAttrs: false
+});
+
 </script>
 
 <template>
 	<component :is="content" v-if="isVNode(content)"></component>
-	<template v-else>{{ content }}</template>
+	<component :is="createTextVNode(content)" v-else></component>
 </template>
