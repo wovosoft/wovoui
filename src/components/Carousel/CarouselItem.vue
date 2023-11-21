@@ -1,64 +1,67 @@
-<template>
-    <component :is="tag" :class="classes" @transitionend="transitionEnd">
-        <slot></slot>
-    </component>
-</template>
+<script setup lang="ts">
+import {getCurrentInstance, inject, onMounted, Ref, useModel, watch} from "vue";
+import {getTransitionDurationFromElement, reflow, useTimeout} from "@/composables/useHelpers";
+import {CarouselItemProps, registerCarouselItem} from "./index";
 
-<script lang="ts">
-import {computed, defineComponent, inject, Ref, ref, watch} from "vue";
-import {makeBoolean, makeString, makeTag} from "@/composables";
+const props = withDefaults(defineProps<CarouselItemProps>(), {
+	tag: 'div',
+	active: false,
+	start: false,
+	end: false
+});
 
-type registerItemType = (visible: Ref<boolean>) => void;
+const isActive = useModel(props, "active", {local: true});
+const isSliding = inject<Ref<boolean>>("isSliding");
 
-export default defineComponent({
-    name: "CarouselItem",
-    emits: ['slidingStart', 'slidingEnd', 'update:active'],
-    props: {
-        tag: makeTag("div"),
-        active: makeBoolean(false),
-        activeClass: makeString("active"),
-    },
-    setup(props, context) {
-        const visible = ref(props.active);
-        watch(() => props.active, v => visible.value = v);
-        watch(visible, (v) => context.emit("update:active", v));
-        const registerItem = inject('registerItem') as registerItemType;
+const registerItem = inject(registerCarouselItem)
+registerItem(isActive);
 
-        registerItem(visible);
+const direction = inject<Ref<'start' | 'end'>>("direction");
+const isNext = () => direction.value === 'end';
 
-        return {
-            visible,
-            direction: inject('direction'),
-            classes: computed(() => [
-                "carousel-item"
-            ])
-        }
-    },
-    mounted() {
-        if (this.visible) {
-            this.$el.classList.add(this.activeClass);
-        }
-    },
-    methods: {
-        transitionEnd() {
-            this.$emit('slidingEnd', this);
-            this.$el.classList.remove("carousel-item-start", "carousel-item-end");
-            this.$el.classList.remove("carousel-item-next", "carousel-item-prev");
-            if (this.visible) {
-                this.$el.classList.add(this.activeClass);
-            } else {
-                this.$el.classList.remove(this.activeClass);
-            }
-        },
-    },
-    watch: {
-        visible(value) {
-            this.$emit('slidingStart', this);
-            if (value) {
-                this.$el.classList.add("carousel-item-" + (this.direction === 'start' ? 'next' : 'prev'));
-            }
-            setTimeout(() => this.$el.classList.add("carousel-item-" + this.direction), 0);
-        }
-    }
-})
+const instanceVNode = getCurrentInstance().vnode;
+
+onMounted(() => {
+	if (isActive.value) {
+		instanceVNode.el.classList.add('active');
+	}
+});
+
+const timers = useTimeout();
+let activeTimer = null;
+
+/**
+ * Story:
+ * 1. Set order classes (carousel-item-next,carousel-item-prev) based on direction
+ */
+watch(isActive, (value: boolean) => {
+	isSliding.value = true;
+	
+	const directionalClassName = isNext() ? 'carousel-item-start' : 'carousel-item-end';
+	const orderClassName = isNext() ? 'carousel-item-next' : 'carousel-item-prev';
+	
+	//for next element
+	if (value) {
+		instanceVNode?.el?.classList.add(orderClassName);
+		reflow(instanceVNode?.el as HTMLElement);
+	}
+	
+	instanceVNode?.el?.classList.add(directionalClassName);
+	
+	if (activeTimer) {
+		clearTimeout(activeTimer);
+	}
+	
+	activeTimer = timers.run(() => {
+		instanceVNode.el.classList.remove(directionalClassName, orderClassName);
+		instanceVNode.el.classList.toggle('active');
+		isSliding.value = false;
+	}, getTransitionDurationFromElement(instanceVNode?.el as HTMLElement));
+});
 </script>
+
+<template>
+	<component :is="tag" class="carousel-item">
+		<slot></slot>
+	</component>
+</template>

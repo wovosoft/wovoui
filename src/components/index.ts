@@ -1,3 +1,7 @@
+export interface HasTag {
+    tag?: keyof HTMLElementTagNameMap;
+}
+
 export * from "./Accordion";
 export * from "./Alert";
 export * from "./Breadcrumb";

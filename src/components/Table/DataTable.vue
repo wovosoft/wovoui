@@ -60,7 +60,7 @@
 <script lang="ts" setup>
 import {computed, PropType, ref} from "vue";
 import tableProps from "@/shared/tableProps";
-import {Table, THead, TBody, Tr, Th, Td, TFoot} from "@/components/Table"
+import {Table, THead, TBody, Tr, Th, Td, TFoot, DatatableFieldType, DatatableHeadType} from "@/components/Table"
 import {Flex, FlexItem,} from "@/components/Layout"
 import {isObject, orderBy, title} from "@/shared";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
@@ -74,7 +74,7 @@ const props = defineProps({
 	bodyClass: {type: [Array, String, Object] as PropType<ClassTypes>, default: null},
 	footClass: {type: [Array, String, Object] as PropType<ClassTypes>, default: null},
 	filter: makeString(),
-	fields: {type: Array as PropType<FieldType[] | string[]>, default: () => ([])},
+	fields: {type: Array as PropType<DatatableFieldType[] | string[]>, default: () => ([])},
 	items: {type: [Array, Function] as PropType<ItemType[]>, default: () => ([])},
 	headVariant: makeVariant(null),
 	bodyVariant: makeVariant(null),
@@ -97,24 +97,7 @@ interface ItemType {
 	[key: string]: any
 }
 
-interface FieldType {
-	key: string;
-	label?: string;
-	formatter?: (item: object, key?: string) => any;
-	visible?: boolean;
-	sortable?: boolean;
-	thClass?: ClassTypes;
-	tdClass?: ClassTypes;
-}
-
-type TableHeadType = string | {
-	key?: string;
-	label?: string;
-	formatter?: (row: any, key: any) => any;
-	sortable?: boolean;
-}
-
-function isVisible(field: FieldType | string): boolean {
+function isVisible(field: DatatableFieldType | string): boolean {
 	if (typeof field === 'string') {
 		return true;
 	}
@@ -123,7 +106,7 @@ function isVisible(field: FieldType | string): boolean {
 }
 
 
-const getValue = (row: ItemType, field: TableHeadType, field_index: number) => {
+const getValue = (row: ItemType, field: DatatableFieldType | string, field_index: number) => {
 	let key = getKey(field);
 	
 	if (typeof field === 'object' && !Array.isArray(field)) {
@@ -139,7 +122,7 @@ const getValue = (row: ItemType, field: TableHeadType, field_index: number) => {
 	return row[field_index];
 };
 
-const getKey = (th: TableHeadType | string): string => {
+const getKey = (th: DatatableHeadType | string): string => {
 	if (typeof th === 'object' && !Array.isArray(th) && th?.key) {
 		return th.key;
 	} else if (typeof th === "string") {
@@ -156,7 +139,8 @@ const sorting = ref<{
 	sortBy: null,
 	sort: null
 });
-const applySorting = (th: TableHeadType) => {
+
+const applySorting = (th: DatatableHeadType) => {
 	if (typeof th === "object" && th.sortable === true) {
 		//when already sorted, key should be available
 		if (sorting.value.sortBy === th.key) {
@@ -169,7 +153,7 @@ const applySorting = (th: TableHeadType) => {
 };
 
 
-const getLabel = (th: TableHeadType) => {
+const getLabel = (th: DatatableHeadType) => {
 	if (typeof th === 'object' && !Array.isArray(th)) {
 		if (th.hasOwnProperty('label')) {
 			return th.label;

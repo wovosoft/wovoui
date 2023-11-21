@@ -1,11 +1,23 @@
-<template>
+<script setup lang="ts">
+import {PropType} from "vue";
 
-</template>
-
-<script lang="ts">
-import {defineComponent} from "vue";
-
-export default defineComponent({
-    name: "CarouselControl"
+defineProps({
+	type: {
+		type: String as PropType<'prev' | 'next'>,
+		required: true
+	},
+	text: {
+		type: String as PropType<string>,
+		required: false
+	}
 })
 </script>
+
+<template>
+	<button :class="`carousel-control-${type}`" type="button" :data-bs-slide="type">
+		<span :class="`carousel-control-${type}-icon`" aria-hidden="true"></span>
+		<span class="visually-hidden">
+            {{text || (type === 'prev' ? 'Previous' : 'Next')}}
+        </span>
+	</button>
+</template>

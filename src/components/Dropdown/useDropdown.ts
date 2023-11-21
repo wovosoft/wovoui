@@ -21,8 +21,8 @@ export interface DropdownPropsInterface {
     split?: boolean,
     isNav?: boolean,
     disableInnerClicks?: boolean,
-    menuProps?: { [key: string]: any },
-    toggleProps?: { [key: string]: any },
+    menuProps?: any,
+    toggleProps?: any,
 }
 
 export interface DropdownButtonPropsInterface {
