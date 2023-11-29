@@ -12,10 +12,10 @@ export const uid = (() => {
  * This method is used to apply multiple modals in same page.
  * NOTE: each time it is called count value is increased
  */
-export const modalCount = ((status): ((increase: boolean | null) => number) => {
+export const modalCount = ((status = null): ((increase: boolean | null) => number) => {
     let count = 0;
-    //@ts-ignore
-    return (increase = status): number => {
+
+    return (increase: boolean | null = status): number => {
         if (increase === true) {
             return ++count;
         }

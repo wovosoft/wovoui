@@ -16,4 +16,7 @@ export default {
      * Table alignment
      */
     align: makeProp<VerticalAlign>(null, String),
+    content: {
+        default: null
+    }
 }

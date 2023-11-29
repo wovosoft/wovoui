@@ -84,7 +84,7 @@ import {
 	CSSProperties,
 	nextTick,
 	onBeforeMount,
-	onBeforeUnmount,
+	onBeforeUnmount, onUnmounted,
 	PropType,
 	reactive,
 	ref,
@@ -342,7 +342,7 @@ function startAnimation(isShown: boolean) {
 
 function afterModalIsShown() {
 	//without focusing the main modal element, esc event doesn't work.
-	//so when it is shown, lets focus the element
+	//so when it is shown, let's focus on the element
 	if (shown.value) {
 		modal.value?.focus();
 	}
@@ -402,4 +402,19 @@ onBeforeUnmount(() => {
 	//@ts-ignore
 	document.removeEventListener(EVENT_TRIGGER_HIDE_NAME, globalHideHandler);
 });
+
+/**
+ * In some cases, when a page is refreshed and modal is used in that page,
+ * the style="padding-right: 17px; overflow: hidden;" on body tag is not removed.
+ * So, this needs to be removed manually in that case.
+ */
+// onUnmounted(() => {
+// 	const count = modalCount(null);
+//
+// 	console.log(count)
+// 	if (count < 1) {
+// 		console.log("Modal Count is 0, so reset body attrs");
+// 		resetBodyAttrs();
+// 	}
+// });
 </script>
