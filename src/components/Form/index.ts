@@ -1,4 +1,4 @@
-import {makeBoolean, makeProp, makeSize, makeString} from "@/composables";
+import {makeBoolean, makeProp, makeSize, makeString, makeTag} from "@/composables";
 import {ButtonSizes} from "@/index";
 import {PropType} from "vue";
 

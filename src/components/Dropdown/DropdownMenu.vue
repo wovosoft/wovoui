@@ -1,40 +1,36 @@
 <template>
-    <component :is="tag" :class="classes">
-        <slot></slot>
-    </component>
+	<component :is="tag" :class="classes">
+		<slot></slot>
+	</component>
 </template>
 
 <script lang="ts" setup>
 import {computed, watch} from "vue";
-import {makeBoolean, makeTag} from "@/composables/useProps";
+import {DropdownMenuProps} from "./index";
 
-const props = defineProps({
-    tag: makeTag("ul"),
-    dark: makeBoolean(false),
-    show: makeBoolean(false),
-    block: makeBoolean(false)
+const props = withDefaults(defineProps<DropdownMenuProps>(), {
+	tag: "ul"
 });
 
-
 const classes = computed(() => ([
-    "dropdown-menu",
-    {
-        'dropdown-menu-dark': props.dark,
-        'show': props.show,
-        'w-100': props.block
-    }
+	"dropdown-menu",
+	{
+		'dropdown-menu-dark': props.dark,
+		'show': props.show,
+		'w-100': props.block
+	}
 ]));
 
 const emit = defineEmits<{
-    (e: 'opened', value: boolean): void
-    (e: 'closed', value: boolean): void
+	opened: [value: boolean],
+	closed: [value: boolean],
 }>();
 
 watch(() => props.show, value => {
-    if (value) {
-        emit("opened", true);
-    } else {
-        emit("closed", true);
-    }
+	if (value) {
+		emit("opened", true);
+	} else {
+		emit("closed", true);
+	}
 });
 </script>

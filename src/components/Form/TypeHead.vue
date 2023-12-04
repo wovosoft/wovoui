@@ -2,16 +2,18 @@
 	<div :class="classes" class="position-relative" @keyup.esc="onEscPressed" v-on-click-outside="onClickOutside">
 		<InputGroup :size="toggleSize">
 			<slot name="prepend"></slot>
-			<button :class="toggleClasses"
-			        ref="toggle_btn"
-			        type="button"
-			        @click="toggle"
-			        @keyup.down="onMenuOpened"
-			        :aria-expanded="isOpened">
+			<component
+				:is="toggleTag"
+				:class="toggleClasses"
+				ref="toggle_btn"
+				type="button"
+				@click="toggle"
+				@keyup.down="()=>isOpened=true"
+				:aria-expanded="isOpened">
 				<slot name="label" :selectedItem="selectedItem">
 					{{ getLabel(selectedItem) }}
 				</slot>
-			</button>
+			</component>
 			<slot name="append"></slot>
 		</InputGroup>
 		<DropdownMenu
@@ -68,6 +70,7 @@ const props = defineProps({
 	menuHeight: makeString("250px"),
 	searchSize: makeSize<ButtonSizes>("sm"),
 	searchClass: {default: null},
+	toggleTag: makeTag("button"),
 	toggleSize: makeSize<ButtonSizes>(null),
 	toggleClass: {default: null},
 	menuClass: {default: null},
@@ -180,6 +183,7 @@ onMounted(() => {
 	if (props.modelValue) {
 		selectedItem.value = props.modelValue;
 	}
+	
 	if (props.preload) {
 		fetchItems();
 	}
@@ -216,12 +220,12 @@ function close() {
 }
 
 function focusItem(e) {
-	if (e.code === "ArrowDown" && (e.target.nodeName === "BUTTON" || e.target.nodeName === "INPUT")) {
-		let nextEL = e.target.parentNode.nextElementSibling;
-		(nextEL?.querySelector("button") || nextEL?.querySelector("input"))?.focus();
-	} else if (e.code === "ArrowUp" && (e.target.nodeName === "BUTTON" || e.target.nodeName === "INPUT")) {
-		let prevEl = e.target.parentNode.previousElementSibling;
-		(prevEl?.querySelector("button") || prevEl?.querySelector("input"))?.focus();
+	if (e.code === "ArrowDown" && (e.target.nodeName === props.toggleTag || e.target.nodeName === "INPUT")) {
+		const nextEL = e.target?.parentNode?.nextElementSibling;
+		(nextEL?.querySelector(props.toggleTag) || nextEL?.querySelector("input"))?.focus();
+	} else if (e.code === "ArrowUp" && (e.target.nodeName === props.toggleTag || e.target.nodeName === "INPUT")) {
+		const prevEl = e.target?.parentNode?.previousElementSibling;
+		(prevEl?.querySelector(props.toggleTag) || prevEl?.querySelector("input"))?.focus();
 	}
 }
 
