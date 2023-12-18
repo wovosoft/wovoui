@@ -10,10 +10,9 @@ export default defineComponent({
         borderVariant: makeVariant(null),
         textVariant: makeTextVariant(null)
     },
-    setup(props, {slots, attrs}) {
+    setup(props, {slots}) {
         return () => h(props.tag, {
             class: [
-                attrs.class,
                 "card-header",
                 getBinaryClasses({
                     bg: props.variant,
