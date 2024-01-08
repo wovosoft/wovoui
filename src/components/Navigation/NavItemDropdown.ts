@@ -12,7 +12,7 @@ export default defineComponent({
     },
     setup(props, {slots}) {
         return () => h(Dropdown, {
-            class: ["nav-item"],
+            class: ["nav-item", props.menuClass],
             ...props
         }, () => slots.default?.())
     }
