@@ -11,6 +11,11 @@
                             <DropdownItem>Another action</DropdownItem>
                             <DropdownItem>Something else here</DropdownItem>
                         </NavItemDropdown>
+                      <NavItemDropdown text="Dropdown Menu Class" menu-class="hi-menu-class">
+                            <DropdownItem>Action</DropdownItem>
+                            <DropdownItem>Another action</DropdownItem>
+                            <DropdownItem>Something else here</DropdownItem>
+                        </NavItemDropdown>
                         <NavItem disabled>Disabled</NavItem>
                     </Nav>
                     <form class="d-flex">

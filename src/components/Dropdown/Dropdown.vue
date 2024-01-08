@@ -43,7 +43,7 @@
         </slot>
       </Button>
     </template>
-    <DropdownMenu ref="menu" :show="isMenuOpened" v-bind="menuProps">
+    <DropdownMenu ref="menu" :show="isMenuOpened" :class="menuClass" v-bind="menuProps">
       <slot/>
     </DropdownMenu>
   </DropdownSkeleton>
