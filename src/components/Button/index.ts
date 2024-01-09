@@ -7,25 +7,25 @@ export {default as ButtonGroup} from "./ButtonGroup.vue";
 export {default as ButtonToolbar} from "./ButtonToolbar.vue";
 
 export interface ButtonPropsInterface extends HasTag {
-    href?: string
-    variant?: ColorVariants
-    size?: ButtonSizes
-    type?: 'button' | 'submit'
-    outline?: boolean
-    block?: boolean
-    pill?: boolean
-    squared?: boolean
-    disabled?: boolean
-    pressed?: boolean
-    noWrap?: boolean
-    link?: boolean
-    active?: boolean
-    activeClass?: ClassType
+    href?: string;
+    variant?: ColorVariants;
+    size?: ButtonSizes;
+    type?: 'button' | 'submit';
+    outline?: boolean;
+    block?: boolean;
+    pill?: boolean;
+    squared?: boolean;
+    disabled?: boolean;
+    pressed?: boolean;
+    noWrap?: boolean;
+    link?: boolean;
+    active?: boolean;
+    activeClass?: string;
     /**
      * when wants to manage active state of the button
      */
-    manageActiveState?: boolean
-    noStyle?: boolean
+    manageActiveState?: boolean;
+    noStyle?: boolean;
 }
 
 export interface ButtonClosePropsInterface {
