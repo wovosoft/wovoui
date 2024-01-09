@@ -1,4 +1,4 @@
-import {ButtonSizes, ColorVariants} from "@/index";
+import {ButtonSizes, ClassType, ColorVariants, HasTag} from "@/index";
 import {InjectionKey} from "vue";
 
 export {default as Button} from "./Button.vue";
@@ -6,8 +6,7 @@ export {default as ButtonClose} from "./ButtonClose.vue";
 export {default as ButtonGroup} from "./ButtonGroup.vue";
 export {default as ButtonToolbar} from "./ButtonToolbar.vue";
 
-export interface ButtonProps {
-    tag?: keyof HTMLElementTagNameMap,
+export interface ButtonPropsInterface extends HasTag {
     href?: string
     variant?: ColorVariants
     size?: ButtonSizes
@@ -21,7 +20,7 @@ export interface ButtonProps {
     noWrap?: boolean
     link?: boolean
     active?: boolean
-    activeClass?: string
+    activeClass?: ClassType
     /**
      * when wants to manage active state of the button
      */
@@ -29,21 +28,19 @@ export interface ButtonProps {
     noStyle?: boolean
 }
 
-export interface ButtonCloseProps {
+export interface ButtonClosePropsInterface {
     size?: ButtonSizes
     white?: boolean
     ariaLabel?: string
     disabled?: boolean
 }
 
-export interface ButtonToolbarProps {
-    tag?: keyof HTMLElementTagNameMap
+export interface ButtonToolbarPropsInterface extends HasTag {
     role?: string
     justified?: boolean
 }
 
-export interface ButtonGroupProps {
-    tag?: keyof HTMLElementTagNameMap
+export interface ButtonGroupPropsInterface extends HasTag {
     ariaLabel?: string
     size?: ButtonSizes
     vertical?: boolean

@@ -2,6 +2,9 @@ export interface HasTag {
     tag?: keyof HTMLElementTagNameMap;
 }
 
+export type ClassType = string | string[] | Record<string, boolean>;
+export type TagType = keyof HTMLElementTagNameMap;
+
 export * from "./Accordion";
 export * from "./Alert";
 export * from "./Breadcrumb";

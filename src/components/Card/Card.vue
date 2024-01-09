@@ -36,56 +36,17 @@
 </template>
 
 <script lang="ts" setup>
-import {CardBody, CardFooter, CardHeader, CardImg} from ".";
+import {CardBody, CardFooter, CardHeader, CardImg, CardPropsInterface} from ".";
 import {computed} from "vue";
-import {makeBoolean, makeClass, makeString, makeTag, makeTextVariant, makeVariant} from "@/composables";
 
-const props = defineProps({
-    tag: makeTag("div"),
-    noBody: makeBoolean(false),
-
-    align: makeString(null),
-    bgVariant: makeVariant(null),
-    bodyBgVariant: makeVariant(null),
-    bodyBorderVariant: makeVariant(null),
-    bodyClass: makeClass(null),
-    bodyTag: makeTag("div"),
-    bodyTextVariant: makeTextVariant(null),
-
-    footer: makeString(null),
-    footerBgVariant: makeVariant(null),
-    footerTag: makeTag("div"),
-    footerTextVariant: makeTextVariant(null),
-    footerClass: makeClass(null),
-    footerBorderVariant: makeVariant(null),
-
-    header: makeString(null),
-    headerBgVariant: makeVariant(null),
-    headerBorderVariant: makeVariant(null),
-    headerClass: makeClass(null),
-    headerTag: makeTag("div"),
-    headerTextVariant: makeTextVariant(null),
-
-    imgAlt: makeString(null),
-    imgBottom: makeBoolean(false),
-    imgEnd: makeBoolean(false),
-    imgLeft: makeBoolean(false),
-    imgRight: makeBoolean(false),
-    imgStart: makeBoolean(false),
-    imgTop: makeBoolean(false),
-    imgSrc: makeString(null),
-    imgWidth: makeString(null),
-    imgHeight: makeString(null),
-
-    overlay: makeBoolean(false),
-    subTitle: makeString(null),
-    subTitleTag: makeTag("h6"),
-    subTitleTextVariant: makeTextVariant("muted"),
-
-    textVariant: makeTextVariant(null),
-    borderVariant: makeVariant(null),
-    title: makeString(null),
-    titleTag: makeTag("h4"),
+const props = withDefaults(defineProps<CardPropsInterface>(), {
+    tag: 'div',
+    bodyTag: 'div',
+    footerTag: 'div',
+    headerTag: 'div',
+    subTitleTag: 'h6',
+    subTitleTextVariant: "muted",
+    titleTag: "h4",
 });
 
 const classes = computed(() => [

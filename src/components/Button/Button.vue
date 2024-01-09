@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import {computed, inject, useModel} from "vue";
-import type {ButtonProps} from "@/index";
+import type {ButtonPropsInterface} from "@/index";
 import {ButtonGroupOutlinedInjection} from "@/index";
 
-const props = withDefaults(defineProps<ButtonProps>(), {
+const props = withDefaults(defineProps<ButtonPropsInterface>(), {
 	tag: "button",
 	variant: "secondary",
 	type: "button",
@@ -16,7 +16,8 @@ const isGroupOutlined = inject(ButtonGroupOutlinedInjection, false);
 /**
  * Active state model
  */
-const isActive = useModel(props, 'active');
+const isActive = useModel(props, 'active',{local: true});
+
 const type = () => {
 	if (getTag() !== 'button') {
 		return null;
