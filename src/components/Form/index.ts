@@ -1,6 +1,4 @@
-import {makeBoolean, makeProp, makeSize, makeString, makeTag} from "@/composables";
 import {ButtonSizes} from "@/index";
-import {PropType} from "vue";
 
 export {default as Checkbox} from "./Checkbox.vue";
 export {default as CheckboxGroup} from "./CheckboxGroup.vue";
@@ -23,7 +21,7 @@ export {default as Input} from "./Input";
 export {default as InputGroup} from "./InputGroup.vue";
 export {default as InputGroupText} from "./InputGroupText";
 export {default as FormControl} from "./FormControl.vue";
-export {default as Autocomplete} from "./Autocomplete.vue";
+// export {default as Autocomplete} from "./Autocomplete.txt";
 
 export interface SelectProps {
     multiple?: boolean

@@ -88,10 +88,10 @@
 
 
         <h3 class="mt-5">Autocomplete</h3>
-        <Autocomplete
-            v-model="model"
-            :options="Array.from({ length: 70 }, (value, index) => 'OP-'+index)"
-        />
+<!--        <Autocomplete-->
+<!--            v-model="model"-->
+<!--            :options="Array.from({ length: 70 }, (value, index) => 'OP-'+index)"-->
+<!--        />-->
     </div>
 </template>
 
@@ -99,7 +99,7 @@
 
 import {
     Col, Feedback, FormGroup, Input, Radio,
-    Rating, Row, SpinButton, Tags, Range, FormControl, Autocomplete
+    Rating, Row, SpinButton, Tags, Range, FormControl
 } from "@/components";
 
 import {reactive, ref} from "vue";
