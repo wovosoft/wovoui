@@ -30,7 +30,7 @@ const slideStates = ref<Ref<boolean>[]>([]);
 
 provide(registerCarouselItem, (item: Ref<boolean>): number => slideStates.value.push(item));
 
-const activeItem = useModel(props, "modelValue", {local: true});
+const activeItem = useModel(props, "modelValue");
 const setActiveItem = (index: number) => {
 	const item = slideStates.value[index];
 	item.value = true;

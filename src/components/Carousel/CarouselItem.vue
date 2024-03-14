@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<CarouselItemProps>(), {
 	end: false
 });
 
-const isActive = useModel(props, "active", {local: true});
+const isActive = useModel(props, "active");
 const isSliding = inject<Ref<boolean>>("isSliding");
 
 const registerItem = inject(registerCarouselItem)

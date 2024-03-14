@@ -1,5 +1,10 @@
 <template>
-    <component :is="tag" :class="classes" :style="styles">
+    <component :is="tag"
+               :class="[
+                    'ratio',
+                    {['ratio-' + ratio]: ['1x1', '4x3', '16x9', '21x9'].includes(ratio)}
+                ]"
+               :style="styles">
         <slot/>
     </component>
 </template>
@@ -17,35 +22,11 @@
  */
 
 import {computed} from "vue";
-import {makeProp, makeTag} from "@/composables";
-import type {AspectRatios} from "@/index";
+import type {AspectProps} from "@/index";
 
-/**
- * This component is generated based on bootstrap helpers.
- * More details can be found at
- * @link https://getbootstrap.com/docs/5.2/helpers/ratio
- */
-const props = defineProps({
-    /**
-     * Wrapper Tag.
-     * @default div
-     */
-    tag: makeTag(),
-    /**
-     * Any Bootstrap 5 supported ratio component's css values.
-     * The supported values are '1x1' | '4x3' | '16x9' | '21x9'
-     * @default "16x9"
-     *
-     * More Info can be found at
-     * @link https://getbootstrap.com/docs/5.2/helpers/ratio/
-     *
-     * Bootstrap Supports dynamic ratios. This component also supports dynamic ratios.
-     * Any valid numeric values will be directly used as Number%
-     * and any ratio such as MxN will be converted to (N/M*100)%.
-     * Check out more details at
-     * @link https://getbootstrap.com/docs/5.2/helpers/ratio/#custom-ratios
-     */
-    ratio: makeProp<AspectRatios>("16x9", [String, Number])
+const props = withDefaults(defineProps<AspectProps>(), {
+    tag: "div",
+    ratio: "16x9"
 });
 
 const styles = computed(() => {
@@ -62,10 +43,4 @@ const styles = computed(() => {
         }
     }
 });
-
-const classes = computed(() => [
-    "ratio", {
-        ["ratio-" + props.ratio]: ['1x1', '4x3', '16x9', '21x9'].includes(props.ratio)
-    }
-]);
 </script>

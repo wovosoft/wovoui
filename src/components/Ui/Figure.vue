@@ -13,28 +13,9 @@
 </template>
 
 <script lang="ts" setup>
+import {FigureProps} from "@/components";
 
-import {makeBoolean, makeString} from "@/composables";
-
-defineProps({
-    /**
-     * Figure Caption
-     */
-    caption: makeString(),
-
-    /**
-     * Figure Image URL
-     */
-    imgUrl: makeString(),
-
-    /**
-     * Defines if figure should be fluid or not
-     */
-    imgFluid: makeBoolean(false),
-
-    /**
-     * Alternative value for figure image
-     */
-    imgAlt: makeString()
-});
+const props = withDefaults(defineProps<FigureProps>(), {
+    imgFluid: false
+})
 </script>

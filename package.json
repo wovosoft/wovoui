@@ -19,26 +19,26 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@vueuse/components": "^10.6.1",
-    "@vueuse/core": "^10.6.1",
+    "@vueuse/components": "^10.9.0",
+    "@vueuse/core": "^10.9.0",
     "@wovosoft/wovoui-icons": "^1.1.11",
-    "axios": "^1.6.2",
-    "bootstrap": "^5.3.2",
-    "bootstrap-icons": "^1.11.1",
+    "axios": "^1.6.7",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "dayjs": "^1.11.10",
     "lodash": "^4.17.21",
-    "vue": "^3.3.8"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@types/bootstrap": "^5.2.9",
-    "@types/lodash": "^4.14.201",
-    "@types/node": "^20.9.2",
-    "@vitejs/plugin-vue": "^4.5.0",
-    "sass": "^1.69.5",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0",
-    "vue-router": "^4.2.5",
-    "vue-tsc": "^1.8.22"
+    "@types/bootstrap": "^5.2.10",
+    "@types/lodash": "^4.17.0",
+    "@types/node": "^20.11.27",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "sass": "^1.72.0",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6",
+    "vue-router": "^4.3.0",
+    "vue-tsc": "^2.0.6"
   },
   "repository": {
     "type": "git",

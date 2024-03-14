@@ -15,16 +15,11 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType} from "vue";
-import {ButtonClose, OffcanvasTitle} from "@/components";
-import {makeBoolean, makeString} from "@/composables";
+import {ButtonClose, OffcanvasHeaderProps, OffcanvasTitle} from "@/components";
 
-defineProps({
-    modelValue: makeBoolean(false),
-    tag: {type: String as PropType<string>, default: "header"},
-    title: makeString(),
-    showClose: makeBoolean(true),
-    btnCloseWhite: makeBoolean(false)
+withDefaults(defineProps<OffcanvasHeaderProps>(), {
+    tag: 'header',
+    showClose: true,
 });
 
 defineEmits<{

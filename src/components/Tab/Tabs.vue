@@ -1,35 +1,35 @@
 <template>
-	<div :class="classes">
-		<TabContent v-if="end" :class="contentClass">
-			<slot/>
-		</TabContent>
-		<div :class="{'card-header':card, ...headerClass}">
-			<Nav :tabs="true"
-			     :pills="pills"
-			     :fill="fill"
-			     :justified="justified"
-			     :align="align"
-			     :vertical="vertical"
-			     tag="div"
-			     :class="{'card-header-pills':pills,'card-header-tabs':card}">
-				<NavLink
-					role="tab"
-					v-for="(tab,tab_index) in tabsMap"
-					:key="tab_index"
-					:active="tab_index===active"
-					:aria-selected="tab.states?.ariaSelected"
-					:tabindex="tab.states?.tabindex"
-					@click="showTab(tab_index)"
-					tag="button">
-					{{ tab.title }}
-				</NavLink>
-			</Nav>
-		</div>
-		
-		<TabContent v-if="!end" :class="contentClass">
-			<slot/>
-		</TabContent>
-	</div>
+    <div :class="classes">
+        <TabContent v-if="end" :class="contentClass">
+            <slot/>
+        </TabContent>
+        <div :class="{'card-header':card, headerClass}">
+            <Nav :tabs="true"
+                 :pills="pills"
+                 :fill="fill"
+                 :justified="justified"
+                 :align="align"
+                 :vertical="vertical"
+                 tag="div"
+                 :class="{'card-header-pills':pills,'card-header-tabs':card}">
+                <NavLink
+                    role="tab"
+                    v-for="(tab,tab_index) in tabsMap"
+                    :key="tab_index"
+                    :active="tab_index===active"
+                    :aria-selected="tab.states?.ariaSelected"
+                    :tabindex="tab.states?.tabindex"
+                    @click="showTab(tab_index)"
+                    tag="button">
+                    {{ tab.title }}
+                </NavLink>
+            </Nav>
+        </div>
+
+        <TabContent v-if="!end" :class="contentClass">
+            <slot/>
+        </TabContent>
+    </div>
 </template>
 
 <script lang="ts" setup>
@@ -42,116 +42,55 @@
  */
 
 
-import {computed, onMounted, PropType, provide, ref, useModel, watch} from "vue";
-import {Nav, NavLink, registerTabInjection, TabContent, TabMapItem, unregisterTabInjection} from "@/components";
-import {makeBoolean, makeNumber} from "@/composables";
+import {computed, onMounted, provide, ref, useModel, watch} from "vue";
+import {
+    Nav,
+    NavLink,
+    registerTabInjection,
+    TabContent,
+    TabMapItem,
+    TabsProps,
+    unregisterTabInjection
+} from "@/components";
 
-const props = defineProps({
-	/**
-	 * Index of Active Tab
-	 * @supported 0 to length of tabs
-	 */
-	modelValue: makeNumber(0),
-	
-	/**
-	 * @description defines if the tabs should be styled as card
-	 * @default false
-	 * @link https://getbootstrap.com/docs/5.2/components/card/#navigation
-	 */
-	card: makeBoolean(false),
-	
-	/**
-	 * @description defines if the tabs should be styled as pilled
-	 * @default false
-	 * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#pills
-	 */
-	pills: makeBoolean(false),
-	
-	/**
-	 * @description defines if the tabs should fill the whole available width
-	 * @default false
-	 * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#fill-and-justify
-	 */
-	fill: makeBoolean(false),
-	
-	/**
-	 * @description defines if the tabs should be justified
-	 * @default false
-	 * @link https://getbootstrap.com/docs/5.2/components/navs-tabs/#fill-and-justify
-	 */
-	justified: makeBoolean(false),
-	
-	/**
-	 * @description Defines tabs links alignment
-	 * @default null
-	 */
-	align: {type: String as PropType<'center' | 'end'>, default: null},
-	
-	/**
-	 * @description Defines if Tab Menus should be at before or after the content area
-	 * This feature is not supported by bootstrap yet.
-	 * So, rendering Menus at the end of the content, won't style it properly.
-	 * In case when value is true, proper styling actions should be taken.
-	 * @default false
-	 */
-	end: makeBoolean(false),
-	
-	/**
-	 * @description Defines if menu should be vertical or not.
-	 * When card is enabled, styling doesn't work properly.
-	 * @default false
-	 */
-	vertical: makeBoolean(false),
-	
-	/**
-	 * @type any
-	 * @default null
-	 * @description Tab Header Classes
-	 */
-	headerClass: {default: null, type: Object as PropType<any>},
-	
-	/**
-	 * @type any
-	 * @default null
-	 * @description Tab Content Classes
-	 */
-	contentClass: {default: null}
+const props = withDefaults(defineProps<TabsProps>(), {
+    modelValue: 0,
 });
 
 const emit = defineEmits<{
-	(e: 'update:modelValue', value: number | null | undefined): void
+    (e: 'update:modelValue', value: number | null | undefined): void
 }>();
 
 
-const active = useModel(props, 'modelValue', {local: true});
+const active = useModel(props, 'modelValue');
 
 onMounted(() => showTab(Number(active.value)));
 
 watch(active, () => showTab(Number(active.value)));
 
 function showTab(index: number) {
-	emit('update:modelValue', index);
-	
-	// Find visible tabs and then hide. Theoretically, there should have only one visible tab in a
-	// certain tabs. But if there are multiple tab items,
-	// we do the following actions to perform everything properly
-	// without any risk
-	tabsMap.value
-		.filter(tab => tab.states?.active)
-		.forEach(tab => {
-			if (typeof tab.updateVisibility === 'function') {
-				tab?.updateVisibility(false);
-			}
-		});
-	
-	//show target tab
-	tabsMap.value[index]?.updateVisibility(true);
+    emit('update:modelValue', index);
+
+    // Find visible tabs and then hide. Theoretically, there should have only one visible tab in a
+    // certain tabs. But if there are multiple tab items,
+    // we do the following actions to perform everything properly
+    // without any risk
+    tabsMap.value
+        .filter(tab => tab.states?.active)
+        .forEach(tab => {
+            if (typeof tab.updateVisibility === 'function') {
+                tab?.updateVisibility(false);
+            }
+        });
+
+    //show target tab
+    tabsMap.value[index]?.updateVisibility(true);
 }
 
 const classes = computed(() => ({
-	card: props.card,
-	'd-flex': props.vertical,
-	'align-items-start': props.vertical
+    card: props.card,
+    'd-flex': props.vertical,
+    'align-items-start': props.vertical
 }));
 
 
@@ -169,10 +108,10 @@ provide(registerTabInjection, (tab) => tabsMap.value.push(tab));
  * Provide Method to Child method to be unsubscribed as tab
  */
 provide(unregisterTabInjection, (uid) => {
-	let index = tabsMap.value.findIndex(t => t.uid === uid);
-	if (index > -1) {
-		tabsMap.value.splice(index, 1);
-	}
+    let index = tabsMap.value.findIndex(t => t.uid === uid);
+    if (index > -1) {
+        tabsMap.value.splice(index, 1);
+    }
 });
 
 /**

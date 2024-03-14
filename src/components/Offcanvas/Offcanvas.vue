@@ -28,17 +28,15 @@
              @click="hide()"
              :style="backdropStyle"
              class="offcanvas-backdrop fade"
-             :class="{show : showBackdrop, ...backdropClass}"
+             :class="{show : showBackdrop, backdropClass}"
         />
     </teleport>
 </template>
 
 <script lang="ts" setup>
-import type {ColorVariants, TooltipPlacement} from "@/index";
-import {makeBoolean, makeString} from "@/composables";
-//constants
+import {OffcanvasProps} from "@/index";
 import {getTransitionDurationFromElement} from "@/composables";
-import {computed, PropType, ref, StyleValue, watch} from "vue";
+import {computed, ref, watch} from "vue";
 import {OffcanvasBody, OffcanvasHeader} from "@/components";
 
 
@@ -46,25 +44,13 @@ const isShowing = ref<boolean>(false);  //for 'showing' class
 const isHiding = ref<boolean>(false);   //for 'hiding' class
 const isShown = ref<boolean>(false);    //for 'show' class
 
-const props = defineProps({
-    modelValue: makeBoolean(false),
-    placement: {type: String as PropType<TooltipPlacement>, default: 'start'},
-    header: makeString(),
-    headerClass: {type: [Array, Object, String] as PropType<any>, default: null},
-    bodyClass: {type: [Array, Object, String] as PropType<any>, default: null},
-    backdropClass: {type: [Array, Object, String] as PropType<any>, default: null},
-    headerStyle: {type: [Object, String] as PropType<object | string>, default: null},
-    bodyStyle: {type: [Object, String] as PropType<object | string>, default: null},
-    backdropStyle: {type: [Object, Array] as PropType<StyleValue>, default: null},
-    title: makeString(),
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "aside"},
-    backdrop: makeBoolean(true),
-    enableBodyScroll: makeBoolean(false),
-    bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
-    textVariant: {type: String as PropType<ColorVariants>, default: 'dark'},
-    btnCloseWhite: makeBoolean(false),
-    scrollbarPadding: {type: String as PropType<string>, default: "17px"},
-    noCloseOnEsc: makeBoolean(false)
+const props = withDefaults(defineProps<OffcanvasProps>(), {
+    placement: 'start',
+    tag: 'aside',
+    backdrop: true,
+    bgVariant: 'light',
+    textVariant: 'dark',
+    scrollbarPadding: '17px',
 });
 
 const emit = defineEmits<{

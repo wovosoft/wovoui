@@ -5,9 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import {makeTag} from "@/composables";
-
-defineProps({
-    tag: makeTag("div")
+withDefaults(defineProps<{ tag?: keyof HTMLElementTagNameMap }>(), {
+    tag: 'div'
 });
 </script>

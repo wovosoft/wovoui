@@ -28,9 +28,7 @@ export const modalCount = ((status = null): ((increase: boolean | null) => numbe
 
 
 //doesn't work with array splice
-export function useStateModel<T extends Record<string, any>, K extends keyof T>(props: T, name: K, options?: {
-    local?: boolean;
-}) {
+export function useStateModel<T extends Record<string, any>, K extends keyof T>(props: T, name: K, options?: {}) {
     const model = useModel(props, name, options);
     const state = ref<typeof model.value>(model.value);
 

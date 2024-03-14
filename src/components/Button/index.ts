@@ -1,5 +1,5 @@
 import {ButtonSizes, ClassType, ColorVariants, HasTag} from "@/index";
-import {InjectionKey} from "vue";
+import {InjectionKey, VNode} from "vue";
 
 export {default as Button} from "./Button.vue";
 export {default as ButtonClose} from "./ButtonClose.vue";
@@ -26,6 +26,7 @@ export interface ButtonPropsInterface extends HasTag {
      */
     manageActiveState?: boolean;
     noStyle?: boolean;
+    content?: string | VNode;
 }
 
 export interface ButtonClosePropsInterface {

@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import {ref} from "vue";
 import {Input} from "@/";
-import Placeholder from "@/components/Ui/Placeholder";
+import Placeholder from "../../components/Ui/Placeholder.vue";
 
 const ratio = ref<string>('21x9');
 </script>
