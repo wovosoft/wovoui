@@ -1,4 +1,9 @@
-import {ButtonSizes} from "@/index";
+import {
+    ButtonSizes,
+    ClassType, ColorVariants,
+    TextAlign
+} from "@/index";
+import {Ref} from "vue";
 
 export {default as Checkbox} from "./Checkbox.vue";
 export {default as CheckboxGroup} from "./CheckboxGroup.vue";
@@ -21,6 +26,7 @@ export {default as Input} from "./Input";
 export {default as InputGroup} from "./InputGroup.vue";
 export {default as InputGroupText} from "./InputGroupText";
 export {default as FormControl} from "./FormControl.vue";
+
 // export {default as Autocomplete} from "./Autocomplete.txt";
 
 export interface SelectProps {
@@ -34,4 +40,31 @@ export interface SelectProps {
     modelValue?: any,
     placeholder?: string,
     scrollHeight?: string,
+}
+
+export interface TypeHeadProps {
+    apiUrl?: string;
+    queryKey?: string;
+    getItems?: (items: Ref<any>, query: Ref<string | number | null>) => any,
+    menuHeight?: string;
+    searchSize?: ButtonSizes;
+    searchClass?: ClassType;
+    toggleTag?: keyof HTMLElementTagNameMap;
+    toggleSize?: ButtonSizes;
+    toggleClass?: ClassType;
+    menuClass?: ClassType;
+    menuAttrs?: any; //should point to DropdownMenuProps, implement it later
+    menuDark?: boolean;
+    menuTag?: keyof HTMLElementTagNameMap;
+    searchPlaceholder?: string;
+    modelValue?: any;
+    variant?: ColorVariants;
+    textAlign?: TextAlign;
+    getLabel?: (item: any) => any;
+    getOption?: (item: any) => any;
+    noCloseOnOutsideClick?: boolean;
+    noCloseOnItemSelect?: boolean;
+    noCloseOnEscPressed?: boolean;
+    clearItemsOnSelect?: boolean;
+    preload?: boolean;
 }

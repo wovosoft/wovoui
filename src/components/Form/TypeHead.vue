@@ -35,7 +35,6 @@
                        :size="searchSize"
                        :class="searchClass"
                        @update:modelValue="fetchItems"
-                       @keyup.up="focusToggleButton"
                 />
             </div>
             <div ref="menuItems" :style="{maxHeight:menuHeight}" class="overflow-auto">
@@ -55,48 +54,24 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, nextTick, onMounted, PropType, ref, Ref, useSlots, watch} from "vue";
-import type {ButtonSizes, TextAlign} from "@/index";
+import {computed, nextTick, onMounted, ref, useSlots, watch} from "vue";
+import type {TypeHeadProps} from "@/index";
 import {DropdownMenu, Input, InputGroup} from "@/components";
 import {vOnClickOutside} from "@/directives";
 import axios from "axios";
 import usePopper from "@/composables/usePopper";
-import {makeBoolean, makeProp, makeSize, makeString, makeTag, makeVariant} from "@/composables";
 
-const props = defineProps({
-    apiUrl: makeString(null),
-    queryKey: makeString('query'),
-    getItems: {
-        //sending refs, so that can be modified from outside
-        type: Function as PropType<(items: Ref<unknown>, query: Ref<string | number | null>) => unknown>,
-    },
-    menuHeight: makeString("250px"),
-    searchSize: makeSize<ButtonSizes>("sm"),
-    searchClass: {default: null},
-    toggleTag: makeTag("button"),
-    toggleSize: makeSize<ButtonSizes>(null),
-    toggleClass: {default: null},
-    menuClass: {default: null},
-    menuAttrs: {default: null, type: Object as PropType<any>},
-    menuDark: makeBoolean(false),
-    menuTag: makeTag("div"),
-    searchPlaceholder: makeString("Search..."),
-    modelValue: {default: null},
-    variant: makeVariant("secondary"),
-    textAlign: makeProp<TextAlign>('start', String),
-    getLabel: {
-        type: Function as PropType<(item: unknown) => unknown>,
-        default: (item: unknown) => item ? item : "Not Selected"
-    },
-    getOption: {
-        type: Function as PropType<(item: unknown) => unknown>,
-        default: (item: unknown) => item
-    },
-    noCloseOnOutsideClick: makeBoolean(false),
-    noCloseOnItemSelect: makeBoolean(false),
-    noCloseOnEscPressed: makeBoolean(false),
-    clearItemsOnSelect: makeBoolean(false),
-    preload: makeBoolean(false),
+const props = withDefaults(defineProps<TypeHeadProps>(), {
+    queryKey: 'query',
+    menuHeight: '250px',
+    searchSize: 'sm',
+    toggleTag: "button",
+    menuTag: "div",
+    searchPlaceholder: "Search...",
+    variant: "secondary",
+    textAlign: 'start',
+    getLabel: (item: any) => item ? item : "Not Selected",
+    getOption: (item: any) => item,
 });
 
 const emit = defineEmits<{
@@ -106,6 +81,11 @@ const emit = defineEmits<{
     (e: 'onBeforeClose', value: any): void
 }>();
 
+defineExpose({
+    clearItems: () => items.value = [],
+    setItems: (data: any) => items.value = data,
+    fetchItems
+});
 
 const query = ref<string | number>();
 const items = ref<any[]>([]);
@@ -116,7 +96,6 @@ const isOpened = ref<boolean>(false);
 const search = ref<InstanceType<typeof Input> | null>(null);
 
 const {update} = usePopper(toggle_btn, menu, ref({}), isOpened);
-
 
 function fetchItems() {
     if (props.apiUrl) {
@@ -224,38 +203,21 @@ function close() {
 }
 
 
-function focusItem(e: KeyboardEvent) {
-
+function focusItem(e: KeyboardEvent & { target: HTMLElement }) {
     if (e.code === "ArrowDown") {
-        if (document.activeElement.isEqualNode(search.value?.$el)) {
+        if (e.target?.isEqualNode(search.value?.$el)) {
             (menuItems.value?.firstElementChild as HTMLButtonElement)?.focus();
         } else {
-            (document.activeElement.nextElementSibling as HTMLButtonElement)?.focus();
+            (e.target?.nextElementSibling as HTMLButtonElement)?.focus();
         }
     } else if (e.code === "ArrowUp") {
-        if (document.activeElement.isEqualNode(search.value?.$el)) {
-            (menuItems.value?.lastElementChild as HTMLButtonElement)?.focus();
-        } else if ((document.activeElement.previousElementSibling as HTMLButtonElement)) {
-            (document.activeElement.previousElementSibling as HTMLButtonElement)?.focus();
+        if ((e.target.previousElementSibling as HTMLButtonElement)) {
+            (e.target.previousElementSibling as HTMLButtonElement)?.focus();
         } else {
             search.value?.$el?.focus();
         }
     }
 
-
-    // if (e.code === "ArrowDown" && (e.target.nodeName === props.toggleTag || e.target.nodeName === "INPUT")) {
-    //     const nextEL = e.target?.parentNode?.nextElementSibling;
-    //     (nextEL?.querySelector(props.toggleTag) || nextEL?.querySelector("input"))?.focus();
-    // } else if (e.code === "ArrowUp" && (e.target.nodeName === props.toggleTag || e.target.nodeName === "INPUT")) {
-    //     const prevEl = e.target?.parentNode?.previousElementSibling;
-    //     (prevEl?.querySelector(props.toggleTag) || prevEl?.querySelector("input"))?.focus();
-    // }
+    menuItems.value?.scrollIntoView();
 }
-
-defineExpose({
-    clearItems: () => items.value = [],
-    setItems: (data: any) => items.value = data,
-    fetchItems
-});
-
 </script>
