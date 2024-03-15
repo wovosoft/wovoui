@@ -95,7 +95,7 @@ import dayjs, {Dayjs, ManipulateType, UnitType} from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
 import Row from "../Layout/Row";
-import Col from "../Layout/Col";
+import Col from "../Layout/Col.vue";
 import Button from "../Button/Button.vue";
 import InputGroup from "./InputGroup.vue";
 import {ChevronDoubleLeft, ChevronDoubleRight, ChevronLeft, ChevronRight, CircleFill} from "@wovosoft/wovoui-icons";
