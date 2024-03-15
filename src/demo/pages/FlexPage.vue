@@ -23,8 +23,8 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
-import Flex from "@/components/Layout/Flex";
-import FlexItem from "@/components/Layout/FlexItem";
+import Flex from "../../components/Layout/Flex.vue";
+import FlexItem from "../../components/Layout/FlexItem.vue";
 import Checkbox from "@/components/Form/Checkbox.vue";
 
 const fill = ref<boolean>(false)

@@ -38,6 +38,6 @@
     </div>
 </template>
 <script lang="ts" setup>
-import {Button, Collapse, Container, DropdownItem, Input, Nav, Navbar, NavItem, NavItemDropdown} from "@/index";
+import {Button, Collapse, Container, DropdownItem, Input, Nav, Navbar, NavItem, NavItemDropdown} from "./../../index";
 import TheSidebar from "./TheSidebar.vue";
 </script>

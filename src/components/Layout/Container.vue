@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type {ContainerProps} from "@/index";
+import type {ContainerProps} from "./index";
 
 withDefaults(defineProps<ContainerProps>(), {
     tag: 'div'

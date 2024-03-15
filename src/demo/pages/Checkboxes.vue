@@ -64,7 +64,7 @@
 
 import {Checkbox, CheckboxGroup} from "@/index";
 import {reactive, ref} from "vue";
-import Row from "@/components/Layout/Row";
+import Row from "../../components/Layout/Row.vue";
 import Col from "../../components/Layout/Col.vue";
 
 const dvalue = reactive({

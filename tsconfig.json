@@ -56,7 +56,8 @@
         "node_modules",
         "public",
         "src/App.vue",
-        "src/demo"
+        "src/demo",
+        "dist"
     ],
     "references": [
         {
