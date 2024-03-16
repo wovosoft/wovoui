@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-withDefaults(defineProps<{
-    tag?: keyof HTMLElementTagNameMap
-}>(), {
+import {HasTag} from "@/components";
+
+withDefaults(defineProps<HasTag>(), {
     tag: "h5"
 })
 </script>

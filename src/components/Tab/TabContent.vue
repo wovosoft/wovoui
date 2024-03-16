@@ -5,7 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-withDefaults(defineProps<{ tag?: keyof HTMLElementTagNameMap }>(), {
+import {HasTag} from "@/components";
+
+withDefaults(defineProps<HasTag>(), {
     tag: 'div'
 });
 </script>

@@ -1,6 +1,5 @@
 import {
     ClassType,
-    ClassTypes,
     ColorVariants,
     type ResponsiveSizes,
     type VerticalAlign
@@ -21,8 +20,8 @@ export interface DatatableFieldType {
     formatter?: (item: object, key?: string) => any;
     visible?: boolean;
     sortable?: boolean;
-    thClass?: ClassTypes;
-    tdClass?: ClassTypes;
+    thClass?: ClassType;
+    tdClass?: ClassType;
 }
 
 export type DatatableHeadType = string | {

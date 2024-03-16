@@ -39,7 +39,6 @@ import {getTransitionDurationFromElement} from "@/composables";
 import {computed, ref, watch} from "vue";
 import {OffcanvasBody, OffcanvasHeader} from "@/components";
 
-
 const isShowing = ref<boolean>(false);  //for 'showing' class
 const isHiding = ref<boolean>(false);   //for 'hiding' class
 const isShown = ref<boolean>(false);    //for 'show' class
