@@ -1,8 +1,5 @@
-// noinspection DuplicatedCode
-
 import type {Placement} from "@popperjs/core";
 import type {Icons} from "@wovosoft/wovoui-icons";
-import {Ref} from "vue";
 import {Modifier, OptionsGeneric} from "@popperjs/core/lib/types";
 
 export type TextAlign = 'start' | 'center' | 'end';
@@ -95,9 +92,6 @@ export interface MenuItem {
 
 export type PopperOptionsType = Partial<OptionsGeneric<Partial<Modifier<any, any>>>>;
 
-export type AccordionItemStateType = Ref<boolean | undefined>;
-export type setActiveItem = (item: AccordionItemStateType) => void
-export type registerItem = (item: AccordionItemStateType) => void
 
 export * from "./components";
 export * from "./composables";

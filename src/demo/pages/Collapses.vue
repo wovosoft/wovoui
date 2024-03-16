@@ -42,7 +42,7 @@
 
 <script lang="ts" setup>
 
-import Collapse from "@/components/Accordion/Collapse.js";
+import Collapse from "../../components/Accordion/Collapse.vue";
 import {ref} from "vue";
 import {Button} from "@/components";
 

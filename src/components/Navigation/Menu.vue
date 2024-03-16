@@ -11,61 +11,48 @@
             </AccordionItem>
             <div class="accordion-item" v-else :style="style">
                 <div class="accordion-header">
-                    <a v-if="typeof item.link==='string'" :href="item.link"
-                       class="accordion-button collapsed menu-link">
-                        <ChevronRight v-if="child"/>
-                        {{ item?.text || item?.title }}
-                    </a>
-                    <router-link :to="item.link" v-else-if="typeof item.link==='object'"
-                                 class="accordion-button collapsed menu-link">
-                        <ChevronRight v-if="child"/>
-                        {{ item?.text || item?.title }}
-                    </router-link>
+                    <slot :item="item" name="menu-item">
+                        <a v-if="typeof item.link==='string'" :href="item.link"
+                           class="accordion-button collapsed menu-link">
+                            <ChevronRight v-if="child"/>
+                            {{ item?.text || item?.title }}
+                        </a>
+                        <router-link :to="item.link" v-else-if="typeof item.link==='object'"
+                                     class="accordion-button collapsed menu-link">
+                            <ChevronRight v-if="child"/>
+                            {{ item?.text || item?.title }}
+                        </router-link>
+                    </slot>
                 </div>
             </div>
         </template>
     </Accordion>
 </template>
 
-<script lang="ts">
-import {computed, defineComponent, PropType} from "vue";
-import Accordion from "@/components/Accordion/Accordion";
+<script lang="ts" setup>
+import {computed} from "vue";
+import Accordion from "../Accordion/Accordion.vue";
 import AccordionItem from "@/components/Accordion/AccordionItem.vue";
 import {ChevronRight} from "@wovosoft/wovoui-icons";
-import accordionProps from "@/shared/accordionProps";
-import {makeBoolean} from "@/composables";
+import {MenuProps} from "@/components/Accordion";
 
-type itemType = {
-    title?: string,
-    text?: string,
-    link?: string | object,
-    children?: itemType[]
-};
+const props = withDefaults(defineProps<MenuProps>(), {
+    tag: 'div',
+    //@ts-ignore
+    items: [],
+    ps: 10
+});
 
-export default defineComponent({
-    name: "Menu",
-    components: {AccordionItem, Accordion, ChevronRight},
-    props: {
-        ...accordionProps,
-        items: {type: Array as PropType<itemType[]>, default: () => ([])},
-        child: makeBoolean(false),
-        ps: {type: Number as PropType<number>, default: 10}
-    },
-    setup(props) {
+const style = computed(() => {
+    if (props.child) {
         return {
-            style: computed(() => {
-                if (props.child) {
-                    return {
-                        borderLeft: 0,
-                        borderRight: 0,
-                        borderRadius: 0,
-                        // paddingLeft: props.ps + "px"
-                    }
-                }
-                return;
-            })
+            borderLeft: 0,
+            borderRight: 0,
+            borderRadius: 0,
+            // paddingLeft: props.ps + "px"
         }
     }
+    return;
 })
 </script>
 <style scoped>
