@@ -74,7 +74,9 @@ export interface CardBodyPropsInterface extends HasTag {
 }
 
 export interface CardPropsInterface extends HasTag {
+    noHeader?:boolean;
     noBody?: boolean;
+    noFooter?: boolean;
 
     align?: string;
     bgVariant?: ColorVariants;

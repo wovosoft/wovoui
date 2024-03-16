@@ -2,12 +2,12 @@
 import {CardTextPropsInterface} from "@/components";
 
 withDefaults(defineProps<CardTextPropsInterface>(), {
-  tag: "p"
+    tag: "p"
 })
 </script>
 
 <template>
-  <component :is="tag" class="card-text">
-    <slot/>
-  </component>
+    <component :is="tag" class="card-text">
+        <slot/>
+    </component>
 </template>

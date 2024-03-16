@@ -1,7 +1,7 @@
 <template>
     <component :is="tag" :class="classes">
         <CardHeader
-            v-if="$slots.header || header"
+            v-if="!noHeader && ($slots.header || header)"
             :tag="headerTag"
             :class="headerClass"
             :border-variant="headerBorderVariant"
@@ -22,7 +22,7 @@
 
         <CardImg v-if="imgSrc && imgBottom" v-bind="cardImageBindings"/>
         <CardFooter
-            v-if="$slots.footer || footer"
+            v-if="!noFooter && ($slots.footer || footer)"
             :tag="footerTag"
             :class="footerClass"
             :border-variant="footerBorderVariant"

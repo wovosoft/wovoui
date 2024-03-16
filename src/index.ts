@@ -1,6 +1,7 @@
 import type {Placement} from "@popperjs/core";
 import type {Icons} from "@wovosoft/wovoui-icons";
 import {Modifier, OptionsGeneric} from "@popperjs/core/lib/types";
+import {ClassType} from "@/components";
 
 export type TextAlign = 'start' | 'center' | 'end';
 export type TextVariants =
@@ -79,7 +80,7 @@ export type DropdownAlignments =
     | "xxl-end"
     | Placement;
 
-export type ClassTypes = string | string[] | object | object[];
+export type ClassTypes = ClassType;
 
 export interface MenuItem {
     text: string;

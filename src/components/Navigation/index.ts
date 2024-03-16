@@ -1,4 +1,4 @@
-import {DropdownPropsInterface} from "@/components/Dropdown/useDropdown";
+import {DropdownPropsInterface} from "@/components";
 
 export {default as Link} from "./Link";
 export {default as Menu} from "./Menu.vue";

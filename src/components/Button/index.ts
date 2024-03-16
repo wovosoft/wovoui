@@ -1,5 +1,5 @@
-import {ButtonSizes, ClassType, ColorVariants, HasTag} from "@/index";
-import {InjectionKey, VNode} from "vue";
+import {ButtonSizes, ColorVariants, HasTag} from "@/index";
+import {AnchorHTMLAttributes, ButtonHTMLAttributes, InjectionKey, VNode} from "vue";
 
 export {default as Button} from "./Button.vue";
 export {default as ButtonClose} from "./ButtonClose.vue";
@@ -7,10 +7,10 @@ export {default as ButtonGroup} from "./ButtonGroup.vue";
 export {default as ButtonToolbar} from "./ButtonToolbar.vue";
 
 export interface ButtonPropsInterface extends HasTag {
-    href?: string;
+    href?: AnchorHTMLAttributes['href'];
     variant?: ColorVariants;
     size?: ButtonSizes;
-    type?: 'button' | 'submit';
+    type?: ButtonHTMLAttributes['type'];
     outline?: boolean;
     block?: boolean;
     pill?: boolean;

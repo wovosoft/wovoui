@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" :class="classes" v-bind="attributes">
+    <component :is="tag" :class="['breadcrumb-item', {active: active}]" v-bind="attributes">
         <template v-if="href">
             <a :href="href">
                 <slot></slot>
@@ -18,21 +18,14 @@
 
 <script lang="ts" setup>
 import {computed, getCurrentInstance} from "vue";
-import {makeBoolean, makeProp, makeString, makeTag} from "@/composables/useProps";
+import {BreadcrumbItemProps} from "@/components";
 
-const props = defineProps({
-    tag: makeTag("li"),
-    active: makeBoolean(false),
-    activeClass: makeString("active"),
-    append: makeBoolean(false),
-    ariaCurrent: makeString("location"),
-    disabled: makeBoolean(false),
-    exact: makeBoolean(false),
-    rel: makeString(),
-    replace: makeBoolean(false),
-    target: makeString("_self"),
-    to: makeProp<object | string>(null, [Object, String]),
-    href: makeString("#")
+const props = withDefaults(defineProps<BreadcrumbItemProps>(), {
+    tag: 'li',
+    activeClass: 'active',
+    ariaCurrent: 'location',
+    target: '_self',
+    href: '#'
 });
 
 const attributes = computed(() => {
@@ -41,10 +34,4 @@ const attributes = computed(() => {
     }
 });
 const isRouterInstalled = computed(() => !!getCurrentInstance()?.appContext.config.globalProperties.$router);
-const classes = computed(() => [
-    "breadcrumb-item",
-    {
-        "active": props.active
-    }
-]);
 </script>

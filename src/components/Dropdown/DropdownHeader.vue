@@ -7,10 +7,10 @@
 </template>
 
 <script lang="ts" setup>
-import {makeTag} from "@/composables/useProps";
+import {DropdownHeaderProps} from "@/components";
 
-defineProps({
-    wrapper: makeTag("li"),
-    tag: makeTag("h6"),
-})
+withDefaults(defineProps<DropdownHeaderProps>(), {
+    wrapper: "li",
+    tag: "h6",
+});
 </script>

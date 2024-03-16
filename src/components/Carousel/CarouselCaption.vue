@@ -6,7 +6,7 @@ withDefaults(defineProps<HasTag>(), {
 });
 </script>
 <template>
-    <component :is="tag" class="carousel-inner">
+    <component :is="tag" class="carousel-caption">
         <slot></slot>
     </component>
 </template>

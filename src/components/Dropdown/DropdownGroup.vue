@@ -6,8 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import {DropdownHeader} from "./index";
-import type {DropdownGroupPropsInterface} from "@/components/Dropdown/useDropdown";
+import {DropdownGroupPropsInterface, DropdownHeader} from "./index";
 
 withDefaults(defineProps<DropdownGroupPropsInterface>(), {
     headerTag: 'h6',

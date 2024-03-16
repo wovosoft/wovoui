@@ -15,15 +15,14 @@
 </template>
 
 <script lang="ts" setup>
-
-import {makeProp, makeString, makeTag} from "@/composables";
 import {computed} from "vue";
 import BreadcrumbItem from "./BreadcrumbItem.vue";
+import {BreadcrumbProps} from "@/components";
 
-const props = defineProps({
-    tag: makeTag("ol"),
-    items: makeProp<any[]>([], Array),
-    divider: makeString()
+const props = withDefaults(defineProps<BreadcrumbProps>(), {
+    tag: 'ol',
+    //@ts-ignore
+    items: []
 });
 
 const getDivider = computed(() => props.divider ? "'" + props.divider + "'" : null)

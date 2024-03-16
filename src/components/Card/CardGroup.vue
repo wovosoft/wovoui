@@ -3,18 +3,18 @@ import {computed} from "vue";
 import {CardGroupPropsInterface} from "@/components";
 
 const props = withDefaults(defineProps<CardGroupPropsInterface>(), {
-  tag: 'div'
+    tag: 'div'
 })
 const classes = computed(() => [
-  {
-    "card-group": !props.deck && !props.columns,
-    "card-deck": props.deck,
-    "card-columns": props.columns,
-  }
+    {
+        "card-group": !props.deck && !props.columns,
+        "card-deck": props.deck,
+        "card-columns": props.columns,
+    }
 ]);
 </script>
 <template>
-  <component :is="tag" :class="classes">
-    <slot></slot>
-  </component>
+    <component :is="tag" :class="classes">
+        <slot></slot>
+    </component>
 </template>

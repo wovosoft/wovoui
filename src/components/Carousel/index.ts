@@ -2,10 +2,10 @@ import {InjectionKey, Ref} from "vue";
 import {HasTag} from "@/components";
 
 export {default as Carousel} from "./Carousel.vue";
-export {default as CarouselCaption} from "./CarouselCaption";
+export {default as CarouselCaption} from "./CarouselCaption.vue";
 export {default as CarouselControl} from "./CarouselControl.vue";
 export {default as CarouselIndicators} from "./CarouselIndicators.vue";
-export {default as CarouselInner} from "./CarouselInner";
+export {default as CarouselInner} from "./CarouselInner.vue";
 export {default as CarouselItem} from "./CarouselItem.vue";
 
 export const registerCarouselItem = Symbol("Register Carousel Item") as InjectionKey<(visible: Ref<boolean>) => any>;
@@ -31,4 +31,9 @@ export interface CarouselIndicatorsProps extends HasTag {
 
 export interface CarouselInnerProps extends HasTag {
 
+}
+
+export interface CarouselControlProps{
+    type:'prev' | 'next';
+    text?:string;
 }

@@ -1,9 +1,9 @@
 <template>
-  <component :is="tag" class="card-title">
-    <slot>
-      {{ content }}
-    </slot>
-  </component>
+    <component :is="tag" class="card-title">
+        <slot>
+            {{ content }}
+        </slot>
+    </component>
 </template>
 
 
@@ -11,7 +11,7 @@
 import {CardTitlePropsInterface} from "@/components";
 
 withDefaults(defineProps<CardTitlePropsInterface>(), {
-  content: "",
-  tag: "h4"
+    content: "",
+    tag: "h4"
 });
 </script>

@@ -14,20 +14,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
-import { RouteRecordRaw } from "vue-router";
-import { makeBoolean, makeProp, makeString, makeTag } from "@/composables/useProps";
+import {computed} from "vue";
+import {DropdownItemProps} from "@/components";
 
-const props = defineProps({
-    tag: makeTag("li"),
-    href: makeString("#"),
-    to: makeProp<RouteRecordRaw>(null, Object),
-    noItemTag: makeBoolean(false),
-    active: makeBoolean(false),
-    disabled: makeBoolean(false),
-    isText: makeBoolean(false),
-    itemTag: makeTag()
-})
+const props = withDefaults(defineProps<DropdownItemProps>(), {
+    tag: 'li',
+    href: '#'
+});
 
-const classes = computed(() => ['dropdown-item', { 'active': props.active, 'disabled': props.disabled }]);
+const classes = computed(() => ['dropdown-item', {'active': props.active, 'disabled': props.disabled}]);
 </script>
