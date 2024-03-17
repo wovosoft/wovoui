@@ -1,5 +1,4 @@
 import type {Placement} from "@popperjs/core";
-import type {Icons} from "@wovosoft/wovoui-icons";
 import {Modifier, OptionsGeneric} from "@popperjs/core/lib/types";
 import {ClassType} from "@/components";
 
@@ -36,8 +35,7 @@ export type ColAlignments = 'start' | 'center' | 'end';
 export type JustifyContentAlignments = ColAlignments | 'around' | 'between' | 'evenly';
 export type ColOrders = ResponsiveNumbers | 'first' | 'last';
 export type ResponsiveSizes = "sm" | "md" | "lg" | "xl" | "xxl";
-export type ModalSizes = "sm" | "lg" | "xl" | null;
-export type ModalFullScreen = boolean | 'sm-down' | 'md-down' | 'lg-down' | 'xl-down' | 'xxl-down'
+
 export type VerticalAlign = 'baseline' | 'top' | 'middle' | 'bottom' | 'text-bottom' | 'text-top';
 export type ButtonSizes = 'sm' | 'lg';
 export type PlaceholderSizes = ButtonSizes | 'xs';
@@ -66,7 +64,7 @@ export type ToastPlacements =
     | 'middle-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
 export type DropdownDirections = "right" | "left" | "top" | "bottom" | null;
 export type DropdownAlignments =
-    | "start"
+    "start"
     | "end"
     | "sm-start"
     | "sm-end"
@@ -81,15 +79,6 @@ export type DropdownAlignments =
     | Placement;
 
 export type ClassTypes = ClassType;
-
-export interface MenuItem {
-    text: string;
-    to?: object;
-    href?: string;
-    children?: MenuItem[];
-    icon?: Icons;
-    handler?: (item: MenuItem, index: number) => void;
-}
 
 export type PopperOptionsType = Partial<OptionsGeneric<Partial<Modifier<any, any>>>>;
 

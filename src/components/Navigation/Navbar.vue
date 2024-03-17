@@ -17,22 +17,15 @@
     </nav>
 </template>
 <script lang="ts" setup>
-import {computed, PropType, ref} from "vue";
-import {Container, NavbarBrand, NavbarToggler} from "@/components";
-import type {ColorVariants, ResponsiveSizes} from "@/index";
-import {makeBoolean, makeString} from "@/composables";
+import {computed, ref} from "vue";
+import {Container, NavbarBrand, NavbarProps, NavbarToggler} from "@/components";
 
-const props = defineProps({
-    brand: makeString(),
-    brandUrl: {type: String as PropType<string>, default: '#'},
-    fluid: makeBoolean(false),
-    size: {type: String as PropType<ResponsiveSizes>, default: null},
-    toggleEnabled: makeBoolean(true),
-    variant: {type: String as PropType<'dark' | 'light'>, default: 'light'},
-    bgVariant: {type: String as PropType<ColorVariants>, default: 'light'},
-    fixed: {type: String as PropType<'top' | 'bottom'>, default: null},
-    sticky: {type: String as PropType<'top' | 'bottom'>, default: null},
-    expandsOn: {type: String as PropType<ResponsiveSizes | ResponsiveSizes[]>, default: 'lg'},
+const props = withDefaults(defineProps<NavbarProps>(), {
+    brandUrl: '#',
+    toggleEnabled: true,
+    variant: 'light',
+    bgVariant: 'light',
+    expandsOn: 'lg',
 });
 
 const collapsed = ref<boolean>(false);
@@ -49,7 +42,9 @@ const classes = computed(() => [
         ["fixed-" + props.fixed]: !!props.fixed,
         ["sticky-" + props.sticky]: !!props.sticky,
     },
-    ...(Array.isArray(props.expandsOn) ? props.expandsOn : [props.expandsOn])
+    (Array.isArray(props.expandsOn)
+        ? props.expandsOn
+        : [props.expandsOn])
         .map(screen => "navbar-expand-" + screen)
 ])
 </script>

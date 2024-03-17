@@ -3,8 +3,8 @@
         <slot v-if="$slots.default"></slot>
         <template v-else-if="pageCount<=(firstColPageCount + centerColPageCount + lastColPageCount)">
             <PageItem v-for="page in pageCount"
-                      :active="state===page"
-                      @click.prevent="state=page">
+                      :active="currentState===page"
+                      @click.prevent="currentState=page">
                 {{ page }}
             </PageItem>
         </template>
@@ -12,8 +12,8 @@
             <template v-if="firstBlock.length>0">
                 <template v-for="page in firstBlock">
                     <PageItem v-if="page<=pageCount"
-                              :active="state===page"
-                              @click.prevent="state=page">
+                              :active="currentState===page"
+                              @click.prevent="currentState=page">
                         {{ page }}
                     </PageItem>
                 </template>
@@ -24,8 +24,8 @@
             <template v-if="pageCount > firstColPageCount">
                 <template v-for="page in centerBlock">
                     <PageItem v-if="page<=pageCount && !lastBlock.includes(page) && !firstBlock.includes(page)"
-                              :active="state===page"
-                              @click.prevent="state=page">
+                              :active="currentState===page"
+                              @click.prevent="currentState=page">
                         {{ page }}
                     </PageItem>
                 </template>
@@ -36,8 +36,8 @@
                 </PageItem>
                 <template v-for="page in lastBlock">
                     <PageItem v-if="page<=pageCount"
-                              :active="state===page"
-                              @click.prevent="state=page">
+                              :active="currentState===page"
+                              @click.prevent="currentState=page">
                         {{ page }}
                     </PageItem>
                 </template>
@@ -46,112 +46,99 @@
     </component>
 </template>
 
-<script lang="ts">
-import {computed, defineComponent, PropType, ref, watch} from "vue";
+<script lang="ts" setup>
+import {computed, ref, watch} from "vue";
 import PageItem from "./PageItem.vue";
 import {ThreeDots} from "@wovosoft/wovoui-icons";
-import type {ButtonSizes} from "@/index";
-import {makeNumber, makeSize} from "@/composables";
+import type { PaginationProps} from "@/index";
 
-export default defineComponent({
-    name: "Pagination",
-    components: {PageItem, ThreeDots},
-    emits: ["update:modelValue", "update:currentPage", "change"],
-    props: {
-        tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: 'ul'},
-        modelValue: makeNumber(1),
+const props = withDefaults(defineProps<PaginationProps>(), {
+    tag: 'ul',
+    modelValue: 1,
+    totalRows: 0,
+    perPage: 15,
+    currentPage: 1,
+    firstColPageCount: 3,
+    centerColPageCount: 3,
+    lastColPageCount: 3
+});
 
-        totalRows: makeNumber(0),
-        perPage: {type: Number as PropType<number>, default: 15},
-        currentPage: makeNumber(1),
+const emit = defineEmits(["update:modelValue", "update:currentPage", "change"]);
 
-        size: makeSize<ButtonSizes>(null),
-        align: {type: String as PropType<'center' | 'end' | 'right' | null>, default: null},
+//internal state, needed when props.currentPage not defined in calling component.
+const currentState = ref<number | null>(props.currentPage);
 
-        firstColPageCount: {type: Number as PropType<number>, default: 3},
-        centerColPageCount: {type: Number as PropType<number>, default: 3},
-        lastColPageCount: {type: Number as PropType<number>, default: 3},
-    },
-    setup(props, context) {
-        //internal state, needed when props.currentPage not defined in calling component.
-        const currentState = ref<number | null>(props.currentPage);
+watch(currentState, page => {
+    emit('update:modelValue', page);
+    emit('update:currentPage', page);
+    emit('change', page);
+});
 
-        watch(currentState, page => {
-            context.emit('update:modelValue', page);
-            context.emit('update:currentPage', page);
-            context.emit('change', page);
-        });
+watch(() => props.currentPage, page => currentState.value = page);
+watch(() => props.modelValue, page => currentState.value = page);
 
-        watch(() => props.currentPage, page => currentState.value = page);
-        watch(() => props.modelValue, page => currentState.value = page);
+const pageCount = computed(() => {
+    if (Number(props.perPage)) {
+        return Math.ceil(Number(props.totalRows) / Number(props.perPage))
+    }
+    return 0;
+});
 
-        const pageCount = computed(() => {
-            if (Number(props.perPage)) {
-                return Math.ceil(Number(props.totalRows) / Number(props.perPage))
+const firstBlock = computed(() => {
+    if (pageCount.value < props.firstColPageCount) {
+        return [...Array(pageCount.value).keys()].map(i => i + 1)
+    }
+
+    if (Number(currentState.value) > props.firstColPageCount) {
+        return [...Array(props.firstColPageCount).keys()].map(i => i + 1);
+    }
+
+    if (Number(currentState.value) <= props.firstColPageCount) {
+        let count = pageCount.value - lastBlock.value.length;
+        if (count > props.firstColPageCount) {
+            count = props.firstColPageCount;
+        }
+        return [...Array(count).keys()].map(i => i + 1);
+    }
+
+
+    return [];
+});
+
+const centerBlock = computed(() => {
+    let items = [];
+    // let half = Math.round(props.centerColPageCount / 2);
+    if (Number(currentState.value) > props.firstColPageCount && Number(currentState.value) < (pageCount.value - props.lastColPageCount)) {
+        for (let x = 0; x < props.centerColPageCount; x++) {
+            if (props.centerColPageCount % 2 === 0) {
+
             }
-            return 0;
-        });
-
-        const firstBlock = computed(() => {
-            if (pageCount.value < props.firstColPageCount) {
-                return [...Array(pageCount.value).keys()].map(i => i + 1)
-            }
-
-            if (Number(currentState.value) > props.firstColPageCount) {
-                return [...Array(props.firstColPageCount).keys()].map(i => i + 1);
-            }
-
-            if (Number(currentState.value) <= props.firstColPageCount) {
-                let count = pageCount.value - lastBlock.value.length;
-                if (count > props.firstColPageCount) {
-                    count = props.firstColPageCount;
-                }
-                return [...Array(count).keys()].map(i => i + 1);
-            }
-
-
-            return [];
-        });
-
-        const centerBlock = computed(() => {
-            let items = [];
-            // let half = Math.round(props.centerColPageCount / 2);
-            if (Number(currentState.value) > props.firstColPageCount && Number(currentState.value) < (pageCount.value - props.lastColPageCount)) {
-                for (let x = 0; x < props.centerColPageCount; x++) {
-                    if (props.centerColPageCount % 2 === 0) {
-
-                    }
-                    items.push(x - 1);
-                }
-            }
-            return items.map(i => i + Number(currentState.value));
-        });
-
-        const lastBlock = computed(() => {
-            if (pageCount.value >= (props.firstColPageCount + props.centerColPageCount)) {
-                let items = [];
-                for (let x = pageCount.value - props.lastColPageCount; x <= pageCount.value; x++) {
-                    items.push(x);
-                }
-                return items;
-            }
-            return [];
-        });
-        const setPage = (page: number) => currentState.value = page;
-        return {
-            firstBlock,
-            centerBlock,
-            lastBlock,
-            classes: computed(() => [
-                "pagination", {
-                    ["pagination-" + props.size]: props.size,
-                    ["justify-content-" + ((props.align === 'end' || props.align === 'right') ? 'end' : props.align)]: props.align
-                }
-            ]),
-            pageCount,
-            state: currentState,
-            setPage
+            items.push(x - 1);
         }
     }
-})
+    return items.map(i => i + Number(currentState.value));
+});
+
+const lastBlock = computed(() => {
+    if (pageCount.value >= (props.firstColPageCount + props.centerColPageCount)) {
+        let items = [];
+        for (let x = pageCount.value - props.lastColPageCount; x <= pageCount.value; x++) {
+            items.push(x);
+        }
+        return items;
+    }
+    return [];
+});
+const setPage = (page: number) => currentState.value = page;
+
+const classes = computed(() => [
+    "pagination", {
+        ["pagination-" + props.size]: props.size,
+        ["justify-content-" + ((props.align === 'end' || props.align === 'right') ? 'end' : props.align)]: props.align
+    }
+]);
+
+defineExpose({
+    setPage
+});
 </script>

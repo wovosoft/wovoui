@@ -5,11 +5,6 @@ const props = withDefaults(defineProps<NavItemDropdownPropsInterface>(), {
     isNav: true,
     tag: "li",
     menuTag: "div",
-    toggleTag: "button",
-    variant: "secondary",
-    splitVariant: "secondary",
-    dir: "bottom",
-    align: "start",
 });
 </script>
 

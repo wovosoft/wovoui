@@ -32,37 +32,19 @@
 </template>
 
 <script lang="ts" setup>
-import {onBeforeMount, PropType, ref, watch} from "vue";
-import type {ColorVariants, MenuItem} from "@/index";
+import {onBeforeMount, ref, watch} from "vue";
+import type {MenuItem, PanelMenuProps} from "@/index";
 import {Button, Collapse, Icon, ListGroup, ListGroupItem} from "@/components";
 import {ChevronDown, ChevronRight, ChevronUp} from "@wovosoft/wovoui-icons";
-import {makeBoolean} from "@/composables";
-
 
 const emit = defineEmits<{
     (e: 'itemClicked', value: MenuItem): void
     (e: 'update:modelValue', value: number | null): void
 }>();
 
-const props = defineProps({
-    modelValue: {
-        type: Number as PropType<number | null>,
-        default: null
-    },
-    items: {
-        type: Array as PropType<MenuItem[]>,
-        default: () => ([]),
-        required: true
-    },
-    triggerVariant: {
-        type: String as PropType<ColorVariants>,
-        default: "dark"
-    },
-    menuVariant: {
-        type: String as PropType<ColorVariants>,
-        default: "light"
-    },
-    itemClickPrevent: makeBoolean(false)
+const props = withDefaults(defineProps<PanelMenuProps>(),{
+    triggerVariant: 'dark',
+    menuVariant: 'light',
 });
 
 const active = ref<null | number>(null);

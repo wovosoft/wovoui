@@ -38,8 +38,7 @@ import {MenuProps} from "@/components/Accordion";
 
 const props = withDefaults(defineProps<MenuProps>(), {
     tag: 'div',
-    //@ts-ignore
-    items: [],
+    items: () => [],
     ps: 10
 });
 

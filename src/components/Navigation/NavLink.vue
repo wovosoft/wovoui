@@ -10,24 +10,17 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, getCurrentInstance, PropType} from "vue";
-import {RouteRecordRaw} from "vue-router";
-import {makeBoolean, makeString} from "@/composables";
+import {AnchorHTMLAttributes, computed, getCurrentInstance} from "vue";
+import {NavLinkProps} from "@/components";
 
 type linkAttributesType = {
-    href?: string | null,
-    ariaCurrent?: string | null,
-    target?: string | null
+    href?: AnchorHTMLAttributes['href'];
+    ariaCurrent?: string;
+    target?: AnchorHTMLAttributes['target'];
 }
 
-const props = defineProps({
-    ariaCurrent: {type: [String, null] as PropType<string | null>, default: null},
-    active: makeBoolean(false),
-    disabled: makeBoolean(false),
-    href: makeString(),
-    target: makeString(),
-    tag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
-    to: {type: Object as PropType<RouteRecordRaw>, default: null},
+const props = withDefaults(defineProps<NavLinkProps>(), {
+    tag: 'a',
 });
 
 const isVueRouterInstalled = computed(() => {

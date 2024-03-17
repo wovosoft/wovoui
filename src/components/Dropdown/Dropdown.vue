@@ -59,7 +59,6 @@ import usePopper from "@/composables/usePopper";
 import NavLink from "@/components/Navigation/NavLink.vue";
 import {PopperOptionsType} from "@/index";
 
-
 const props = withDefaults(defineProps<DropdownPropsInterface>(), {
     tag: "div",
     menuTag: "ul",

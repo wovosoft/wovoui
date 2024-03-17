@@ -4,7 +4,7 @@
             :tag="linkTag"
             :target="target"
             :href="href"
-            :to="to"
+            :to="to as RouteRecordRaw"
             :active="active"
             :disabled="disabled"
             :aria-current="ariaCurrent">
@@ -14,18 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-import {NavLink} from "@/components/Navigation";
+import {NavItemProps, NavLink} from "@/components/Navigation";
 import {RouteRecordRaw} from "vue-router";
-import {makeBoolean, makeProp, makeString, makeTag} from "@/composables";
 
-defineProps({
-    tag: makeTag("li"),
-    linkTag: makeTag("a"),
-    ariaCurrent: makeString(),
-    href: makeString("#"),
-    to: makeProp<RouteRecordRaw>(null, Object),
-    target: makeString(),
-    active: makeBoolean(false),
-    disabled: makeBoolean(false),
+withDefaults(defineProps<NavItemProps>(), {
+    tag: 'li',
+    linkTag: 'a',
+    href: '#',
 });
 </script>

@@ -1,5 +1,11 @@
+import {ColorVariants} from "@/index";
+
 export interface HasTag {
     tag?: keyof HTMLElementTagNameMap;
+}
+
+export interface HasColorVariant{
+    variant?: ColorVariants;
 }
 
 export type ClassType = string | string[] | Record<string, boolean>;

@@ -23,98 +23,19 @@
 
 <script lang="ts" setup>
 
-import {computed, onBeforeUnmount, PropType, ref, watch} from "vue";
-import {ButtonClose, ToastBody} from "@/components";
+import {computed, onBeforeUnmount, ref, watch} from "vue";
+import {ButtonClose, ToastBody, ToastProps} from "@/components";
 import {getTransitionDurationFromElement} from "@/composables/useHelpers";
 import SafeTeleport from "../Internal/SafeTeleport";
-import {RendererElement} from "@vue/runtime-core";
 import SafeComponent from "@/components/Internal/SafeComponent";
-import {makeBoolean, makeString, makeVariant} from "@/composables";
 
 defineOptions({
 	inheritAttrs: false
 });
 
-
-const props = defineProps({
-	/**
-	 * Note: Currently when lazy is set to true,
-	 * as soon as visible state is set to false,
-	 * the element unmounts immediately.
-	 *
-	 * TODO: needs further investigation if this approach is okay or not.
-	 */
-	lazy: makeBoolean(false),
-	
-	/**
-	 * Visibility State
-	 */
-	show: makeBoolean(null),
-	
-	/**
-	 * Fade Class
-	 */
-	fade: makeBoolean(true),
-	
-	/**
-	 * Visibility State
-	 */
-	modelValue: makeBoolean(null),
-	
-	/**
-	 * Toast Header
-	 */
-	header: makeString(),
-	
-	/**
-	 * Toggling body
-	 */
-	noBody: makeBoolean(false),
-	
-	/**
-	 * Toggling close button
-	 */
-	noCloseButton: makeBoolean(false),
-	
-	/**
-	 * Toast Body Classes
-	 */
-	bodyClass: {
-		type: [Array, String, Object] as PropType<string | object>,
-		default: null,
-	},
-	
-	/**
-	 * Color Variants
-	 */
-	variant: makeVariant(null),
-	
-	/**
-	 * teleporting to a different location
-	 *
-	 */
-	to: {
-		type: [String, Object] as PropType<string | RendererElement | null | undefined>,
-		default: null
-	},
-	
-	/**
-	 * @description props {to} should be used in lieu of container props
-	 * @deprecated will be removed in next version
-	 */
-	container: {
-		type: [String, Object] as PropType<string | RendererElement | null | undefined>,
-		default: null
-	},
-	
-	/**
-	 * Auto Hide timeout value in seconds.
-	 * When time value is set to 0|null|undefined,
-	 * then toast remains active forever.
-	 *
-	 * @default 3
-	 */
-	timeout: {type: Number as PropType<number>, default: 3},
+const props = withDefaults(defineProps<ToastProps>(),{
+    fade: true,
+    timeout: 3
 });
 
 const emit = defineEmits<{

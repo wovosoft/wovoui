@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" :class="classes">
+    <component :is="tag" :class="['page-item', {'active': props.active, 'disabled': props.disabled}]">
         <PageLink :href="href" :tag="linkTag" :prev="prev" :next="next" :aria-label="ariaLabel">
             <slot></slot>
         </PageLink>
@@ -7,27 +7,11 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType} from "vue";
-import {PageLink} from "@/components/Navigation";
-import {makeBoolean, makeString, makeTag} from "@/composables";
+import {PageItemProps, PageLink} from "@/components/Navigation";
 
-const props = defineProps({
-    tag: makeTag("li"),
-    linkTag: {type: String as PropType<keyof HTMLElementTagNameMap>, default: "a"},
-    href: makeString("#"),
-    prev: makeBoolean(false),
-    next: makeBoolean(false),
-    ariaLabel: makeString(),
-    active: makeBoolean(false),
-    disabled: makeBoolean(false),
+const props = withDefaults(defineProps<PageItemProps>(), {
+    tag: 'li',
+    linkTag: 'a',
+    href: '#',
 });
-
-const classes = computed(() => [
-        "page-item",
-        {
-            "active": props.active,
-            "disabled": props.disabled,
-        }
-    ]
-);
 </script>
