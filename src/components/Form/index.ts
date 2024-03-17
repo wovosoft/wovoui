@@ -1,6 +1,6 @@
 import {
     ButtonSizes,
-    ClassType, ColorVariants,
+    ClassType, ColorVariants, HasTag, HTMLInputTypes, makeBoolean, makeProp, makeSize, makeString, makeTag,
     TextAlign
 } from "@/index";
 import {Ref} from "vue";
@@ -22,12 +22,27 @@ export {default as Calendar} from "./Calendar.vue";
 export {default as Tags} from "./Tags.vue";
 export {default as TypeHead} from "./TypeHead.vue";
 export {default as Multiselect} from "./Multiselect.vue";
-export {default as Input} from "./Input";
+export {default as Input} from "./Input.vue";
 export {default as InputGroup} from "./InputGroup.vue";
-export {default as InputGroupText} from "./InputGroupText";
+export {default as InputGroupText} from "./InputGroupText.vue";
 export {default as FormControl} from "./FormControl.vue";
 
 // export {default as Autocomplete} from "./Autocomplete.txt";
+
+export interface InputProps {
+    //some actions vary based on type so considering at as a prop
+    type?: HTMLInputTypes;
+    size?: ButtonSizes;
+    plain?: boolean;
+    state?: boolean;
+}
+
+export interface InputGroupProps extends HasTag{
+    size?:ButtonSizes;
+    prepend?: string;
+    append?: string;
+    noWrap?: boolean;
+}
 
 export interface SelectProps {
     multiple?: boolean

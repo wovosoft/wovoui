@@ -1,5 +1,9 @@
 <template>
-    <component :is="tag" :class="classes" role="group">
+    <component
+        :is="tag"
+        class="input-group"
+        :class="{['input-group-' + size]: !!size, 'flex-nowrap': noWrap}"
+        role="group">
         <slot name="prepend" v-if="$slots.prepend || prepend">
             <InputGroupText v-if="prepend">
                 {{ prepend }}
@@ -15,26 +19,11 @@
 </template>
 
 <script lang="ts" setup>
-import {computed} from "vue";
-import {InputGroupText} from "@/components";
-import type {ButtonSizes} from "@/index";
-import {makeBoolean, makeSize, makeString, makeTag} from "@/composables/useProps";
+import {InputGroupProps, InputGroupText} from "@/components";
 
-const props = defineProps({
-    tag: makeTag("div"),
-    size: makeSize<ButtonSizes>(null),
-    prepend: makeString(),
-    append: makeString(),
-    noWrap: makeBoolean(false)
+withDefaults(defineProps<InputGroupProps>(), {
+    tag: 'div',
 });
-
-const classes = computed(() => [
-    "input-group",
-    {
-        ["input-group-" + props.size]: !!props.size,
-        "flex-nowrap": props.noWrap
-    }
-]);
 </script>
 <style>
 .input-group .form-range.form-control {
