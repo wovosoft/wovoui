@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import {FormGroup, Input} from "@/components/Form";
-import {computed, useModel} from "vue";
+import {computed} from "vue";
 import {FormGroupPropsInterface, InputPropsInterface} from "@/components/Form/useFormHelpers";
-
 
 const props = withDefaults(defineProps<InputPropsInterface & FormGroupPropsInterface & {
     modelValue: string | number
@@ -13,10 +12,9 @@ const props = withDefaults(defineProps<InputPropsInterface & FormGroupPropsInter
     floating: false,
     horizontal: false,
     noMarginBottom: false,
-})
+});
 
-
-const model = useModel(props, 'modelValue');
+const model = defineModel<string | number>('modelValue');
 
 const InputBindings = computed(() => ({
     type: props.type,

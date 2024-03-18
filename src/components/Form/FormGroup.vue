@@ -32,11 +32,10 @@
 
 
 <script lang="ts" setup>
-import {computed} from "vue";
-import {FormLabel} from "@/components";
+import {computed, provide} from "vue";
+import {FormLabel, HasFloatingLabelInjectionKey} from "@/components";
 import FeedbackMessages from "./FeedbackMessages.vue";
 import {FormGroupPropsInterface} from "@/components/Form/useFormHelpers";
-
 
 const {validFeedback, invalidFeedback, ...props} = withDefaults(defineProps<FormGroupPropsInterface>(), {
     tag: "div",
@@ -62,5 +61,7 @@ const contentClasses = computed(() => {
         ["col-xl-" + props.contentXl]: !!props.contentXl,
     }) : null;
 });
+
+provide(HasFloatingLabelInjectionKey, props.floating);
 </script>
 

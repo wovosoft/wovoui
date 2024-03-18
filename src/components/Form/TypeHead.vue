@@ -101,7 +101,7 @@ function fetchItems() {
     if (props.apiUrl) {
         let url = new URL(props.apiUrl);
         if (query.value) {
-            url.searchParams.set(props.queryKey, query.value.toString());
+            url.searchParams.set(props.queryKey, query.value?.toString());
         }
         return axios.get(url.href).then(res => {
             items.value = res.data;

@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import {makeString} from "@/composables/useProps";
-import Feedback from "./Feedback";
+import Feedback from "./Feedback.vue";
 
 defineOptions({
     inheritAttrs: false
 });
 
-defineProps({
-    valid: makeString(),
-    invalid: makeString()
-});
+withDefaults(defineProps<{
+    valid?: string;
+    invalid?: string;
+}>(), {});
 </script>
 
 <template>

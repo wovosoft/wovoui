@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import {InputProps} from "./index";
+import {HasFloatingLabelInjectionKey, InputProps} from "./index";
+import {inject} from "vue";
 
 withDefaults(defineProps<InputProps>(), {
     //some actions vary based on type so considering at as a prop
@@ -20,6 +21,8 @@ const [model, modifiers] = defineModel<string | number>({
         return value
     }
 });
+
+const hasFloatingLabel = inject(HasFloatingLabelInjectionKey, false);
 </script>
 
 <template>
@@ -27,6 +30,7 @@ const [model, modifiers] = defineModel<string | number>({
         v-model="model"
         :type="type"
         :aria-invalid="state===false?true:null"
+        :placeholder="(placeholder || hasFloatingLabel) ? (placeholder || '') : null"
         :class="{
             ['form-control' + (plain ? '-plaintext' : '')]: type !== 'range',
             'form-range': type === 'range',

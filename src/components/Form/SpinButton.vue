@@ -1,12 +1,17 @@
 <template>
-    <InputGroup tabindex="-1"
-                :class="classes"
-                @keyup.self.up="updateValue('increment');"
-                @keyup.self.down="updateValue('decrement');">
+    <!--    tabindex="0"-->
+    <!--    ref="theElement"-->
+    <InputGroup
+        class="spin-button"
+        :class="{inline: inline}"
+        @keyup.self.up="updateValue('increment');"
+        @keyup.self.down="updateValue('decrement');">
         <template #prepend>
             <Button @click="updateValue('decrement')"
                     :variant="buttonVariant"
                     :size="size"
+                    @mousedown.prevent="(e)=>handleMouseDown(e,'decrement')"
+                    @mouseup.prevent="handleMouseUp"
                     aria-label="Decrement">
                 <Dash/>
             </Button>
@@ -22,9 +27,11 @@
             {{ formatter(model) }}
         </output>
         <template #append>
-            <Button @click="updateValue('increment')"
+            <Button @click.prevent="updateValue('increment')"
                     :variant="buttonVariant"
                     :size="size"
+                    @mousedown.prevent="(e)=>handleMouseDown(e,'increment')"
+                    @mouseup.prevent="handleMouseUp"
                     aria-label="Increment">
                 <Plus/>
             </Button>
@@ -33,37 +40,81 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType} from "vue";
-import {Button, InputGroup} from "@/components";
+import {Button, InputGroup, SpinButtonProps} from "@/components";
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
-import type {ButtonSizes} from "@/index";
-import {makeBoolean, makeNumber, makeSize, makeVariant, useStateModel} from "@/composables";
+import {ref} from "vue";
 
-const props = defineProps({
-    modelValue: makeNumber(0),
-    step: makeNumber(1),
-    min: makeNumber(0),
-    max: makeNumber(100),
-    buttonVariant: makeVariant("secondary"),
-    size: makeSize<ButtonSizes>(null),
-    formatter: {type: Function as PropType<Function>, default: v => v},
-    inline: makeBoolean(false),
-    vertical: makeBoolean(false),
+const props = withDefaults(defineProps<SpinButtonProps>(), {
+    modelValue: 0,
+    step: 1,
+    min: 0,
+    max: 100,
+    buttonVariant: 'secondary',
+    formatter: (value: any) => value,
+    longPressInterval: 100,
+    longPressTrigger: 500,
 });
 
-const model = useStateModel(props, 'modelValue');
+const model = defineModel<number>({
+    get(v) {
+        return Number(v);
+    },
+    set(v: number | string) {
+        v = Number(v);
 
-const updateValue = (type) => {
-    if (type === "increment" && (model.value + props.step) <= props.max) {
-        model.value += props.step;
-    } else if (type === "decrement" && (model.value - props.step) >= props.min) {
-        model.value -= props.step;
+        if (v < props.min) {
+            return props.min;
+        } else if (v > props.max) {
+            return props.max;
+        }
+
+        return v;
+    },
+});
+
+const updateValue = (type: 'increment' | 'decrement', step: number = props.step) => {
+    step = step ?? props.step;
+    if (type === "increment" && (model.value + step) <= props.max) {
+        model.value += step;
+    } else if (type === "decrement" && (model.value - step) >= props.min) {
+        model.value -= step;
     }
 };
 
-const classes = computed(() => [
-    "spin-button", {
-        "inline": props.inline
+const timer = ref<number | null>();
+const handleMouseDown = (e: MouseEvent, type: 'increment' | 'decrement') => {
+    timer.value = setTimeout(() => {
+        if (e.buttons === 1) {
+            updateValue(type);
+            timer.value = setInterval(() => {
+                if (e.buttons === 1) {
+                    updateValue(type);
+                } else {
+                    clearTimer();
+                }
+            }, props.longPressInterval);
+        }
+    }, props.longPressTrigger);
+};
+
+const handleMouseUp = () => {
+    clearTimer();
+};
+const clearTimer = () => {
+    if (timer) {
+        clearTimeout(timer.value);
     }
-]);
+};
+//
+// const theElement = ref<InstanceType<typeof InputGroup> | null>(null);
+//
+// function focusContainer(e) {
+//     e.preventDefault();
+//     theElement.value?.$el?.focus();
+// }
+
+defineExpose({
+    increment: (step: number = props.step) => updateValue('increment', step),
+    decrement: (step: number = props.step) => updateValue('decrement', step),
+});
 </script>

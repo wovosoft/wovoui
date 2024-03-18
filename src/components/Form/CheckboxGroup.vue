@@ -7,7 +7,7 @@
             :switch="$props.switch"
             :reverse="reverse"
             :disabled="option.disabled===true"
-            @update:modelValue="v=>$emit('update:modelValue',v)"
+            v-model="model"
             :value="valueField?option[valueField]:option">
             {{ textField ? option[textField] : option }}
         </Checkbox>
@@ -16,16 +16,11 @@
 
 <script lang="ts" setup>
 import Checkbox from "./Checkbox.vue";
-import {PropType} from "vue";
-import {makeBoolean, makeString} from "@/composables";
+import {CheckboxGroupProps} from "@/components";
 
-defineProps({
-    modelValue: {default: null},
-    options: {type: Array as PropType<any>, default: () => ([])},
-    textField: makeString(null),
-    valueField: makeString(null),
-    inline: makeBoolean(false),
-    switch: makeBoolean(false),
-    reverse: makeBoolean(false),
+withDefaults(defineProps<CheckboxGroupProps>(), {
+    options: () => [],
 });
+
+const model = defineModel<any[]>({default: []});
 </script>

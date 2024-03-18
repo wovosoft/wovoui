@@ -10,7 +10,7 @@
                           :value="getEntity(o,'valueField')"
                           :disabled="isDisabledOption(o)">
                     <slot name="text">
-                        {{getEntity(o, 'textField')}}
+                        {{ getEntity(o, 'textField') }}
                     </slot>
                 </Checkbox>
             </div>
@@ -26,13 +26,13 @@
                         :value="getEntity(gi,'valueField')"
                         :disabled="isDisabledOption(gi)">
                     <slot name="text">
-                        {{getEntity(gi, 'textField')}}
+                        {{ getEntity(gi, 'textField') }}
                     </slot>
                 </option>
             </optgroup>
             <option v-else :value="getEntity(o,'valueField')" :disabled="isDisabledOption(o)">
                 <slot name="text">
-                    {{getEntity(o, 'textField')}}
+                    {{ getEntity(o, 'textField') }}
                 </slot>
             </option>
         </template>
@@ -47,7 +47,7 @@ import Dropdown from "@/components/Dropdown/Dropdown.vue";
 import Checkbox from "@/components/Form/Checkbox.vue";
 
 const props = withDefaults(defineProps<SelectProps>(), {
-    options: [],
+    options: () => [],
     disabledField: "disabled",
     labelField: "label",
     modelValue: null,

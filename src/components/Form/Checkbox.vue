@@ -6,7 +6,6 @@
                :true-value="value"
                :value="value"
                :role="$props.switch?'switch':null"
-               @change="onChange"
                v-model="model"
                :id="theId">
         <label class="form-check-label" :for="theId" v-if="$slots.default">
@@ -16,39 +15,17 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, ref, watch} from "vue";
-import {makeBoolean, makeProp, makeString, uid} from "@/composables";
+import {computed} from "vue";
+import {uid} from "@/composables";
+import {CheckboxProps} from "@/components";
 
-const props = defineProps({
-    switch: makeBoolean(false),
-    // button: makeBoolean(false),//implement later
-    inline: makeBoolean(false),
-    reverse: makeBoolean(false),
-    disabled: makeBoolean(false),
-    modelValue: {
-        default: null
-    },
-    value: {default: true},
-    uncheckedValue: {default: false},
-    id: makeString(),
-    //sometimes checking might be done by object keys. in that case this function can be used
-    checkBy: makeProp<(value, model) => boolean>(null, Function)
+const props = withDefaults(defineProps<CheckboxProps>(), {
+    value: true,
+    uncheckedValue: false
 });
-
-const emit = defineEmits<{
-    (e: 'update:modelValue', value: unknown)
-}>();
 
 const theId = computed(() => props.id || "wbv-" + uid());
-const model = ref<unknown>(props.modelValue);
-
-function onChange() {
-    emit("update:modelValue", model.value);
-}
-
-watch(() => props.modelValue, value => {
-    model.value = value;
-});
+const model = defineModel<any>();
 
 const wrapperClasses = computed(() => [{
     'form-switch': props.switch,

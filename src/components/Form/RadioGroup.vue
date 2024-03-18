@@ -15,21 +15,14 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType, useModel} from "vue";
-import {makeBoolean, makeString} from "@/composables/useProps";
-import {Radio} from "@/components";
+import {computed} from "vue";
+import {Radio, RadioGroupProps} from "@/components";
 import {uid} from "@/composables/useHelpers";
 
-const props = defineProps({
-    modelValue: {default: null},
-    options: {type: Array as PropType<any>, default: () => ([])},
-    textField: makeString(null),
-    valueField: makeString(null),
-    inline: makeBoolean(false),
-    name: makeString(null),
-    required: makeBoolean(false)
+const props = withDefaults(defineProps<RadioGroupProps>(), {
+    options: () => [],
 });
 
 const theName = computed(() => props.name || "radio-group-" + uid());
-const model = useModel(props, 'modelValue');
+const model = defineModel();
 </script>

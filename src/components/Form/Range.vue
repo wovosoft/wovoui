@@ -2,12 +2,13 @@
     <input v-model="model" class="form-range" type="range"/>
 </template>
 <script lang="ts" setup>
-import {makeNumber} from "@/composables";
-import {useModel} from "vue";
-
-const props = defineProps({
-    modelValue: makeNumber(0)
+withDefaults(defineProps<{ modelValue?: number }>(), {
+    modelValue: 0
 });
 
-const model = useModel(props, 'modelValue');
+const model = defineModel({
+    set(v: string | number) {
+        return Number(v);
+    },
+});
 </script>

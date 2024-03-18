@@ -50,40 +50,22 @@
 </template>
 
 <script lang="ts" setup>
-import {nextTick, onBeforeUnmount, PropType, Ref, ref, watch} from "vue";
+import {nextTick, onBeforeUnmount, ref, watch} from "vue";
 import {Trash} from "@wovosoft/wovoui-icons";
-import {Button, DropdownMenu, Input, InputGroup} from "@/components";
-import type {ButtonSizes} from "@/index";
-import {makeBoolean, makeSize, makeString} from "@/composables";
+import {Button, DropdownMenu, Input, InputGroup, MultiselectProps} from "@/components";
 
 const emit = defineEmits(["update:query", "update:modelValue", 'selectedOption']);
 
-const props = defineProps({
-    getItems: {
-        type: Function as PropType<(items: Ref<unknown[]>, filter: string | null) => unknown>,
-        required: true
-    },
-    searchSize: makeSize<ButtonSizes>("sm"),
-    toggleSize: makeSize<ButtonSizes>("sm"),
-    searchPlaceholder: makeString("Search..."),
-    loading: makeBoolean(false),
-    modelValue: {type: Array as PropType<unknown[]>, default: () => ([])},
-    resetTitle: makeString(),
-    disableReset: makeBoolean(false)
+const props = withDefaults(defineProps<MultiselectProps>(), {
+    searchSize: 'sm',
+    toggleSize: 'sm',
+    searchPlaceholder: 'Search...',
 });
 
-const model = ref<any[]>(props.modelValue);
-
-watch(model, value => {
-    emit('update:modelValue', value);
-});
-
-watch(() => props.modelValue, value => {
-    model.value = value;
-});
+const model = defineModel<any[]>();
 
 const query = ref<string | null>(null);
-const items = ref<unknown[]>([]);
+const items = ref<any[]>([]);
 const opened = ref<boolean>(false);
 
 /**
@@ -141,7 +123,7 @@ const navigateItem = (e) => {
     } else if (e.code === "ArrowUp" && (e.target.nodeName === "LABEL" || e.target.nodeName === "INPUT")) {
         element = e.target.parentNode.previousElementSibling;
     }
-    
+
     if (element) {
         (element.querySelector("label") || element.querySelector("input"))?.focus();
     }
