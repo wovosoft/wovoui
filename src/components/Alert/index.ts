@@ -21,7 +21,6 @@ export interface AlertPropsInterface extends HasTag {
     dismissible?: boolean;
     timeout?: number;
     timeoutStep?: number;
-    modelValue?: boolean;
     show?: boolean;
     closeBtnWhite?: boolean;
     icon?: Icons | Component;

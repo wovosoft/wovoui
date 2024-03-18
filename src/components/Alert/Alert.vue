@@ -10,19 +10,16 @@ const props = withDefaults(defineProps<AlertPropsInterface>(), {
     timeoutStep: 1,
 });
 
-const emit = defineEmits<{
-    "update:modelValue": [value: boolean],
-    "update:show": [value: any]
-}>();
+const model = defineModel<boolean>();
 
-const state = ref<boolean>(!!(props.modelValue || props.show));
+const state = ref<boolean>(!!(model.value || props.show));
 const shouldGen = ref<boolean>(false);
 const classStates = reactive({
     show: false
 });
 
 //watch model value and update state
-watch(() => props.modelValue, isVisible => {
+watch(model, isVisible => {
     if (isVisible !== state.value) {
         state.value = isVisible;
     }
@@ -44,7 +41,7 @@ function applyState(isVisible: boolean) {
     if (isVisible) {
         classStates.show = true;
         shouldGen.value = true;
-        emit("update:modelValue", isVisible);
+        model.value = isVisible;
         if (props.timeout) {
             timeout.value = setTimeout(
                 () => state.value = false,
@@ -60,12 +57,12 @@ function applyState(isVisible: boolean) {
         if (props.dismissible) {
             //fade away animation takes 150ms, then emit value
             setTimeout(() => {
-                emit("update:modelValue", isVisible);
+                model.value = isVisible;
                 shouldGen.value = false;
             }, 150);
         } else {
             //emit immediately
-            emit("update:modelValue", isVisible);
+            model.value = isVisible;
             shouldGen.value = false;
         }
     }

@@ -1,5 +1,5 @@
 <template>
-  <Container class="pb-3">
+  <Container class="pb-3" style="margin-bottom: 200px;">
     <h4>Basic Alerts</h4>
     <Alert v-for="color in colors" :variant="color" show>
       {{ color }} Alert
