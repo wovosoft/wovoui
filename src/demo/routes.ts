@@ -13,16 +13,15 @@ import TablePage from "./pages/TablePage.vue";
 import FormCheckboxes from "./pages/Checkboxes.vue";
 import ModalPage from "./pages/ModalPage.vue";
 import DatatablePage from "./pages/DatatablePage.vue";
-import AccordionPage from "./pages/AccordionPage.vue";
+import AccordionPage from "./pages/Accordions/AccordionPage.vue";
 import CardPage from "./pages/CardPage.vue";
-//@ts-ignore
 import PaginationPage from "./pages/PaginationPage.vue"
 import OffCanvasPage from "./pages/OffCanvasPage.vue"
 import FormControlPage from "./pages/FormControlPage.vue"
 import CarouselPage from "./pages/CarouselPage.vue"
 import TypeHeadPage from "./pages/TypeHeadPage.vue"
-import Breadcrumbs from "@/demo/pages/Breadcrumbs.vue";
-import ButtonGroups from "@/demo/pages/ButtonGroups.vue";
+import Breadcrumbs from "./pages/Breadcrumbs.vue";
+import ButtonGroups from "./pages/ButtonGroups.vue";
 
 export const routes = [
     {
@@ -178,6 +177,5 @@ export const routes = [
 export default createRouter({
     // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
     history: createWebHashHistory(),
-    // @ts-ignore
     routes
 });

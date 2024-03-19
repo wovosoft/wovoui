@@ -189,7 +189,7 @@ export interface PaginationProps extends HasTag {
 
 export interface MenuItem {
     text: string;
-    to?: object;
+    to?: RouteRecordRaw;
     href?: string;
     children?: MenuItem[];
     icon?: Icons;
