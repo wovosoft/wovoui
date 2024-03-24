@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <template #app_bar>
-            <Navbar brand="Navbar Brand" sticky="top">
+            <Navbar brand="Navbar Brand" sticky="top" style="top: 0;">
                 <template #default="{ collapsed }">
                     <Collapse is-nav :visible="collapsed">
                         <Nav class="me-auto mb-2 mb-lg-0" navs>
@@ -28,7 +28,7 @@
             </Navbar>
         </template>
         <template #sidebar>
-            <TheSidebar/>
+            <TheSidebar style="height: calc(100vh - 50px);overflow: auto;top: 50px;" class="sticky-top"/>
         </template>
         <Container fluid>
             <router-view></router-view>
