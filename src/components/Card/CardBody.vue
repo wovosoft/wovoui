@@ -31,12 +31,12 @@ const attrs = computed(() => ({
 <template>
     <component :is="tag" v-bind="attrs">
         <slot name="title">
-            <CardTitle v-if="$slots.title" :tag="titleTag">
+            <CardTitle v-if="$slots.title || title" :tag="titleTag">
                 {{ title }}
             </CardTitle>
         </slot>
         <slot name="subTitle">
-            <CardSubTitle v-if="$slots.subTitle" :tag="subTitleTag" :text-variant="subTitleTextVariant">
+            <CardSubTitle v-if="$slots.subTitle || subTitle" :tag="subTitleTag" :text-variant="subTitleTextVariant">
                 {{ subTitle }}
             </CardSubTitle>
         </slot>
