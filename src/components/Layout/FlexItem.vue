@@ -40,7 +40,7 @@ function getResizingClasses(type: 'grow' | 'shrink' | 'fill'): string | string[]
 function getOrderClasses() {
     return ResponsiveOrders
         .map((s: typeof ResponsiveOrders[number]): string | null => {
-            if (props?.[s] !== null) {
+            if (props?.[s]) {
                 return s.replace(/[A-Z]/g, m => "-" + m.toLowerCase()) + '-' + props[s];
             }
             return null;
