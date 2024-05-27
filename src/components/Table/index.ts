@@ -100,13 +100,13 @@ export interface DatatableItemType {
     [key: string]: any
 }
 
-export interface DatatableProps extends TableProps {
+export interface DatatableProps<ItemType> extends TableProps {
     headClass?: ClassType;
     bodyClass?: ClassType;
     footClass?: ClassType;
     filter?: string;
     fields?: DatatableFieldType[];
-    items?: DatatableItemType[];
+    items?: ItemType[];
     headVariant?: ColorVariants;
     bodyVariant?: ColorVariants;
     footVariant?: ColorVariants;

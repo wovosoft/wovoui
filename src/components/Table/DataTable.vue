@@ -32,20 +32,20 @@
             </THead>
         </slot>
         <TBody :class="bodyClass" :variant="bodyVariant">
-        <Tr v-for="(row,row_index) in itemsSorted" :key="row_index">
+        <Tr v-for="(item,item_index) in itemsSorted" :key="item_index">
             <template v-for="(th,th_index) in fields">
                 <Td :key="th_index" v-if="isVisible(th)" :class="typeof th==='object'?th['tdClass']:null">
                     <slot :name="`cell(${getKey(th)})`"
-                          :item="row"
-                          :index="row_index"
+                          :item="item"
+                          :index="item_index"
                           :field="th"
                           :rowSelected="false"
                           :detailsShowing="false"
                           :sortBy="sorting.sortBy"
                           :sort="sorting.sort"
-                          :value="getValue(row,th,th_index)">
+                          :value="getValue(item,th,th_index)">
                         <!--						{{ getValue(row, th, th_index) }}-->
-                        <RenderVNode :content="getValue(row, th, th_index)"/>
+                        <RenderVNode :content="getValue(item, th, th_index)"/>
                     </slot>
                 </Td>
             </template>
@@ -57,8 +57,8 @@
     </Table>
 </template>
 
-<script lang="ts" setup>
-import {computed, ref} from "vue";
+<script lang="ts" setup generic="ItemType">
+import {computed, ComputedRef, ref} from "vue";
 import {
     Table, THead, TBody, Tr, Th, Td, TFoot,
     DatatableFieldType,
@@ -70,9 +70,11 @@ import {isObject, orderBy, title} from "@/shared";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
 import RenderVNode from "@/components/Internal/RenderVNode.vue";
 
-const props = withDefaults(defineProps<DatatableProps>(), {
+type TheItemType = ItemType extends DatatableItemType ? ItemType : DatatableItemType;
+
+const props = withDefaults(defineProps<DatatableProps<TheItemType>>(), {
     fields: () => [],
-    items: () => [],
+    items: () => [] as TheItemType[],
 });
 
 const {
@@ -96,20 +98,20 @@ function isVisible(field: DatatableFieldType | string): boolean {
 }
 
 
-const getValue = (row: DatatableItemType, field: DatatableFieldType | string, field_index: number) => {
+const getValue = (item: TheItemType, field: DatatableFieldType | string, field_index: number) => {
     let key = getKey(field);
 
     if (typeof field === 'object' && !Array.isArray(field)) {
         if (typeof field?.formatter === 'function') {
-            return field.formatter(row, key);
+            return field.formatter(item, key);
         }
-        return row?.[key];
+        return item?.[key];
     } else if (typeof field === "string") {
-        return row[key];
+        return item[key];
     }
 
 
-    return row[field_index];
+    return item[field_index];
 };
 
 const getKey = (th: DatatableHeadType | string): string => {
@@ -193,5 +195,5 @@ const itemsSorted = computed(() => {
     }
     //do something else for Promises and Functions
     return props.items;
-});
+}) as ComputedRef<TheItemType[]>;
 </script>
