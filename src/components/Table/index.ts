@@ -14,10 +14,10 @@ export {default as THead} from "./THead.vue";
 export {default as Tr} from "./Tr.vue";
 export {default as DataTable} from "./DataTable.vue";
 
-export interface DatatableFieldType {
-    key: string;
+export interface DatatableFieldType<T = Record<string, any>> {
+    key: keyof T;
     label?: string;
-    formatter?: (item: object, key?: string) => any;
+    formatter?: (item: T, key: keyof T) => any;
     visible?: boolean;
     sortable?: boolean;
     thClass?: ClassType;
