@@ -73,7 +73,7 @@ import RenderVNode from "@/components/Internal/RenderVNode.vue";
 type TheItemType = ItemType extends DatatableItemType ? ItemType : DatatableItemType;
 
 const props = withDefaults(defineProps<DatatableProps<TheItemType>>(), {
-    fields: () => [],
+    fields: () => [] as DatatableFieldType[],
     items: () => [] as TheItemType[],
 });
 
