@@ -84,7 +84,9 @@ const emit = defineEmits<{
 defineExpose({
     clearItems: () => items.value = [],
     setItems: (data: any) => items.value = data,
-    fetchItems
+    fetchItems,
+    clearQueryString: () => query.value = null,
+    setQueryString: (value: string) => query.value = value
 });
 
 const query = ref<string | number>();
