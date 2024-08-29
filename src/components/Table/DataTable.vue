@@ -69,6 +69,7 @@ import {Flex, FlexItem,} from "@/components/Layout"
 import {isObject, orderBy, title} from "@/shared";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
 import RenderVNode from "@/components/Internal/RenderVNode.vue";
+import getDottedValue from "lodash/get";
 
 type TheItemType = ItemType extends DatatableItemType ? ItemType : DatatableItemType;
 
@@ -100,6 +101,11 @@ function isVisible(field: DatatableFieldType | string): boolean {
 
 const getValue = (item: TheItemType, field: DatatableFieldType | string, field_index: number) => {
     let key = getKey(field);
+
+    //check if key has dot notation
+    if (key.includes('.')) {
+        return getDottedValue(item, key);
+    }
 
     if (typeof field === 'object' && !Array.isArray(field)) {
         if (typeof field?.formatter === 'function') {
