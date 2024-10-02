@@ -37,12 +37,7 @@ import {FormLabel, HasFloatingLabelInjectionKey} from "@/components";
 import FeedbackMessages from "./FeedbackMessages.vue";
 import {FormGroupPropsInterface} from "@/components/Form/useFormHelpers";
 
-const {validFeedback, invalidFeedback, ...props} = withDefaults(defineProps<FormGroupPropsInterface>(), {
-    tag: "div",
-    floating: false,
-    horizontal: false,
-    noMarginBottom: false,
-});
+const {validFeedback, invalidFeedback, tag = 'div', ...props} = defineProps<FormGroupPropsInterface>();
 
 const classes = computed(() => ([
     "form-group", //does nothing, added so that can be queried by css/js

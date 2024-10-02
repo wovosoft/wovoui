@@ -79,7 +79,7 @@ export interface IconProps {
      * Suggested : i, span
      * @default i
      */
-    tag: keyof HTMLElementTagNameMap;
+    tag?: keyof HTMLElementTagNameMap;
 
     /**
      * Name of the bootstrap icon

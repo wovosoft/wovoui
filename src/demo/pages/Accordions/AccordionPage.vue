@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import {Accordion, AccordionItem, Container} from "@";
+import {Container} from "@";
 import VueSource from "@/components/Util/VueSource.vue";
 import Example1Url from "./Examples/Example-1.vue?url";
 import Example1 from "./Examples/Example-1.vue";

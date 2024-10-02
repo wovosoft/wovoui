@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {computed, isVNode, onMounted, reactive, ref, watch} from "vue";
-import Icon from "../Ui/Icon.vue";
-import {AlertPropsInterface, ButtonClose} from "@/components";
+import {AlertPropsInterface, ButtonClose, Icon} from "@/components";
+import {Icons} from "@wovosoft/wovoui-icons";
 
 const props = withDefaults(defineProps<AlertPropsInterface>(), {
     tag: 'div',
@@ -92,7 +92,7 @@ const attrs = computed(() => ({
 <template>
     <component v-if="shouldGen" :is="tag" v-bind="attrs">
         <template v-if="icon">
-            <Icon v-if="typeof icon==='string'" :icon="icon"/>
+            <Icon v-if="typeof icon==='string'" :icon="icon as Icons"/>
             <component v-else-if="isVNode(icon)" :is="icon" class="me-2 flex-shrink-0"/>
             <div class="flex-shrink-0">
                 <slot name="heading">{{ heading }}</slot>

@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import {Accordion, AccordionItem} from "@";
+import {Accordion, AccordionItem} from "@/components";
+
+const model = defineModel<number>({default: 0});
 </script>
 
 <template>
-    <Accordion>
+    <Accordion v-model="model">
         <AccordionItem v-for="i in 5" :header="'Accordion Item #'+i">
             <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
             plugin adds

@@ -42,7 +42,7 @@
  */
 
 
-import {computed, onMounted, provide, ref, useModel, watch} from "vue";
+import {computed, onMounted, provide, ref, watch} from "vue";
 import {
     Nav,
     NavLink,
@@ -62,7 +62,7 @@ const emit = defineEmits<{
 }>();
 
 
-const active = useModel(props, 'modelValue');
+const active = defineModel<number>('modelValue');
 
 onMounted(() => showTab(Number(active.value)));
 
