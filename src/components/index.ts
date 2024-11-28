@@ -1,14 +1,15 @@
 import {ColorVariants} from "@/index";
+import {HTMLAttributes} from "vue";
 
 export interface HasTag {
     tag?: keyof HTMLElementTagNameMap;
 }
 
-export interface HasColorVariant{
+export interface HasColorVariant {
     variant?: ColorVariants;
 }
 
-export type ClassType = string | string[] | Record<string, boolean>;
+export type ClassType = HTMLAttributes['class'];
 export type TagType = keyof HTMLElementTagNameMap;
 
 export * from "./Accordion";

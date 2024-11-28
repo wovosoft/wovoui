@@ -14,7 +14,7 @@ export {default as THead} from "./THead.vue";
 export {default as Tr} from "./Tr.vue";
 export {default as DataTable} from "./DataTable.vue";
 
-export interface DatatableFieldType<T = Record<string, any>> {
+export interface DatatableFieldType<T extends Record<string, any> = Record<string, any>> {
     key: keyof T;
     label?: string;
     formatter?: (item: T, key: keyof T) => any;
