@@ -96,16 +96,16 @@ export interface TableProps extends TableCommonProps {
     captionTop?: boolean;
 }
 
-export interface DatatableItemType {
-    [key: string]: any
+export interface DatatableItemType extends Record<string, any> {
+
 }
 
-export interface DatatableProps<ItemType> extends TableProps {
+export interface DatatableProps<ItemType, FieldType> extends TableProps {
     headClass?: ClassType;
     bodyClass?: ClassType;
     footClass?: ClassType;
     filter?: string;
-    fields?: DatatableFieldType[];
+    fields?: FieldType[];
     items?: ItemType[];
     headVariant?: ColorVariants;
     bodyVariant?: ColorVariants;

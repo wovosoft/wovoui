@@ -2,9 +2,9 @@
     <Table v-bind="otherProps">
         <slot name="header">
             <THead :class="headClass" :variant="headVariant">
-            <Tr>
+            <tr>
                 <template v-for="(th,th_index) in fields">
-                    <Th
+                    <th
                         v-if="isVisible(th)"
                         @click="applySorting(th)"
                         :style="{'cursor':(typeof th ==='string' || th?.['sortable'] === true) ? 'pointer' : null}"
@@ -26,15 +26,15 @@
                                 <SortUp v-else/>
                             </FlexItem>
                         </Flex>
-                    </Th>
+                    </th>
                 </template>
-            </Tr>
+            </tr>
             </THead>
         </slot>
         <TBody :class="bodyClass" :variant="bodyVariant">
-        <Tr v-for="(item,item_index) in itemsSorted" :key="item_index">
+        <tr v-for="(item,item_index) in itemsSorted" :key="item_index">
             <template v-for="(th,th_index) in fields">
-                <Td :key="th_index" v-if="isVisible(th)" :class="typeof th==='object'?th['tdClass']:null">
+                <td :key="th_index" v-if="isVisible(th)" :class="typeof th==='object'?th['tdClass']:null">
                     <slot :name="`cell(${getKey(th)})`"
                           :item="item"
                           :index="item_index"
@@ -47,9 +47,9 @@
                         <!--						{{ getValue(row, th, th_index) }}-->
                         <RenderVNode :content="getValue(item, th, th_index)"/>
                     </slot>
-                </Td>
+                </td>
             </template>
-        </Tr>
+        </tr>
         </TBody>
         <TFoot v-if="$slots.footer" :variant="footVariant" :class="footClass">
         <slot name="footer"></slot>
@@ -57,25 +57,24 @@
     </Table>
 </template>
 
-<script lang="ts" setup generic="ItemType">
+<script lang="ts" setup generic="ItemType extends DatatableItemType, FieldType extends DatatableFieldType">
 import {computed, ComputedRef, ref} from "vue";
 import {
-    Table, THead, TBody, Tr, Th, Td, TFoot,
-    DatatableFieldType,
+    Table, THead, TFoot, TBody,
     DatatableHeadType,
-    DatatableProps, DatatableItemType
+    DatatableProps, DatatableFieldType, DatatableItemType
 } from "@/components/Table"
+
 import {Flex, FlexItem,} from "@/components/Layout"
 import {isObject, orderBy, title} from "@/shared";
 import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
 import RenderVNode from "@/components/Internal/RenderVNode.vue";
 import getDottedValue from "lodash/get";
 
-type TheItemType = ItemType extends DatatableItemType ? ItemType : DatatableItemType;
 
-const props = withDefaults(defineProps<DatatableProps<TheItemType>>(), {
-    fields: () => [] as DatatableFieldType[],
-    items: () => [] as TheItemType[],
+const props = withDefaults(defineProps<DatatableProps<ItemType, FieldType>>(), {
+    fields: () => [],
+    items: () => [],
 });
 
 const {
@@ -90,7 +89,7 @@ const {
     ...otherProps
 } = props;
 
-function isVisible(field: DatatableFieldType | string): boolean {
+function isVisible(field: FieldType | string): boolean {
     if (typeof field === 'string') {
         return true;
     }
@@ -99,7 +98,7 @@ function isVisible(field: DatatableFieldType | string): boolean {
 }
 
 
-const getValue = (item: TheItemType, field: DatatableFieldType | string, field_index: number) => {
+const getValue = (item: ItemType, field: FieldType | string, field_index: number) => {
     let key = getKey(field);
 
     //check if key has dot notation
@@ -201,5 +200,5 @@ const itemsSorted = computed(() => {
     }
     //do something else for Promises and Functions
     return props.items;
-}) as ComputedRef<TheItemType[]>;
+}) as ComputedRef<ItemType[]>;
 </script>
