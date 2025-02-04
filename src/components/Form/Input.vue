@@ -5,6 +5,7 @@ import {inject} from "vue";
 withDefaults(defineProps<InputProps>(), {
     //some actions vary based on type so considering at as a prop
     type: 'text',
+    state: null
 });
 const [model, modifiers] = defineModel<string | number | null>({
     set(value) {
@@ -28,8 +29,8 @@ const hasFloatingLabel = inject(HasFloatingLabelInjectionKey, false);
     <input
         v-model="model"
         :type="type"
-        :aria-invalid="state===false?true:undefined"
-        :placeholder="(placeholder || hasFloatingLabel) ? (placeholder || '') : undefined"
+        :aria-invalid="state===false?true:null"
+        :placeholder="(placeholder || hasFloatingLabel) ? (placeholder || '') : null"
         :class="{
             ['form-control' + (plain ? '-plaintext' : '')]: type !== 'range',
             'form-range': type === 'range',
