@@ -4,16 +4,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc && node post-process-dts.js",
-    "build:only": "vite build",
-    "build:types": "vue-tsc",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:post": "node post-process-dts.js",
+    "build:package": "vite build",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly && tsc-alias -p tsconfig.json",
+    "build:production": "bun run build:package && bun run build:types"
   },
   "sideEffects": [
     "*.vue"
   ],
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
@@ -25,7 +27,12 @@
   },
   "peerDependencies": {
     "axios": "*",
-    "chart.js": "^4.4.7"
+    "chart.js": "^4.4.7",
+    "vue": "^3.5.x",
+    "prismjs": "^1.29.x",
+    "dayjs": "^1.11.x",
+    "bootstrap": "^5.3.x",
+    "bootstrap-icons": "^1.11.x"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -33,12 +40,8 @@
     "@vueuse/core": "^11.3.0",
     "@wovosoft/wovoui-icons": "^1.1.11",
     "axios": "^1.7.9",
-    "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3",
-    "dayjs": "^1.11.13",
     "lodash": "^4.17.21",
-    "prismjs": "^1.29.0",
-    "vue": "^3.5.13"
+    "tsc-alias": "^1.8.10"
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.10",
@@ -69,6 +72,7 @@
   "exports": {
     "./dist/style.css": "./dist/style.css",
     "./types": "./dist/types/index.d.ts",
+    "./*": "./dist/*",
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
