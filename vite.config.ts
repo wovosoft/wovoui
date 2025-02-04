@@ -4,7 +4,6 @@ import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 // vite.config.js
 import {resolve} from 'path'
-import entry_points from "./entry_points";
 
 
 /** @type {import('vite').UserConfig} */
@@ -15,12 +14,15 @@ export default defineConfig({
     build: {
         sourcemap: true,
         target: 'modules',
-        // cssCodeSplit: true,
+        cssCodeSplit: false,
         lib: {
             // Could also be a dictionary or array of multiple entry points
-            entry: entry_points,
-            name: 'wovoui',
-            formats: ["es", "cjs"],
+            // entry: entry_points,
+            entry: {
+                "index": resolve(__dirname, "src/index.ts"),
+            },
+            name: 'index',
+            formats: ['es', 'cjs', /*'umd', 'iife', 'system'*/],
         },
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled
@@ -44,6 +46,5 @@ export default defineConfig({
         ],
 
     },
-
 })
 

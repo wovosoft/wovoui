@@ -6,7 +6,7 @@
                     @keydown.down="()=>{if (!opened) {opened=true} }"
                     @click="opened=!opened">
                 <slot name="label" :selectedOptions="model">
-                    {{ model.length }} Options Selected
+                    {{ model?.length }} Options Selected
                 </slot>
             </button>
             <Button @click="reset" v-if="!disableReset">
@@ -32,7 +32,7 @@
             </li>
             <li v-for="(item,item_key) in items" :key="item_key" role="menuitem">
                 <label class="dropdown-item"
-                       :tabindex="opened?-1:null"
+                       :tabindex="(opened?-1:null) as number"
                        @keydown.space.enter.prevent="itemClicked($event,item)">
                     <input
                         v-model="model"
@@ -51,6 +51,7 @@
 
 <script lang="ts" setup>
 import {nextTick, onBeforeUnmount, ref, watch} from "vue";
+//@ts-ignore
 import {Trash} from "@wovosoft/wovoui-icons";
 import {Button, DropdownMenu, Input, InputGroup, MultiselectProps} from "@/components";
 
@@ -62,9 +63,9 @@ const props = withDefaults(defineProps<MultiselectProps>(), {
     searchPlaceholder: 'Search...',
 });
 
-const model = defineModel<any[]>();
+const model = defineModel<any[]>({default: []});
 
-const query = ref<string | null>(null);
+const query = ref<string>();
 const items = ref<any[]>([]);
 const opened = ref<boolean>(false);
 
@@ -92,7 +93,7 @@ watch(opened, shown => {
  * Watch query and search while changes. debounce can be added later
  */
 
-watch(query, value => {
+watch(query, (value?: string) => {
     props.getItems(items, value);
 });
 
@@ -116,7 +117,7 @@ onBeforeUnmount(() => {
  * arrow  navigation
  */
 
-const navigateItem = (e) => {
+const navigateItem = (e: any) => {
     let element = null;
     if (e.code === "ArrowDown" && (e.target.nodeName === "LABEL" || e.target.nodeName === "INPUT")) {
         element = e.target.parentNode.nextElementSibling;
@@ -129,7 +130,7 @@ const navigateItem = (e) => {
     }
 };
 
-const itemClicked = (e, item) => {
+const itemClicked = (e: any, item: any) => {
     if (model.value.includes(item)) {
         let index = model.value.indexOf(item);
         model.value.splice(index, 1);

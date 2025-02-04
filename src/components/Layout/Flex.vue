@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed} from "vue";
-import type { FlexProps, ItemAlignment, JustifyAlignment, ResponsiveSizes} from "@/index";
+import type {FlexProps, ItemAlignment, JustifyAlignment, ResponsiveSizes} from "@/index";
 import {join} from "lodash";
 
 const props = withDefaults(defineProps<FlexProps>(), {
@@ -31,7 +31,7 @@ function getFlexClasses(type: 'flex' | 'inline') {
     }
 }
 
-function responsiveClasses(resOn: ResponsiveSizes | ResponsiveSizes[], res: JustifyAlignment | ItemAlignment, resFor: string) {
+function responsiveClasses(resOn?: ResponsiveSizes | ResponsiveSizes[], res?: JustifyAlignment | ItemAlignment, resFor?: string) {
     //Note: When props.jcOn exists props.jc must be provided
     if (typeof resOn === "string" && res) {
         return [resFor, resOn, res].join("-");

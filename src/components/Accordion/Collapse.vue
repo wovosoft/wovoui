@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import {computed, getCurrentInstance, onBeforeMount, ref, watch} from "vue";
-import {CollapseProps} from "@/components";
+import {CollapseEmits, CollapseProps} from "@/components";
 
 const props = withDefaults(defineProps<CollapseProps>(), {
     tag: 'div',
 });
 
-const emit = defineEmits(["update:modelValue", "update:visible", "showing", "shown", "hiding", "hidden"]);
+const emit = defineEmits<CollapseEmits>();
 const instance = getCurrentInstance();
 
 const isActive = ref<boolean>(false);
@@ -23,7 +23,9 @@ watch(isActive, value => {
     emit("update:modelValue", value);
     emit("update:visible", value);
     transitioning.value = true;
+    //@ts-ignore
     emit(value ? "showing" : "hiding", true);
+
     if (instance?.vnode?.el) {
         instance.vnode.el.style[getDim()] = instance.vnode.el[getDimSize()] + "px";
     }
@@ -49,6 +51,7 @@ onBeforeMount(() => {
 function onTransitionend() {
     isShow.value = isActive.value;
     transitioning.value = false;
+    //@ts-ignore
     emit(isActive.value ? "shown" : "hidden", true);
     if (instance?.vnode?.el) {
         instance.vnode.el.style[getDim()] = "";

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type {ButtonClosePropsInterface} from "@/index";
+import type {ButtonCloseProps} from "@/index";
 import {computed} from "vue";
 
-const props = withDefaults(defineProps<ButtonClosePropsInterface>(), {
+const props = withDefaults(defineProps<ButtonCloseProps>(), {
     ariaLabel: "Close"
 });
 

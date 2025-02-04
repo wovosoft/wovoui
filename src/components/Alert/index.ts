@@ -1,4 +1,5 @@
 import {Component} from "vue";
+//@ts-ignore
 import {Icons} from "@wovosoft/wovoui-icons";
 import {HasTag} from "@/components";
 import {ColorVariants} from "@/index";
@@ -7,16 +8,16 @@ export {default as Alert} from "./Alert.vue";
 export {default as AlertHeading} from "./AlertHeading.vue";
 export {default as AlertLink} from "./AlertLink.vue";
 
-export interface AlertLinkPropsInterface {
+export interface AlertLinkProps {
     href?: string;
     content?: string;
 }
 
-export interface AlertHeadingPropsInterface {
+export interface AlertHeadingProps {
     tag?: keyof HTMLElementTagNameMap;
 }
 
-export interface AlertPropsInterface extends HasTag {
+export interface AlertProps extends HasTag {
     variant?: ColorVariants;
     dismissible?: boolean;
     timeout?: number;

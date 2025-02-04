@@ -49,8 +49,9 @@
 <script lang="ts" setup>
 import {computed, ref, watch} from "vue";
 import PageItem from "./PageItem.vue";
+//@ts-ignore
 import {ThreeDots} from "@wovosoft/wovoui-icons";
-import type { PaginationProps} from "@/index";
+import type {PaginationProps} from "@/index";
 
 const props = withDefaults(defineProps<PaginationProps>(), {
     tag: 'ul',

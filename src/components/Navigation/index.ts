@@ -3,6 +3,7 @@ import {RendererElement} from "@vue/runtime-core";
 import {type ButtonSizes, ColorVariants, ResponsiveSizes} from "@/index";
 import {AnchorHTMLAttributes} from "vue";
 import {RouteLocationRaw, RouteRecordRaw} from "vue-router";
+//@ts-ignore
 import type {Icons} from "@wovosoft/wovoui-icons";
 
 export {default as Link} from "./Link.vue";

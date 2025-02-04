@@ -6,7 +6,7 @@ const props = withDefaults(defineProps<FormLabelProps>(), {});
 
 const classes = computed(() => {
     const isHorizontal = props.horizontal;
-    let result = {
+    let result: Record<string, any> = {
         "form-label": !isHorizontal,
         "col-form-label": isHorizontal
     };

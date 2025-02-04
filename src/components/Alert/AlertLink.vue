@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import {computed, isVNode} from "vue";
-import {AlertLinkPropsInterface} from "@/components";
+import {AlertLinkProps} from "@/components";
 
-const props = withDefaults(defineProps<AlertLinkPropsInterface>(), {
+const props = withDefaults(defineProps<AlertLinkProps>(), {
     href: '#'
 });
 

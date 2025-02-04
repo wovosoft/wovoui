@@ -5,7 +5,7 @@
                :false-value="uncheckedValue"
                :true-value="value"
                :value="value"
-               :role="$props.switch?'switch':null"
+               :role="$props.switch?'switch':undefined"
                v-model="model"
                :id="theId">
         <label class="form-check-label" :for="theId" v-if="$slots.default">

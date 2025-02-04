@@ -1,7 +1,8 @@
 import {
     ButtonSizes,
     ClassType,
-    ColorVariants, type FeedbackTypes,
+    ColorVariants,
+    type FeedbackTypes,
     HasColorVariant,
     HasTag,
     HTMLInputTypes,
@@ -67,7 +68,7 @@ export interface SelectProps {
 export interface TypeHeadProps {
     apiUrl?: string;
     queryKey?: string;
-    getItems?: (items: Ref<any>, query: Ref<string | number | null>) => any,
+    getItems?: (items: Ref<any>, query: Ref<any>) => any,
     menuHeight?: string;
     searchSize?: ButtonSizes;
     searchClass?: ClassType;
@@ -150,7 +151,7 @@ export interface RadioProps {
 }
 
 export interface MultiselectProps {
-    getItems: (items: Ref<any[]>, filter: string | null) => any;
+    getItems: (items: Ref<any[]>, filter?: string) => any;
     searchSize?: ButtonSizes;
     toggleSize?: ButtonSizes;
     searchPlaceholder?: string;
@@ -192,5 +193,5 @@ export interface CheckboxProps {
     uncheckedValue?: any;
     id?: string;
     //sometimes checking might be done by object keys. in that case this function can be used
-    checkBy?: (value, model) => boolean
+    checkBy?: (value: any, model: any) => boolean
 }

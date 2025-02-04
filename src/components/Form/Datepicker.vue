@@ -76,6 +76,7 @@ import {Button, Flex, FlexItem, Table} from "@/index";
 import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
 import type {ButtonSizes} from "@/index";
 import dayjs, {Dayjs} from "dayjs";
+//@ts-ignore
 import {ChevronDoubleLeft, ChevronDoubleRight, ChevronLeft, ChevronRight, CircleFill} from "@wovosoft/wovoui-icons";
 
 const props = defineProps({
@@ -92,7 +93,7 @@ const emit = defineEmits<{
     (e: 'update:modelValue', value: Date | string): void
 }>();
 
-const currentMonth = ref<Dayjs | null>(null);
+const currentMonth = ref<Dayjs>();
 const isMenuOpened = ref<boolean>(false);
 
 onMounted(() => {
@@ -126,7 +127,7 @@ const toggleClass = computed(() => [
 
 
 function adjustCurrentDate(count: number, type: 'year' | 'month' | 'day') {
-    currentMonth.value = currentMonth.value.add(count, type);
+    currentMonth.value = currentMonth?.value?.add(count, type);
 }
 
 function setToday() {

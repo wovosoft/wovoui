@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import {computed} from "vue";
-import {ButtonToolbarPropsInterface} from "@/components";
+import {ButtonToolbarProps} from "@/components";
 
-const props = withDefaults(defineProps<ButtonToolbarPropsInterface>(), {
+const props = withDefaults(defineProps<ButtonToolbarProps>(), {
     tag: "div",
     role: "toolbar",
 });

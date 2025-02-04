@@ -53,16 +53,14 @@ import {
     unregisterTabInjection
 } from "@/components";
 
-const props = withDefaults(defineProps<TabsProps>(), {
-    modelValue: 0,
-});
+const props = defineProps<TabsProps>();
 
 const emit = defineEmits<{
     (e: 'update:modelValue', value: number | null | undefined): void
 }>();
 
 
-const active = defineModel<number>('modelValue');
+const active = defineModel<number>('modelValue', {default: 0});
 
 onMounted(() => showTab(Number(active.value)));
 
@@ -76,15 +74,18 @@ function showTab(index: number) {
     // we do the following actions to perform everything properly
     // without any risk
     tabsMap.value
-        .filter(tab => tab.states?.active)
-        .forEach(tab => {
-            if (typeof tab.updateVisibility === 'function') {
-                tab?.updateVisibility(false);
-            }
-        });
+           .filter(tab => tab.states?.active)
+           .forEach(tab => {
+               if (typeof tab.updateVisibility === 'function') {
+                   tab?.updateVisibility(false);
+               }
+           });
 
     //show target tab
-    tabsMap.value[index]?.updateVisibility(true);
+    if (typeof tabsMap.value[index]?.updateVisibility === 'function') {
+        tabsMap.value[index].updateVisibility(true);
+    }
+
 }
 
 const classes = computed(() => ({

@@ -31,7 +31,7 @@ const classes = computed(() => ["nav-link", {
     active: props.active
 }]);
 
-const linkAttributes = computed<linkAttributesType>(() => ({
+const linkAttributes = computed(() => ({
     href: props.tag === "a" ? props.href : null,
     ariaCurrent: props.ariaCurrent,
     target: (props.target === "a" || props.href) ? props.target : null

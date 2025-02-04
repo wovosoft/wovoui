@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, useModel} from "vue";
+import {computed} from "vue";
 import type {SelectProps} from "@/index";
 import Dropdown from "@/components/Dropdown/Dropdown.vue";
 import Checkbox from "@/components/Form/Checkbox.vue";
@@ -55,21 +55,25 @@ const props = withDefaults(defineProps<SelectProps>(), {
     scrollHeight: '250px',
 });
 
-const model = useModel(props, 'modelValue');
+const model = defineModel<any>('modelValue');
 
-const getEntity = (o, k) => {
+const getEntity = (o: Record<string, any>, k: string) => {
+    //@ts-ignore
     if (typeof props[k] === "string" || props[k] === null) {
         if (!(typeof o === "object" && !Array.isArray(o))) {
             return o;
         }
+        //@ts-ignore
         return o[props[k] === null ? 'text' : props[k]];
+        //@ts-ignore
     } else if (typeof props[k] === "function") {
+        //@ts-ignore
         return props[k](o);
     }
     return o;
 };
 
-const isDisabledOption = o => o.hasOwnProperty(props.disabledField) ? o[props.disabledField] : false
+const isDisabledOption = (o: Record<string, any>) => o.hasOwnProperty(props.disabledField) ? o[props.disabledField] : false
 
 const classes = computed(() => [
     "form-select",

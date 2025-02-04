@@ -15,126 +15,135 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, PropType, ref, watch} from "vue";
-import {createPopper} from "@popperjs/core";
+import {computed, defineComponent, onMounted, onBeforeUnmount, PropType, ref, watch} from "vue";
+import {createPopper, Instance, Modifier} from "@popperjs/core";
 import {makeBoolean, makeString} from "@/composables";
-import {Modifier} from "@popperjs/core/lib/types";
 
 export default defineComponent({
     name: "Popover",
     props: {
-        //specific id
         target: {type: String as PropType<string>, required: true},
         header: makeString(),
         modelValue: makeBoolean(false),
-        //https://popper.js.org/docs/v2/constructors/#options
         placement: {type: String as PropType<string>, default: "top"},
-        triggers: {type: String as PropType<keyof HTMLElementEventMap>, default: "click"}
+        triggers: {type: String as PropType<string>, default: "click"},
     },
-    setup(props) {
-        const shown = ref(false);
-        watch(() => props.modelValue, value => shown.value = value);
-        const bsDir = (placement: string) => (placement.startsWith('auto') || placement.startsWith('top'))
-            ? "top"
-            : (placement.startsWith('bottom'))
-                ? "bottom"
-                : (placement.startsWith('right'))
-                    ? "end"
-                    : (placement.startsWith('left'))
-                        ? "start"
-                        : placement;
+    setup(props, {emit}) {
+        const shown = ref<boolean>(false);
+        const popper = ref<Instance | null>(null);
+        const popover = ref<HTMLElement | null>(null);
+        const dir = ref<string>("top");
 
-        const dir = ref("top");
+        watch(
+            () => props.modelValue,
+            (value) => {
+                shown.value = value;
+            }
+        );
 
-        const classes = computed(() => {
-            return [
-                "popover",
-                "fade",
-                {
-                    show: shown.value,
-                    ["bs-popover-" + dir.value]: !!dir.value
-                }
-            ]
+        watch(shown, (value) => {
+            emit("update:modelValue", value);
+            if (value) {
+                initPopper();
+                setTimeout(() => document.addEventListener("click", clickOutside), 0);
+            } else {
+                destroyPopper();
+            }
         });
 
-        const events = computed(() => {
-            return [props.triggers];
-        });
+        const bsDir = (placement: string): string => {
+            return placement.startsWith("auto") || placement.startsWith("top")
+                ? "top"
+                : placement.startsWith("bottom")
+                    ? "bottom"
+                    : placement.startsWith("right")
+                        ? "end"
+                        : placement.startsWith("left")
+                            ? "start"
+                            : placement;
+        };
 
+        const classes = computed(() => [
+            "popover",
+            "fade",
+            {
+                show: shown.value,
+                ["bs-popover-" + dir.value]: !!dir.value,
+            },
+        ]);
 
         const popperOptions = computed(() => ({
-            placement: ['auto', 'auto-start', 'auto-end'].includes(props.placement) ? 'top' : props.placement,
+            placement: ["auto", "auto-start", "auto-end"].includes(props.placement)
+                ? "top"
+                : props.placement,
             modifiers: <Modifier<any, any>[]>[
                 {
-                    name: 'topLogger',
+                    name: "topLogger",
                     enabled: true,
-                    phase: 'main',
+                    phase: "main",
                     fn({state}) {
-                        dir.value = bsDir(state.placement)
+                        dir.value = bsDir(state.placement);
                     },
                 },
                 {
-                    name: 'offset',
+                    name: "offset",
                     enabled: true,
                     options: {
-                        offset: () => [0, 10],
+                        offset: [0, 10],
                     },
                 },
             ],
         }));
 
+        const initPopper = () => {
+            const target = document.getElementById(props.target);
+            if (target && popover.value) {
+                //@ts-ignore
+                popper.value = createPopper(target, popover.value, popperOptions.value);
+            }
+        };
+
+        const destroyPopper = () => {
+            popper.value?.destroy();
+            popper.value = null;
+        };
+
+        const clickOutside = (e: MouseEvent) => {
+            const targetElement = document.getElementById(props.target);
+            const popoverElement = popover.value;
+
+            if (!targetElement || !popoverElement) return;
+
+            const isTarget = targetElement.isSameNode(e.target as Node);
+            const isFromPopover =
+                popoverElement.isSameNode(e.target as Node) || popoverElement.contains(e.target as Node);
+
+            if (shown.value && !isTarget && !isFromPopover) {
+                shown.value = false;
+                document.removeEventListener("click", clickOutside);
+            }
+        };
+
+        onMounted(() => {
+            const target = document.getElementById(props.target);
+            if (target) {
+                target.addEventListener(props.triggers, () => {
+                    shown.value = !shown.value;
+                });
+            }
+        });
+
+        onBeforeUnmount(() => {
+            destroyPopper();
+        });
+
         return {
             shown,
+            popper,
+            popover,
             classes,
-            events,
-            popper: ref(null),
-            popperOptions
-        }
+            popperOptions,
+        };
     },
-    watch: {
-        shown(value) {
-            this.$emit('update:modelValue', value);
-            this.$nextTick(() => {
-                if (value) {
-                    this.initPopper();
-                    let the = this;
-                    setTimeout(() => document.addEventListener("click", the.clickOutside), 0);
-                } else {
-                    this.destroyPopper();
-                }
-            });
-        }
-    },
-    mounted() {
-        let target = document.getElementById(this.target) as HTMLElement;
-        let the = this;
-        target.addEventListener(this.triggers, () => the.shown = !the.shown);
-    },
-    beforeUnmount() {
-        this.destroyPopper();
-    },
-    methods: {
-        destroyPopper() {
-            this.popper?.destroy();
-        },
-        initPopper() {
-            let target = document.getElementById(this.target);
-
-            this.popper = createPopper(
-                target,
-                this.$refs.popover,
-                this.popperOptions
-            );
-        },
-        clickOutside(e: Event & { target: HTMLElement }) {
-            let isTarget = (document.getElementById(this.target) as HTMLElement).isSameNode(e.target);
-            const popover = this.$refs.popover as HTMLElement;
-            let isFromPopover = popover && (popover.isSameNode(e.target) || popover.contains(e.target));
-            if (this.shown && !isTarget && !isFromPopover) {
-                this.shown = false;
-                document.removeEventListener("click", this.clickOutside);
-            }
-        }
-    }
-})
+});
 </script>

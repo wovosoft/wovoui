@@ -45,3 +45,12 @@ export interface CollapseProps extends HasTag {
     //@check the note at https://getbootstrap.com/docs/5.2/components/collapse/#horizontal
     width?: number | string;
 }
+
+export interface CollapseEmits {
+    'update:modelValue': [value: boolean];
+    'update:visible': [value: boolean];
+    'showing': [state: boolean];
+    'shown': [state: boolean];
+    'hiding': [state: boolean];
+    'hidden': [state: boolean];
+}

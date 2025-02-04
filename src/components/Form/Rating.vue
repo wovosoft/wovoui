@@ -12,6 +12,7 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
+//@ts-ignore
 import {Star, StarFill} from "@wovosoft/wovoui-icons";
 import {useStateModel} from "@/composables/useHelpers";
 import {RatingProps} from "@/components";

@@ -54,11 +54,13 @@
                     </Button>
                 </Col>
             </Row>
-            <input tabindex="7"
-                   :value="theDate.format('YYYY-MM')"
-                   type="month"
-                   class="border-0 text-center"
-                   @input="setMonth"/>
+            <input
+                tabindex="7"
+                :value="theDate.format('YYYY-MM')"
+                type="month"
+                class="border-0 text-center"
+                @input="setMonth"
+            />
         </header>
         <table class="w-100 border">
             <tbody>
@@ -98,8 +100,9 @@ import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
 import Row from "../Layout/Row.vue";
 import Col from "../Layout/Col.vue";
-import Button from "../Button/Button.vue";
+import {Button} from "../Button";
 import InputGroup from "./InputGroup.vue";
+//@ts-ignore
 import {ChevronDoubleLeft, ChevronDoubleRight, ChevronLeft, ChevronRight, CircleFill} from "@wovosoft/wovoui-icons";
 import {makeBoolean, makeProp, makeString} from "@/composables";
 
@@ -165,7 +168,7 @@ export default defineComponent({
         return {
             theDate,
             theWeeks,
-            setMonth(e: Event & { target: HTMLInputElement }) {
+            setMonth(e: any) {
                 const date = dayjs(e.target.value);
                 theDate.value = dayjs(theDate.value)
                     .set('year', date.year())

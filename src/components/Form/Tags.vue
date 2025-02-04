@@ -30,6 +30,7 @@
 
 <script lang="ts" setup>
 import {ref} from "vue";
+//@ts-ignore
 import {X} from "@wovosoft/wovoui-icons";
 import type {TagsProps} from "@/index";
 import {Badge, Button, Input} from "@/components";
@@ -51,9 +52,9 @@ const emit = defineEmits(['update:modelValue']);
 
 const model = defineModel({type: Array, default: []});
 
-const inputText = ref(null)
+const inputText = ref()
 
-const addTag = (e) => {
+const addTag = (e: any) => {
     if (inputText.value) {
         model.value.push(inputText.value)
         inputText.value = null;

@@ -33,6 +33,7 @@
 import {computed} from "vue";
 import Accordion from "../Accordion/Accordion.vue";
 import AccordionItem from "@/components/Accordion/AccordionItem.vue";
+//@ts-ignore
 import {ChevronRight} from "@wovosoft/wovoui-icons";
 import {MenuProps} from "@/components/Accordion";
 

@@ -2,7 +2,7 @@ import fs from "fs"
 import path from "path";
 
 // Specify the directory where your generated .d.ts files are located
-const declarationDir = path.dirname('dist/types');
+const declarationDir = path.dirname('dist');
 
 
 const allDTSFilesWithDepth = getAllDTSFiles(declarationDir);

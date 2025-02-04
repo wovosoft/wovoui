@@ -60,6 +60,7 @@ import {DropdownMenu, Input, InputGroup} from "@/components";
 import {vOnClickOutside} from "@/directives";
 import axios from "axios";
 import usePopper from "@/composables/usePopper";
+import {SetupContext} from "@vue/runtime-core";
 
 const props = withDefaults(defineProps<TypeHeadProps>(), {
     queryKey: 'query',
@@ -89,10 +90,10 @@ defineExpose({
     setQueryString: (value: string) => query.value = value
 });
 
-const query = ref<string | number>();
+const query = ref<string | number | null>();
 const items = ref<any[]>([]);
-const toggle_btn = ref<HTMLButtonElement>(null);
-const menu = ref<InstanceType<typeof DropdownMenu>>(null);
+const toggle_btn = ref<HTMLButtonElement>();
+const menu = ref<InstanceType<typeof DropdownMenu>>();
 const menuItems = ref<HTMLDivElement>();
 const isOpened = ref<boolean>(false);
 const search = ref<InstanceType<typeof Input> | null>(null);
@@ -113,11 +114,16 @@ function fetchItems() {
             return [];
         });
     } else {
-        return props.getItems(items, query);
+        if (typeof props.getItems == 'function') {
+            return props.getItems(items, query);
+        }
+
+        return [];
     }
 }
 
-const slots = useSlots();
+const slots: SetupContext['slots'] = useSlots();
+
 const toggleClasses = computed(() => [
     "form-select",
     {
@@ -140,7 +146,7 @@ function onMenuOpened() {
 
 const selectedItem = ref<any>(null)
 
-function onSelected(item) {
+function onSelected(item: any) {
     emit("update:modelValue", item);
     emit("selected", item);
     selectedItem.value = item;
@@ -207,7 +213,7 @@ function close() {
 
 function focusItem(e: KeyboardEvent & { target: HTMLElement }) {
     if (e.code === "ArrowDown") {
-        if (e.target?.isEqualNode(search.value?.$el)) {
+        if (e.target?.isEqualNode(search.value?.$el as Node)) {
             (menuItems.value?.firstElementChild as HTMLButtonElement)?.focus();
         } else {
             (e.target?.nextElementSibling as HTMLButtonElement)?.focus();

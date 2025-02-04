@@ -29,19 +29,19 @@ export interface ButtonProps extends HasTag {
     content?: string | VNode;
 }
 
-export interface ButtonClosePropsInterface {
+export interface ButtonCloseProps {
     size?: ButtonSizes
     white?: boolean
     ariaLabel?: string
     disabled?: boolean
 }
 
-export interface ButtonToolbarPropsInterface extends HasTag {
+export interface ButtonToolbarProps extends HasTag {
     role?: string
     justified?: boolean
 }
 
-export interface ButtonGroupPropsInterface extends HasTag {
+export interface ButtonGroupProps extends HasTag {
     ariaLabel?: string
     size?: ButtonSizes
     vertical?: boolean

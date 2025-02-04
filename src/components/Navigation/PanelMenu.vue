@@ -35,6 +35,7 @@
 import {onBeforeMount, ref, watch} from "vue";
 import type {MenuItem, PanelMenuProps} from "@/index";
 import {Button, Collapse, Icon, ListGroup, ListGroupItem} from "@/components";
+//@ts-ignore
 import {ChevronDown, ChevronRight, ChevronUp} from "@wovosoft/wovoui-icons";
 
 const emit = defineEmits<{
@@ -42,19 +43,19 @@ const emit = defineEmits<{
     (e: 'update:modelValue', value: number | null): void
 }>();
 
-const props = withDefaults(defineProps<PanelMenuProps>(),{
+const props = withDefaults(defineProps<PanelMenuProps>(), {
     triggerVariant: 'dark',
     menuVariant: 'light',
 });
 
-const active = ref<null | number>(null);
+const active = ref<number>();
 
 function setActive(index: number) {
     active.value = index === active.value ? -1 : index;
     emit("update:modelValue", index);
 }
 
-function itemClicked(e, item: MenuItem, index: number) {
+function itemClicked(e: any, item: MenuItem, index: number) {
     setActive(index);
     emit("itemClicked", item);
 }

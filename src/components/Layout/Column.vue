@@ -37,6 +37,7 @@
 <script lang="ts">
 import {defineComponent, inject, PropType, Ref} from "vue";
 import {Button, ButtonGroup} from "@/components";
+//@ts-ignore
 import {Eye, PencilSquare, Trash} from "@wovosoft/wovoui-icons";
 import type {ButtonSizes, ClassTypes} from "@/index";
 import {makeBoolean, makeSize, makeString, makeTag, makeVariant} from "@/composables";

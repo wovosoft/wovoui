@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import {computed, isVNode, onMounted, reactive, ref, watch} from "vue";
-import {AlertPropsInterface, ButtonClose, Icon} from "@/components";
+import {AlertProps, ButtonClose, Icon} from "@/components";
+//@ts-ignore
 import {Icons} from "@wovosoft/wovoui-icons";
 
-const props = withDefaults(defineProps<AlertPropsInterface>(), {
+const props = withDefaults(defineProps<AlertProps>(), {
     tag: 'div',
     variant: 'primary',
     timeout: 0,
@@ -21,7 +22,7 @@ const classStates = reactive({
 //watch model value and update state
 watch(model, isVisible => {
     if (isVisible !== state.value) {
-        state.value = isVisible;
+        state.value = !!isVisible;
     }
 })
 //watch state and apply state

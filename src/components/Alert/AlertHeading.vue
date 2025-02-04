@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import {AlertHeadingPropsInterface} from "@/components";
+import {AlertHeadingProps} from "@/components";
 
-withDefaults(defineProps<AlertHeadingPropsInterface>(), {
+withDefaults(defineProps<AlertHeadingProps>(), {
     tag: "h4"
 });
 </script>

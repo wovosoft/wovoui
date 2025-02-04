@@ -41,11 +41,11 @@
 
 <script lang="ts" setup>
 import {Button, InputGroup, SpinButtonProps} from "@/components";
+//@ts-ignore
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
 import {ref} from "vue";
 
 const props = withDefaults(defineProps<SpinButtonProps>(), {
-    modelValue: 0,
     step: 1,
     min: 0,
     max: 100,
@@ -55,7 +55,8 @@ const props = withDefaults(defineProps<SpinButtonProps>(), {
     longPressTrigger: 500,
 });
 
-const model = defineModel<number>({
+const model = defineModel<number>('modelValue', {
+    default: 0,
     get(v) {
         return Number(v);
     },
@@ -81,7 +82,7 @@ const updateValue = (type: 'increment' | 'decrement', step: number = props.step)
     }
 };
 
-const timer = ref<number | null>();
+const timer = ref<number>();
 const handleMouseDown = (e: MouseEvent, type: 'increment' | 'decrement') => {
     timer.value = setTimeout(() => {
         if (e.buttons === 1) {

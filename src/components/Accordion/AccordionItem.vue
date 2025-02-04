@@ -36,13 +36,18 @@ const props = defineProps({
 const visible: AccordionItemStateType = ref(props.modelValue);
 const registerItem = inject(RegisterAccordionItemInjectionKey);
 
-registerItem(visible);
+if (typeof registerItem == 'function') {
+    registerItem(visible);
+}
+
 
 const setActiveItem = inject(SetActiveAccordionItemInjectionKey);
 
-watch(visible, value => {
-    if (value) {
-        setActiveItem(visible);
-    }
-});
+if (typeof setActiveItem == 'function') {
+    watch(visible, value => {
+        if (value) {
+            setActiveItem(visible);
+        }
+    });
+}
 </script>
