@@ -2,7 +2,7 @@ import {DefineComponent, VNode} from 'vue';
 import {ButtonGroupProps} from "./index";
 
 export interface ComponentSlots {
-    default(): VNode[];
+    default(): VNode[]|VNode;
 }
 
 /**

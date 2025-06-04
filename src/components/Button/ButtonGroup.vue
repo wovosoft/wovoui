@@ -1,13 +1,13 @@
 <template>
     <component :is="tag" :role="role" :aria-label="ariaLabel" :class="classes">
-        <slot/>
+        <slot></slot>
     </component>
 </template>
 
 <script lang="ts" setup>
-import {computed, provide} from "vue";
-import type {ButtonGroupProps} from "@/index";
-import {ButtonGroupOutlinedInjection} from "@/index";
+import { computed, provide } from "vue";
+import type { ButtonGroupProps } from "@/index";
+import { ButtonGroupOutlinedInjection } from "@/index";
 
 const props = withDefaults(defineProps<ButtonGroupProps>(), {
     tag: "div",

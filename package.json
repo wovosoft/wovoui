@@ -28,33 +28,33 @@
   "peerDependencies": {
     "axios": "*",
     "chart.js": "^4.4.7",
-    "vue": "^3.5.x",
-    "prismjs": "^1.29.x",
-    "dayjs": "^1.11.x",
-    "bootstrap": "^5.3.x",
-    "bootstrap-icons": "^1.11.x"
+    "vue": "^3.5.13",
+    "prismjs": "^1.29.0",
+    "dayjs": "^1.11.13",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@vueuse/components": "^11.3.0",
     "@vueuse/core": "^11.3.0",
     "@wovosoft/wovoui-icons": "^1.1.11",
-    "axios": "^1.7.9",
+    "axios": "^1.9.0",
     "lodash": "^4.17.21",
-    "tsc-alias": "^1.8.10"
+    "tsc-alias": "^1.8.16"
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.10",
-    "@types/lodash": "^4.17.15",
-    "@types/node": "^22.13.1",
+    "@types/lodash": "^4.17.17",
+    "@types/node": "^22.15.29",
     "@types/prismjs": "^1.26.5",
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue": "^5.2.4",
     "@wdns/vue-code-block": "^2.3.5",
-    "sass": "^1.83.4",
-    "typescript": "^5.7.3",
-    "vite": "^5.4.14",
-    "vue-router": "^4.5.0",
-    "vue-tsc": "^2.2.0"
+    "sass": "^1.89.1",
+    "typescript": "^5.8.3",
+    "vite": "^5.4.19",
+    "vue-router": "^4.5.1",
+    "vue-tsc": "^2.2.10"
   },
   "repository": {
     "type": "git",
