@@ -1,0 +1,1434 @@
+{
+  "Accordion/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Accordion/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "AccordionBody/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "AccordionBody/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "AccordionHeader/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "AccordionHeader/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "AccordionItem/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "AccordionItem/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Collapse/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Collapse/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Alert/dismissible": {
+    "type": "boolean",
+    "description": "Show dismiss button"
+  },
+  "Alert/show": {
+    "type": "boolean",
+    "description": "Show/hide alert"
+  },
+  "Alert/fade": {
+    "type": "boolean",
+    "description": "Fade animation"
+  },
+  "Alert/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Alert/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "AlertHeading/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "AlertHeading/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "AlertLink/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "AlertLink/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Breadcrumb/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Breadcrumb/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "BreadcrumbItem/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "BreadcrumbItem/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Button/href": {
+    "type": "string",
+    "description": "Link URL when used as anchor"
+  },
+  "Button/type": {
+    "type": "button|submit|reset",
+    "description": "Button type"
+  },
+  "Button/outline": {
+    "type": "boolean",
+    "description": "Use outline style"
+  },
+  "Button/block": {
+    "type": "boolean",
+    "description": "Full width button"
+  },
+  "Button/pill": {
+    "type": "boolean",
+    "description": "Pill shaped button"
+  },
+  "Button/squared": {
+    "type": "boolean",
+    "description": "Square corners"
+  },
+  "Button/disabled": {
+    "type": "boolean",
+    "description": "Disabled state"
+  },
+  "Button/pressed": {
+    "type": "boolean",
+    "description": "Pressed state"
+  },
+  "Button/no-wrap": {
+    "type": "boolean",
+    "description": "Prevent text wrapping"
+  },
+  "Button/link": {
+    "type": "boolean",
+    "description": "Link style button"
+  },
+  "Button/active": {
+    "type": "boolean",
+    "description": "Active state"
+  },
+  "Button/active-class": {
+    "type": "string",
+    "description": "CSS class for active state"
+  },
+  "Button/manage-active-state": {
+    "type": "boolean",
+    "description": "Manage active state automatically"
+  },
+  "Button/no-style": {
+    "type": "boolean",
+    "description": "Remove default styling"
+  },
+  "Button/content": {
+    "type": "string",
+    "description": "Button content"
+  },
+  "Button/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Button/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Button/size": {
+    "type": "sm|lg",
+    "description": "Size variant"
+  },
+  "ButtonClose/white": {
+    "type": "boolean",
+    "description": "White variant"
+  },
+  "ButtonClose/aria-label": {
+    "type": "string",
+    "description": "Accessibility label"
+  },
+  "ButtonClose/disabled": {
+    "type": "boolean",
+    "description": "Disabled state"
+  },
+  "ButtonClose/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ButtonGroup/aria-label": {
+    "type": "string",
+    "description": "Accessibility label"
+  },
+  "ButtonGroup/vertical": {
+    "type": "boolean",
+    "description": "Vertical layout"
+  },
+  "ButtonGroup/justified": {
+    "type": "boolean",
+    "description": "Justified layout"
+  },
+  "ButtonGroup/outline": {
+    "type": "boolean",
+    "description": "Outline style for all buttons"
+  },
+  "ButtonGroup/role": {
+    "type": "string",
+    "description": "ARIA role"
+  },
+  "ButtonGroup/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ButtonGroup/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ButtonGroup/size": {
+    "type": "sm|lg",
+    "description": "Size variant"
+  },
+  "ButtonToolbar/role": {
+    "type": "string",
+    "description": "ARIA role"
+  },
+  "ButtonToolbar/justified": {
+    "type": "boolean",
+    "description": "Justified layout"
+  },
+  "ButtonToolbar/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Card/bg-variant": {
+    "type": "string",
+    "description": "Background variant"
+  },
+  "Card/text-variant": {
+    "type": "string",
+    "description": "Text variant"
+  },
+  "Card/border-variant": {
+    "type": "string",
+    "description": "Border variant"
+  },
+  "Card/no-body": {
+    "type": "boolean",
+    "description": "No card body wrapper"
+  },
+  "Card/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Card/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CardBody/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CardBody/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CardFooter/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CardFooter/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CardGroup/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CardGroup/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CardHeader/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CardHeader/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CardImg/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CardImg/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CardLink/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CardLink/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CardSubTitle/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CardSubTitle/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CardText/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CardText/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CardTitle/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CardTitle/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Carousel/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Carousel/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CarouselCaption/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CarouselCaption/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CarouselControl/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CarouselControl/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CarouselIndicatorButton/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CarouselIndicatorButton/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CarouselIndicators/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CarouselIndicators/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CarouselInner/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CarouselInner/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CarouselItem/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CarouselItem/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Dropdown/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Dropdown/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "DropdownButton/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "DropdownButton/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "DropdownDivider/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "DropdownDivider/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "DropdownGroup/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "DropdownGroup/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "DropdownHeader/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "DropdownHeader/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "DropdownItem/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "DropdownItem/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "DropdownMenu/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "DropdownMenu/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Calendar/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Calendar/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Checkbox/checked": {
+    "type": "boolean",
+    "description": "Checked state"
+  },
+  "Checkbox/value": {
+    "type": "string | number | boolean",
+    "description": "Checkbox value"
+  },
+  "Checkbox/disabled": {
+    "type": "boolean",
+    "description": "Disabled state"
+  },
+  "Checkbox/required": {
+    "type": "boolean",
+    "description": "Required field"
+  },
+  "Checkbox/indeterminate": {
+    "type": "boolean",
+    "description": "Indeterminate state"
+  },
+  "Checkbox/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Checkbox/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "CheckboxGroup/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "CheckboxGroup/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Datepicker/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Datepicker/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Feedback/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Feedback/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "FeedbackMessages/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "FeedbackMessages/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "FormControl/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "FormControl/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "FormGroup/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "FormGroup/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "FormLabel/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "FormLabel/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Input/type": {
+    "type": "string",
+    "description": "Input type"
+  },
+  "Input/value": {
+    "type": "string | number",
+    "description": "Input value"
+  },
+  "Input/placeholder": {
+    "type": "string",
+    "description": "Placeholder text"
+  },
+  "Input/disabled": {
+    "type": "boolean",
+    "description": "Disabled state"
+  },
+  "Input/readonly": {
+    "type": "boolean",
+    "description": "Readonly state"
+  },
+  "Input/required": {
+    "type": "boolean",
+    "description": "Required field"
+  },
+  "Input/is-valid": {
+    "type": "boolean",
+    "description": "Valid state"
+  },
+  "Input/is-invalid": {
+    "type": "boolean",
+    "description": "Invalid state"
+  },
+  "Input/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Input/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "InputGroup/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "InputGroup/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "InputGroupText/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "InputGroupText/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Multiselect/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Multiselect/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Radio/checked": {
+    "type": "boolean",
+    "description": "Checked state"
+  },
+  "Radio/value": {
+    "type": "string | number | boolean",
+    "description": "Radio value"
+  },
+  "Radio/name": {
+    "type": "string",
+    "description": "Radio group name"
+  },
+  "Radio/disabled": {
+    "type": "boolean",
+    "description": "Disabled state"
+  },
+  "Radio/required": {
+    "type": "boolean",
+    "description": "Required field"
+  },
+  "Radio/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Radio/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "RadioGroup/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "RadioGroup/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Range/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Range/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Rating/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Rating/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Select/options": {
+    "type": "array",
+    "description": "Select options"
+  },
+  "Select/value": {
+    "type": "string | number | array",
+    "description": "Selected value(s)"
+  },
+  "Select/multiple": {
+    "type": "boolean",
+    "description": "Multiple selection"
+  },
+  "Select/disabled": {
+    "type": "boolean",
+    "description": "Disabled state"
+  },
+  "Select/required": {
+    "type": "boolean",
+    "description": "Required field"
+  },
+  "Select/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Select/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "SpinButton/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "SpinButton/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Tags/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Tags/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Textarea/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Textarea/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Timepicker/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Timepicker/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "TypeHead/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "TypeHead/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Progress/value": {
+    "type": "number",
+    "description": "Current progress value (0-100)"
+  },
+  "Progress/min": {
+    "type": "number",
+    "description": "Minimum value"
+  },
+  "Progress/max": {
+    "type": "number",
+    "description": "Maximum value"
+  },
+  "Progress/show-value": {
+    "type": "boolean",
+    "description": "Show progress value as text"
+  },
+  "Progress/striped": {
+    "type": "boolean",
+    "description": "Apply striped styling"
+  },
+  "Progress/animated": {
+    "type": "boolean",
+    "description": "Animate striped progress bar"
+  },
+  "Progress/bar-tag": {
+    "type": "string",
+    "description": "HTML tag for progress bar container"
+  },
+  "Progress/height": {
+    "type": "string | number",
+    "description": "Height of progress container"
+  },
+  "Progress/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Progress/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ProgressBar/value": {
+    "type": "number",
+    "description": "Current progress value (0-100)"
+  },
+  "ProgressBar/min": {
+    "type": "number",
+    "description": "Minimum value"
+  },
+  "ProgressBar/max": {
+    "type": "number",
+    "description": "Maximum value"
+  },
+  "ProgressBar/show-value": {
+    "type": "boolean",
+    "description": "Show progress value as text"
+  },
+  "ProgressBar/striped": {
+    "type": "boolean",
+    "description": "Apply striped styling"
+  },
+  "ProgressBar/animated": {
+    "type": "boolean",
+    "description": "Animate striped progress bar"
+  },
+  "ProgressBar/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ProgressBar/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Spinner/grow": {
+    "type": "boolean",
+    "description": "Use grow animation instead of border"
+  },
+  "Spinner/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Spinner/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Spinner/size": {
+    "type": "sm|lg",
+    "description": "Size variant"
+  },
+  "Col/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Col/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Column/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Column/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Container/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Container/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Flex/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Flex/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "FlexItem/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "FlexItem/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Layout/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Layout/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Row/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Row/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ListGroup/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ListGroup/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ListGroupItem/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ListGroupItem/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Modal/show": {
+    "type": "boolean",
+    "description": "Show/hide modal"
+  },
+  "Modal/backdrop": {
+    "type": "boolean | string",
+    "description": "Backdrop behavior"
+  },
+  "Modal/keyboard": {
+    "type": "boolean",
+    "description": "Close on escape key"
+  },
+  "Modal/focus": {
+    "type": "boolean",
+    "description": "Focus management"
+  },
+  "Modal/size": {
+    "type": "sm|lg|xl",
+    "description": "Modal size"
+  },
+  "Modal/centered": {
+    "type": "boolean",
+    "description": "Center modal vertically"
+  },
+  "Modal/scrollable": {
+    "type": "boolean",
+    "description": "Scrollable modal body"
+  },
+  "Modal/fullscreen": {
+    "type": "boolean | string",
+    "description": "Fullscreen modal"
+  },
+  "Modal/no-fade": {
+    "type": "boolean",
+    "description": "Disable fade animation"
+  },
+  "Modal/no-close-on-backdrop": {
+    "type": "boolean",
+    "description": "Prevent close on backdrop click"
+  },
+  "Modal/no-close-on-esc": {
+    "type": "boolean",
+    "description": "Prevent close on escape"
+  },
+  "Modal/no-enforce-focus": {
+    "type": "boolean",
+    "description": "Disable focus enforcement"
+  },
+  "Modal/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Modal/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ModalBody/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ModalBody/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ModalDialog/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ModalDialog/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ModalFooter/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ModalFooter/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ModalHeader/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ModalHeader/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ModalTitle/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ModalTitle/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "NativeCollapse/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "NativeCollapse/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "NativeDialog/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "NativeDialog/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "NativeProgress/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "NativeProgress/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Link/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Link/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Menu/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Menu/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Nav/pills": {
+    "type": "boolean",
+    "description": "Pills style"
+  },
+  "Nav/tabs": {
+    "type": "boolean",
+    "description": "Tabs style"
+  },
+  "Nav/vertical": {
+    "type": "boolean",
+    "description": "Vertical layout"
+  },
+  "Nav/justified": {
+    "type": "boolean",
+    "description": "Justified layout"
+  },
+  "Nav/fill": {
+    "type": "boolean",
+    "description": "Fill available space"
+  },
+  "Nav/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Nav/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "NavItem/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "NavItem/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "NavItemDropdown/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "NavItemDropdown/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "NavLink/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "NavLink/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Navbar/expand": {
+    "type": "sm|md|lg|xl|xxl",
+    "description": "Responsive breakpoint"
+  },
+  "Navbar/fixed": {
+    "type": "top|bottom",
+    "description": "Fixed position"
+  },
+  "Navbar/sticky": {
+    "type": "top|bottom",
+    "description": "Sticky position"
+  },
+  "Navbar/bg-variant": {
+    "type": "string",
+    "description": "Background variant"
+  },
+  "Navbar/text-variant": {
+    "type": "string",
+    "description": "Text variant"
+  },
+  "Navbar/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Navbar/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "NavbarBrand/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "NavbarBrand/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "NavbarNav/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "NavbarNav/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "NavbarToggler/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "NavbarToggler/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "PageItem/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "PageItem/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "PageLink/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "PageLink/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Pagination/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Pagination/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "PanelMenu/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "PanelMenu/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Popover/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Popover/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Toast/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Toast/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ToastBody/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ToastBody/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "ToastContainer/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "ToastContainer/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Tooltip/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Tooltip/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Offcanvas/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Offcanvas/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "OffcanvasBody/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "OffcanvasBody/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "OffcanvasHeader/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "OffcanvasHeader/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "OffcanvasTitle/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "OffcanvasTitle/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "PageAside/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "PageAside/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "PageContainer/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "PageContainer/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "PageFooter/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "PageFooter/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "PageHeader/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "PageHeader/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "PageMain/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "PageMain/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Tab/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Tab/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "TabContent/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "TabContent/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Tabs/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Tabs/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "DataTable/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "DataTable/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "TBody/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "TBody/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "TFoot/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "TFoot/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "THead/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "THead/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Table/striped": {
+    "type": "boolean",
+    "description": "Striped rows"
+  },
+  "Table/bordered": {
+    "type": "boolean",
+    "description": "Bordered table"
+  },
+  "Table/borderless": {
+    "type": "boolean",
+    "description": "Borderless table"
+  },
+  "Table/hover": {
+    "type": "boolean",
+    "description": "Hover effect"
+  },
+  "Table/small": {
+    "type": "boolean",
+    "description": "Compact table"
+  },
+  "Table/responsive": {
+    "type": "boolean | string",
+    "description": "Responsive table"
+  },
+  "Table/caption-top": {
+    "type": "boolean",
+    "description": "Caption at top"
+  },
+  "Table/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Table/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Td/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Td/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Th/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Th/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Tr/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Tr/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Aspect/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Aspect/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Badge/pill": {
+    "type": "boolean",
+    "description": "Pill shaped badge"
+  },
+  "Badge/text-indicator": {
+    "type": "boolean",
+    "description": "Text indicator style"
+  },
+  "Badge/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Badge/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Chart/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Chart/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Figure/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Figure/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Icon/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Icon/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Placeholder/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Placeholder/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  },
+  "Vr/tag": {
+    "type": "string",
+    "description": "HTML tag to use for the component"
+  },
+  "Vr/variant": {
+    "type": "primary|secondary|success|danger|warning|info|light|dark",
+    "description": "Color variant"
+  }
+}

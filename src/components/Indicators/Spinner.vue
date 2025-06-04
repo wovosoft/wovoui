@@ -1,9 +1,17 @@
 <script lang="ts" setup>
-import type {SpinnerProps} from "@/index";
+import type {SpinnerProps, SpinnerSlots} from './types';
 
-withDefaults(defineProps<SpinnerProps>(), {
+const props = withDefaults(defineProps<SpinnerProps>(), {
     tag: 'div'
 });
+
+// Define component options for better IDE support
+defineOptions({
+  name: 'Spinner',
+  inheritAttrs: false
+});
+
+defineSlots<SpinnerSlots>();
 </script>
 
 <template>

@@ -1,7 +1,8 @@
 <script lang='ts' setup>
-import {ProgressBar, ProgressProps} from '@/components';
+import {ProgressBar} from '@/components';
+import type {ProgressProps, ProgressSlots} from './types';
 
-withDefaults(defineProps<ProgressProps>(), {
+const props = withDefaults(defineProps<ProgressProps>(), {
     tag: 'div',
     barTag: 'div',
     value: 0,
@@ -9,6 +10,14 @@ withDefaults(defineProps<ProgressProps>(), {
     max: 100,
     showValue: true
 });
+
+// Define component options for better IDE support
+defineOptions({
+  name: 'Progress',
+  inheritAttrs: false
+});
+
+defineSlots<ProgressSlots>();
 </script>
 
 <template>

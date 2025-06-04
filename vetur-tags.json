@@ -1,0 +1,1000 @@
+{
+  "Accordion": {
+    "description": "Accordion component for collapsible content.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "AccordionBody": {
+    "description": "Accordion body component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "AccordionHeader": {
+    "description": "Accordion header component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "AccordionItem": {
+    "description": "Accordion item component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Collapse": {
+    "description": "Collapse component for show/hide functionality.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Alert": {
+    "description": "Alert component for displaying contextual feedback messages.",
+    "attributes": [
+      "dismissible",
+      "show",
+      "fade",
+      "tag",
+      "variant"
+    ]
+  },
+  "AlertHeading": {
+    "description": "Alert heading component for alert titles.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "AlertLink": {
+    "description": "Alert link component with proper styling.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Breadcrumb": {
+    "description": "Breadcrumb component for navigation hierarchy.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "BreadcrumbItem": {
+    "description": "Breadcrumb item component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Button": {
+    "description": "Button component with various styles and states.",
+    "attributes": [
+      "href",
+      "type",
+      "outline",
+      "block",
+      "pill",
+      "squared",
+      "disabled",
+      "pressed",
+      "no-wrap",
+      "link",
+      "active",
+      "active-class",
+      "manage-active-state",
+      "no-style",
+      "content",
+      "tag",
+      "variant",
+      "size"
+    ]
+  },
+  "ButtonClose": {
+    "description": "Close button component typically used in modals and alerts.",
+    "attributes": [
+      "white",
+      "aria-label",
+      "disabled",
+      "tag"
+    ]
+  },
+  "ButtonGroup": {
+    "description": "Button group component for grouping related buttons.",
+    "attributes": [
+      "aria-label",
+      "vertical",
+      "justified",
+      "outline",
+      "role",
+      "tag",
+      "variant",
+      "size"
+    ]
+  },
+  "ButtonToolbar": {
+    "description": "Button toolbar component for organizing button groups.",
+    "attributes": [
+      "role",
+      "justified",
+      "tag"
+    ]
+  },
+  "Card": {
+    "description": "Card component for content containers.",
+    "attributes": [
+      "bg-variant",
+      "text-variant",
+      "border-variant",
+      "no-body",
+      "tag",
+      "variant"
+    ]
+  },
+  "CardBody": {
+    "description": "Card body component for main card content.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CardFooter": {
+    "description": "Card footer component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CardGroup": {
+    "description": "Card group component for organizing cards.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CardHeader": {
+    "description": "Card header component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CardImg": {
+    "description": "Card image component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CardLink": {
+    "description": "Card link component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CardSubTitle": {
+    "description": "Card subtitle component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CardText": {
+    "description": "Card text component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CardTitle": {
+    "description": "Card title component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Carousel": {
+    "description": "Carousel component for image/content sliders.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CarouselCaption": {
+    "description": "Carousel caption component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CarouselControl": {
+    "description": "Carousel control button component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CarouselIndicatorButton": {
+    "description": "Carousel indicator button component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CarouselIndicators": {
+    "description": "Carousel indicators component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CarouselInner": {
+    "description": "Carousel inner wrapper component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "CarouselItem": {
+    "description": "Carousel item component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Dropdown": {
+    "description": "Dropdown component for contextual menus.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "DropdownButton": {
+    "description": "Dropdown button component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "DropdownDivider": {
+    "description": "Dropdown divider component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "DropdownGroup": {
+    "description": "DropdownGroup component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "DropdownHeader": {
+    "description": "Dropdown header component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "DropdownItem": {
+    "description": "Dropdown item component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "DropdownMenu": {
+    "description": "Dropdown menu component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Calendar": {
+    "description": "Calendar component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Checkbox": {
+    "description": "Checkbox component for boolean selections.",
+    "attributes": [
+      "checked",
+      "value",
+      "disabled",
+      "required",
+      "indeterminate",
+      "tag",
+      "variant"
+    ]
+  },
+  "CheckboxGroup": {
+    "description": "CheckboxGroup component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Datepicker": {
+    "description": "Datepicker component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Feedback": {
+    "description": "Feedback component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "FeedbackMessages": {
+    "description": "FeedbackMessages component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "FormControl": {
+    "description": "Form control wrapper component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "FormGroup": {
+    "description": "Form group component for organizing form elements.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "FormLabel": {
+    "description": "Form label component for input labels.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Input": {
+    "description": "Input component for text input fields.",
+    "attributes": [
+      "type",
+      "value",
+      "placeholder",
+      "disabled",
+      "readonly",
+      "required",
+      "is-valid",
+      "is-invalid",
+      "tag",
+      "variant"
+    ]
+  },
+  "InputGroup": {
+    "description": "InputGroup component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "InputGroupText": {
+    "description": "InputGroupText component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Multiselect": {
+    "description": "Multiselect component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Radio": {
+    "description": "Radio button component for single selections.",
+    "attributes": [
+      "checked",
+      "value",
+      "name",
+      "disabled",
+      "required",
+      "tag",
+      "variant"
+    ]
+  },
+  "RadioGroup": {
+    "description": "RadioGroup component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Range": {
+    "description": "Range component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Rating": {
+    "description": "Rating component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Select": {
+    "description": "Select component for dropdown selections.",
+    "attributes": [
+      "options",
+      "value",
+      "multiple",
+      "disabled",
+      "required",
+      "tag",
+      "variant"
+    ]
+  },
+  "SpinButton": {
+    "description": "SpinButton component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Tags": {
+    "description": "Tags component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Textarea": {
+    "description": "Textarea component for multi-line text input.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Timepicker": {
+    "description": "Timepicker component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "TypeHead": {
+    "description": "TypeHead component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Progress": {
+    "description": "Progress component for displaying progress bars with customizable styling and behavior.",
+    "attributes": [
+      "value",
+      "min",
+      "max",
+      "show-value",
+      "striped",
+      "animated",
+      "bar-tag",
+      "height",
+      "tag",
+      "variant"
+    ]
+  },
+  "ProgressBar": {
+    "description": "ProgressBar component for displaying individual progress bar elements.",
+    "attributes": [
+      "value",
+      "min",
+      "max",
+      "show-value",
+      "striped",
+      "animated",
+      "tag",
+      "variant"
+    ]
+  },
+  "Spinner": {
+    "description": "Spinner component for displaying loading indicators with various styles and sizes.",
+    "attributes": [
+      "grow",
+      "tag",
+      "variant",
+      "size"
+    ]
+  },
+  "Col": {
+    "description": "Column component for grid layouts.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Column": {
+    "description": "Column component alias.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Container": {
+    "description": "Container component for responsive layouts.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Flex": {
+    "description": "Flex component for flexbox layouts.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "FlexItem": {
+    "description": "Flex item component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Layout": {
+    "description": "Layout component for page structure.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Row": {
+    "description": "Row component for grid layouts.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "ListGroup": {
+    "description": "List group component for lists of content.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "ListGroupItem": {
+    "description": "List group item component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Modal": {
+    "description": "Modal dialog component for displaying content in an overlay.",
+    "attributes": [
+      "show",
+      "backdrop",
+      "keyboard",
+      "focus",
+      "size",
+      "centered",
+      "scrollable",
+      "fullscreen",
+      "no-fade",
+      "no-close-on-backdrop",
+      "no-close-on-esc",
+      "no-enforce-focus",
+      "tag",
+      "variant"
+    ]
+  },
+  "ModalBody": {
+    "description": "Modal body component for main modal content.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "ModalDialog": {
+    "description": "Modal dialog wrapper component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "ModalFooter": {
+    "description": "Modal footer component for action buttons.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "ModalHeader": {
+    "description": "Modal header component with title and close button.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "ModalTitle": {
+    "description": "Modal title component for modal headers.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "NativeCollapse": {
+    "description": "Native HTML collapse component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "NativeDialog": {
+    "description": "Native HTML dialog component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "NativeProgress": {
+    "description": "Native HTML progress component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Link": {
+    "description": "Link component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Menu": {
+    "description": "Menu component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Nav": {
+    "description": "Navigation component for creating navigation menus.",
+    "attributes": [
+      "pills",
+      "tabs",
+      "vertical",
+      "justified",
+      "fill",
+      "tag",
+      "variant"
+    ]
+  },
+  "NavItem": {
+    "description": "Navigation item component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "NavItemDropdown": {
+    "description": "NavItemDropdown component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "NavLink": {
+    "description": "Navigation link component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Navbar": {
+    "description": "Navbar component for site navigation.",
+    "attributes": [
+      "expand",
+      "fixed",
+      "sticky",
+      "bg-variant",
+      "text-variant",
+      "tag",
+      "variant"
+    ]
+  },
+  "NavbarBrand": {
+    "description": "Navbar brand component for logos and titles.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "NavbarNav": {
+    "description": "Navbar navigation component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "NavbarToggler": {
+    "description": "Navbar toggle button for mobile navigation.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "PageItem": {
+    "description": "Pagination item component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "PageLink": {
+    "description": "Pagination link component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Pagination": {
+    "description": "Pagination component for page navigation.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "PanelMenu": {
+    "description": "PanelMenu component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Popover": {
+    "description": "Popover component for rich contextual overlays.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Toast": {
+    "description": "Toast component for temporary notifications.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "ToastBody": {
+    "description": "Toast body component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "ToastContainer": {
+    "description": "Toast container component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Tooltip": {
+    "description": "Tooltip component for contextual information.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Offcanvas": {
+    "description": "Offcanvas component for slide-out panels.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "OffcanvasBody": {
+    "description": "Offcanvas body component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "OffcanvasHeader": {
+    "description": "Offcanvas header component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "OffcanvasTitle": {
+    "description": "Offcanvas title component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "PageAside": {
+    "description": "PageAside component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "PageContainer": {
+    "description": "PageContainer component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "PageFooter": {
+    "description": "PageFooter component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "PageHeader": {
+    "description": "PageHeader component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "PageMain": {
+    "description": "PageMain component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Tab": {
+    "description": "Tab component for individual tabs.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "TabContent": {
+    "description": "Tab content component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Tabs": {
+    "description": "Tabs component for tabbed content.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "DataTable": {
+    "description": "Advanced data table component with sorting and filtering.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "TBody": {
+    "description": "Table body component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "TFoot": {
+    "description": "Table footer component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "THead": {
+    "description": "Table head component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Table": {
+    "description": "Table component for displaying tabular data.",
+    "attributes": [
+      "striped",
+      "bordered",
+      "borderless",
+      "hover",
+      "small",
+      "responsive",
+      "caption-top",
+      "tag",
+      "variant"
+    ]
+  },
+  "Td": {
+    "description": "Table data cell component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Th": {
+    "description": "Table header cell component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Tr": {
+    "description": "Table row component.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Aspect": {
+    "description": "Aspect ratio component for responsive media.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Badge": {
+    "description": "Badge component for labels and indicators.",
+    "attributes": [
+      "pill",
+      "text-indicator",
+      "tag",
+      "variant"
+    ]
+  },
+  "Chart": {
+    "description": "Chart component for data visualization.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Figure": {
+    "description": "Figure component for images with captions.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Icon": {
+    "description": "Icon component for displaying icons.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Placeholder": {
+    "description": "Placeholder component for loading states.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  },
+  "Vr": {
+    "description": "Vertical rule component for visual separation.",
+    "attributes": [
+      "tag",
+      "variant"
+    ]
+  }
+}
