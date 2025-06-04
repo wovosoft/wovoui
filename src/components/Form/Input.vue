@@ -7,6 +7,7 @@ withDefaults(defineProps<InputProps>(), {
     type: 'text',
     state: null
 });
+
 const [model, modifiers] = defineModel<string | number | null>({
     set(value) {
         if (modifiers.trim) {

@@ -6,7 +6,8 @@ export {default as ButtonClose} from "./ButtonClose.vue";
 export {default as ButtonGroup} from "./ButtonGroup.vue";
 export {default as ButtonToolbar} from "./ButtonToolbar.vue";
 
-export interface ButtonProps extends HasTag {
+export interface ButtonProps {
+    tag?: keyof HTMLElementTagNameMap;
     href?: AnchorHTMLAttributes['href'];
     variant?: ColorVariants;
     size?: ButtonSizes;
