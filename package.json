@@ -41,7 +41,6 @@
     "@popperjs/core": "^2.11.8",
     "@vueuse/components": "^11.3.0",
     "@vueuse/core": "^11.3.0",
-    "@wovosoft/wovoui": "^1.2.23",
     "@wovosoft/wovoui-icons": "^1.1.11",
     "axios": "^1.9.0",
     "lodash": "^4.17.21",
