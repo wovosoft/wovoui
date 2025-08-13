@@ -1,6 +1,6 @@
 import { DefineComponent, VNode } from 'vue';
 import { CardHeaderPropsInterface } from './index';
-import type { EmitFn } from '@/index';
+import type { EmitFn } from './../../index';
 
 export interface CardHeaderSlots {
     default(): VNode[];

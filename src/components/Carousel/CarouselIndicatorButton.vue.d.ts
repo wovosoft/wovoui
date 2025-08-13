@@ -1,5 +1,5 @@
 import { DefineComponent } from 'vue';
-import type { EmitFn } from '@/index';
+import type { EmitFn } from './../../index';
 
 export interface CarouselIndicatorButtonProps {
     active?: boolean;

@@ -1,6 +1,6 @@
 import { DefineComponent, VNode } from 'vue';
 import type { AccordionProps } from './index';
-import type { EmitFn } from '@/index';
+import type { EmitFn } from './../../index';
 
 export interface AccordionSlots {
     default(): VNode[];

@@ -1,5 +1,5 @@
 import { DefineComponent, VNode } from 'vue';
-import type { EmitFn } from '@/index';
+import type { EmitFn } from './../../index';
 
 export interface AccordionItemProps {
     header?: string;

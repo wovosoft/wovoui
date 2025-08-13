@@ -1,6 +1,6 @@
 import { DefineComponent, VNode } from 'vue';
 import type { DropdownButtonPropsInterface } from './index';
-import type { EmitFn } from '@/index';
+import type { EmitFn } from './../../index';
 
 export interface DropdownButtonSlots {
     default(): VNode[];

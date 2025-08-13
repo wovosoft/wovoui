@@ -1,6 +1,6 @@
 import { DefineComponent, VNode } from 'vue';
 import type { CarouselItemProps } from './index';
-import type { EmitFn } from '@/index';
+import type { EmitFn } from './../../index';
 
 export interface CarouselItemSlots {
     default(): VNode[];

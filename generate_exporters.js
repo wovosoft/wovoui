@@ -64,7 +64,6 @@ function generateJsonExports() {
         }
         content[first_key] = {
             "import": `./dist/${key}.js`,
-            "require": `./dist/${key}.cjs`,
             "types": `./dist/types/${key}.d.ts`,
         };
     });

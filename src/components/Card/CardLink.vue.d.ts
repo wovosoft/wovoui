@@ -1,6 +1,6 @@
 import { DefineComponent, VNode } from 'vue';
 import { CardLinkPropsInterface } from './index';
-import type { EmitFn } from '@/index';
+import type { EmitFn } from './../../index';
 
 export interface CardLinkSlots {
     default(): VNode[];

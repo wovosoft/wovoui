@@ -1,6 +1,6 @@
 import { DefineComponent, VNode } from 'vue';
-import type { HasTag } from '@/components';
-import type { EmitFn } from '@/index';
+import type { HasTag } from './../../components';
+import type { EmitFn } from './../../index';
 
 export interface CarouselInnerSlots {
     default(): VNode[];

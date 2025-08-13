@@ -1,6 +1,6 @@
 import { DefineComponent, VNode } from 'vue';
 import { CardFooterPropsInterface } from './index';
-import type { EmitFn } from '@/index';
+import type { EmitFn } from './../../index';
 
 export interface CardFooterSlots {
     default(): VNode[];

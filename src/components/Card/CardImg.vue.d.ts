@@ -1,6 +1,6 @@
 import { DefineComponent } from 'vue';
 import { CardImgPropsInterface } from './index';
-import type { EmitFn } from '@/index';
+import type { EmitFn } from './../../index';
 
 export interface CardImgSlots {}
 

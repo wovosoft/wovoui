@@ -3,7 +3,6 @@
  */
 
 import type {HasColorVariant, HasTag} from '@/components';
-import type {ButtonSizes, ColorVariants} from '@/index';
 
 /**
  * Props interface for the Tab component.
