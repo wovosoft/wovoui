@@ -1,6 +1,6 @@
 {
     "name": "@wovosoft/wovoui",
-    "version": "1.2.27",
+    "version": "1.2.28",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -17,7 +17,8 @@
         "*.css"
     ],
     "files": [
-        "dist"
+        "dist",
+        "src"
     ],
     "types": "./dist/index.d.ts",
     "main": "./dist/index.js",
