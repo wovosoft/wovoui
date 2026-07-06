@@ -22,5 +22,5 @@ withDefaults(defineProps<CheckboxGroupProps>(), {
     options: () => [],
 });
 
-const model = defineModel<any[]>({default: []});
+const model = defineModel<any[]>({default: () => []});
 </script>

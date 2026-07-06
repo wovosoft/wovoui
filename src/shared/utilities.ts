@@ -1,4 +1,4 @@
-import startCase from "lodash/startCase";
+import { startCase } from "es-toolkit";
 import {PropType} from "vue";
 import {BorderRadius, ColorVariants, Displays} from "@/index";
 
@@ -89,6 +89,11 @@ export const toggleCollapse = (container: HTMLElement, shown: boolean, dim: 'hei
 export const isObject = (obj: any): boolean => typeof obj === "object" && !Array.isArray(obj);
 export const isArray = (arr: any): boolean => Array.isArray(arr);
 export const title = (str: string): string => startCase(toLower(str));
+
+export function getDottedValue(obj: any, path: string): any {
+    if (!path) return undefined;
+    return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+}
 
 export function orderBy(items: Record<string, any>[], key: string) {
     return items.sort((a: Record<string, any>, b: Record<string, any>) => a[key].localeCompare(b[key]));

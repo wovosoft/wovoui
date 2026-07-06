@@ -92,7 +92,7 @@ Because {{icon.replace('_','')}}'s type is 'number', underscore (_) symbol is us
 <script setup>
 import {computed, ref} from "vue"; 
 import * as icons_list from "@wovosoft/wovoui-icons";
-import kebabCase from "lodash/kebabCase";
+import { kebabCase } from "es-toolkit";
 const icons = ref({});
 Object.entries(icons_list).map(i=>i[0]).forEach(i=>icons.value[i]=false);
 const filter=ref("");

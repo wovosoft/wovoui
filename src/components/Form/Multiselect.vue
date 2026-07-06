@@ -63,7 +63,7 @@ const props = withDefaults(defineProps<MultiselectProps>(), {
     searchPlaceholder: 'Search...',
 });
 
-const model = defineModel<any[]>({default: []});
+const model = defineModel<any[]>({default: () => []});
 
 const query = ref<string>();
 const items = ref<any[]>([]);

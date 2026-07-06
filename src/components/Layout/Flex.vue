@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import {computed} from "vue";
-import type {FlexProps, ItemAlignment, JustifyAlignment, ResponsiveSizes} from "@/index";
-import {join} from "lodash";
+import type { FlexProps, ItemAlignment, JustifyAlignment, ResponsiveSizes } from "@/index";
+import { computed } from "vue";
 
 const props = withDefaults(defineProps<FlexProps>(), {
     tag: 'div',
@@ -21,12 +20,12 @@ function getFlexClasses(type: 'flex' | 'inline') {
     const flexValues = type === 'flex' ? props.flex : props.inline;
 
     if (Array.isArray(flexValues)) {
-        return flexValues.map((screen: ResponsiveSizes) => join(['d', screen, flexType, 'flex'], '-'))
+        return flexValues.map((screen: ResponsiveSizes) => ['d', screen, flexType, 'flex'].join('-'))
     }
 
     if (typeof props[type] === 'string' && props[type]) {
         return [
-            join(['d', flexType, 'flex'], '-')
+            ['d', flexType, 'flex'].join('-')
         ];
     }
 }

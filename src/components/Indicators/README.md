@@ -107,4 +107,4 @@ The components are designed to work with:
 - `vue-tsc` for automatic type generation
 - Vite for bundling
 - TypeScript strict mode
-- ESM and CommonJS exports
+- ESM exports

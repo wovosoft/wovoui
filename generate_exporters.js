@@ -1,6 +1,6 @@
-import {readFileSync, writeFileSync} from "fs";
-import {resolve, dirname} from "path";
-import {fileURLToPath} from 'url';
+import { readFileSync, writeFileSync } from "fs";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -51,7 +51,8 @@ export default {\n${content}}`
 
 function generateJsonExports() {
     let content = {
-        "./dist/style.css": "./dist/style.css",
+        "./dist/style.css": "./dist/wovoui.css",
+        "./dist/wovoui.css": "./dist/wovoui.css",
         "./types": "./dist/types/index.d.ts"
     };
 

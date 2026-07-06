@@ -50,7 +50,7 @@ const props = withDefaults(defineProps<TagsProps>(), {
 
 const emit = defineEmits(['update:modelValue']);
 
-const model = defineModel({type: Array, default: []});
+const model = defineModel<any[]>({type: Array, default: () => []});
 
 const inputText = ref()
 

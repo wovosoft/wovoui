@@ -18,10 +18,10 @@
 </template>
 
 <script lang="ts" setup>
-import {onMounted, ref, useSlots} from "vue";
-import {MaybeComputedElementRef, MaybeElement, useElementSize} from "@vueuse/core";
-import {Collapse} from "@/components/Accordion";
-import {Flex, FlexItem} from "@/components";
+import { Flex, FlexItem } from "@/components";
+import { Collapse } from "@/components/Accordion";
+import { MaybeComputedElementRef, MaybeElement, useElementSize } from "@vueuse/core";
+import { ref } from "vue";
 
 const appBar = ref<MaybeComputedElementRef<MaybeElement> | null>(null);
 

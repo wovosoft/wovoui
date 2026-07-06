@@ -58,18 +58,22 @@
 </template>
 
 <script lang="ts" setup generic="ItemType extends DatatableItemType, FieldType extends DatatableFieldType">
-import {computed, ComputedRef, ref} from "vue";
 import {
-    Table, THead, TFoot, TBody,
+    DatatableFieldType,
     DatatableHeadType,
-    DatatableProps, DatatableFieldType, DatatableItemType
-} from "@/components/Table"
+    DatatableItemType,
+    DatatableProps,
+    Table,
+    TBody,
+    TFoot,
+    THead
+} from "@/components/Table";
+import { computed, ComputedRef, ref } from "vue";
 
-import {Flex, FlexItem,} from "@/components/Layout"
-import {isObject, orderBy, title} from "@/shared";
-import {SortDown, SortUp} from "@wovosoft/wovoui-icons";
 import RenderVNode from "@/components/Internal/RenderVNode.vue";
-import getDottedValue from "lodash/get";
+import { Flex, FlexItem, } from "@/components/Layout";
+import { getDottedValue, isObject, orderBy, title } from "@/shared";
+import { SortDown, SortUp } from "@wovosoft/wovoui-icons";
 
 
 const props = withDefaults(defineProps<DatatableProps<ItemType, FieldType>>(), {

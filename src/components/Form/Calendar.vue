@@ -75,7 +75,7 @@
                 </template>
                 <td class="text-center border" v-for="d in days">
                     <Button size="sm"
-                            :tabindex="week_index+8"
+                            :tabindex="Number(week_index)+8"
                             :class="{'btn-dark text-white':isToday(d)}"
                             :active-class="activeClass"
                             :active="isSameDay(theDate.format('YYYY-MM')+'-'+d)"
@@ -152,8 +152,8 @@ export default defineComponent({
             // });
 
 
-        const theWeeks = computed(() => {
-                const weeks = <any>[];
+        const theWeeks = computed<number[][]>(() => {
+                const weeks: number[][] = [];
                 let weekday = theDate.value.startOf('month').day();
                 for (let date = 1; date <= theDate.value.daysInMonth(); date++) {
                     if (weekday === 0 || weeks.length === 0) {
@@ -162,7 +162,7 @@ export default defineComponent({
                     weeks[weeks.length - 1].push(date);
                     weekday = (weekday + 1) % 7;
                 }
-                return weeks.filter((w: any[]) => !!w.length).map((w: any) => w);
+                return weeks.filter((w: number[]) => !!w.length).map((w: number[]) => w);
             });
 
         return {
@@ -181,7 +181,7 @@ export default defineComponent({
                 theDate.value = dayjs();
                 context.emit('update:modelValue', theDate.value.format(props.format));
             },
-            selectDate(day: UnitType) {
+            selectDate(day: number) {
                 theDate.value = dayjs(theDate.value).set('date', Number(day));
                 //only when clicked, emit modelValue
                 context.emit('update:modelValue', theDate.value.format(props.format));

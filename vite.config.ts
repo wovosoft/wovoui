@@ -2,9 +2,8 @@
 
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
-// vite.config.js
 import {resolve} from 'path'
-
+import entry_points from './entry_points'
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
@@ -16,23 +15,44 @@ export default defineConfig({
         target: 'esnext',
         cssCodeSplit: false,
         lib: {
-            // Could also be a dictionary or array of multiple entry points
-            // entry: entry_points,
-            entry: {
-                "index": resolve(__dirname, "src/index.ts"),
-            },
+            entry: entry_points,
             name: 'index',
-            formats: ['es', 'cjs', /*'umd', 'iife', 'system'*/],
+            formats: ['es'],
         },
-        rollupOptions: {
-            // make sure to externalize deps that shouldn't be bundled
-            // into your library
-            external: ['vue'],
+        rolldownOptions: {
+            // Make sure to externalize deps that shouldn't be bundled into the library
+            external: [
+                'vue',
+                'axios',
+                'es-toolkit',
+                '@vueuse/core',
+                '@vueuse/components',
+                '@popperjs/core',
+                '@wovosoft/wovoui-icons',
+                'bootstrap',
+                'bootstrap-icons',
+                'chart.js',
+                'dayjs',
+                'prismjs',
+                /^vue(\/.*)?$/,
+                /^axios(\/.*)?$/,
+                /^es-toolkit(\/.*)?$/,
+                /^@vueuse\/core(\/.*)?$/,
+                /^@vueuse\/components(\/.*)?$/,
+                /^@popperjs\/core(\/.*)?$/,
+                /^@wovosoft\/wovoui-icons(\/.*)?$/,
+                /^bootstrap(\/.*)?$/,
+                /^bootstrap-icons(\/.*)?$/,
+                /^chart\.js(\/.*)?$/,
+                /^dayjs(\/.*)?$/,
+                /^prismjs(\/.*)?$/,
+            ],
             output: {
-                // Provide global variables to use in the UMD build
-                // for externalized deps
+                preserveModules: true,
+                preserveModulesRoot: 'src',
                 globals: {
                     vue: 'Vue',
+                    axios: 'axios',
                 },
             },
         },
@@ -44,7 +64,6 @@ export default defineConfig({
                 replacement: resolve(__dirname, './src')
             }
         ],
-
     },
 })
 
