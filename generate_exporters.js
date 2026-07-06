@@ -53,7 +53,7 @@ function generateJsonExports() {
     let content = {
         "./dist/style.css": "./dist/wovoui.css",
         "./dist/wovoui.css": "./dist/wovoui.css",
-        "./types": "./dist/types/index.d.ts"
+        "./types": "./dist/index.d.ts"
     };
 
     Object.keys(theList).forEach((key) => {
@@ -65,7 +65,7 @@ function generateJsonExports() {
         }
         content[first_key] = {
             "import": `./dist/${key}.js`,
-            "types": `./dist/types/${key}.d.ts`,
+            "types": `./dist/${key}.d.ts`,
         };
     });
 
