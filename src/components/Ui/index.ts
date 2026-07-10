@@ -5,13 +5,11 @@ import {
     PlaceholderSizes,
     ResponsiveNumbers
 } from "@/index";
-import type {Icons} from "@wovosoft/wovoui-icons";
 
 export {default as Placeholder} from "./Placeholder.vue";
 export {default as Aspect} from "./Aspect.vue";
 export {default as Vr} from "./Vr.vue";
 export {default as Figure} from "./Figure.vue";
-export {default as Icon} from "./Icon.vue";
 export {default as Badge} from "./Badge.vue";
 
 export interface PlaceholderProps {
@@ -80,12 +78,6 @@ export interface IconProps {
      * @default i
      */
     tag?: keyof HTMLElementTagNameMap;
-
-    /**
-     * Name of the bootstrap icon
-     * @link https://icons.getbootstrap.com/
-     */
-    icon?: Icons;
 }
 
 export interface FigureProps {

@@ -1,6 +1,4 @@
 import {Component} from "vue";
-//@ts-ignore
-import {Icons} from "@wovosoft/wovoui-icons";
 import {HasTag} from "@/components";
 import {ColorVariants} from "@/index";
 
@@ -24,6 +22,6 @@ export interface AlertProps extends HasTag {
     timeoutStep?: number;
     show?: boolean;
     closeBtnWhite?: boolean;
-    icon?: Icons | Component;
+    icon?: Component;
     heading?: string;
 }

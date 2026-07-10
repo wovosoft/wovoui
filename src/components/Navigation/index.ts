@@ -1,10 +1,8 @@
 import {ClassType, DropdownPropsInterface, HasTag} from "@/components";
 import {RendererElement} from "@vue/runtime-core";
 import {type ButtonSizes, ColorVariants, ResponsiveSizes} from "@/index";
-import {AnchorHTMLAttributes} from "vue";
+import {AnchorHTMLAttributes, Component} from "vue";
 import {RouteLocationRaw, RouteRecordRaw} from "vue-router";
-//@ts-ignore
-import type {Icons} from "@wovosoft/wovoui-icons";
 
 export {default as Link} from "./Link.vue";
 export {default as Menu} from "./Menu.vue";
@@ -193,7 +191,7 @@ export interface MenuItem {
     to?: RouteRecordRaw;
     href?: string;
     children?: MenuItem[];
-    icon?: Icons;
+    icon?: Component;
     handler?: (item: MenuItem, index: number) => void;
 }
 
