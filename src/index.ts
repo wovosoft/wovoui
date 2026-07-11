@@ -88,15 +88,15 @@ export * from "./composables";
 export * from "./shared";
 export * from "./directives";
 
-//
-// declare module "vue" {
-//     // tells Vue about a custom global property/method
-//     interface ComponentCustomProperties {
-//
-//     }
-//
-//     // tells Vue about a custom component registered globally in the plugin
-//     interface GlobalComponents {
-//
-//     }
-// }
+
+declare module "vue" {
+    // tells Vue about a custom global property/method
+    interface ComponentCustomProperties {
+
+    }
+
+    // tells Vue about a custom component registered globally in the plugin
+    export interface GlobalComponents {
+
+    }
+}

@@ -10,19 +10,18 @@
       "vite/client",
       "vue"
     ],
-    "target": "ES2020",
+    "target": "esnext",
     "useDefineForClassFields": true,
-    "module": "ESNext",
+    "module": "esnext",
     "lib": [
-      "ES2020",
+      "esnext",
       "DOM",
       "DOM.Iterable"
     ],
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "strict": false,
     "allowJs": true,
     "esModuleInterop": true,
     "sourceMap": true,
@@ -32,13 +31,16 @@
     "emitDeclarationOnly": true,
     "outDir": "./dist",
     "declarationMap": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "jsx": "preserve"
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/env.d.ts"
   ],
   "exclude": [
     "docs",
@@ -48,10 +50,5 @@
     "src/demo",
     "src/App.vue",
     "dist"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
   ]
 }

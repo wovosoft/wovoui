@@ -34,8 +34,8 @@ const WrapperComponent = defineComponent({
                         "table-responsive": (props.responsive === true),
                         ["table-responsive-" + props.responsive]: (typeof props.responsive === "string" && props.responsive)
                     }
-                }, slots?.default())
-                : slots?.default();
+                }, slots.default?.())
+                : slots.default?.();
         }
     }
 })

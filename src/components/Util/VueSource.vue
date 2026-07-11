@@ -30,7 +30,7 @@ export default defineComponent({
     setup(props) {
         const exampleComponent = ref(null);
 
-        const exampleRawComponent = ref(null);
+        const exampleRawComponent = ref<string | null>(null);
         const sourceCode = ref<string>('');
 
         // Dynamically import the example component and set it to the ref

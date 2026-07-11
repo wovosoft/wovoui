@@ -10,7 +10,7 @@
             <Button @click="updateValue('decrement')"
                     :variant="buttonVariant"
                     :size="size"
-                    @mousedown.prevent="(e)=>handleMouseDown(e,'decrement')"
+                    @mousedown.prevent="(e: MouseEvent)=>handleMouseDown(e,'decrement')"
                     @mouseup.prevent="handleMouseUp"
                     aria-label="Decrement">
                 <Dash/>
@@ -30,7 +30,7 @@
             <Button @click.prevent="updateValue('increment')"
                     :variant="buttonVariant"
                     :size="size"
-                    @mousedown.prevent="(e)=>handleMouseDown(e,'increment')"
+                    @mousedown.prevent="(e: MouseEvent)=>handleMouseDown(e,'increment')"
                     @mouseup.prevent="handleMouseUp"
                     aria-label="Increment">
                 <Plus/>

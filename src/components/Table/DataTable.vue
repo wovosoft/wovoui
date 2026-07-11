@@ -7,7 +7,7 @@
                     <th
                         v-if="isVisible(th)"
                         @click="applySorting(th)"
-                        :style="{'cursor':(typeof th ==='string' || th?.['sortable'] === true) ? 'pointer' : null}"
+                        :style="{'cursor':(typeof th ==='string' || th?.['sortable'] === true) ? 'pointer' : undefined}"
                         :key="th_index">
                         <Flex>
                             <FlexItem class="flex-grow-1" :class="typeof th ==='string' ? null:th?.['thClass']">
@@ -159,7 +159,7 @@ const getLabel = (th: DatatableHeadType) => {
         if (th.hasOwnProperty('label')) {
             return th.label;
         } else if (th.hasOwnProperty('key')) {
-            return title(th.key);
+            return title(th.key as string);
         }
     } else if (typeof th === "string") {
         return title(th);

@@ -1,0 +1,5726 @@
+{
+  "framework": "vue",
+  "name": "@wovosoft/wovoui",
+  "version": "1.2.30",
+  "contributions": {
+    "html": {
+      "description-markup": "markdown",
+      "types-syntax": "typescript",
+      "tags": [
+        {
+          "name": "Accordion",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Accordion/Accordion.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "AccordionBody",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Accordion/AccordionBody.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "AccordionHeader",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'h2'"
+            },
+            {
+              "name": "toggleTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'button'"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Accordion/AccordionHeader.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "AccordionItem",
+          "description": "",
+          "attributes": [
+            {
+              "name": "header",
+              "value": {
+                "kind": "expression",
+                "type": "makeString()"
+              }
+            },
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "makeBoolean(false)"
+              }
+            },
+            {
+              "name": "bodyClass",
+              "value": {
+                "kind": "expression",
+                "type": "makeClass()"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "header"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Accordion/AccordionItem.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Alert",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "variant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'primary'"
+            },
+            {
+              "name": "timeout",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "0"
+            },
+            {
+              "name": "timeoutStep",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "1"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "heading"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Alert/Alert.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "AlertHeading",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"h4\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Alert/AlertHeading.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "AlertLink",
+          "description": "",
+          "attributes": [
+            {
+              "name": "href",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'#'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Alert/AlertLink.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Aspect",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"div\""
+            },
+            {
+              "name": "ratio",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"16x9\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Ui/Aspect.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Badge",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"span\""
+            },
+            {
+              "name": "pill",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "false"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Ui/Badge.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Breadcrumb",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'ol'"
+            },
+            {
+              "name": "items",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "[]"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Breadcrumb/Breadcrumb.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "BreadcrumbItem",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'li'"
+            },
+            {
+              "name": "activeClass",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'active'"
+            },
+            {
+              "name": "ariaCurrent",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'location'"
+            },
+            {
+              "name": "target",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'_self'"
+            },
+            {
+              "name": "href",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'#'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Breadcrumb/BreadcrumbItem.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Button",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"button\""
+            },
+            {
+              "name": "href",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSIndexedAccessType"
+              }
+            },
+            {
+              "name": "variant",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              },
+              "default": "\"secondary\""
+            },
+            {
+              "name": "size",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ButtonSizes"
+              }
+            },
+            {
+              "name": "type",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSIndexedAccessType"
+              },
+              "default": "\"button\""
+            },
+            {
+              "name": "outline",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "block",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "pill",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "squared",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "disabled",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "pressed",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "noWrap",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "link",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "activeClass",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              },
+              "default": "\"active\""
+            },
+            {
+              "name": "manageActiveState",
+              "required": false,
+              "description": "when wants to manage active state of the button",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "noStyle",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "content",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Button/Button.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ButtonClose",
+          "description": "",
+          "attributes": [
+            {
+              "name": "ariaLabel",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"Close\""
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Button/ButtonClose.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ButtonGroup",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"div\""
+            },
+            {
+              "name": "ariaLabel",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"Button Group\""
+            },
+            {
+              "name": "role",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"group\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Button/ButtonGroup.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ButtonToolbar",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"div\""
+            },
+            {
+              "name": "role",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"toolbar\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Button/ButtonToolbar.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Calendar",
+          "description": "",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "makeProp<DateType>(null, [String, Object])"
+              }
+            },
+            {
+              "name": "format",
+              "value": {
+                "kind": "expression",
+                "type": "makeString(\"YYYY-MM-DD\")"
+              }
+            },
+            {
+              "name": "weekdayType",
+              "description": "Week Days can be 'min','short','regular'(full name)",
+              "value": {
+                "kind": "expression",
+                "type": "makeString(\"short\")"
+              }
+            },
+            {
+              "name": "monthSelectorEnabled",
+              "value": {
+                "kind": "expression",
+                "type": "makeBoolean(true)"
+              }
+            },
+            {
+              "name": "activeClass",
+              "value": {
+                "kind": "expression",
+                "type": "makeString(\"active\")"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/Calendar.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Card",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "bodyTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "footerTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "headerTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "subTitleTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'h6'"
+            },
+            {
+              "name": "subTitleTextVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"muted\""
+            },
+            {
+              "name": "titleTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"h4\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "header"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "footer"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Card/Card.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CardBody",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"div\""
+            },
+            {
+              "name": "subTitleTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"h6\""
+            },
+            {
+              "name": "subTitleTextVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"muted\""
+            },
+            {
+              "name": "titleTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"h4\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "title"
+            },
+            {
+              "name": "subTitle"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Card/CardBody.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CardFooter",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"div\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Card/CardFooter.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CardGroup",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Card/CardGroup.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CardHeader",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"div\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Card/CardHeader.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CardImg",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Card/CardImg.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CardLink",
+          "description": "",
+          "attributes": [
+            {
+              "name": "href",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'#'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Card/CardLink.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CardSubTitle",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"h6\""
+            },
+            {
+              "name": "textVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"muted\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Card/CardSubTitle.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CardText",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"p\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Card/CardText.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CardTitle",
+          "description": "",
+          "attributes": [
+            {
+              "name": "content",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"\""
+            },
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"h4\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Card/CardTitle.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Carousel",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "modelValue",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "fade",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "dark",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "slide",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "name": "indicators",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "name": "controls",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "name": "timeout",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Carousel/Carousel.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CarouselCaption",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"div\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Carousel/CarouselCaption.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CarouselControl",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Carousel/CarouselControl.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CarouselIndicatorButton",
+          "description": "",
+          "attributes": [
+            {
+              "name": "active",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "ariaLabel",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "index",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Carousel/CarouselIndicatorButton.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CarouselIndicators",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Carousel/CarouselIndicators.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CarouselInner",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"div\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Carousel/CarouselInner.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CarouselItem",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "active",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "name": "activeClass",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "start",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "false"
+            },
+            {
+              "name": "end",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "false"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Carousel/CarouselItem.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Chart",
+          "description": "",
+          "attributes": [
+            {
+              "name": "type",
+              "value": {
+                "kind": "expression",
+                "type": "ChartType"
+              },
+              "default": "\"bar\""
+            },
+            {
+              "name": "data",
+              "value": {
+                "kind": "expression",
+                "type": "ChartData<ChartType, DefaultDataPoint<ChartType>>"
+              },
+              "default": "null"
+            },
+            {
+              "name": "options",
+              "value": {
+                "kind": "expression",
+                "type": "ChartOptions"
+              },
+              "default": "null"
+            },
+            {
+              "name": "height",
+              "value": {
+                "kind": "expression",
+                "type": "number | undefined"
+              }
+            },
+            {
+              "name": "width",
+              "value": {
+                "kind": "expression",
+                "type": "number | undefined"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Ui/Chart.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Checkbox",
+          "description": "",
+          "attributes": [
+            {
+              "name": "value",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "true"
+            },
+            {
+              "name": "uncheckedValue",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "false"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Form/Checkbox.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "CheckboxGroup",
+          "description": "",
+          "attributes": [
+            {
+              "name": "options",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "() => []"
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/CheckboxGroup.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Col",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Layout/Col.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Collapse",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Accordion/Collapse.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Column",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "makeTag(\"td\")"
+              }
+            },
+            {
+              "name": "field",
+              "value": {
+                "kind": "expression",
+                "type": "makeString()"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "makeString()"
+              }
+            },
+            {
+              "name": "visible",
+              "value": {
+                "kind": "expression",
+                "type": "makeBoolean(true)"
+              }
+            },
+            {
+              "name": "actions",
+              "description": "When true, it shows default CRUD Buttons",
+              "value": {
+                "kind": "expression",
+                "type": "makeBoolean(false)"
+              }
+            },
+            {
+              "name": "actionsSize",
+              "value": {
+                "kind": "expression",
+                "type": "makeSize<ButtonSizes>(\"sm\")"
+              }
+            },
+            {
+              "name": "viewVariant",
+              "value": {
+                "kind": "expression",
+                "type": "makeVariant(\"primary\")"
+              }
+            },
+            {
+              "name": "editVariant",
+              "value": {
+                "kind": "expression",
+                "type": "makeVariant(\"dark\")"
+              }
+            },
+            {
+              "name": "destroyVariant",
+              "value": {
+                "kind": "expression",
+                "type": "makeVariant(\"danger\")"
+              }
+            },
+            {
+              "name": "actionsAlignment",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              },
+              "default": "'end'"
+            },
+            {
+              "name": "thClass",
+              "description": "classes prop for th and td.",
+              "value": {
+                "kind": "expression",
+                "type": "ClassTypes"
+              },
+              "default": "null"
+            },
+            {
+              "name": "tdClass",
+              "value": {
+                "kind": "expression",
+                "type": "ClassTypes"
+              },
+              "default": "null"
+            },
+            {
+              "name": "formatter",
+              "value": {
+                "kind": "expression",
+                "type": "(item: { [key: string]: any }) => unknown"
+              },
+              "default": "null"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "actions_group_prepend"
+            },
+            {
+              "name": "actions_prepend"
+            },
+            {
+              "name": "actions_append"
+            },
+            {
+              "name": "actions_group_append"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Layout/Column.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Container",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "fluid",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "size",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveSizes"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Layout/Container.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "DataTable",
+          "description": "",
+          "attributes": [
+            {
+              "name": "captionTop",
+              "required": false,
+              "description": "Places table caption at top",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "caption",
+              "required": false,
+              "description": "Sets table caption",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "small",
+              "required": false,
+              "description": "Makes table shrink, smaller",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "borderless",
+              "required": false,
+              "description": "Removes table borders",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "borderVariant",
+              "required": false,
+              "description": "Sets table border variant",
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "bordered",
+              "required": false,
+              "description": "Makes table bordered",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "hover",
+              "required": false,
+              "description": "Makes table hoverable",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "striped",
+              "required": false,
+              "description": "Makes table stripped",
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "responsive",
+              "required": false,
+              "description": "When set to true, the table becomes responsive. Wraps in .table-responsive",
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "variant",
+              "required": false,
+              "description": "Sets table variant",
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "description": "Sets table status active",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "align",
+              "required": false,
+              "description": "Table alignment",
+              "value": {
+                "kind": "expression",
+                "type": "VerticalAlign"
+              }
+            },
+            {
+              "name": "content",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "headClass",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ClassType"
+              }
+            },
+            {
+              "name": "bodyClass",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ClassType"
+              }
+            },
+            {
+              "name": "footClass",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ClassType"
+              }
+            },
+            {
+              "name": "filter",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "fields",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "Array"
+              },
+              "default": "() => []"
+            },
+            {
+              "name": "items",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "Array"
+              },
+              "default": "() => []"
+            },
+            {
+              "name": "headVariant",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "bodyVariant",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "footVariant",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "header"
+            },
+            {
+              "name": "`head(${getKey(th)})`"
+            },
+            {
+              "name": "`cell(${getKey(th)})`"
+            },
+            {
+              "name": "footer"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Table/DataTable.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Datepicker",
+          "description": "",
+          "attributes": [
+            {
+              "name": "size",
+              "value": {
+                "kind": "expression",
+                "type": "makeSize<ButtonSizes>(null)"
+              }
+            },
+            {
+              "name": "format",
+              "value": {
+                "kind": "expression",
+                "type": "makeString()"
+              }
+            },
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "string | Date | Dayjs"
+              },
+              "default": "null"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/Datepicker.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Dropdown",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"div\""
+            },
+            {
+              "name": "menuTag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"ul\""
+            },
+            {
+              "name": "toggleTag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"button\""
+            },
+            {
+              "name": "size",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ButtonSizes"
+              }
+            },
+            {
+              "name": "text",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "variant",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              },
+              "default": "\"secondary\""
+            },
+            {
+              "name": "splitVariant",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              },
+              "default": "\"secondary\""
+            },
+            {
+              "name": "block",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "disabled",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "dir",
+              "required": false,
+              "description": "left,right,up, down=null (default)",
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              },
+              "default": "\"bottom\""
+            },
+            {
+              "name": "align",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "DropdownAlignments"
+              },
+              "default": "\"start\""
+            },
+            {
+              "name": "menuDark",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "menuClass",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "split",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "isNav",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "disableInnerClicks",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "menuProps",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              }
+            },
+            {
+              "name": "toggleProps",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "button-content"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Dropdown/Dropdown.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "DropdownButton",
+          "description": "",
+          "attributes": [
+            {
+              "name": "active",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "disabled",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Dropdown/DropdownButton.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "DropdownDivider",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Dropdown/DropdownDivider.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "DropdownGroup",
+          "description": "",
+          "attributes": [
+            {
+              "name": "header",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "headerTag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'h6'"
+            },
+            {
+              "name": "headerWrapper",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'li'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Dropdown/DropdownGroup.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "DropdownHeader",
+          "description": "",
+          "attributes": [
+            {
+              "name": "wrapper",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"li\""
+            },
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"h6\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Dropdown/DropdownHeader.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "DropdownItem",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'li'"
+            },
+            {
+              "name": "href",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'#'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Dropdown/DropdownItem.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "DropdownMenu",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"ul\""
+            },
+            {
+              "name": "dark",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "show",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "block",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "opened"
+            },
+            {
+              "name": "closed"
+            }
+          ],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Dropdown/DropdownMenu.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "DropdownSkeleton",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "keyof HTMLElementTagNameMap"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "name": "popperOptions",
+              "value": {
+                "kind": "expression",
+                "type": "PopperOptionsType"
+              },
+              "default": "null"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [
+            {
+              "name": "toggle"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Internal/DropdownSkeleton.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "DropdownSkeletonBs",
+          "description": "",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "string | number"
+              }
+            },
+            {
+              "name": "maxHeight",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              },
+              "default": "() => '300px'"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            },
+            {
+              "name": "show"
+            },
+            {
+              "name": "hide"
+            },
+            {
+              "name": "shown"
+            },
+            {
+              "name": "hidden"
+            }
+          ],
+          "slots": [
+            {
+              "name": "toggle_btn"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Internal/DropdownSkeletonBs.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Feedback",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "type",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'valid'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Form/Feedback.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "FeedbackMessages",
+          "description": "",
+          "attributes": [
+            {
+              "name": "valid",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "invalid",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/FeedbackMessages.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Figure",
+          "description": "",
+          "attributes": [
+            {
+              "name": "imgFluid",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "false"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "caption"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Ui/Figure.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Flex",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "pure",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "true"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Layout/Flex.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "FlexItem",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "fill",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveFlex"
+              }
+            },
+            {
+              "name": "grow",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "growOn",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "shrink",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "shrinkOn",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "order",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "Order"
+              }
+            },
+            {
+              "name": "orderSm",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "Order"
+              }
+            },
+            {
+              "name": "orderMd",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "Order"
+              }
+            },
+            {
+              "name": "orderLg",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "Order"
+              }
+            },
+            {
+              "name": "orderXl",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "Order"
+              }
+            },
+            {
+              "name": "orderXxl",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "Order"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Layout/FlexItem.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "FormControl",
+          "description": "",
+          "attributes": [
+            {
+              "name": "type",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'text'"
+            },
+            {
+              "name": "plain",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "false"
+            },
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"div\""
+            },
+            {
+              "name": "floating",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "false"
+            },
+            {
+              "name": "horizontal",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "false"
+            },
+            {
+              "name": "noMarginBottom",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "false"
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/FormControl.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "FormGroup",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              }
+            },
+            {
+              "name": "floating",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "label",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "labelFor",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "horizontal",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "labelSm",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveNumbers"
+              }
+            },
+            {
+              "name": "labelMd",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveNumbers"
+              }
+            },
+            {
+              "name": "labelLg",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveNumbers"
+              }
+            },
+            {
+              "name": "labelXl",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveNumbers"
+              }
+            },
+            {
+              "name": "contentSm",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveNumbers"
+              }
+            },
+            {
+              "name": "contentMd",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveNumbers"
+              }
+            },
+            {
+              "name": "contentLg",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveNumbers"
+              }
+            },
+            {
+              "name": "contentXl",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ResponsiveNumbers"
+              }
+            },
+            {
+              "name": "noMarginBottom",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "validFeedback",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "invalidFeedback",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            },
+            {
+              "name": "label"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Form/FormGroup.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "FormLabel",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Form/FormLabel.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Input",
+          "description": "",
+          "attributes": [
+            {
+              "name": "type",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "HTMLInputTypes"
+              },
+              "default": "'text'"
+            },
+            {
+              "name": "size",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ButtonSizes"
+              }
+            },
+            {
+              "name": "plain",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "state",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              },
+              "default": "undefined"
+            },
+            {
+              "name": "placeholder",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/Input.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "InputGroup",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "prepend"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "append"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Form/InputGroup.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "InputGroupText",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'span'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Form/InputGroupText.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Layout",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [
+            {
+              "name": "app_bar"
+            },
+            {
+              "name": "sidebar"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Layout/Layout.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Link",
+          "description": "",
+          "attributes": [
+            {
+              "name": "href",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'#'"
+            },
+            {
+              "name": "target",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'_self'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/Link.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ListGroup",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'ul'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/ListGroup/ListGroup.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ListGroupItem",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'li'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/ListGroup/ListGroupItem.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Menu",
+          "description": "",
+          "attributes": [
+            {
+              "name": "alwaysOpen",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "flush",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "modelValue",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "items",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "Array"
+              },
+              "default": "() => []"
+            },
+            {
+              "name": "child",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "ps",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              },
+              "default": "10"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "menu-item"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/Menu.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Modal",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "animation",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'fade'"
+            },
+            {
+              "name": "titleTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'h5'"
+            },
+            {
+              "name": "headerTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "okTitle",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'Ok'"
+            },
+            {
+              "name": "closeTitle",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'Close'"
+            },
+            {
+              "name": "okButtonOptions",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "() => ({\n    variant: 'primary' as ColorVariants\n})"
+            },
+            {
+              "name": "closeButtonOptions",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "() => ({\n    variant: 'secondary' as ColorVariants\n})"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            },
+            {
+              "name": "close"
+            },
+            {
+              "name": "ok"
+            },
+            {
+              "name": "showing"
+            },
+            {
+              "name": "hiding"
+            },
+            {
+              "name": "shown"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "stateChanged"
+            }
+          ],
+          "slots": [
+            {
+              "name": "header"
+            },
+            {
+              "name": "title"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "prepend_buttons"
+            },
+            {
+              "name": "footer"
+            },
+            {
+              "name": "append_buttons"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Modal/Modal.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ModalBody",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Modal/ModalBody.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ModalDialog",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Modal/ModalDialog.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ModalFooter",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Modal/ModalFooter.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ModalHeader",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Modal/ModalHeader.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ModalTitle",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"h5\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Modal/ModalTitle.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Multiselect",
+          "description": "Component: Multiselect",
+          "source": {
+            "module": "./src/components/Form/Multiselect.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "NativeCollapse",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [
+            {
+              "name": "summery"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Native/NativeCollapse.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "NativeDialog",
+          "description": "",
+          "attributes": [
+            {
+              "name": "header",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "makeBoolean(false)"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [
+            {
+              "name": "header"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Native/NativeDialog.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "NativeProgress",
+          "description": "",
+          "attributes": [
+            {
+              "name": "value",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              }
+            },
+            {
+              "name": "max",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Native/NativeProgress.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Nav",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'ul'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/Nav.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Navbar",
+          "description": "",
+          "attributes": [
+            {
+              "name": "brandUrl",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'#'"
+            },
+            {
+              "name": "toggleEnabled",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "true"
+            },
+            {
+              "name": "variant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'light'"
+            },
+            {
+              "name": "bgVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'light'"
+            },
+            {
+              "name": "expandsOn",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'lg'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "brand"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/Navbar.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "NavbarBrand",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'a'"
+            },
+            {
+              "name": "href",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'#'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/NavbarBrand.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "NavbarNav",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'ul'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/NavbarNav.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "NavbarToggler",
+          "description": "",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Navigation/NavbarToggler.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "NavItem",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'li'"
+            },
+            {
+              "name": "href",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSIndexedAccessType"
+              },
+              "default": "'#'"
+            },
+            {
+              "name": "linkTag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'a'"
+            },
+            {
+              "name": "ariaCurrent",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "to",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "RouteLocationRaw"
+              }
+            },
+            {
+              "name": "target",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "disabled",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/NavItem.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "NavItemDropdown",
+          "description": "",
+          "attributes": [
+            {
+              "name": "isNav",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "true"
+            },
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"li\""
+            },
+            {
+              "name": "menuTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"div\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/NavItemDropdown.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "NavLink",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'a'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/NavLink.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Offcanvas",
+          "description": "",
+          "attributes": [
+            {
+              "name": "placement",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'start'"
+            },
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'aside'"
+            },
+            {
+              "name": "backdrop",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "true"
+            },
+            {
+              "name": "bgVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'light'"
+            },
+            {
+              "name": "textVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'dark'"
+            },
+            {
+              "name": "scrollbarPadding",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'17px'"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            },
+            {
+              "name": "showing"
+            },
+            {
+              "name": "hiding"
+            },
+            {
+              "name": "shown"
+            },
+            {
+              "name": "hidden"
+            }
+          ],
+          "slots": [
+            {
+              "name": "header"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Offcanvas/Offcanvas.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "OffcanvasBody",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"div\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Offcanvas/OffcanvasBody.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "OffcanvasHeader",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'header'"
+            },
+            {
+              "name": "showClose",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "true"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [
+            {
+              "name": "title"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Offcanvas/OffcanvasHeader.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "OffcanvasTitle",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "\"h5\""
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Offcanvas/OffcanvasTitle.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "PageAside",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/PageLayout/PageAside.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "PageContainer",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/PageLayout/PageContainer.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "PageFooter",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/PageLayout/PageFooter.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "PageHeader",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/PageLayout/PageHeader.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "PageItem",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'li'"
+            },
+            {
+              "name": "linkTag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'a'"
+            },
+            {
+              "name": "href",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSIndexedAccessType"
+              },
+              "default": "'#'"
+            },
+            {
+              "name": "prev",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "next",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "ariaLabel",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "disabled",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/PageItem.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "PageLink",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'a'"
+            },
+            {
+              "name": "href",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'#'"
+            },
+            {
+              "name": "prevText",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'&laquo;'"
+            },
+            {
+              "name": "nextText",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'&laquo;'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/PageLink.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "PageMain",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/PageLayout/PageMain.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Pagination",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'ul'"
+            },
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "1"
+            },
+            {
+              "name": "totalRows",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "0"
+            },
+            {
+              "name": "perPage",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "15"
+            },
+            {
+              "name": "currentPage",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "1"
+            },
+            {
+              "name": "firstColPageCount",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "3"
+            },
+            {
+              "name": "centerColPageCount",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "3"
+            },
+            {
+              "name": "lastColPageCount",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "3"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            },
+            {
+              "name": "update:currentPage"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Navigation/Pagination.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "PanelMenu",
+          "description": "",
+          "attributes": [
+            {
+              "name": "triggerVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'dark'"
+            },
+            {
+              "name": "menuVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'light'"
+            }
+          ],
+          "events": [
+            {
+              "name": "itemClicked"
+            },
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Navigation/PanelMenu.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Placeholder",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Ui/Placeholder.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Popover",
+          "description": "Component: Popover",
+          "source": {
+            "module": "./src/components/Notification/Popover.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Progress",
+          "description": "",
+          "attributes": [
+            {
+              "name": "variant",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "value",
+              "required": false,
+              "description": "Current progress value (0-100)",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              },
+              "default": "0"
+            },
+            {
+              "name": "min",
+              "required": false,
+              "description": "Minimum value for the progress bar",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              },
+              "default": "0"
+            },
+            {
+              "name": "max",
+              "required": false,
+              "description": "Maximum value for the progress bar",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              },
+              "default": "100"
+            },
+            {
+              "name": "showValue",
+              "required": false,
+              "description": "Whether to show the progress value as text",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "name": "striped",
+              "required": false,
+              "description": "Whether to apply striped styling to the progress bar",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "animated",
+              "required": false,
+              "description": "Whether to animate the striped progress bar\nOnly effective when striped is true",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "barTag",
+              "required": false,
+              "description": "HTML tag to use for the progress bar container element",
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "height",
+              "required": false,
+              "description": "Height of the progress container\nCan be a number (pixels) or a CSS string value",
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Indicators/Progress.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ProgressBar",
+          "description": "",
+          "attributes": [
+            {
+              "name": "variant",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "value",
+              "required": false,
+              "description": "Current progress value (0-100)",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              },
+              "default": "0"
+            },
+            {
+              "name": "min",
+              "required": false,
+              "description": "Minimum value for the progress bar",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              },
+              "default": "0"
+            },
+            {
+              "name": "max",
+              "required": false,
+              "description": "Maximum value for the progress bar",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              },
+              "default": "100"
+            },
+            {
+              "name": "showValue",
+              "required": false,
+              "description": "Whether to show the progress value as text",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "name": "striped",
+              "required": false,
+              "description": "Whether to apply striped styling to the progress bar",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "animated",
+              "required": false,
+              "description": "Whether to animate the striped progress bar\nOnly effective when striped is true",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Indicators/ProgressBar.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Radio",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Form/Radio.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "RadioGroup",
+          "description": "",
+          "attributes": [
+            {
+              "name": "options",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "() => []"
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/RadioGroup.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Range",
+          "description": "",
+          "attributes": [
+            {
+              "name": "modelValue",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              },
+              "default": "0"
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/Range.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Rating",
+          "description": "",
+          "attributes": [
+            {
+              "name": "min",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "1"
+            },
+            {
+              "name": "max",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "5"
+            },
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "1"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/Rating.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "RenderVNode",
+          "description": "",
+          "attributes": [
+            {
+              "name": "content",
+              "value": {
+                "kind": "expression",
+                "type": "undefined"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Internal/RenderVNode.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Row",
+          "description": "",
+          "attributes": [
+            {
+              "name": "gXl",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "gLg",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "gMd",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "gSm",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "g",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "gy",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "gx",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "justifyContent",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "JustifyContentAlignments"
+              }
+            },
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "sm",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "md",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "lg",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "xl",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "cols",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "union"
+              }
+            },
+            {
+              "name": "alignItems",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColAlignments"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Layout/Row.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Select",
+          "description": "",
+          "attributes": [
+            {
+              "name": "options",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "() => []"
+            },
+            {
+              "name": "disabledField",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"disabled\""
+            },
+            {
+              "name": "labelField",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"label\""
+            },
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "null"
+            },
+            {
+              "name": "placeholder",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'Not Selected'"
+            },
+            {
+              "name": "scrollHeight",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'250px'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "text"
+            },
+            {
+              "name": "first"
+            },
+            {
+              "name": "default"
+            },
+            {
+              "name": "last"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Form/Select.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "SpinButton",
+          "description": "",
+          "attributes": [
+            {
+              "name": "step",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "1"
+            },
+            {
+              "name": "min",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "0"
+            },
+            {
+              "name": "max",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "100"
+            },
+            {
+              "name": "buttonVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'secondary'"
+            },
+            {
+              "name": "formatter",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "(value: any) => value"
+            },
+            {
+              "name": "longPressInterval",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "100"
+            },
+            {
+              "name": "longPressTrigger",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "500"
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/SpinButton.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Spinner",
+          "description": "",
+          "attributes": [
+            {
+              "name": "variant",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            },
+            {
+              "name": "grow",
+              "required": false,
+              "description": "Whether to use the grow animation instead of border animation",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "size",
+              "required": false,
+              "description": "Size variant for the spinner\nCan be 'sm' for small or 'lg' for large",
+              "value": {
+                "kind": "expression",
+                "type": "ButtonSizes"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Indicators/Spinner.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Tab",
+          "description": "",
+          "attributes": [
+            {
+              "name": "active",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "name": "title",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Tab/Tab.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "TabContent",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "TSTypeOperator"
+              },
+              "default": "'div'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Tab/TabContent.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Table",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [
+            {
+              "name": "caption"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Table/Table.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Tabs",
+          "description": "",
+          "attributes": [],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Tab/Tabs.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Tags",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'ul'"
+            },
+            {
+              "name": "role",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'group'"
+            },
+            {
+              "name": "tabindex",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "-1"
+            },
+            {
+              "name": "placeholder",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'Add Tag'"
+            },
+            {
+              "name": "modelValue",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "() => ([])"
+            },
+            {
+              "name": "separator",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "() => ([])"
+            },
+            {
+              "name": "tagVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'secondary'"
+            },
+            {
+              "name": "badgeVariant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'primary'"
+            },
+            {
+              "name": "addButtonSize",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'sm'"
+            },
+            {
+              "name": "addButtonText",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'Add'"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            }
+          ],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/Tags.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "TBody",
+          "description": "",
+          "attributes": [
+            {
+              "name": "variant",
+              "required": false,
+              "description": "Sets table variant",
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "description": "Sets table status active",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "align",
+              "required": false,
+              "description": "Table alignment",
+              "value": {
+                "kind": "expression",
+                "type": "VerticalAlign"
+              }
+            },
+            {
+              "name": "content",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Table/TBody.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Td",
+          "description": "",
+          "attributes": [
+            {
+              "name": "variant",
+              "required": false,
+              "description": "Sets table variant",
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "description": "Sets table status active",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "align",
+              "required": false,
+              "description": "Table alignment",
+              "value": {
+                "kind": "expression",
+                "type": "VerticalAlign"
+              }
+            },
+            {
+              "name": "content",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Table/Td.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Textarea",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/Textarea.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "TFoot",
+          "description": "",
+          "attributes": [
+            {
+              "name": "variant",
+              "required": false,
+              "description": "Sets table variant",
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "description": "Sets table status active",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "align",
+              "required": false,
+              "description": "Table alignment",
+              "value": {
+                "kind": "expression",
+                "type": "VerticalAlign"
+              }
+            },
+            {
+              "name": "content",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Table/TFoot.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Th",
+          "description": "",
+          "attributes": [
+            {
+              "name": "variant",
+              "required": false,
+              "description": "Sets table variant",
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "description": "Sets table status active",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "align",
+              "required": false,
+              "description": "Table alignment",
+              "value": {
+                "kind": "expression",
+                "type": "VerticalAlign"
+              }
+            },
+            {
+              "name": "content",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Table/Th.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "THead",
+          "description": "",
+          "attributes": [
+            {
+              "name": "variant",
+              "required": false,
+              "description": "Sets table variant",
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "description": "Sets table status active",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "align",
+              "required": false,
+              "description": "Table alignment",
+              "value": {
+                "kind": "expression",
+                "type": "VerticalAlign"
+              }
+            },
+            {
+              "name": "content",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Table/THead.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Timepicker",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Form/Timepicker.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Toast",
+          "description": "",
+          "attributes": [
+            {
+              "name": "fade",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "true"
+            },
+            {
+              "name": "timeout",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "3"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:show"
+            },
+            {
+              "name": "update:modelValue"
+            },
+            {
+              "name": "shown"
+            },
+            {
+              "name": "hidden"
+            },
+            {
+              "name": "showing"
+            },
+            {
+              "name": "hiding"
+            }
+          ],
+          "slots": [
+            {
+              "name": "header"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Notification/Toast.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ToastBody",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "makeTag(\"div\")"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Notification/ToastBody.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "ToastContainer",
+          "description": "",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "makeTag(\"div\")"
+              }
+            },
+            {
+              "name": "placement",
+              "value": {
+                "kind": "expression",
+                "type": "ToastPlacements"
+              },
+              "default": "null"
+            },
+            {
+              "name": "container",
+              "value": {
+                "kind": "expression",
+                "type": "string | keyof HTMLElementTagNameMap"
+              },
+              "default": "null"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Notification/ToastContainer.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Tooltip",
+          "description": "",
+          "attributes": [
+            {
+              "name": "target",
+              "required": true,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              },
+              "default": "null"
+            },
+            {
+              "name": "content",
+              "value": {
+                "kind": "expression",
+                "type": "makeString()"
+              }
+            },
+            {
+              "name": "placement",
+              "value": {
+                "kind": "expression",
+                "type": "VariationPlacement"
+              },
+              "default": "'top'"
+            },
+            {
+              "name": "opensOn",
+              "value": {
+                "kind": "expression",
+                "type": "keyof GlobalEventHandlersEventMap"
+              },
+              "default": "'mouseenter'"
+            },
+            {
+              "name": "closesOn",
+              "value": {
+                "kind": "expression",
+                "type": "keyof GlobalEventHandlersEventMap"
+              },
+              "default": "'mouseleave'"
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Notification/Tooltip.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Tr",
+          "description": "",
+          "attributes": [
+            {
+              "name": "variant",
+              "required": false,
+              "description": "Sets table variant",
+              "value": {
+                "kind": "expression",
+                "type": "ColorVariants"
+              }
+            },
+            {
+              "name": "active",
+              "required": false,
+              "description": "Sets table status active",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "align",
+              "required": false,
+              "description": "Table alignment",
+              "value": {
+                "kind": "expression",
+                "type": "VerticalAlign"
+              }
+            },
+            {
+              "name": "content",
+              "required": false,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Table/Tr.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "TypeHead",
+          "description": "",
+          "attributes": [
+            {
+              "name": "queryKey",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'query'"
+            },
+            {
+              "name": "menuHeight",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'250px'"
+            },
+            {
+              "name": "searchSize",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'sm'"
+            },
+            {
+              "name": "toggleTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"button\""
+            },
+            {
+              "name": "menuTag",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"div\""
+            },
+            {
+              "name": "searchPlaceholder",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"Search...\""
+            },
+            {
+              "name": "variant",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "\"secondary\""
+            },
+            {
+              "name": "textAlign",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "'start'"
+            },
+            {
+              "name": "getLabel",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "(item: any) => item ? item : \"Not Selected\""
+            },
+            {
+              "name": "getOption",
+              "value": {
+                "kind": "expression",
+                "type": "any"
+              },
+              "default": "(item: any) => item"
+            }
+          ],
+          "events": [
+            {
+              "name": "update:modelValue"
+            },
+            {
+              "name": "selected"
+            },
+            {
+              "name": "onBeforeOpen"
+            },
+            {
+              "name": "onBeforeClose"
+            }
+          ],
+          "slots": [
+            {
+              "name": "prepend"
+            },
+            {
+              "name": "label"
+            },
+            {
+              "name": "append"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "source": {
+            "module": "./src/components/Form/TypeHead.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "Vr",
+          "description": "",
+          "attributes": [],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Ui/Vr.vue",
+            "symbol": "default"
+          }
+        },
+        {
+          "name": "VueSource",
+          "description": "",
+          "attributes": [
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "lang",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              },
+              "default": "'html'"
+            },
+            {
+              "name": "path",
+              "required": true,
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [],
+          "slots": [],
+          "source": {
+            "module": "./src/components/Util/VueSource.vue",
+            "symbol": "default"
+          }
+        }
+      ]
+    }
+  }
+}
