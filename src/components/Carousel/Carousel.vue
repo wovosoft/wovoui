@@ -2,9 +2,9 @@
 import CarouselInner from "./CarouselInner.vue";
 import CarouselControl from "./CarouselControl.vue";
 
-import {computed, onMounted, provide, Ref, ref} from "vue";
+import {computed, onMounted, provide, type Ref, ref} from "vue";
 import CarouselIndicatorButton from "./CarouselIndicatorButton.vue";
-import {CarouselProps, registerCarouselItem} from "./index";
+import {type CarouselProps, registerCarouselItem} from "./index";
 import CarouselIndicators from "./CarouselIndicators.vue";
 
 type DirectionType = 'start' | 'end';

@@ -1,10 +1,10 @@
-import {
+import type {
     AlignContent,
     ColAlignments,
     ColOrders,
     ColSizes, ItemAlignment, JustifyAlignment,
     JustifyContentAlignments, Order,
-    ResponsiveNumbers, type ResponsiveSizes
+    ResponsiveNumbers, ResponsiveSizes
 } from "@/index";
 
 export {default as Layout} from "./Layout.vue";

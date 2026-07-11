@@ -77,7 +77,7 @@
 <script lang="ts" setup>
 import {
     computed,
-    CSSProperties,
+    type CSSProperties,
     nextTick,
     onBeforeMount,
     onBeforeUnmount,
@@ -92,7 +92,7 @@ import {
     ModalDialog,
     ModalFooter,
     ModalHeader,
-    ModalProps,
+    type ModalProps,
     ModalTitle
 } from "@/components";
 import {
@@ -103,7 +103,7 @@ import {
 
 import vOnClickOutside from "@/directives/vOnClickOutside";
 import {Spinner} from "@/components/Indicators";
-import {ColorVariants} from "@/index";
+import {type ColorVariants} from "@/index";
 
 const emit = defineEmits<{
     "update:modelValue": [value: any]

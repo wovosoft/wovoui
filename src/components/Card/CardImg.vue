@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed} from "vue";
-import {CardImgPropsInterface} from "@/components";
+import {type CardImgPropsInterface} from "@/components";
 
 const props = withDefaults(defineProps<CardImgPropsInterface>(), {});
 const attrs = computed(() => ({

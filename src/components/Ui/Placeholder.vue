@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {getBinaryClasses,} from "@/composables";
-import {PlaceholderProps} from "@/index";
+import {type PlaceholderProps} from "@/index";
 
 const props = withDefaults(defineProps<PlaceholderProps>(), {
     tag: 'div'

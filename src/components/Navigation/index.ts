@@ -1,8 +1,8 @@
-import {ClassType, DropdownPropsInterface, HasTag} from "@/components";
-import {RendererElement} from "@vue/runtime-core";
-import {type ButtonSizes, ColorVariants, ResponsiveSizes} from "@/index";
-import {AnchorHTMLAttributes, Component} from "vue";
-import {RouteLocationRaw, RouteRecordRaw} from "vue-router";
+import type {ClassType, DropdownPropsInterface, HasTag} from "@/components";
+import type {RendererElement} from "@vue/runtime-core";
+import type {ButtonSizes, ColorVariants, ResponsiveSizes} from "@/index";
+import {type AnchorHTMLAttributes, type Component} from "vue";
+import type {RouteLocationRaw, RouteRecordRaw} from "vue-router";
 
 export {default as Link} from "./Link.vue";
 export {default as Menu} from "./Menu.vue";

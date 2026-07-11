@@ -8,7 +8,7 @@
 
 
 <script lang="ts" setup>
-import {CardTitlePropsInterface} from "@/components";
+import {type CardTitlePropsInterface} from "@/components";
 
 withDefaults(defineProps<CardTitlePropsInterface>(), {
     content: "",

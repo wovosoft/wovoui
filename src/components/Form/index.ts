@@ -1,15 +1,15 @@
-import {
+import type {
     ButtonSizes,
     ClassType,
     ColorVariants,
-    type FeedbackTypes,
+    FeedbackTypes,
     HasColorVariant,
     HasTag,
     HTMLInputTypes,
-    type ResponsiveNumbers,
+    ResponsiveNumbers,
     TextAlign
 } from "@/index";
-import {HTMLAttributes, InjectionKey, Ref} from "vue";
+import {type HTMLAttributes, type InjectionKey, type Ref} from "vue";
 
 export {default as Checkbox} from "./Checkbox.vue";
 export {default as CheckboxGroup} from "./CheckboxGroup.vue";

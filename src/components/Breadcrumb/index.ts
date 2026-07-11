@@ -1,5 +1,5 @@
-import {HasTag} from "@/components";
-import {AnchorHTMLAttributes} from "vue";
+import type {HasTag} from "@/components";
+import {type AnchorHTMLAttributes} from "vue";
 
 export {default as BreadcrumbItem} from "./BreadcrumbItem.vue";
 export {default as Breadcrumb} from "./Breadcrumb.vue";

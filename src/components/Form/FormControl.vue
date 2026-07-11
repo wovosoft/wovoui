@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {FormGroup, Input} from "@/components/Form";
 import {computed} from "vue";
-import {FormGroupPropsInterface, InputPropsInterface} from "@/components/Form/useFormHelpers";
+import {type FormGroupPropsInterface, type InputPropsInterface} from "@/components/Form/useFormHelpers";
 
 const props = withDefaults(defineProps<InputPropsInterface & FormGroupPropsInterface & {
     modelValue: string | number

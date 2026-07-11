@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
-import {Radio, RadioGroupProps} from "@/components";
+import {Radio, type RadioGroupProps} from "@/components";
 import {uid} from "@/composables/useHelpers";
 
 const props = withDefaults(defineProps<RadioGroupProps>(), {

@@ -10,8 +10,8 @@
 </template>
 
 <script lang="ts" setup>
-import {AnchorHTMLAttributes, computed, getCurrentInstance} from "vue";
-import {NavLinkProps} from "@/components";
+import {type AnchorHTMLAttributes, computed, getCurrentInstance} from "vue";
+import {type NavLinkProps} from "@/components";
 
 type linkAttributesType = {
     href?: AnchorHTMLAttributes['href'];

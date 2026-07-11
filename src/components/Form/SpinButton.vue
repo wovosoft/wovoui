@@ -40,7 +40,7 @@
 </template>
 
 <script lang="ts" setup>
-import {Button, InputGroup, SpinButtonProps} from "@/components";
+import {Button, InputGroup, type SpinButtonProps} from "@/components";
 //@ts-ignore
 import {Dash, Plus} from "@wovosoft/wovoui-icons";
 import {ref} from "vue";

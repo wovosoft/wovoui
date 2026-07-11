@@ -1,5 +1,5 @@
-import {defineComponent, h, PropType} from "vue";
-import {RendererElement} from "@vue/runtime-core";
+import {defineComponent, h, type PropType} from "vue";
+import {type RendererElement} from "@vue/runtime-core";
 
 /**
  * This component is used to eliminate

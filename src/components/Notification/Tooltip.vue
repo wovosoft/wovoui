@@ -15,9 +15,9 @@
  * e.g. <component v-tooltip="This is tooltip / vNode"></component>
  */
 
-import {computed, nextTick, onBeforeUnmount, onBeforeUpdate, onMounted, PropType, ref} from "vue";
+import {computed, nextTick, onBeforeUnmount, onBeforeUpdate, onMounted, type PropType, ref} from "vue";
 import type {TooltipPlacement, VariationPlacement} from "@/index";
-import {createPopper, Instance} from "@popperjs/core";
+import {createPopper, type Instance} from "@popperjs/core";
 import {makeString} from "@/composables";
 
 const props = defineProps({

@@ -2,9 +2,8 @@
 import {computed, provide, reactive, ref} from "vue";
 import {getBinaryClasses} from "@/composables/useClasses";
 
+import type { AccordionItemStateType, AccordionProps } from "@/index";
 import {
-    AccordionItemStateType,
-    AccordionProps,
     RegisterAccordionItemInjectionKey,
     SetActiveAccordionItemInjectionKey
 } from "@/index";

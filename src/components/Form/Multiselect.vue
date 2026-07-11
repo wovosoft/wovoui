@@ -53,7 +53,7 @@
 import {nextTick, onBeforeUnmount, ref, watch} from "vue";
 //@ts-ignore
 import {Trash} from "@wovosoft/wovoui-icons";
-import {Button, DropdownMenu, Input, InputGroup, MultiselectProps} from "@/components";
+import {Button, DropdownMenu, Input, InputGroup, type MultiselectProps} from "@/components";
 
 const emit = defineEmits(["update:query", "update:modelValue", 'selectedOption']);
 

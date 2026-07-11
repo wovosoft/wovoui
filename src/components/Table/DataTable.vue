@@ -59,16 +59,16 @@
 
 <script lang="ts" setup generic="ItemType extends DatatableItemType, FieldType extends DatatableFieldType">
 import {
-    DatatableFieldType,
-    DatatableHeadType,
-    DatatableItemType,
-    DatatableProps,
+    type DatatableFieldType,
+    type DatatableHeadType,
+    type DatatableItemType,
+    type DatatableProps,
     Table,
     TBody,
     TFoot,
     THead
 } from "@/components/Table";
-import { computed, ComputedRef, ref } from "vue";
+import { computed, type ComputedRef, ref } from "vue";
 
 import RenderVNode from "@/components/Internal/RenderVNode.vue";
 import { Flex, FlexItem, } from "@/components/Layout";

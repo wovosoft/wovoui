@@ -1,6 +1,6 @@
 import { startCase } from "es-toolkit";
-import {PropType} from "vue";
-import {BorderRadius, ColorVariants, Displays} from "@/index";
+import {type PropType} from "vue";
+import type {BorderRadius, ColorVariants, Displays} from "@/index";
 
 function toLower(str: string) {
     return str.toLowerCase();

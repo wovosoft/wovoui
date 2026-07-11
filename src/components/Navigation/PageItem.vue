@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import {PageItemProps, PageLink} from "@/components/Navigation";
+import {type PageItemProps, PageLink} from "@/components/Navigation";
 
 const props = withDefaults(defineProps<PageItemProps>(), {
     tag: 'li',

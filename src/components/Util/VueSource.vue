@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import {ref, onMounted, defineComponent, PropType} from 'vue';
+import {ref, onMounted, defineComponent, type PropType} from 'vue';
 import {VCodeBlock} from "@wdns/vue-code-block";
 
 export default defineComponent({

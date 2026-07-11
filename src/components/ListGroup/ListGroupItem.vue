@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {resolveComponent} from "vue";
-import {ListGroupItemProps} from "@/components";
+import type {ListGroupItemProps} from "@/components";
 
 const props = withDefaults(defineProps<ListGroupItemProps>(), {
     tag: 'li',

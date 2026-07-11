@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
 import {computed} from "vue";
-import {DropdownItemProps} from "@/components";
+import {type DropdownItemProps} from "@/components";
 
 const props = withDefaults(defineProps<DropdownItemProps>(), {
     tag: 'li',

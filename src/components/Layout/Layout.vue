@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { Flex, FlexItem } from "@/components";
 import { Collapse } from "@/components/Accordion";
-import { MaybeComputedElementRef, MaybeElement, useElementSize } from "@vueuse/core";
+import { type MaybeComputedElementRef, type MaybeElement, useElementSize } from "@vueuse/core";
 import { ref } from "vue";
 
 const appBar = ref<MaybeComputedElementRef<MaybeElement> | null>(null);

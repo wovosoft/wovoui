@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import Checkbox from "./Checkbox.vue";
-import {CheckboxGroupProps} from "@/components";
+import {type CheckboxGroupProps} from "@/components";
 
 withDefaults(defineProps<CheckboxGroupProps>(), {
     options: () => [],

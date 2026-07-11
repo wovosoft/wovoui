@@ -4,7 +4,7 @@ import CardSubTitle from "./CardSubTitle.vue";
 import CardTitle from "./CardTitle.vue";
 
 import {getBinaryClasses} from "@/composables";
-import {CardBodyPropsInterface} from "@/components";
+import {type CardBodyPropsInterface} from "@/components";
 
 const props = withDefaults(defineProps<CardBodyPropsInterface>(), {
     tag: "div",

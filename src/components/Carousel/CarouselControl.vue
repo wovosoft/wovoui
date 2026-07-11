@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {CarouselControlProps} from "@/components";
+import {type CarouselControlProps} from "@/components";
 
 withDefaults(defineProps<CarouselControlProps>(), {})
 </script>

@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import {FigureProps} from "@/components";
+import {type FigureProps} from "@/components";
 
 const props = withDefaults(defineProps<FigureProps>(), {
     imgFluid: false

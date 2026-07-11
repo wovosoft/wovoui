@@ -1,8 +1,8 @@
-import {
+import type {
     ClassType,
     ColorVariants,
-    type ResponsiveSizes,
-    type VerticalAlign
+    ResponsiveSizes,
+    VerticalAlign
 } from "@/index";
 
 export {default as Table} from "./Table.vue";

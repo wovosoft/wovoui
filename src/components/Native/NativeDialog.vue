@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import {PropType, ref, watch} from "vue";
+import {type PropType, ref, watch} from "vue";
 import {ButtonClose, ModalHeader} from "@/components"
 import {makeBoolean} from "@/composables";
 

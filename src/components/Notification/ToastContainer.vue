@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, PropType} from "vue";
+import {computed, type PropType} from "vue";
 import type {ToastPlacements} from "@/index";
 import {makeTag} from "@/composables";
 

@@ -1,6 +1,6 @@
-import {Component} from "vue";
-import {HasTag} from "@/components";
-import {ColorVariants} from "@/index";
+import {type Component} from "vue";
+import type {HasTag} from "@/components";
+import type {ColorVariants} from "@/index";
 
 export {default as Alert} from "./Alert.vue";
 export {default as AlertHeading} from "./AlertHeading.vue";

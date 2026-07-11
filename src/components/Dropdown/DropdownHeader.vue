@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import {DropdownHeaderProps} from "@/components";
+import {type DropdownHeaderProps} from "@/components";
 
 withDefaults(defineProps<DropdownHeaderProps>(), {
     wrapper: "li",

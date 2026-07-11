@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, onMounted, onBeforeUnmount, PropType, ref, watch} from "vue";
-import {createPopper, Instance, Modifier} from "@popperjs/core";
+import {computed, defineComponent, onMounted, onBeforeUnmount, type PropType, ref, watch} from "vue";
+import {createPopper, type Instance, type Modifier} from "@popperjs/core";
 import {makeBoolean, makeString} from "@/composables";
 
 export default defineComponent({

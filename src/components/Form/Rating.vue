@@ -15,7 +15,7 @@ import {computed} from "vue";
 //@ts-ignore
 import {Star, StarFill} from "@wovosoft/wovoui-icons";
 import {useStateModel} from "@/composables/useHelpers";
-import {RatingProps} from "@/components";
+import {type RatingProps} from "@/components";
 
 const props = withDefaults(defineProps<RatingProps>(), {
     min: 1,

@@ -1,4 +1,4 @@
-import {ColorVariants} from "@/index";
+import type {ColorVariants} from "@/index";
 
 export const colors: ColorVariants[] = ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"];
 

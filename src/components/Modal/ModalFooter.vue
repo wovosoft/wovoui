@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {ModalFooterProps} from "@/components";
+import {type ModalFooterProps} from "@/components";
 
 withDefaults(defineProps<ModalFooterProps>(), {
     tag: 'div'

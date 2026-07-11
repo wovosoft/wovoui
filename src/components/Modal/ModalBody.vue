@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {ModalBodyProps} from "@/components";
+import {type ModalBodyProps} from "@/components";
 
 withDefaults(defineProps<ModalBodyProps>(), {
     tag: 'div'

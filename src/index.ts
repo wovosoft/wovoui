@@ -1,6 +1,6 @@
 import type {Placement} from "@popperjs/core";
-import {Modifier, OptionsGeneric} from "@popperjs/core/lib/types";
-import {ClassType} from "@/components";
+import {type Modifier, type OptionsGeneric} from "@popperjs/core/lib/types";
+import type {ClassType} from "@/components";
 
 export type TextAlign = 'start' | 'center' | 'end';
 export type TextVariants =
@@ -87,16 +87,3 @@ export * from "./components";
 export * from "./composables";
 export * from "./shared";
 export * from "./directives";
-
-
-declare module "vue" {
-    // tells Vue about a custom global property/method
-    interface ComponentCustomProperties {
-
-    }
-
-    // tells Vue about a custom component registered globally in the plugin
-    export interface GlobalComponents {
-
-    }
-}

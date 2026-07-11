@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-import {CardBody, CardFooter, CardHeader, CardImg, CardPropsInterface} from ".";
+import {CardBody, CardFooter, CardHeader, CardImg, type CardPropsInterface} from ".";
 import {computed} from "vue";
 
 const props = withDefaults(defineProps<CardPropsInterface>(), {

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {TextareaProps} from "@/index";
+import {type TextareaProps} from "@/index";
 
 withDefaults(defineProps<TextareaProps>(), {});
 

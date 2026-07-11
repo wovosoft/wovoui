@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, inject, PropType, Ref} from "vue";
+import {defineComponent, inject, type PropType, type Ref} from "vue";
 import {Button, ButtonGroup} from "@/components";
 //@ts-ignore
 import {Eye, PencilSquare, Trash} from "@wovosoft/wovoui-icons";

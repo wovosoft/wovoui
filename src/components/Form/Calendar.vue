@@ -94,8 +94,8 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, Ref, ref, watch} from "vue";
-import dayjs, {Dayjs, ManipulateType, UnitType} from "dayjs";
+import {computed, defineComponent, type Ref, ref, watch} from "vue";
+import dayjs, {Dayjs, type ManipulateType, type UnitType} from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
 import Row from "../Layout/Row.vue";

@@ -1,6 +1,5 @@
-import {PropType} from "vue";
-import type {ColorVariants, TextVariants} from "@/index";
-import {ResponsiveNumbers} from "@/index";
+import {type PropType} from "vue";
+import type {ColorVariants, ResponsiveNumbers, TextVariants} from "@/index";
 
 export const makeProp = <TT>(initial: TT | null = null, VT: Function | Function[]) => ({
     type: VT as PropType<TT>,

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {getTableCommonClasses, TableCommonProps} from "./index";
+import {getTableCommonClasses, type TableCommonProps} from "./index";
 
 withDefaults(defineProps<TableCommonProps>(), {})
 </script>

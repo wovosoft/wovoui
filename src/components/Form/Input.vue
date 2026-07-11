@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {HasFloatingLabelInjectionKey, InputProps} from "./index";
+import {HasFloatingLabelInjectionKey, type InputProps} from "./index";
 import {inject} from "vue";
 
 withDefaults(defineProps<InputProps>(), {

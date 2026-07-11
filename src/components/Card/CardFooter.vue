@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {computed} from "vue";
 import {getBinaryClasses} from "@/composables";
-import {CardFooterPropsInterface} from "@/components";
+import {type CardFooterPropsInterface} from "@/components";
 
 const props = withDefaults(defineProps<CardFooterPropsInterface>(), {
     tag: "div",

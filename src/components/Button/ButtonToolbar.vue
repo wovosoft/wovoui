@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed} from "vue";
-import {ButtonToolbarProps} from "@/components";
+import {type ButtonToolbarProps} from "@/components";
 
 const props = withDefaults(defineProps<ButtonToolbarProps>(), {
     tag: "div",

@@ -20,7 +20,7 @@ import AccordionHeader from "./AccordionHeader.vue";
 import AccordionBody from "./AccordionBody.vue";
 import Collapse from "./Collapse.vue";
 import {
-    AccordionItemStateType,
+    type AccordionItemStateType,
     RegisterAccordionItemInjectionKey,
     SetActiveAccordionItemInjectionKey
 } from "@/index";

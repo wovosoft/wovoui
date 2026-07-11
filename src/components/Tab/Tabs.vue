@@ -48,8 +48,8 @@ import {
     NavLink,
     registerTabInjection,
     TabContent,
-    TabMapItem,
-    TabsProps,
+    type TabMapItem,
+    type TabsProps,
     unregisterTabInjection
 } from "@/components";
 

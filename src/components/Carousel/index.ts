@@ -1,5 +1,5 @@
-import {InjectionKey, Ref} from "vue";
-import {HasTag} from "@/components";
+import {type InjectionKey, type Ref} from "vue";
+import type {HasTag} from "@/components";
 
 export {default as Carousel} from "./Carousel.vue";
 export {default as CarouselCaption} from "./CarouselCaption.vue";

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed, isVNode, onMounted, reactive, ref, watch} from "vue";
-import {AlertProps, ButtonClose} from "@/components";
+import {type AlertProps, ButtonClose} from "@/components";
 //@ts-ignore
 import {Icons} from "@wovosoft/wovoui-icons";
 

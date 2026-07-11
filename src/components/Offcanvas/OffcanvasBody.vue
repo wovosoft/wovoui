@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {HasTag} from "@/components";
+import type {HasTag} from "@/components";
 
 withDefaults(defineProps<HasTag>(), {
     tag: "div"

@@ -1,5 +1,5 @@
-import {ClassType, HasTag, TagType} from "@/components";
-import {ColorVariants, TextVariants} from "@/index";
+import type {ClassType, HasTag, TagType} from "@/components";
+import type {ColorVariants, TextVariants} from "@/index";
 
 export {default as Card} from "./Card.vue";
 export {default as CardBody} from "./CardBody.vue";

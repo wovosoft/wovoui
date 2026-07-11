@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts" setup>
-import {OffcanvasProps} from "@/index";
+import {type OffcanvasProps} from "@/index";
 import {getTransitionDurationFromElement} from "@/composables";
 import {computed, ref, watch} from "vue";
 import {OffcanvasBody, OffcanvasHeader} from "@/components";

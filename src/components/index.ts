@@ -1,5 +1,5 @@
-import {ColorVariants} from "@/index";
-import {HTMLAttributes} from "vue";
+import type {ColorVariants} from "@/index";
+import type {HTMLAttributes} from "vue";
 
 export interface HasTag {
     tag?: keyof HTMLElementTagNameMap;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {Dropdown} from "bootstrap";
 import {Input, DropdownMenu} from "@/components";
-import {onBeforeUnmount, onMounted, PropType, ref} from "vue";
+import {onBeforeUnmount, onMounted, type PropType, ref} from "vue";
 
 const props = defineProps({
     modelValue: {

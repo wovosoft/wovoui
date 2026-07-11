@@ -1,5 +1,5 @@
-import {InjectionKey} from "vue";
-import {ClassType} from "@/components";
+import {type InjectionKey} from "vue";
+import type {ClassType} from "@/components";
 
 export {default as Tabs} from "./Tabs.vue";
 export {default as Tab} from "./Tab.vue";

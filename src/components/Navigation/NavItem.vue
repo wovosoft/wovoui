@@ -14,8 +14,8 @@
 </template>
 
 <script lang="ts" setup>
-import {NavItemProps, NavLink} from "@/components/Navigation";
-import {RouteRecordRaw} from "vue-router";
+import {type NavItemProps, NavLink} from "@/components/Navigation";
+import {type RouteRecordRaw} from "vue-router";
 
 withDefaults(defineProps<NavItemProps>(), {
     tag: 'li',

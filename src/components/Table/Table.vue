@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import {computed, defineComponent, h, PropType} from "vue";
-import {TableProps} from "@/components";
+import {computed, defineComponent, h, type PropType} from "vue";
+import {type TableProps} from "@/components";
 
 const props = withDefaults(defineProps<TableProps>(), {})
 

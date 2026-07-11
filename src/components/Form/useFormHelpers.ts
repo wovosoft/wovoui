@@ -1,4 +1,4 @@
-import {ButtonSizes, HTMLInputTypes, ResponsiveNumbers} from "@/index";
+import {type ButtonSizes, type HTMLInputTypes, type ResponsiveNumbers} from "@/index";
 
 export interface InputPropsInterface {
     //some actions vary based on type so considering at as a prop

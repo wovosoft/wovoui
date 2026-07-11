@@ -24,7 +24,7 @@
 <script lang="ts" setup>
 
 import {computed, onBeforeUnmount, ref, watch} from "vue";
-import {ButtonClose, ToastBody, ToastProps} from "@/components";
+import {ButtonClose, ToastBody, type ToastProps} from "@/components";
 import {getTransitionDurationFromElement} from "@/composables/useHelpers";
 import SafeTeleport from "../Internal/SafeTeleport";
 import SafeComponent from "@/components/Internal/SafeComponent";

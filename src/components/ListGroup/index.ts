@@ -1,7 +1,7 @@
-import {HasColorVariant, HasTag, ResponsiveSizes} from "@/index";
+import type {HasColorVariant, HasTag, ResponsiveSizes} from "@/index";
 
 import type {RouteLocationRaw} from "vue-router";
-import {AnchorHTMLAttributes} from "vue";
+import {type AnchorHTMLAttributes} from "vue";
 
 export {default as ListGroup} from "./ListGroup.vue";
 export {default as ListGroupItem} from "./ListGroupItem.vue";

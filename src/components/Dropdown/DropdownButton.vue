@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import {DropdownButtonPropsInterface} from "./index";
+import {type DropdownButtonPropsInterface} from "./index";
 
 withDefaults(defineProps<DropdownButtonPropsInterface>(), {})
 </script>

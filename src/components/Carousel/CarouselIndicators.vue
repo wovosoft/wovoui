@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {CarouselIndicatorsProps} from "./index";
+import {type CarouselIndicatorsProps} from "./index";
 
 withDefaults(defineProps<CarouselIndicatorsProps>(), {
 	tag: 'div'

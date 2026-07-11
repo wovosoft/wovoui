@@ -2,7 +2,7 @@
 import {computed, inject, isVNode, useModel} from "vue";
 
 import {ButtonGroupOutlinedInjection} from "@/index";
-import {ButtonProps} from "./index";
+import type {ButtonProps} from "./index";
 
 const props = withDefaults(defineProps<ButtonProps>(), {
     tag: "button",

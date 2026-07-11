@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {Dropdown, NavItemDropdownPropsInterface} from "@/components";
+import {Dropdown, type NavItemDropdownPropsInterface} from "@/components";
 
 const props = withDefaults(defineProps<NavItemDropdownPropsInterface>(), {
     isNav: true,

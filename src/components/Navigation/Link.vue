@@ -3,7 +3,7 @@
  * Multiple routers should be support
  * e.g. vue-router, inertia router, nuxt router etc
  */
-import {LinkProps} from "@/components";
+import {type LinkProps} from "@/components";
 
 withDefaults(defineProps<LinkProps>(), {
     href: '#',

@@ -18,7 +18,7 @@
 </template>
 <script lang="ts" setup>
 import {computed, ref} from "vue";
-import {Container, NavbarBrand, NavbarProps, NavbarToggler} from "@/components";
+import {Container, NavbarBrand, type NavbarProps, NavbarToggler} from "@/components";
 
 const props = withDefaults(defineProps<NavbarProps>(), {
     brandUrl: '#',

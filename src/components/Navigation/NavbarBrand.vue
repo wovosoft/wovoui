@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {NavbarBrandProps} from "@/components";
+import {type NavbarBrandProps} from "@/components";
 
 withDefaults(defineProps<NavbarBrandProps>(), {
     tag: 'a',

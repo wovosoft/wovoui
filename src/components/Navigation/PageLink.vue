@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {PageLinkProps} from "@/components";
+import {type PageLinkProps} from "@/components";
 
 withDefaults(defineProps<PageLinkProps>(), {
     tag: 'a',

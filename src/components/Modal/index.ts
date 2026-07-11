@@ -1,6 +1,6 @@
-import {CSSProperties} from "vue";
+import {type CSSProperties} from "vue";
 
-import {
+import type {
     ButtonProps,
     ButtonSizes,
     ClassType,

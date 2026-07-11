@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed, getCurrentInstance, onBeforeMount, ref, watch} from "vue";
-import {CollapseEmits, CollapseProps} from "@/components";
+import {type CollapseEmits, type CollapseProps} from "@/components";
 
 const props = withDefaults(defineProps<CollapseProps>(), {
     tag: 'div',

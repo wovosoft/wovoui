@@ -1,4 +1,4 @@
-import dayjs, {Dayjs, WeekdayNames} from "dayjs";
+import dayjs, {Dayjs, type WeekdayNames} from "dayjs";
 import duration from "dayjs/plugin/duration";
 
 dayjs.extend(duration);

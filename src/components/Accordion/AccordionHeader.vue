@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {AccordionHeaderProps} from "@/components";
+import {type AccordionHeaderProps} from "@/components";
 
 const props = withDefaults(defineProps<AccordionHeaderProps>(), {
     tag: 'h2',

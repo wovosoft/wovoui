@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import {InputGroupProps, InputGroupText} from "@/components";
+import {type InputGroupProps, InputGroupText} from "@/components";
 
 withDefaults(defineProps<InputGroupProps>(), {
     tag: 'div',

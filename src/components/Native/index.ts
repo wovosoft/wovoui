@@ -1,6 +1,6 @@
 //native components
-import {ClassType} from "@/components";
-import {StyleValue} from "vue";
+import type {ClassType} from "@/components";
+import {type StyleValue} from "vue";
 
 export {default as NativeCollapse} from "./NativeCollapse.vue";
 export {default as NativeDialog} from "./NativeDialog.vue";

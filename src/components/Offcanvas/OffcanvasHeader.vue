@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import {ButtonClose, OffcanvasHeaderProps, OffcanvasTitle} from "@/components";
+import {ButtonClose, type OffcanvasHeaderProps, OffcanvasTitle} from "@/components";
 
 withDefaults(defineProps<OffcanvasHeaderProps>(), {
     tag: 'header',

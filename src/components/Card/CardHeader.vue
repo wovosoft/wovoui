@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {computed} from "vue";
 import {getBinaryClasses} from "@/composables";
-import {CardHeaderPropsInterface} from "@/components";
+import {type CardHeaderPropsInterface} from "@/components";
 
 const props = withDefaults(defineProps<CardHeaderPropsInterface>(), {
     tag: "div",

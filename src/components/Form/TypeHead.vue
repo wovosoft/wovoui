@@ -60,7 +60,7 @@ import {DropdownMenu, Input, InputGroup} from "@/components";
 import {vOnClickOutside} from "@/directives";
 import axios from "axios";
 import usePopper from "@/composables/usePopper";
-import {SetupContext} from "@vue/runtime-core";
+import {type SetupContext} from "@vue/runtime-core";
 
 const props = withDefaults(defineProps<TypeHeadProps>(), {
     queryKey: 'query',

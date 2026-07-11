@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {AlertHeadingProps} from "@/components";
+import {type AlertHeadingProps} from "@/components";
 
 withDefaults(defineProps<AlertHeadingProps>(), {
     tag: "h4"

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {ModalHeaderProps} from "@/components";
+import {type ModalHeaderProps} from "@/components";
 
 withDefaults(defineProps<ModalHeaderProps>(), {
     tag: 'div',

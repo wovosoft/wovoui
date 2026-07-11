@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import {computed} from "vue";
 import {getBinaryClasses} from "@/composables";
-import {CardSubTitlePropsInterface} from "@/components";
+import {type CardSubTitlePropsInterface} from "@/components";
 
 const props = withDefaults(defineProps<CardSubTitlePropsInterface>(), {
     tag: "h6",

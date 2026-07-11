@@ -70,8 +70,8 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, onMounted, PropType, ref, watch} from "vue";
-import {DateItemInterface, dateMatrix, dayNames, makeSize, makeString} from "@/composables";
+import {computed, onMounted, type PropType, ref, watch} from "vue";
+import {type DateItemInterface, dateMatrix, dayNames, makeSize, makeString} from "@/composables";
 import {Button, Flex, FlexItem, Table} from "@/index";
 import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
 import type {ButtonSizes} from "@/index";

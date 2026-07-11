@@ -35,7 +35,7 @@
 import {computed, provide} from "vue";
 import {FormLabel, HasFloatingLabelInjectionKey} from "@/components";
 import FeedbackMessages from "./FeedbackMessages.vue";
-import {FormGroupPropsInterface} from "@/components/Form/useFormHelpers";
+import {type FormGroupPropsInterface} from "@/components/Form/useFormHelpers";
 
 const {validFeedback, invalidFeedback, tag = 'div', ...props} = defineProps<FormGroupPropsInterface>();
 

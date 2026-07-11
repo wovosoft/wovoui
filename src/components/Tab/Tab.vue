@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import {computed, getCurrentInstance, inject, onBeforeUnmount, reactive, ref, useModel, watch} from "vue";
 import {getTransitionDurationFromElement} from "@/composables";
-import {registerTabInjection, TabProps, unregisterTabInjection} from "./index";
+import {registerTabInjection,type TabProps, unregisterTabInjection} from "./index";
 
 const props = withDefaults(defineProps<TabProps>(), {
     active: false,

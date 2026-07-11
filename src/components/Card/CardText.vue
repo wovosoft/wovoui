@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {CardTextPropsInterface} from "@/components";
+import {type CardTextPropsInterface} from "@/components";
 
 withDefaults(defineProps<CardTextPropsInterface>(), {
     tag: "p"

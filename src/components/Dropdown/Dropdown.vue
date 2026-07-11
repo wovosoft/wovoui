@@ -54,10 +54,10 @@ import DropdownSkeleton from "../Internal/DropdownSkeleton.vue";
 import DropdownMenu from "./DropdownMenu.vue";
 import {Button} from "@/components/Button";
 import {computed, onBeforeUnmount, onMounted, ref, watch} from "vue";
-import {DropdownPropsInterface} from "./index";
+import {type DropdownPropsInterface} from "./index";
 import usePopper from "@/composables/usePopper";
 import NavLink from "@/components/Navigation/NavLink.vue";
-import {PopperOptionsType} from "@/index";
+import {type PopperOptionsType} from "@/index";
 
 const props = withDefaults(defineProps<DropdownPropsInterface>(), {
     tag: "div",

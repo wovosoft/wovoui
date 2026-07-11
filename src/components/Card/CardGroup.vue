@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed} from "vue";
-import {CardGroupPropsInterface} from "@/components";
+import {type CardGroupPropsInterface} from "@/components";
 
 const props = withDefaults(defineProps<CardGroupPropsInterface>(), {
     tag: 'div'

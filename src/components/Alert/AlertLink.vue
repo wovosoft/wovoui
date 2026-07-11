@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed, isVNode} from "vue";
-import {AlertLinkProps} from "@/components";
+import {type AlertLinkProps} from "@/components";
 
 const props = withDefaults(defineProps<AlertLinkProps>(), {
     href: '#'

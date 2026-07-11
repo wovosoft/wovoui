@@ -1,4 +1,4 @@
-import {HTMLAttributes} from "vue";
+import {type HTMLAttributes} from "vue";
 import type {ClassType, ColorVariants, TooltipPlacement} from "@/index";
 
 export {default as Offcanvas} from "./Offcanvas.vue";

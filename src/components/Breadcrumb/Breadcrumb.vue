@@ -17,7 +17,7 @@
 <script lang="ts" setup>
 import {computed} from "vue";
 import BreadcrumbItem from "./BreadcrumbItem.vue";
-import {BreadcrumbProps} from "@/components";
+import {type BreadcrumbProps} from "@/components";
 
 const props = withDefaults(defineProps<BreadcrumbProps>(), {
     tag: 'ol',

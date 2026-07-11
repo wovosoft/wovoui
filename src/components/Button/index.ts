@@ -1,5 +1,5 @@
-import {ButtonSizes, ColorVariants, HasTag} from "@/index";
-import {AnchorHTMLAttributes, ButtonHTMLAttributes, InjectionKey, VNode} from "vue";
+import type {ButtonSizes, ColorVariants, HasTag} from "@/index";
+import {type AnchorHTMLAttributes, type ButtonHTMLAttributes, type InjectionKey, type VNode} from "vue";
 
 export {default as Button} from "./Button.vue";
 export {default as ButtonClose} from "./ButtonClose.vue";

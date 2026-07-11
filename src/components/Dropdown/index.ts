@@ -1,11 +1,11 @@
-import {
+import type {
     ButtonSizes,
     ColorVariants,
     DropdownAlignments,
     DropdownDirections,
     HasTag
 } from "@/index";
-import {RouteRecordRaw} from "vue-router";
+import type {RouteRecordRaw} from "vue-router";
 
 export {default as Dropdown} from "./Dropdown.vue";
 export {default as DropdownButton} from "./DropdownButton.vue";

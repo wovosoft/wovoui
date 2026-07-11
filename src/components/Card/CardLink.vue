@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {CardLinkPropsInterface} from "@/components";
+import {type CardLinkPropsInterface} from "@/components";
 
 withDefaults(defineProps<CardLinkPropsInterface>(), {
   href: '#'

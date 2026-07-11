@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, onMounted, PropType, ref, watch} from 'vue'
+import {defineComponent, onMounted, type PropType, ref, watch} from 'vue'
 //@ts-ignore
 import Chart, {ChartData, ChartItem, ChartOptions, ChartType, DefaultDataPoint} from 'chart.js/auto/auto.js';
 
