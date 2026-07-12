@@ -48,7 +48,7 @@ export default defineConfig({
                 /^prismjs(\/.*)?$/,
             ],
             output: {
-                preserveModules: false,
+                preserveModules: true,
                 preserveModulesRoot: 'src',
                 globals: {
                     vue: 'Vue',

@@ -13,7 +13,6 @@
 import {type AnchorHTMLAttributes, computed, getCurrentInstance} from "vue";
 import {type NavLinkProps} from "@/components";
 
-
 const props = withDefaults(defineProps<NavLinkProps>(), {
   tag: 'a',
 });
