@@ -62,6 +62,10 @@
             "import": "./dist/index.ts",
             "types": "./dist/index.ts"
         },
+        "./shared": {
+            "import": "./dist/shared/index.ts",
+            "types": "./dist/shared/index.ts"
+        },
         "./directives": {
             "import": "./dist/directives/index.ts",
             "types": "./dist/directives/index.ts"
@@ -70,13 +74,13 @@
             "import": "./dist/composables/index.ts",
             "types": "./dist/composables/index.ts"
         },
-        "./shared": {
-            "import": "./dist/shared/index.ts",
-            "types": "./dist/shared/index.ts"
-        },
         "./components": {
             "import": "./dist/components/index.ts",
             "types": "./dist/components/index.ts"
+        },
+        "./components/Modal": {
+            "import": "./dist/components/Modal/index.ts",
+            "types": "./dist/components/Modal/index.ts"
         },
         "./components/Notification": {
             "import": "./dist/components/Notification/index.ts",
@@ -86,49 +90,33 @@
             "import": "./dist/components/Accordion/index.ts",
             "types": "./dist/components/Accordion/index.ts"
         },
-        "./components/Ui": {
-            "import": "./dist/components/Ui/index.ts",
-            "types": "./dist/components/Ui/index.ts"
-        },
-        "./components/Modal": {
-            "import": "./dist/components/Modal/index.ts",
-            "types": "./dist/components/Modal/index.ts"
-        },
         "./components/Layout": {
             "import": "./dist/components/Layout/index.ts",
             "types": "./dist/components/Layout/index.ts"
-        },
-        "./components/Button": {
-            "import": "./dist/components/Button/index.ts",
-            "types": "./dist/components/Button/index.ts"
         },
         "./components/Dropdown": {
             "import": "./dist/components/Dropdown/index.ts",
             "types": "./dist/components/Dropdown/index.ts"
         },
-        "./components/Indicators": {
-            "import": "./dist/components/Indicators/index.ts",
-            "types": "./dist/components/Indicators/index.ts"
-        },
-        "./components/Offcanvas": {
-            "import": "./dist/components/Offcanvas/index.ts",
-            "types": "./dist/components/Offcanvas/index.ts"
-        },
-        "./components/Tab": {
-            "import": "./dist/components/Tab/index.ts",
-            "types": "./dist/components/Tab/index.ts"
-        },
-        "./components/Alert": {
-            "import": "./dist/components/Alert/index.ts",
-            "types": "./dist/components/Alert/index.ts"
+        "./components/Button": {
+            "import": "./dist/components/Button/index.ts",
+            "types": "./dist/components/Button/index.ts"
         },
         "./components/Table": {
             "import": "./dist/components/Table/index.ts",
             "types": "./dist/components/Table/index.ts"
         },
-        "./components/Form": {
-            "import": "./dist/components/Form/index.ts",
-            "types": "./dist/components/Form/index.ts"
+        "./components/Alert": {
+            "import": "./dist/components/Alert/index.ts",
+            "types": "./dist/components/Alert/index.ts"
+        },
+        "./components/Offcanvas": {
+            "import": "./dist/components/Offcanvas/index.ts",
+            "types": "./dist/components/Offcanvas/index.ts"
+        },
+        "./components/Indicators": {
+            "import": "./dist/components/Indicators/index.ts",
+            "types": "./dist/components/Indicators/index.ts"
         },
         "./components/Navigation": {
             "import": "./dist/components/Navigation/index.ts",
@@ -150,9 +138,21 @@
             "import": "./dist/components/Breadcrumb/index.ts",
             "types": "./dist/components/Breadcrumb/index.ts"
         },
+        "./components/Ui": {
+            "import": "./dist/components/Ui/index.ts",
+            "types": "./dist/components/Ui/index.ts"
+        },
+        "./components/Form": {
+            "import": "./dist/components/Form/index.ts",
+            "types": "./dist/components/Form/index.ts"
+        },
         "./components/ListGroup": {
             "import": "./dist/components/ListGroup/index.ts",
             "types": "./dist/components/ListGroup/index.ts"
+        },
+        "./components/Tab": {
+            "import": "./dist/components/Tab/index.ts",
+            "types": "./dist/components/Tab/index.ts"
         },
         "./components_list": {
             "import": "./dist/components_list.ts",
