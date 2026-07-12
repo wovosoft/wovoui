@@ -129,8 +129,7 @@ export const components = [
     "Tooltip",
     "Tr",
     "TypeHead",
-    "Vr",
-    "VueSource"
+    "Vr"
 ];
 
 export const componentsList = components;

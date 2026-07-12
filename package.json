@@ -7,7 +7,7 @@
         "preview": "vite preview",
         "build:package": "vite build",
         "build:types": "vue-tsc --declaration --emitDeclarationOnly && tsc-alias",
-        "build:sfc": "node build_sfc.js",
+        "build:sfc": "bun build_sfc.js",
         "build:production": "bun run build:package && bun run build:types"
     },
     "sideEffects": [
@@ -62,10 +62,6 @@
             "import": "./dist/index.ts",
             "types": "./dist/index.ts"
         },
-        "./components": {
-            "import": "./dist/components/index.ts",
-            "types": "./dist/components/index.ts"
-        },
         "./directives": {
             "import": "./dist/directives/index.ts",
             "types": "./dist/directives/index.ts"
@@ -78,65 +74,41 @@
             "import": "./dist/shared/index.ts",
             "types": "./dist/shared/index.ts"
         },
+        "./components": {
+            "import": "./dist/components/index.ts",
+            "types": "./dist/components/index.ts"
+        },
+        "./components/Notification": {
+            "import": "./dist/components/Notification/index.ts",
+            "types": "./dist/components/Notification/index.ts"
+        },
         "./components/Accordion": {
             "import": "./dist/components/Accordion/index.ts",
             "types": "./dist/components/Accordion/index.ts"
         },
-        "./components/Alert": {
-            "import": "./dist/components/Alert/index.ts",
-            "types": "./dist/components/Alert/index.ts"
-        },
-        "./components/Breadcrumb": {
-            "import": "./dist/components/Breadcrumb/index.ts",
-            "types": "./dist/components/Breadcrumb/index.ts"
-        },
-        "./components/Button": {
-            "import": "./dist/components/Button/index.ts",
-            "types": "./dist/components/Button/index.ts"
-        },
-        "./components/Card": {
-            "import": "./dist/components/Card/index.ts",
-            "types": "./dist/components/Card/index.ts"
-        },
-        "./components/Carousel": {
-            "import": "./dist/components/Carousel/index.ts",
-            "types": "./dist/components/Carousel/index.ts"
-        },
-        "./components/Dropdown": {
-            "import": "./dist/components/Dropdown/index.ts",
-            "types": "./dist/components/Dropdown/index.ts"
-        },
-        "./components/Form": {
-            "import": "./dist/components/Form/index.ts",
-            "types": "./dist/components/Form/index.ts"
-        },
-        "./components/Indicators": {
-            "import": "./dist/components/Indicators/index.ts",
-            "types": "./dist/components/Indicators/index.ts"
-        },
-        "./components/Layout": {
-            "import": "./dist/components/Layout/index.ts",
-            "types": "./dist/components/Layout/index.ts"
-        },
-        "./components/ListGroup": {
-            "import": "./dist/components/ListGroup/index.ts",
-            "types": "./dist/components/ListGroup/index.ts"
+        "./components/Ui": {
+            "import": "./dist/components/Ui/index.ts",
+            "types": "./dist/components/Ui/index.ts"
         },
         "./components/Modal": {
             "import": "./dist/components/Modal/index.ts",
             "types": "./dist/components/Modal/index.ts"
         },
-        "./components/Native": {
-            "import": "./dist/components/Native/index.ts",
-            "types": "./dist/components/Native/index.ts"
+        "./components/Layout": {
+            "import": "./dist/components/Layout/index.ts",
+            "types": "./dist/components/Layout/index.ts"
         },
-        "./components/Navigation": {
-            "import": "./dist/components/Navigation/index.ts",
-            "types": "./dist/components/Navigation/index.ts"
+        "./components/Button": {
+            "import": "./dist/components/Button/index.ts",
+            "types": "./dist/components/Button/index.ts"
         },
-        "./components/Notification": {
-            "import": "./dist/components/Notification/index.ts",
-            "types": "./dist/components/Notification/index.ts"
+        "./components/Dropdown": {
+            "import": "./dist/components/Dropdown/index.ts",
+            "types": "./dist/components/Dropdown/index.ts"
+        },
+        "./components/Indicators": {
+            "import": "./dist/components/Indicators/index.ts",
+            "types": "./dist/components/Indicators/index.ts"
         },
         "./components/Offcanvas": {
             "import": "./dist/components/Offcanvas/index.ts",
@@ -146,13 +118,41 @@
             "import": "./dist/components/Tab/index.ts",
             "types": "./dist/components/Tab/index.ts"
         },
+        "./components/Alert": {
+            "import": "./dist/components/Alert/index.ts",
+            "types": "./dist/components/Alert/index.ts"
+        },
         "./components/Table": {
             "import": "./dist/components/Table/index.ts",
             "types": "./dist/components/Table/index.ts"
         },
-        "./components/Ui": {
-            "import": "./dist/components/Ui/index.ts",
-            "types": "./dist/components/Ui/index.ts"
+        "./components/Form": {
+            "import": "./dist/components/Form/index.ts",
+            "types": "./dist/components/Form/index.ts"
+        },
+        "./components/Navigation": {
+            "import": "./dist/components/Navigation/index.ts",
+            "types": "./dist/components/Navigation/index.ts"
+        },
+        "./components/Native": {
+            "import": "./dist/components/Native/index.ts",
+            "types": "./dist/components/Native/index.ts"
+        },
+        "./components/Carousel": {
+            "import": "./dist/components/Carousel/index.ts",
+            "types": "./dist/components/Carousel/index.ts"
+        },
+        "./components/Card": {
+            "import": "./dist/components/Card/index.ts",
+            "types": "./dist/components/Card/index.ts"
+        },
+        "./components/Breadcrumb": {
+            "import": "./dist/components/Breadcrumb/index.ts",
+            "types": "./dist/components/Breadcrumb/index.ts"
+        },
+        "./components/ListGroup": {
+            "import": "./dist/components/ListGroup/index.ts",
+            "types": "./dist/components/ListGroup/index.ts"
         },
         "./components_list": {
             "import": "./dist/components_list.ts",
