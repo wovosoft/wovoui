@@ -105,7 +105,7 @@ onMounted(() => {
 });
 
 watch(() => props.modelValue, (value: any) => {
-    currentMonth.value = dayjs(props.modelValue);
+    currentMonth.value = dayjs(value);
 });
 
 const theWeeks = computed(() => dateMatrix(currentMonth.value));

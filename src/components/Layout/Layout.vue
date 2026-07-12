@@ -20,12 +20,8 @@
 <script lang="ts" setup>
 import { Flex, FlexItem } from "@/components";
 import { Collapse } from "@/components/Accordion";
-import { type MaybeComputedElementRef, type MaybeElement, useElementSize } from "@vueuse/core";
 import { ref } from "vue";
 
-const appBar = ref<MaybeComputedElementRef<MaybeElement> | null>(null);
-
-const elementSize = useElementSize(appBar as MaybeComputedElementRef<MaybeElement>);
 
 const sidebarOpened = ref<boolean>(true);
 

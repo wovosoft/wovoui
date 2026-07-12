@@ -1,6 +1,6 @@
 import {onBeforeUnmount, onMounted, ref, type Ref, unref, watch} from "vue";
 import {createPopper, type Instance as PopperInstance, type VirtualElement} from "@popperjs/core";
-import {type MaybeElement, unrefElement} from "@vueuse/core";
+import {unrefElement} from "@vueuse/core";
 import type {PopperOptionsType} from "@/index";
 
 declare type SetAction<S> = S | ((prev: S) => S);

@@ -39,7 +39,7 @@ const setActiveItem = (index: number) => {
 
 //if no active item is set, set the first item as active
 onMounted(() => {
-    const findActiveItem = slideStates.value.find((item, index) => item.value);
+    const findActiveItem = slideStates.value.find((item) => item.value);
     if (!findActiveItem) {
         setActiveItem(0);
     } else {
@@ -115,7 +115,7 @@ const classes = computed(() => [
     <component :is="tag" :class="classes">
         <CarouselIndicators v-if="indicators">
             <CarouselIndicatorButton
-                v-for="(item, index) in slideStates"
+                v-for="(_, index) in slideStates"
                 :key="index"
                 :index="index"
                 :aria-label="'Slide ' + (index + 1)"

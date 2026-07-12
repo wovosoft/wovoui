@@ -33,7 +33,7 @@
             <li v-for="(item,item_key) in items" :key="item_key" role="menuitem">
                 <label class="dropdown-item"
                        :tabindex="(opened?-1:null) as number"
-                       @keydown.space.enter.prevent="itemClicked($event,item)">
+                       @keydown.space.enter.prevent="itemClicked(item)">
                     <input
                         v-model="model"
                         :value="item"
@@ -101,7 +101,7 @@ watch(query, (value?: string) => {
  * Attach Outside click listener onMounted
  */
 const clickOutsideHandler = (e: Event): void => {
-    if (opened.value && !root.value?.contains(<Node>e.target)) {
+    if (opened.value && !root.value?.contains(e.target as Node)) {
         opened.value = false;
     }
 };
@@ -130,7 +130,7 @@ const navigateItem = (e: any) => {
     }
 };
 
-const itemClicked = (e: any, item: any) => {
+const itemClicked = (item: any) => {
     if (model.value.includes(item)) {
         let index = model.value.indexOf(item);
         model.value.splice(index, 1);

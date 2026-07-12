@@ -76,7 +76,7 @@ export default defineComponent({
             placement: ["auto", "auto-start", "auto-end"].includes(props.placement)
                 ? "top"
                 : props.placement,
-            modifiers: <Modifier<any, any>[]>[
+            modifiers: [
                 {
                     name: "topLogger",
                     enabled: true,
@@ -92,7 +92,7 @@ export default defineComponent({
                         offset: [0, 10],
                     },
                 },
-            ],
+            ] as Modifier<any, any>[],
         }));
 
         const initPopper = () => {

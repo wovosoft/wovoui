@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import {type AnchorHTMLAttributes, computed, getCurrentInstance} from "vue";
+import {computed, getCurrentInstance} from "vue";
 import {type NavLinkProps} from "@/components";
 
 const props = withDefaults(defineProps<NavLinkProps>(), {

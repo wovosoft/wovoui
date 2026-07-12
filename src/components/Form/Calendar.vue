@@ -71,7 +71,7 @@
             </tr>
             <tr v-for="(days,week_index) in theWeeks">
                 <template v-if="week_index===0">
-                    <td class="text-center border" v-for="pd in (7-days.length)"></td>
+                    <td class="text-center border" v-for="_ in (7-days.length)"></td>
                 </template>
                 <td class="text-center border" v-for="d in days">
                     <Button size="sm"
@@ -85,7 +85,7 @@
                     </Button>
                 </td>
                 <template v-if="week_index===(theWeeks.length-1)">
-                    <td class="text-center border" v-for="pd in (7-days.length)"></td>
+                    <td class="text-center border" v-for="_ in (7-days.length)"></td>
                 </template>
             </tr>
             </tbody>
@@ -95,7 +95,7 @@
 
 <script lang="ts">
 import {computed, defineComponent, type Ref, ref, watch} from "vue";
-import dayjs, {Dayjs, type ManipulateType, type UnitType} from "dayjs";
+import dayjs, {Dayjs, type ManipulateType} from "dayjs";
 import isToday from "dayjs/plugin/isToday";
 import localData from "dayjs/plugin/localeData";
 import Row from "../Layout/Row.vue";

@@ -1,88 +1,64 @@
 import { readFileSync, writeFileSync } from "fs";
-import { resolve, dirname } from "path";
+import { resolve, dirname, relative } from "path";
 import { fileURLToPath } from 'url';
+import globby from 'globby';
 
 const __filename = fileURLToPath(import.meta.url);
-
 const __dirname = dirname(__filename);
-// @ts-ignore
-const theList = {
-    "index": 'src/index.ts',
-    "composables/index": 'src/composables/index.ts',
-    "directives/index": 'src/directives/index.ts',
-    "shared/index": 'src/shared/index.ts',
 
-    /**LIST OF COMPONENTS**/
-    "components/index": 'src/components/index.ts',
-    "components/Accordion/index": 'src/components/Accordion/index.ts',
-    "components/Alert/index": 'src/components/Alert/index.ts',
-    "components/Breadcrumb/index": 'src/components/Breadcrumb/index.ts',
-    "components/Button/index": 'src/components/Button/index.ts',
-    "components/Card/index": 'src/components/Card/index.ts',
-    "components/Carousel/index": 'src/components/Carousel/index.ts',
-    "components/Dropdown/index": 'src/components/Dropdown/index.ts',
-    "components/Form/index": 'src/components/Form/index.ts',
-    "components/Indicators/index": 'src/components/Indicators/index.ts',
-    "components/Layout/index": 'src/components/Layout/index.ts',
-    "components/ListGroup/index": 'src/components/ListGroup/index.ts',
-    "components/Modal/index": 'src/components/Modal/index.ts',
-    "components/Native/index": 'src/components/Native/index.ts',
-    "components/Navigation/index": 'src/components/Navigation/index.ts',
-    "components/Notification/index": 'src/components/Notification/index.ts',
-    "components/Offcanvas/index": 'src/components/Offcanvas/index.ts',
-    "components/Tab/index": 'src/components/Tab/index.ts',
-    "components/Table/index": 'src/components/Table/index.ts',
-    "components/Ui/index": 'src/components/Ui/index.ts',
-}
+const projectRoot = resolve(__dirname);
+const srcDir = resolve(projectRoot, 'src');
 
-function generateEntryPoints() {
-    let content = "";
+async function run() {
+    console.log("Dynamically scanning for entry points...");
+    // Find all index.ts files in src/
+    const indexFiles = await globby(['src/**/index.ts']);
 
-    Object.keys(theList).forEach((key) => {
-        content += `\t"${key}": resolve(__dirname, "${theList[key]}"),\n`;
-    });
-
-    content = `import {resolve} from "path";
-
-export default {\n${content}}`
-    return content;
-}
-
-
-function generateJsonExports() {
-    let content = {
+    let entryPointsContent = "";
+    let exportsContent = {
         "./dist/style.css": "./dist/wovoui.css",
         "./dist/wovoui.css": "./dist/wovoui.css",
         "./types": "./dist/index.d.ts"
     };
 
-    Object.keys(theList).forEach((key) => {
+    indexFiles.forEach((file) => {
+        const absolutePath = resolve(projectRoot, file);
+        const relativeToSrc = relative(srcDir, absolutePath);
+        const keyWithoutExtension = relativeToSrc.replace(/\.ts$/, ""); // e.g., 'components/Accordion/index'
+        
         let first_key;
-        if (key === 'index') {
+        if (relativeToSrc === 'index.ts') {
             first_key = ".";
         } else {
-            first_key = "./" + key.replace("/index", "");
+            first_key = "./" + relativeToSrc.replace(/\/index\.ts$/, "");
         }
-        content[first_key] = {
-            "import": `./dist/${key}.js`,
-            "types": `./dist/${key}.d.ts`,
+        
+        exportsContent[first_key] = {
+            "import": `./dist/${keyWithoutExtension}.js`,
+            "types": `./dist/${keyWithoutExtension}.d.ts`,
         };
+
+        entryPointsContent += `\t"${keyWithoutExtension}": resolve(__dirname, "src/${relativeToSrc}"),\n`;
     });
 
-    let packageContent = JSON.parse(readFileSync(resolve(__dirname, 'package.json')));
-    packageContent['exports'] = content;
-
-    return JSON.stringify(packageContent, null, 4);
-}
-
-try {
-    writeFileSync(resolve(__dirname, 'entry_points.ts'), generateEntryPoints());
+    // Write entry_points.ts
+    const entryPointsFileContent = `import {resolve} from "path";\n\nexport default {\n${entryPointsContent}}`;
+    writeFileSync(resolve(projectRoot, 'entry_points.ts'), entryPointsFileContent, 'utf8');
     console.log("Entry Points written successfully at entry_points.ts");
-    writeFileSync(resolve(__dirname, 'package.json'), generateJsonExports());
-    console.log("package.json updated");
-} catch (err) {
-    console.error(err);
+
+    // Update package.json
+    const packageJsonPath = resolve(projectRoot, 'package.json');
+    let packageContent = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+    
+    // Set standard compiled entries
+    packageContent['main'] = "./dist/index.js";
+    packageContent['module'] = "./dist/index.js";
+    packageContent['types'] = "./dist/index.d.ts";
+    packageContent['files'] = ["dist"];
+    packageContent['exports'] = exportsContent;
+
+    writeFileSync(packageJsonPath, JSON.stringify(packageContent, null, 4), 'utf8');
+    console.log("package.json updated successfully.");
 }
 
-generateJsonExports();
-
+run().catch(console.error);

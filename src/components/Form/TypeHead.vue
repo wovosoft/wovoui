@@ -109,7 +109,7 @@ function fetchItems() {
         return axios.get(url.href).then(res => {
             items.value = res.data;
             return res.data;
-        }).catch(err => {
+        }).catch(() => {
             items.value = [];
             return [];
         });
@@ -185,9 +185,7 @@ watch(() => props.modelValue, value => {
 });
 
 
-function focusToggleButton() {
-    toggle_btn.value?.focus();
-}
+
 
 function toggle() {
     if (isOpened.value) {

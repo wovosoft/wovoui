@@ -10,7 +10,7 @@
               block
               squared
               :variant="triggerVariant"
-              @click.prevent="itemClicked($event,item,item_index)">
+              @click.prevent="itemClicked(item,item_index)">
         <component v-if="item.icon" :is="item['icon']"/>
         <ChevronRight v-else/>
         <span class="mx-2 flex-grow-1" v-text="item.text"/>
@@ -54,7 +54,7 @@ function setActive(index: number) {
   emit("update:modelValue", index);
 }
 
-function itemClicked(e: any, item: MenuItem, index: number) {
+function itemClicked(item: MenuItem, index: number) {
   setActive(index);
   emit("itemClicked", item);
 }
