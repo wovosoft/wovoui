@@ -23,6 +23,7 @@ export default defineConfig({
             // Make sure to externalize deps that shouldn't be bundled into the library
             external: [
                 'vue',
+                'vue-router',
                 'axios',
                 'es-toolkit',
                 '@vueuse/core',
@@ -35,6 +36,7 @@ export default defineConfig({
                 'dayjs',
                 'prismjs',
                 /^vue(\/.*)?$/,
+                /^vue-router(\/.*)?$/,
                 /^axios(\/.*)?$/,
                 /^es-toolkit(\/.*)?$/,
                 /^@vueuse\/core(\/.*)?$/,

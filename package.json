@@ -66,13 +66,13 @@
             "import": "./dist/components/index.ts",
             "types": "./dist/components/index.ts"
         },
-        "./composables": {
-            "import": "./dist/composables/index.ts",
-            "types": "./dist/composables/index.ts"
-        },
         "./directives": {
             "import": "./dist/directives/index.ts",
             "types": "./dist/directives/index.ts"
+        },
+        "./composables": {
+            "import": "./dist/composables/index.ts",
+            "types": "./dist/composables/index.ts"
         },
         "./shared": {
             "import": "./dist/shared/index.ts",
@@ -98,13 +98,13 @@
             "import": "./dist/components/Card/index.ts",
             "types": "./dist/components/Card/index.ts"
         },
-        "./components/Dropdown": {
-            "import": "./dist/components/Dropdown/index.ts",
-            "types": "./dist/components/Dropdown/index.ts"
-        },
         "./components/Carousel": {
             "import": "./dist/components/Carousel/index.ts",
             "types": "./dist/components/Carousel/index.ts"
+        },
+        "./components/Dropdown": {
+            "import": "./dist/components/Dropdown/index.ts",
+            "types": "./dist/components/Dropdown/index.ts"
         },
         "./components/Form": {
             "import": "./dist/components/Form/index.ts",
@@ -153,6 +153,10 @@
         "./components/Ui": {
             "import": "./dist/components/Ui/index.ts",
             "types": "./dist/components/Ui/index.ts"
+        },
+        "./components_list": {
+            "import": "./dist/components_list.ts",
+            "types": "./dist/components_list.ts"
         }
     }
 }
