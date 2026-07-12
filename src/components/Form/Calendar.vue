@@ -102,7 +102,6 @@ import Row from "../Layout/Row.vue";
 import Col from "../Layout/Col.vue";
 import {Button} from "../Button";
 import InputGroup from "./InputGroup.vue";
-//@ts-ignore
 import {ChevronDoubleLeft, ChevronDoubleRight, ChevronLeft, ChevronRight, CircleFill} from "@wovosoft/wovoui-icons";
 import {makeBoolean, makeProp, makeString} from "@/composables";
 
