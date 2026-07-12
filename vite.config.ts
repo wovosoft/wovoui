@@ -48,12 +48,11 @@ export default defineConfig({
                 /^prismjs(\/.*)?$/,
             ],
             output: {
+                format: 'es',
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                globals: {
-                    vue: 'Vue',
-                    axios: 'axios',
-                },
+                dir: 'dist',
+                entryFileNames: '[name].js',
             },
         },
     },

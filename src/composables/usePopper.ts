@@ -1,11 +1,11 @@
 import {onBeforeUnmount, onMounted, ref, type Ref, unref, watch} from "vue";
 import {createPopper, type Instance as PopperInstance, type VirtualElement} from "@popperjs/core";
-import {unrefElement} from "@vueuse/core";
 import type {PopperOptionsType} from "@/index";
 
-declare type SetAction<S> = S | ((prev: S) => S);
-
-
+const unrefElement = (ref: any): Element | null => {
+    const el = unref(ref);
+    return el?.$el ?? el;
+};
 export default function (reference: any, target: any, options: Ref<PopperOptionsType>, shouldUpdate: Ref<boolean>) {
     const popper = ref<PopperInstance>();
 

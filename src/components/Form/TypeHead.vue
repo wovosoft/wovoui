@@ -11,7 +11,7 @@
                 @keyup.down="()=>isOpened=true"
                 :aria-expanded="isOpened">
                 <slot name="label" :selectedItem="selectedItem">
-                    {{ getLabel(selectedItem) }}
+                    {{ getLabel?.(selectedItem) }}
                 </slot>
             </component>
             <slot name="append"></slot>
@@ -45,7 +45,7 @@
                         class="dropdown-item"
                         type="button">
                     <slot :option="item">
-                        {{ getOption(item) }}
+                        {{ getOption?.(item) }}
                     </slot>
                 </button>
             </div>
@@ -54,11 +54,10 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, nextTick, onMounted, ref, useSlots, watch} from "vue";
+import {computed, nextTick, onMounted, onUnmounted, ref, useSlots, watch} from "vue";
 import type {TypeHeadProps} from "@/index";
 import {DropdownMenu, Input, InputGroup} from "@/components";
 import {vOnClickOutside} from "@/directives";
-import axios from "axios";
 import usePopper from "@/composables/usePopper";
 import {type SetupContext} from "@vue/runtime-core";
 
@@ -100,27 +99,52 @@ const search = ref<InstanceType<typeof Input> | null>(null);
 
 const {update} = usePopper(toggle_btn, menu, ref({}), isOpened);
 
-function fetchItems() {
-    if (props.apiUrl) {
-        let url = new URL(props.apiUrl);
-        if (query.value) {
-            url.searchParams.set(props.queryKey, query.value?.toString());
-        }
-        return axios.get(url.href).then(res => {
-            items.value = res.data;
-            return res.data;
-        }).catch(() => {
-            items.value = [];
-            return [];
-        });
-    } else {
-        if (typeof props.getItems == 'function') {
-            return props.getItems(items, query);
-        }
+const abortController = ref<AbortController | null>(null);
 
-        return [];
+function fetchItems() {
+  if (props.apiUrl) {
+    // Abort any in-flight request before starting a new one
+    abortController.value?.abort();
+    abortController.value = new AbortController();
+
+    const url = new URL(props.apiUrl);
+    if (query.value) {
+      url.searchParams.set(props.queryKey, query.value.toString());
     }
+    return fetch(url.href, { signal: abortController.value.signal })
+        .then(res => {
+          if (!res.ok) throw new Error(res.statusText);
+          return res.json();
+        })
+        .then(data => {
+          items.value = data;
+          return data;
+        })
+        .catch(err => {
+          if (err.name !== 'AbortError') {
+            items.value = [];
+          }
+          return [];
+        });
+  } else {
+    if (typeof props.getItems == 'function') {
+      return props.getItems(items, query);
+    }
+    return [];
+  }
 }
+
+// Abort when dropdown closes
+watch(isOpened, (opened) => {
+  if (!opened) {
+    abortController.value?.abort();
+  }
+});
+
+// Abort on unmount
+onUnmounted(() => {
+  abortController.value?.abort();
+});
 
 const slots: SetupContext['slots'] = useSlots();
 

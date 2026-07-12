@@ -29,19 +29,13 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
-        "@vueuse/components": "^13.9.0",
-        "@vueuse/core": "^13.9.0",
         "@wovosoft/wovoui-icons": "^1.1.15",
-        "axios": "^1.18.1",
         "es-toolkit": "^1.49.0"
     },
     "devDependencies": {
-        "@types/bootstrap": "^5.2.11",
         "@types/node": "^26.1.1",
-        "@types/prismjs": "^1.26.6",
         "@vitejs/plugin-vue": "^6.0.7",
         "globby": "^11.1.0",
-        "sass": "^1.101.0",
         "tsc-alias": "^1.9.0",
         "typescript": "^5.9.3",
         "vite": "^8.1.4",
@@ -72,13 +66,13 @@
             "import": "./dist/components/index.ts",
             "types": "./dist/components/index.ts"
         },
-        "./directives": {
-            "import": "./dist/directives/index.ts",
-            "types": "./dist/directives/index.ts"
-        },
         "./composables": {
             "import": "./dist/composables/index.ts",
             "types": "./dist/composables/index.ts"
+        },
+        "./directives": {
+            "import": "./dist/directives/index.ts",
+            "types": "./dist/directives/index.ts"
         },
         "./shared": {
             "import": "./dist/shared/index.ts",
@@ -88,13 +82,13 @@
             "import": "./dist/components/Accordion/index.ts",
             "types": "./dist/components/Accordion/index.ts"
         },
-        "./components/Breadcrumb": {
-            "import": "./dist/components/Breadcrumb/index.ts",
-            "types": "./dist/components/Breadcrumb/index.ts"
-        },
         "./components/Alert": {
             "import": "./dist/components/Alert/index.ts",
             "types": "./dist/components/Alert/index.ts"
+        },
+        "./components/Breadcrumb": {
+            "import": "./dist/components/Breadcrumb/index.ts",
+            "types": "./dist/components/Breadcrumb/index.ts"
         },
         "./components/Button": {
             "import": "./dist/components/Button/index.ts",
