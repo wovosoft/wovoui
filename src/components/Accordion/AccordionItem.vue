@@ -1,53 +1,51 @@
 <template>
-    <div class="accordion-item">
-        <AccordionHeader v-model="visible">
-            <slot name="header">
-                {{ header }}
-            </slot>
-        </AccordionHeader>
+  <div class="accordion-item">
+    <AccordionHeader v-model="visible">
+      <slot name="header">
+        {{ header }}
+      </slot>
+    </AccordionHeader>
 
-        <Collapse class="accordion-collapse" v-model="visible">
-            <AccordionBody :class="bodyClass">
-                <slot></slot>
-            </AccordionBody>
-        </Collapse>
-    </div>
+    <Collapse class="accordion-collapse" v-model="visible">
+      <AccordionBody :class="bodyClass">
+        <slot></slot>
+      </AccordionBody>
+    </Collapse>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import {inject, ref, watch} from "vue";
+import {type HTMLAttributes, inject, ref, watch} from "vue";
 import AccordionHeader from "./AccordionHeader.vue";
 import AccordionBody from "./AccordionBody.vue";
 import Collapse from "./Collapse.vue";
 import {
-    type AccordionItemStateType,
-    RegisterAccordionItemInjectionKey,
-    SetActiveAccordionItemInjectionKey
+  type AccordionItemStateType,
+  RegisterAccordionItemInjectionKey,
+  SetActiveAccordionItemInjectionKey
 } from "@/index";
 
-import {makeBoolean, makeClass, makeString} from "@/composables/useProps";
-
-const props = defineProps({
-    header: makeString(),
-    modelValue: makeBoolean(false),
-    bodyClass: makeClass()
-});
+const props = defineProps<{
+  header?: string,
+  modelValue?: boolean,
+  bodyClass?:  HTMLAttributes['class']
+}>();
 
 const visible: AccordionItemStateType = ref(props.modelValue);
 const registerItem = inject(RegisterAccordionItemInjectionKey);
 
 if (typeof registerItem == 'function') {
-    registerItem(visible);
+  registerItem(visible);
 }
 
 
 const setActiveItem = inject(SetActiveAccordionItemInjectionKey);
 
 if (typeof setActiveItem == 'function') {
-    watch(visible, value => {
-        if (value) {
-            setActiveItem(visible);
-        }
-    });
+  watch(visible, value => {
+    if (value) {
+      setActiveItem(visible);
+    }
+  });
 }
 </script>

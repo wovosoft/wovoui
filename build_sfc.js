@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 
 const projectRoot = resolve(__dirname);
 const srcDir = resolve(projectRoot, 'src');
-const distDir = resolve(projectRoot, 'dist');
+const distDir = resolve(projectRoot, 'dist/raw');
 
 async function build() {
     console.log("Scanning for Vue components...");
@@ -118,9 +118,9 @@ ${globalComponentsLines.join('\n')}
     
     console.log("Updating package.json exports and entry_points.ts...");
     let exportsContent = {
-        "./dist/style.css": "./dist/style.css",
-        "./dist/wovoui.css": "./dist/style.css",
-        "./style.css": "./dist/style.css"
+        "./dist/style.css": "./dist/build/style.css",
+        "./dist/wovoui.css": "./dist/build/style.css",
+        "./style.css": "./dist/build/style.css"
     };
 
     let entryPointsContent = "";
@@ -138,8 +138,8 @@ ${globalComponentsLines.join('\n')}
         }
         
         exportsContent[first_key] = {
-            "import": `./dist/${keyWithoutExtension}.ts`,
-            "types": `./dist/${keyWithoutExtension}.ts`,
+            "import": `./dist/build/${keyWithoutExtension}.js`,
+            "types": `./dist/raw/${keyWithoutExtension}.ts`,
         };
 
         entryPointsContent += `\t"${keyWithoutExtension}": resolve(__dirname, "src/${relativeToSrc}"),\n`;
@@ -147,8 +147,8 @@ ${globalComponentsLines.join('\n')}
 
     // Manually add components_list entry point
     exportsContent["./components_list"] = {
-        "import": "./dist/components_list.ts",
-        "types": "./dist/components_list.ts"
+        "import": "./dist/build/components_list.ts",
+        "types": "./dist/raw/components_list.ts"
     };
     entryPointsContent += `\t"components_list": resolve(__dirname, "src/components_list.ts"),\n`;
 

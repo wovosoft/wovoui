@@ -53,7 +53,7 @@ export default defineConfig({
                 format: 'es',
                 preserveModules: true,
                 preserveModulesRoot: 'src',
-                dir: 'dist',
+                dir: 'dist/build',
                 entryFileNames: '[name].js',
             },
         },
