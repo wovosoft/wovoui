@@ -1,23 +1,22 @@
 <script lang="ts" setup>
 import {type AccordionHeaderProps} from "@/components";
 
-const props = withDefaults(defineProps<AccordionHeaderProps>(), {
-    tag: 'h2',
-    toggleTag: 'button',
-})
+withDefaults(defineProps<AccordionHeaderProps>(), {
+  tag: 'h2',
+  toggleTag: 'button',
+});
 
-defineEmits<{
-    'update:modelValue': [value: boolean]
-}>();
+const model = defineModel<boolean>();
 </script>
+
 <template>
-    <component :is="tag" class="accordion-header">
-        <component :is="toggleTag"
-                   :type="toggleTag === 'button' ? 'button' : null"
-                   :aria-expanded="modelValue"
-                   @click="() => $emit('update:modelValue', !modelValue)"
-                   :class=" {'accordion-button': true, 'collapsed': !props.modelValue}">
-            <slot></slot>
-        </component>
+  <component :is="tag" class="accordion-header">
+    <component :is="toggleTag"
+               :type="toggleTag === 'button' ? 'button' : null"
+               :aria-expanded="model"
+               @click="() => model=!model"
+               :class=" {'accordion-button': true, 'collapsed': !model}">
+      <slot></slot>
     </component>
+  </component>
 </template>

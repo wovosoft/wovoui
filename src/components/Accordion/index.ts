@@ -12,7 +12,6 @@ export const RegisterAccordionItemInjectionKey = Symbol() as InjectionKey<(item:
 export const SetActiveAccordionItemInjectionKey = Symbol() as InjectionKey<(index: AccordionItemStateType) => void>;
 
 export interface AccordionProps extends HasTag {
-    modelValue?: number;
     flush?: boolean;
     alwaysOpen?: boolean;
 }
@@ -25,6 +24,7 @@ export interface MenuItemType {
 }
 
 export interface MenuProps extends AccordionProps {
+    modelValue?: number;
     items?: MenuItemType[];
     child?: boolean;
     ps?: number;
@@ -32,7 +32,6 @@ export interface MenuProps extends AccordionProps {
 
 export interface AccordionHeaderProps extends HasTag {
     toggleTag?: keyof HTMLElementTagNameMap;
-    modelValue?: boolean;
 }
 
 export interface CollapseProps extends HasTag {

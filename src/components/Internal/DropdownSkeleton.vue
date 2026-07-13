@@ -1,42 +1,31 @@
 <template>
-    <component :is="tag" v-on-click-outside="onClickOutside">
-        <slot name="toggle" :onclickToggle="onclickToggle"></slot>
-        <slot></slot>
-    </component>
+  <component :is="tag" v-on-click-outside="onClickOutside">
+    <slot name="toggle" :onclickToggle="onclickToggle"></slot>
+    <slot></slot>
+  </component>
 </template>
 <script lang="ts" setup>
-import {type PropType} from "vue";
 import {vOnClickOutside} from "@/directives";
 import type {PopperOptionsType} from "@/index";
 
-const props = defineProps({
-    tag: {
-        type: String as PropType<keyof HTMLElementTagNameMap>,
-        default: 'div'
-    },
-    modelValue: {
-        type: Boolean as PropType<boolean>,
-        default: false
-    },
-    popperOptions: {
-        type: Object as PropType<PopperOptionsType>,
-        default: null
-    }
+withDefaults(defineProps<{
+  tag?: keyof HTMLElementTagNameMap;
+  popperOptions?: PopperOptionsType;
+}>(), {
+  tag: 'div'
 });
 
-const emit = defineEmits<{
-    (e: 'update:modelValue', value: boolean): void
-}>();
+const model = defineModel<boolean>({default: false})
 
 
 function onClickOutside() {
-    if (props.modelValue) {
-        emit('update:modelValue', !props.modelValue);
-    }
+  if (model.value) {
+    model.value = false;
+  }
 }
 
 function onclickToggle() {
-    emit('update:modelValue', !props.modelValue);
+  model.value = !model.value;
 }
 
 </script>

@@ -67,6 +67,10 @@
             "import": "./dist/build/composables/index.js",
             "types": "./dist/raw/composables/index.ts"
         },
+        "./shared": {
+            "import": "./dist/build/shared/index.js",
+            "types": "./dist/raw/shared/index.ts"
+        },
         "./directives": {
             "import": "./dist/build/directives/index.js",
             "types": "./dist/raw/directives/index.ts"
@@ -75,85 +79,81 @@
             "import": "./dist/build/components/index.js",
             "types": "./dist/raw/components/index.ts"
         },
-        "./shared": {
-            "import": "./dist/build/shared/index.js",
-            "types": "./dist/raw/shared/index.ts"
-        },
-        "./components/Alert": {
-            "import": "./dist/build/components/Alert/index.js",
-            "types": "./dist/raw/components/Alert/index.ts"
-        },
-        "./components/Breadcrumb": {
-            "import": "./dist/build/components/Breadcrumb/index.js",
-            "types": "./dist/raw/components/Breadcrumb/index.ts"
+        "./components/Notification": {
+            "import": "./dist/build/components/Notification/index.js",
+            "types": "./dist/raw/components/Notification/index.ts"
         },
         "./components/Accordion": {
             "import": "./dist/build/components/Accordion/index.js",
             "types": "./dist/raw/components/Accordion/index.ts"
         },
-        "./components/Card": {
-            "import": "./dist/build/components/Card/index.js",
-            "types": "./dist/raw/components/Card/index.ts"
-        },
-        "./components/Carousel": {
-            "import": "./dist/build/components/Carousel/index.js",
-            "types": "./dist/raw/components/Carousel/index.ts"
-        },
-        "./components/Button": {
-            "import": "./dist/build/components/Button/index.js",
-            "types": "./dist/raw/components/Button/index.ts"
-        },
-        "./components/Indicators": {
-            "import": "./dist/build/components/Indicators/index.js",
-            "types": "./dist/raw/components/Indicators/index.ts"
-        },
-        "./components/Form": {
-            "import": "./dist/build/components/Form/index.js",
-            "types": "./dist/raw/components/Form/index.ts"
+        "./components/Modal": {
+            "import": "./dist/build/components/Modal/index.js",
+            "types": "./dist/raw/components/Modal/index.ts"
         },
         "./components/Layout": {
             "import": "./dist/build/components/Layout/index.js",
             "types": "./dist/raw/components/Layout/index.ts"
         },
-        "./components/Native": {
-            "import": "./dist/build/components/Native/index.js",
-            "types": "./dist/raw/components/Native/index.ts"
+        "./components/Ui": {
+            "import": "./dist/build/components/Ui/index.js",
+            "types": "./dist/raw/components/Ui/index.ts"
         },
         "./components/ListGroup": {
             "import": "./dist/build/components/ListGroup/index.js",
             "types": "./dist/raw/components/ListGroup/index.ts"
         },
-        "./components/Modal": {
-            "import": "./dist/build/components/Modal/index.js",
-            "types": "./dist/raw/components/Modal/index.ts"
-        },
-        "./components/Offcanvas": {
-            "import": "./dist/build/components/Offcanvas/index.js",
-            "types": "./dist/raw/components/Offcanvas/index.ts"
-        },
-        "./components/Navigation": {
-            "import": "./dist/build/components/Navigation/index.js",
-            "types": "./dist/raw/components/Navigation/index.ts"
-        },
-        "./components/Tab": {
-            "import": "./dist/build/components/Tab/index.js",
-            "types": "./dist/raw/components/Tab/index.ts"
-        },
-        "./components/Table": {
-            "import": "./dist/build/components/Table/index.js",
-            "types": "./dist/raw/components/Table/index.ts"
-        },
-        "./components/Ui": {
-            "import": "./dist/build/components/Ui/index.js",
-            "types": "./dist/raw/components/Ui/index.ts"
+        "./components/Button": {
+            "import": "./dist/build/components/Button/index.js",
+            "types": "./dist/raw/components/Button/index.ts"
         },
         "./components/Dropdown": {
             "import": "./dist/build/components/Dropdown/index.js",
             "types": "./dist/raw/components/Dropdown/index.ts"
         },
-        "./components/Notification": {
-            "import": "./dist/build/components/Notification/index.js",
-            "types": "./dist/raw/components/Notification/index.ts"
+        "./components/Indicators": {
+            "import": "./dist/build/components/Indicators/index.js",
+            "types": "./dist/raw/components/Indicators/index.ts"
+        },
+        "./components/Offcanvas": {
+            "import": "./dist/build/components/Offcanvas/index.js",
+            "types": "./dist/raw/components/Offcanvas/index.ts"
+        },
+        "./components/Tab": {
+            "import": "./dist/build/components/Tab/index.js",
+            "types": "./dist/raw/components/Tab/index.ts"
+        },
+        "./components/Alert": {
+            "import": "./dist/build/components/Alert/index.js",
+            "types": "./dist/raw/components/Alert/index.ts"
+        },
+        "./components/Form": {
+            "import": "./dist/build/components/Form/index.js",
+            "types": "./dist/raw/components/Form/index.ts"
+        },
+        "./components/Table": {
+            "import": "./dist/build/components/Table/index.js",
+            "types": "./dist/raw/components/Table/index.ts"
+        },
+        "./components/Navigation": {
+            "import": "./dist/build/components/Navigation/index.js",
+            "types": "./dist/raw/components/Navigation/index.ts"
+        },
+        "./components/Native": {
+            "import": "./dist/build/components/Native/index.js",
+            "types": "./dist/raw/components/Native/index.ts"
+        },
+        "./components/Carousel": {
+            "import": "./dist/build/components/Carousel/index.js",
+            "types": "./dist/raw/components/Carousel/index.ts"
+        },
+        "./components/Breadcrumb": {
+            "import": "./dist/build/components/Breadcrumb/index.js",
+            "types": "./dist/raw/components/Breadcrumb/index.ts"
+        },
+        "./components/Card": {
+            "import": "./dist/build/components/Card/index.js",
+            "types": "./dist/raw/components/Card/index.ts"
         },
         "./components_list": {
             "import": "./dist/build/components_list.js",
