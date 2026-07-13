@@ -8,6 +8,7 @@
         "@popperjs/core": "^2.11.8",
         "@wovosoft/wovoui-icons": "^1.1.15",
         "es-toolkit": "^1.49.0",
+        "vue-router": "^5.1.0",
       },
       "devDependencies": {
         "@types/node": "^26.1.1",
@@ -16,7 +17,6 @@
         "tsc-alias": "^1.9.0",
         "typescript": "^5.9.3",
         "vite": "^8.1.4",
-        "vue-router": "^5.1.0",
         "vue-tsc": "^3.3.7",
       },
       "peerDependencies": {
