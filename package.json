@@ -1,163 +1,163 @@
 {
-    "name": "@wovosoft/wovoui",
-    "version": "1.2.40",
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "preview": "vite preview",
-        "build:package": "vite build",
-        "build:types": "vue-tsc --declaration --emitDeclarationOnly && tsc-alias",
-        "build:sfc": "bun build_sfc.js",
-        "build:production": "bun run build:sfc && bun run build:package && bun run build:types"
+  "name": "@wovosoft/wovoui",
+  "version": "1.2.40",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "build:package": "vite build",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly && tsc-alias",
+    "build:sfc": "bun build_sfc.js",
+    "build:production": "bun run build:sfc && bun run build:package && bun run build:types"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.ts",
+  "main": "./dist/index.ts",
+  "module": "./dist/index.ts",
+  "peerDependencies": {
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "chart.js": "^4.5.1",
+    "dayjs": "^1.11.21",
+    "prismjs": "^1.30.0",
+    "vue": "^3.5.39"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@wovosoft/wovoui-icons": "^1.1.15",
+    "es-toolkit": "^1.49.0",
+    "vue-router": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "globby": "^11.1.0",
+    "tsc-alias": "^1.9.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.4",
+    "vue-tsc": "^3.3.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wovosoft/wovoui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wovosoft/wovoui/issues"
+  },
+  "homepage": "https://github.com/wovosoft/wovoui#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "MIT",
+  "exports": {
+    "./dist/style.css": "./dist/build/style.css",
+    "./dist/wovoui.css": "./dist/build/style.css",
+    "./style.css": "./dist/build/style.css",
+    ".": {
+      "import": "./dist/build/index.js",
+      "types": "./dist/raw/index.ts"
     },
-    "sideEffects": [
-        "*.css"
-    ],
-    "files": [
-        "dist"
-    ],
-    "types": "./dist/index.ts",
-    "main": "./dist/index.ts",
-    "module": "./dist/index.ts",
-    "peerDependencies": {
-        "bootstrap": "^5.3.8",
-        "bootstrap-icons": "^1.13.1",
-        "chart.js": "^4.5.1",
-        "dayjs": "^1.11.21",
-        "prismjs": "^1.30.0",
-        "vue": "^3.5.39"
+    "./composables": {
+      "import": "./dist/build/composables/index.js",
+      "types": "./dist/raw/composables/index.ts"
     },
-    "dependencies": {
-        "@popperjs/core": "^2.11.8",
-        "@wovosoft/wovoui-icons": "^1.1.15",
-        "es-toolkit": "^1.49.0"
+    "./directives": {
+      "import": "./dist/build/directives/index.js",
+      "types": "./dist/raw/directives/index.ts"
     },
-    "devDependencies": {
-        "@types/node": "^26.1.1",
-        "@vitejs/plugin-vue": "^6.0.7",
-        "globby": "^11.1.0",
-        "tsc-alias": "^1.9.0",
-        "typescript": "^5.9.3",
-        "vite": "^8.1.4",
-        "vue-router": "^5.1.0",
-        "vue-tsc": "^3.3.7"
+    "./components": {
+      "import": "./dist/build/components/index.js",
+      "types": "./dist/raw/components/index.ts"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/wovosoft/wovoui.git"
+    "./shared": {
+      "import": "./dist/build/shared/index.js",
+      "types": "./dist/raw/shared/index.ts"
     },
-    "bugs": {
-        "url": "https://github.com/wovosoft/wovoui/issues"
+    "./components/Alert": {
+      "import": "./dist/build/components/Alert/index.js",
+      "types": "./dist/raw/components/Alert/index.ts"
     },
-    "homepage": "https://github.com/wovosoft/wovoui#readme",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/"
+    "./components/Breadcrumb": {
+      "import": "./dist/build/components/Breadcrumb/index.js",
+      "types": "./dist/raw/components/Breadcrumb/index.ts"
     },
-    "license": "MIT",
-    "exports": {
-        "./dist/style.css": "./dist/build/style.css",
-        "./dist/wovoui.css": "./dist/build/style.css",
-        "./style.css": "./dist/build/style.css",
-        ".": {
-            "import": "./dist/build/index.js",
-            "types": "./dist/raw/index.ts"
-        },
-        "./composables": {
-            "import": "./dist/build/composables/index.js",
-            "types": "./dist/raw/composables/index.ts"
-        },
-        "./directives": {
-            "import": "./dist/build/directives/index.js",
-            "types": "./dist/raw/directives/index.ts"
-        },
-        "./components": {
-            "import": "./dist/build/components/index.js",
-            "types": "./dist/raw/components/index.ts"
-        },
-        "./shared": {
-            "import": "./dist/build/shared/index.js",
-            "types": "./dist/raw/shared/index.ts"
-        },
-        "./components/Alert": {
-            "import": "./dist/build/components/Alert/index.js",
-            "types": "./dist/raw/components/Alert/index.ts"
-        },
-        "./components/Breadcrumb": {
-            "import": "./dist/build/components/Breadcrumb/index.js",
-            "types": "./dist/raw/components/Breadcrumb/index.ts"
-        },
-        "./components/Accordion": {
-            "import": "./dist/build/components/Accordion/index.js",
-            "types": "./dist/raw/components/Accordion/index.ts"
-        },
-        "./components/Card": {
-            "import": "./dist/build/components/Card/index.js",
-            "types": "./dist/raw/components/Card/index.ts"
-        },
-        "./components/Carousel": {
-            "import": "./dist/build/components/Carousel/index.js",
-            "types": "./dist/raw/components/Carousel/index.ts"
-        },
-        "./components/Button": {
-            "import": "./dist/build/components/Button/index.js",
-            "types": "./dist/raw/components/Button/index.ts"
-        },
-        "./components/Indicators": {
-            "import": "./dist/build/components/Indicators/index.js",
-            "types": "./dist/raw/components/Indicators/index.ts"
-        },
-        "./components/Form": {
-            "import": "./dist/build/components/Form/index.js",
-            "types": "./dist/raw/components/Form/index.ts"
-        },
-        "./components/Layout": {
-            "import": "./dist/build/components/Layout/index.js",
-            "types": "./dist/raw/components/Layout/index.ts"
-        },
-        "./components/Native": {
-            "import": "./dist/build/components/Native/index.js",
-            "types": "./dist/raw/components/Native/index.ts"
-        },
-        "./components/ListGroup": {
-            "import": "./dist/build/components/ListGroup/index.js",
-            "types": "./dist/raw/components/ListGroup/index.ts"
-        },
-        "./components/Modal": {
-            "import": "./dist/build/components/Modal/index.js",
-            "types": "./dist/raw/components/Modal/index.ts"
-        },
-        "./components/Offcanvas": {
-            "import": "./dist/build/components/Offcanvas/index.js",
-            "types": "./dist/raw/components/Offcanvas/index.ts"
-        },
-        "./components/Navigation": {
-            "import": "./dist/build/components/Navigation/index.js",
-            "types": "./dist/raw/components/Navigation/index.ts"
-        },
-        "./components/Tab": {
-            "import": "./dist/build/components/Tab/index.js",
-            "types": "./dist/raw/components/Tab/index.ts"
-        },
-        "./components/Table": {
-            "import": "./dist/build/components/Table/index.js",
-            "types": "./dist/raw/components/Table/index.ts"
-        },
-        "./components/Ui": {
-            "import": "./dist/build/components/Ui/index.js",
-            "types": "./dist/raw/components/Ui/index.ts"
-        },
-        "./components/Dropdown": {
-            "import": "./dist/build/components/Dropdown/index.js",
-            "types": "./dist/raw/components/Dropdown/index.ts"
-        },
-        "./components/Notification": {
-            "import": "./dist/build/components/Notification/index.js",
-            "types": "./dist/raw/components/Notification/index.ts"
-        },
-        "./components_list": {
-            "import": "./dist/build/components_list.js",
-            "types": "./dist/raw/components_list.ts"
-        }
+    "./components/Accordion": {
+      "import": "./dist/build/components/Accordion/index.js",
+      "types": "./dist/raw/components/Accordion/index.ts"
+    },
+    "./components/Card": {
+      "import": "./dist/build/components/Card/index.js",
+      "types": "./dist/raw/components/Card/index.ts"
+    },
+    "./components/Carousel": {
+      "import": "./dist/build/components/Carousel/index.js",
+      "types": "./dist/raw/components/Carousel/index.ts"
+    },
+    "./components/Button": {
+      "import": "./dist/build/components/Button/index.js",
+      "types": "./dist/raw/components/Button/index.ts"
+    },
+    "./components/Indicators": {
+      "import": "./dist/build/components/Indicators/index.js",
+      "types": "./dist/raw/components/Indicators/index.ts"
+    },
+    "./components/Form": {
+      "import": "./dist/build/components/Form/index.js",
+      "types": "./dist/raw/components/Form/index.ts"
+    },
+    "./components/Layout": {
+      "import": "./dist/build/components/Layout/index.js",
+      "types": "./dist/raw/components/Layout/index.ts"
+    },
+    "./components/Native": {
+      "import": "./dist/build/components/Native/index.js",
+      "types": "./dist/raw/components/Native/index.ts"
+    },
+    "./components/ListGroup": {
+      "import": "./dist/build/components/ListGroup/index.js",
+      "types": "./dist/raw/components/ListGroup/index.ts"
+    },
+    "./components/Modal": {
+      "import": "./dist/build/components/Modal/index.js",
+      "types": "./dist/raw/components/Modal/index.ts"
+    },
+    "./components/Offcanvas": {
+      "import": "./dist/build/components/Offcanvas/index.js",
+      "types": "./dist/raw/components/Offcanvas/index.ts"
+    },
+    "./components/Navigation": {
+      "import": "./dist/build/components/Navigation/index.js",
+      "types": "./dist/raw/components/Navigation/index.ts"
+    },
+    "./components/Tab": {
+      "import": "./dist/build/components/Tab/index.js",
+      "types": "./dist/raw/components/Tab/index.ts"
+    },
+    "./components/Table": {
+      "import": "./dist/build/components/Table/index.js",
+      "types": "./dist/raw/components/Table/index.ts"
+    },
+    "./components/Ui": {
+      "import": "./dist/build/components/Ui/index.js",
+      "types": "./dist/raw/components/Ui/index.ts"
+    },
+    "./components/Dropdown": {
+      "import": "./dist/build/components/Dropdown/index.js",
+      "types": "./dist/raw/components/Dropdown/index.ts"
+    },
+    "./components/Notification": {
+      "import": "./dist/build/components/Notification/index.js",
+      "types": "./dist/raw/components/Notification/index.ts"
+    },
+    "./components_list": {
+      "import": "./dist/build/components_list.js",
+      "types": "./dist/raw/components_list.ts"
     }
+  }
 }
